@@ -1,0 +1,33 @@
+<%= form_for(@phase) do |f| %>
+  <% if @phase.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@phase.errors.count, "error") %> prohibited this phase from being saved:</h2>
+
+      <ul>
+      <% @phase.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :order %><br />
+    <%= f.number_field :order %>
+  </div>
+  <div class="field">
+    <%= f.label :dmptemplate %><br />
+    <%= f.select :dmptemplate_id, Dmptemplate.all.collect {|d| [ d.title, d.id ] } %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

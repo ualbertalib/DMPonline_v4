@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @dmptemplate.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @dmptemplate.description %>
+</p>
+
+<p>
+  <b>Published:</b>
+  <%= @dmptemplate.published %>
+</p>
+
+<p>
+	<b>Phases:</b>
+	<ul>
+	<% @dmptemplate.phases.each do |phase| %>
+		<li><%= phase %></li>
+	<% end %>
+	</ul>
+</p>
+
+
+<%= link_to 'Edit', edit_dmptemplate_path(@dmptemplate) %> |
+<%= link_to 'Back', dmptemplates_path %>

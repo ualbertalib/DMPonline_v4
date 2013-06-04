@@ -1,0 +1,29 @@
+<h1>Listing phases</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Order</th>
+    <th>Dmptemplate</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @phases.each do |phase| %>
+  <tr>
+    <td><%= phase.title %></td>
+    <td><%= phase.description %></td>
+    <td><%= phase.order %></td>
+    <td><%= phase.dmptemplate %></td>
+    <td><%= link_to 'Show', phase %></td>
+    <td><%= link_to 'Edit', edit_phase_path(phase) %></td>
+    <td><%= link_to 'Destroy', phase, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Phase', new_phase_path %>

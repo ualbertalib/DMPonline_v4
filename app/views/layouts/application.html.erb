@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DMPonline4</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<%= link_to 'Templates', dmptemplates_path %>
+<%= link_to 'Phases', phases_path %>
+<%= link_to 'Versions', versions_path %>
+<%= link_to 'Sections', sections_path %>
+
+<%= yield %>
+
+</body>
+</html>
