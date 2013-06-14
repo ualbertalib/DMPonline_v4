@@ -109,6 +109,7 @@ ActiveRecord::Schema.define(:version => 20130612133938) do
 
   add_index "phases", ["dmptemplate_id"], :name => "index_phases_on_dmptemplate_id"
 
+
   create_table "plan_sections", :force => true do |t|
     t.boolean  "plan_section_edit"
     t.datetime "plan_section_at"
