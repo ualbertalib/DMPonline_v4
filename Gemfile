@@ -30,7 +30,7 @@ gem 'jquery-rails'
 # Gems for repository integration
 gem 'email_validator'
 gem 'validate_url'
-gem 'sword2ruby'
+# gem 'sword2ruby'
 
 
 

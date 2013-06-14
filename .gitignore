@@ -13,3 +13,21 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+public/assets/*
+
+public/assets/application.js.gz
+
+public/assets/application.js
+
+public/assets/application.js
+
+public/assets/application.css.gz
+
+public/assets/application-d7a55927ebc82a139b122d77d4a8a9c7.css.gz
+
+public/assets/jquery.min.map
+
+public/assets/manifest.yml
+
+Gemfile.lock
