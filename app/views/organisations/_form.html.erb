@@ -1,0 +1,57 @@
+<%= form_for(@organisation) do |f| %>
+  <% if @organisation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@organisation.errors.count, "error") %> prohibited this organisation from being saved:</h2>
+
+      <ul>
+      <% @organisation.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :org_name %><br />
+    <%= f.text_field :org_name %>
+  </div>
+  <div class="field">
+    <%= f.label :org_abbre %><br />
+    <%= f.text_field :org_abbre %>
+  </div>
+  <div class="field">
+    <%= f.label :org_desc %><br />
+    <%= f.text_area :org_desc %>
+  </div>
+  <div class="field">
+    <%= f.label :org_target_url %><br />
+    <%= f.text_field :org_target_url %>
+  </div>
+  <div class="field">
+    <%= f.label :org_logo_file_id %><br />
+    <%= f.number_field :org_logo_file_id %>
+  </div>
+  <div class="field">
+    <%= f.label :org_banner_file_id %><br />
+    <%= f.number_field :org_banner_file_id %>
+  </div>
+  <div class="field">
+    <%= f.label :org_type_id %><br />
+    <%= f.number_field :org_type_id %>
+  </div>
+  <div class="field">
+    <%= f.label :org_domain %><br />
+    <%= f.text_field :org_domain %>
+  </div>
+  <div class="field">
+    <%= f.label :org_wayfless_entite %><br />
+    <%= f.number_field :org_wayfless_entite %>
+  </div>
+  <div class="field">
+    <%= f.label :org_stylesheet_file_id %><br />
+    <%= f.number_field :org_stylesheet_file_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

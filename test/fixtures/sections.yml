@@ -1,15 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  title: MyString
-  description: MyText
-  published: 1
-  order: 1
-  version: 
+  section_title: MyString
+  section_desc: MyText
+  section_order: 1
+  version_id: 1
+  org_id: 1
 
 two:
-  title: MyString
-  description: MyText
-  published: 1
-  order: 1
-  version: 
+  section_title: MyString
+  section_desc: MyText
+  section_order: 1
+  version_id: 1
+  org_id: 1

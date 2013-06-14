@@ -1,0 +1,39 @@
+<h1>Listing pages</h1>
+
+<table>
+  <tr>
+    <th>Pag title</th>
+    <th>Pag body text</th>
+    <th>Pag slug</th>
+    <th>Pag menu</th>
+    <th>Pag menu position</th>
+    <th>Pag target url</th>
+    <th>Pag location</th>
+    <th>Pag public</th>
+    <th>Org</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @pages.each do |page| %>
+  <tr>
+    <td><%= page.pag_title %></td>
+    <td><%= page.pag_body_text %></td>
+    <td><%= page.pag_slug %></td>
+    <td><%= page.pag_menu %></td>
+    <td><%= page.pag_menu_position %></td>
+    <td><%= page.pag_target_url %></td>
+    <td><%= page.pag_location %></td>
+    <td><%= page.pag_public %></td>
+    <td><%= page.org_id %></td>
+    <td><%= link_to 'Show', page %></td>
+    <td><%= link_to 'Edit', edit_page_path(page) %></td>
+    <td><%= link_to 'Destroy', page, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Page', new_page_path %>

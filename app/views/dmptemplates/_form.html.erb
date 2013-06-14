@@ -12,16 +12,23 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
+    <%= f.label :template_title %><br />
+    <%= f.text_field :template_title %>
   </div>
   <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
+    <%= f.label :template_desc %><br />
+    <%= f.text_area :template_desc %>
   </div>
   <div class="field">
-    <%= f.label :published %><br />
-    <%= f.check_box :published %>
+    <%= f.label :template_published %> <%= f.check_box :template_published %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :org_id %><br />
+    <%= f.number_field :org_id %>
   </div>
   <div class="actions">
     <%= f.submit %>

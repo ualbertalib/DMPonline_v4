@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Question text:</b>
+  <%= @question.question_text %>
+</p>
+
+<p>
+  <b>Question type:</b>
+  <%= @question.question_type %>
+</p>
+
+<p>
+  <b>Question default value:</b>
+  <%= @question.question_default_value %>
+</p>
+
+<p>
+  <b>Question suggested answer:</b>
+  <%= @question.question_suggested_answer %>
+</p>
+
+<p>
+  <b>Question guidance:</b>
+  <%= @question.question_guidance %>
+</p>
+
+<p>
+  <b>Question order:</b>
+  <%= @question.question_order %>
+</p>
+
+<p>
+  <b>Question parent:</b>
+  <%= @question.question_parent_id %>
+</p>
+
+<p>
+  <b>Question dependency:</b>
+  <%= @question.question_dependency_id %>
+</p>
+
+<p>
+  <b>Question dependency text:</b>
+  <%= @question.question_dependency_text %>
+</p>
+
+<p>
+  <b>Section:</b>
+  <%= @question.section_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_question_path(@question) %> |
+<%= link_to 'Back', questions_path %>

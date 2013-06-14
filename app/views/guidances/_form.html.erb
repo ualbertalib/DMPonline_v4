@@ -1,0 +1,33 @@
+<%= form_for(@guidance) do |f| %>
+  <% if @guidance.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@guidance.errors.count, "error") %> prohibited this guidance from being saved:</h2>
+
+      <ul>
+      <% @guidance.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :guidance_text %><br />
+    <%= f.text_area :guidance_text %>
+  </div>
+  <div class="field">
+    <%= f.label :guidance_file_id %><br />
+    <%= f.number_field :guidance_file_id %>
+  </div>
+  <div class="field">
+    <%= f.label :org_id %><br />
+    <%= f.number_field :org_id %>
+  </div>
+  <div class="field">
+    <%= f.label :theme_id %><br />
+    <%= f.number_field :theme_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

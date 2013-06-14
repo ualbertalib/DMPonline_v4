@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Pag title:</b>
+  <%= @page.pag_title %>
+</p>
+
+<p>
+  <b>Pag body text:</b>
+  <%= @page.pag_body_text %>
+</p>
+
+<p>
+  <b>Pag slug:</b>
+  <%= @page.pag_slug %>
+</p>
+
+<p>
+  <b>Pag menu:</b>
+  <%= @page.pag_menu %>
+</p>
+
+<p>
+  <b>Pag menu position:</b>
+  <%= @page.pag_menu_position %>
+</p>
+
+<p>
+  <b>Pag target url:</b>
+  <%= @page.pag_target_url %>
+</p>
+
+<p>
+  <b>Pag location:</b>
+  <%= @page.pag_location %>
+</p>
+
+<p>
+  <b>Pag public:</b>
+  <%= @page.pag_public %>
+</p>
+
+<p>
+  <b>Org:</b>
+  <%= @page.org_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_page_path(@page) %> |
+<%= link_to 'Back', pages_path %>

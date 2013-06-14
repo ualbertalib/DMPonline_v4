@@ -1,12 +1,12 @@
-<h1>Listing sections</h1>
+<h1>Sections list</h1>
 
 <table>
   <tr>
-    <th>Title</th>
-    <th>Description</th>
-    <th>Published</th>
-    <th>Order</th>
-    <th>Version</th>
+    <th>Title | </th>
+    <th>Description | </th>
+    <th>Order | </th>
+    <th>Version | </th>
+    <th>Organisation</th>
     <th></th>
     <th></th>
     <th></th>
@@ -14,11 +14,11 @@
 
 <% @sections.each do |section| %>
   <tr>
-    <td><%= section.title %></td>
-    <td><%= section.description %></td>
-    <td><%= section.published %></td>
-    <td><%= section.order %></td>
-    <td><%= section.version %></td>
+    <td><%= section.section_title %></td>
+    <td><%= section.section_desc %></td>
+    <td><%= section.section_order %></td>
+    <td><%= section.version_id %></td>
+    <td><%= section.select :version_id, Version.all.collect {|v| [ v.title, v.id ] } %></td>
     <td><%= link_to 'Show', section %></td>
     <td><%= link_to 'Edit', edit_section_path(section) %></td>
     <td><%= link_to 'Destroy', section, method: :delete, data: { confirm: 'Are you sure?' } %></td>

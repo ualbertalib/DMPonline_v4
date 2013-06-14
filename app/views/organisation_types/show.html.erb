@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Org type name:</b>
+  <%= @organisation_type.org_type_name %>
+</p>
+
+<p>
+  <b>Org type desc:</b>
+  <%= @organisation_type.org_type_desc %>
+</p>
+
+
+<%= link_to 'Edit', edit_organisation_type_path(@organisation_type) %> |
+<%= link_to 'Back', organisation_types_path %>

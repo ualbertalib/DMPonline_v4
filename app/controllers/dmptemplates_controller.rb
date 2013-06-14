@@ -44,7 +44,7 @@ class DmptemplatesController < ApplicationController
 
     respond_to do |format|
       if @dmptemplate.save
-        format.html { redirect_to @dmptemplate, notice: 'Dmptemplate was successfully created.' }
+        format.html { redirect_to @dmptemplate, notice: 'Template was successfully created.' }
         format.json { render json: @dmptemplate, status: :created, location: @dmptemplate }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class DmptemplatesController < ApplicationController
 
     respond_to do |format|
       if @dmptemplate.update_attributes(params[:dmptemplate])
-        format.html { redirect_to @dmptemplate, notice: 'Dmptemplate was successfully updated.' }
+        format.html { redirect_to @dmptemplate, notice: 'Template was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

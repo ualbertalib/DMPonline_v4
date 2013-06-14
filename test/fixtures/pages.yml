@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  pag_title: MyString
+  pag_body_text: MyText
+  pag_slug: MyString
+  pag_menu: 1
+  pag_menu_position: 1
+  pag_target_url: MyString
+  pag_location: MyString
+  pag_public: false
+  org_id: 1
+
+two:
+  pag_title: MyString
+  pag_body_text: MyText
+  pag_slug: MyString
+  pag_menu: 1
+  pag_menu_position: 1
+  pag_target_url: MyString
+  pag_location: MyString
+  pag_public: false
+  org_id: 1

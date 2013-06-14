@@ -1,0 +1,29 @@
+<h1>Listing projects</h1>
+
+<table>
+  <tr>
+    <th>Project title</th>
+    <th>Project note</th>
+    <th>Project locked</th>
+    <th>Dmptemplate</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @projects.each do |project| %>
+  <tr>
+    <td><%= project.project_title %></td>
+    <td><%= project.project_note %></td>
+    <td><%= project.project_locked %></td>
+    <td><%= project.dmptemplate_id %></td>
+    <td><%= link_to 'Show', project %></td>
+    <td><%= link_to 'Edit', edit_project_path(project) %></td>
+    <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Project', new_project_path %>

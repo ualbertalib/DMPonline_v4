@@ -1,16 +1,39 @@
 DMPonline4::Application.routes.draw do
-  resources :sections
-
-
-  resources :versions
-
-
-  resources :phases
-
-
+  get "home/index"
+ 
   resources :dmptemplates
+  resources :phases
+  resources :versions
+  resources :sections
+  resources :questions
+  resources :question_themes
+  
+  resources :themes
+  resources :guidances
+  
+  resources :answers
+  resources :plans
+  resources :plan_sections
+  
+  resources :projects
+  resources :project_partners
+  resources :project_groups
 
-
+  resources :users
+  resources :user_statuses
+  resources :user_types
+  
+  resources :user_role_types
+  resources :user_org_roles
+  
+  resources :organisations
+  resources :organisation_types
+  resources :pages
+ 
+  resources :file_types
+  resources :file_uploads
+  
+   
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -60,7 +83,7 @@ DMPonline4::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'home#index'
 
   # See how all your routes lay out with "rake routes"
 

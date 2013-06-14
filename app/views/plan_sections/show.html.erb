@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Plan section edit:</b>
+  <%= @plan_section.plan_section_edit %>
+</p>
+
+<p>
+  <b>Plan section at:</b>
+  <%= @plan_section.plan_section_at %>
+</p>
+
+<p>
+  <b>User editing:</b>
+  <%= @plan_section.user_editing_id %>
+</p>
+
+<p>
+  <b>Section:</b>
+  <%= @plan_section.section_id %>
+</p>
+
+<p>
+  <b>Plan:</b>
+  <%= @plan_section.plan_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_plan_section_path(@plan_section) %> |
+<%= link_to 'Back', plan_sections_path %>

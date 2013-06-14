@@ -1,11 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  title: MyString
-  description: MyText
-  published: false
+  template_title: MyString
+  template_desc: MyText
+  template_published: false
+  user_id: 1
+  org_id: 1
 
 two:
-  title: MyString
-  description: MyText
-  published: false
+  template_title: MyString
+  template_desc: MyText
+  template_published: false
+  user_id: 1
+  org_id: 1

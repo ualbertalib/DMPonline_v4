@@ -1,0 +1,25 @@
+<h1>Listing question_themes</h1>
+
+<table>
+  <tr>
+    <th>Question</th>
+    <th>Theme</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @question_themes.each do |question_theme| %>
+  <tr>
+    <td><%= question_theme.question_id %></td>
+    <td><%= question_theme.theme_id %></td>
+    <td><%= link_to 'Show', question_theme %></td>
+    <td><%= link_to 'Edit', edit_question_theme_path(question_theme) %></td>
+    <td><%= link_to 'Destroy', question_theme, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Question theme', new_question_theme_path %>

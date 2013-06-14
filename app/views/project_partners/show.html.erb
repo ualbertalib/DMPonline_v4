@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Org:</b>
+  <%= @project_partner.org_id %>
+</p>
+
+<p>
+  <b>Project:</b>
+  <%= @project_partner.project_id %>
+</p>
+
+<p>
+  <b>Leader org:</b>
+  <%= @project_partner.leader_org %>
+</p>
+
+
+<%= link_to 'Edit', edit_project_partner_path(@project_partner) %> |
+<%= link_to 'Back', project_partners_path %>

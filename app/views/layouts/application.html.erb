@@ -1,18 +1,100 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>DMPonline4</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<%= link_to 'Templates', dmptemplates_path %>
-<%= link_to 'Phases', phases_path %>
-<%= link_to 'Versions', versions_path %>
-<%= link_to 'Sections', sections_path %>
+	<head>
+	  <title>DMPonline4</title>
+	  <%= stylesheet_link_tag    "application", :media => "all" %>
+	  <%= javascript_include_tag "application" %>
+	  <%= csrf_meta_tags %>
+	  <style type="text/css">
+	  		/* main nav style */
+			.main_nav_container{
+				margin:10px;				
+			}
+			
+			ul.mainnav{
+			    list-style-type:none;
+			    margin:0;
+			    padding:0;
+			}
+			
+			ul.mainnav li{
+			    display:inline;
+			    float:left;
+			    margin-left:4px;
+			}
+			
+			/* Main container */
+			.maincontainer{
+				clear: both;
+				margin:30px;
+			}
+			
+			
+			/* Footer */
+			.footercontainer{
+				border-top: 1px solid #c3c3c3;
+			    float:left;
+			    margin:10px;
+			}    
+			    
+			ul.footernav{
+			    list-style-type:none;
+			    margin:0;
+			    padding:0;
+			}
+			
+			ul.footernav li{
+			    display:inline;
+			    float:left;
+			    margin-left:4px;
+			}
 
-<%= yield %>
-
-</body>
+	  </style>
+	</head>
+	<body>
+		<div class='main_nav_container'>
+			 <ul class="mainnav">
+			 	<li><%= link_to 'Templates', dmptemplates_path %> | </li>
+			 	<li><%= link_to 'Phases', phases_path %> | </li>
+			 	<li><%= link_to 'Versions', versions_path %> | </li>
+			 	<li><%= link_to 'Sections', sections_path %> | </li>
+			 	<li><%= link_to 'Questions', questions_path %> | </li>
+			 	<li><%= link_to 'Question Themes', question_themes_path %> | </li>
+			 	<li><%= link_to 'Themes', themes_path %> | </li>
+			 	<li><%= link_to 'Guidances', guidances_path %> | </li>
+			 	<li><%= link_to 'Answers', answers_path %> | </li>
+			 	<li><%= link_to 'Plans', plans_path %> | </li>
+			 	<li><%= link_to 'Plan_sections', plan_sections_path %> | </li>
+			 	<li><%= link_to 'Projects', projects_path %> | </li>
+			 	<li><%= link_to 'Project partners', project_partners_path %> | </li>
+			 	<li><%= link_to 'Project groups', project_groups_path %> | </li>
+			 	<li><%= link_to 'Users', users_path %> | </li>
+			 	<li><%= link_to 'User statuses', user_statuses_path %> | </li>
+			 	<li><%= link_to 'User types', user_types_path %> | </li>
+			 	<li><%= link_to 'User role types', user_role_types_path %> | </li>
+			 	<li><%= link_to 'User org roles', user_org_roles_path %> | </li>
+			 	<li><%= link_to 'Organisations', organisations_path %> | </li>
+			 	<li><%= link_to 'Organisation types', organisation_types_path %> | </li>
+			 	<li><%= link_to 'Pages', pages_path %> | </li>
+			 	<li><%= link_to 'File types', file_types_path %> | </li>
+			 	<li><%= link_to 'File uploads', file_uploads_path %></li>
+			</ul>
+		</div>
+		<br/>
+		<div class='maincontainer'>
+			<%= yield %>
+		</div>
+		
+		<footer>
+	 		<div class="footercontainer">
+	   			<ul class="footernav">
+	   				<li>&copy; 2004-<?php echo date("Y"); ?> DCC  | </li>
+					<li>Contact Us | </li>
+					<li>Accessibility | </li>
+					<li>Terms of Use | </li>
+					<li>Privacy Policy</li>
+				</ul>
+	  		</div>
+		</footer>
+	</body>
 </html>

@@ -1,0 +1,53 @@
+<%= form_for(@page) do |f| %>
+  <% if @page.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@page.errors.count, "error") %> prohibited this page from being saved:</h2>
+
+      <ul>
+      <% @page.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :pag_title %><br />
+    <%= f.text_field :pag_title %>
+  </div>
+  <div class="field">
+    <%= f.label :pag_body_text %><br />
+    <%= f.text_area :pag_body_text %>
+  </div>
+  <div class="field">
+    <%= f.label :pag_slug %><br />
+    <%= f.text_field :pag_slug %>
+  </div>
+  <div class="field">
+    <%= f.label :pag_menu %><br />
+    <%= f.number_field :pag_menu %>
+  </div>
+  <div class="field">
+    <%= f.label :pag_menu_position %><br />
+    <%= f.number_field :pag_menu_position %>
+  </div>
+  <div class="field">
+    <%= f.label :pag_target_url %><br />
+    <%= f.text_field :pag_target_url %>
+  </div>
+  <div class="field">
+    <%= f.label :pag_location %><br />
+    <%= f.text_field :pag_location %>
+  </div>
+  <div class="field">
+    <%= f.label :pag_public %><br />
+    <%= f.check_box :pag_public %>
+  </div>
+  <div class="field">
+    <%= f.label :org_id %><br />
+    <%= f.number_field :org_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

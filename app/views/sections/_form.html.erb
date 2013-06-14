@@ -1,4 +1,5 @@
-<%= form_for(@section) do |f| %>
+<%= form_for(@section) do |f| 
+%>
   <% if @section.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@section.errors.count, "error") %> prohibited this section from being saved:</h2>
@@ -12,25 +13,26 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
+    <%= f.label :section_title %><br />
+    <%= f.text_field :section_title %>
   </div>
   <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
+    <%= f.label :section_desc %><br />
+    <%= f.text_area :section_desc %>
   </div>
   <div class="field">
-    <%= f.label :published %><br />
-    <%= f.number_field :published %>
-  </div>
-  <div class="field">
-    <%= f.label :order %><br />
-    <%= f.number_field :order %>
+    <%= f.label :section_order %><br />
+    <%= f.number_field :section_order %>
   </div>
   <div class="field">
     <%= f.label :version %><br />
     <%= f.select :version_id, Version.all.collect {|v| [ v.title, v.id ] } %>
   </div>
+  <div class="field">
+    <%= f.label :org %><br />
+    <%= f.select :org_id, Organisation.all.collect {|o| [o.org_name, o.id]} %>
+    
+   </div>
   <div class="actions">
     <%= f.submit %>
   </div>

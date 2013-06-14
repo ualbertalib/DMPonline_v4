@@ -1,0 +1,35 @@
+<h1>Listing file_uploads</h1>
+
+<table>
+  <tr>
+    <th>File upload name</th>
+    <th>File upload title</th>
+    <th>File upload desc</th>
+    <th>File upload size</th>
+    <th>File upload published</th>
+    <th>File upload location</th>
+    <th>File type</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @file_uploads.each do |file_upload| %>
+  <tr>
+    <td><%= file_upload.file_upload_name %></td>
+    <td><%= file_upload.file_upload_title %></td>
+    <td><%= file_upload.file_upload_desc %></td>
+    <td><%= file_upload.file_upload_size %></td>
+    <td><%= file_upload.file_upload_published %></td>
+    <td><%= file_upload.file_upload_location %></td>
+    <td><%= file_upload.file_type_id %></td>
+    <td><%= link_to 'Show', file_upload %></td>
+    <td><%= link_to 'Edit', edit_file_upload_path(file_upload) %></td>
+    <td><%= link_to 'Destroy', file_upload, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New File upload', new_file_upload_path %>

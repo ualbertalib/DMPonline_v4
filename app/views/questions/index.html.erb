@@ -1,0 +1,41 @@
+<h1>Listing questions</h1>
+
+<table>
+  <tr>
+    <th>Question text</th>
+    <th>Question type</th>
+    <th>Question default value</th>
+    <th>Question suggested answer</th>
+    <th>Question guidance</th>
+    <th>Question order</th>
+    <th>Question parent</th>
+    <th>Question dependency</th>
+    <th>Question dependency text</th>
+    <th>Section</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @questions.each do |question| %>
+  <tr>
+    <td><%= question.question_text %></td>
+    <td><%= question.question_type %></td>
+    <td><%= question.question_default_value %></td>
+    <td><%= question.question_suggested_answer %></td>
+    <td><%= question.question_guidance %></td>
+    <td><%= question.question_order %></td>
+    <td><%= question.question_parent_id %></td>
+    <td><%= question.question_dependency_id %></td>
+    <td><%= question.question_dependency_text %></td>
+    <td><%= question.section_id %></td>
+    <td><%= link_to 'Show', question %></td>
+    <td><%= link_to 'Edit', edit_question_path(question) %></td>
+    <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Question', new_question_path %>

@@ -1,0 +1,25 @@
+<%= form_for(@question_theme) do |f| %>
+  <% if @question_theme.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@question_theme.errors.count, "error") %> prohibited this question_theme from being saved:</h2>
+
+      <ul>
+      <% @question_theme.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :question_id %><br />
+    <%= f.number_field :question_id %>
+  </div>
+  <div class="field">
+    <%= f.label :theme_id %><br />
+    <%= f.number_field :theme_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

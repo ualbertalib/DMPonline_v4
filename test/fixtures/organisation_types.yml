@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  org_type_name: MyString
+  org_type_desc: MyText
+
+two:
+  org_type_name: MyString
+  org_type_desc: MyText

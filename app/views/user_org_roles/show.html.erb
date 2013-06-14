@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @user_org_role.user_id %>
+</p>
+
+<p>
+  <b>Org:</b>
+  <%= @user_org_role.org_id %>
+</p>
+
+<p>
+  <b>User role type:</b>
+  <%= @user_org_role.user_role_type_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_org_role_path(@user_org_role) %> |
+<%= link_to 'Back', user_org_roles_path %>

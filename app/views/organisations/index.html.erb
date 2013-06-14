@@ -1,0 +1,41 @@
+<h1>Listing organisations</h1>
+
+<table>
+  <tr>
+    <th>Org name</th>
+    <th>Org abbre</th>
+    <th>Org desc</th>
+    <th>Org target url</th>
+    <th>Org logo file</th>
+    <th>Org banner file</th>
+    <th>Org type</th>
+    <th>Org domain</th>
+    <th>Org wayfless entite</th>
+    <th>Org stylesheet file</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @organisations.each do |organisation| %>
+  <tr>
+    <td><%= organisation.org_name %></td>
+    <td><%= organisation.org_abbre %></td>
+    <td><%= organisation.org_desc %></td>
+    <td><%= organisation.org_target_url %></td>
+    <td><%= organisation.org_logo_file_id %></td>
+    <td><%= organisation.org_banner_file_id %></td>
+    <td><%= organisation.org_type_id %></td>
+    <td><%= organisation.org_domain %></td>
+    <td><%= organisation.org_wayfless_entite %></td>
+    <td><%= organisation.org_stylesheet_file_id %></td>
+    <td><%= link_to 'Show', organisation %></td>
+    <td><%= link_to 'Edit', edit_organisation_path(organisation) %></td>
+    <td><%= link_to 'Destroy', organisation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Organisation', new_organisation_path %>

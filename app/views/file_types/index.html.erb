@@ -1,0 +1,29 @@
+<h1>Listing file_types</h1>
+
+<table>
+  <tr>
+    <th>File type name</th>
+    <th>Icon name</th>
+    <th>Icon size</th>
+    <th>Icon location</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @file_types.each do |file_type| %>
+  <tr>
+    <td><%= file_type.file_type_name %></td>
+    <td><%= file_type.icon_name %></td>
+    <td><%= file_type.icon_size %></td>
+    <td><%= file_type.icon_location %></td>
+    <td><%= link_to 'Show', file_type %></td>
+    <td><%= link_to 'Edit', edit_file_type_path(file_type) %></td>
+    <td><%= link_to 'Destroy', file_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New File type', new_file_type_path %>

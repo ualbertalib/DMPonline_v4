@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>File type name:</b>
+  <%= @file_type.file_type_name %>
+</p>
+
+<p>
+  <b>Icon name:</b>
+  <%= @file_type.icon_name %>
+</p>
+
+<p>
+  <b>Icon size:</b>
+  <%= @file_type.icon_size %>
+</p>
+
+<p>
+  <b>Icon location:</b>
+  <%= @file_type.icon_location %>
+</p>
+
+
+<%= link_to 'Edit', edit_file_type_path(@file_type) %> |
+<%= link_to 'Back', file_types_path %>

@@ -1,0 +1,57 @@
+<%= form_for(@question) do |f| %>
+  <% if @question.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</h2>
+
+      <ul>
+      <% @question.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :question_text %><br />
+    <%= f.text_area :question_text %>
+  </div>
+  <div class="field">
+    <%= f.label :question_type %><br />
+    <%= f.text_field :question_type %>
+  </div>
+  <div class="field">
+    <%= f.label :question_default_value %><br />
+    <%= f.text_area :question_default_value %>
+  </div>
+  <div class="field">
+    <%= f.label :question_suggested_answer %><br />
+    <%= f.text_area :question_suggested_answer %>
+  </div>
+  <div class="field">
+    <%= f.label :question_guidance %><br />
+    <%= f.text_area :question_guidance %>
+  </div>
+  <div class="field">
+    <%= f.label :question_order %><br />
+    <%= f.number_field :question_order %>
+  </div>
+  <div class="field">
+    <%= f.label :question_parent_id %><br />
+    <%= f.number_field :question_parent_id %>
+  </div>
+  <div class="field">
+    <%= f.label :question_dependency_id %><br />
+    <%= f.number_field :question_dependency_id %>
+  </div>
+  <div class="field">
+    <%= f.label :question_dependency_text %><br />
+    <%= f.text_area :question_dependency_text %>
+  </div>
+  <div class="field">
+    <%= f.label :section_id %><br />
+    <%= f.number_field :section_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

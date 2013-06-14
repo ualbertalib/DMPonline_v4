@@ -1,0 +1,37 @@
+<%= form_for(@plan_section) do |f| %>
+  <% if @plan_section.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@plan_section.errors.count, "error") %> prohibited this plan_section from being saved:</h2>
+
+      <ul>
+      <% @plan_section.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :plan_section_edit %><br />
+    <%= f.check_box :plan_section_edit %>
+  </div>
+  <div class="field">
+    <%= f.label :plan_section_at %><br />
+    <%= f.datetime_select :plan_section_at %>
+  </div>
+  <div class="field">
+    <%= f.label :user_editing_id %><br />
+    <%= f.number_field :user_editing_id %>
+  </div>
+  <div class="field">
+    <%= f.label :section_id %><br />
+    <%= f.number_field :section_id %>
+  </div>
+  <div class="field">
+    <%= f.label :plan_id %><br />
+    <%= f.number_field :plan_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

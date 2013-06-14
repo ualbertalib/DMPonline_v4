@@ -1,27 +1,28 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Title:</b>
-  <%= @dmptemplate.title %>
+  <b>Template title:</b>
+  <%= @dmptemplate.template_title %>
 </p>
 
 <p>
   <b>Description:</b>
-  <%= @dmptemplate.description %>
+  <%= @dmptemplate.template_desc %>
 </p>
 
 <p>
   <b>Published:</b>
-  <%= @dmptemplate.published %>
+  <%= @dmptemplate.template_published %>
 </p>
 
 <p>
-	<b>Phases:</b>
-	<ul>
-	<% @dmptemplate.phases.each do |phase| %>
-		<li><%= phase %></li>
-	<% end %>
-	</ul>
+  <b>User id:</b>
+  <%= @dmptemplate.user_id %>
+</p>
+
+<p>
+  <b>Organisation:</b>
+  <%= @dmptemplate.org_id %>
 </p>
 
 

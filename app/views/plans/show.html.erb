@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Plan locked:</b>
+  <%= @plan.plan_locked %>
+</p>
+
+<p>
+  <b>Project:</b>
+  <%= @plan.project_id %>
+</p>
+
+<p>
+  <b>Version:</b>
+  <%= @plan.version_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_plan_path(@plan) %> |
+<%= link_to 'Back', plans_path %>

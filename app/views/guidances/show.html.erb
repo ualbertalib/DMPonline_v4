@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Guidance text:</b>
+  <%= @guidance.guidance_text %>
+</p>
+
+<p>
+  <b>Guidance file:</b>
+  <%= @guidance.guidance_file_id %>
+</p>
+
+<p>
+  <b>Org:</b>
+  <%= @guidance.org_id %>
+</p>
+
+<p>
+  <b>Theme:</b>
+  <%= @guidance.theme_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_guidance_path(@guidance) %> |
+<%= link_to 'Back', guidances_path %>

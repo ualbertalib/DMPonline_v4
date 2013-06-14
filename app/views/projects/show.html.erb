@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Project title:</b>
+  <%= @project.project_title %>
+</p>
+
+<p>
+  <b>Project note:</b>
+  <%= @project.project_note %>
+</p>
+
+<p>
+  <b>Project locked:</b>
+  <%= @project.project_locked %>
+</p>
+
+<p>
+  <b>Dmptemplate:</b>
+  <%= @project.dmptemplate_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>

@@ -1,10 +1,12 @@
-<h1>Listing dmptemplates</h1>
+<h1>Templates list</h1>
 
 <table>
   <tr>
-    <th>Title</th>
-    <th>Description</th>
-    <th>Published</th>
+    <th>Title | </th>
+    <th>Description | </th>
+    <th>Published | </th>
+    <th>User id | </th>
+    <th>Organisation id</th>
     <th></th>
     <th></th>
     <th></th>
@@ -12,9 +14,11 @@
 
 <% @dmptemplates.each do |dmptemplate| %>
   <tr>
-    <td><%= dmptemplate.title %></td>
-    <td><%= dmptemplate.description %></td>
-    <td><%= dmptemplate.published %></td>
+    <td><%= dmptemplate.template_title %></td>
+    <td><%= dmptemplate.template_desc %></td>
+    <td><%= dmptemplate.template_published %></td>
+    <td><%= dmptemplate.user_id %></td>
+    <td><%= dmptemplate.org_id %></td>
     <td><%= link_to 'Show', dmptemplate %></td>
     <td><%= link_to 'Edit', edit_dmptemplate_path(dmptemplate) %></td>
     <td><%= link_to 'Destroy', dmptemplate, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Org name:</b>
+  <%= @organisation.org_name %>
+</p>
+
+<p>
+  <b>Org abbre:</b>
+  <%= @organisation.org_abbre %>
+</p>
+
+<p>
+  <b>Org desc:</b>
+  <%= @organisation.org_desc %>
+</p>
+
+<p>
+  <b>Org target url:</b>
+  <%= @organisation.org_target_url %>
+</p>
+
+<p>
+  <b>Org logo file:</b>
+  <%= @organisation.org_logo_file_id %>
+</p>
+
+<p>
+  <b>Org banner file:</b>
+  <%= @organisation.org_banner_file_id %>
+</p>
+
+<p>
+  <b>Org type:</b>
+  <%= @organisation.org_type_id %>
+</p>
+
+<p>
+  <b>Org domain:</b>
+  <%= @organisation.org_domain %>
+</p>
+
+<p>
+  <b>Org wayfless entite:</b>
+  <%= @organisation.org_wayfless_entite %>
+</p>
+
+<p>
+  <b>Org stylesheet file:</b>
+  <%= @organisation.org_stylesheet_file_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_organisation_path(@organisation) %> |
+<%= link_to 'Back', organisations_path %>

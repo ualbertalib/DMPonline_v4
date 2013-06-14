@@ -1,0 +1,31 @@
+<h1>Listing plan_sections</h1>
+
+<table>
+  <tr>
+    <th>Plan section edit</th>
+    <th>Plan section at</th>
+    <th>User editing</th>
+    <th>Section</th>
+    <th>Plan</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @plan_sections.each do |plan_section| %>
+  <tr>
+    <td><%= plan_section.plan_section_edit %></td>
+    <td><%= plan_section.plan_section_at %></td>
+    <td><%= plan_section.user_editing_id %></td>
+    <td><%= plan_section.section_id %></td>
+    <td><%= plan_section.plan_id %></td>
+    <td><%= link_to 'Show', plan_section %></td>
+    <td><%= link_to 'Edit', edit_plan_section_path(plan_section) %></td>
+    <td><%= link_to 'Destroy', plan_section, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Plan section', new_plan_section_path %>

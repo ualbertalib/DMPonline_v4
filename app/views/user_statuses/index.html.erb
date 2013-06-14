@@ -1,0 +1,25 @@
+<h1>Listing user_statuses</h1>
+
+<table>
+  <tr>
+    <th>User status name</th>
+    <th>User status desc</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @user_statuses.each do |user_status| %>
+  <tr>
+    <td><%= user_status.user_status_name %></td>
+    <td><%= user_status.user_status_desc %></td>
+    <td><%= link_to 'Show', user_status %></td>
+    <td><%= link_to 'Edit', edit_user_status_path(user_status) %></td>
+    <td><%= link_to 'Destroy', user_status, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New User status', new_user_status_path %>

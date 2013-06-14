@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  org_name: MyString
+  org_abbre: MyString
+  org_desc: MyText
+  org_target_url: MyString
+  org_logo_file_id: 1
+  org_banner_file_id: 1
+  org_type_id: 1
+  org_domain: MyString
+  org_wayfless_entite: 1
+  org_stylesheet_file_id: 1
+
+two:
+  org_name: MyString
+  org_abbre: MyString
+  org_desc: MyText
+  org_target_url: MyString
+  org_logo_file_id: 1
+  org_banner_file_id: 1
+  org_type_id: 1
+  org_domain: MyString
+  org_wayfless_entite: 1
+  org_stylesheet_file_id: 1
