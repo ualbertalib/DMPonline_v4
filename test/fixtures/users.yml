@@ -1,25 +1,25 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  user_firstname: MyString
-  user_surname: MyString
-  user_email: MyString
-  user_password: MyString
-  user_orcid_id: MyString
-  user_shibboleth_id: MyString
+  firstname: MyString
+  surname: MyString
+  email: MyString
+  password: MyString
+  orcid_id: MyString
+  shibboleth_id: MyString
   user_type_id: 1
   user_status_id: 1
-  user_login_count: 1
-  user_last_login: 2013-06-11 13:58:06
+  login_count: 1
+  last_login: 2013-06-11 13:58:06
 
 two:
-  user_firstname: MyString
-  user_surname: MyString
-  user_email: MyString
-  user_password: MyString
-  user_orcid_id: MyString
-  user_shibboleth_id: MyString
+  firstname: MyString
+  surname: MyString
+  email: MyString
+  password: MyString
+  orcid_id: MyString
+  shibboleth_id: MyString
   user_type_id: 1
   user_status_id: 1
-  user_login_count: 1
-  user_last_login: 2013-06-11 13:58:06
+  login_count: 1
+  last_login: 2013-06-11 13:58:06

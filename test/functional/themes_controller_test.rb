@@ -18,7 +18,7 @@ class ThemesControllerTest < ActionController::TestCase
 
   test "should create theme" do
     assert_difference('Theme.count') do
-      post :create, theme: { theme_desc: @theme.theme_desc, theme_title: @theme.theme_title }
+      post :create, theme: { description: @theme.description, title: @theme.title }
     end
 
     assert_redirected_to theme_path(assigns(:theme))
@@ -35,7 +35,7 @@ class ThemesControllerTest < ActionController::TestCase
   end
 
   test "should update theme" do
-    put :update, id: @theme, theme: { theme_desc: @theme.theme_desc, theme_title: @theme.theme_title }
+    put :update, id: @theme, theme: { description: @theme.description, title: @theme.title }
     assert_redirected_to theme_path(assigns(:theme))
   end
 

@@ -18,7 +18,7 @@ class ProjectPartnersControllerTest < ActionController::TestCase
 
   test "should create project_partner" do
     assert_difference('ProjectPartner.count') do
-      post :create, project_partner: { leader_org: @project_partner.leader_org, org_id: @project_partner.org_id, project_id: @project_partner.project_id }
+      post :create, project_partner: { leader_org: @project_partner.leader_org, organisation_id: @project_partner.organisation_id, project_id: @project_partner.project_id }
     end
 
     assert_redirected_to project_partner_path(assigns(:project_partner))
@@ -35,7 +35,7 @@ class ProjectPartnersControllerTest < ActionController::TestCase
   end
 
   test "should update project_partner" do
-    put :update, id: @project_partner, project_partner: { leader_org: @project_partner.leader_org, org_id: @project_partner.org_id, project_id: @project_partner.project_id }
+    put :update, id: @project_partner, project_partner: { leader_org: @project_partner.leader_org, organisation_id: @project_partner.organisation_id, project_id: @project_partner.project_id }
     assert_redirected_to project_partner_path(assigns(:project_partner))
   end
 

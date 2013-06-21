@@ -18,7 +18,7 @@ class FileUploadsControllerTest < ActionController::TestCase
 
   test "should create file_upload" do
     assert_difference('FileUpload.count') do
-      post :create, file_upload: { file_type_id: @file_upload.file_type_id, file_upload_desc: @file_upload.file_upload_desc, file_upload_location: @file_upload.file_upload_location, file_upload_name: @file_upload.file_upload_name, file_upload_published: @file_upload.file_upload_published, file_upload_size: @file_upload.file_upload_size, file_upload_title: @file_upload.file_upload_title }
+      post :create, file_upload: { file_type_id: @file_upload.file_type_id, description: @file_upload.description, location: @file_upload.location, name: @file_upload.name, published: @file_upload.published, size: @file_upload.size, title: @file_upload.title }
     end
 
     assert_redirected_to file_upload_path(assigns(:file_upload))
@@ -35,7 +35,7 @@ class FileUploadsControllerTest < ActionController::TestCase
   end
 
   test "should update file_upload" do
-    put :update, id: @file_upload, file_upload: { file_type_id: @file_upload.file_type_id, file_upload_desc: @file_upload.file_upload_desc, file_upload_location: @file_upload.file_upload_location, file_upload_name: @file_upload.file_upload_name, file_upload_published: @file_upload.file_upload_published, file_upload_size: @file_upload.file_upload_size, file_upload_title: @file_upload.file_upload_title }
+    put :update, id: @file_upload, file_upload: { file_type_id: @file_upload.file_type_id, description: @file_upload.description, location: @file_upload.location, name: @file_upload.name, published: @file_upload.published, size: @file_upload.size, title: @file_upload.title }
     assert_redirected_to file_upload_path(assigns(:file_upload))
   end
 

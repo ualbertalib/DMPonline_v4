@@ -19,16 +19,16 @@
 
 <% @users.each do |user| %>
   <tr>
-    <td><%= user.user_firstname %></td>
-    <td><%= user.user_surname %></td>
-    <td><%= user.user_email %></td>
-    <td><%= user.user_password %></td>
-    <td><%= user.user_orcid_id %></td>
-    <td><%= user.user_shibboleth_id %></td>
+    <td><%= user.firstname %></td>
+    <td><%= user.surname %></td>
+    <td><%= user.email %></td>
+    <td><%= user.password %></td>
+    <td><%= user.orcid_id %></td>
+    <td><%= user.shibboleth_id %></td>
     <td><%= user.user_type_id %></td>
     <td><%= user.user_status_id %></td>
-    <td><%= user.user_login_count %></td>
-    <td><%= user.user_last_login %></td>
+    <td><%= user.login_count %></td>
+    <td><%= user.last_login %></td>
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>

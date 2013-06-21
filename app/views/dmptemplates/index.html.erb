@@ -14,11 +14,11 @@
 
 <% @dmptemplates.each do |dmptemplate| %>
   <tr>
-    <td><%= dmptemplate.template_title %></td>
-    <td><%= dmptemplate.template_desc %></td>
-    <td><%= dmptemplate.template_published %></td>
+    <td><%= dmptemplate.title %></td>
+    <td><%= dmptemplate.description %></td>
+    <td><%= dmptemplate.published %></td>
     <td><%= dmptemplate.user_id %></td>
-    <td><%= dmptemplate.org_id %></td>
+    <td><%= dmptemplate.organisation_id %></td>
     <td><%= link_to 'Show', dmptemplate %></td>
     <td><%= link_to 'Edit', edit_dmptemplate_path(dmptemplate) %></td>
     <td><%= link_to 'Destroy', dmptemplate, method: :delete, data: { confirm: 'Are you sure?' } %></td>

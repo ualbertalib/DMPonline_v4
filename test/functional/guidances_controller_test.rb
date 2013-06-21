@@ -18,7 +18,7 @@ class GuidancesControllerTest < ActionController::TestCase
 
   test "should create guidance" do
     assert_difference('Guidance.count') do
-      post :create, guidance: { guidance_file_id: @guidance.guidance_file_id, guidance_text: @guidance.guidance_text, org_id: @guidance.org_id, theme_id: @guidance.theme_id }
+      post :create, guidance: { file_id: @guidance.file_id, text: @guidance.text, organisation_id: @guidance.organisation_id, theme_id: @guidance.theme_id }
     end
 
     assert_redirected_to guidance_path(assigns(:guidance))
@@ -35,7 +35,7 @@ class GuidancesControllerTest < ActionController::TestCase
   end
 
   test "should update guidance" do
-    put :update, id: @guidance, guidance: { guidance_file_id: @guidance.guidance_file_id, guidance_text: @guidance.guidance_text, org_id: @guidance.org_id, theme_id: @guidance.theme_id }
+    put :update, id: @guidance, guidance: { file_id: @guidance.file_id, text: @guidance.text, organisation_id: @guidance.organisation_id, theme_id: @guidance.theme_id }
     assert_redirected_to guidance_path(assigns(:guidance))
   end
 

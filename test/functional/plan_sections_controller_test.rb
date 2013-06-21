@@ -18,7 +18,7 @@ class PlanSectionsControllerTest < ActionController::TestCase
 
   test "should create plan_section" do
     assert_difference('PlanSection.count') do
-      post :create, plan_section: { plan_id: @plan_section.plan_id, plan_section_at: @plan_section.plan_section_at, plan_section_edit: @plan_section.plan_section_edit, section_id: @plan_section.section_id, user_editing_id: @plan_section.user_editing_id }
+      post :create, plan_section: { plan_id: @plan_section.plan_id, at: @plan_section.at, edit: @plan_section.edit, section_id: @plan_section.section_id, user_editing_id: @plan_section.user_editing_id }
     end
 
     assert_redirected_to plan_section_path(assigns(:plan_section))
@@ -35,7 +35,7 @@ class PlanSectionsControllerTest < ActionController::TestCase
   end
 
   test "should update plan_section" do
-    put :update, id: @plan_section, plan_section: { plan_id: @plan_section.plan_id, plan_section_at: @plan_section.plan_section_at, plan_section_edit: @plan_section.plan_section_edit, section_id: @plan_section.section_id, user_editing_id: @plan_section.user_editing_id }
+    put :update, id: @plan_section, plan_section: { plan_id: @plan_section.plan_id, at: @plan_section.at, edit: @plan_section.edit, section_id: @plan_section.section_id, user_editing_id: @plan_section.user_editing_id }
     assert_redirected_to plan_section_path(assigns(:plan_section))
   end
 

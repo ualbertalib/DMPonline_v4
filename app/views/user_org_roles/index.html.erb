@@ -13,7 +13,7 @@
 <% @user_org_roles.each do |user_org_role| %>
   <tr>
     <td><%= user_org_role.user_id %></td>
-    <td><%= user_org_role.org_id %></td>
+    <td><%= user_org_role.organisation_id %></td>
     <td><%= user_org_role.user_role_type_id %></td>
     <td><%= link_to 'Show', user_org_role %></td>
     <td><%= link_to 'Edit', edit_user_org_role_path(user_org_role) %></td>

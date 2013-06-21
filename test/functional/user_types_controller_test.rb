@@ -18,7 +18,7 @@ class UserTypesControllerTest < ActionController::TestCase
 
   test "should create user_type" do
     assert_difference('UserType.count') do
-      post :create, user_type: { user_type_desc: @user_type.user_type_desc, user_type_name: @user_type.user_type_name }
+      post :create, user_type: { description: @user_type.description, name: @user_type.name }
     end
 
     assert_redirected_to user_type_path(assigns(:user_type))
@@ -35,7 +35,7 @@ class UserTypesControllerTest < ActionController::TestCase
   end
 
   test "should update user_type" do
-    put :update, id: @user_type, user_type: { user_type_desc: @user_type.user_type_desc, user_type_name: @user_type.user_type_name }
+    put :update, id: @user_type, user_type: { description: @user_type.description, name: @user_type.name }
     assert_redirected_to user_type_path(assigns(:user_type))
   end
 

@@ -18,7 +18,7 @@ class QuestionsControllerTest < ActionController::TestCase
 
   test "should create question" do
     assert_difference('Question.count') do
-      post :create, question: { question_default_value: @question.question_default_value, question_dependency_id: @question.question_dependency_id, question_dependency_text: @question.question_dependency_text, question_guidance: @question.question_guidance, question_order: @question.question_order, question_parent_id: @question.question_parent_id, question_suggested_answer: @question.question_suggested_answer, question_text: @question.question_text, question_type: @question.question_type, section_id: @question.section_id }
+      post :create, question: { default_value: @question.default_value, dependency_id: @question.dependency_id, dependency_text: @question.dependency_text, guidance: @question.guidance, order: @question.order, parent_id: @question.parent_id, suggested_answer: @question.suggested_answer, text: @question.text, type: @question.type, section_id: @question.section_id }
     end
 
     assert_redirected_to question_path(assigns(:question))
@@ -35,7 +35,7 @@ class QuestionsControllerTest < ActionController::TestCase
   end
 
   test "should update question" do
-    put :update, id: @question, question: { question_default_value: @question.question_default_value, question_dependency_id: @question.question_dependency_id, question_dependency_text: @question.question_dependency_text, question_guidance: @question.question_guidance, question_order: @question.question_order, question_parent_id: @question.question_parent_id, question_suggested_answer: @question.question_suggested_answer, question_text: @question.question_text, question_type: @question.question_type, section_id: @question.section_id }
+    put :update, id: @question, question: { default_value: @question.default_value, dependency_id: @question.dependency_id, dependency_text: @question.dependency_text, guidance: @question.guidance, order: @question.order, parent_id: @question.parent_id, suggested_answer: @question.suggested_answer, text: @question.text, type: @question.type, section_id: @question.section_id }
     assert_redirected_to question_path(assigns(:question))
   end
 

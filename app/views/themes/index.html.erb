@@ -11,8 +11,8 @@
 
 <% @themes.each do |theme| %>
   <tr>
-    <td><%= theme.theme_title %></td>
-    <td><%= theme.theme_desc %></td>
+    <td><%= theme.title %></td>
+    <td><%= theme.description %></td>
     <td><%= link_to 'Show', theme %></td>
     <td><%= link_to 'Edit', edit_theme_path(theme) %></td>
     <td><%= link_to 'Destroy', theme, method: :delete, data: { confirm: 'Are you sure?' } %></td>

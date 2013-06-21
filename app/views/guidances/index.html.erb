@@ -13,9 +13,9 @@
 
 <% @guidances.each do |guidance| %>
   <tr>
-    <td><%= guidance.guidance_text %></td>
-    <td><%= guidance.guidance_file_id %></td>
-    <td><%= guidance.org_id %></td>
+    <td><%= guidance.text %></td>
+    <td><%= guidance.file_id %></td>
+    <td><%= guidance.organisation_id %></td>
     <td><%= guidance.theme_id %></td>
     <td><%= link_to 'Show', guidance %></td>
     <td><%= link_to 'Edit', edit_guidance_path(guidance) %></td>

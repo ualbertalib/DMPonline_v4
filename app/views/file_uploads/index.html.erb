@@ -16,12 +16,12 @@
 
 <% @file_uploads.each do |file_upload| %>
   <tr>
-    <td><%= file_upload.file_upload_name %></td>
-    <td><%= file_upload.file_upload_title %></td>
-    <td><%= file_upload.file_upload_desc %></td>
-    <td><%= file_upload.file_upload_size %></td>
-    <td><%= file_upload.file_upload_published %></td>
-    <td><%= file_upload.file_upload_location %></td>
+    <td><%= file_upload.name %></td>
+    <td><%= file_upload.title %></td>
+    <td><%= file_upload.description %></td>
+    <td><%= file_upload.size %></td>
+    <td><%= file_upload.published %></td>
+    <td><%= file_upload.location %></td>
     <td><%= file_upload.file_type_id %></td>
     <td><%= link_to 'Show', file_upload %></td>
     <td><%= link_to 'Edit', edit_file_upload_path(file_upload) %></td>

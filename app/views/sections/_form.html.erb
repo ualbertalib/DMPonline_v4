@@ -13,16 +13,16 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :section_title %><br />
-    <%= f.text_field :section_title %>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :section_desc %><br />
-    <%= f.text_area :section_desc %>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label :section_order %><br />
-    <%= f.number_field :section_order %>
+    <%= f.label :order %><br />
+    <%= f.number_field :order %>
   </div>
   <div class="field">
     <%= f.label :version %><br />
@@ -30,7 +30,7 @@
   </div>
   <div class="field">
     <%= f.label :org %><br />
-    <%= f.select :org_id, Organisation.all.collect {|o| [o.org_name, o.id]} %>
+    <%= f.select :organisation_id, Organisation.all.collect {|o| [o.name, o.id]} %>
     
    </div>
   <div class="actions">

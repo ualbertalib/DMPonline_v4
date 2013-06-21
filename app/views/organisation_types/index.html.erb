@@ -11,8 +11,8 @@
 
 <% @organisation_types.each do |organisation_type| %>
   <tr>
-    <td><%= organisation_type.org_type_name %></td>
-    <td><%= organisation_type.org_type_desc %></td>
+    <td><%= organisation_type.name %></td>
+    <td><%= organisation_type.description %></td>
     <td><%= link_to 'Show', organisation_type %></td>
     <td><%= link_to 'Edit', edit_organisation_type_path(organisation_type) %></td>
     <td><%= link_to 'Destroy', organisation_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>

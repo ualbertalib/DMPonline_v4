@@ -18,7 +18,7 @@ class UserRoleTypesControllerTest < ActionController::TestCase
 
   test "should create user_role_type" do
     assert_difference('UserRoleType.count') do
-      post :create, user_role_type: { user_role_type_desc: @user_role_type.user_role_type_desc, user_role_type_name: @user_role_type.user_role_type_name }
+      post :create, user_role_type: { description: @user_role_type.description, name: @user_role_type.name }
     end
 
     assert_redirected_to user_role_type_path(assigns(:user_role_type))
@@ -35,7 +35,7 @@ class UserRoleTypesControllerTest < ActionController::TestCase
   end
 
   test "should update user_role_type" do
-    put :update, id: @user_role_type, user_role_type: { user_role_type_desc: @user_role_type.user_role_type_desc, user_role_type_name: @user_role_type.user_role_type_name }
+    put :update, id: @user_role_type, user_role_type: { description: @user_role_type.description, name: @user_role_type.name }
     assert_redirected_to user_role_type_path(assigns(:user_role_type))
   end
 

@@ -18,7 +18,7 @@ class FileTypesControllerTest < ActionController::TestCase
 
   test "should create file_type" do
     assert_difference('FileType.count') do
-      post :create, file_type: { file_type_name: @file_type.file_type_name, icon_location: @file_type.icon_location, icon_name: @file_type.icon_name, icon_size: @file_type.icon_size }
+      post :create, file_type: { name: @file_type.name, icon_location: @file_type.icon_location, icon_name: @file_type.icon_name, icon_size: @file_type.icon_size }
     end
 
     assert_redirected_to file_type_path(assigns(:file_type))
@@ -35,7 +35,7 @@ class FileTypesControllerTest < ActionController::TestCase
   end
 
   test "should update file_type" do
-    put :update, id: @file_type, file_type: { file_type_name: @file_type.file_type_name, icon_location: @file_type.icon_location, icon_name: @file_type.icon_name, icon_size: @file_type.icon_size }
+    put :update, id: @file_type, file_type: { name: @file_type.name, icon_location: @file_type.icon_location, icon_name: @file_type.icon_name, icon_size: @file_type.icon_size }
     assert_redirected_to file_type_path(assigns(:file_type))
   end
 

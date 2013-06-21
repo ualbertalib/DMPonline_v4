@@ -18,7 +18,7 @@ class OrganisationsControllerTest < ActionController::TestCase
 
   test "should create organisation" do
     assert_difference('Organisation.count') do
-      post :create, organisation: { org_abbre: @organisation.org_abbre, org_banner_file_id: @organisation.org_banner_file_id, org_desc: @organisation.org_desc, org_domain: @organisation.org_domain, org_logo_file_id: @organisation.org_logo_file_id, org_name: @organisation.org_name, org_stylesheet_file_id: @organisation.org_stylesheet_file_id, org_target_url: @organisation.org_target_url, org_type_id: @organisation.org_type_id, org_wayfless_entite: @organisation.org_wayfless_entite }
+      post :create, organisation: { abbreviation: @organisation.abbreviation, banner_file_id: @organisation.banner_file_id, description: @organisation.description, domain: @organisation.domain, logo_file_id: @organisation.logo_file_id, name: @organisation.name, stylesheet_file_id: @organisation.stylesheet_file_id, target_url: @organisation.target_url, type_id: @organisation.type_id, wayfless_entite: @organisation.wayfless_entite }
     end
 
     assert_redirected_to organisation_path(assigns(:organisation))
@@ -35,7 +35,7 @@ class OrganisationsControllerTest < ActionController::TestCase
   end
 
   test "should update organisation" do
-    put :update, id: @organisation, organisation: { org_abbre: @organisation.org_abbre, org_banner_file_id: @organisation.org_banner_file_id, org_desc: @organisation.org_desc, org_domain: @organisation.org_domain, org_logo_file_id: @organisation.org_logo_file_id, org_name: @organisation.org_name, org_stylesheet_file_id: @organisation.org_stylesheet_file_id, org_target_url: @organisation.org_target_url, org_type_id: @organisation.org_type_id, org_wayfless_entite: @organisation.org_wayfless_entite }
+    put :update, id: @organisation, organisation: { abbreviation: @organisation.abbreviation, banner_file_id: @organisation.banner_file_id, description: @organisation.description, domain: @organisation.domain, logo_file_id: @organisation.logo_file_id, name: @organisation.name, stylesheet_file_id: @organisation.stylesheet_file_id, target_url: @organisation.target_url, type_id: @organisation.type_id, wayfless_entite: @organisation.wayfless_entite }
     assert_redirected_to organisation_path(assigns(:organisation))
   end
 

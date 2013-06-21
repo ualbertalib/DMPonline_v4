@@ -18,7 +18,7 @@ class DmptemplatesControllerTest < ActionController::TestCase
 
   test "should create dmptemplate" do
     assert_difference('Dmptemplate.count') do
-      post :create, dmptemplate: { org_id: @dmptemplate.org_id, template_desc: @dmptemplate.template_desc, template_published: @dmptemplate.template_published, template_title: @dmptemplate.template_title, user_id: @dmptemplate.user_id }
+      post :create, dmptemplate: { organisation_id: @dmptemplate.organisation_id, description: @dmptemplate.description, published: @dmptemplate.published, title: @dmptemplate.title, user_id: @dmptemplate.user_id }
     end
 
     assert_redirected_to dmptemplate_path(assigns(:dmptemplate))
@@ -35,7 +35,7 @@ class DmptemplatesControllerTest < ActionController::TestCase
   end
 
   test "should update dmptemplate" do
-    put :update, id: @dmptemplate, dmptemplate: { org_id: @dmptemplate.org_id, template_desc: @dmptemplate.template_desc, template_published: @dmptemplate.template_published, template_title: @dmptemplate.template_title, user_id: @dmptemplate.user_id }
+    put :update, id: @dmptemplate, dmptemplate: { organisation_id: @dmptemplate.organisation_id, description: @dmptemplate.description, published: @dmptemplate.published, title: @dmptemplate.title, user_id: @dmptemplate.user_id }
     assert_redirected_to dmptemplate_path(assigns(:dmptemplate))
   end
 

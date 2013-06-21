@@ -18,7 +18,7 @@ class ProjectsControllerTest < ActionController::TestCase
 
   test "should create project" do
     assert_difference('Project.count') do
-      post :create, project: { dmptemplate_id: @project.dmptemplate_id, project_locked: @project.project_locked, project_note: @project.project_note, project_title: @project.project_title }
+      post :create, project: { dmptemplate_id: @project.dmptemplate_id, locked: @project.locked, note: @project.note, title: @project.title }
     end
 
     assert_redirected_to project_path(assigns(:project))
@@ -35,7 +35,7 @@ class ProjectsControllerTest < ActionController::TestCase
   end
 
   test "should update project" do
-    put :update, id: @project, project: { dmptemplate_id: @project.dmptemplate_id, project_locked: @project.project_locked, project_note: @project.project_note, project_title: @project.project_title }
+    put :update, id: @project, project: { dmptemplate_id: @project.dmptemplate_id, locked: @project.locked, note: @project.note, title: @project.title }
     assert_redirected_to project_path(assigns(:project))
   end
 

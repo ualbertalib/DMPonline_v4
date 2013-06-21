@@ -13,9 +13,9 @@
 
 <% @projects.each do |project| %>
   <tr>
-    <td><%= project.project_title %></td>
-    <td><%= project.project_note %></td>
-    <td><%= project.project_locked %></td>
+    <td><%= project.title %></td>
+    <td><%= project.note %></td>
+    <td><%= project.locked %></td>
     <td><%= project.dmptemplate_id %></td>
     <td><%= link_to 'Show', project %></td>
     <td><%= link_to 'Edit', edit_project_path(project) %></td>

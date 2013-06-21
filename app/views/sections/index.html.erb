@@ -14,9 +14,9 @@
 
 <% @sections.each do |section| %>
   <tr>
-    <td><%= section.section_title %></td>
-    <td><%= section.section_desc %></td>
-    <td><%= section.section_order %></td>
+    <td><%= section.title %></td>
+    <td><%= section.description %></td>
+    <td><%= section.order %></td>
     <td><%= section.version_id %></td>
     <td><%= section.select :version_id, Version.all.collect {|v| [ v.title, v.id ] } %></td>
     <td><%= link_to 'Show', section %></td>

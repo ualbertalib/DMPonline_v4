@@ -11,8 +11,8 @@
 
 <% @user_role_types.each do |user_role_type| %>
   <tr>
-    <td><%= user_role_type.user_role_type_name %></td>
-    <td><%= user_role_type.user_role_type_desc %></td>
+    <td><%= user_role_type.name %></td>
+    <td><%= user_role_type.description %></td>
     <td><%= link_to 'Show', user_role_type %></td>
     <td><%= link_to 'Edit', edit_user_role_type_path(user_role_type) %></td>
     <td><%= link_to 'Destroy', user_role_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>

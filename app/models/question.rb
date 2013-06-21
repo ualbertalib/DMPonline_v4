@@ -5,5 +5,5 @@ class Question < ActiveRecord::Base
   has_many :question_theme
   belongs_to :section
   
-  attr_accessible :question_default_value, :question_dependency_id, :question_dependency_text, :question_guidance, :question_order, :question_parent_id, :question_suggested_answer, :question_text, :question_type, :section_id
+  attr_accessible :default_value, :dependency_id, :dependency_text, :guidance, :order, :parent_id, :suggested_answer, :text, :type, :section_id
 end

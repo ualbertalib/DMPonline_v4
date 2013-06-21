@@ -18,7 +18,7 @@ class OrganisationTypesControllerTest < ActionController::TestCase
 
   test "should create organisation_type" do
     assert_difference('OrganisationType.count') do
-      post :create, organisation_type: { org_type_desc: @organisation_type.org_type_desc, org_type_name: @organisation_type.org_type_name }
+      post :create, organisation_type: { description: @organisation_type.description, name: @organisation_type.name }
     end
 
     assert_redirected_to organisation_type_path(assigns(:organisation_type))
@@ -35,7 +35,7 @@ class OrganisationTypesControllerTest < ActionController::TestCase
   end
 
   test "should update organisation_type" do
-    put :update, id: @organisation_type, organisation_type: { org_type_desc: @organisation_type.org_type_desc, org_type_name: @organisation_type.org_type_name }
+    put :update, id: @organisation_type, organisation_type: { description: @organisation_type.description, name: @organisation_type.name }
     assert_redirected_to organisation_type_path(assigns(:organisation_type))
   end
 

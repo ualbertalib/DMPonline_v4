@@ -4,7 +4,7 @@ class Section < ActiveRecord::Base
   belongs_to :version
   has_many :questions
   
-  attr_accessible :org_id, :section_desc, :section_order, :section_title, :version_id
+  attr_accessible :organisation_id, :description, :order, :title, :version_id
   
   def to_s
     "#{title}"

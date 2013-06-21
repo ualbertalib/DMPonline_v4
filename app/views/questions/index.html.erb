@@ -19,15 +19,15 @@
 
 <% @questions.each do |question| %>
   <tr>
-    <td><%= question.question_text %></td>
-    <td><%= question.question_type %></td>
-    <td><%= question.question_default_value %></td>
-    <td><%= question.question_suggested_answer %></td>
-    <td><%= question.question_guidance %></td>
-    <td><%= question.question_order %></td>
-    <td><%= question.question_parent_id %></td>
-    <td><%= question.question_dependency_id %></td>
-    <td><%= question.question_dependency_text %></td>
+    <td><%= question.text %></td>
+    <td><%= question.type %></td>
+    <td><%= question.default_value %></td>
+    <td><%= question.suggested_answer %></td>
+    <td><%= question.guidance %></td>
+    <td><%= question.order %></td>
+    <td><%= question.parent_id %></td>
+    <td><%= question.dependency_id %></td>
+    <td><%= question.dependency_text %></td>
     <td><%= question.section_id %></td>
     <td><%= link_to 'Show', question %></td>
     <td><%= link_to 'Edit', edit_question_path(question) %></td>

@@ -4,5 +4,5 @@ class Theme < ActiveRecord::Base
   has_many :question_theme
   has_many :guidance
   
-  attr_accessible :theme_desc, :theme_title
+  attr_accessible :description, :title
 end

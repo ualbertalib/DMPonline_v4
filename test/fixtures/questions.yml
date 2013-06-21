@@ -1,25 +1,25 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  question_text: MyText
-  question_type: MyString
-  question_default_value: MyText
-  question_suggested_answer: MyText
-  question_guidance: MyText
-  question_order: 1
-  question_parent_id: 1
-  question_dependency_id: 1
-  question_dependency_text: MyText
+  text: MyText
+  type: MyString
+  default_value: MyText
+  suggested_answer: MyText
+  guidance: MyText
+  order: 1
+  parent_id: 1
+  dependency_id: 1
+  dependency_text: MyText
   section_id: 1
 
 two:
-  question_text: MyText
-  question_type: MyString
-  question_default_value: MyText
-  question_suggested_answer: MyText
-  question_guidance: MyText
-  question_order: 1
-  question_parent_id: 1
-  question_dependency_id: 1
-  question_dependency_text: MyText
+  text: MyText
+  type: MyString
+  default_value: MyText
+  suggested_answer: MyText
+  guidance: MyText
+  order: 1
+  parent_id: 1
+  dependency_id: 1
+  dependency_text: MyText
   section_id: 1

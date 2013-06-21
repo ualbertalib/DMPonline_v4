@@ -18,7 +18,7 @@ class PlansControllerTest < ActionController::TestCase
 
   test "should create plan" do
     assert_difference('Plan.count') do
-      post :create, plan: { plan_locked: @plan.plan_locked, project_id: @plan.project_id, version_id: @plan.version_id }
+      post :create, plan: { locked: @plan.locked, project_id: @plan.project_id, version_id: @plan.version_id }
     end
 
     assert_redirected_to plan_path(assigns(:plan))
@@ -35,7 +35,7 @@ class PlansControllerTest < ActionController::TestCase
   end
 
   test "should update plan" do
-    put :update, id: @plan, plan: { plan_locked: @plan.plan_locked, project_id: @plan.project_id, version_id: @plan.version_id }
+    put :update, id: @plan, plan: { locked: @plan.locked, project_id: @plan.project_id, version_id: @plan.version_id }
     assert_redirected_to plan_path(assigns(:plan))
   end
 

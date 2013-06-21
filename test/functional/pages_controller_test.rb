@@ -18,7 +18,7 @@ class PagesControllerTest < ActionController::TestCase
 
   test "should create page" do
     assert_difference('Page.count') do
-      post :create, page: { org_id: @page.org_id, pag_body_text: @page.pag_body_text, pag_location: @page.pag_location, pag_menu: @page.pag_menu, pag_menu_position: @page.pag_menu_position, pag_public: @page.pag_public, pag_slug: @page.pag_slug, pag_target_url: @page.pag_target_url, pag_title: @page.pag_title }
+      post :create, page: { organisation_id: @page.organisation_id, body_text: @page.body_text, location: @page.location, menu: @page.menu, menu_position: @page.menu_position, public: @page.public, slug: @page.slug, target_url: @page.target_url, title: @page.title }
     end
 
     assert_redirected_to page_path(assigns(:page))
@@ -35,7 +35,7 @@ class PagesControllerTest < ActionController::TestCase
   end
 
   test "should update page" do
-    put :update, id: @page, page: { org_id: @page.org_id, pag_body_text: @page.pag_body_text, pag_location: @page.pag_location, pag_menu: @page.pag_menu, pag_menu_position: @page.pag_menu_position, pag_public: @page.pag_public, pag_slug: @page.pag_slug, pag_target_url: @page.pag_target_url, pag_title: @page.pag_title }
+    put :update, id: @page, page: { organisation_id: @page.organisation_id, body_text: @page.body_text, location: @page.location, menu: @page.menu, menu_position: @page.menu_position, public: @page.public, slug: @page.slug, target_url: @page.target_url, title: @page.title }
     assert_redirected_to page_path(assigns(:page))
   end
 

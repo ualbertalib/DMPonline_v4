@@ -2,7 +2,7 @@ require 'test_helper'
 
 class UserOrgRolesControllerTest < ActionController::TestCase
   setup do
-    @user_org_role = user_org_roles(:one)
+    @user_role = user_org_roles(:one)
   end
 
   test "should get index" do
@@ -18,7 +18,7 @@ class UserOrgRolesControllerTest < ActionController::TestCase
 
   test "should create user_org_role" do
     assert_difference('UserOrgRole.count') do
-      post :create, user_org_role: { org_id: @user_org_role.org_id, user_id: @user_org_role.user_id, user_role_type_id: @user_org_role.user_role_type_id }
+      post :create, user_org_role: { organisation_id: @user_org_role.organisation_id, user_id: @user_org_role.user_id, user_role_type_id: @user_org_role.user_role_type_id }
     end
 
     assert_redirected_to user_org_role_path(assigns(:user_org_role))
@@ -35,7 +35,7 @@ class UserOrgRolesControllerTest < ActionController::TestCase
   end
 
   test "should update user_org_role" do
-    put :update, id: @user_org_role, user_org_role: { org_id: @user_org_role.org_id, user_id: @user_org_role.user_id, user_role_type_id: @user_org_role.user_role_type_id }
+    put :update, id: @user_org_role, user_org_role: { organisation_id: @user_org_role.organisation_id, user_id: @user_org_role.user_id, user_role_type_id: @user_org_role.user_role_type_id }
     assert_redirected_to user_org_role_path(assigns(:user_org_role))
   end
 

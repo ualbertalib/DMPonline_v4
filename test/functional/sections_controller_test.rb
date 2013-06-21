@@ -18,7 +18,7 @@ class SectionsControllerTest < ActionController::TestCase
 
   test "should create section" do
     assert_difference('Section.count') do
-      post :create, section: { org_id: @section.org_id, section_desc: @section.section_desc, section_order: @section.section_order, section_title: @section.section_title, version_id: @section.version_id }
+      post :create, section: { organisation_id: @section.organisation_id, description: @section.description, order: @section.order, title: @section.title, version_id: @section.version_id }
     end
 
     assert_redirected_to section_path(assigns(:section))
@@ -35,7 +35,7 @@ class SectionsControllerTest < ActionController::TestCase
   end
 
   test "should update section" do
-    put :update, id: @section, section: { org_id: @section.org_id, section_desc: @section.section_desc, section_order: @section.section_order, section_title: @section.section_title, version_id: @section.version_id }
+    put :update, id: @section, section: { organisation_id: @section.organisation_id, description: @section.description, order: @section.order, title: @section.title, version_id: @section.version_id }
     assert_redirected_to section_path(assigns(:section))
   end
 
