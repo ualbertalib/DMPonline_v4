@@ -37,7 +37,7 @@ class FixColumnNames < ActiveRecord::Migration
       t.rename :org_abbre, :abbreviation
       t.rename :org_banner_file_id, :banner_file_id
       t.rename :org_domain, :domain
-      t.rename :description, :description
+      t.rename :org_desc, :description
       t.rename :org_logo_file_id, :logo_file_id
       t.rename :org_stylesheet_file_id, :stylesheet_file_id
       t.rename :org_name, :name
