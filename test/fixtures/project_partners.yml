@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  organisation_id: 1
-  project_id: 1
-  leader_org: false
-
-two:
-  organisation_id: 1
-  project_id: 1
-  leader_org: false
+#one:
+#  organisation_id: 1
+#  project_id: 1
+#  leader_org: false
+#
+#two:
+#  organisation_id: 1
+#  project_id: 1
+#  leader_org: false

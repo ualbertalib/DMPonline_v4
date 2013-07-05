@@ -13,7 +13,7 @@
 
 <% @guidances.each do |guidance| %>
   <tr>
-    <td><%= guidance.text %></td>
+    <td><%= raw guidance.text %></td>
     <td><%= guidance.file_id %></td>
     <td><%= guidance.organisation_id %></td>
     <td><%= guidance.theme_id %></td>

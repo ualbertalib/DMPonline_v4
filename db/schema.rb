@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130625125419) do
+ActiveRecord::Schema.define(:version => 20130705151214) do
 
   create_table "answers", :force => true do |t|
     t.text     "text"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20130625125419) do
     t.integer  "organisation_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.string   "locale"
   end
 
   create_table "file_types", :force => true do |t|
@@ -155,7 +156,7 @@ ActiveRecord::Schema.define(:version => 20130625125419) do
 
   create_table "questions", :force => true do |t|
     t.text     "text"
-    t.string   "type"
+    t.string   "question_type"
     t.text     "default_value"
     t.text     "suggested_answer"
     t.text     "guidance"
@@ -190,6 +191,7 @@ ActiveRecord::Schema.define(:version => 20130625125419) do
     t.text     "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "locale"
   end
 
   create_table "user_org_roles", :force => true do |t|

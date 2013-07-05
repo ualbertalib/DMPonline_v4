@@ -20,10 +20,10 @@
 <% @questions.each do |question| %>
   <tr>
     <td><%= question.text %></td>
-    <td><%= question.type %></td>
+    <td><%= question.question_type %></td>
     <td><%= question.default_value %></td>
     <td><%= question.suggested_answer %></td>
-    <td><%= question.guidance %></td>
+    <td><%= raw question.guidance %></td>
     <td><%= question.order %></td>
     <td><%= question.parent_id %></td>
     <td><%= question.dependency_id %></td>

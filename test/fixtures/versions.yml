@@ -1,15 +1,8 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  title: MyString
-  description: MyText
+DCC_phase_1_version_1:
+  title: DCC Phase 1 Version 1
+  description: The first version of the first phase of the DCC default template
   published: 1
   order: 1
-  phase: 
-
-two:
-  title: MyString
-  description: MyText
-  published: 1
-  order: 1
-  phase: 
+  phase: DCC_phase_1

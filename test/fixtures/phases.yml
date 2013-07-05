@@ -1,13 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  title: MyString
-  description: MyText
+DCC_phase_1:
+  title: DCC Phase 1
+  description: The first phase of the DCC default template
   order: 1
-  dmptemplate: 
-
-two:
-  title: MyString
-  description: MyText
-  order: 1
-  dmptemplate: 
+  dmptemplate: DCC

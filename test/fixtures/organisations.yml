@@ -1,25 +1,25 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  name: MyString
-  abbreviation: MyString
-  description: MyText
-  target_url: MyString
-  logo_file_id: 1
-  banner_file_id: 1
-  type_id: 1
-  domain: MyString
-  wayfless_entite: 1
-  stylesheet_file_id: 1
-
-two:
-  name: MyString
-  abbreviation: MyString
-  description: MyText
-  target_url: MyString
-  logo_file_id: 1
-  banner_file_id: 1
-  type_id: 1
-  domain: MyString
-  wayfless_entite: 1
-  stylesheet_file_id: 1
+#one:
+#  name: MyString
+#  abbreviation: MyString
+#  description: MyText
+#  target_url: MyString
+#  logo_file_id: 1
+#  banner_file_id: 1
+#  type_id: 1
+#  domain: MyString
+#  wayfless_entite: 1
+#  stylesheet_file_id: 1
+#
+#two:
+#  name: MyString
+#  abbreviation: MyString
+#  description: MyText
+#  target_url: MyString
+#  logo_file_id: 1
+#  banner_file_id: 1
+#  type_id: 1
+#  domain: MyString
+#  wayfless_entite: 1
+#  stylesheet_file_id: 1

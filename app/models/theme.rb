@@ -4,5 +4,5 @@ class Theme < ActiveRecord::Base
   has_and_belongs_to_many :questions
   has_many :guidance
   
-  attr_accessible :description, :title
+  attr_accessible :description, :title, :locale
 end

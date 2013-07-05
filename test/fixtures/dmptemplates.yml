@@ -1,15 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  title: MyString
-  description: MyText
-  published: false
+DCC:
+  title: DCC Template
+  description: The default DCC template
+  published: true
   user_id: 1
   organisation_id: 1
-
-two:
-  title: MyString
-  description: MyText
-  published: false
-  user_id: 1
-  organisation_id: 1
+  locale: en

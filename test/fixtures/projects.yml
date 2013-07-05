@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  title: MyString
-  note: MyText
-  locked: false
-  dmptemplate_id: 1
-
-two:
-  title: MyString
-  note: MyText
-  locked: false
-  dmptemplate_id: 1
+#one:
+#  title: MyString
+#  note: MyText
+#  locked: false
+#  dmptemplate_id: 1
+#
+#two:
+#  title: MyString
+#  note: MyText
+#  locked: false
+#  dmptemplate_id: 1
