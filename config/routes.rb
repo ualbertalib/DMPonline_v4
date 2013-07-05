@@ -1,6 +1,4 @@
 DMPonline4::Application.routes.draw do
-  devise_for :users
-
   get "home/index"
  
   resources :dmptemplates
