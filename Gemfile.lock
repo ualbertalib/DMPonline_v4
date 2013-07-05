@@ -29,6 +29,7 @@ GEM
       i18n (= 0.6.1)
       multi_json (~> 1.0)
     arel (3.0.2)
+    bcrypt-ruby (3.0.1)
     builder (3.0.4)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -37,6 +38,11 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.2)
+    devise (2.2.4)
+      bcrypt-ruby (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (~> 3.1)
+      warden (~> 1.2.1)
     email_validator (1.4.0)
       activemodel
     erubis (2.7.0)
@@ -61,6 +67,7 @@ GEM
       rack
     omniauth-shibboleth (1.0.8)
       omniauth (>= 1.0.0)
+    orm_adapter (0.4.0)
     polyglot (0.3.3)
     rack (1.4.5)
     rack-cache (1.2)
@@ -109,12 +116,15 @@ GEM
       multi_json (~> 1.0, >= 1.0.2)
     validate_url (0.2.0)
       activemodel (>= 3.0.0)
+    warden (1.2.1)
+      rack (>= 1.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
+  devise
   email_validator
   jquery-rails
   mysql2

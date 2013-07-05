@@ -25,6 +25,7 @@ end
 
 gem 'jquery-rails'
 
+gem 'devise'
 
 
 # Gems for repository integration
