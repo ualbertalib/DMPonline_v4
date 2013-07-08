@@ -2,16 +2,15 @@
 
 <% @plan.version.sections.order("number").each do |section| %>
 	<h2><%= section.title %></h2>
-	<% section.questions.each do |question| %>
-  	<p><%= question.text %></p>
+	<% section.questions.each do |q| %>
+  	<% answer = answer = Answer.find_all_by_plan_id_and_question_id(@plan.id, q.id).last %>
+  	<%= semantic_form_for answer do |f| %>
+  		<%= f.inputs do %>
+  			<%= f.input :text, :label => answer.question.text %>
+  		<% end %>
+			<%= f.actions %>
+		<% end %>
   <% end %>
-<% end %>
-
-<%= semantic_form_for @plan do |f| %>
-	<%= f.fields_for :answers do |answer| %>
-		<%= section.inputs :text, :name => "Answer" %>
-	<% end %>
-	<%= f.actions %>
 <% end %>
 
 <%= link_to 'Show', @plan %> |

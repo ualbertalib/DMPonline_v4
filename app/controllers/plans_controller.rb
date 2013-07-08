@@ -38,6 +38,18 @@ class PlansController < ApplicationController
   # GET /plans/1/edit
   def edit
     @plan = Plan.find(params[:id])
+
+    @plan.version.sections.each do |s|
+    	s.questions.each do |q|
+    		answer = Answer.find_all_by_plan_id_and_question_id(@plan.id, q.id).last
+    		if answer.nil?
+    			answer = Answer.new
+    			answer.plan_id = @plan.id
+    			answer.question_id = q.id
+    			answer.save
+    		end
+    	end
+    end
   end
 
   # POST /plans
