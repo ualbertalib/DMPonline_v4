@@ -1,5 +1,10 @@
 DMPonline4::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
+  
+    # You can have the root of your site routed with "root"
+  # just remember to delete public/index.html.
+  root :to => 'home#index'
+
   ActiveAdmin.routes(self)
 
   get "home/index"
@@ -84,9 +89,6 @@ DMPonline4::Application.routes.draw do
   #     resources :products
   #   end
 
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
-  root :to => 'home#index'
 
   # See how all your routes lay out with "rake routes"
 

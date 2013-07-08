@@ -1,0 +1,31 @@
+<h1>Templates list</h1>
+
+<table>
+  <tr>
+    <th>Title | </th>
+    <th>Description | </th>
+    <th>Published | </th>
+    <th>User id | </th>
+    <th>Organisation id</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @dmptemplates.each do |dmptemplate| %>
+  <tr>
+    <td><%= dmptemplate.title %></td>
+    <td><%= dmptemplate.description %></td>
+    <td><%= dmptemplate.published %></td>
+    <td><%= dmptemplate.user_id %></td>
+    <td><%= dmptemplate.organisation_id %></td>
+    <td><%= link_to 'Show', dmptemplate %></td>
+    <td><%= link_to 'Edit', edit_dmptemplate_path(dmptemplate) %></td>
+    <td><%= link_to 'Destroy', dmptemplate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Dmptemplate', new_dmptemplate_path %>
