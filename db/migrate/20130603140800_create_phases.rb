@@ -3,7 +3,7 @@ class CreatePhases < ActiveRecord::Migration
     create_table :phases do |t|
       t.string :title
       t.text :description
-      t.integer :order
+      t.integer :number
       t.references :dmptemplate
 
       t.timestamps

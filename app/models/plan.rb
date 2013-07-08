@@ -5,5 +5,8 @@ class Plan < ActiveRecord::Base
   belongs_to :project
   has_many :answers
   belongs_to :version
+  accepts_nested_attributes_for :project
+  accepts_nested_attributes_for :answers
+  accepts_nested_attributes_for :version
   
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130705151214) do
+ActiveRecord::Schema.define(:version => 20130708092905) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -135,7 +135,7 @@ ActiveRecord::Schema.define(:version => 20130705151214) do
   create_table "phases", :force => true do |t|
     t.string   "title"
     t.text     "description"
-    t.integer  "order"
+    t.integer  "number"
     t.integer  "dmptemplate_id"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
@@ -193,7 +193,7 @@ ActiveRecord::Schema.define(:version => 20130705151214) do
     t.text     "default_value"
     t.text     "suggested_answer"
     t.text     "guidance"
-    t.integer  "order"
+    t.integer  "number"
     t.integer  "parent_id"
     t.integer  "dependency_id"
     t.text     "dependency_text"
@@ -212,7 +212,7 @@ ActiveRecord::Schema.define(:version => 20130705151214) do
   create_table "sections", :force => true do |t|
     t.string   "title"
     t.text     "description"
-    t.integer  "order"
+    t.integer  "number"
     t.integer  "version_id"
     t.integer  "organisation_id"
     t.datetime "created_at",      :null => false
@@ -275,7 +275,7 @@ ActiveRecord::Schema.define(:version => 20130705151214) do
     t.string   "title"
     t.text     "description"
     t.integer  "published"
-    t.integer  "order"
+    t.integer  "number"
     t.integer  "phase_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false

@@ -4,7 +4,7 @@ class CreateVersions < ActiveRecord::Migration
       t.string :title
       t.text :description
       t.integer :published
-      t.integer :order
+      t.integer :number
       t.references :phase
 
       t.timestamps

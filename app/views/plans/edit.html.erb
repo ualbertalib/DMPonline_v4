@@ -1,9 +1,17 @@
 <h1>Editing plan</h1>
 
-<% @plan.version.sections.each do |section| %>
+<% @plan.version.sections.order("number").each do |section| %>
+	<h2><%= section.title %></h2>
 	<% section.questions.each do |question| %>
   	<p><%= question.text %></p>
   <% end %>
+<% end %>
+
+<%= semantic_form_for @plan do |f| %>
+	<%= f.fields_for :answers do |answer| %>
+		<%= section.inputs :text, :name => "Answer" %>
+	<% end %>
+	<%= f.actions %>
 <% end %>
 
 <%= link_to 'Show', @plan %> |

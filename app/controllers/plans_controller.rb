@@ -25,6 +25,9 @@ class PlansController < ApplicationController
   # GET /plans/new.json
   def new
     @plan = Plan.new
+    @plan.answers.build
+    @plan.build_version
+    @plan.build_project
 
     respond_to do |format|
       format.html # new.html.erb

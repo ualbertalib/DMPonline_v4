@@ -4,7 +4,7 @@ class Phase < ActiveRecord::Base
   belongs_to :dmptemplate
   has_many :version
   
-  attr_accessible :description, :order, :title, :dmptemplate_id
+  attr_accessible :description, :number, :title, :dmptemplate_id
   
   def to_s
   	"#{title}"

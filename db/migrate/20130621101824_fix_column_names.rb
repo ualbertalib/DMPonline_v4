@@ -72,7 +72,7 @@ class FixColumnNames < ActiveRecord::Migration
       t.rename :question_dependency_id, :dependency_id
       t.rename :question_dependency_text, :dependency_text
       t.rename :question_guidance, :guidance
-      t.rename :question_order, :order
+      t.rename :question_order, :number
       t.rename :question_parent_id, :parent_id
       t.rename :question_suggested_answer, :suggested_answer
       t.rename :question_text, :text
@@ -80,7 +80,7 @@ class FixColumnNames < ActiveRecord::Migration
     end
     change_table :sections do |t|
       t.rename :section_desc, :description
-      t.rename :section_order, :order
+      t.rename :section_order, :number
       t.rename :section_title, :title
       t.rename :org_id, :organisation_id
     end
