@@ -3,5 +3,5 @@
 DCC_phase_1:
   title: DCC Phase 1
   description: The first phase of the DCC default template
-  order: 1
+  number: 1
   dmptemplate: DCC

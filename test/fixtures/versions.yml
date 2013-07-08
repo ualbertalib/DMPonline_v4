@@ -4,5 +4,5 @@ DCC_phase_1_version_1:
   title: DCC Phase 1 Version 1
   description: The first version of the first phase of the DCC default template
   published: 1
-  order: 1
+  number: 1
   phase: DCC_phase_1
