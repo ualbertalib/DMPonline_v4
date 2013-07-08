@@ -7,3 +7,11 @@ DCC:
   user_id: 1
   organisation_id: 1
   locale: en
+
+DMP:
+  title: DMP Template
+  description: The default DMP template
+  published: true
+  user_id: 1
+  organisation_id: 1
+  locale: en

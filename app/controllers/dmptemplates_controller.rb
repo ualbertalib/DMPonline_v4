@@ -2,7 +2,7 @@ class DmptemplatesController < ApplicationController
   # GET /dmptemplates
   # GET /dmptemplates.json
   def index
-    @dmptemplates = Dmptemplate.all
+    @dmptemplates = Dmptemplate.all(:order => "dmptemplates.created_at desc")  
 
     respond_to do |format|
       format.html # index.html.erb
