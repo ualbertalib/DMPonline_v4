@@ -4,6 +4,6 @@ class Plan < ActiveRecord::Base
   #associations between tables
   belongs_to :project
   has_many :answers
-  has_one :version
+  belongs_to :version
   
 end
