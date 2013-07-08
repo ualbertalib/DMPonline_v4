@@ -2,10 +2,17 @@
 
 <% @plan.version.sections.order("number").each do |section| %>
 	<h2><%= section.title %></h2>
-	<% section.questions.each do |q| %>
-  	<% answer = answer = Answer.find_all_by_plan_id_and_question_id(@plan.id, q.id).last %>
-  	<%= semantic_form_for answer do |f| %>
+	<% section.questions.order("number").each do |q| %>
+  	<% answer = @plan.answers.where(:question_id => q.id).order("created_at DESC").first %>
+  	<% if answer.nil? %>
+    	<% answer = Answer.new %>
+    	<% answer.plan_id = @plan.id %>
+    	<% answer.question_id = q.id %>
+    <% end %>
+  	<%= semantic_form_for answer, :url => {:controller => :answers, :action => :create }, :html=>{:method=>:post} do |f| %>
   		<%= f.inputs do %>
+  			<%= f.input :plan_id, :as => :hidden %>
+  			<%= f.input :question_id, :as => :hidden %>
   			<%= f.input :text, :label => answer.question.text %>
   		<% end %>
 			<%= f.actions %>

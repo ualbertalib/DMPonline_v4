@@ -44,9 +44,8 @@ class PlansController < ApplicationController
     		answer = Answer.find_all_by_plan_id_and_question_id(@plan.id, q.id).last
     		if answer.nil?
     			answer = Answer.new
-    			answer.plan_id = @plan.id
+    			answer.plan = @plan
     			answer.question_id = q.id
-    			answer.save
     		end
     	end
     end
