@@ -9,9 +9,9 @@ class Plan < ActiveRecord::Base
 	accepts_nested_attributes_for :answers
 	accepts_nested_attributes_for :version
   
-	def answer(qid)
+	def answer(qid, create_if_missing = true)
   		answer = answers.where(:question_id => qid).order("created_at DESC").first
-		if answer.nil?
+		if answer.nil? && create_if_missing then
 			answer = Answer.new
 			answer.plan_id = id
 			answer.question_id = qid

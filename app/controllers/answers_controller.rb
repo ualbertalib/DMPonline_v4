@@ -41,7 +41,7 @@ class AnswersController < ApplicationController
   # POST /answers.json
   def create
     @answer = Answer.new(params[:answer])
-    old_answer = Answer.find_by_question_id_and_plan_id(@answer.question_id, @answer.plan_id, :first, :order => 'created_at DESC')
+    old_answer = @answer.plan.answer(@answer.question_id, false)
     if (old_answer.nil? && @answer.text != "") || ((!old_answer.nil?) && (old_answer.text != @answer.text)) then
 		respond_to do |format|
 		  if @answer.save
