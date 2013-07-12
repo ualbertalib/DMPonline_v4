@@ -7,7 +7,8 @@
     <th>Published | </th>
     <th>User id | </th>
     <th>Organisation id</th>
-    <th></th>
+    <th>creation date</th>
+     <th>phase</th>
     <th></th>
     <th></th>
   </tr>
@@ -19,7 +20,12 @@
     <td><%= dmptemplate.published %></td>
     <td><%= dmptemplate.user_id %></td>
     <td><%= dmptemplate.organisation_id %></td>
-    <td><%= link_to 'Show', dmptemplate %></td>
+   	<td><%= dmptemplate.created_at %></td>
+   	<td><% dmptemplate.phases.each do |p| %> 
+   	 		<%= p.title %><br/>
+   		<% end %>
+   	</td>
+   	<td><%= link_to 'Show', dmptemplate %></td>
     <td><%= link_to 'Edit', edit_dmptemplate_path(dmptemplate) %></td>
     <td><%= link_to 'Destroy', dmptemplate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>

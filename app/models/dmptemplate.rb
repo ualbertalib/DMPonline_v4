@@ -3,8 +3,11 @@ class Dmptemplate < ActiveRecord::Base
   
   #associations between tables
   has_many :phases
+  
+  accepts_nested_attributes_for :phases
     
   def to_s
     "#{title}"
   end
+  
 end

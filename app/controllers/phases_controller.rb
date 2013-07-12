@@ -2,7 +2,7 @@ class PhasesController < ApplicationController
   # GET /phases
   # GET /phases.json
   def index
-    @phases = Phase.all
+    @phases = Phase.all(:include => :dmptemplate, :select => "dmptemplates.*, dmptemplates.id as dmptemplate_id") 
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +13,7 @@ class PhasesController < ApplicationController
   # GET /phases/1
   # GET /phases/1.json
   def show
-    @phase = Phase.find(params[:id])
+    @phase = Phase.find(params[:id], :include => :dmptemplate)
 
     respond_to do |format|
       format.html # show.html.erb
