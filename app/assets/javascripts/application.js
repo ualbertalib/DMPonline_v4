@@ -12,4 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require jquery.ui.tabs.js
+//= require jquery.ui.widget.js
+//= require plans.js
+// require_tree .

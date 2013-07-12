@@ -23,7 +23,8 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails', '2.3.0'
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 
 #implementation of forms

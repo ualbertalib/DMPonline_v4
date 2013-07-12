@@ -1,24 +1,28 @@
 <h1>Editing plan</h1>
 
-<% @plan.version.sections.order("number").each do |section| %>
-	<h2><%= section.title %></h2>
-	<% section.questions.order("number").each do |q| %>
-  	<% answer = @plan.answers.where(:question_id => q.id).order("created_at DESC").first %>
-  	<% if answer.nil? %>
-    	<% answer = Answer.new %>
-    	<% answer.plan_id = @plan.id %>
-    	<% answer.question_id = q.id %>
-    <% end %>
-  	<%= semantic_form_for answer, :url => {:controller => :answers, :action => :create }, :html=>{:method=>:post} do |f| %>
-  		<%= f.inputs do %>
-  			<%= f.input :plan_id, :as => :hidden %>
-  			<%= f.input :question_id, :as => :hidden %>
-  			<%= f.input :text, :label => answer.question.text %>
-  		<% end %>
-			<%= f.actions %>
+<div id="section-tabs">
+	<% sections = @plan.version.sections.order("number") %>
+	<ul>
+	<% sections.each do |section| %>
+		<li><a href="#section-tab-<%= section.id %>"><%= section.title %></a></li>
+	<% end %>
+	</ul>
+	<% sections.each do |section| %>
+		<div id="section-tab-<%= section.id %>">
+		<% section.questions.order("number").each do |q| %>
+			<% answer = @plan.answer(q.id) %>
+			<%= semantic_form_for answer, :url => {:controller => :answers, :action => :create }, :html=>{:method=>:post} do |f| %>
+				<%= f.inputs do %>
+					<%= f.input :plan_id, :as => :hidden %>
+					<%= f.input :question_id, :as => :hidden %>
+					<%= f.input :text, :label => answer.question.text %>
+				<% end %>
+				<%= f.actions %>
+			<% end %>
 		<% end %>
-  <% end %>
-<% end %>
+		</div>
+	<% end %>
+</div>
 
 <%= link_to 'Show', @plan %> |
 <%= link_to 'Back', plans_path %>

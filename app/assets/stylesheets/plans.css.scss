@@ -1,3 +1,8 @@
 // Place all the styles related to the Plans controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.formtastic {
+	ol { list-style-type: none; }
+	fieldset { border: none; }
+}

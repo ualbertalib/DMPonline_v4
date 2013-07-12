@@ -1,12 +1,21 @@
 class Plan < ActiveRecord::Base
-  attr_accessible :locked, :project_id, :version_id, :version
+	attr_accessible :locked, :project_id, :version_id, :version
 
-  #associations between tables
-  belongs_to :project
-  has_many :answers
-  belongs_to :version
-  accepts_nested_attributes_for :project
-  accepts_nested_attributes_for :answers
-  accepts_nested_attributes_for :version
+	#associations between tables
+	belongs_to :project
+	has_many :answers
+	belongs_to :version
+	accepts_nested_attributes_for :project
+	accepts_nested_attributes_for :answers
+	accepts_nested_attributes_for :version
   
+	def answer(qid)
+  		answer = answers.where(:question_id => qid).order("created_at DESC").first
+		if answer.nil?
+			answer = Answer.new
+			answer.plan_id = id
+			answer.question_id = qid
+		end
+		return answer
+	end
 end
