@@ -11,13 +11,12 @@
 		<div id="section-tab-<%= section.id %>">
 		<% section.questions.order("number").each do |q| %>
 			<% answer = @plan.answer(q.id) %>
-			<%= semantic_form_for answer, :url => {:controller => :answers, :action => :create }, :html=>{:method=>:post} do |f| %>
+			<%= semantic_form_for answer, :url => {:controller => :answers, :action => :create }, :html=>{:method=>:post}, :remote => true do |f| %>
 				<%= f.inputs do %>
 					<%= f.input :plan_id, :as => :hidden %>
 					<%= f.input :question_id, :as => :hidden %>
 					<%= f.input :text, :label => answer.question.text %>
 				<% end %>
-				<%= f.actions %>
 			<% end %>
 		<% end %>
 		</div>

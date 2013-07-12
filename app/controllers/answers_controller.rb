@@ -41,15 +41,17 @@ class AnswersController < ApplicationController
   # POST /answers.json
   def create
     @answer = Answer.new(params[:answer])
-
-    respond_to do |format|
-      if @answer.save
-        format.html { redirect_to :back, status: :found, notice: 'Answer was successfully recorded.' }
-        format.json { render json: @answer, status: :created, location: @answer }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @answer.errors, status: :unprocessable_entity }
-      end
+    old_answer = Answer.find_by_question_id_and_plan_id(@answer.question_id, @answer.plan_id, :first, :order => 'created_at DESC')
+    if (old_answer.nil? && @answer.text != "") || ((!old_answer.nil?) && (old_answer.text != @answer.text)) then
+		respond_to do |format|
+		  if @answer.save
+			format.html { redirect_to :back, status: :found, notice: 'Answer was successfully recorded.' }
+			format.json { render json: @answer, status: :created, location: @answer }
+		  else
+			format.html { render action: "new" }
+			format.json { render json: @answer.errors, status: :unprocessable_entity }
+		  end
+		end
     end
   end
 
