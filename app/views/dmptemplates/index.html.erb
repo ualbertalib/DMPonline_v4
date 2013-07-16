@@ -8,7 +8,7 @@
     <th>User id | </th>
     <th>Organisation id</th>
     <th>creation date</th>
-     <th>phase</th>
+    <th>phase</th>
     <th></th>
     <th></th>
   </tr>
@@ -22,7 +22,10 @@
     <td><%= dmptemplate.organisation_id %></td>
    	<td><%= dmptemplate.created_at %></td>
    	<td><% dmptemplate.phases.each do |p| %> 
-   	 		<%= p.title %><br/>
+   	 		<br/><%= p.title %>
+   	 		<% p.versions.each do |v| %>
+	   	 			<br/><%= v.title %>
+	   	 	<% end %>
    		<% end %>
    	</td>
    	<td><%= link_to 'Show', dmptemplate %></td>

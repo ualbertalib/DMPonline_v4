@@ -3,5 +3,6 @@ class Project < ActiveRecord::Base
 
    #associations between tables
    belongs_to :dmptemplate
+   has_many :plans
    
 end

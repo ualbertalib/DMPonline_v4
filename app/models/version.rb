@@ -4,8 +4,11 @@ class Version < ActiveRecord::Base
   belongs_to :phase
   has_many :sections
   has_many :plans
-  attr_accessible :description, :number, :published, :title, :phase_id
+  
+  #Link the child's data
   accepts_nested_attributes_for :sections
+  
+  attr_accessible :description, :number, :published, :title, :phase_id
   
   def to_s
   	"#{title}"

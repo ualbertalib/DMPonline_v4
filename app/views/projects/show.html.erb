@@ -1,25 +1,46 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Project title:</b>
-  <%= @project.title %>
-</p>
-
-<p>
-  <b>Project note:</b>
-  <%= @project.note %>
-</p>
-
-<p>
-  <b>Project locked:</b>
-  <%= @project.locked %>
-</p>
-
-<p>
-  <b>Dmptemplate:</b>
-  <%= @project.dmptemplate_id %>
-</p>
-
-
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+<div id="project-tabs">
+	<ul>
+		<!-- Project details (views/projects/_project_details.html.erb)-->
+		<li>
+			<%= render "project_details" %>
+		</li>
+		<!-- Plans (phases)-->
+		<% @project.plans.each do |plan| %>
+			<li>
+				<a href="#project-tab-<%= plan.id %>">
+					<%= plan.version.title %>
+					
+				</a>
+			</li>
+		<% end %>
+	</ul>
+</div>	
+<!--
+<% if false %>
+	<p>
+	  <b>Project title:</b>
+	  <%= @project.title %>
+	</p>
+	
+	<p>
+	  <b>Project note:</b>
+	  <%= @project.note %>
+	</p>
+	
+	<p>
+	  <b>Project locked:</b>
+	  <%= @project.locked %>
+	</p>
+	
+	<p>
+	  <b>Dmptemplate:</b>
+	  <%= @project.dmptemplate_id %>
+	</p>
+	
+	
+	<%= link_to 'Edit', edit_project_path(@project) %> |
+	<%= link_to 'Back', projects_path %>
+<% end %>
+-->

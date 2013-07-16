@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
+    @projects = Project.all(:include => :dmptemplate, :select => "dmptemplates.*, dmptemplates.id as dmptemplate_id")
 
     respond_to do |format|
       format.html # index.html.erb
