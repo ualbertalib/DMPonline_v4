@@ -12,25 +12,11 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :locked %><br />
-    <%= f.check_box :locked %>
-  </div>
-  <div class="field">
-    <%= f.label :project_id %><br />
-    <%= f.number_field :project_id %>
-  </div>
-  <div class="field">
-    <%= f.label :version_id %><br />
-    <%= f.number_field :version_id %>
-  </div>
   
-  
-  
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= semantic_form_for @plan do |f| %>
+    <%= f.inputs :version %>
+    <%= f.actions %>
+  <% end %>
 <% end %>
 
 <%= link_to 'Back', plans_path %>

@@ -25,9 +25,6 @@ class PlansController < ApplicationController
   # GET /plans/new.json
   def new
     @plan = Plan.new
-    @plan.answers.build
-    @plan.build_version
-    @plan.build_project
 
     respond_to do |format|
       format.html # new.html.erb
@@ -47,7 +44,7 @@ class PlansController < ApplicationController
 
     respond_to do |format|
       if @plan.save
-        format.html { redirect_to @plan, notice: 'Plan was successfully created.' }
+        format.html { render action: "edit" }
         format.json { render json: @plan, status: :created, location: @plan }
       else
         format.html { render action: "new" }
