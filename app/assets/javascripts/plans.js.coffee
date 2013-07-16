@@ -3,10 +3,11 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 jQuery ($)->
-	$( "#sections-accordion" ).accordion({
-		heightStyle: "content",
+	$("#sections-accordion").accordion
+		heightStyle: "content"
 		collapsible: true
-	})
+		
+		
 	#$( "form.answer textarea" ). blur(->
 		#$(this).parents('form:first').submit()
 	#)
