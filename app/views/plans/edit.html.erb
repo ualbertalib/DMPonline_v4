@@ -15,12 +15,14 @@
 				<%= f.inputs do %>
 					<%= f.input :plan_id, :as => :hidden %>
 					<%= f.input :question_id, :as => :hidden %>
-					<%= f.input :text, :label => answer.question.text %>
+					<%= label_tag("answer_text_#{q.id}".to_sym, answer.question.text) %><%= text_area_tag("answer_text_#{q.id}".to_sym, answer.text, class: "tinymce") %>
 				<% end %>
+				<%= f.actions %>
 			<% end %>
 		<% end %>
 		</div>
 	<% end %>
+	<%= tinymce %>
 </div>
 
 <%= link_to 'Show', @plan %> |

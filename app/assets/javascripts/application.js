@@ -14,5 +14,6 @@
 //= require jquery_ujs
 //= require jquery.ui.tabs.js
 //= require jquery.ui.widget.js
+//= require tinymce
 //= require plans.js
 // require_tree .

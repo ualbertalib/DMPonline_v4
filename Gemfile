@@ -26,6 +26,7 @@ end
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
+gem 'tinymce-rails'
 
 #implementation of forms
 gem 'activeadmin'

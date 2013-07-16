@@ -41,6 +41,7 @@ class AnswersController < ApplicationController
   # POST /answers.json
   def create
     @answer = Answer.new(params[:answer])
+    @answer.text = params["answer_text_#{@answer.question_id}".to_sym]
     old_answer = @answer.plan.answer(@answer.question_id, false)
     if (old_answer.nil? && @answer.text != "") || ((!old_answer.nil?) && (old_answer.text != @answer.text)) then
 		respond_to do |format|

@@ -4,6 +4,6 @@
 
 jQuery ($)->
 	$( "#section-tabs" ).tabs()
-	$( "form.answer textarea" ). blur(->
-		$(this).parents('form:first').submit()
-	)
+	#$( "form.answer textarea" ). blur(->
+		#$(this).parents('form:first').submit()
+	#)
