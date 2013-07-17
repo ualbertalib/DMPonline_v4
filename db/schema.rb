@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130708115038) do
+ActiveRecord::Schema.define(:version => 20130717093814) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -139,9 +139,11 @@ ActiveRecord::Schema.define(:version => 20130708115038) do
     t.integer  "dmptemplate_id"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+    t.string   "slug"
   end
 
   add_index "phases", ["dmptemplate_id"], :name => "index_phases_on_dmptemplate_id"
+  add_index "phases", ["slug"], :name => "index_phases_on_slug", :unique => true
 
   create_table "plan_sections", :force => true do |t|
     t.boolean  "edit"
@@ -185,7 +187,10 @@ ActiveRecord::Schema.define(:version => 20130708115038) do
     t.integer  "dmptemplate_id"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+    t.string   "slug"
   end
+
+  add_index "projects", ["slug"], :name => "index_projects_on_slug", :unique => true
 
   create_table "questions", :force => true do |t|
     t.text     "text"
