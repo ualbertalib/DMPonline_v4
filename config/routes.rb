@@ -20,7 +20,11 @@ DMPonline4::Application.routes.draw do
   resources :guidances
   
   resources :answers
-  resources :plans
+  resources :plans do
+  	member do
+		get 'status'
+	  end
+  end
   resources :plan_sections
   
   resources :projects
@@ -40,7 +44,6 @@ DMPonline4::Application.routes.draw do
  
   resources :file_types
   resources :file_uploads
-  
    
   # The priority is based upon order of creation:
   # first created -> highest priority.
