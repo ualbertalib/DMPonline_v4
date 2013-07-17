@@ -6,3 +6,25 @@
 	ol { list-style-type: none; }
 	fieldset { border: none; }
 }
+
+#sections-accordion {
+	.question-form {
+		float:left;
+		width:60%;
+	}
+	.question-guidance {
+		float:right;
+		width:40%;
+	}
+	label {
+		font-size: 1.2em;
+		font-weight: bold;
+	}
+	.guidance_header {
+		font-weight: bold;
+	}
+}
+
+.two-column-clear {
+	clear: both;
+}
