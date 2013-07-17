@@ -1,21 +1,30 @@
 <p id="notice"><%= notice %></p>
 
-<div id="project-tabs">
-	<ul>
-		<!-- Project details (views/projects/_project_details.html.erb)-->
-		<li>
-			<%= render "project_details" %>
-		</li>
-		<!-- Plans (phases)-->
-		<% @project.plans.each do |plan| %>
-			<li>
-				<a href="#project-tab-<%= plan.id %>">
-					<%= plan.version.title %>
-					
-				</a>
+<div class= "main-body">
+	
+	<!-- project navigation -->
+	<div id="project-tabs">
+		<ul>
+			<!-- Project details (views/projects/_project_details.html.erb)-->
+			<li id="project-tab-active">
+				<%= link_to (@project) do %>
+					<%= @project.title %>
+				<% end %>
 			</li>
-		<% end %>
-	</ul>
+			<!-- Plans (phases)-->
+			<% @project.plans.each do |plan| %>
+				<li class="">
+					<%= link_to (plan) do %>
+						<%= plan.version.phase.title %>
+					<% end %>
+				</li>
+			<% end %>
+		</ul>
+	</div>
+	<!-- Main content to show project details-->
+	<div class="main-content">
+		<%= render "project_details" %>
+	</div>		
 </div>	
 <!--
 <% if false %>
