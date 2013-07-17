@@ -1,5 +1,5 @@
 <h1>Editing plan</h1>
-<div id="questions-progress"></div>
+<div id="questions-progress" data-plan-id="<%= @plan.slug %>"><div class="progress-label">Loading...</div></div>
 <div id="sections-accordion">
 	<% sections = @plan.version.sections.order("number") %>
 	<% sections.each do |section| %>

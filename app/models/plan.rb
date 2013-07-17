@@ -29,16 +29,18 @@ class Plan < ActiveRecord::Base
 	end
 	
 	def status
-		num_questions = 0
-		num_answers = 0
+		status = {
+			"num_questions" => 0,
+			"num_answers" => 0
+		}
 		version.sections.each do |s|
 			s.questions.each do |q|
-				num_questions += 1
+				status["num_questions"] += 1
 				if ! answer(q.id, false).nil? then
-					num_answers += 1
+					status["num_answers"] += 1
 				end
 			end
 		end
-		status = [num_questions, num_answers]
+		return status
 	end
 end
