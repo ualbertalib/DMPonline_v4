@@ -55,3 +55,5 @@ public/assets/manifest.yml
 public/assets/rails-a3386665c05a2d82f711a4aaa72d247c.png
 
 public/assets/rails.png
+
+db/schema.rb
