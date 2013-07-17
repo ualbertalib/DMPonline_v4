@@ -2,6 +2,7 @@ class Question < ActiveRecord::Base
 
   #associations between tables
   has_many :answers
+  has_many :options
   has_and_belongs_to_many :themes
   belongs_to :section
   accepts_nested_attributes_for :answers

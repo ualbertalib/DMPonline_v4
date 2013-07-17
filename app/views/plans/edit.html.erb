@@ -7,18 +7,31 @@
 		<div>
 		<% section.questions.order("number").each do |q| %>
 			<% answer = @plan.answer(q.id) %>
-			<div class="question-form">
 			<%= semantic_form_for answer, :url => {:controller => :answers, :action => :create }, :html=>{:method=>:post}, :remote => true do |f| %>
 				<%= f.inputs do %>
 					<%= f.input :plan_id, :as => :hidden %>
 					<%= f.input :question_id, :as => :hidden %>
-					<%= label_tag("answer_text_#{q.id}".to_sym, answer.question.text) %><%= text_area_tag("answer_text_#{q.id}".to_sym, answer.text, class: "tinymce") %>
+					<% if q.multiple_choice %>
+						<% options = q.options.map %>
+						<% if q.multiple_permitted %>
+							<% if q.is_expanded %>
+								<%= f.input :options, :as => :check_boxes, :collection => options, :label => q.text %>
+							<% else %>
+								<%= f.input :options, :as => :select, :collection => options, :label => q.text, :input_html => { :multiple => true } %>
+							<% end %>
+						<% else %>
+							<% if q.is_expanded %>
+								<%= f.input :options, :as => :radio, :collection => options, :label => q.text %>
+							<% else %>
+								<%= f.input :options, :as => :select, :collection => options, :label => q.text, :input_html => { :multiple => false } %>
+							<% end %>
+						<% end %>
+					<% else %> 
+					<%= label_tag("answer_text_#{q.id}".to_sym, q.text) %><%= text_area_tag("answer_text_#{q.id}".to_sym, answer.text, class: "tinymce") %>
+					<% end %>
 				<% end %>
 				<%= f.actions %>
 			<% end %>
-			</div>
-			<div class="question-guidance"><%= raw answer.question.guidance %></div>
-			<div class="two-column-clear"></div>
 		<% end %>
 		</div>
 	<% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130717115239) do
+ActiveRecord::Schema.define(:version => 20130717130107) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -55,6 +55,13 @@ ActiveRecord::Schema.define(:version => 20130717115239) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "answers_options", :id => false, :force => true do |t|
+    t.integer "answer_id", :null => false
+    t.integer "option_id", :null => false
+  end
+
+  add_index "answers_options", ["answer_id", "option_id"], :name => "index_answers_options_on_answer_id_and_option_id"
+
   create_table "dmptemplates", :force => true do |t|
     t.string   "title"
     t.text     "description"
@@ -94,6 +101,15 @@ ActiveRecord::Schema.define(:version => 20130717115239) do
     t.integer  "theme_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+  end
+
+  create_table "options", :force => true do |t|
+    t.integer  "question_id"
+    t.string   "text"
+    t.integer  "number"
+    t.boolean  "is_default"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "organisation_types", :force => true do |t|
@@ -206,8 +222,11 @@ ActiveRecord::Schema.define(:version => 20130717115239) do
     t.integer  "dependency_id"
     t.text     "dependency_text"
     t.integer  "section_id"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.boolean  "multiple_choice"
+    t.boolean  "multiple_permitted"
+    t.boolean  "is_expanded"
   end
 
   create_table "questions_themes", :id => false, :force => true do |t|
