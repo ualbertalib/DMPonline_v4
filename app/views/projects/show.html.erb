@@ -1,7 +1,8 @@
-<p id="notice"><%= notice %></p>
+
 
 <div class= "main-body">
 	
+	<p id="notice"><%= notice %></p>
 	<!-- project navigation -->
 	<div id="project-tabs">
 		<ul>
@@ -26,30 +27,3 @@
 		<%= render "project_details" %>
 	</div>		
 </div>	
-<!--
-<% if false %>
-	<p>
-	  <b>Project title:</b>
-	  <%= @project.title %>
-	</p>
-	
-	<p>
-	  <b>Project note:</b>
-	  <%= @project.note %>
-	</p>
-	
-	<p>
-	  <b>Project locked:</b>
-	  <%= @project.locked %>
-	</p>
-	
-	<p>
-	  <b>Dmptemplate:</b>
-	  <%= @project.dmptemplate_id %>
-	</p>
-	
-	
-	<%= link_to 'Edit', edit_project_path(@project) %> |
-	<%= link_to 'Back', projects_path %>
-<% end %>
--->

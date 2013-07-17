@@ -1,33 +1,36 @@
 <!-- Project title = default title is the template title plus date of creation -->
-	<h2>
-		<%= @project.title %>
-	</h2>
-	<!-- to be displayed only if user is project creator -->
-	<div class="style_link_button">
-		<%= link_to t('helpers.edit.project'), edit_project_path(@project) %>
-	</div>
-	<!-- template description -->
-	<p>
-		<%= @project.dmptemplate.description %>
-	</p>
-	<!-- If project has phases-->
-	<% if @project.dmptemplate.phases.any? %>
-		<% @project.dmptemplate.phases.each do |phase| %>
-			<div class='project_details_phase'>
-				<h3>
-					<%= phase.title %>
-				</h3>
-				
-				<% if phase.versions.any? %>
+	<div class="project-details">
+		<h2>
+			<%= @project.title %>
+		</h2>
+		<!-- to be displayed only if user is project creator -->
+		<div class="style_link_button">
+			<%= link_to t('helpers.edit.project'), edit_project_path(@project) %>
+		</div>
+		<!-- template description -->
+		<p>
+			<%= @project.dmptemplate.description %>
+		</p>
+	</div>	
+		
+	<!-- If project has plans-->
+	<div class="plans-details">
+		<% if @project.plans.any? %>
+			<% @project.plans.each do |plan| %>
+				<div class='project_details_plan'>
+					<h3>
+						<%= plan.version.phase.title %>
+					</h3>
 					<ul>
-					<% version = phase.versions.where(:published => '1').order("created_at DESC").first %>
-					<% version.sections.each do |section| %>
-						<li>
-							<%= section.title %>
-						</li>
-					<% end %>	
+						<% if !plan.version.sections.nil? %>
+							<% plan.version.sections.each do |section| %>
+								<li>
+									<%= section.title %>
+								</li>
+							<% end %>	
+						<% end %>	
 					</ul>
-				<% end %>		
-			</div>
-		<%end%>
-	<% end %>
+				</div>
+			<% end %>
+		<% end %>
+	</div>
