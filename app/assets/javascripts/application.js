@@ -13,14 +13,14 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.accordion.js
-//= require jquery.ui.tabs.js
 //= require jquery.ui.widget.js
 //= require jquery.ui.progressbar.js
 //= require tinymce
 //= require plans.js
 //= require bootstrap
-//= require bootstrap-dropdown
-//= require bootstrap-tabs
+//= require v1
+
+
 
 $(function(){
 	$('.dropdown-toggle').dropdown()

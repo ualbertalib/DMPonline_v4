@@ -10,9 +10,8 @@
         <!-- Plans (phases)-->
         <% @project.plans.each do |plan| %>
             <li>
-                <%= link_to (plan) do %>
-                <%= plan.version.phase.title %>
-                <% end %>
+                <%= link_to plan.version.phase.title, [:edit, plan]%>
+                  
             </li>
         <% end %>
     </ul>
