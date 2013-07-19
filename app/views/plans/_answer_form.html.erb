@@ -1,0 +1,26 @@
+<% answer = @plan.answer(question.id) %>
+<%= semantic_form_for answer, :url => {:controller => :answers, :action => :create }, :html=>{:method=>:post}, :remote => true do |f| %>
+	<%= f.inputs do %>
+		<%= f.input :plan_id, :as => :hidden %>
+		<%= f.input :question_id, :as => :hidden %>
+		<% if question.multiple_choice %>
+			<% options = question.options.map %>
+			<% if question.multiple_permitted %>
+				<% if question.is_expanded %>
+					<%= f.input :options, :as => :check_boxes, :collection => options, :label => question.text %>
+				<% else %>
+					<%= f.input :options, :as => :select, :collection => options, :label => question.text, :input_html => { :multiple => true } %>
+				<% end %>
+			<% else %>
+				<% if question.is_expanded %>
+					<%= f.input :options, :as => :radio, :collection => options, :label => question.text %>
+				<% else %>
+					<%= f.input :options, :as => :select, :collection => options, :label => question.text, :input_html => { :multiple => false } %>
+				<% end %>
+			<% end %>
+		<% else %> 
+		<%= label_tag("answer_text_#{question.id}".to_sym, question.text) %><%= text_area_tag("answer_text_#{question.id}".to_sym, answer.text, class: "tinymce") %>
+		<% end %>
+	<% end %>
+	<%= f.actions %>
+<% end %>
