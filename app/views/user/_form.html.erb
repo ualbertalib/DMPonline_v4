@@ -1,0 +1,62 @@
+<%= form_for @user, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :firstname, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :firstname, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :surname, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :surname, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :email, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :email, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :password, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :password, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :orcid_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :orcid_id, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :shibboleth_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :shibboleth_id, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :user_type_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :user_type_id, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :user_status_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :user_status_id, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :last_login, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.datetime_select :last_login, :class => 'datetime_select' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                user_path, :class => 'btn' %>
+  </div>
+<% end %>

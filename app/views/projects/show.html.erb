@@ -1,29 +1,28 @@
+<%- model_class = Project -%>
 
-
+<!-- project navigation -->
+<div id="project-tabs">
+    <ul class="nav nav-tabs" data-tabs="tabs">
+        <!-- Project details (views/projects/_project_details.html.erb)-->
+        <li class="active">
+            <a href="#tabs-1">Plan details</a>
+        </li>
+        <!-- Plans (phases)-->
+        <% @project.plans.each do |plan| %>
+            <li>
+                <%= link_to (plan) do %>
+                <%= plan.version.phase.title %>
+                <% end %>
+            </li>
+        <% end %>
+    </ul>
+</div>
 <div class= "main-body">
-	
-	<p id="notice"><%= notice %></p>
-	<!-- project navigation -->
-	<div id="project-tabs">
-		<ul>
-			<!-- Project details (views/projects/_project_details.html.erb)-->
-			<li id="project-tab-active">
-				<%= link_to (@project) do %>
-					<%= @project.title %>
-				<% end %>
-			</li>
-			<!-- Plans (phases)-->
-			<% @project.plans.each do |plan| %>
-				<li class="">
-					<%= link_to (plan) do %>
-						<%= plan.version.phase.title %>
-					<% end %>
-				</li>
-			<% end %>
-		</ul>
-	</div>
-	<!-- Main content to show project details-->
-	<div class="main-content">
-		<%= render "project_details" %>
-	</div>		
-</div>	
+    <p id="notice"><%= notice %></p>
+   
+        <!-- Main content to show project details-->
+    <div class="main-content" id="#tabs-1">
+        <%= render "project_details" %>
+    </div>      
+</div> 
+

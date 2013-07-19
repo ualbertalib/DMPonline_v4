@@ -17,4 +17,11 @@
 //= require jquery.ui.widget.js
 //= require tinymce
 //= require plans.js
-// require_tree .
+//= require bootstrap
+//= require bootstrap-dropdown
+//= require bootstrap-tabs
+
+$(function(){
+	$('.dropdown-toggle').dropdown()
+	$('.nav-tabs').tabs()
+});

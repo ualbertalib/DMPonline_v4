@@ -1,33 +1,38 @@
-<%= form_for(@project) do |f| %>
-  <% if @project.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
-
-      <ul>
-      <% @project.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<%= form_for @project, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :title, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :title, :class => 'text_field' %>
     </div>
-  <% end %>
+  </div>
+  <div class="control-group">
+    <%= f.label :note, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :note, :class => 'text_area' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :locked, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :locked, :class => 'check_box' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :dmptemplate_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :dmptemplate_id, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :slug, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :slug, :class => 'text_field' %>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :note %><br />
-    <%= f.text_area :note %>
-  </div>
-  <div class="field">
-    <%= f.label :locked %><br />
-    <%= f.check_box :locked %>
-  </div>
-  <div class="field">
-    <%= f.label :dmptemplate_id %><br />
-    <%= f.number_field :dmptemplate_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                projects_path, :class => 'btn' %>
   </div>
 <% end %>
