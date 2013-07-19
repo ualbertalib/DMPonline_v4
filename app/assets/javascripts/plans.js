@@ -10,7 +10,7 @@ $( document ).ready(function() {
 			max: data.num_questions,
 			value: data.num_answers
 		});
-		$(".progress-label").text(data.num_answers+" of "+data.num_questions+" answered.");
+		$(".progress-label").text(data.num_answers+" of "+data.num_questions+" questions answered.");
 	});
 
 });

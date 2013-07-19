@@ -1,0 +1,6 @@
+<h3><%= section.title %></h3>
+<div>
+<% section.questions.order("number").each do |question| %>
+	<%= render partial: "answer_form", locals: {question: question} %>
+<% end %>
+</div>

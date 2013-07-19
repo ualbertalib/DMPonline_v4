@@ -3,37 +3,7 @@
 <div id="sections-accordion">
 	<% sections = @plan.version.sections.order("number") %>
 	<% sections.each do |section| %>
-		<h3><%= section.title %></h3>
-		<div>
-		<% section.questions.order("number").each do |q| %>
-			<% answer = @plan.answer(q.id) %>
-			<%= semantic_form_for answer, :url => {:controller => :answers, :action => :create }, :html=>{:method=>:post}, :remote => true do |f| %>
-				<%= f.inputs do %>
-					<%= f.input :plan_id, :as => :hidden %>
-					<%= f.input :question_id, :as => :hidden %>
-					<% if q.multiple_choice %>
-						<% options = q.options.map %>
-						<% if q.multiple_permitted %>
-							<% if q.is_expanded %>
-								<%= f.input :options, :as => :check_boxes, :collection => options, :label => q.text %>
-							<% else %>
-								<%= f.input :options, :as => :select, :collection => options, :label => q.text, :input_html => { :multiple => true } %>
-							<% end %>
-						<% else %>
-							<% if q.is_expanded %>
-								<%= f.input :options, :as => :radio, :collection => options, :label => q.text %>
-							<% else %>
-								<%= f.input :options, :as => :select, :collection => options, :label => q.text, :input_html => { :multiple => false } %>
-							<% end %>
-						<% end %>
-					<% else %> 
-					<%= label_tag("answer_text_#{q.id}".to_sym, q.text) %><%= text_area_tag("answer_text_#{q.id}".to_sym, answer.text, class: "tinymce") %>
-					<% end %>
-				<% end %>
-				<%= f.actions %>
-			<% end %>
-		<% end %>
-		</div>
+		<%= render partial: "section", locals: {section: section} %>
 	<% end %>
 </div>
 <%= tinymce %>
