@@ -27,4 +27,20 @@ class Plan < ActiveRecord::Base
 	def project_and_phase
 		"#{project.title} #{version.phase.title}"
 	end
+	
+	def status
+		status = {
+			"num_questions" => 0,
+			"num_answers" => 0
+		}
+		version.sections.each do |s|
+			s.questions.each do |q|
+				status["num_questions"] += 1
+				if ! answer(q.id, false).nil? then
+					status["num_answers"] += 1
+				end
+			end
+		end
+		return status
+	end
 end

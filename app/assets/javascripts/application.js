@@ -15,6 +15,7 @@
 //= require jquery.ui.accordion.js
 //= require jquery.ui.tabs.js
 //= require jquery.ui.widget.js
+//= require jquery.ui.progressbar.js
 //= require tinymce
 //= require plans.js
 //= require bootstrap

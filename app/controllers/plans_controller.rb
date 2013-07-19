@@ -80,4 +80,12 @@ class PlansController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  	# GET /status/1.json
+	def status
+  		@plan = Plan.find(params[:id])
+		respond_to do |format|
+			format.json { render json: @plan.status }
+		end
+	end
 end
