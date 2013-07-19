@@ -1,12 +1,24 @@
-<h1>Editing plan</h1>
-<div id="questions-progress" data-plan-id="<%= @plan.slug %>"><div class="progress-label">Loading...</div></div>
-<div id="sections-accordion">
+<%- model_class = Plan -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h1>
+</div>
+<% status = @plan.status %>
+<div class="progress">
+  <div id="questions-progress" class="bar" style="width: <%= number_to_percentage(status["num_answers"].to_f/status["num_questions"].to_f*100) %>;"><%= status["num_answers"] %> of <%= status["num_questions"] %> answered</div>
+</div>
+<div class="accordion" id="sections-accordion">
 	<% sections = @plan.version.sections.order("number") %>
 	<% sections.each do |section| %>
-		<%= render partial: "section", locals: {section: section} %>
+		<div class="accordion-group">
+			<div class="accordion-heading"><a class="accordion-toggle" data-toggle="collapse" data-parent="#sections-accordion" href="#collapse-<%= section.id%>"><%= section.title %></a></div>
+			<div id="collapse-<%= section.id%>" class="accordion-body collapse">
+				<div class="accordion-inner">
+				<% section.questions.order("number").each do |question| %>
+					<%= render partial: "answer_form", locals: {question: question} %>
+				<% end %>
+				</div>
+			</div>
+		</div>
 	<% end %>
 </div>
 <%= tinymce %>
-
-<%= link_to 'Show', @plan %> |
-<%= link_to 'Back', plans_path %>

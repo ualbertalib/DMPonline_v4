@@ -1,4 +1,11 @@
-theme_advanced_buttons3_add:
-  - tablecontrols
+statusbar: false
+menubar: false
+toolbar:
+  - bold
+  - italic
+  - formatselect
+  - bullist
+  - numlist
+  - table
 plugins:
   - table
