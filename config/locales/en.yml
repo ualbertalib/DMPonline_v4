@@ -29,6 +29,7 @@ en:
     am: "am"
     pm: "pm"
 
+  tool_title: "DMPonline"
 
   helpers:
     submit:
@@ -36,12 +37,10 @@ en:
       update: "Update"
     title: "Title"
     desc: "Description"
-    
-    
-    
-    edit:
-      project: "Edit plan details"
-    
+     
+    project:
+      edit: "(Edit plan details)"
+      tab_plan: "Plan details"
         
       
   

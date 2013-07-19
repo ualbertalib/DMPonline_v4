@@ -18,20 +18,19 @@ body {
         margin-bottom: 25px;
         padding: 0;
         background-color: #2b4e4e;
-        font-family: "Lucida Grande", "Bitstream Vera Sans", "Verdana";
+        font-family: "Lucida Grande","Verdana";
         font-size: 13px;
         color: #333;
       }
 
       h1 {
         font-size: 28px;
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
         color: #f78d10;
       }
       
       h2, h3, h4 {
          color: #f78d10;  
-         font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+         
       }
 
       a  {color: #03c}
