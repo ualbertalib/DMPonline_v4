@@ -23,4 +23,10 @@
 		<% end %>
 	<% end %>
 	<%= f.actions %>
+	<% if answer.created_at.nil? then %>
+		<span id='<%= question.id %>-status' class="label label-warning answer-status"><%= "Not answered yet" %></span>
+	<% else %>
+		<span id='<%= question.id %>-status' class="label label-info answer-status"><abbr class="timeago" title="<%= answer.created_at.utc.iso8601 %>"><%= answer.created_at %></abbr></span>
+	<% end %>
+	
 <% end %>

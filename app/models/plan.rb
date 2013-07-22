@@ -31,13 +31,19 @@ class Plan < ActiveRecord::Base
 	def status
 		status = {
 			"num_questions" => 0,
-			"num_answers" => 0
+			"num_answers" => 0,
+			"questions" => {
+			}
 		}
 		version.sections.each do |s|
 			s.questions.each do |q|
 				status["num_questions"] += 1
-				if ! answer(q.id, false).nil? then
+				answer = answer(q.id, false)
+				if ! answer.nil? then
 					status["num_answers"] += 1
+					status["questions"][q.id] = answer.created_at
+				else
+					status["questions"][q.id] = nil
 				end
 			end
 		end
