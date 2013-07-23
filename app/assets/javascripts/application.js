@@ -19,11 +19,11 @@
 //= require tinymce
 //= require plans.js
 //= require bootstrap
-//= require v1
+//= require v1.js
 
 
 
 $(function(){
 	$('.dropdown-toggle').dropdown()
-	$('.nav-tabs').tabs()
+
 });

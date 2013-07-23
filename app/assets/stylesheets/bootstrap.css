@@ -898,6 +898,7 @@ hr {
   border: 0;
   border-top: 1px solid #eeeeee;
   border-bottom: 1px solid #ffffff;
+  clear: both;
 }
 
 abbr[title],

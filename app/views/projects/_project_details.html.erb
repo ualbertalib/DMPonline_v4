@@ -1,14 +1,17 @@
 <!-- Project title = default title is the template title plus date of creation -->
 	<div class="project-details">
-		<dl class="dl-horizontal">
-    		<dt><h3><%= @project.title %></h3>
-                <!-- to be displayed only if user is project creator -->
-               <div class='link-inline'>
+	    <div id="project-details">
+            <h3 id="project-title">
+                <%= @project.title %>
+            </h3>
+             <!-- to be displayed only if user is project creator -->
+                <div class='link-inline'>
                     <%= link_to t('.edit', :default => t("helpers.project.edit")),edit_project_path(@project) %>
-               </div>
-            </dt>
-            <dd></dd>
-            <!-- template description -->
+                </div>    
+        </div> 
+        <hr>
+         <!-- template description -->   
+		<dl class="dl-horizontal">
     		<dt></dt>
             <dd><%= @project.dmptemplate.description %></dd>
     	</dl>
@@ -22,14 +25,15 @@
 					<h4>
 						<%= plan.version.phase.title %>
 					</h4>
-					<dl class="dl-horizontal">
-                        <% if !plan.version.sections.nil? %>
-                            <% plan.version.sections.each do |section| %>
+					<hr>
+					<% if !plan.version.sections.nil? %>
+                        <% plan.version.sections.each do |section| %>
+                            <dl class="dl-horizontal">
                                 <dt></dt>
                                 <dd><%= section.title %></dd>
-                        	<% end %>	
-						<% end %>	
-					</dl>
+                        	</dl>
+                        <% end %>	
+					<% end %>	
 				</div>
 			<% end %>
 		<% end %>

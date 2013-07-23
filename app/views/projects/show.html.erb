@@ -1,21 +1,8 @@
 <%- model_class = Project -%>
+<!-- navigation tabs for the project-->
+<%= render "project_nav_tabs" %>
 
-<!-- project navigation -->
-<div id="project-tabs">
-    <ul class="nav nav-tabs" data-tabs="tabs">
-        <!-- Project details (views/projects/_project_details.html.erb)-->
-        <li class="active">
-            <a href="#tabs-1"><%= t('helpers.project.tab_plan')%></a>
-        </li>
-        <!-- Plans (phases)-->
-        <% @project.plans.each do |plan| %>
-            <li>
-                <%= link_to plan.version.phase.title, [:edit, plan]%>
-                  
-            </li>
-        <% end %>
-    </ul>
-</div>
+<!-- project details -->
 <div class= "main-body">
     <p id="notice"><%= notice %></p>
    

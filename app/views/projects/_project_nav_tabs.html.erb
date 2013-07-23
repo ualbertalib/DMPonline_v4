@@ -1,0 +1,21 @@
+<!-- project navigation -->
+<script>
+  $(function(){
+        $('.nav-tabs').tabs()
+    });
+</script>    
+<div id="project-tabs">
+    <ul class="nav nav-tabs" data-tabs="tabs">
+        <!-- Project details (views/projects/_project_details.html.erb)-->
+        <li class="active">
+            <%= link_to t('helpers.project.tab_plan'), @project %>
+        </li>
+        <!-- Plans (phases)-->
+        <% @project.plans.each do |plan| %>
+            <li>
+                <%= link_to plan.version.phase.title, [:edit, plan]%>
+                  
+            </li>
+        <% end %>
+    </ul>
+</div>

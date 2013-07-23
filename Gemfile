@@ -18,7 +18,7 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   
   gem 'less-rails'
-  gem 'therubyracer'
+  gem 'therubyracer', '0.11.4'
   gem 'libv8'
   gem 'twitter-bootstrap-rails'
   
