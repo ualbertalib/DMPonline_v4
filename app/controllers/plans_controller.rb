@@ -38,6 +38,7 @@ class PlansController < ApplicationController
   # GET /plans/1/edit
   def edit
     @plan = Plan.find(params[:id])
+    @plan.lock_all_sections
   end
 
   # POST /plans

@@ -1,4 +1,5 @@
 <% answer = @plan.answer(question.id) %>
+<div class="question-form">
 <%= semantic_form_for answer, :url => {:controller => :answers, :action => :create }, :html=>{:method=>:post}, :remote => true do |f| %>
 	<%= f.inputs do %>
 		<%= f.input :plan_id, :as => :hidden %>
@@ -28,5 +29,7 @@
 	<% else %>
 		<span id='<%= question.id %>-status' class="label label-info answer-status"><abbr class="timeago" title="<%= answer.created_at.utc.iso8601 %>"><%= answer.created_at %></abbr></span>
 	<% end %>
-	
 <% end %>
+</div>
+<div class="question-guidance"><%= raw answer.question.guidance %></div>
+<div class="two-column-clear"></div>

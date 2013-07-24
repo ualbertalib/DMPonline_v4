@@ -32,7 +32,8 @@ class Plan < ActiveRecord::Base
 		status = {
 			"num_questions" => 0,
 			"num_answers" => 0,
-			"sections" => {}
+			"sections" => {},
+			"questions" => {}
 		}
 		version.sections.each do |s|
 			section_questions = 0
@@ -43,6 +44,12 @@ class Plan < ActiveRecord::Base
 				section_questions += 1
 				answer = answer(q.id, false)
 				if ! answer.nil? then
+					status["questions"][q.id] = {
+						"answer_id" => answer.id,
+						"answer_created_at" => answer.created_at.to_i,
+						"answer_text" => answer.text,
+						"answer_option_ids" => answer.option_ids
+					}
 					status["num_answers"] += 1
 					section_answers += 1
 				end
@@ -51,5 +58,21 @@ class Plan < ActiveRecord::Base
 			end
 		end
 		return status
+	end
+	
+	def locked(section_id)
+		
+	end
+	
+	def lock_all_sections
+		
+	end
+	
+	def unlock_all_sections
+		
+	end
+	
+	def toggle_section(section_id)
+		
 	end
 end
