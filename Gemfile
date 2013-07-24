@@ -37,6 +37,14 @@ gem 'friendly_id'
 #implementation of forms
 gem 'activeadmin'
 
+# devise for user authentication
+gem 'devise'
+
+#cancan for usergroups
+gem 'cancan'
+
+#rolify for roles
+gem 'rolify'
 # Gems for repository integration
 gem 'email_validator'
 gem 'validate_url'

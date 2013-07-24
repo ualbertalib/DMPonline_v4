@@ -63,6 +63,19 @@
                                 <li><%= link_to 'File uploads', file_uploads_path %></li>
                             </ul>
                         </li>
+                        <li>
+                            <ul>
+                                <% if user_signed_in? %>
+  
+  <%= link_to 'Edit profile', edit_user_registration_path, :style=>'color:#FFFFFF;', :class => 'btn btn-primary' %> 
+  <%= link_to "Logout", destroy_user_session_path, method: :delete, :style=>'color:#FFFFFF;', :class => 'btn btn-danger'  %>
+  <ul><small>Logged in as <strong><%= current_user.email %></strong>.</small></ul>
+<% else %>
+  <%= link_to "Sign up", new_user_registration_path, :style=>'color:#FFFFFF;', :class => 'btn btn-primary'  %> 
+  <%= link_to "Login", new_user_session_path, :style=>'color:#FFFFFF;', :class => 'btn btn-success'  %>
+<% end %>
+                            </ul>
+                        </li>
                             
                     </ul>
                    <h2><%= t('tool_title')%></h2>
