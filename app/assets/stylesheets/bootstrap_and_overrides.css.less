@@ -3,31 +3,164 @@
 /******* MR *******/
 
 body { 
-  padding-top: 120px; 
+  padding-top: 80px; 
+  font-family: Arial, sans-serif;
+  color: #333;
+  background-color: #e9eaea;
  
 }
 
-h1 {
-    font-size: 28px;
-    font-family: 'Droid Sans', sans-serif;
-    color: #f78d10;
+h1, h2 {
+    font-family: "gill sans", sans-serif;
+    color: #F49700;
     font-weight:lighter;
 }
 
-h2, h3, h4 {
-   color: #f78d10;  
-   font-weight:lighter;
-   font-family: 'Droid Sans', sans-serif;
+ h3, h4 {
+   color: #F49700;  
+   font-weight: normal;
+   font-family: "gill sans", sans-serif;
 }
 
-/***  project details page ***/
-#project-title{
+/***  project  page ***/
+.project-title-container{
   float: left;
-   
+  width: 45%;
+  margin: 0 0 20px 0;
 }
 
-.link-inline{
+.project-title{
   float: left;
+}
+
+.project-title-edit{
+  float: left;
+  margin: 14px 0 0 20px;
+  font-weight:normal;
+}
+
+.project-title-edit h5{
+   font-weight:normal;
+}
+ 
+.nav-project-tabs{
+  clear:both;
+}
+
+#project-tabs ul{
+  margin-bottom: 0px;
+}
+
+#project-tabs li a{
+  background-color: #ffffff;
+  color: #a8a8a8;
+  font-weight: bold;
+  border: 1px solid #ffffff;
+  border-top-left-radius: 1px;
+  border-top-right-radius: 1px;
+  padding-top: 4px;
+  padding-right: 20px;
+  padding-bottom: 4px;
+}  
+
+#project-tabs li.active a, #project-tabs li.active a:active, #project-tabs li a:hover{
+  background-color: #F49700;
+  color: #ffffff;
+  font-weight: bold;
+  border: 1px solid #F49700;
+  border-top-left-radius: 1px;
+  border-top-right-radius: 1px;
+  padding-top: 4px;
+  padding-right: 20px;
+  padding-bottom: 4px;
+  box-shadow: 4px 0px 2px -2px rgba(119, 119, 119, 0.5);
+  -moz-box-shadow: 4px 0px 2px -2px rgba(119, 119, 119, 0.5);
+  -webkit-box-shadow: 4px 0px 2px -2px rgba(119, 119, 119, 0.5);
+}
+
+.progress{
+  margin:20px 0 0 10%;
+  width: 45%;
+  float:right;
+  border-bottom-left-radius: 9px;
+  border-bottom-right-radius: 9px;
+  border-top-left-radius: 9px;
+  border-top-right-radius: 9px;
+  box-shadow: 4px 5px 20px 3px rgba(168, 168, 168, 0.73);
+  -moz-box-shadow: 4px 5px 20px 3px rgba(168, 168, 168, 0.73);
+  -webkit-box-shadow: 4px 5px 20px 3px rgba(168, 168, 168, 0.73);
+}
+
+.progress .bar{
+  background-color: #F49700;
+  background-image: -moz-linear-gradient(top , #f49700, #f47900 49px);
+  background-image: -webkit-linear-gradient(top , #f49700, #f47900 49px);
+  background-image: -o-linear-gradient(top , #f49700, #f47900 49px);
+  background-image: -ms-linear-gradient(top , #f49700, #f47900 49px);
+  background-image: linear-gradient(top , #f49700, #f47900 49px);
+} 
+
+.project-details-body{
+  background-color: #ffffff;
+  border: 2px solid #F49700;
+  border-radius: 1px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 9px;
+}
+
+.project-details{
+  padding: 20px 0 25px 0;
+  
+}
+
+.new-line-tabs{
+  margin: 5px 0 10px;
+  border-top: 2px solid #e9eaea;
+  
+}
+
+
+#sections-accordion .accordion-group{
+  background-color: #F49700;
+  border-color:#F49700;
+  border-radius: 1px;
+  margin-bottom: 5px;
+}
+
+#sections-accordion .accordion-heading{
+  box-shadow: 7px 7px 2px 0px rgba(168, 168, 168, 0.5);
+  -moz-box-shadow: 7px 7px 2px 0px rgba(168, 168, 168, 0.5);
+  -webkit-box-shadow: 7px 7px 2px 0px rgba(168, 168, 168, 0.5);
+  background-color: #F49700;
+}
+
+#sections-accordion .accordion-heading a, #sections-accordion .accordion-heading a:hover,#sections-accordion .accordion-heading a:active, #sections-accordion .accordion-heading a:visited{
+  color:#ffffff;
+  font-weight: bold;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.icon-plus-white{
+  background-image: url("/assets/glyphicons-halflings-white.png");
+  background-position: -408px -96px;
+  float:right;
+}
+
+.icon-minus-white{
+  background-image: url("/assets/glyphicons-halflings-white.png");
+  background-position: -433px -96px;
+  float:right;
+}
+
+#sections-accordion .section-status{
+  background-color: #F49700;
+}
+
+#sections-accordion .accordion-inner{
+  background-color: #ffffff;
 }
 
 
@@ -82,21 +215,23 @@ h2, h3, h4 {
     text-decoration: none;
 }
 
+
+
 @import "twitter/bootstrap/responsive";
 
 // Set the correct sprite paths
-@iconSpritePath: asset-path("twitter/bootstrap/glyphicons-halflings");
-@iconWhiteSpritePath: asset-path("twitter/bootstrap/glyphicons-halflings-white");
+//@iconSpritePath: "assets/images/glyphicons-halflings.png";
+//@iconWhiteSpritePath: "assets/images/glyphicons-halflings-white.png";
 
 // Set the Font Awesome (Font Awesome is default. You can disable by commenting below lines)
-@fontAwesomeEotPath: asset-url("fontawesome-webfont.eot");
-@fontAwesomeEotPath_iefix: asset-url("fontawesome-webfont.eot#iefix");
-@fontAwesomeWoffPath: asset-url("fontawesome-webfont.woff");
-@fontAwesomeTtfPath: asset-url("fontawesome-webfont.ttf");
-@fontAwesomeSvgPath: asset-url("fontawesome-webfont.svg#fontawesomeregular");
+//@fontAwesomeEotPath: asset-url("fontawesome-webfont.eot");
+//@fontAwesomeEotPath_iefix: asset-url("fontawesome-webfont.eot#iefix");
+//@fontAwesomeWoffPath: asset-url("fontawesome-webfont.woff");
+//@fontAwesomeTtfPath: asset-url("fontawesome-webfont.ttf");
+//@fontAwesomeSvgPath: asset-url("fontawesome-webfont.svg#fontawesomeregular");
 
 // Font Awesome
-@import "fontawesome/font-awesome";
+//@import "fontawesome/font-awesome";
 
 // Glyphicons
 //@import "twitter/bootstrap/sprites.less";

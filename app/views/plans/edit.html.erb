@@ -1,39 +1,66 @@
 <%- model_class = Plan -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h1>
-</div>
+<script>
+ $(function(){
+    $('.collapse').on('show', function() {
+        var $t = $(this);
+        var header = $("a[href='#" + $t.attr("id") + "']");
+        header.find(".icon-plus-white").removeClass("icon-plus-white").addClass("icon-minus-white");
+    }).on('hide', function(){
+        var $t = $(this);
+        var header = $("a[href='#" + $t.attr("id") + "']");
+        header.find(".icon-minus-white").removeClass("icon-minus-white").addClass("icon-plus-white");
+    });
+  });
+</script>
+
+<!-- render the project title -->
+<%= render :partial => "/projects/project_title", locals: {project: @plan.project} %>
+
+
+<!-- progress bar -->
 <% status = @plan.status %>
 <div class="progress">
   <div id="questions-progress" class="bar" style="width: <%= number_to_percentage(status["num_answers"].to_f/status["num_questions"].to_f*100) %>;"><%= status["num_answers"] %> of <%= status["num_questions"] %> answered</div>
 </div>
-<div class="accordion" id="sections-accordion">
-	<% sections = @plan.version.sections.order("number") %>
-	<% sections.each do |section| %>
-		<div class="accordion-group">
-			<% num_section_questions = @plan.status["sections"][section.id]["num_questions"] %>
-			<% num_section_answers = @plan.status["sections"][section.id]["num_answers"] %>
-			<% question_word = "questions" %>
-			<% if num_section_questions == 1 then %>
-				<% question_word = "question" %>
-			<% end %>
-			<% section_status = "#{num_section_questions} #{question_word}, #{num_section_answers} answered" %>
-			<div class="accordion-heading">
-				<a class="accordion-toggle" data-toggle="collapse" data-parent="#sections-accordion" href="#collapse-<%= section.id%>"><%= section.title %>
-				<% if num_section_questions > num_section_answers then %>
-					<span id='<%= section.id %>-status' class="label label-warning section-status"><%= section_status %></span>
-				<% else %>
-					<span id='<%= section.id %>-status' class="label label-info section-status"><%= section_status %></span>
-				<% end %>
-				</a>
-			</div>
-			<div id="collapse-<%= section.id%>" class="accordion-body collapse">
-				<div class="accordion-inner">
-				<% section.questions.order("number").each do |question| %>
-					<%= render partial: "answer_form", locals: {question: question} %>
-				<% end %>
-				</div>
-			</div>
-		</div>
-	<% end %>
-</div>
-<%= tinymce %>
+
+
+<!-- render the project tabs in -->
+<%= render :partial => "/projects/project_nav_tabs", locals: {project: @plan.project, active: @plan.id} %>
+
+
+<!-- plan main container -->
+<div class="project-tabs-body">
+    <div class="accordion" id="sections-accordion">
+    	<% sections = @plan.version.sections.order("number") %>
+    	<% sections.each do |section| %>
+    		<div class="accordion-group">
+    			<% num_section_questions = @plan.status["sections"][section.id]["num_questions"] %>
+    			<% num_section_answers = @plan.status["sections"][section.id]["num_answers"] %>
+    			<% question_word = "questions" %>
+    			<% if num_section_questions == 1 then %>
+    				<% question_word = "question" %>
+    			<% end %>
+    			<% section_status = "#{num_section_questions} #{question_word}, #{num_section_answers} answered" %>
+    			<div class="accordion-heading">
+    				<a class="accordion-toggle" data-toggle="collapse" data-parent="#sections-accordion" href="#collapse-<%= section.id%>"><%= section.title %>
+    				<% if num_section_questions > num_section_answers then %>
+    					<span id='<%= section.id %>-status' class="label label-warning section-status">(<%= section_status %>)</span>
+    				<% else %>
+    					<span id='<%= section.id %>-status' class="label label-info section-status">(<%= section_status %>)</span>
+    				<% end %>
+    				<!-- + or - icon-->
+    				<span class="icon-plus-white"> </span>
+    				</a>
+    			</div>
+    			<div id="collapse-<%= section.id%>" class="accordion-body collapse">
+    				<div class="accordion-inner">
+    				<% section.questions.order("number").each do |question| %>
+    					<%= render partial: "answer_form", locals: {question: question} %>
+    				<% end %>
+    				</div>
+    			</div>
+    		</div>
+    	<% end %>
+    </div>
+    <%= tinymce %>
+</div>    

@@ -37,7 +37,9 @@ en:
       update: "Update"
     title: "Title"
     desc: "Description"
-     
+    save: "Save" 
+    
+    
     project:
       edit: "(Edit plan details)"
       tab_plan: "Plan details"
