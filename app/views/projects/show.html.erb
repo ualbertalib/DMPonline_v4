@@ -1,12 +1,14 @@
 <%- model_class = Project -%>
-
-<!-- render the project title -->
-<%= render :partial => "/projects/project_title", locals: {project: @project} %>
-
-<!-- render navigation tabs for the project-->
-<%= render :partial => "project_nav_tabs", locals: {project: @project, active: "project"} %>
+<!-- navigation tabs for the project-->
+<%= render "project_nav_tabs" %>
 
 <!-- project details -->
-<%= render "project_details" %>
-      
+<div class= "main-body">
+    <p id="notice"><%= notice %></p>
+   
+        <!-- Main content to show project details-->
+    <div class="main-content" id="#tabs-1">
+        <%= render "project_details" %>
+    </div>      
+</div> 
 
