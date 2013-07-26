@@ -37,6 +37,8 @@ en:
       update: "Update"
     title: "Title"
     desc: "Description"
+    save: "Save"
+    notanswered: "Not answered yet"
      
     project:
       edit: "(Edit plan details)"
