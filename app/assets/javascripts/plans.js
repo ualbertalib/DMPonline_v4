@@ -53,16 +53,16 @@ $( document ).ready(function() {
     $.getJSON("locked.json?section_id="+section_id, function(data) {
     	if (data.locked == true) { //need to check user id too
     		t.find("input").attr('disabled', 'disabled');
-    		t.find("input").hide();
+    		t.find(".question-form").hide();
     		t.find("select").attr('disabled', 'disabled');
-    		t.find(".mce-container-body").hide();
+    		t.find(".question-readonly").show();
     	}    		
     	else if (data.locked == false) {
     		$.post('lock_section', {section_id: section_id, user_id: null} );
     		t.find("input").removeAttr('disabled');
-    		t.find("input").show();
+    		t.find("question-form").show();
     		t.find("select").removeAttr('disabled');
-    		t.find(".mce-container-body").show();
+    		t.find(".question-readonly").hide();
     	}
     });
     var header = $("a[href='#" + t.attr("id") + "']");

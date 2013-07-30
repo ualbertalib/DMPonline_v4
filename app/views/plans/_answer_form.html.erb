@@ -33,5 +33,19 @@
 	<% end %>
 <% end %>
 </div>
+<div class="question-readonly">
+	<h4><%= question.text %></h4>
+	<div class="answer-readonly">
+		<% if question.multiple_choice %>
+			<ul>
+			<% answer.options.each do |o| %>
+				<li><%= o.text %></li>
+			<% end %>
+			</ul>
+		<% else %>
+			<%= raw answer.text %>
+		<% end %>
+	</div>
+</div>
 <div class="question-guidance"><%= raw answer.question.guidance %></div>
 <div class="two-column-clear"></div>
