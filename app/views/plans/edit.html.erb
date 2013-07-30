@@ -25,6 +25,7 @@
     <div class="accordion" id="sections-accordion">
     	<% sections = @plan.version.sections.order("number") %>
     	<% sections.each do |section| %>
+    		<% locked = @plan.locked(section.id) %>
     		<div class="accordion-group">
     			<% num_section_questions = @plan.status["sections"][section.id]["num_questions"] %>
     			<% num_section_answers = @plan.status["sections"][section.id]["num_answers"] %>
@@ -47,7 +48,7 @@
     			<div id="collapse-<%= section.id%>" class="accordion-body collapse">
     				<div class="accordion-inner">
     				<% section.questions.order("number").each do |question| %>
-    					<%= render partial: "answer_form", locals: {question: question} %>
+    					<%= render partial: "answer_form", locals: {question: question, locked: locked} %>
     				<% end %>
     				</div>
     			</div>
