@@ -24,7 +24,7 @@
 		<% end %>
 	<% end %>
 	<%= f.actions do %>
-      <%= f.action :label => t('helpers.save')%>
+      <%= f.action :submit, :label => t('helpers.save')%>
     <% end %>  
 	<% if answer.created_at.nil? then %>
 		<span id='<%= question.id %>-status' class="label label-warning answer-status"><%= t('helpers.notanswered') %></span>

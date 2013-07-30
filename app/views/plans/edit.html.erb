@@ -4,11 +4,11 @@
     $('.collapse').on('show', function() {
         var $t = $(this);
         var header = $("a[href='#" + $t.attr("id") + "']");
-        header.find(".icon-plus-white").removeClass("icon-plus-white").addClass("icon-minus-white");
+        header.find(".icon-plus").removeClass("icon-plus").addClass("icon-minus");
     }).on('hide', function(){
         var $t = $(this);
         var header = $("a[href='#" + $t.attr("id") + "']");
-        header.find(".icon-minus-white").removeClass("icon-minus-white").addClass("icon-plus-white");
+        header.find(".icon-minus").removeClass("icon-minus").addClass("icon-plus");
     });
   });
 </script>
@@ -20,7 +20,12 @@
 <!-- progress bar -->
 <% status = @plan.status %>
 <div class="progress">
-  <div id="questions-progress" class="bar" style="width: <%= number_to_percentage(status["num_answers"].to_f/status["num_questions"].to_f*100) %>;"><%= status["num_answers"] %> of <%= status["num_questions"] %> answered</div>
+    <% if status["num_answers"] == 0  then %>
+        <div id="questions-progress" class="bar" style="width: <%= number_to_percentage(status["num_answers"].to_f/status["num_questions"].to_f*100) %>;"></div>
+        <span class="color-text"><%= t('helpers.noquestionanswered')%></span>
+    <% else %>
+        <div id="questions-progress" class="bar" style="width: <%= number_to_percentage(status["num_answers"].to_f/status["num_questions"].to_f*100) %>;"><%= status["num_answers"] %>/<%= status["num_questions"] %> answered</div>
+    <% end%>
 </div>
 
 
@@ -49,7 +54,7 @@
     					<span id='<%= section.id %>-status' class="label label-info section-status"><%= section_status %></span>
     				<% end %>
     				<!-- + or - icon-->
-                    <span class="icon-plus-white"> </span>
+                    <span class="icon-plus icon-white accordion-icon"> </span>
     				</a>
     			</div>
     			<div id="collapse-<%= section.id%>" class="accordion-body collapse">

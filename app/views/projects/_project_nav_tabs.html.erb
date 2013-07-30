@@ -20,7 +20,7 @@
         <% project.plans.each do |plan| %>
             <% if active == plan.id then %>
                 <li class="active">
--           <% else %>
+            <% else %>
                 <li>
             <% end %>
                 <%= link_to plan.version.phase.title, [:edit, plan]%>

@@ -39,6 +39,7 @@ en:
     desc: "Description"
     save: "Save"
     notanswered: "Not answered yet"
+    noquestionanswered: "No question has been answered"
      
     project:
       edit: "(Edit plan details)"
