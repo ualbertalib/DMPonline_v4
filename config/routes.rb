@@ -25,6 +25,11 @@ DMPonline4::Application.routes.draw do
   resources :plans do
   	member do
 		get 'status'
+		get 'locked'
+		post 'delete_recent_locks'
+		post 'lock_section'
+		post 'unlock_section'
+		post 'unlock_all_sections'
 	  end
   end
   resources :plan_sections

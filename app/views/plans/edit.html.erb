@@ -1,17 +1,4 @@
 <%- model_class = Plan -%>
-<script>
- $(function(){
-    $('.collapse').on('show', function() {
-        var $t = $(this);
-        var header = $("a[href='#" + $t.attr("id") + "']");
-        header.find(".icon-plus").removeClass("icon-plus").addClass("icon-minus");
-    }).on('hide', function(){
-        var $t = $(this);
-        var header = $("a[href='#" + $t.attr("id") + "']");
-        header.find(".icon-minus").removeClass("icon-minus").addClass("icon-plus");
-    });
-  });
-</script>
 
 <!-- render the project title -->
 <%= render :partial => "/projects/project_title", locals: {project: @plan.project} %>

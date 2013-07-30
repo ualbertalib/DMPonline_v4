@@ -2,11 +2,12 @@ class Plan < ActiveRecord::Base
 
 	extend FriendlyId
 	
-	attr_accessible :locked, :project_id, :version_id, :version
+	attr_accessible :locked, :project_id, :version_id, :version, :plan_sections
 
 	#associations between tables
 	belongs_to :project
 	has_many :answers
+	has_many :plan_sections
 	belongs_to :version
 	accepts_nested_attributes_for :project
 	accepts_nested_attributes_for :answers
@@ -61,18 +62,73 @@ class Plan < ActiveRecord::Base
 	end
 	
 	def locked(section_id)
-		
+		plan_section = plan_sections.where(:section_id => section_id).order("created_at DESC").first
+		if plan_section.nil? then
+			status = {
+				"locked" => false,
+				"user_id" => nil,
+				"timestamp" => nil
+			}
+			return status
+		elsif plan_section.locked then
+			status = {
+				"locked" => true,
+				"user_id" => plan_section.user_id,
+				"timestamp" => plan_section.created_at
+			}
+			return status
+		else
+			status = {
+				"locked" => false,
+				"user_id" => plan_section.user_id,
+				"timestamp" => plan_section.updated_at
+			}
+			return status
+		end
 	end
 	
-	def lock_all_sections
-		
+	def lock_all_sections(user_id)
+		version.sections.each do |s|
+			lock_section(s.id, user_id)
+		end
 	end
 	
-	def unlock_all_sections
-		
+	def unlock_all_sections(user_id)
+		plan_sections.where(:user_id => user_id).order("created_at DESC").each do |plan_section|
+			unlock_plan_section(plan_section)
+		end
 	end
 	
-	def toggle_section(section_id)
-		
+	def delete_recent_locks(user_id)
+		plan_sections.where(:user_id => user_id, :created_at => 10.seconds.ago..Time.now).delete_all
+	end
+	
+	def lock_section(section_id, user_id)
+		status = locked(section_id)
+		if (! status["locked"]) then
+			plan_section = PlanSection.new
+			plan_section.plan_id = id
+			plan_section.section_id = section_id
+			plan_section.locked = true
+			plan_section.user_id = user_id
+			plan_section.save
+			return true
+		else
+			return false
+		end
+	end
+	
+	def unlock_section(section_id, user_id)
+		plan_section = plan_sections.where(:section_id => section_id, :user_id => user_id).order("created_at DESC").first
+		return unlock_plan_section(plan_section)
+	end
+	
+	def unlock_plan_section(plan_section)
+		if (plan_section.locked) then
+			plan_section.locked = false
+			return true
+		else
+			return false
+		end
 	end
 end

@@ -38,7 +38,7 @@ class PlansController < ApplicationController
   # GET /plans/1/edit
   def edit
     @plan = Plan.find(params[:id])
-    @plan.lock_all_sections
+    @plan.lock_all_sections(current_user)
   end
 
   # POST /plans
@@ -90,6 +90,89 @@ class PlansController < ApplicationController
   		@plan = Plan.find(params[:id])
 		respond_to do |format|
 			format.json { render json: @plan.status }
+		end
+	end
+	
+	def locked
+  		@plan = Plan.find(params[:id])
+		respond_to do |format|
+			format.json { render json: @plan.locked(params[:section_id]) }
+		end
+	end
+	
+	def delete_recent_locks
+		@plan = Plan.find(params[:id])
+				user_id = nil
+		if current_user.nil?
+			user_id = nil
+		else
+			user_id = current_user.id
+		end
+		respond_to do |format|
+			if @plan.delete_recent_locks(user_id)
+				format.html { render action: "edit" }
+				format.json { head :no_content }
+			else
+				format.html { render action: "edit" }
+				format.json { render json: @plan.errors, status: :unprocessable_entity }
+			end
+		end
+	end
+	
+	def unlock_all_sections
+		@plan = Plan.find(params[:id])
+				user_id = nil
+		if current_user.nil?
+			user_id = nil
+		else
+			user_id = current_user.id
+		end
+		respond_to do |format|
+			if @plan.unlock_all_sections(user_id)
+				format.html { render action: "edit" }
+				format.json { head :no_content }
+			else
+				format.html { render action: "edit" }
+				format.json { render json: @plan.errors, status: :unprocessable_entity }
+			end
+		end
+	end
+	
+	def lock_section
+		@plan = Plan.find(params[:id])
+		user_id = nil
+		if current_user.nil?
+			user_id = nil
+		else
+			user_id = current_user.id
+		end
+		respond_to do |format|
+			if @plan.lock_section(params[:section_id], user_id)
+				format.html { render action: "edit" }
+				format.json { head :no_content }
+			else
+				format.html { render action: "edit" }
+				format.json { render json: @plan.errors, status: :unprocessable_entity }
+			end
+		end
+	end
+	
+	def unlock_section
+		@plan = Plan.find(params[:id])
+		user_id = nil
+		if current_user.nil?
+			user_id = nil
+		else
+			user_id = current_user.id
+		end
+		respond_to do |format|
+			if @plan.unlock_section(params[:section_id], user_id)
+				format.html { render action: "edit" }
+				format.json { head :no_content }
+			else
+				format.html { render action: "edit" }
+				format.json { render json: @plan.errors, status: :unprocessable_entity }
+			end
 		end
 	end
 end

@@ -1,4 +1,6 @@
 $( document ).ready(function() {
+
+	$.post('delete_recent_locks');
 	
 	$('abbr.timeago').timeago();
 	
@@ -42,6 +44,43 @@ $( document ).ready(function() {
 				}
 			});
 		},500);
+	});
+	
+	$('.collapse').on('show', function() {
+    var t = $(this);
+    var section_id = t.attr("id").split('-')[1];
+    //update answers - display text
+    $.getJSON("locked.json?section_id="+section_id, function(data) {
+    	if (data.locked == true) { //need to check user id too
+    		t.find("input").attr('disabled', 'disabled');
+    		t.find("input").hide();
+    		t.find("select").attr('disabled', 'disabled');
+    		t.find(".mce-container-body").hide();
+    	}    		
+    	else if (data.locked == false) {
+    		$.post('lock_section', {section_id: section_id, user_id: null} );
+    		t.find("input").removeAttr('disabled');
+    		t.find("input").show();
+    		t.find("select").removeAttr('disabled');
+    		t.find(".mce-container-body").show();
+    	}
+    });
+    var header = $("a[href='#" + t.attr("id") + "']");
+    header.find(".icon-plus").removeClass("icon-plus").addClass("icon-minus");
+  }).on('hide', function(){
+    var t = $(this);
+    var section_id = t.attr("id").split('-')[1];
+    $.post('unlock_section', {section_id: section_id, user_id: null} );
+    var header = $("a[href='#" + t.attr("id") + "']");
+    header.find(".icon-minus").removeClass("icon-minus").addClass("icon-plus");
+  });
+  
+  $(window).unload(function() {
+		$.post('unlock_all_sections');
+	});
+	
+	$(window).beforeunload(function() {
+		$.post('unlock_all_sections');
 	});
 
 });

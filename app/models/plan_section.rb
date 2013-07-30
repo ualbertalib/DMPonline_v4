@@ -1,8 +1,9 @@
 class PlanSection < ActiveRecord::Base
-  attr_accessible :plan_id, :at, :edit, :section_id, :user_editing_id
+  attr_accessible :plan_id, :locked, :section_id, :user_id
 
   #associations between tables
-  has_one :section
+  belongs_to :section
   belongs_to :plan
+  belongs_to :user
   
 end
