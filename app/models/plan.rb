@@ -120,12 +120,13 @@ class Plan < ActiveRecord::Base
 	
 	def unlock_section(section_id, user_id)
 		plan_section = plan_sections.where(:section_id => section_id, :user_id => user_id).order("created_at DESC").first
-		return unlock_plan_section(plan_section)
+		unlocked = unlock_plan_section(plan_section)
 	end
 	
 	def unlock_plan_section(plan_section)
-		if (plan_section.locked) then
+		if plan_section.locked then
 			plan_section.locked = false
+			plan_section.save
 			return true
 		else
 			return false
