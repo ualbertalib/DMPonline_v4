@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130730102219) do
+ActiveRecord::Schema.define(:version => 20130731133039) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -94,13 +94,27 @@ ActiveRecord::Schema.define(:version => 20130730102219) do
     t.datetime "updated_at",   :null => false
   end
 
+  create_table "guidance_groups", :force => true do |t|
+    t.string   "name"
+    t.integer  "organisation_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "guidance_in_group", :id => false, :force => true do |t|
+    t.integer "guidance_id",       :null => false
+    t.integer "guidance_group_id", :null => false
+  end
+
+  add_index "guidance_in_group", ["guidance_id", "guidance_group_id"], :name => "index_guidance_in_group_on_guidance_id_and_guidance_group_id"
+
   create_table "guidances", :force => true do |t|
     t.text     "text"
     t.integer  "file_id"
-    t.integer  "organisation_id"
+    t.integer  "guidance_group_id"
     t.integer  "theme_id"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "options", :force => true do |t|
@@ -132,6 +146,7 @@ ActiveRecord::Schema.define(:version => 20130730102219) do
     t.integer  "stylesheet_file_id"
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false
+    t.integer  "parent_id"
   end
 
   create_table "pages", :force => true do |t|
@@ -190,22 +205,22 @@ ActiveRecord::Schema.define(:version => 20130730102219) do
     t.datetime "updated_at",      :null => false
   end
 
-  create_table "project_partners", :force => true do |t|
-    t.integer  "organisation_id"
-    t.integer  "project_id"
-    t.boolean  "leader_org"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+  create_table "project_guidance", :id => false, :force => true do |t|
+    t.integer "project_id",        :null => false
+    t.integer "guidance_group_id", :null => false
   end
+
+  add_index "project_guidance", ["project_id", "guidance_group_id"], :name => "index_project_guidance_on_project_id_and_guidance_group_id"
 
   create_table "projects", :force => true do |t|
     t.string   "title"
     t.text     "note"
     t.boolean  "locked"
     t.integer  "dmptemplate_id"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
     t.string   "slug"
+    t.integer  "organisation_id"
   end
 
   add_index "projects", ["slug"], :name => "index_projects_on_slug", :unique => true
