@@ -37,9 +37,9 @@
     			<div class="accordion-heading">
     				<a class="accordion-toggle" data-toggle="collapse" data-parent="#sections-accordion" href="#collapse-<%= section.id%>"><%= section.title %>
     				<% if num_section_questions > num_section_answers then %>
-    					<span id='<%= section.id %>-status' class="label label-warning section-status"><%= section_status %></span>
+    					<span id='<%= section.id %>-status' class="label label-warning section-status">(<%= section_status %>)</span>
     				<% else %>
-    					<span id='<%= section.id %>-status' class="label label-info section-status"><%= section_status %></span>
+    					<span id='<%= section.id %>-status' class="label label-info section-status">(<%= section_status %>)</span>
     				<% end %>
     				<!-- + or - icon-->
                     <span class="icon-plus icon-white accordion-icon"> </span>

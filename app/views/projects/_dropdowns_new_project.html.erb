@@ -1,34 +1,25 @@
 <!-- Create a new project (3 dropdowns = 6 options) -->
-<div class="createa-project">
-    <h3>
-        <%= t('helpers.project.create.title ')%>
-    </h3>
-    <div class="info-new-project">
-        <p>
-            <%= t('helpers.project.create.desc')%>
-        </p>    
+<%= semantic_form_for @project do |f| %>
+    <%= f.inputs do %>
+    <div class="createa-project">
+        <h3>
+            <%= t('helpers.project.create.title')%>
+        </h3>
+        <div class="info-new-project">
+            <p>
+                <%= t('helpers.project.create.desc')%>
+            </p>    
+        </div>
+        <div class="dropdowns">
+            <!-- option 1 = funders -->
+            <div class="control-group">
+                  <div class="controls">
+                     <% funders = Organisation.organisations_of_type('Funder') %>
+                     <%= f.input :dmptemplate, :as => :select, :collection => funders, :label => t('helpers.funders'), :input_html => { :multiple => false } %>
+                </div>
+            </div> 
+             
+        </div>    
     </div>
-    <div class="dropdowns">
-        <!-- option 1 = funders -->
-        <div class="control-group">
-            <%= f.label :dmptemplate_id, :class => 'control-label' %>
-            <div class="controls">
-              <%= f.input :dmptemplate_id, :class => 'number_field' %>
-            </div>
-        </div> 
-        <!-- option 2 = institutions-->
-        <div class="control-group">
-            <%= f.label :dmptemplate_id, :class => 'control-label' %>
-            <div class="controls">
-              <%= f.input :dmptemplate_id, :class => 'number_field' %>
-            </div>
-        </div> 
-        <!-- option 3 = disciplines -->
-        <div class="control-group">
-            <%= f.label :dmptemplate_id, :class => 'control-label' %>
-            <div class="controls">
-              <%= f.input :dmptemplate_id, :class => 'number_field' %>
-            </div>
-        </div>              
-    </div>    
-</div>
+    <% end %>
+<% end %>   

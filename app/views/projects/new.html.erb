@@ -1,6 +1,11 @@
 <%- model_class = Project -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize %></h1>
-</div>
-<%= render :partial => 'form' %>
+<div class="new-project-container">
+    <!-- top paragraph -->
+    <div class="new-project-description">
 
+    </div>
+
+    <!-- render dropdowns for plan selection -->
+    <%= render 'dropdowns_new_project' %>
+
+</div>

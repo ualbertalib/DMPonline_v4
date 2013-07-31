@@ -39,7 +39,11 @@ en:
     desc: "Description"
     save: "Save"
     notanswered: "Not answered yet"
-    noquestionanswered: "No question has been answered"
+    noquestionanswered: "No questions have been answered"
+    
+    funders: "Funder"
+    institutions: "Institution"
+    disciplines: "Disciplines"
      
     project:
       edit: "(Edit plan details)"
