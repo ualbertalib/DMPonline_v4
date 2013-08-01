@@ -17,4 +17,13 @@ class Organisation < ActiveRecord::Base
     return type.organisations
   end
   
+  def self.other_organisations
+    org_types = ["Publisher", "Learned Society", t('helpers.org_type.project')]
+    organisations = []
+    org_types.each do |ot|
+      organisations = organisations + Organisation.organisations_of_type(ot)
+    end
+    return organisations
+  end
+  
 end

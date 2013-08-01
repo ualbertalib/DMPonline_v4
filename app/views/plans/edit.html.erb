@@ -11,7 +11,7 @@
         <div id="questions-progress" class="bar" style="width: <%= number_to_percentage(status["num_answers"].to_f/status["num_questions"].to_f*100) %>;"></div>
         <span class="color-text"><%= t('helpers.noquestionanswered')%></span>
     <% else %>
-        <div id="questions-progress" class="bar" style="width: <%= number_to_percentage(status["num_answers"].to_f/status["num_questions"].to_f*100) %>;"><%= status["num_answers"] %>/<%= status["num_questions"] %> answered</div>
+        <div id="questions-progress" class="bar" style="width: <%= number_to_percentage(status["num_answers"].to_f/status["num_questions"].to_f*100) %>;"><%= status["num_answers"] %>/<%= status["num_questions"] %></div>
     <% end%>
 </div>
 

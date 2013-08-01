@@ -11,11 +11,27 @@
             </p>    
         </div>
         <div class="dropdowns">
-            <!-- option 1 = funders -->
+            <!-- dropdown 1 = funders -->
             <div class="control-group">
                   <div class="controls">
-                     <% funders = Organisation.organisations_of_type('Funder') %>
-                     <%= f.input :dmptemplate, :as => :select, :collection => funders, :label => t('helpers.funders'), :input_html => { :multiple => false } %>
+                     <% org_type_name = Organisation.organisations_of_type(t('helpers.org_type.funders')) %>
+                     <%= f.input :organisation_name, :as => :select, :collection => org_type_name, :label => t('helpers.org_type.funders'), :input_html => { :multiple => false } %>
+                </div>
+            </div> 
+            
+            <!-- dropdown 2 = institution -->
+            <div class="control-group">
+                  <div class="controls">
+                     <% org_type_name = Organisation.organisations_of_type(t('helpers.org_type.institution')) %>
+                     <%= f.input :organisation_name, :as => :select, :collection => org_type_name, :label => t('helpers.org_type.institution'), :input_html => { :multiple => false } %>
+                </div>
+            </div> 
+             
+            <!-- dropdown 2 = institution -->
+            <div class="control-group">
+                  <div class="controls">
+                     <% org_type_name = Organisation.organisations_of_type(t('helpers.org_type.project')) %>
+                     <%= f.input :organisation_name, :as => :select, :collection => org_type_name, :label => t('helpers.org_type.other_guidance'), :input_html => { :multiple => false } %>
                 </div>
             </div> 
              

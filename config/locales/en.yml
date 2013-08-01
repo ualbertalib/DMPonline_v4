@@ -41,9 +41,11 @@ en:
     notanswered: "Not answered yet"
     noquestionanswered: "No questions have been answered"
     
-    funders: "Funder"
-    institutions: "Institution"
-    disciplines: "Disciplines"
+    org_type:
+      funders: "Funder"
+      institution: "Institution"
+      project: "Project"
+      other_guidance: "Other guidance"
      
     project:
       edit: "(Edit plan details)"
