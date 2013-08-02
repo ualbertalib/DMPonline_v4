@@ -79,7 +79,7 @@ $( document ).ready(function() {
 		$.post('unlock_all_sections');
 	});
 	
-	$(window).beforeunload(function() {
+	$(window).on('beforeunload', function() {
 		$.post('unlock_all_sections');
 	});
 
