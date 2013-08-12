@@ -16,8 +16,8 @@
 						<%= plan.version.phase.title %>
 					</h4>
 					<hr class="new-line-tabs">
-					<% if !plan.version.sections.nil? %>
-                        <% plan.version.sections.each do |section| %>
+					<% if !plan.sections.nil? %>
+                        <% plan.sections.each do |section| %>
                             <dl class="dl-horizontal">
                                 <dt></dt>
                                 <dd><%= section.title %></dd>

@@ -38,7 +38,11 @@ class PlansController < ApplicationController
   # GET /plans/1/edit
   def edit
     @plan = Plan.find(params[:id])
-    @plan.lock_all_sections(current_user)
+    if @plan.can_read(current_user.id)
+    	@plan.lock_all_sections(current_user.id)
+    else
+    	raise ActionController::RoutingError.new('Not Found')
+    end
   end
 
   # POST /plans
@@ -96,20 +100,14 @@ class PlansController < ApplicationController
 	def locked
   		@plan = Plan.find(params[:id])
 		respond_to do |format|
-			format.json { render json: @plan.locked(params[:section_id]) }
+			format.json { render json: @plan.locked(params[:section_id],current_user.id) }
 		end
 	end
 	
 	def delete_recent_locks
 		@plan = Plan.find(params[:id])
-				user_id = nil
-		if current_user.nil?
-			user_id = nil
-		else
-			user_id = current_user.id
-		end
 		respond_to do |format|
-			if @plan.delete_recent_locks(user_id)
+			if @plan.delete_recent_locks(current_user.id)
 				format.html { render action: "edit" }
 				format.json { head :no_content }
 			else
@@ -121,14 +119,8 @@ class PlansController < ApplicationController
 	
 	def unlock_all_sections
 		@plan = Plan.find(params[:id])
-				user_id = nil
-		if current_user.nil?
-			user_id = nil
-		else
-			user_id = current_user.id
-		end
 		respond_to do |format|
-			if @plan.unlock_all_sections(user_id)
+			if @plan.unlock_all_sections(current_user.id)
 				format.html { render action: "edit" }
 				format.json { head :no_content }
 			else
@@ -140,14 +132,8 @@ class PlansController < ApplicationController
 	
 	def lock_section
 		@plan = Plan.find(params[:id])
-		user_id = nil
-		if current_user.nil?
-			user_id = nil
-		else
-			user_id = current_user.id
-		end
 		respond_to do |format|
-			if @plan.lock_section(params[:section_id], user_id)
+			if @plan.lock_section(params[:section_id], current_user.id)
 				format.html { render action: "edit" }
 				format.json { head :no_content }
 			else
@@ -159,14 +145,8 @@ class PlansController < ApplicationController
 	
 	def unlock_section
 		@plan = Plan.find(params[:id])
-		user_id = nil
-		if current_user.nil?
-			user_id = nil
-		else
-			user_id = current_user.id
-		end
 		respond_to do |format|
-			if @plan.unlock_section(params[:section_id], user_id)
+			if @plan.unlock_section(params[:section_id], current_user.id)
 				format.html { render action: "edit" }
 				format.json { head :no_content }
 			else

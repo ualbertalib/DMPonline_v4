@@ -29,6 +29,25 @@ class Plan < ActiveRecord::Base
 		"#{project.title} #{version.phase.title}"
 	end
 	
+	def sections
+		sections = version.sections
+		# add sections from organisation here
+	end
+	
+	def guidance_for_question(question_id)
+		# pulls together guidance from various sources for question
+		question = Question.find(question_id)
+		guidance = question.guidance
+	end
+	
+	def can_edit(user_id)
+		true
+	end
+	
+	def can_read(user_id)
+		true
+	end
+	
 	def status
 		status = {
 			"num_questions" => 0,
@@ -36,7 +55,7 @@ class Plan < ActiveRecord::Base
 			"sections" => {},
 			"questions" => {}
 		}
-		version.sections.each do |s|
+		sections.each do |s|
 			section_questions = 0
 			section_answers = 0
 			status["sections"][s.id] = {}
@@ -61,35 +80,28 @@ class Plan < ActiveRecord::Base
 		return status
 	end
 	
-	def locked(section_id)
+	def locked(section_id, user_id)
 		plan_section = plan_sections.where(:section_id => section_id).order("created_at DESC").first
 		if plan_section.nil? then
 			status = {
 				"locked" => false,
-				"user_id" => nil,
-				"timestamp" => nil
+				"current_user" => false,
+				"timestamp" => nil,
+				"id" => nil
 			}
-			return status
-		elsif plan_section.locked then
-			status = {
-				"locked" => true,
-				"user_id" => plan_section.user_id,
-				"timestamp" => plan_section.created_at
-			}
-			return status
 		else
 			status = {
-				"locked" => false,
-				"user_id" => plan_section.user_id,
-				"timestamp" => plan_section.updated_at
+				"locked" => plan_section.release_time > Time.now,
+				"current_user" => plan_section.user_id == user_id,
+				"timestamp" => plan_section.updated_at,
+				"id" => plan_section.id
 			}
-			return status
 		end
 	end
 	
 	def lock_all_sections(user_id)
-		version.sections.each do |s|
-			lock_section(s.id, user_id)
+		sections.each do |s|
+			lock_section(s.id, user_id, 1800)
 		end
 	end
 	
@@ -100,19 +112,22 @@ class Plan < ActiveRecord::Base
 	end
 	
 	def delete_recent_locks(user_id)
-		plan_sections.where(:user_id => user_id, :created_at => 10.seconds.ago..Time.now).delete_all
+		plan_sections.where(:user_id => user_id, :created_at => 30.seconds.ago..Time.now).delete_all
 	end
 	
-	def lock_section(section_id, user_id)
-		status = locked(section_id)
-		if (! status["locked"]) then
+	def lock_section(section_id, user_id, release_time = 30)
+		status = locked(section_id, user_id)
+		if ! status["locked"] then
 			plan_section = PlanSection.new
 			plan_section.plan_id = id
 			plan_section.section_id = section_id
-			plan_section.locked = true
+			plan_section.release_time = Time.now + release_time.seconds
 			plan_section.user_id = user_id
 			plan_section.save
-			return true
+		elsif status["current_user"] then
+			plan_section = PlanSection.find(status["id"])
+			plan_section.release_time = Time.now + release_time.seconds
+			plan_section.save
 		else
 			return false
 		end
@@ -120,14 +135,13 @@ class Plan < ActiveRecord::Base
 	
 	def unlock_section(section_id, user_id)
 		plan_section = plan_sections.where(:section_id => section_id, :user_id => user_id).order("created_at DESC").first
-		unlocked = unlock_plan_section(plan_section)
+		unlock_plan_section(plan_section, user_id)
 	end
 	
-	def unlock_plan_section(plan_section)
-		if plan_section.locked then
-			plan_section.locked = false
+	def unlock_plan_section(plan_section, user_id)
+		if plan_section.release_time > Time.now then
+			plan_section.release_time = Time.now
 			plan_section.save
-			return true
 		else
 			return false
 		end

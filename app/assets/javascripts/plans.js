@@ -13,7 +13,7 @@ $( document ).ready(function() {
 			$.getJSON("status.json", function(data) {
 				
 				$("#questions-progress").css("width", (data.num_answers/data.num_questions*100)+"%");
-				$("#questions-progress").text(data.num_answers+" of "+data.num_questions+" answered");
+				$("#questions-progress").text(data.num_answers+"/"+data.num_questions+" answered");
 				
 				t = q_status.children("abbr:first");
 				q_id = q_status.attr("id").split('-')[0];
@@ -46,41 +46,61 @@ $( document ).ready(function() {
 		},500);
 	});
 	
+	setInterval(function(){
+		if ($('form').length > 0) {
+			var t = $('.accordion-body.in.collapse');
+			var section_id = t.attr("id").split('-')[1];
+			$.getJSON("locked.json?section_id="+section_id, function(data) {
+				if (data.locked == true && data.current_user == false) {
+					t.find("input").attr('disabled', 'disabled');
+					t.find(".question-form").hide();
+					t.find("select").attr('disabled', 'disabled');
+					t.find(".question-readonly").show();
+				}    		
+				else {
+					$.post('lock_section', {section_id: section_id} );
+					t.find("input").removeAttr('disabled');
+					t.find("question-form").show();
+					t.find("select").removeAttr('disabled');
+					t.find(".question-readonly").hide();
+				}
+			});
+    }
+	}, 20000);
+	
+	
 	$('.collapse').on('show', function() {
-    var t = $(this);
-    var section_id = t.attr("id").split('-')[1];
-    //update answers - display text
-    $.getJSON("locked.json?section_id="+section_id, function(data) {
-    	if (data.locked == true) { //need to check user id too
-    		t.find("input").attr('disabled', 'disabled');
-    		t.find(".question-form").hide();
-    		t.find("select").attr('disabled', 'disabled');
-    		t.find(".question-readonly").show();
-    	}    		
-    	else if (data.locked == false) {
-    		$.post('lock_section', {section_id: section_id, user_id: null} );
-    		t.find("input").removeAttr('disabled');
-    		t.find("question-form").show();
-    		t.find("select").removeAttr('disabled');
-    		t.find(".question-readonly").hide();
-    	}
-    });
+		if ($('form').length > 0) {
+			var t = $(this);
+			var section_id = t.attr("id").split('-')[1];
+			if ($('form').length > 0) {
+				//update answers - display text
+				$.getJSON("locked.json?section_id="+section_id, function(data) {
+					if (data.locked == true && data.current_user == false) {
+						t.find("input").attr('disabled', 'disabled');
+						t.find(".question-form").hide();
+						t.find("select").attr('disabled', 'disabled');
+						t.find(".question-readonly").show();
+					}    		
+					else {
+						$.post('lock_section', {section_id: section_id} );
+						t.find("input").removeAttr('disabled');
+						t.find("question-form").show();
+						t.find("select").removeAttr('disabled');
+						t.find(".question-readonly").hide();
+					}
+				});
+			}
+    }
     var header = $("a[href='#" + t.attr("id") + "']");
     header.find(".icon-plus").removeClass("icon-plus").addClass("icon-minus");
   }).on('hide', function(){
-    var t = $(this);
-    var section_id = t.attr("id").split('-')[1];
-    $.post('unlock_section', {section_id: section_id, user_id: null} );
+  	if ($('form').length > 0) {
+			var t = $(this);
+			var section_id = t.attr("id").split('-')[1];
+			$.post('unlock_section', {section_id: section_id} );
+    }
     var header = $("a[href='#" + t.attr("id") + "']");
     header.find(".icon-minus").removeClass("icon-minus").addClass("icon-plus");
   });
-  
-  $(window).unload(function() {
-		$.post('unlock_all_sections');
-	});
-	
-	$(window).on('beforeunload', function() {
-		$.post('unlock_all_sections');
-	});
-
 });

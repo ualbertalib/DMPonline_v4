@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130731133039) do
+ActiveRecord::Schema.define(:version => 20130812100100) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -177,12 +177,12 @@ ActiveRecord::Schema.define(:version => 20130731133039) do
   add_index "phases", ["slug"], :name => "index_phases_on_slug", :unique => true
 
   create_table "plan_sections", :force => true do |t|
-    t.boolean  "locked"
     t.integer  "user_id"
     t.integer  "section_id"
     t.integer  "plan_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.datetime "release_time"
   end
 
   create_table "plans", :force => true do |t|

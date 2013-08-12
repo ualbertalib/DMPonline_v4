@@ -15,6 +15,10 @@
     <% end%>
 </div>
 
+<% readonly = nil %>
+<% if ! @plan.can_edit(current_user.id) then %>
+	<% readonly = 'always' %>
+<% end %>
 
 <!-- render the project tabs in -->
 <%= render :partial => "/projects/project_nav_tabs", locals: {project: @plan.project, active: @plan.id} %>
@@ -23,9 +27,12 @@
 <!-- plan main container -->
 <div class="project-tabs-body">
     <div class="accordion" id="sections-accordion">
-    	<% sections = @plan.version.sections.order("number") %>
+    	<% sections = @plan.sections.order("number") %>
     	<% sections.each do |section| %>
-    		<% locked = @plan.locked(section.id) %>
+    		<% locked = @plan.locked(section.id, current_user.id) %>
+				<% if readonly == nil && locked['locked'] && locked['current_user'] != true then %>
+					<% readonly = 'conditional' %>
+				<% end %>
     		<div class="accordion-group">
     			<% num_section_questions = @plan.status["sections"][section.id]["num_questions"] %>
     			<% num_section_answers = @plan.status["sections"][section.id]["num_answers"] %>
@@ -48,7 +55,7 @@
     			<div id="collapse-<%= section.id%>" class="accordion-body collapse">
     				<div class="accordion-inner">
     				<% section.questions.order("number").each do |question| %>
-    					<%= render partial: "answer_form", locals: {question: question, locked: locked} %>
+    					<%= render partial: "answer_form", locals: {question: question, readonly: readonly} %>
     				<% end %>
     				</div>
     			</div>

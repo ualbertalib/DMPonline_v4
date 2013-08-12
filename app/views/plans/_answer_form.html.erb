@@ -1,63 +1,62 @@
 <% answer = @plan.answer(question.id) %>
-<% readonly = false %>
-<% if locked['locked'] #&& locked['user_id'] != current_user.id %>
-	<% readonly = true %>
-<% end %>
-<div class="question-form" <%= if readonly then "style='display:none;'" end %>>
-<%= semantic_form_for answer, :url => {:controller => :answers, :action => :create }, :html=>{:method=>:post}, :remote => true do |f| %>
-	<%= f.inputs do %>
-		<%= f.input :plan_id, :as => :hidden %>
-		<%= f.input :question_id, :as => :hidden %>
-		<% if question.multiple_choice then %>
-			<% options = question.options.map %>
-			<% if question.multiple_permitted then %>
-				<% if question.is_expanded then %>
-					<% if readonly then %>
-						<%= f.input :options, :as => :check_boxes, :collection => options, :label => question.text, :input_html => { :disabled => true } %>
+
+<% if readonly != 'always' then %>
+<div class="question-form" <%= if readonly == "conditional" then "style='display:none;'" end %>>
+	<%= semantic_form_for answer, :url => {:controller => :answers, :action => :create }, :html=>{:method=>:post}, :remote => true do |f| %>
+		<%= f.inputs do %>
+			<%= f.input :plan_id, :as => :hidden %>
+			<%= f.input :question_id, :as => :hidden %>
+			<% if question.multiple_choice then %>
+				<% options = question.options.map %>
+				<% if question.multiple_permitted then %>
+					<% if question.is_expanded then %>
+						<% if readonly then %>
+							<%= f.input :options, :as => :check_boxes, :collection => options, :label => question.text, :input_html => { :disabled => true } %>
+						<% else %>
+							<%= f.input :options, :as => :check_boxes, :collection => options, :label => question.text %>
+						<% end %>
 					<% else %>
-						<%= f.input :options, :as => :check_boxes, :collection => options, :label => question.text %>
+						<% if readonly then %>
+							<%= f.input :options, :as => :select, :collection => options, :label => question.text, :input_html => { :multiple => true, :disabled => true } %>
+						<% else %>
+							<%= f.input :options, :as => :select, :collection => options, :label => question.text, :input_html => { :multiple => true } %>
+						<% end %>
 					<% end %>
 				<% else %>
-					<% if readonly then %>
-						<%= f.input :options, :as => :select, :collection => options, :label => question.text, :input_html => { :multiple => true, :disabled => true } %>
+					<% if question.is_expanded then %>
+						<% if readonly then %>
+							<%= f.input :options, :as => :radio, :collection => options, :label => question.text, :input_html => { :disabled => true } %>
+						<% else %>
+							<%= f.input :options, :as => :radio, :collection => options, :label => question.text %>
+						<% end %>
 					<% else %>
-						<%= f.input :options, :as => :select, :collection => options, :label => question.text, :input_html => { :multiple => true } %>
+						<% if readonly then %>
+							<%= f.input :options, :as => :select, :collection => options, :label => question.text, :input_html => { :multiple => false, :disabled => true } %>
+						<% else %>
+							<%= f.input :options, :as => :select, :collection => options, :label => question.text, :input_html => { :multiple => false } %>
+						<% end %>
 					<% end %>
 				<% end %>
-			<% else %>
-				<% if question.is_expanded then %>
-					<% if readonly then %>
-						<%= f.input :options, :as => :radio, :collection => options, :label => question.text, :input_html => { :disabled => true } %>
-					<% else %>
-						<%= f.input :options, :as => :radio, :collection => options, :label => question.text %>
-					<% end %>
-				<% else %>
-					<% if readonly then %>
-						<%= f.input :options, :as => :select, :collection => options, :label => question.text, :input_html => { :multiple => false, :disabled => true } %>
-					<% else %>
-						<%= f.input :options, :as => :select, :collection => options, :label => question.text, :input_html => { :multiple => false } %>
-					<% end %>
-				<% end %>
+			<% else %> 
+				<%= label_tag("answer_text_#{question.id}".to_sym, question.text) %><%= text_area_tag("answer_text_#{question.id}".to_sym, answer.text, class: "tinymce") %>
 			<% end %>
-		<% else %> 
-			<%= label_tag("answer_text_#{question.id}".to_sym, question.text) %><%= text_area_tag("answer_text_#{question.id}".to_sym, answer.text, class: "tinymce") %>
+		<% end %>
+		<%= f.actions do %>
+			<% if readonly then %>
+				<%= f.action :submit, :label => t('helpers.save'), :input_html => { :disabled => true } %>
+			<% else %>
+				<%= f.action :submit, :label => t('helpers.save')%>
+			<% end %> 
+		<% end %> 
+		<% if answer.created_at.nil? then %>
+			<span id='<%= question.id %>-status' class="label label-warning answer-status"><%= t('helpers.notanswered') %></span>
+		<% else %>
+			<span id='<%= question.id %>-status' class="label label-info answer-status"><abbr class="timeago" title="<%= answer.created_at.utc.iso8601 %>"><%= answer.created_at %></abbr></span>
 		<% end %>
 	<% end %>
-	<%= f.actions do %>
-		<% if readonly then %>
-      <%= f.action :submit, :label => t('helpers.save'), :input_html => { :disabled => true } %>
-    <% else %>
-    	<%= f.action :submit, :label => t('helpers.save')%>
-    <% end %> 
-  <% end %> 
-	<% if answer.created_at.nil? then %>
-		<span id='<%= question.id %>-status' class="label label-warning answer-status"><%= t('helpers.notanswered') %></span>
-	<% else %>
-		<span id='<%= question.id %>-status' class="label label-info answer-status"><abbr class="timeago" title="<%= answer.created_at.utc.iso8601 %>"><%= answer.created_at %></abbr></span>
-	<% end %>
+	</div>
 <% end %>
-</div>
-<div class="question-readonly" <%= if ! readonly then "style='display:none;'" end %>>
+<div class="question-readonly" <%= if readonly == nil then "style='display:none;'" end %>>
 	<h4><%= question.text %></h4>
 	<div class="answer-readonly">
 		<% if question.multiple_choice %>
@@ -71,5 +70,5 @@
 		<% end %>
 	</div>
 </div>
-<div class="question-guidance"><%= raw answer.question.guidance %></div>
+<div class="question-guidance"><%= raw @plan.guidance_for_question(question.id) %></div>
 <div class="two-column-clear"></div>
