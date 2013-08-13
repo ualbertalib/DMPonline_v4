@@ -3,7 +3,7 @@ class UserOrgRole < ActiveRecord::Base
 
   #associations between tables
   has_one :user
-  has one :organisation
+  has_one :organisation
   belongs_to :user_role_type
     
 end

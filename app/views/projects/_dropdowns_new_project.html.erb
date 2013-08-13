@@ -3,11 +3,11 @@
     <%= f.inputs do %>
     <div class="createa-project">
         <h3>
-            <%= t('helpers.project.create.title')%>
+            <%= t('helpers.project.create_page.title')%>
         </h3>
         <div class="info-new-project">
             <p>
-                <%= t('helpers.project.create.desc')%>
+                <%= t('helpers.project.create_page.desc')%>
             </p>    
         </div>
         <div class="dropdowns">
@@ -16,6 +16,11 @@
                   <div class="controls">
                      <% org_type_name = Organisation.organisations_of_type(t('helpers.org_type.funders')) %>
                      <%= f.input :organisation_name, :as => :select, :collection => org_type_name, :label => t('helpers.org_type.funders'), :input_html => { :multiple => false } %>
+                     <div class="controls">
+                         <% org_type_name = Organisation.organisations_of_type(t('helpers.org_type.funders')) %>
+                         <%= f.input :organisation_name, :as => :select, :collection => org_type_name, :label => t('helpers.org_type.funders'), :input_html => { :multiple => false } %>
+                         
+                    </div>
                 </div>
             </div> 
             
@@ -24,10 +29,14 @@
                   <div class="controls">
                      <% org_type_name = Organisation.organisations_of_type(t('helpers.org_type.institution')) %>
                      <%= f.input :organisation_name, :as => :select, :collection => org_type_name, :label => t('helpers.org_type.institution'), :input_html => { :multiple => false } %>
+                    <div class="controls">
+                         <% org_type_name = Organisation.organisations_of_type(t('helpers.org_type.institution')) %>
+                         <%= f.input :organisation_name, :as => :select, :collection => org_type_name, :label => t('helpers.org_type.institution'), :input_html => { :multiple => false } %>
+                    </div>
                 </div>
             </div> 
              
-            <!-- dropdown 2 = institution -->
+            <!-- dropdown 3 = other guidance -->
             <div class="control-group">
                   <div class="controls">
                      <% org_type_name = Organisation.organisations_of_type(t('helpers.org_type.project')) %>
@@ -37,5 +46,8 @@
              
         </div>    
     </div>
+    <%= link_to t('.new', :default => t("helpers.project.create")),
+            new_project_path,
+            :class => 'btn btn-primary' %>
     <% end %>
 <% end %>   
