@@ -10,6 +10,8 @@ DMPonline4::Application.routes.draw do
   ActiveAdmin.routes(self)
 
   get "home/index"
+  get "about_us" => 'static_pages#about_us', :as => "about_us"
+  get "contact_us" => 'static_pages#contact_us', :as => "contact_us"
  
   resources :dmptemplates
   resources :phases
