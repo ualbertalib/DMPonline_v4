@@ -38,7 +38,7 @@ class PlansController < ApplicationController
   # GET /plans/1/edit
   def edit
     @plan = Plan.find(params[:id])
-    if @plan.can_read(current_user.id)
+    if (! current_user.nil?) && @plan.can_read(current_user.id)
     	@plan.lock_all_sections(current_user.id)
     else
     	raise ActionController::RoutingError.new('Not Found')
@@ -153,6 +153,13 @@ class PlansController < ApplicationController
 				format.html { render action: "edit" }
 				format.json { render json: @plan.errors, status: :unprocessable_entity }
 			end
+		end
+	end
+	
+	def answer
+  		@plan = Plan.find(params[:id])
+		respond_to do |format|
+			format.json { render json: @plan.answer(params[:q_id], false).to_json(:include => :options) }
 		end
 	end
 end

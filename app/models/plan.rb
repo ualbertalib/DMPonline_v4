@@ -17,10 +17,19 @@ class Plan < ActiveRecord::Base
   
 	def answer(qid, create_if_missing = true)
   		answer = answers.where(:question_id => qid).order("created_at DESC").first
+  		question = Question.find(qid)
 		if answer.nil? && create_if_missing then
 			answer = Answer.new
 			answer.plan_id = id
 			answer.question_id = qid
+			answer.text = question.suggested_answer
+			default_options = Array.new
+			question.options.each do |option|
+				if option.is_default
+					default_options << option
+				end
+			end
+			answer.options = default_options
 		end
 		return answer
 	end
@@ -59,16 +68,19 @@ class Plan < ActiveRecord::Base
 			section_questions = 0
 			section_answers = 0
 			status["sections"][s.id] = {}
+			status["sections"][s.id]["questions"] = Array.new
 			s.questions.each do |q|
 				status["num_questions"] += 1
 				section_questions += 1
+				status["sections"][s.id]["questions"] << q.id
 				answer = answer(q.id, false)
 				if ! answer.nil? then
 					status["questions"][q.id] = {
 						"answer_id" => answer.id,
 						"answer_created_at" => answer.created_at.to_i,
 						"answer_text" => answer.text,
-						"answer_option_ids" => answer.option_ids
+						"answer_option_ids" => answer.option_ids,
+						"answered_by" => answer.user.name
 					}
 					status["num_answers"] += 1
 					section_answers += 1
@@ -86,6 +98,7 @@ class Plan < ActiveRecord::Base
 			status = {
 				"locked" => false,
 				"current_user" => false,
+				"locked_by" => nil,
 				"timestamp" => nil,
 				"id" => nil
 			}
@@ -93,6 +106,7 @@ class Plan < ActiveRecord::Base
 			status = {
 				"locked" => plan_section.release_time > Time.now,
 				"current_user" => plan_section.user_id == user_id,
+				"locked_by" => plan_section.user.name,
 				"timestamp" => plan_section.updated_at,
 				"id" => plan_section.id
 			}

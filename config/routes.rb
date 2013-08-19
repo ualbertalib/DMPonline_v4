@@ -28,6 +28,7 @@ DMPonline4::Application.routes.draw do
   	member do
 		get 'status'
 		get 'locked'
+		get 'answer'
 		post 'delete_recent_locks'
 		post 'lock_section'
 		post 'unlock_section'

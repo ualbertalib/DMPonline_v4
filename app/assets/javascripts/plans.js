@@ -1,43 +1,75 @@
 $( document ).ready(function() {
-
+	
+	// Delete 30min locks set in case user doesn't have JS
 	$.post('delete_recent_locks');
 	
+	// Make timestamps readable
 	$('abbr.timeago').timeago();
 	
+	// Update status messages on form submission
 	$("form.answer").submit(function(){
 		
-		q_status = $(this).children(".answer-status:first");
+		// Get question timestamp element
+		q_id = $(this).find(".question_id").val();
+		q_status = $('#'+q_id+'-status');
+		// Get section status element
 		s_status = $(this).parents(".accordion-group").find(".section-status:first");
 		
+		// Allow half a second for database to update
 		timeout = setTimeout(function(){
+			
+			// Get plan status
 			$.getJSON("status.json", function(data) {
 				
+				// Update progress bar size and text
 				$("#questions-progress").css("width", (data.num_answers/data.num_questions*100)+"%");
-				$("#questions-progress").text(data.num_answers+"/"+data.num_questions+" answered");
+				$("#questions-progress").text(data.num_answers+"/"+data.num_questions);
 				
+				// Get current timestamp
 				t = q_status.children("abbr:first");
-				q_id = q_status.attr("id").split('-')[0];
+				current_timestamp = new Date(t.attr('data-time'));
+				
+				// Get new timestamp
 				timestamp = new Date(Number(data.questions[q_id]["answer_created_at"]) * 1000);
-				if (timestamp.toISOString() != t.attr('title')) {
+				
+				
+				// If new timestamp is different from current, update
+				if (timestamp.getTime() != current_timestamp.getTime()) {
+				
+					// If question has not been answered previously, need to add abbr for timestamp
 					if (q_status.hasClass("label-warning")) {
 						q_status.text("");
 						q_status.append("<abbr class='timeago'></abbr>");
+						t = q_status.children("abbr:first");
 					}
+					
+					// Update label to indicate successful submission
 					q_status.removeClass("label-info label-warning");
 					q_status.addClass("label-success");
-					t = q_status.children("abbr:first");
+					
+					// Set timestamp text and data
 					t.text(timestamp.toUTCString());
 					t.attr('title', timestamp.toISOString()).data("timeago",null).timeago();
+					t.attr('data-time', timestamp.toISOString());
 				}
-		
+				
+				// Get section ID
 				s_id = s_status.attr("id").split('-')[0];
+				
+				// Get number of questions in section
 				s_qs = data.sections[s_id]["num_questions"];
 				question_word = "questions"
 				if (s_qs == 1) { 
 					question_word = "question";
 				}
+				
+				// Get number of answers in section
 				s_as = data.sections[s_id]["num_answers"];
+				
+				// Update section status text
 				s_status.text(s_qs+" "+question_word+", "+s_as+" answered");
+				
+				// Change class of section status - currently has no effect on appearance
 				if (s_qs == s_as) {
 					s_status.removeClass("label-warning");
 					s_status.addClass("label-info");
@@ -46,61 +78,156 @@ $( document ).ready(function() {
 		},500);
 	});
 	
+	// Checks section locks, applies lock if needed. Does not lift lock.
+	// If locked, display questions as read-only. Otherwise, apply lock and display as editable.
+	function check_section_lock(section) {
+		var section_id = section.attr("id").split('-')[1];
+		$.getJSON("locked.json?section_id="+section_id, function(data) {
+			if (data.locked == true && data.current_user == false) {
+				section.find("input").attr('disabled', 'disabled');
+				section.find(".question-form").hide();
+				section.find("select").attr('disabled', 'disabled');
+				section.find(".question-readonly").show();
+			}    		
+			else {
+				$.post('lock_section', {section_id: section_id} );
+				section.find("input").removeAttr('disabled');
+				section.find("question-form").show();
+				section.find("select").removeAttr('disabled');
+				section.find(".question-readonly").hide();
+			}
+		});
+		return true;
+	}
+	
+	// Periodically check locks on open section - every 20 seconds
 	setInterval(function(){
+		// Only lock/unlock if there are forms on the page (not read-only)
 		if ($('form').length > 0) {
-			var t = $('.accordion-body.in.collapse');
-			var section_id = t.attr("id").split('-')[1];
-			$.getJSON("locked.json?section_id="+section_id, function(data) {
-				if (data.locked == true && data.current_user == false) {
-					t.find("input").attr('disabled', 'disabled');
-					t.find(".question-form").hide();
-					t.find("select").attr('disabled', 'disabled');
-					t.find(".question-readonly").show();
-				}    		
-				else {
-					$.post('lock_section', {section_id: section_id} );
-					t.find("input").removeAttr('disabled');
-					t.find("question-form").show();
-					t.find("select").removeAttr('disabled');
-					t.find(".question-readonly").hide();
-				}
-			});
+			section = $('.accordion-body.in.collapse');
+			if (section.length > 0) {
+				check_section_lock(section);
+			}
     }
 	}, 20000);
 	
-	
+	// Handle section actions on accordion expansion/collapse
 	$('.collapse').on('show', function() {
+		var section = $(this);
+		
+		// Only lock if there are forms on the page (not read-only)
 		if ($('form').length > 0) {
-			var t = $(this);
-			var section_id = t.attr("id").split('-')[1];
-			if ($('form').length > 0) {
-				//update answers - display text
-				$.getJSON("locked.json?section_id="+section_id, function(data) {
-					if (data.locked == true && data.current_user == false) {
-						t.find("input").attr('disabled', 'disabled');
-						t.find(".question-form").hide();
-						t.find("select").attr('disabled', 'disabled');
-						t.find(".question-readonly").show();
-					}    		
-					else {
-						$.post('lock_section', {section_id: section_id} );
-						t.find("input").removeAttr('disabled');
-						t.find("question-form").show();
-						t.find("select").removeAttr('disabled');
-						t.find(".question-readonly").hide();
-					}
-				});
-			}
+			check_section_lock(section);
     }
-    var header = $("a[href='#" + t.attr("id") + "']");
+    
+    // Toggle +/- in section header
+    var header = $("a[href='#" + section.attr("id") + "']");
     header.find(".icon-plus").removeClass("icon-plus").addClass("icon-minus");
+    
+    // check for updated answers
+    // - get status JSON
+    $.getJSON("status.json", function(data) {
+    	
+    	// - for each question in section, check answer timestamp against currently displayed
+    	var section_id = section.attr("id").split('-')[1];
+    	var num_questions = data.sections[section_id]["questions"].length;
+    	for (var i = 0; i < num_questions; i++) {
+    		question_id = data.sections[section_id]["questions"][i];
+    		// - if timestamp newer than displayed, update answers
+    		
+    		retrieved_timestamp = new Date(Number(data.questions[question_id]["answer_created_at"]) * 1000);
+    		current_timestamp = new Date($('#'+question_id+'-status').children('abbr:first').attr('data-time'));
+    		if (retrieved_timestamp.getTime() != current_timestamp.getTime()) {
+    			//Get the answer
+    			$.ajax({
+							type: 'GET',
+							url: "answer.json?q_id="+question_id,
+							dataType: 'json',
+							async: false,
+							success: function(data) {
+    				
+							//Get divs containing the form and readonly versions
+							var form_div = $("#question-form-"+question_id);
+							var readonly_div = $("#question-readonly-"+question_id);
+						
+							//Update answer text - both in textarea and readonly
+							$('#answer-text-'+question_id).val(data.text);
+						
+							tinymce.get('answer-text-'+question_id).setContent(data.text);
+							readonly_div.find('.answer-text-readonly').html(data.text);
+						
+							//Update answer options - both in textarea and readonly
+							num_options = data.options.length;
+						
+							form_div.find('option').each(function(){
+								var selected = false;
+								for (var j =0; j < num_options; j++) {
+									if ($(this).val() == data.options[j].id) {
+										selected = true;
+									}
+								}
+								if (selected) {
+									$(this).attr('selected', 'selected');
+								}
+								else {
+									$(this).removeAttr('selected');
+								}
+							});
+							form_div.find(':checkbox,:radio').each(function(){
+								var selected = false;
+								for (var j =0; j < num_options; j++) {
+									if ($(this).val() == data.options[j].id) {
+										selected = true;
+									}
+								}
+								if (selected) {
+									$(this).attr('checked', 'checked');
+								}
+								else {
+									$(this).removeAttr('checked');
+								}
+							});
+						
+							var list_string = ""
+							for (var j =0; j < num_options; j++) {
+								list_string += "<li>"+data.options[j].text+"</li>"
+							}
+							readonly_div.find('.options').html(list_string);
+						
+							//Update answer timestamp
+							// If question has not been answered previously, need to add abbr for timestamp
+							q_status = $('#'+question_id+'-status');
+							if (q_status.hasClass("label-warning")) {
+								q_status.text("");
+								q_status.append("<abbr class='timeago'></abbr>");
+							}
+							t = q_status.children("abbr:first");
+					
+							// Update label to indicate successful submission
+							q_status.removeClass("label-info label-warning");
+							q_status.addClass("label-success");
+					
+							// Set timestamp text and data
+							t.text(retrieved_timestamp.toUTCString());
+							t.attr('title', retrieved_timestamp.toISOString()).data("timeago",null).timeago();
+							t.attr('data-time', retrieved_timestamp.toISOString());
+						}
+    			});
+    		}
+    	}
+    });
+    
   }).on('hide', function(){
+  	var section = $(this);
+  	
+  	// Only attempt unlock if there are forms on the page (not read-only)
   	if ($('form').length > 0) {
-			var t = $(this);
-			var section_id = t.attr("id").split('-')[1];
+			var section_id = section.attr("id").split('-')[1];
 			$.post('unlock_section', {section_id: section_id} );
     }
-    var header = $("a[href='#" + t.attr("id") + "']");
+    
+    // Toggle +/- in section header
+    var header = $("a[href='#" + section.attr("id") + "']");
     header.find(".icon-minus").removeClass("icon-minus").addClass("icon-plus");
   });
 });
