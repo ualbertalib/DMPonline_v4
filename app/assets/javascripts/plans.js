@@ -36,6 +36,8 @@ $( document ).ready(function() {
 	// Handle section actions on accordion expansion/collapse
 	$('.collapse').on('show', function() {
 		var section = $(this);
+		section.find(".loaded").hide();
+		section.find(".loading").show();
 		// Only lock if there are forms on the page (not read-only)
 		if ($('form').length > 0) {
 			check_section_lock(section);
@@ -61,6 +63,8 @@ $( document ).ready(function() {
     			update_answer(question_id);
     		}
     	}
+    	section.find(".loading").hide();
+			section.find(".loaded").show();
     });
    }).on('hide', function(){
   	var section = $(this);

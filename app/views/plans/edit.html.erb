@@ -54,9 +54,14 @@
     			</div>
     			<div id="collapse-<%= section.id%>" class="accordion-body collapse">
     				<div class="accordion-inner">
-    				<% section.questions.order("number").each do |question| %>
-    					<%= render partial: "answer_form", locals: {question: question, readonly: readonly} %>
-    				<% end %>
+							<div class="loading">
+								<p>Loading...</p>
+							</div>
+							<div class="loaded">
+								<% section.questions.order("number").each do |question| %>
+									<%= render partial: "answer_form", locals: {question: question, readonly: readonly} %>
+								<% end %>
+							</div>
     				</div>
     			</div>
     		</div>
