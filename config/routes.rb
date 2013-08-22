@@ -33,6 +33,7 @@ DMPonline4::Application.routes.draw do
 		post 'lock_section'
 		post 'unlock_section'
 		post 'unlock_all_sections'
+		get 'export'
 	  end
   end
   resources :plan_sections

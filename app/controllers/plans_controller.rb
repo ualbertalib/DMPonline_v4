@@ -162,4 +162,12 @@ class PlansController < ApplicationController
 			format.json { render json: @plan.answer(params[:q_id], false).to_json(:include => :options) }
 		end
 	end
+	
+	def export
+		@plan = Plan.find(params[:id])
+		# do some sort of exporting stuff....
+		# different views depending on format
+		# default to html
+		render :action => 'export', :layout => false
+	end
 end
