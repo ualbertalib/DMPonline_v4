@@ -46,6 +46,9 @@ en:
       institution: "Institution"
       project: "Project"
       other_guidance: "Other guidance"
+      templates: "Templates"
+      child: "Unit"
+      
      
     project:
       create: "Create plan"

@@ -1,25 +1,24 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-#one:
-#  name: MyString
-#  abbreviation: MyString
-#  description: MyText
-#  target_url: MyString
-#  logo_file_id: 1
-#  banner_file_id: 1
-#  type_id: 1
-#  domain: MyString
-#  wayfless_entite: 1
-#  stylesheet_file_id: 1
-#
-#two:
-#  name: MyString
-#  abbreviation: MyString
-#  description: MyText
-#  target_url: MyString
-#  logo_file_id: 1
-#  banner_file_id: 1
-#  type_id: 1
-#  domain: MyString
-#  wayfless_entite: 1
-#  stylesheet_file_id: 1
+one:
+  name: Digital Curation Centre
+  abbreviation: DCC
+  description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+  organisation_type_id: 3
+  
+two:
+  name: University of Edinburgh
+  abbreviation: UoE
+  description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+  organisation_type_id: 2
+  
+three:
+  name: Arts & Humanities Research Council
+  abbreviation: AHRC
+  organisation_type_id: 1
+  
+
+four:
+  name: School of informatics
+  organisation_type_id: 4
+  parent_id: 2

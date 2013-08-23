@@ -14,33 +14,37 @@
             <!-- dropdown 1 = funders -->
             <div class="control-group">
                   <div class="controls">
-                     <% org_type_name = Organisation.organisations_of_type(t('helpers.org_type.funders')) %>
-                     <%= f.input :organisation_name, :as => :select, :collection => org_type_name, :label => t('helpers.org_type.funders'), :input_html => { :multiple => false } %>
-                     <div class="controls">
-                         <% org_type_name = Organisation.organisations_of_type(t('helpers.org_type.funders')) %>
-                         <%= f.input :organisation_name, :as => :select, :collection => org_type_name, :label => t('helpers.org_type.funders'), :input_html => { :multiple => false } %>
-                         
-                    </div>
+                     <% org_type_funder = OrganisationType.find_by_name(t('helpers.org_type.funders')).organisations %>
+                     <%= f.input :organisation_name, :as => :select, :collection => org_type_funder, :label => t('helpers.org_type.funders'), :input_html => { :multiple => false } %>
+                     <% org_template = Dmptemplate.templates_of_org(org_type_funder.object_id ) %>
+                     <% if org_template.length > 1  then %>
+                        <div id="has_more_templates">
+                           <%= f.input :title, :as => :select, :collection => org_type_name, :label => t('helpers.org_type.templates'), :input_html => { :multiple => false } %>
+                        </div>
+                     <% end %>   
                 </div>
             </div> 
             
             <!-- dropdown 2 = institution -->
             <div class="control-group">
                   <div class="controls">
-                     <% org_type_name = Organisation.organisations_of_type(t('helpers.org_type.institution')) %>
-                     <%= f.input :organisation_name, :as => :select, :collection => org_type_name, :label => t('helpers.org_type.institution'), :input_html => { :multiple => false } %>
-                    <div class="controls">
-                         <% org_type_name = Organisation.organisations_of_type(t('helpers.org_type.institution')) %>
-                         <%= f.input :organisation_name, :as => :select, :collection => org_type_name, :label => t('helpers.org_type.institution'), :input_html => { :multiple => false } %>
-                    </div>
+                    <% org_type_inst = OrganisationType.find_by_name(t('helpers.org_type.institution')).organisations %>
+                    <%= f.input :organisation_name, :as => :select, :collection => org_type_inst, :label => t('helpers.org_type.institution'), :input_html => { :multiple => false } %>
+                    <!-- verify if org has children-->
+                    <% children_info = Organisation.has_children(org_type_inst.object_id)%>
+                    <% if children_info.any? %>
+                        <div class="has_children">
+                            <%= f.input :organisation_name, :as => :select, :collection => children_info, :label => t('helpers.org_type.child'), :input_html => { :multiple => false } %>
+                        </div>
+                    <% end %>    
                 </div>
             </div> 
              
             <!-- dropdown 3 = other guidance -->
             <div class="control-group">
                   <div class="controls">
-                     <% org_type_name = Organisation.organisations_of_type(t('helpers.org_type.project')) %>
-                     <%= f.input :organisation_name, :as => :select, :collection => org_type_name, :label => t('helpers.org_type.other_guidance'), :input_html => { :multiple => false } %>
+                     <% org_type_other = OrganisationType.find_by_name(t('helpers.org_type.project')).organisations %>
+                     <%= f.input :organisation_name, :as => :select, :collection => org_type_other, :label => t('helpers.org_type.other_guidance'), :input_html => { :multiple => false } %>
                 </div>
             </div> 
              

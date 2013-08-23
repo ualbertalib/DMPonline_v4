@@ -12,13 +12,14 @@ class Organisation < ActiveRecord::Base
   
   attr_accessible :abbreviation, :banner_file_id, :description, :domain, :logo_file_id, :name, :stylesheet_file_id, :target_url, :organisation_type_id, :wayfless_entity
 
-  def self.organisations_of_type(type_name)
-    type = OrganisationType.find_by_name(type_name)
-    return type.organisations
+
+  #retrieves info off a child org 
+  def self.has_children(parent_org_id)
+    org_child = Organisation.where(parent_id: parent_org_id)
+    return org_child
   end
-  
-  
-  
+   
+    
   def self.other_organisations
     org_types = ["Publisher", "Learned Society", t('helpers.org_type.project')]
     organisations = []
