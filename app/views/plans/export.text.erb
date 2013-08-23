@@ -1,21 +1,29 @@
 <%= @plan.project.title %>
+
 <%= @plan.version.phase.title %>
+
 <% sections = @plan.sections.order("number") %>
 <% sections.each do |section| %>
-	<%= section.title %>
-	<% questions = section.questions.order("number") %>
-	<% questions.each do |question| %>
-		<%= question.text %>
-		<% answer = @plan.answer(question.id, false) %>
-		<% if answer.nil? then %>
-			Question not answered.
-		<% else %>
-			<% if question.multiple_choice then %>
-				<% answer.options.each do |option| %>
-					<%= option.text %>
-				<% end %>
-			<% end %>
-			<%= raw answer.text %>
-		<% end %>
-	<% end %>
+
+<%= section.title %>
+<% questions = section.questions.order("number") %>
+<% questions.each do |question| %>
+
+<%= question.text %>
+<% answer = @plan.answer(question.id, false) %>
+<% if answer.nil? then %>
+
+Question not answered.
+<% else %>
+<% if question.multiple_choice then %>
+
+<% answer.options.each do |option| %>
+
+<%= option.text %>
+<% end %>
+<% end %>
+
+<%= strip_tags(answer.text) %>
+<% end %>
+<% end %>
 <% end %>
