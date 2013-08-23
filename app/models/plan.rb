@@ -92,6 +92,34 @@ class Plan < ActiveRecord::Base
 		return status
 	end
 	
+	def details
+		details = {
+			"project_title" => project.title,
+			"phase_title" => version.phase.title,
+			"sections" => {}
+		}
+		sections.order("number").each do |s|
+			details["sections"][s.number] = {}
+			details["sections"][s.number]["title"] = s.title
+			details["sections"][s.number]["questions"] = {}
+			s.questions.order("number").each do |q|
+				details["sections"][s.number]["questions"][q.number] = {}
+				details["sections"][s.number]["questions"][q.number]["question_text"] = q.text
+				answer = answer(q.id, false)
+				if ! answer.nil? then
+					if q.multiple_choice then
+						details["sections"][s.number]["questions"][q.number]["selections"] = {}
+						answer.options.each do |o|
+							details["sections"][s.number]["questions"][q.number]["selections"][o.number] = o.text
+						end
+					end
+					details["sections"][s.number]["questions"][q.number]["answer_text"] = answer.text
+				end
+			end
+		end
+		return details
+	end
+	
 	def locked(section_id, user_id)
 		plan_section = plan_sections.where(:section_id => section_id).order("created_at DESC").first
 		if plan_section.nil? then

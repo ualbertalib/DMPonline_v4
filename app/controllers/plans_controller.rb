@@ -168,6 +168,8 @@ class PlansController < ApplicationController
 		respond_to do |format|
 		  format.html { render action: "export" }
 		  format.xml { render action: "export" }
+		  format.json { render json: @plan.details }
+		  format.text { render action: "export" }
 		end
 	end
 end

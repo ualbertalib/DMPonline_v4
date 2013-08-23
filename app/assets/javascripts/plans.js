@@ -163,12 +163,9 @@ $( document ).ready(function() {
 		var current_timestamp = new Date(t.attr('data-time'));
 		var timestamp = new Date(Number(data.questions[question_id]["answer_created_at"]) * 1000);
 		if (timestamp.getTime() != current_timestamp.getTime()) {
-			// If question has not been answered previously, need to add abbr for timestamp
-			if (q_status.hasClass("label-warning")) {
-				q_status.text("");
-				q_status.append("<abbr class='timeago'></abbr>");
-				t = q_status.children("abbr:first");
-			}
+			q_status.text("");
+			q_status.append("Answered <abbr class='timeago'></abbr> by "+data.questions[question_id]["answered_by"]);
+			t = q_status.children("abbr:first");
 			// Update label to indicate successful submission
 			q_status.removeClass("label-info label-warning");
 			q_status.addClass("label-success");
