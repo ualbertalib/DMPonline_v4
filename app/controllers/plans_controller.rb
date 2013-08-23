@@ -165,9 +165,9 @@ class PlansController < ApplicationController
 	
 	def export
 		@plan = Plan.find(params[:id])
-		# do some sort of exporting stuff....
-		# different views depending on format
-		# default to html
-		render :action => 'export', :layout => false
+		respond_to do |format|
+		  format.html { render action: "export" }
+		  format.xml { render action: "export" }
+		end
 	end
 end

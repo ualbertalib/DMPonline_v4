@@ -1,26 +1,23 @@
-<head></head>
-<body>
-	<h1><%= @plan.project.title %></h1>
-	<h2><%= @plan.version.phase.title %></h2>
-	<% sections = @plan.sections.order("number") %>
-	<% sections.each do |section| %>
-		<h3><%= section.title %></h3>
-		<% questions = section.questions.order("number") %>
-		<% questions.each do |question| %>
-			<h4><%= question.text %></h4>
-			<% answer = @plan.answer(question.id, false) %>
-			<% if answer.nil? then %>
-				<p>Question not answered.</p>
-			<% else %>
-				<% if question.multiple_choice then %>
-					<ul>
-						<% answer.options.each do |o| %>
-							<li><%= o.text %></li>
-						<% end %>
-					</ul>
-				<% end %>
-				<%= raw answer.text %>
+<h1><%= @plan.project.title %></h1>
+<h2><%= @plan.version.phase.title %></h2>
+<% sections = @plan.sections.order("number") %>
+<% sections.each do |section| %>
+	<h3><%= section.title %></h3>
+	<% questions = section.questions.order("number") %>
+	<% questions.each do |question| %>
+		<h4><%= question.text %></h4>
+		<% answer = @plan.answer(question.id, false) %>
+		<% if answer.nil? then %>
+			<p>Question not answered.</p>
+		<% else %>
+			<% if question.multiple_choice then %>
+				<ul>
+					<% answer.options.each do |option| %>
+						<li><%= option.text %></li>
+					<% end %>
+				</ul>
 			<% end %>
+			<%= raw answer.text %>
 		<% end %>
 	<% end %>
-</body>
+<% end %>
