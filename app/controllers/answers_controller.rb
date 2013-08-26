@@ -4,7 +4,7 @@ class AnswersController < ApplicationController
 	# POST /answers.json
 	def create
 		@answer = Answer.new(params[:answer])
-		if (! current_user.nil?) && @answer.plan.can_edit(current_user.id) then
+		if (user_signed_in?) && @answer.plan.can_edit(current_user.id) then
 			old_answer = @answer.plan.answer(@answer.question_id, false)
 			proceed = false
 			@answer.text = params["answer-text-#{@answer.question_id}".to_sym]

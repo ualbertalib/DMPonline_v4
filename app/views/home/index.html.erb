@@ -1,6 +1,6 @@
 <h1>DMPonline home page</h1>
 <p>Lets start having some fun</p>
-<% if current_user.nil? %>
+<% if ! user_signed_in? %>
 	<div>
 		<%= render :partial => 'shared/login_form' %>
 	</div>
