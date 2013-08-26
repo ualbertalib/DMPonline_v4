@@ -38,7 +38,7 @@
         <td><%=l project.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_project_path(project), :class => 'btn btn-mini' %>
+                      project_path(project), :class => 'btn btn-mini' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       project_path(project),
                       :method => :delete,

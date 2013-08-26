@@ -63,43 +63,27 @@
                                 <li><%= link_to 'File uploads', file_uploads_path %></li>
                             </ul>
                         </li>
-                        <li>
-                            <ul>
-                                <% if user_signed_in? %>
-  
-  <%= link_to 'Edit profile', edit_user_registration_path, :style=>'color:#FFFFFF;', :class => 'btn btn-primary' %> 
-  <%= link_to "Logout", destroy_user_session_path, method: :delete, :style=>'color:#FFFFFF;', :class => 'btn btn-danger'  %>
-  <ul><small>Logged in as <strong><%= current_user.email %></strong>.</small></ul>
-<% else %>
-  <a href="#header-login-form" role="button" class="btn" data-toggle="modal">Login</a>
-  <a href="#header-register-form" role="button" class="btn" data-toggle="modal">Register</a>
-<% end %>
-                            </ul>
-                        </li>
-                            
+                        <% if user_signed_in? %>
+                        	<li class="dropdown">
+                        	  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Logged in as <strong><%= current_user.name %></strong><b class="caret"></b></a>
+														<ul class="dropdown-menu">
+															<li><%= link_to 'Edit profile', edit_user_registration_path %></li>
+															<li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+														</ul>
+                        	</li>
+                        <% elsif ! current_page?(:controller => "home", :action => "index") %>
+													<li>
+														<ul>
+														<li><a href="#header-login-form" data-toggle="modal">Login</a></li>
+														<li><a href="#header-register-form" data-toggle="modal">Register</a></li>
+														</ul>
+													</li>
+												<% end %> 
                     </ul>
                    <h2><%= t('tool_title')%></h2>
                 </div>   
              </div>
         </div>
-    </div>
-    <div id='header-login-form' class='modal hide fade'>
-    	<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h3>Sign in</h3>
-			</div>
-			<div class="modal-body">
-				<%= render :partial => 'shared/login_form' %>
-			</div>
-    </div>
-    <div id='header-register-form' class='modal hide fade'>
-    	<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h3>Sign up</h3>
-			</div>
-			<div class="modal-body">
-				<%= render :partial => 'shared/register_form' %>
-			</div>
     </div>
 </div>
     

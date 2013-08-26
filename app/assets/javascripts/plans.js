@@ -1,3 +1,6 @@
+//= require jquery.timeago.js
+//= require tinymce
+
 $( document ).ready(function() {
 	
 	// Delete 30min locks set in case user doesn't have JS
@@ -42,9 +45,6 @@ $( document ).ready(function() {
 		if ($('form').length > 0) {
 			check_section_lock(section);
     }
-    // Toggle +/- in section header
-    var header = $("a[href='#" + section.attr("id") + "']");
-    header.find(".icon-plus").removeClass("icon-plus").addClass("icon-minus");
     // check for updated answers
     $.getJSON("status.json", function(data) {
     	//Update overall progress
@@ -73,9 +73,6 @@ $( document ).ready(function() {
 			var section_id = section.attr("id").split('-')[1];
 			$.post('unlock_section', {section_id: section_id} );
     }
-    // Toggle +/- in section header
-    var header = $("a[href='#" + section.attr("id") + "']");
-    header.find(".icon-minus").removeClass("icon-minus").addClass("icon-plus");
   });
   
   function update_answer(question_id) {

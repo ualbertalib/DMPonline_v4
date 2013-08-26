@@ -149,21 +149,21 @@ a.btn-primary, a.btn-primary:active,  a.btn-primary:visited {
 }
 
 
-#sections-accordion .accordion-group{
+.accordion-group{
   background-color: #F49700;
   border-color:#F49700;
   border-radius: 1px;
   margin-bottom: 5px;
-}
-
-#sections-accordion .accordion-heading{
   box-shadow: 7px 7px 2px 0px rgba(168, 168, 168, 0.5);
   -moz-box-shadow: 7px 7px 2px 0px rgba(168, 168, 168, 0.5);
   -webkit-box-shadow: 7px 7px 2px 0px rgba(168, 168, 168, 0.5);
+}
+
+.accordion-heading{
   background-color: #F49700;
 }
 
-#sections-accordion .accordion-heading a, #sections-accordion .accordion-heading a:hover,#sections-accordion .accordion-heading a:active, #sections-accordion .accordion-heading a:visited{
+.accordion-heading a, .accordion-heading a:hover, .accordion-heading a:active, .accordion-heading a:visited{
   color:#ffffff;
   font-weight: bold;
   text-decoration: none;
@@ -174,11 +174,11 @@ a.btn-primary, a.btn-primary:active,  a.btn-primary:visited {
   float:right;
 }
 
-#sections-accordion .section-status{
+.section-status{
   background-color: #F49700;
 }
 
-#sections-accordion .accordion-inner{
+.accordion-inner{
   background-color: #ffffff;
 }
 
@@ -277,6 +277,16 @@ a.btn-primary, a.btn-primary:active,  a.btn-primary:visited {
 }
 
 
+/** Home page **/
+
+#welcome-message {
+	float:left;
+	width:50%;
+}
+#homepage-accordion {
+	float:right;
+	width:50%;
+}
 
 
 @import "twitter/bootstrap/responsive";

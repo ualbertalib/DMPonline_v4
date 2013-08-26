@@ -12,15 +12,20 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.timeago.js
-//= require tinymce
-//= require plans.js
 //= require bootstrap
 //= require v1.js
 
 
+$( document ).ready(function() {
 
-$(function(){
-	$('.dropdown-toggle').dropdown()
+	$(function(){
+		$('.dropdown-toggle').dropdown()
+	});
+
+	$('.accordion-body').on('show', function() {
+		var plus = $(this).parent().find(".icon-plus").removeClass("icon-plus").addClass("icon-minus");
+	}).on('hide', function(){
+		var minus = $(this).parent().find(".icon-minus").removeClass("icon-minus").addClass("icon-plus");
+	});
 
 });

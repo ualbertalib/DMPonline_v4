@@ -14,3 +14,21 @@
        </ul>
     </div>
 </footer>
+<div id='header-login-form' class='modal hide fade'>
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		<h3>Sign in</h3>
+	</div>
+	<div class="modal-body">
+		<%= render :partial => 'shared/login_form' %>
+	</div>
+</div>
+<div id='header-register-form' class='modal hide fade'>
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		<h3>Sign up</h3>
+	</div>
+	<div class="modal-body">
+		<%= render :partial => 'shared/register_form' %>
+	</div>
+</div>

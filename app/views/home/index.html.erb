@@ -1,10 +1,29 @@
-<h1>DMPonline home page</h1>
-<p>Lets start having some fun</p>
-<% if ! user_signed_in? %>
-	<div>
-		<%= render :partial => 'shared/login_form' %>
+<h1>DMPonline</h1>
+<div id="welcome-message">
+	<p>Welcome.</p>
+	<p>DMPonline has been developed by the <a href='http://dcc.ac.uk'>Digital Curation Centre</a> to help you manage your research data.</p>
+	<p>Create an account to start your first plan.</p>
+</div>
+<div class="accordion" id="homepage-accordion">
+	<div class="accordion-group">
+		<div class="accordion-heading">
+			<a class="accordion-toggle" data-toggle="collapse" data-parent="#homepage-accordion" href="#collapse-login">Sign In<span class="icon-minus icon-white accordion-icon"> </span></a>
+		</div>
+		<div id="collapse-login" class="accordion-body collapse in">
+			<div class="accordion-inner">
+				<%= render :partial => 'shared/login_form' %>
+			</div>
+		</div>
 	</div>
-	<div>
-		<%= render :partial => 'shared/register_form' %>
+	<div class="accordion-group">
+		<div class="accordion-heading">
+			<a class="accordion-toggle" data-toggle="collapse" data-parent="#homepage-accordion" href="#collapse-register">Sign Up<span class="icon-plus icon-white accordion-icon"> </span></a>
+		</div>
+		<div id="collapse-register" class="accordion-body collapse">
+			<div class="accordion-inner">
+				<%= render :partial => 'shared/register_form' %>
+			</div>
+		</div>
 	</div>
-<% end %>
+</div>
+<div class="two-column-clear"></div>

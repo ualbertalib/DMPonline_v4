@@ -10,4 +10,8 @@ module ApplicationHelper
 	def devise_mapping
 		@devise_mapping ||= Devise.mappings[:user]
 	end
+	
+	def javascript(*files)
+	  content_for(:head) { javascript_include_tag(*files) }
+	end
 end
