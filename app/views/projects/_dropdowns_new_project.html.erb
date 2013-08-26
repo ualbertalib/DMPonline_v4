@@ -1,5 +1,5 @@
 <!-- Create a new project (3 dropdowns = 6 options) -->
-<%= semantic_form_for @project do |f| %>
+<%= semantic_form_for @project, :url => {:controller => :projects, :action => :create }, :html=>{:method=>:post} do |f| %>
     <%= f.inputs do %>
     <div class="createa-project">
         <h3>
@@ -16,12 +16,12 @@
                   <div class="controls">
                      <% org_type_funder = OrganisationType.find_by_name(t('helpers.org_type.funders')).organisations %>
                      <%= f.input :organisation_name, :as => :select, :collection => org_type_funder, :label => t('helpers.org_type.funders'), :input_html => { :multiple => false } %>
-                     <% org_template = Dmptemplate.templates_of_org(org_type_funder.object_id ) %>
-                     <% if org_template.length > 1  then %>
+                     <% org_template = Dmptemplate.templates_of_org('113629430' ) %>
+                     <%# if org_template.length > 1  then %>
                         <div id="has_more_templates">
-                           <%= f.input :title, :as => :select, :collection => org_type_name, :label => t('helpers.org_type.templates'), :input_html => { :multiple => false } %>
+                           <%= f.input :dmptemplate, :as => :select, :collection => org_template, :label => t('helpers.org_type.templates'), :input_html => { :multiple => false } %>
                         </div>
-                     <% end %>   
+                     <% #end %>   
                 </div>
             </div> 
             
@@ -43,15 +43,17 @@
             <!-- dropdown 3 = other guidance -->
             <div class="control-group">
                   <div class="controls">
-                     <% org_type_other = OrganisationType.find_by_name(t('helpers.org_type.project')).organisations %>
-                     <%= f.input :organisation_name, :as => :select, :collection => org_type_other, :label => t('helpers.org_type.other_guidance'), :input_html => { :multiple => false } %>
+                     <% org_type_other = Organisation.other_organisations %>
+                     <%= f.input :organisation_name, :as => :check_boxes, :collection => org_type_other, :label => t('helpers.org_type.other_guidance'), :input_html => { :multiple => false } %>
                 </div>
             </div> 
              
         </div>    
     </div>
-    <%= link_to t('.new', :default => t("helpers.project.create")),
-            new_project_path,
-            :class => 'btn btn-primary' %>
+    <% end %>
+    <!-- submit buttons -->
+    <%= f.actions do %>
+        <%= f.action :submit, :label => t('helpers.project.create')%>
+        
     <% end %>
 <% end %>   

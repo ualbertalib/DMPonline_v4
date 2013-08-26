@@ -21,12 +21,14 @@ class Organisation < ActiveRecord::Base
    
     
   def self.other_organisations
-    org_types = ["Publisher", "Learned Society", t('helpers.org_type.project')]
-    organisations = []
+    org_types = [I18n.t('helpers.org_type.school'), I18n.t('helpers.org_type.organisation')]
+    organisations_list = []
     org_types.each do |ot|
-      organisations = organisations + Organisation.organisations_of_type(ot)
+      new_org_obejct = OrganisationType.find_by_name(ot)
+      organisations_list = organisations_list + new_org_obejct.organisations
+      
     end
-    return organisations
+    return organisations_list
   end
   
 end
