@@ -1,0 +1,9 @@
+<%= form_for(resource, :as => "user", :url => registration_path("user")) do |f| %>
+  <ul>
+  <li><%= devise_error_messages! %></li>
+  <li><%= f.label :email %><%= f.email_field :email %></li>
+  <li><%= f.label :password %><%= f.password_field :password %></li>
+  <li><%= f.label :password_confirmation %><%= f.password_field :password_confirmation %></li>
+  <li><%= f.submit "Sign up" %></li>
+  </ul>
+<% end %>

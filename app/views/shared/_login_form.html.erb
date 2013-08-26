@@ -1,0 +1,9 @@
+<%= form_for(resource, :as => "user", :url => user_session_path) do |f| %>
+  <ul>
+  <li><%= devise_error_messages! %></li>
+  <li><%= f.label :email %><%= f.text_field :email %></li>
+  <li><%= f.label :password %><%= f.password_field :password %></li>
+  <li><%= f.check_box :remember_me %><%= f.label :remember_me %></li>
+  <li><%= f.submit 'Sign in' %><%= link_to "Forgot your password?", new_password_path('user') %></li>
+  </ul>
+<% end %>

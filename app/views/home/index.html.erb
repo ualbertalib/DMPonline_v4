@@ -1,2 +1,10 @@
 <h1>DMPonline home page</h1>
 <p>Lets start having some fun</p>
+<% if current_user.nil? %>
+	<div>
+		<%= render :partial => 'shared/login_form' %>
+	</div>
+	<div>
+		<%= render :partial => 'shared/register_form' %>
+	</div>
+<% end %>
