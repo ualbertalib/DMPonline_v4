@@ -3,7 +3,7 @@ class Dmptemplate < ActiveRecord::Base
   
   #associations between tables
   has_many :phases
-  has_one :organisation
+  belongs_to :organisation
   has_many :projects
   
   accepts_nested_attributes_for :phases

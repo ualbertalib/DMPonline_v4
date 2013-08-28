@@ -2,7 +2,7 @@ class Organisation < ActiveRecord::Base
   
 	#associations between tables
 	has_many :dmptemplates
-	has_one :organisation_type
+	belongs_to :organisation_type
 	has_many :guidance_groups
 	belongs_to :parent, :class_name => 'Organisation'
 	has_many :children, :class_name => 'Organisation', :foreign_key => 'parent_id'

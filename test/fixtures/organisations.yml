@@ -4,22 +4,22 @@ dcc:
   name: "Digital Curation Centre"
   abbreviation: "DCC"
   description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt"
-  organisation_type_id: organisation
+  organisation_type: organisation
   
 uoe:  
   name: "University of Edinburgh"
   abbreviation: "UoE"
   description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt"
-  organisation_type_id: institution
+  organisation_type: institution
   
 ahrc:
   name: "Arts & Humanities Research Council"
   abbreviation: "AHRC"
-  organisation_type_id: funder
+  organisation_type: funder
   
 
 uoe_si:
   name: "School of informatics"
   abbreviation: "UoE SI"
-  organisation_type_id: school
-  parent_id: uoe
+  organisation_type: school
+  parent: uoe
