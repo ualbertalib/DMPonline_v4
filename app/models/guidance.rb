@@ -3,6 +3,6 @@ class Guidance < ActiveRecord::Base
 
 	#associations between tables
 	belongs_to :theme
-	has_and_belongs_to_many :guidance_groups
+	has_and_belongs_to_many :guidance_groups, join_table: "guidance_in_group"
 
 end

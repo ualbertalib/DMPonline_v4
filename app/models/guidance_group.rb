@@ -3,7 +3,7 @@ class GuidanceGroup < ActiveRecord::Base
 
 	#associations between tables
 	belongs_to :organisation
-	has_and_belongs_to_many :guidances
+	has_and_belongs_to_many :guidances, join_table: "guidance_in_group"
 	has_and_belongs_to_many :projects
 
 end
