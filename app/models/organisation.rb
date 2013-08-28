@@ -14,15 +14,13 @@ class Organisation < ActiveRecord::Base
 
 
   #retrieves info off a child org 
-  def self.has_children(org_type)
-    org_parent = OrganisationType.find_by_name(org_type).organisations
-  
-    org_child = Array.new
-    
-    org_parent.each do |orgchild| 
-      org_child += Organisation.where(parent_id: orgchild)
+  def self.orgs_with_parent_of_type(org_type)
+    parents = OrganisationType.find_by_name(org_type).organisations
+    children = Array.new
+    parents.each do |parent| 
+      children += parent.children
     end
-    return org_child
+    return children
   end
    
     

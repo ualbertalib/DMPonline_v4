@@ -39,36 +39,25 @@ class ProjectsController < ApplicationController
 
 
 
-  # POST /projects
-  # POST /projects.json
-  def create
-    
-    
-      @project = Project.new(params[:project]).delete(:organisation_name)
-    
-    
-    if (!params['child_id'].nil?) || (params['child_id'] != '') then
-    
-      @project.organisation_id = params['child_id']
-    
-     end  
-   
-    #logger.debug "Parent ID: #{params[:organisation]}"
-    #logger.debug "Org ID before check: #{@project.organisation}"    
-    # logger.debug "Org ID after check: #{@project.organisation}"
-
-   @project.title = @project.dmptemplate.title
-    
-    respond_to do |format|
-      if @project.save
-        format.html { redirect_to @project, notice: 'Project was successfully created.' }
-        format.json { render json: @project, status: :created, location: @project }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+	# POST /projects
+	# POST /projects.json
+	def create	
+    	unit_id = params[:project].delete(:unit_id)
+		@project = Project.new(params[:project])
+		if (! unit_id.nil?) && (unit_id != '') then  
+			@project.organisation_id = unit_id    
+		end
+		@project.title = @project.dmptemplate.title
+		respond_to do |format|
+			if @project.save
+				format.html { redirect_to @project, notice: 'Project was successfully created.' }
+				format.json { render json: @project, status: :created, location: @project }
+			else
+				format.html { render action: "new" }
+				format.json { render json: @project.errors, status: :unprocessable_entity }
+			end
+		end
+	end
 
 
 
