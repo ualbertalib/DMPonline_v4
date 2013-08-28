@@ -37,11 +37,28 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
   end
 
+
+
   # POST /projects
   # POST /projects.json
   def create
-    @project = Project.new(params[:project])
+    
+    
+      @project = Project.new(params[:project]).delete(:organisation_name)
+    
+    
+    if (!params['child_id'].nil?) || (params['child_id'] != '') then
+    
+      @project.organisation_id = params['child_id']
+    
+     end  
+   
+    #logger.debug "Parent ID: #{params[:organisation]}"
+    #logger.debug "Org ID before check: #{@project.organisation}"    
+    # logger.debug "Org ID after check: #{@project.organisation}"
 
+   @project.title = @project.dmptemplate.title
+    
     respond_to do |format|
       if @project.save
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
@@ -52,6 +69,9 @@ class ProjectsController < ApplicationController
       end
     end
   end
+
+
+
 
   # PUT /projects/1
   # PUT /projects/1.json

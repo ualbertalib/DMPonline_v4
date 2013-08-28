@@ -10,18 +10,24 @@ class Organisation < ActiveRecord::Base
   accepts_nested_attributes_for :organisation_type
   accepts_nested_attributes_for :dmptemplates
   
-  attr_accessible :abbreviation, :banner_file_id, :description, :domain, :logo_file_id, :name, :stylesheet_file_id, :target_url, :organisation_type_id, :wayfless_entity
+  attr_accessible :abbreviation, :banner_file_id, :description, :domain, :logo_file_id, :name, :stylesheet_file_id, :target_url, :organisation_type_id, :wayfless_entity, :parent_id
 
 
   #retrieves info off a child org 
-  def self.has_children(parent_org_id)
-    org_child = Organisation.where(parent_id: parent_org_id)
+  def self.has_children(org_type)
+    org_parent = OrganisationType.find_by_name(org_type).organisations
+  
+    org_child = Array.new
+    
+    org_parent.each do |orgchild| 
+      org_child += Organisation.where(parent_id: orgchild)
+    end
     return org_child
   end
    
     
   def self.other_organisations
-    org_types = [I18n.t('helpers.org_type.school'), I18n.t('helpers.org_type.organisation')]
+    org_types = [I18n.t('helpers.org_type.organisation')]
     organisations_list = []
     org_types.each do |ot|
       new_org_obejct = OrganisationType.find_by_name(ot)

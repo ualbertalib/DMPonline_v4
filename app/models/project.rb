@@ -2,7 +2,7 @@ class Project < ActiveRecord::Base
 
 	extend FriendlyId
 
-	attr_accessible :dmptemplate_id, :locked, :note, :title
+	attr_accessible :dmptemplate_id, :locked, :note, :title, :organisation_id
 
 	#associations between tables
 	belongs_to :dmptemplate
