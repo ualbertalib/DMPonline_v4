@@ -34,7 +34,7 @@ DMPonline4::Application.routes.draw do
 		post 'unlock_section'
 		post 'unlock_all_sections'
 		get 'export'
-	  end
+	end
   end
   resources :plan_sections
   
@@ -49,7 +49,12 @@ DMPonline4::Application.routes.draw do
   resources :user_role_types
   resources :user_org_roles
   
-  resources :organisations
+  resources :organisations do
+  	member do
+		get 'children'
+		get 'templates'
+	end
+end
   resources :organisation_types
   resources :pages
  

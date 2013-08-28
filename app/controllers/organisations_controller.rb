@@ -80,4 +80,34 @@ class OrganisationsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+	def children
+		@organisation = Organisation.find(params[:id])
+		#if user_signed_in? then
+		children = {}
+		@organisation.children.each do |child|
+			children[child.id] = child.name
+		end
+		respond_to do |format|
+			format.json { render json: children.to_json }
+		end
+# 		else
+# 			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
+# 		end
+	end
+  
+	def templates
+		@organisation = Organisation.find(params[:id])
+		#if user_signed_in? then
+		templates = {}
+		@organisation.dmptemplates.each do |template|
+			templates[template.id] = template.title
+		end
+		respond_to do |format|
+			format.json { render json: templates.to_json }
+		end
+# 		else
+# 			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
+# 		end
+	end
 end

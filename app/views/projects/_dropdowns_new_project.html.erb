@@ -15,11 +15,11 @@
                 <% org_type_funder = OrganisationType.find_by_name(t('helpers.org_type.funders')).organisations %>
                 <%= f.input :organisation, :as => :select, :collection => org_type_funder, :label => t('helpers.org_type.funders'), :input_html => { :multiple => false, :id => t('helpers.org_type.funders') } %>
                 <% org_template = Dmptemplate.templates_org_type(t('helpers.org_type.funders') ) %>
-                <%# if org_template.length > 1  then %>
+                <% if org_template.length > 1  then %>
                 <div id="has_more_templates">
                     <%= f.input :dmptemplate, :as => :select, :collection => org_template, :label => t('helpers.org_type.templates'), :input_html => { :multiple => false } %>
                 </div>
-                <% #end %>
+                <% end %>
             </div>
         </div>
 
