@@ -1,0 +1,141 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+guidance_dcc_related_policies:
+  guidance_id: related_policies
+  guidance_group_id: dcc_guidance_group_1
+  
+guidance_dcc_existing_data:
+  guidance_id: existing_data
+  guidance_group_id: dcc_guidance_group_1
+  
+guidance_dcc_licensing_of_existing_data:
+  guidance_id: licensing_of_existing_data
+  guidance_group_id: dcc_guidance_group_1
+  
+guidance_dcc_relationship_to_existing_data:
+  guidance_id: relationship_to_existing_data
+  guidance_group_id: dcc_guidance_group_1
+  
+guidance_dcc_description_of_data_content:
+  guidance_id: description_of_data_content
+  guidance_group_id: dcc_guidance_group_1
+  
+guidance_dcc_data_format:
+  guidance_id: data_format
+  guidance_group_id: dcc_guidance_group_1
+  
+guidance_dcc_data_volumes:
+  guidance_id: data_volumes
+  guidance_group_id: dcc_guidance_group_1
+  
+guidance_dcc_data_type:
+  guidance_id: data_type
+  guidance_group_id: dcc_guidance_group_1
+  
+guidance_dcc_data_capture_methods:
+  guidance_id: data_capture_methods
+  guidance_group_id: dcc_guidance_group_1
+  
+guidance_dcc_data_organisation:
+  guidance_id: data_organisation
+  guidance_group_id: dcc_guidance_group_1
+  
+guidance_dcc_data_quality:
+  guidance_id: data_quality
+  guidance_group_id: dcc_guidance_group_1
+  
+guidance_dcc_documentation:
+  guidance_id: documentation
+  guidance_group_id: dcc_guidance_group_1
+  
+guidance_dcc_metadata_capture:
+  guidance_id: metadata_capture
+  guidance_group_id: dcc_guidance_group_1
+  
+guidance_dcc_metadata_standards:
+  guidance_id: metadata_standards
+  guidance_group_id: dcc_guidance_group_1
+  
+guidance_dcc_discovery_by_users:
+  guidance_id: discovery_by_users
+  guidance_group_id: dcc_guidance_group_1
+  
+guidance_dcc_ethical_issues:
+  guidance_id: ethical_issues
+  guidance_group_id: dcc_guidance_group_1
+  
+guidance_dcc_ipr_ownership_and_licencing:
+  guidance_id: ipr_ownership_and_licencing
+  guidance_group_id: dcc_guidance_group_1
+  
+guidance_dcc_active_data_storage:
+  guidance_id: active_data_storage
+  guidance_group_id: dcc_guidance_group_1
+  
+guidance_dcc_backup_procedures:
+  guidance_id: backup_procedures
+  guidance_group_id: dcc_guidance_group_1
+  
+guidance_dcc_data_security:
+  guidance_id: data_security
+  guidance_group_id: dcc_guidance_group_1
+  
+guidance_dcc_data_selection:
+  guidance_id: data_selection
+  guidance_group_id: dcc_guidance_group_1
+  
+guidance_dcc_preservation_plan:
+  guidance_id: preservation_plan
+  guidance_group_id: dcc_guidance_group_1
+  
+guidance_dcc_period_of_preservation:
+  guidance_id: period_of_preservation
+  guidance_group_id: dcc_guidance_group_1
+  
+guidance_dcc_data_repository:
+  guidance_id: data_repository
+  guidance_group_id: dcc_guidance_group_1
+  
+guidance_dcc_audience:
+  guidance_id: audience
+  guidance_group_id: dcc_guidance_group_1
+  
+guidance_dcc_expected_reuse:
+  guidance_id: expected_reuse
+  guidance_group_id: dcc_guidance_group_1
+  
+guidance_dcc_method_for_data_sharing:
+  guidance_id: method_for_data_sharing
+  guidance_group_id: dcc_guidance_group_1
+  
+guidance_dcc_timeframe_for_data_sharing:
+  guidance_id: timeframe_for_data_sharing
+  guidance_group_id: dcc_guidance_group_1
+  
+guidance_dcc_embargo_period:
+  guidance_id: embargo_period
+  guidance_group_id: dcc_guidance_group_1
+  
+guidance_dcc_restrictions_on_sharing:
+  guidance_id: restrictions_on_sharing
+  guidance_group_id: dcc_guidance_group_1
+  
+guidance_dcc_managed_access_procedures:
+  guidance_id: managed_access_procedures
+  guidance_group_id: dcc_guidance_group_1
+  
+guidance_dcc_responsibilities:
+  guidance_id: responsibilities
+  guidance_group_id: dcc_guidance_group_1
+  
+guidance_dcc_resourcing_skills_and_training:
+  guidance_id: resourcing_skills_and_training
+  guidance_group_id: dcc_guidance_group_1
+  
+guidance_dcc_resourcing_hardware_and_software:
+  guidance_id: resourcing_hardware_and_software
+  guidance_group_id: dcc_guidance_group_1
+  
+guidance_dcc_resourcing_preservation_and_data_sharing:
+  guidance_id: resourcing_preservation_and_data_sharing
+  guidance_group_id: dcc_guidance_group_1

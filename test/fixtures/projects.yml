@@ -1,13 +1,26 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
-#one:
-#  title: MyString
-#  note: MyText
-#  locked: false
-#  dmptemplate_id: 1
-#
 #two:
 #  title: MyString
 #  note: MyText
 #  locked: false
 #  dmptemplate_id: 1
+
+test_plan:
+  title: "AHRC Template project"
+  dmptemplate_id: ahrc_template
+  organisation_id: ahrc
+
+test_plan_2:
+  title: "AHRC Template second project"
+  dmptemplate_id: ahrc_template_2
+  organisation_id: ahrc
+
+test_plan_3:
+  title: "DCC Template project"
+  dmptemplate_id: dcc_template
+  organisation_id: dcc
+  
+test_plan_4:
+  title: "DMP Template project"
+  dmptemplate_id: dmp_template
+  organisation_id: dcc

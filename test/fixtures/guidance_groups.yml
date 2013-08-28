@@ -1,0 +1,5 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+dcc_guidance_group_1:
+  name: "DCC guidance group 1"
+  organisation_id: dcc

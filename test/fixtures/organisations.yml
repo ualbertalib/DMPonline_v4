@@ -1,24 +1,25 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  name: Digital Curation Centre
-  abbreviation: DCC
-  description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-  organisation_type_id: 3
+dcc:
+  name: "Digital Curation Centre"
+  abbreviation: "DCC"
+  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt"
+  organisation_type_id: organisation
   
-two:
-  name: University of Edinburgh
-  abbreviation: UoE
-  description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-  organisation_type_id: 2
+uoe:  
+  name: "University of Edinburgh"
+  abbreviation: "UoE"
+  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt"
+  organisation_type_id: institution
   
-three:
-  name: Arts & Humanities Research Council
-  abbreviation: AHRC
-  organisation_type_id: 1
+ahrc:
+  name: "Arts & Humanities Research Council"
+  abbreviation: "AHRC"
+  organisation_type_id: funder
   
 
-four:
-  name: School of informatics
-  organisation_type_id: 4
-  parent_id: 2
+uoe_si:
+  name: "School of informatics"
+  abbreviation: "UoE SI"
+  organisation_type_id: school
+  parent_id: uoe

@@ -1,33 +1,33 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-DCC:
-  title: DCC Template
-  description: The default DCC template
+dcc_template:
+  title: "DCC Template"
+  description: "The default DCC template"
   published: true
   user_id: 1
-  organisation_id: 1
+  organisation_id: dcc
   locale: en
 
-DMP:
-  title: DMP Template
-  description: The default DMP template
+dmp_template:
+  title: "DMP Template"
+  description: "The default DMP template"
   published: true
   user_id: 1
-  organisation_id: 1
+  organisation_id: dcc
   locale: en
   
-AHRC:
-  title: AHRC Template
-  description: The default AHRC template
+ahrc_template:
+  title: "AHRC Template"
+  description: "The default AHRC template"
   published: true
   user_id: 1
-  organisation_id: 2
+  organisation_id: ahrc
   locale: en
   
-AHRC2:
-  title: AHRC second Template
-  description: The default AHRC template
+ahrc_template_2:
+  title: "AHRC second Template"
+  description: "The default AHRC template"
   published: true
   user_id: 1
-  organisation_id: 2
+  organisation_id: ahrc
   locale: en
