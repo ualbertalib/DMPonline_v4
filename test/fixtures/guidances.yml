@@ -98,7 +98,7 @@ data_repository:
 
 audience:
   text: "<p class='guidance_header'>Questions to consider:</p> <ul> <li>Who may be interested in using your data?</li> </ul> <p class='guidance_header'>Guidance:</p> <p>Where possible outline the types of users you expect and estimate numbers.</p>"
-  theme: audience
+  theme: audiencethe
 
 expected_reuse:
   text: "<p class='guidance_header'>Questions to consider:</p> <ul> <li>What are the further intended or foreseeable research uses for the data?</li> </ul> <p class='guidance_header'>Guidance:</p> <p>You should think about the possibilities for re-use of your data in other contexts and by other users, and connect this as appropriate with your plans for dissemination and Pathways to Impact. Where there is potential for reuse, you should use standards and formats that facilitate this.</p>"

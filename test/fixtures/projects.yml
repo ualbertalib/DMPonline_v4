@@ -7,20 +7,20 @@
 
 test_plan:
   title: "AHRC Template project"
-  dmptemplate_id: ahrc_template
-  organisation_id: ahrc
+  dmptemplate: ahrc_template
+  organisation: ahrc
 
 test_plan_2:
   title: "AHRC Template second project"
-  dmptemplate_id: ahrc_template_2
-  organisation_id: ahrc
+  dmptemplate: ahrc_template_2
+  organisation: ahrc
 
 test_plan_3:
   title: "DCC Template project"
-  dmptemplate_id: dcc_template
-  organisation_id: dcc
+  dmptemplate: dcc_template
+  organisation: dcc
   
 test_plan_4:
   title: "DMP Template project"
-  dmptemplate_id: dmp_template
-  organisation_id: dcc
+  dmptemplate: dmp_template
+  organisation: dcc

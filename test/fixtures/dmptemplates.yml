@@ -5,7 +5,7 @@ dcc_template:
   description: "The default DCC template"
   published: true
   user_id: 1
-  organisation_id: dcc
+  organisation: dcc
   locale: en
 
 dmp_template:
@@ -13,7 +13,7 @@ dmp_template:
   description: "The default DMP template"
   published: true
   user_id: 1
-  organisation_id: dcc
+  organisation: dcc
   locale: en
   
 ahrc_template:
@@ -21,7 +21,7 @@ ahrc_template:
   description: "The default AHRC template"
   published: true
   user_id: 1
-  organisation_id: ahrc
+  organisation: ahrc
   locale: en
   
 ahrc_template_2:
@@ -29,5 +29,5 @@ ahrc_template_2:
   description: "The default AHRC template"
   published: true
   user_id: 1
-  organisation_id: ahrc
+  organisation: ahrc
   locale: en
