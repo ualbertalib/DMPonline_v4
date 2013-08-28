@@ -32,7 +32,7 @@
                 <% children_info = Organisation.orgs_with_parent_of_type(t('helpers.org_type.institution')) %>
                 <% if children_info.any? %>
                 <div class="has_children">
-                	<%= select_tag('project[unit_id]', options_from_collection_for_select(children_info, :id, :name), {:include_blank => 'None'}) %>
+                    <%= f.input :unit_id, :as => :select, :collection => children_info, :label => t('helpers.org_type.child'), :input_html => { :multiple => false } %>
                 </div >
                 <% end %>
             </div>
