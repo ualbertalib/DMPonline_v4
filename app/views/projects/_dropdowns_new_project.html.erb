@@ -38,13 +38,13 @@
             </div>
         </div>
 
-        <!-- dropdown 3 = other guidance
+        <!-- dropdown 3 = other guidance -->
         <div class="control-group">
-        <div class="controls">
-        <% #org_type_other = Organisation.other_organisations %>
-        <% # = f.input :organisation_name, :as => :check_boxes, :collection => org_type_other, :label => t('helpers.org_type.other_guidance'), :input_html => { :multiple => false } %>
+        	<div class="controls">
+        		<% org_type_other = Organisation.other_organisations %>
+        		<%= f.input :organisation_name, :as => :check_boxes, :collection => org_type_other, :label => t('helpers.org_type.other_guidance'), :input_html => { :multiple => false } %>
+        	</div>
         </div>
-        </div> -->
 
     </div>
 </div>
