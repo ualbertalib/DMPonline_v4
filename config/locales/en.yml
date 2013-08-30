@@ -32,6 +32,13 @@ en:
   tool_title: "DMPonline"
 
   helpers:
+    sign_in: "Sign in"
+    sign_out: "Sign out"
+    register: "Register"
+    logged_in: "Logged in as "
+    edit_profile: "Edit profile"
+    home: "Home"
+    return_home: "Return to the home page"
     submit:
       create: "Create"
       update: "Update"
