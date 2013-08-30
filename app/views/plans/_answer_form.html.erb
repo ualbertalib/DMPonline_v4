@@ -76,5 +76,9 @@
 		<span id='<%= question.id %>-status' class="label label-info answer-status">Answered <abbr class="timeago" data-time="<%= answer.created_at.iso8601 %>" title="<%= answer.created_at.iso8601 %>"><%= answer.created_at %></abbr> by <%= answer.user.name %></span>
 	<% end %>
 </div>
-<div class="question-guidance"><%= raw @plan.guidance_for_question(question.id) %></div>
+<div class="question-guidance">
+	<% @plan.guidance_for_question(question).each do |guidance| %>
+		<div><%= raw guidance %></div>
+	<% end %>
+</div>
 <div class="two-column-clear"></div>

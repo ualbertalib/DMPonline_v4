@@ -27,7 +27,7 @@
 <!-- plan main container -->
 <div class="project-tabs-body">
     <div class="accordion" id="sections-accordion">
-    	<% sections = @plan.sections.order("number") %>
+    	<% sections = @plan.sections %>
     	<% sections.each do |section| %>
     		<% locked = @plan.locked(section.id, current_user.id) %>
 				<% if readonly == nil && locked['locked'] && locked['current_user'] != true then %>
