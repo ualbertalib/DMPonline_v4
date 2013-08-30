@@ -2,13 +2,13 @@ class Project < ActiveRecord::Base
 
 	extend FriendlyId
 
-	attr_accessible :dmptemplate_id, :locked, :note, :title, :organisation_id, :unit_id
+	attr_accessible :dmptemplate_id, :locked, :note, :title, :organisation_id, :unit_id, :guidance_group_ids
 
 	#associations between tables
 	belongs_to :dmptemplate
 	belongs_to :organisation
 	has_many :plans
-	has_and_belongs_to_many :guidance_groups
+	has_and_belongs_to_many :guidance_groups, join_table: "project_guidance"
 	
 	friendly_id :title, use: :slugged
 	

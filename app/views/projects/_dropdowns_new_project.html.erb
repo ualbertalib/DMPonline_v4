@@ -41,8 +41,8 @@
         <!-- dropdown 3 = other guidance -->
         <div class="control-group">
         	<div class="controls">
-        		<% org_type_other = Organisation.other_organisations %>
-        		<%= f.input :organisation_name, :as => :check_boxes, :collection => org_type_other, :label => t('helpers.org_type.other_guidance'), :input_html => { :multiple => false } %>
+        		<% #org_type_other = Organisation.other_organisations %>
+        		<%= f.input :guidance_groups, :as => :check_boxes, :collection => GuidanceGroup.all, :label => t('helpers.org_type.other_guidance') %>
         	</div>
         </div>
 
