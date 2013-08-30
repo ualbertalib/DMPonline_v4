@@ -4,4 +4,4 @@ DCC_phase_1:
   title: DCC Phase 1
   description: The first phase of the DCC default template
   number: 1
-  dmptemplate: DCC
+  dmptemplate: dcc_template
