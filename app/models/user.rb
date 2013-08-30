@@ -14,7 +14,11 @@ class User < ActiveRecord::Base
     attr_accessible :password_confirmation, :encrypted_password, :remember_me, :id, :email, :firstname, :last_login, :login_count, :orcid_id, :password, :shibboleth_id, :user_status_id, :surname, :user_type_id
 
 	def name
-		return "#{firstname} #{surname}"
+		if firstname.nil? && surname.nil? then
+			return email
+		else
+			return "#{firstname} #{surname}"
+		end
 	end
 
 end

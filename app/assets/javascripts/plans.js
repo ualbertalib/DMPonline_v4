@@ -12,6 +12,7 @@ $( document ).ready(function() {
 	// Update status messages on form submission
 	$("form.answer").submit(function(){
 		q_id = $(this).find(".question_id").val();
+		s_status = $(this).closest(".accordion-group").find(".section-status:first");
 		// Allow half a second for database to update
 		timeout = setTimeout(function(){		
 			// Get plan status
@@ -19,7 +20,6 @@ $( document ).ready(function() {
 				update_plan_progress(data);
 				update_timestamp(q_id, data);
 				// Get section status element
-				s_status = $(this).parents(".accordion-group").find(".section-status:first");
 				update_section_progress(s_status, data)
 			});
 		},500);
@@ -81,50 +81,52 @@ $( document ).ready(function() {
 			url: "answer.json?q_id="+question_id,
 			dataType: 'json',
 			async: false, //Needs to be synchronous, otherwise end up mixing up answers
-			success: function(data) {	
-				//Get divs containing the form and readonly versions
-				var form_div = $("#question-form-"+question_id);
-				var readonly_div = $("#question-readonly-"+question_id);
-				//Update answer text - both in textarea and readonly
-				$('#answer-text-'+question_id).val(data.text);
-				tinymce.get('answer-text-'+question_id).setContent(data.text);
-				readonly_div.find('.answer-text-readonly').html(data.text);
-				//Update answer options - both in textarea and readonly
-				num_options = data.options.length;
-				form_div.find('option').each(function(){
-					var selected = false;
-					for (var j =0; j < num_options; j++) {
-						if ($(this).val() == data.options[j].id) {
-							selected = true;
+			success: function(data) {
+				if (data != null) {
+					//Get divs containing the form and readonly versions
+					var form_div = $("#question-form-"+question_id);
+					var readonly_div = $("#question-readonly-"+question_id);
+					//Update answer text - both in textarea and readonly
+					$('#answer-text-'+question_id).val(data.text);
+					tinymce.get('answer-text-'+question_id).setContent(data.text);
+					readonly_div.find('.answer-text-readonly').html(data.text);
+					//Update answer options - both in textarea and readonly
+					num_options = data.options.length;
+					form_div.find('option').each(function(){
+						var selected = false;
+						for (var j =0; j < num_options; j++) {
+							if ($(this).val() == data.options[j].id) {
+								selected = true;
+							}
 						}
-					}
-					if (selected) {
-						$(this).attr('selected', 'selected');
-					}
-					else {
-						$(this).removeAttr('selected');
-					}
-				});
-				form_div.find(':checkbox,:radio').each(function(){
-					var selected = false;
-					for (var j =0; j < num_options; j++) {
-						if ($(this).val() == data.options[j].id) {
-							selected = true;
+						if (selected) {
+							$(this).attr('selected', 'selected');
 						}
-					}
-					if (selected) {
-						$(this).attr('checked', 'checked');
-					}
-					else {
-						$(this).removeAttr('checked');
-					}
-				});
+						else {
+							$(this).removeAttr('selected');
+						}
+					});
+					form_div.find(':checkbox,:radio').each(function(){
+						var selected = false;
+						for (var j =0; j < num_options; j++) {
+							if ($(this).val() == data.options[j].id) {
+								selected = true;
+							}
+						}
+						if (selected) {
+							$(this).attr('checked', 'checked');
+						}
+						else {
+							$(this).removeAttr('checked');
+						}
+					});
 		
-				var list_string = "";
-				for (var j =0; j < num_options; j++) {
-					list_string += "<li>"+data.options[j].text+"</li>";
+					var list_string = "";
+					for (var j =0; j < num_options; j++) {
+						list_string += "<li>"+data.options[j].text+"</li>";
+					}
+					readonly_div.find('.options').html(list_string);
 				}
-				readonly_div.find('.options').html(list_string);
 			}
 		});
   }
@@ -141,7 +143,7 @@ $( document ).ready(function() {
 		// Get number of answers in section
 		s_as = data.sections[s_id]["num_answers"];
 		// Update section status text
-		section_status.text(s_qs+" "+question_word+", "+s_as+" answered");
+		section_status.text("("+s_qs+" "+question_word+", "+s_as+" answered)");
 		// Change class of section status - currently has no effect on appearance
 		if (s_qs == s_as) {
 			section_status.removeClass("label-warning");
@@ -158,19 +160,22 @@ $( document ).ready(function() {
 		q_status = $('#'+question_id+'-status');
 		var t = q_status.children("abbr:first");
 		var current_timestamp = new Date(t.attr('data-time'));
-		var timestamp = new Date(Number(data.questions[question_id]["answer_created_at"]) * 1000);
-		if (timestamp.getTime() != current_timestamp.getTime()) {
-			q_status.text("");
-			q_status.append("Answered <abbr class='timeago'></abbr> by "+data.questions[question_id]["answered_by"]);
-			t = q_status.children("abbr:first");
-			// Update label to indicate successful submission
-			q_status.removeClass("label-info label-warning");
-			q_status.addClass("label-success");
-			// Set timestamp text and data
-			t.text(timestamp.toUTCString());
-			t.attr('title', timestamp.toISOString()).data("timeago",null).timeago();
-			t.attr('data-time', timestamp.toISOString());
-			return true;
+		var timestamp = data.questions[question_id]["answer_created_at"];
+		if (timestamp != null) {
+			timestamp = new Date(Number(timestamp) * 1000);
+			if (timestamp.getTime() != current_timestamp.getTime()) {
+				q_status.text("");
+				q_status.append("Answered <abbr class='timeago'></abbr> by "+data.questions[question_id]["answered_by"]);
+				t = q_status.children("abbr:first");
+				// Update label to indicate successful submission
+				q_status.removeClass("label-info label-warning");
+				q_status.addClass("label-success");
+				// Set timestamp text and data
+				t.text(timestamp.toUTCString());
+				t.attr('title', timestamp.toISOString()).data("timeago",null).timeago();
+				t.attr('data-time', timestamp.toISOString());
+				return true;
+			}
 		}
 		return false;
 	}

@@ -39,22 +39,34 @@ class Plan < ActiveRecord::Base
 	end
 	
 	def sections
-		sections = version.sections
-		# add sections from organisation here
+		sections = version.sections + project.organisation.all_sections
+		return sections.sort_by &:number
 	end
 	
-	def guidance_for_question(question_id)
+	def guidance_for_question(question)
 		# pulls together guidance from various sources for question
-		question = Question.find(question_id)
-		guidance = question.guidance
+		guidance_texts = Array.new
+		guidance_texts << question.guidance
+		theme_ids = question.theme_ids
+		project.organisation.guidance_groups.each do |group|
+			group.guidances.where("theme_id IN (?)", theme_ids).each do |guidance|
+				guidance_texts << guidance.text
+			end
+		end
+		project.guidance_groups.each do |group|
+			group.guidances.where("theme_id IN (?)", theme_ids).each do |guidance|
+				guidance_texts << guidance.text
+			end
+		end
+		return guidance_texts
 	end
 	
 	def can_edit(user_id)
-		true
+		return project.can_edit(user_id)
 	end
 	
 	def can_read(user_id)
-		true
+		return project.can_read(user_id)
 	end
 	
 	def status
@@ -73,6 +85,7 @@ class Plan < ActiveRecord::Base
 				status["num_questions"] += 1
 				section_questions += 1
 				status["sections"][s.id]["questions"] << q.id
+				status["questions"][q.id] = {}
 				answer = answer(q.id, false)
 				if ! answer.nil? then
 					status["questions"][q.id] = {
@@ -84,6 +97,14 @@ class Plan < ActiveRecord::Base
 					}
 					status["num_answers"] += 1
 					section_answers += 1
+				else
+					status["questions"][q.id] = {
+						"answer_id" => nil,
+						"answer_created_at" => nil,
+						"answer_text" => nil,
+						"answer_option_ids" => nil,
+						"answered_by" => nil
+					}
 				end
  				status["sections"][s.id]["num_questions"] = section_questions
  				status["sections"][s.id]["num_answers"] = section_answers
