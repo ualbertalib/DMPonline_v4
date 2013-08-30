@@ -2,18 +2,20 @@
 
 /******* MR *******/
 
-
 body { 
   font-family: Arial, sans-serif;
   color: #333;
-  background-color: #e9eaea;
+  /*background-color: #e9eaea;*/
+  background-image: url('/assets/images/background.jpg');
+  background-repeat: repeat-x;
   margin: 0 20% 0 20%;
-  }
+}
 
 header{
-  width: 940px;
-height: 161px;
-margin-bottom: 80px;
+  height: 161px;
+  margin-bottom: 80px;
+  position: relative;
+  float:left;
   }
   
 .main_page_container{
@@ -23,10 +25,8 @@ margin-bottom: 80px;
 
 footer {
   clear:both;
-    padding: 30px 0 100px 0;
-    margin-top: 70px;
-    border-top: 1px solid #e5e5e5;
-    background-color: #333333;
+  padding: 30px 0 100px 0;
+  margin-top: 70px;
 }
 
 
@@ -48,15 +48,16 @@ h1, h2 {
 /**** header ****/
 
 
-.home_logo a{
+.home_logo{
   width: 161px;
   height: 99%;
   float: left;
-  
+  position: absolute;
 }
 
-.signIn {
+header .signIn {
   float: right;
+  position:absolute;
   background-color: blue;
 }
 
@@ -65,6 +66,7 @@ header .navbar .navbar-fixed-top{
   border-color: none !important;
   box-shadow: 0 !important;
   -webkit-box-shadow: none !important;
+  background-color: red;
 }
 header .navbar-inner{
   background: none !important;
@@ -79,9 +81,13 @@ header .btn-navbar a{
   margin: 0 0 0 170px;
 }
 
+
+
 #welcome-message {
   float:left;
-  width:50%;
+  font-size: 28px;
+  color: #f49800;
+  width: 45%;
 }
 #homepage-accordion {
   float:right;
@@ -297,12 +303,29 @@ a.btn-primary, a.btn-primary:active,  a.btn-primary:visited {
 
 
 /******   Footer  ******/
-
-.container {
-    margin-right: auto;
-    margin-left: auto;
-    width: 940px;
+.footer .first_row{
+  clear:both;
+  float:left;
+  width: 99%;
 }
+
+.footer .second_row{
+  clear:both;
+  float:left;
+}
+
+.footer .left_side_footer{
+  float: left;
+  clear:both;
+  width: 60%;
+}
+
+.footer .right_side_footer{
+  float:left;
+  width: 35%;
+  padding-left: 30px;
+}
+
 
 .footer-links {
     margin: 10px 0;

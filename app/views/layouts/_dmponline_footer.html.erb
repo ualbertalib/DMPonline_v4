@@ -1,17 +1,24 @@
 <!-- footer container -->
 <footer class="footer">
-    <div class="container">
-        <ul class="footer-links">
-            <li><a href="www.dcc.ac.uk" target="_blank">&copy; 2004 - <%= Time.now.year %> DCC</a></li>
-            <li class="muted">.</li>
-            <li><a href="#">Contact Us</a></li>
-            <li class="muted">.</li>
-            <li><a href="#">Accessibility</a></li>
-            <li class="muted">.</li>
-            <li><a href="#">Terms of Use</a></li>
-            <li class="muted">.</li>
-            <li><a href="#">Privacy Policy</a></li>
-       </ul>
+    <div class="first_row">
+    	<div class="left_side_footer">
+        	<ul class="footer-links">	
+	            <li><a href="#">Contact Us</a></li>
+	            <li class="muted">|</li>
+	            <li><a href="#">Accessibility</a></li>
+	            <li class="muted">|</li>
+	            <li><a href="#">Terms of Use</a></li>
+	            <li class="muted">|</li>
+	            <li><a href="#">Privacy Policy</a></li>
+       		</ul>
+       	</div>
+       	<div class="right_side_footer">
+       		<%= t('helpers.jisc')%>
+       	</div>	
+    </div>
+    <div class="second_row">
+    	<a href="www.dcc.ac.uk" target="_blank">&copy; 2004 - <%= Time.now.year %> DCC</a>
+         
     </div>
 </footer>
 <div id='header-login-form' class='modal hide fade'>

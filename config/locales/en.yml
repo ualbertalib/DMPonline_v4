@@ -47,6 +47,7 @@ en:
     save: "Save"
     notanswered: "Not answered yet"
     noquestionanswered: "No questions have been answered"
+    jisc: "The DMPonline is sponsered by Jisc"
     
     org_type:
       funders: "Funder"
