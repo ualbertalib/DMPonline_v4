@@ -12,6 +12,8 @@ class Project < ActiveRecord::Base
 	
 	friendly_id :title, use: :slugged
 	
+	after_create :create_plans
+	
 	def organisation_name
 		if dmptemplate.nil?
 			return false
@@ -29,6 +31,17 @@ class Project < ActiveRecord::Base
 			return nil
 		else
 			return organisation_id
+		end
+	end
+	
+	def create_plans
+		dmptemplate.phases.each do |phase|
+			latest_published_version = phase.latest_published_version
+			unless latest_published_version.nil?
+				new_plan = Plan.new
+				new_plan.version = latest_published_version
+				plans << new_plan
+			end
 		end
 	end
 end

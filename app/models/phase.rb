@@ -16,4 +16,17 @@ class Phase < ActiveRecord::Base
 	def to_s
 		"#{title}"
 	end
+	
+	def latest_version
+		return versions.order("number DESC").last
+	end
+	
+	def latest_published_version
+		versions.order("number DESC").each do |version|
+			if version.published then
+				return version
+			end
+		end
+		return nil
+	end
 end
