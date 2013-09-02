@@ -3,8 +3,11 @@
 <header>
 	<div class='header_left'>
 		<div class="home_logo">
-			<%= link_to( image_tag('logo.jpg'), root_path)%>
-			
+		 	<% if user_signed_in? %>
+				<%= link_to( image_tag('logo.jpg'), root_path)%>
+			<% else %>
+				<%= link_to 'View plans', projects_path %>
+			<% end %>	
 		</div>
 	</div>
 	<div class="header_right">	
@@ -31,18 +34,19 @@
 		<!-- main menu -->
 		<div class="main_nav">
 			<ul class="nav nav-pills">
-                <li class="dropdown orange">
-                    <%= link_to t('helpers.home'), root_path %>
-                </li>
-           		<li class="dropdown orange">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="/projects">
-                    	<%= t('helpers.my_plans_label')%><b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><%= link_to 'Create plan', 'projects/new' %></li>
-	                    <li><%= link_to 'View plans', projects_path %></li>
-                    </ul>
-                </li>
+                <% if user_signed_in? %>
+	           		<li class="orange">
+	                    <%= link_to 'View plans', projects_path %>
+	                </li>    
+	                <li class="orange">
+	                	<%= link_to 'Create plan', 'projects/new' %>
+	                </li>
+		                 
+                <% else %>
+                	<li class="dropdown orange">
+                    	<%= link_to t('helpers.home'), root_path %>
+                	</li>
+                <% end %>
            		<li class="grey">
 					<%= link_to t('helpers.about_us_label'), '/about_us'%>
 				</li>

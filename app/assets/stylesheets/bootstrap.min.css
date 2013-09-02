@@ -997,7 +997,7 @@ input.span1, textarea.span1, .uneditable-input.span1 {
 }
 input[disabled], select[disabled], textarea[disabled], input[readonly], select[readonly], textarea[readonly] {
     cursor: not-allowed;
-    background-color: #eee
+
 }
 input[type="radio"][disabled], input[type="checkbox"][disabled], input[type="radio"][readonly], input[type="checkbox"][readonly] {
     background-color: transparent
@@ -1167,7 +1167,6 @@ input:focus:invalid:focus, textarea:focus:invalid:focus, select:focus:invalid:fo
     line-height: 20px;
     text-align: center;
     text-shadow: 0 1px 0 #fff;
-    background-color: #eee;
     border: 1px solid #ccc
 }
 .input-append .add-on, .input-prepend .add-on, .input-append .btn, .input-prepend .btn, .input-append .btn-group > .dropdown-toggle, .input-prepend .btn-group > .dropdown-toggle {
@@ -2803,7 +2802,7 @@ button.btn.btn-mini, input[type="submit"].btn.btn-mini {
 }
 .nav > li > a:hover, .nav > li > a:focus {
     text-decoration: none;
-    background-color:none;
+    background-color:none !important;
 }
 .nav > li > a > img {
     max-width: none
@@ -4461,7 +4460,6 @@ to {
     font-weight: 200;
     line-height: 30px;
     color: inherit;
-    background-color: #eee;
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
     border-radius: 6px
