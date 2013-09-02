@@ -2,7 +2,7 @@ class Project < ActiveRecord::Base
 
 	extend FriendlyId
 
-	attr_accessible :dmptemplate_id, :locked, :note, :title, :organisation_id, :unit_id, :guidance_group_ids, :project_group_ids
+	attr_accessible :dmptemplate_id, :locked, :note, :title, :organisation_id, :unit_id, :guidance_group_ids, :project_group_ids, :funder_id, :institution_id
 
 	#associations between tables
 	belongs_to :dmptemplate
@@ -15,13 +15,34 @@ class Project < ActiveRecord::Base
 	
 	after_create :create_plans
 	
-	def organisation_name
-		if dmptemplate.nil?
-			return false
-		else
-			return organisation
+	def funder_id=(new_funder_id)
+	end
+	
+	def funder_id
+		if dmptemplate.nil? then
+			return nil
 		end
-	end	
+		template_org = dmptemplate.organisation
+		if template_org.organisation_type.name == t('helpers.org_type.funders').downcase
+			return template_org.id
+		else
+			return nil
+		end
+	end
+	
+	def institution_id=(new_institution_id)
+		if organisation.nil? then
+			organisation_id = new_institution_id
+		end
+	end
+	
+	def institution_id
+		if organisation.nil?
+			return nil
+		else
+			return organisation.root.id
+		end
+	end
 
 	def unit_id=(new_unit_id)
 		organisation_id = new_unit_id    

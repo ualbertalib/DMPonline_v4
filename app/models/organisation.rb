@@ -45,4 +45,12 @@ class Organisation < ActiveRecord::Base
 			return sections + parent.all_sections
 		end
 	end
+	
+	def root
+		if parent.nil?
+			return self
+		else
+			return parent.root
+		end
+	end
 end
