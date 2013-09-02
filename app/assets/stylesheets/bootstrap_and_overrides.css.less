@@ -113,10 +113,6 @@ a.hover{
   -webkit-box-shadow: none !important;
  }
 
-b.caret{
-  border-color:#fffff;
-  margin:0 0 0 4px;
-}
 
 li.orange{
   background-image: -moz-linear-gradient(top , #f49700, #f47900 49px);
@@ -157,50 +153,56 @@ footer{
   margin-top: 140px;  
 }
 
-.footer .first_row{
+footer .first_row{
   clear:both;
   float:left;
   width: 99%;
 }
 
-.footer .second_row{
+footer .second_row{
   clear:both;
   float:left;
 }
-
-.footer .left_side_footer{
-  float: left;
-  clear:both;
-  width: 60%;
-}
-
-.footer .right_side_footer{
-  float: right;
-  width: 35%;
+  footer .left_side_footer{
+    float: left;
+    clear:both;
+    width: 60%;
+  }  
+  footer .right_side_footer{
+    float: right;
+    width: 35%;
+  }
   
-}
-
-.right_side_footer p{
-  text-decoration: none;
-  margin-top: 2px;
-  color: #999999;
-}
-
+  footer .right_side_footer p{
+    text-decoration: none;
+    margin-top: 2px;
+    color: #999999;
+  }
+  
 ul.footer-links {
   margin-left:0px;
 }
 
-.footer-links li {
-    display: inline;
-    padding: 0 2px;
-    line-height: 20px;
+ul.footer-links li {
+  display: inline;
+  padding: 0 2px;
+  line-height: 20px;
 }
 
 .footer-links li:first-child {
-    padding-left: 0;
+  padding-left: 0;
 }
 
-#dcc_link, #dcc_link a, #dcc_link a:active, #dcc_link a:visited, #dcc_link a:hover {
+ul.footer-links li a, ul.footer-links li a:active, ul.footer-links li a:visited {
+  color: #999999;
+  text-decoration: none;
+}
+
+ul.footer-links li a:hover,  ul.footer-links li a:focus{
+   color: #F49700;
+}
+
+#dcc_link, #dcc_link a, #dcc_link a:active, #dcc_link a:visited, #dcc_link a:hover,  #dcc_link a:focus{
     text-decoration: none;
     color: #999999;
 }
