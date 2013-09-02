@@ -2997,7 +2997,7 @@ table th[class*="span"],
 .dropdown-menu > .disabled > a:focus {
   text-decoration: none;
   cursor: default;
-  background-color: transparent;
+
   background-image: none;
   filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
 }
@@ -4360,7 +4360,7 @@ input[type="submit"].btn.btn-mini {
 .nav > .disabled > a:focus {
   text-decoration: none;
   cursor: default;
-  background-color: transparent;
+  
 }
 
 .navbar {
@@ -4627,7 +4627,7 @@ input[type="submit"].btn.btn-mini {
 .navbar .nav > li > a:hover {
   color: #333333;
   text-decoration: none;
-  background-color: transparent;
+  
 }
 
 .navbar .nav > .active > a,
@@ -4827,14 +4827,15 @@ input[type="submit"].btn.btn-mini {
 .navbar-inverse .nav > li > a:focus,
 .navbar-inverse .nav > li > a:hover {
   color: #ffffff;
-  background-color: transparent;
+  background-color: none;
 }
 
 .navbar-inverse .nav .active > a,
 .navbar-inverse .nav .active > a:hover,
 .navbar-inverse .nav .active > a:focus {
   color: #ffffff;
-  background-color: #111111;
+   background-color: none;
+ 
 }
 
 .navbar-inverse .navbar-link {
@@ -5025,7 +5026,7 @@ input[type="submit"].btn.btn-mini {
 .pagination ul > .disabled > a:focus {
   color: #999999;
   cursor: default;
-  background-color: transparent;
+  background-color: none;
 }
 
 .pagination ul > li:first-child > a,

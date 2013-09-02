@@ -3091,7 +3091,7 @@ button.btn.btn-mini, input[type="submit"].btn.btn-mini {
 .nav > .disabled > a:hover, .nav > .disabled > a:focus {
     text-decoration: none;
     cursor: default;
-    background-color: transparent
+
 }
 .navbar {
     *position: relative;
@@ -3277,7 +3277,7 @@ button.btn.btn-mini, input[type="submit"].btn.btn-mini {
 .navbar .nav > li > a:focus, .navbar .nav > li > a:hover {
     color: #333;
     text-decoration: none;
-    background-color: transparent
+
 }
 .navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus {
     color: #555;
