@@ -32,7 +32,7 @@ class Project < ActiveRecord::Base
 	
 	def institution_id=(new_institution_id)
 		if organisation.nil? then
-			organisation_id = new_institution_id
+			self.organisation_id = new_institution_id
 		end
 	end
 	
@@ -45,7 +45,9 @@ class Project < ActiveRecord::Base
 	end
 
 	def unit_id=(new_unit_id)
-		organisation_id = new_unit_id    
+		unless new_unit_id.nil? ||new_unit_id == ""
+			self.organisation_id = new_unit_id
+		end
 	end
 	
 	def unit_id

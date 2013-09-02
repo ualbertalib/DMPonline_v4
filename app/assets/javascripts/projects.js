@@ -1,11 +1,11 @@
 $( document ).ready(function() {
 	
-	$("#parent_id").change(function () {
-		update_child_options($("#project_unit_id"), "children", $(this).val(), 1)
+	$("#project_institution_id").change(function (i) {
+		update_child_options($("#project_unit_id"), "children", i.val, 1)
 	});
 	
-	$("#Funder").change(function () {
-		update_child_options($("#project_dmptemplate_id"), "templates", $(this).val(), 2)
+	$("#project_funder_id").change(function (f) {
+		update_child_options($("#project_dmptemplate_id"), "templates", f.val, 2)
 	});
 	
 	function update_child_options(select_element, action, parent_id, min_to_display) {

@@ -12,12 +12,12 @@
         <!-- dropdown 1 = funders -->
         <div class="control-group">
             <div class="controls">
-                <% org_type_funder = OrganisationType.find_by_name(t('helpers.org_type.funders')).organisations %>
-                <%= f.input :funder_id, :as => :select, :collection => org_type_funder, :label => t('helpers.org_type.funders'), :input_html => { :multiple => false, :id => t('helpers.org_type.funders') } %>
+                <% org_type_funder = OrganisationType.find_by_name(t('helpers.org_type.funders')).organisations.order() %>
+                <%= f.input :funder_id, :as => :select, :collection => org_type_funder, :label => t('helpers.org_type.funders'), :input_html => { :multiple => false, :class => "typeahead" } %>
                 <% org_template = Dmptemplate.templates_org_type(t('helpers.org_type.funders') ) %>
                 <% if org_template.length > 1  then %>
                 <div id="has_more_templates">
-                    <%= f.input :dmptemplate, :as => :select, :collection => org_template, :label => t('helpers.org_type.templates'), :input_html => { :multiple => false } %>
+                    <%= f.input :dmptemplate, :as => :select, :collection => org_template, :label => t('helpers.org_type.templates'), :input_html => { :multiple => false, :class => "typeahead" } %>
                 </div>
                 <% end %>
             </div>
@@ -26,13 +26,13 @@
         <!-- dropdown 2 = institution -->
         <div class="control-group">
             <div class="controls">
-                <% org_type_inst = OrganisationType.find_by_name(t('helpers.org_type.institution')).organisations %>
-                <%= f.input :institution_id, :as => :select, :collection => org_type_inst, :label => t('helpers.org_type.institution'), :input_html => { :multiple => false, :id => 'parent_id' } %>
+                <% org_type_inst = OrganisationType.find_by_name(t('helpers.org_type.institution')).organisations.order("name") %>
+                <%= f.input :institution_id, :as => :select, :collection => org_type_inst, :label => t('helpers.org_type.institution'), :input_html => { :multiple => false, :class => "typeahead" } %>
                 <!-- verify if org has children-->
                 <% children_info = Organisation.orgs_with_parent_of_type(t('helpers.org_type.institution')) %>
                 <% if children_info.any? %>
                 <div class="has_children">
-                    <%= f.input :unit_id, :as => :select, :collection => children_info, :label => t('helpers.org_type.child'), :input_html => { :multiple => false } %>
+                    <%= f.input :unit_id, :as => :select, :collection => children_info, :label => t('helpers.org_type.child'), :input_html => { :multiple => false, :class => "typeahead" } %>
                 </div >
                 <% end %>
             </div>

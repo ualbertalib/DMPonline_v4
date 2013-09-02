@@ -39,7 +39,11 @@ class Plan < ActiveRecord::Base
 	end
 	
 	def sections
-		sections = version.sections + project.organisation.all_sections
+		unless project.organisation.nil? then
+			sections = version.sections + project.organisation.all_sections
+		else
+			sections = version.sections
+		end
 		return sections.sort_by &:number
 	end
 	
@@ -48,9 +52,11 @@ class Plan < ActiveRecord::Base
 		guidance_texts = Array.new
 		guidance_texts << question.guidance
 		theme_ids = question.theme_ids
-		project.organisation.guidance_groups.each do |group|
-			group.guidances.where("theme_id IN (?)", theme_ids).each do |guidance|
-				guidance_texts << guidance.text
+		unless project.organisation.nil? then
+			project.organisation.guidance_groups.each do |group|
+				group.guidances.where("theme_id IN (?)", theme_ids).each do |guidance|
+					guidance_texts << guidance.text
+				end
 			end
 		end
 		project.guidance_groups.each do |group|

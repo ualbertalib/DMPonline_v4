@@ -53,13 +53,9 @@ class ProjectsController < ApplicationController
 	# POST /projects.json
 	def create
     	if user_signed_in? then
-			unit_id = params[:project].delete(:unit_id)
 			@project = Project.new(params[:project])
-			if (! unit_id.nil?) && (unit_id != '') then  
-				@project.organisation_id = unit_id    
-			end
 			if @project.dmptemplate.nil?
-				if @project.organisation.dmptemplates.first.nil? then
+				if @project.organisation.nil? || @project.organisation.dmptemplates.first.nil? then
 					@project.dmptemplate = Dmptemplate.find_by_title("DCC Template")
 				else
 					@project.dmptemplate = @project.organisation.dmptemplates.first
