@@ -13,29 +13,29 @@
 					<% if question.multiple_permitted then %>
 						<% if question.is_expanded then %>
 							<% if readonly then %>
-								<%= f.input :options, :as => :check_boxes, :collection => options, :label => question.text, :input_html => { :disabled => true } %>
+								<%= f.input :options, :as => :check_boxes, :collection => options, :label => question.text, :input_html => { :disabled => true, :id => "options-#{question.id}" } %>
 							<% else %>
-								<%= f.input :options, :as => :check_boxes, :collection => options, :label => question.text %>
+								<%= f.input :options, :as => :check_boxes, :collection => options, :label => question.text, :input_html => { :id => "options-#{question.id}" } %>
 							<% end %>
 						<% else %>
 							<% if readonly then %>
-								<%= f.input :options, :as => :select, :collection => options, :label => question.text, :input_html => { :multiple => true, :disabled => true } %>
+								<%= f.input :options, :as => :select, :collection => options, :label => question.text, :input_html => { :multiple => true, :disabled => true , :id => "options-#{question.id}" } %>
 							<% else %>
-								<%= f.input :options, :as => :select, :collection => options, :label => question.text, :input_html => { :multiple => true } %>
+								<%= f.input :options, :as => :select, :collection => options, :label => question.text, :input_html => { :multiple => true , :id => "options-#{question.id}" } %>
 							<% end %>
 						<% end %>
 					<% else %>
 						<% if question.is_expanded then %>
 							<% if readonly then %>
-								<%= f.input :options, :as => :radio, :collection => options, :label => question.text, :input_html => { :disabled => true } %>
+								<%= f.input :options, :as => :radio, :collection => options, :label => question.text, :input_html => { :disabled => true , :id => "options-#{question.id}" } %>
 							<% else %>
-								<%= f.input :options, :as => :radio, :collection => options, :label => question.text %>
+								<%= f.input :options, :as => :radio, :collection => options, :label => question.text, :input_html => { :id => "options-#{question.id}" }%>
 							<% end %>
 						<% else %>
 							<% if readonly then %>
-								<%= f.input :options, :as => :select, :collection => options, :label => question.text, :input_html => { :multiple => false, :disabled => true } %>
+								<%= f.input :options, :as => :select, :collection => options, :label => question.text, :input_html => { :multiple => false, :disabled => true, :id => "options-#{question.id}" } %>
 							<% else %>
-								<%= f.input :options, :as => :select, :collection => options, :label => question.text, :input_html => { :multiple => false } %>
+								<%= f.input :options, :as => :select, :collection => options, :label => question.text, :input_html => { :multiple => false, :id => "options-#{question.id}" } %>
 							<% end %>
 						<% end %>
 					<% end %>
