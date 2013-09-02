@@ -5,6 +5,7 @@ class Organisation < ActiveRecord::Base
 	belongs_to :organisation_type
 	has_many :guidance_groups
 	has_many :sections
+	has_many :users
 	belongs_to :parent, :class_name => 'Organisation'
 	has_many :children, :class_name => 'Organisation', :foreign_key => 'parent_id'
 	 

@@ -10,8 +10,9 @@ class User < ActiveRecord::Base
     belongs_to :user_type
     belongs_to :user_status
     has_many :answers
+    belongs_to :organisation
   
-    attr_accessible :password_confirmation, :encrypted_password, :remember_me, :id, :email, :firstname, :last_login, :login_count, :orcid_id, :password, :shibboleth_id, :user_status_id, :surname, :user_type_id
+    attr_accessible :password_confirmation, :encrypted_password, :remember_me, :id, :email, :firstname, :last_login, :login_count, :orcid_id, :password, :shibboleth_id, :user_status_id, :surname, :user_type_id, :organisation_id
 
 	def name
 		if firstname.nil? && surname.nil? then

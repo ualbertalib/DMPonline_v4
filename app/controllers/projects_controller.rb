@@ -56,7 +56,7 @@ class ProjectsController < ApplicationController
 			@project = Project.new(params[:project])
 			if @project.dmptemplate.nil?
 				if @project.organisation.nil? || @project.organisation.dmptemplates.first.nil? then
-					@project.dmptemplate = Dmptemplate.find_by_title("DCC Template")
+					@project.dmptemplate = Dmptemplate.find_by_is_default(true)
 				else
 					@project.dmptemplate = @project.organisation.dmptemplates.first
 				end
