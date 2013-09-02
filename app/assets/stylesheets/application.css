@@ -33,9 +33,8 @@ body {
          
       }
 
-      a  {color: #03c}
+      a  {}
       a:hover {
-        background-color: none !important;
         color: white;
         text-decoration: none;
       }

@@ -2892,7 +2892,7 @@ table th[class*="span"],
   width: 0;
   height: 0;
   vertical-align: top;
-  border-top: 4px solid #000000;
+  border-top: 4px solid #ffffff;
   border-right: 4px solid transparent;
   border-left: 4px solid transparent;
   content: "";
@@ -2900,7 +2900,7 @@ table th[class*="span"],
 
 .dropdown .caret {
   margin-top: 8px;
-  margin-left: 2px;
+  margin-left: 4px;
 }
 
 .dropdown-menu {
@@ -3027,7 +3027,7 @@ table th[class*="span"],
 .dropup .caret,
 .navbar-fixed-bottom .dropdown .caret {
   border-top: 0;
-  border-bottom: 4px solid #000000;
+  border-bottom: 4px solid #ffffff;
   content: "";
 }
 
@@ -3960,7 +3960,6 @@ input[type="submit"].btn.btn-mini {
 .nav > li > a:hover,
 .nav > li > a:focus {
   text-decoration: none;
-  background-color: none !important;
 }
 
 .nav > li > a > img {
@@ -4173,14 +4172,14 @@ input[type="submit"].btn.btn-mini {
 
 .nav .dropdown-toggle .caret {
   margin-top: 6px;
-  border-top-color: #0088cc;
-  border-bottom-color: #0088cc;
+  border-top-color: #ffffff;
+  border-bottom-color: #ffffff;
 }
 
 .nav .dropdown-toggle:hover .caret,
 .nav .dropdown-toggle:focus .caret {
-  border-top-color: #005580;
-  border-bottom-color: #005580;
+  border-top-color: #ffffff;
+  border-bottom-color: #ffffff;
 }
 
 /* move down carets for tabs */
@@ -4195,8 +4194,8 @@ input[type="submit"].btn.btn-mini {
 }
 
 .nav-tabs .active .dropdown-toggle .caret {
-  border-top-color: #555555;
-  border-bottom-color: #555555;
+  border-top-color: #ffffff;
+  border-bottom-color: #ffffff;
 }
 
 .nav > .dropdown.active > a:hover,
@@ -4625,8 +4624,7 @@ input[type="submit"].btn.btn-mini {
 
 .navbar .nav > li > a:focus,
 .navbar .nav > li > a:hover {
-  color: #333333;
-  text-decoration: none;
+
   
 }
 
@@ -4751,15 +4749,15 @@ input[type="submit"].btn.btn-mini {
 }
 
 .navbar .nav li.dropdown > .dropdown-toggle .caret {
-  border-top-color: #777777;
-  border-bottom-color: #777777;
+  border-top-color: #ffffff;
+  border-bottom-color: #ffffff;
 }
 
 .navbar .nav li.dropdown.open > .dropdown-toggle .caret,
 .navbar .nav li.dropdown.active > .dropdown-toggle .caret,
 .navbar .nav li.dropdown.open.active > .dropdown-toggle .caret {
-  border-top-color: #555555;
-  border-bottom-color: #555555;
+  border-top-color: #FFFFFF;
+  border-bottom-color: #FFFFFF;
 }
 
 .navbar .pull-right > li > .dropdown-menu,
@@ -4827,7 +4825,6 @@ input[type="submit"].btn.btn-mini {
 .navbar-inverse .nav > li > a:focus,
 .navbar-inverse .nav > li > a:hover {
   color: #ffffff;
-  background-color: none;
 }
 
 .navbar-inverse .nav .active > a,
@@ -4866,8 +4863,8 @@ input[type="submit"].btn.btn-mini {
 }
 
 .navbar-inverse .nav li.dropdown > .dropdown-toggle .caret {
-  border-top-color: #999999;
-  border-bottom-color: #999999;
+  border-top-color: #FFFFFF;
+  border-bottom-color: #FFFFFF;
 }
 
 .navbar-inverse .nav li.dropdown.open > .dropdown-toggle .caret,

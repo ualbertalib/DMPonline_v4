@@ -6,7 +6,7 @@
 		 	<% if user_signed_in? %>
 				<%= link_to( image_tag('logo.jpg'), root_path)%>
 			<% else %>
-				<%= link_to 'View plans', projects_path %>
+				<%= link_to( image_tag('logo.jpg'), projects_path )%>
 			<% end %>	
 		</div>
 	</div>
@@ -15,11 +15,11 @@
 			<ul>
 				<% if user_signed_in? %>
 	            	<li class="dropdown sign_in">
-	                	<a class="dropdown-toggle" data-toggle="dropdown" href="#"><%= t('helpers.logged_in')%><strong>
-	                	  	<%= current_user.name %></strong><b class="caret"></b>
+	                	<a class="dropdown-toggle" data-toggle="dropdown" href="#"><%= t('helpers.logged_in')%>
+	                	  	<%= current_user.name %> <b class="caret"></b>
 	                	</a>
-						<ul class="dropdown-menu">
-							<li><%= link_to t('helpers.edit_profile'), edit_user_registration_path %></li>
+						<ul class="dropdown-menu" id="signIn_dropdown">
+							<li ><%= link_to t('helpers.edit_profile'), edit_user_registration_path %></li>
 							<li><%= link_to t('helpers.sign_out'), destroy_user_session_path, method: :delete %></li>
 						</ul>
 	            	</li>
