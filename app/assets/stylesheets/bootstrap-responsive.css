@@ -1019,7 +1019,7 @@
   .nav-collapse .nav > li > a:focus,
   .nav-collapse .dropdown-menu a:hover,
   .nav-collapse .dropdown-menu a:focus {
-    background-color: #f2f2f2;
+    background-color: none ;
   }
   .navbar-inverse .nav-collapse .nav > li > a,
   .navbar-inverse .nav-collapse .dropdown-menu a {
@@ -1029,7 +1029,7 @@
   .navbar-inverse .nav-collapse .nav > li > a:focus,
   .navbar-inverse .nav-collapse .dropdown-menu a:hover,
   .navbar-inverse .nav-collapse .dropdown-menu a:focus {
-    background-color: #111111;
+    background-color: none;
   }
   .nav-collapse.in .btn-group {
     padding: 0;

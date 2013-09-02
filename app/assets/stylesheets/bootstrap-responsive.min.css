@@ -910,13 +910,13 @@
         margin-bottom: 2px
     }
     .nav-collapse .nav > li > a:hover, .nav-collapse .nav > li > a:focus, .nav-collapse .dropdown-menu a:hover, .nav-collapse .dropdown-menu a:focus {
-        background-color: #f2f2f2
+        background-color: none;
     }
     .navbar-inverse .nav-collapse .nav > li > a, .navbar-inverse .nav-collapse .dropdown-menu a {
         color: #999
     }
     .navbar-inverse .nav-collapse .nav > li > a:hover, .navbar-inverse .nav-collapse .nav > li > a:focus, .navbar-inverse .nav-collapse .dropdown-menu a:hover, .navbar-inverse .nav-collapse .dropdown-menu a:focus {
-        background-color: #111
+        background-color: none;
     }
     .nav-collapse.in .btn-group {
         padding: 0;

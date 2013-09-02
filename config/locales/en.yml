@@ -30,6 +30,9 @@ en:
     pm: "pm"
 
   tool_title: "DMPonline"
+  dcc_name: "Digital Curation Centre"
+  welcome_text: "Welcome. DMPonline has been developed by the "
+  welcome_text_part2: " to help you manage your research data. Create an account to start your first plan."
 
   helpers:
     sign_in: "Sign in"
@@ -39,6 +42,11 @@ en:
     edit_profile: "Edit profile"
     home: "Home"
     return_home: "Return to the home page"
+    my_plans_label: "My plans"
+    about_us_label: "About"
+    news_label: "News"
+    help_label: "Help"
+    contact_label: "Contact"
     submit:
       create: "Create"
       update: "Update"
