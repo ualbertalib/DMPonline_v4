@@ -1,5 +1,8 @@
 <!-- Project title = default title is the template title plus date of creation -->
 <div class="project-details-body">
+	<% if @project.editable_by(current_user.id) then %>
+		<p><%= link_to t('.edit', :default => t("helpers.project.edit")),edit_project_path(@project) %></p>
+	<% end %>
    <div class="project-details">
       <!-- template description -->   
         <p>

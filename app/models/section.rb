@@ -4,6 +4,7 @@ class Section < ActiveRecord::Base
   belongs_to :version
   has_many :questions
   has_many :plan_sections
+  belongs_to :organisation
   
   #Link the child's data
   accepts_nested_attributes_for :questions

@@ -17,7 +17,7 @@ class ProjectsController < ApplicationController
 	# GET /projects/1.json
 	def show
 		@project = Project.find(params[:id])
-		if user_signed_in? && @project.can_read(current_user.id)then
+		if user_signed_in? && @project.readable_by(current_user.id)then
 			respond_to do |format|
 				format.html # show.html.erb
 				format.json { render json: @project }
@@ -44,7 +44,7 @@ class ProjectsController < ApplicationController
 	# GET /projects/1/edit
 	def edit
 		@project = Project.find(params[:id])
-		unless user_signed_in? && @project.can_edit(current_user.id) then
+		unless user_signed_in? && @project.editable_by(current_user.id) then
 			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
 		end
 	end
@@ -84,7 +84,7 @@ class ProjectsController < ApplicationController
 	# PUT /projects/1.json
 	def update
 		@project = Project.find(params[:id])
-		if user_signed_in? && @project.can_edit(current_user.id) then
+		if user_signed_in? && @project.editable_by(current_user.id) then
 			respond_to do |format|
 				if @project.update_attributes(params[:project])
 					format.html { redirect_to @project, notice: 'Project was successfully updated.' }
@@ -103,7 +103,7 @@ class ProjectsController < ApplicationController
 	# DELETE /projects/1.json
 	def destroy
 		@project = Project.find(params[:id])
-		if user_signed_in? && @project.can_edit(current_user.id) then
+		if user_signed_in? && @project.editable_by(current_user.id) then
 			@project.destroy
 
 			respond_to do |format|

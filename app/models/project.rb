@@ -2,7 +2,7 @@ class Project < ActiveRecord::Base
 
 	extend FriendlyId
 
-	attr_accessible :dmptemplate_id, :locked, :note, :title, :organisation_id, :unit_id, :guidance_group_ids, :project_group_ids, :funder_id, :institution_id
+	attr_accessible :dmptemplate_id, :locked, :note, :title, :organisation_id, :unit_id, :guidance_group_ids, :project_group_ids, :funder_id, :institution_id, :grant_number
 
 	#associations between tables
 	belongs_to :dmptemplate
@@ -70,7 +70,7 @@ class Project < ActiveRecord::Base
 		add_user(user_id)
 	end
 	
-	def can_edit(user_id)
+	def editable_by(user_id)
 		user = project_groups.find_by_user_id(user_id)
 		if (! user.nil?) && user.project_editor then
 			return true
@@ -79,7 +79,7 @@ class Project < ActiveRecord::Base
 		end
 	end
 	
-	def can_read(user_id)
+	def readable_by(user_id)
 		user = project_groups.find_by_user_id(user_id)
 		if (! user.nil?) then
 			return true

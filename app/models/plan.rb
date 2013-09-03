@@ -67,12 +67,16 @@ class Plan < ActiveRecord::Base
 		return guidance_texts
 	end
 	
-	def can_edit(user_id)
-		return project.can_edit(user_id)
+	def warning(option_id)
+		return project.organisation.warning(option_id)
 	end
 	
-	def can_read(user_id)
-		return project.can_read(user_id)
+	def editable_by(user_id)
+		return project.editable_by(user_id)
+	end
+	
+	def readable_by(user_id)
+		return project.readable_by(user_id)
 	end
 	
 	def status

@@ -10,7 +10,9 @@ class User < ActiveRecord::Base
     belongs_to :user_type
     belongs_to :user_status
     has_many :answers
-    belongs_to :organisation
+    has_many :user_org_roles
+    has_many :organisations , through: :user_org_roles
+    has_many :user_role_types, through: :user_org_roles
   
     attr_accessible :password_confirmation, :encrypted_password, :remember_me, :id, :email, :firstname, :last_login, :login_count, :orcid_id, :password, :shibboleth_id, :user_status_id, :surname, :user_type_id, :organisation_id
 
@@ -21,5 +23,11 @@ class User < ActiveRecord::Base
 			return "#{firstname} #{surname}"
 		end
 	end
-
+	
+	def organisation_id=(new_organisation_id)
+		new_user_org_role = UserOrgRole.new
+		new_user_org_role.organisation_id = new_organisation_id
+		new_user_org_role.user_role_type = UserRoleType.find_by_name("user");
+		self.user_org_roles << new_user_org_role
+	end
 end

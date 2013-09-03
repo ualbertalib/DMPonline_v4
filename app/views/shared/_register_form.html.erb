@@ -2,7 +2,7 @@
   <ul>
   <li><%= devise_error_messages! %></li>
   <li><%= f.label :email %><%= f.email_field :email %></li>
-  <li><%= f.label :organisation %><%= collection_select(:user, :organisation_id, OrganisationType.find_by_name(t('helpers.org_type.institution')).organisations.order("name"), :id, :name, {}, { :class => 'typeahead' }) %></li>
+  <li><%= f.label :organisation_id %><%= collection_select(:user, :organisation_id, OrganisationType.find_by_name(t('helpers.org_type.institution')).organisations.order("name"), :id, :name, {}, { :class => 'typeahead' }) %></li>
   <li><%= f.label :password %><%= f.password_field :password %></li>
   <li><%= f.label :password_confirmation %><%= f.password_field :password_confirmation %></li>
   <li><%= f.submit "Sign up" %></li>

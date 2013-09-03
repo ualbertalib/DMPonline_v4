@@ -16,7 +16,7 @@
 </div>
 
 <% readonly = nil %>
-<% if ! @plan.can_edit(current_user.id) then %>
+<% if ! @plan.editable_by(current_user.id) then %>
 	<% readonly = 'always' %>
 <% end %>
 

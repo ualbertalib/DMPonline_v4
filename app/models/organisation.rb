@@ -6,6 +6,8 @@ class Organisation < ActiveRecord::Base
 	has_many :guidance_groups
 	has_many :sections
 	has_many :users
+	has_many :user_org_roles
+	has_many :option_warnings
 	belongs_to :parent, :class_name => 'Organisation'
 	has_many :children, :class_name => 'Organisation', :foreign_key => 'parent_id'
 	 
@@ -52,6 +54,15 @@ class Organisation < ActiveRecord::Base
 			return self
 		else
 			return parent.root
+		end
+	end
+	
+	def warning(option_id)
+		warning = option_warnings.find_by_option_id(option_id);
+		if warning.nil? && !parent.nil? then
+			return parent.warning(option_id)
+		else
+			return warning
 		end
 	end
 end

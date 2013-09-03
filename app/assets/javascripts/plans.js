@@ -63,6 +63,14 @@ $( document ).ready(function() {
     			update_answer(question_id);
     		}
     	}
+    	section.find("select").change();
+    	section.find(":radio").each(function(){
+    		update_answer($(this).closest("form").find(".question_id").val()); //hack to cope with previous radio button selections not appearing
+    	});
+    	section.find(":radio:checked").click();
+	    $(":checkbox:checked").each( function(){
+	    	display_warning($(this).val(), $(this).closest("form").find(".question_id").val(), false);
+	    });
     	section.find(".loading").hide();
 			section.find(".loaded").show();
     });
@@ -73,6 +81,23 @@ $( document ).ready(function() {
 			var section_id = section.attr("id").split('-')[1];
 			$.post('unlock_section', {section_id: section_id} );
     }
+  });
+  
+  $("select").change(function() {
+  	display_warning($(this).val(), $(this).closest("form").find(".question_id").val(), true);
+  });
+  
+  $(":radio").click(function() {
+  	display_warning($(this).val(), $(this).closest("form").find(".question_id").val(), true);
+  });
+  
+  $(":checkbox").click(function() {
+  	if ($(this).is(":checked")) {
+  		display_warning($(this).val(), $(this).closest("form").find(".question_id").val(), false);
+  	}
+  	else {
+  		clear_warning($(this).val());
+  	}
   });
   
   function update_answer(question_id) {
@@ -200,5 +225,32 @@ $( document ).ready(function() {
 			}
 		});
 		return true;
-	} 
+	}
+	
+	function display_warning(option_id, question_id, hide){
+		if (hide) {
+			$("#option-warning-"+question_id).hide();
+			$("#option-warning-"+question_id).html("");
+		}
+		if ($.isArray(option_id)) {
+			$.each(option_id, function () {
+				display_warning(this, question_id, false);
+			});
+		}
+		else {
+			$.getJSON("warning.json?option_id="+option_id, function(data) {
+				if (data != null) {
+					$("#option-warning-"+question_id).append("<p data-option='"+option_id+"'>"+data.text+"</p>");
+					$("#option-warning-"+question_id).show();
+				}
+			});
+		}
+	}
+	
+	function clear_warning(option_id, question_id){
+		var warning = $("[data-option = "+option_id+"]");
+		var parent= warning.parent();
+		$("[data-option = "+option_id+"]").remove();
+		parent.not(":has(p)").hide();
+	}
 });

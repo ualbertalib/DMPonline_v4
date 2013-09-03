@@ -4,7 +4,7 @@ class AnswersController < ApplicationController
 	# POST /answers.json
 	def create
 		@answer = Answer.new(params[:answer])
-		if (user_signed_in?) && @answer.plan.can_edit(current_user.id) then
+		if (user_signed_in?) && @answer.plan.editable_by(current_user.id) then
 			old_answer = @answer.plan.answer(@answer.question_id, false)
 			proceed = false
 			@answer.text = params["answer-text-#{@answer.question_id}".to_sym]
@@ -12,7 +12,7 @@ class AnswersController < ApplicationController
 				proceed = true
 			end
 			if @answer.question.multiple_choice then
-				if (old_answer.nil? && @answer.option_ids.count > 0) || ((!old_answer.nil?) && (old_answer.option_ids - @answer.option_ids).count > 0) then
+				if (old_answer.nil? && @answer.option_ids.count > 0) || ((!old_answer.nil?) && (old_answer.option_ids - @answer.option_ids).count != 0 && (@answer.option_ids - old_answer.option_ids).count != 0) then
 					proceed = true
 				end
 			end

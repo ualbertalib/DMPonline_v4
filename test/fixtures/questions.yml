@@ -113,3 +113,37 @@ what_resources_will_you_require_to_deliver_your_plan:
   guidance: "<p class='guidance_header'>Questions to consider:</p> <ul> <li>Is additional specialist expertise (or training for existing staff) required?</li> <li>Do you require hardware or software which is additional or exceptional to existing institutional provision?</li> <li>Will charges be applied by data repositories?</li> </ul> <p class='guidance_header'>Guidance:</p> <p>Carefully consider any resources needed to deliver the plan, e.g. software, hardware, technical expertise, etc. Where dedicated resources are needed, these should be outlined and justified.</p>"
   number: 2
   section: responsibilities_and_resources
+  
+#Multiple Choice
+
+single_select_box:
+  text: Example select box limited to one option
+  multiple_choice: true
+  multiple_permitted: false
+  is_expanded: false
+  number: 1
+  section: multiple_choice
+
+multiple_select_box:
+  text: Example select box allowing multiple options
+  multiple_choice: true
+  multiple_permitted: true
+  is_expanded: false
+  number: 2
+  section: multiple_choice
+
+radio_button:
+  text: Example radio button
+  multiple_choice: true
+  multiple_permitted: false
+  is_expanded: true
+  number: 3
+  section: multiple_choice
+
+checkbox:
+  text: Example checkbox
+  multiple_choice: true
+  multiple_permitted: true
+  is_expanded: true
+  number: 4
+  section: multiple_choice

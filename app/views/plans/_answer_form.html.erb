@@ -9,7 +9,7 @@
 				<%= f.input :user_id, :as => :hidden, :input_html => { :value => current_user.id } %>
 				<%= f.input :question_id, :as => :hidden, :input_html => { :class => 'question_id' } %>
 				<% if question.multiple_choice then %>
-					<% options = question.options.map %>
+					<% options = question.options.order("number") %>
 					<% if question.multiple_permitted then %>
 						<% if question.is_expanded then %>
 							<% if readonly then %>
@@ -39,6 +39,7 @@
 							<% end %>
 						<% end %>
 					<% end %>
+					<div id="option-warning-<%= question.id %>" class="alert" style="display:none"></div>
 					<%= label_tag("answer-text-#{question.id}".to_sym, "Comment") %>
 				<% else %>
 					<%= label_tag("answer-text-#{question.id}".to_sym, question.text) %>
@@ -60,8 +61,12 @@
 		<div class="answer-readonly">
 			<% if question.multiple_choice %>
 				<ul class='options'>
-				<% answer.options.each do |o| %>
-					<li><%= o.text %></li>
+				<% if answer.options.is_a? Option then %>
+					<li><%= answer.options.text %></li>
+				<% else %>
+					<% answer.options.each do |o| %>
+						<li><%= o.text %></li>
+					<% end %>
 				<% end %>
 				</ul>
 			<% end %>
