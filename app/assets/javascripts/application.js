@@ -33,5 +33,7 @@ $( document ).ready(function() {
 		width: "element",
 		allowClear: true
 	});
+	
+	$(".help").popover();
 
 });
