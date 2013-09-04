@@ -322,8 +322,8 @@ ul.footer-links li a:hover,  ul.footer-links li a:focus{
 
 
 /**  button colour **/
-a.btn-primary, a.btn-primary:active,  a.btn-primary:visited {
-  background-color: #F49700;
+.btn-primary, .btn-primary:active, .btn-primary:visited  {
+  background: #F49700;
   background-image: none;
   text-decoration:none;
   color: #ffffff;
@@ -343,6 +343,10 @@ a.btn-primary, a.btn-primary:active,  a.btn-primary:visited {
 *******************************/
 
 /***  Project creation ***/
+.dropdowns{
+  margin-top:20px;
+}
+
 .control-group{
   width:95%;
   background-color: #ffffff;
@@ -353,18 +357,27 @@ a.btn-primary, a.btn-primary:active,  a.btn-primary:visited {
   padding: 20px 20px 20px 20px;
 }
 
-li.select label{
+li.select label, li.check_boxes .label{
   background-color: #ffffff;
   color: #F49700;
   font-weight: bold;
   text-shadow: none;
+  border-bottom-color: #ffffff;
 }
+#project_guidance_groups_input legend.label{
+  margin-bottom: 8px;
+}
+
+#project_guidance_groups_input legend.label label{
+  font-weight: bold;
+  font-size: 12px;
+  
+ }
 
 div.select2-container {
   float:right;
   min-width: 48%;
 }
-
 
 #has_more_templates, #project_unit_id_input{
   height:30px;
@@ -387,10 +400,13 @@ div.create_project_question_descriptions{
   padding: 0 15px 0 3px;
 }
 
+fieldset.actions ol{
+  margin-left:0;
+}
 
-
-
-
+li.choice label input{
+  margin: 0 8px 0 0;
+}
 
 
 .project-title-container{
