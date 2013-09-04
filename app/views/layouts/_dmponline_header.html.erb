@@ -35,26 +35,26 @@
 		<div class="main_nav">
 			<ul class="nav nav-pills">
                 <% if user_signed_in? %>
-	           		<li class="orange">
-	                    <%= link_to 'View plans', projects_path %>
+	           		<li>
+	                    <%= button_to 'View plans', projects_path, :class => "btn header_button btn-primary" %>
 	                </li>    
-	                <li class="orange">
-	                	<%= link_to 'Create plan', 'projects/new' %>
+	                <li>
+	                	<%= button_to 'Create plan', '/projects/new', :class => "btn header_button btn-primary" ,  :method => :get%>
 	                </li>
 		                 
                 <% else %>
-                	<li class="dropdown orange">
-                    	<%= link_to t('helpers.home'), root_path %>
+                	<li class="orange">
+                    	<%= button_to t('helpers.home'), root_path , :class => "btn header_button btn-primary"%>
                 	</li>
                 <% end %>
-           		<li class="grey">
-					<%= link_to t('helpers.about_us_label'), '/about_us'%>
+           		<li>
+					<%= button_to t('helpers.about_us_label'), '/about_us', :class => "btn header_button btn-grey"%>
 				</li>
-				<li class="grey">
-					<%= link_to t('helpers.news_label'), '#'%>
+				<li>
+					<%= button_to t('helpers.news_label'), '#', :class => "btn header_button btn-grey"%>
 				</li>
-				<li class="grey">
-                    <%= link_to t('helpers.help_label'), '#'%>
+				<li>
+                    <%= button_to t('helpers.help_label'), '#', :class => "btn header_button btn-grey"%>
             	</li>
 	      	</ul>
          	          		
