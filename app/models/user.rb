@@ -30,4 +30,12 @@ class User < ActiveRecord::Base
 		new_user_org_role.user_role_type = UserRoleType.find_by_name("user");
 		self.user_org_roles << new_user_org_role
 	end
+	
+	def organisation_id
+		if self.organisations.count > 0 then
+			return self.organisations.first.id
+		else
+			return nil
+		end
+	end
 end

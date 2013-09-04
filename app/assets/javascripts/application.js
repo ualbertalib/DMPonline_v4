@@ -35,5 +35,10 @@ $( document ).ready(function() {
 	});
 	
 	$(".help").popover();
+	
+	$('.has-tooltip').tooltip({
+    placement: "right",
+    trigger: "focus"
+	});
 
 });
