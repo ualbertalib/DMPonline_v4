@@ -51,7 +51,7 @@
         	<div class="controls">
         		<% covered_orgs = org_type_funder + org_type_inst + children_info %>
         		<% other_guidance = GuidanceGroup.guidance_groups_excluding(covered_orgs) %>
-        		<%= f.input :guidance_groups, :as => :check_boxes, :collection => other_guidance, :label => t('helpers.org_type.other_guidance') %>
+        		<%= f.input :guidance_groups, :as => :check_boxes, :collection => other_guidance, :label => t('helpers.org_type.other_guidance'), :member_label => :display_name %>
         	</div>
         </div>
 
