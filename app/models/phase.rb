@@ -11,7 +11,7 @@ class Phase < ActiveRecord::Base
  
 	attr_accessible :description, :number, :title, :dmptemplate_id
 	
-	friendly_id :title, use: :slugged
+	friendly_id :title, use: :slugged, :use => :history
   
 	def to_s
 		"#{title}"

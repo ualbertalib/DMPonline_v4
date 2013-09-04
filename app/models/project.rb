@@ -11,7 +11,7 @@ class Project < ActiveRecord::Base
 	has_many :project_groups
 	has_and_belongs_to_many :guidance_groups, join_table: "project_guidance"
 	
-	friendly_id :title, use: :slugged
+	friendly_id :title, use: :slugged, :use => :history
 	
 	after_create :create_plans
 	

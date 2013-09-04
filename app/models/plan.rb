@@ -13,7 +13,7 @@ class Plan < ActiveRecord::Base
 	accepts_nested_attributes_for :answers
 	accepts_nested_attributes_for :version
 	
-	friendly_id :project_and_phase, use: :slugged
+	friendly_id :project_and_phase, use: :slugged, :use => :history
   
 	def answer(qid, create_if_missing = true)
   		answer = answers.where(:question_id => qid).order("created_at DESC").first
