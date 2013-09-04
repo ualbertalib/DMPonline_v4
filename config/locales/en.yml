@@ -57,6 +57,9 @@ en:
     noquestionanswered: "No questions have been answered"
     jisc: "The DCC is funded by"
     funders_question: "Which research funder are you applying to?"
+    funders_question_description: "This will bring out questions posed by the funders." 
+    institution_question: "Is there an Institution?"
+    institution_question_description: "The institution selected can be different from your own institution."
     
     org_type:
       funders: "Funder"
