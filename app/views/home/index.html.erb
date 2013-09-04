@@ -1,6 +1,7 @@
 <div class="welcome-message">
 	<h3>
 		<%= t('welcome_text')%>
+		<%= t('welcome_text_part1')%>%>
 		<%= link_to t('dcc_name'), 'http://dcc.ac.uk'%>
 		<%= t('welcome_text_part2')%>
 	</h3>
@@ -8,7 +9,7 @@
 <div class="accordion" id="homepage-accordion">
 	<div class="accordion-group">
 		<div class="accordion-heading">
-			<a class="accordion-toggle" data-toggle="collapse" data-parent="#homepage-accordion" href="#collapse-login">Sign In<span class="icon-minus icon-white accordion-icon"> </span></a>
+			<a class="accordion-toggle" data-toggle="collapse" data-parent="#homepage-accordion" href="#collapse-login">t('helpers.sign_in')<span class="icon-minus icon-white accordion-icon"> </span></a>
 		</div>
 		<div id="collapse-login" class="accordion-body collapse in">
 			<div class="accordion-inner">
