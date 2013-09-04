@@ -60,7 +60,6 @@
 <% end %>
 <!-- submit buttons -->
 <%= f.actions do %>
-<%= f.action :submit, :as => :button, :label => t('helpers.project.create'), :button_html => {:class => "btn btn-primary" } %>
-
+	<a data-toggle="modal" href="#project-confirmation-dialog" class="btn btn-primary">Create plan</a>
 <% end %>
 <% end %> 

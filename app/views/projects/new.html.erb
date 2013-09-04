@@ -10,3 +10,20 @@
     <%= render 'dropdowns_new_project' %>
 
 </div>
+<div id='project-confirmation-dialog' data-container="body" class='modal hide fade'>
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		<h3>Confirm Project Details</h3>
+	</div>
+	<div class="modal-body">
+		<div><p><strong>Funder:</strong> <span id="confirm-funder">None</span></p></div>
+		<div style="display:none"><p><strong>Template:</strong> <span id="confirm-template"></span></p></div>
+		<div><p><strong>Institution:</strong> <span id="confirm-institution">None</span></p></div>
+		<div  style="display:none"><p><strong>Unit:</strong> <span id="confirm-unit"></span></p></div>
+		<div><p><strong>Other Guidance:</strong> <ul id="confirm-guidance"></ul></p></div>
+	</div>
+	<div class="modal-footer">
+    <a href="#" id="new-project-cancelled" class="btn">Cancel</a>
+    <a href="#" id="new-project-confirmed" class="btn btn-primary">Yes, create project</a>
+  </div>
+</div>
