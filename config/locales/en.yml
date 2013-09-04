@@ -56,6 +56,7 @@ en:
     notanswered: "Not answered yet"
     noquestionanswered: "No questions have been answered"
     jisc: "The DCC is funded by"
+    funders_question: "Which research funder are you applying to?"
     
     org_type:
       funders: "Funder"
