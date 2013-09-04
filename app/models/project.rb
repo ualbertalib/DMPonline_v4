@@ -23,8 +23,20 @@ class Project < ActiveRecord::Base
 			return nil
 		end
 		template_org = dmptemplate.organisation
-		if template_org.organisation_type.name == t('helpers.org_type.funders').downcase
+		if template_org.organisation_type.name == I18n.t('helpers.org_type.funders').downcase
 			return template_org.id
+		else
+			return nil
+		end
+	end
+	
+	def funder
+		if dmptemplate.nil? then
+			return nil
+		end
+		template_org = dmptemplate.organisation
+		if template_org.organisation_type.name == I18n.t('helpers.org_type.funders').downcase
+			return template_org
 		else
 			return nil
 		end

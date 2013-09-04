@@ -38,4 +38,12 @@ class User < ActiveRecord::Base
 			return nil
 		end
 	end
+	
+	def organisation
+		if self.organisations.count > 0 then
+			return self.organisations.first
+		else
+			return nil
+		end
+	end
 end
