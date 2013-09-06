@@ -24,9 +24,14 @@
 						</ul>
 	            	</li>
 	            <% else %>
+	            	
 	            	<li>
-						<a href="#header-login-form" data-toggle="modal"><%= t('helpers.sign_in')%></a> / 
-						<a href="#header-register-form" data-toggle="modal"><%= t('helpers.sign_up')%></a>
+	            	<% unless controller_name == "home" && action_name == "index" then %>
+									<a href="#header-login-form" data-toggle="modal"><%= t('helpers.sign_in')%></a> / 
+									<a href="#header-register-form" data-toggle="modal"><%= t('helpers.sign_up')%></a>
+								<% else %>
+                  <%= raw "&nbsp;" %>
+                <% end %>
 					</li>
 				<% end %> 
 			</ul>
@@ -44,7 +49,7 @@
 		                 
                 <% else %>
                 	<li>
-                    	<%= link_to t('helpers.home'), root_path , :class => "btn header_button btn-primary"%>
+                    	<%= link_to t('helpers.home'), root_path , :class => "btn header_button btn-primary"%>            
                 	</li>
                 <% end %>
            		<li>
