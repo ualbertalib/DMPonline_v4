@@ -1,20 +1,6 @@
 <div class="welcome-message">
-	<p>
-		<h3><%= t('welcome_text')%></h3>
-	</p>
-	<p>
-		<h3>
-			<%= t('welcome_text_part1')%>
-			<%= link_to t('dcc_name'), 'http://dcc.ac.uk'%>
-			<%= t('welcome_text_part2')%>
-		</h3>
-	</p>
-	<p>
-		<h3>
-			<%= t('welcome_text_part3')%>
-		</h3>
-	</p>
-	
+	<h2><%= raw t('welcome_title')%></h2>
+	<%= raw t('welcome_text')%>
 </div>
 <div class="accordion" id="homepage-accordion">
 	<div class="accordion-group">

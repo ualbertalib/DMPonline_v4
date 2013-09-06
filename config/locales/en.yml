@@ -31,10 +31,8 @@ en:
 
   tool_title: "DMPonline"
   dcc_name: "Digital Curation Centre"
-  welcome_text: "Welcome."
-  welcome_text_part1: "DMPonline has been developed by the "
-  welcome_text_part2: " to help you manage your research data." 
-  welcome_text_part3: "Create an account to start your first plan."
+  welcome_title: "Welcome."
+  welcome_text: "<p>DMPonline has been developed by the <a href='http://dcc.ac.uk' target='_blank'>Digital Curation Centre</a> to help you manage your research data.</p><p>Create an account to start your first plan.</p>"
 
   helpers:
     sign_in: "Sign in"
@@ -66,10 +64,11 @@ en:
     notanswered: "Not answered yet"
     noquestionanswered: "No questions have been answered"
     jisc: "The DCC is funded by"
-    funders_question: "Which research funder are you applying to?"
-    funders_question_description: "This will bring out questions posed by the funders." 
-    institution_question: "Is there an Institution?"
-    institution_question_description: "The institution selected can be different from your own institution."
+    funders_question: "To which research funder are you applying (if any)?"
+    funders_question_description: " " 
+    institution_question: "With whose institutional requirements do you need to comply (if any)?"
+    institution_question_description: "This maybe a different institution from your own if the project will be led by another, or the data will be stored elsewhere."
+    other_guidance_question: "What other sources of guidance are relevant to the project?"
     
     org_type:
       funders: "Funder"

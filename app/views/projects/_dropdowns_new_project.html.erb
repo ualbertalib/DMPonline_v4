@@ -13,7 +13,7 @@
         <div class="control-group">
             <div class="controls">
                 <% org_type_funder = OrganisationType.find_by_name(t('helpers.org_type.funders')).organisations.order() %>
-                <%= f.input :funder_id, :as => :select, :collection => org_type_funder, :label => t('helpers.funders_question'), :input_html => { :multiple => false, :class => "typeahead" } %>
+                <%= f.input :funder_id, :as => :select, :collection => org_type_funder, :label => t('helpers.funders_question'), :input_html => { :multiple => false, :class => "typeahead" }, :include_blank =>  t('helpers.org_type.funders') %>
                 <div class="create_project_question_descriptions">
                 	<%= t('helpers.funders_question_description')%>
                 </div>
@@ -32,7 +32,7 @@
                 <% org_type_inst = OrganisationType.find_by_name(t('helpers.org_type.institution')).organisations.order("name") %>
                 <% user_inst = current_user.organisation.root %>
                 <% org_type_inst.unshift(user_inst) %>
-                <%= f.input :institution_id, :as => :select, :collection => org_type_inst, :label => t('helpers.institution_question'), :input_html => { :multiple => false, :class => "typeahead" } %>
+                <%= f.input :institution_id, :as => :select, :collection => org_type_inst, :label => t('helpers.institution_question'), :input_html => { :multiple => false, :class => "typeahead" }, :include_blank =>  t('helpers.org_type.institution')  %>
                 <div class="create_project_question_descriptions">
                 	<%= t('helpers.institution_question_description')%>
                 </div>
@@ -40,7 +40,7 @@
                 <% children_info = Organisation.orgs_with_parent_of_type(t('helpers.org_type.institution')) %>
                 <% if children_info.any? %>
                 <div class="has_children">
-                    <%= f.input :unit_id, :as => :select, :collection => children_info, :label => t('helpers.org_type.child'), :input_html => { :multiple => false, :class => "typeahead" } %>
+                    <%= f.input :unit_id, :as => :select, :collection => children_info, :input_html => { :multiple => false, :class => "typeahead" }  %>
                 </div >
                 <% end %>
             </div>
@@ -51,7 +51,7 @@
         	<div class="controls">
         		<% covered_orgs = org_type_funder + org_type_inst + children_info %>
         		<% other_guidance = GuidanceGroup.guidance_groups_excluding(covered_orgs) %>
-        		<%= f.input :guidance_groups, :as => :check_boxes, :collection => other_guidance, :label => t('helpers.org_type.other_guidance'), :member_label => :display_name %>
+        		<%= f.input :guidance_groups, :as => :check_boxes, :collection => other_guidance, :label => t('helpers.other_guidance_question'), :member_label => :display_name %>
         	</div>
         </div>
 

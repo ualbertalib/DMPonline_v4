@@ -7,7 +7,7 @@
 		<%= f.email_field :email, placeholder: t('helpers.email') %>
 	</li>
 	<li>
-		<%= collection_select(:user, :organisation_id, Organisation.where("parent_id IS NULL").order("name"), :id, :name, {include_blank: "Organisation"}, { :class => 'typeahead org_sign_up' }) %>
+		<%= collection_select(:user, :organisation_id, Organisation.where("parent_id IS NULL").order("name"), :id, :name, {include_blank: t('helpers.org_type.organisation')}, { :class => 'typeahead org_sign_up' }) %>
 	</li>
 	<li>
 		<%= f.password_field :password, placeholder: t('helpers.password') %>

@@ -1,4 +1,24 @@
 @import "twitter/bootstrap/bootstrap";
+@import "twitter/bootstrap/responsive";
+
+// Set the correct sprite paths
+@iconSpritePath: "assets/images/glyphicons-halflings";
+@iconWhiteSpritePath: "assets/images/glyphicons-halflings-white";
+
+// Set the Font Awesome (Font Awesome is default. You can disable by commenting below lines)
+@fontAwesomeEotPath: asset-url("fontawesome-webfont.eot");
+@fontAwesomeEotPath_iefix: asset-url("fontawesome-webfont.eot#iefix");
+@fontAwesomeWoffPath: asset-url("fontawesome-webfont.woff");
+@fontAwesomeTtfPath: asset-url("fontawesome-webfont.ttf");
+@fontAwesomeSvgPath: asset-url("fontawesome-webfont.svg#fontawesomeregular");
+
+// Font Awesome
+@import "fontawesome/font-awesome";
+
+// Glyphicons
+//@import "twitter/bootstrap/sprites.less";
+
+// Your custom LESS stylesheets goes here
 
 /*******************************
  *  DMPonline v4 stylesheet
@@ -11,20 +31,76 @@
 @font-face {
   font-family: 'GillSansLight';
   src: font-url('GillSansLight.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
+ }
 
+@header_font: "GillSansLight";
+@text_font: Arial, sans-serif;
+@font_size: 13px;
+@font_colour: #3e3c3c;
+@orange_colour: #F49700;
+@orange_light_colour: #f47900;
+@grey_colour: #656263;
+@grey_lighter_colour: #827d7e;
+@grey_very_light_colour: #cccccc;
+@green_colour: #007e30;
+@red_colour: #e3000f;
+@white_colour: #ffffff;
 
 
 body { 
-  font-family: Arial, sans-serif;
-  color: #333;
+  font-family: @text_font;
+  color: @font_colour;
   background-image: url('background.jpg')!important;
   background-repeat: repeat-x;
   margin: 0 15% 0 15%;
+  line-height: 24px;
 }
 
+h1, h2, h3, h4 {
+  font-family: @header_font;
+  color: @orange_colour;
+  font-weight: lighter;
+  font-style: normal;
+}
+h1{
+  font-size: 40px;  
+}
+
+h2{
+  font-size: 32px;  
+}
+
+h3{
+  font-size: 26px;  
+}
+
+h4{
+  font-size: 13px;  
+}
+
+p{
+  font-size: 13px;  
+}
+
+
+a, a:active {
+  color: @orange_colour;
+  text-decoration:underline;
+}
+
+a.visited{
+  background-color: none !important;
+  color: @orange_colour;
+}
+
+a.hover{
+   font-weight:bold;
+   color: @orange_colour;
+   background-color: none !important;
+}
+
+
+/*** ***/
 header{
   height: 161px;
   margin-bottom: 60px;
@@ -55,36 +131,7 @@ footer {
 }
 
 
-h1, h2 {
-    font-family: 'GillSansLight';
-    color: #F49700;
-    font-weight:lighter;
-}
-  h1{
-    font-size: 32px;  
-}
 
- h3, h4 {
-   color: #F49700;  
-   font-weight: normal;
-   font-family: 'GillSansLight';
-}
-
-a, a:active {
-  color: #F49700;
-  text-decoration:underline;
-}
-
-a.visited{
-  background-color: none !important;
-  color: #f49700;
-}
-
-a.hover{
-   font-weight:bold;
-   color: #F49700;
-   background-color: none !important;
-}
 
 
 /**** header ****/
@@ -114,13 +161,13 @@ a.hover{
 
 .signIn ul{
   list-style-type: none;
-  color: #F49700;
+  color: @orange_colour;
   font-size: 130%;
   
 }
 
 .signIn ul li a, .signIn ul li a.active, .signIn ul li a:visited {
-  color: #F49700;
+  color: @orange_colour;
   text-decoration:underline;
   background-color: none;
   
@@ -130,7 +177,7 @@ a.hover{
   width: 0;
   height: 0;
   vertical-align: top;
-  border-top: 4px solid #F49700;
+  border-top: 4px solid @orange_colour;
   border-right: 4px solid transparent;
   border-left: 4px solid transparent;
   content: "";
@@ -153,7 +200,7 @@ a.hover{
   padding: 5px 0;
   margin: 2px 0 0;
   list-style: none;
-  border: 1px solid #ccc;
+  border: 1px solid @grey_very_light_colour;
   border: 1px solid rgba(0, 0, 0, 0.2);
   *border-right-width: 2px;
   *border-bottom-width: 2px;
@@ -171,21 +218,21 @@ a.hover{
 
 
 ul#signIn_dropdown{
-  background-color: #656263;
+  background-color: @grey_colour;
 }
 
 ul#signIn_dropdown li , ul#signIn_dropdown li a:link, ul#signIn_dropdown li a:active, ul#signIn_dropdown li a:visited{
   font-size:17px;
   text-decoration:none;
   font-weight:normal;
-  background-color: #656263 !important;
+  background-color: none !important;
 }
 
 ul#signIn_dropdown li a:hover, ul#signIn_dropdown li a:focus{
   font-size:17px;
   text-decoration:underline;
   font-weight:normal;
-  background: #656263;
+  background: @grey_colour;
   
 }
 
@@ -201,46 +248,7 @@ ul#signIn_dropdown li a:hover, ul#signIn_dropdown li a:focus{
   box-shadow: 0 !important;
   -webkit-box-shadow: none !important;
  }
-/*
-.orange a, .orange a:active, .orange a:visited, .orange, .orange:active, .orange:visited {
-  background-color: #F49700;
-  background-image: none;
-  border-bottom-color: rgba(0, 0, 0, 0.247059);
-  background-attachment: scroll;
-  background-clip: border-box;
-  margin:0 3px 0 3px;
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: normal;
-} 
 
-.orange a:hover, .orange:hover{
-  background-image: -moz-linear-gradient(top , #f49700, #f47900 49px);
-  background-image: -webkit-linear-gradient(top , #f49700, #f47900 49px);
-  background-image: -o-linear-gradient(top , #f49700, #f47900 49px);
-  background-image: -ms-linear-gradient(top , #f49700, #f47900 49px);
-  background-image: linear-gradient(top , #f49700, #f47900 49px);
-  color: #ffffff;
-  }
-
-.grey a, .grey a.active, .grey a:visited, .grey{
-  background-color: #656263;
-  background-image: none;
-  margin:0 3px 0 3px;
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: normal;
-  
-  }
-
-.grey a:hover, .grey:hover {
-  background-image: -moz-linear-gradient(top , #787475, #656263 49px);
-  background-image: -webkit-linear-gradient(top , #787475, #656263 49px);
-  background-image: -o-linear-gradient(top , #787475, #656263 49px);
-  background-image: -ms-linear-gradient(top , #787475, #656263 49px);
-  background-image: linear-gradient(top , #787475, #656263 49px);
-  color: #ffffff;
-} */
 
 /**  button colour **/
 ul.nav-pills li{
@@ -262,39 +270,39 @@ ul.nav-pills li.last_li a.header_button{
 }
 
 .btn-primary, .btn-primary:active, .btn-primary:visited  {
-  background: #F49700;
+  background: @orange_colour;
   background-image: none;
   text-decoration:none;
-  color: #ffffff;
+  color: @white_colour;
  
 }
 
 .btn-primary:hover{
-  background-image: -moz-linear-gradient(top , #f49700, #f47900 49px);
-  background-image: -webkit-linear-gradient(top , #f49700, #f47900 49px);
-  background-image: -o-linear-gradient(top , #f49700, #f47900 49px);
-  background-image: -ms-linear-gradient(top , #f49700, #f47900 49px);
-  background-image: linear-gradient(top , #f49700, #f47900 49px);
-  color: #ffffff;
+  background-image: -moz-linear-gradient(top , @orange_colour, @orange_light_colour 49px);
+  background-image: -webkit-linear-gradient(top , @orange_colour, @orange_light_colour 49px);
+  background-image: -o-linear-gradient(top , @orange_colour, @orange_light_colour 49px);
+  background-image: -ms-linear-gradient(top , @orange_colour, @orange_light_colour 49px);
+  background-image: linear-gradient(top , @orange_colour, @orange_light_colour 49px);
+  color: @white_colour;
  }
 
 .btn-grey, .btn-grey:active, .btn-grey:visited  {
-  background: #656263;
+  background: @grey_colour;
   background-image: none;
   text-decoration:none;
-  color: #ffffff;
+  color: @white_colour;
   text-shadow: rgba(0, 0, 0, 0.247059) 0px -1px 0px;
   border-color: rgba(0, 0, 0, 0.247059);
  
 }
 
 .btn-grey:hover{
-  background-image: -moz-linear-gradient(top , #787475, #656263 49px);
-  background-image: -webkit-linear-gradient(top , #787475, #656263 49px);
-  background-image: -o-linear-gradient(top , #787475, #656263 49px);
-  background-image: -ms-linear-gradient(top , #787475, #656263 49px);
-  background-image: linear-gradient(top , #787475, #656263 49px);
-  color: #ffffff;
+  background-image: -moz-linear-gradient(top ,@grey_colour , @grey_lighter_colour 49px);
+  background-image: -webkit-linear-gradient(top ,@grey_colour , @grey_lighter_colour 49px);
+  background-image: -o-linear-gradient(top ,@grey_colour , @grey_lighter_colour 49px);
+  background-image: -ms-linear-gradient(top ,@grey_colour , @grey_lighter_colour 49px);
+  background-image: linear-gradient(top ,@grey_colour , @grey_lighter_colour 49px);
+  color: @white_colour;
  }
 
 /******   Footer  ******/
@@ -352,7 +360,7 @@ ul.footer-links li a, ul.footer-links li a:active, ul.footer-links li a:visited 
 }
 
 ul.footer-links li a:hover,  ul.footer-links li a:focus{
-   color: #F49700;
+   color: @orange_colour;
 }
 
 #dcc_link, #dcc_link a, #dcc_link a:active, #dcc_link a:visited{
@@ -360,7 +368,7 @@ ul.footer-links li a:hover,  ul.footer-links li a:focus{
     color: #999999;
 }
 #dcc_link a:hover,  #dcc_link a:focus{
-    color: #F49700;
+    color: @orange_colour;
   }
 
 
@@ -374,11 +382,14 @@ ul.footer-links li a:hover,  ul.footer-links li a:focus{
   margin:0 20px 0 0;
 }
 
-.welcome-message h3, .welcome-message a, .welcome-message a:active, .welcome-message a:visited {
-  color: #F49700;
+.welcome-message a, .welcome-message a:active, .welcome-message a:visited, .welcome-message p{
+  color: @orange_colour;
   background-color: none !important;
-  text-transform:uppercase; 
   font-weight:lighter;
+  font-size:20px;
+  font-family: @header_font;
+  padding-bottom: 15px;
+  line-height: 34px;
 }
 
 .welcome-message a:hover{
@@ -394,19 +405,19 @@ ul.footer-links li a:hover,  ul.footer-links li a:focus{
 }
 
 #homepage-accordion .accordion-group{
-  background-color: #ffffff;
-  border: #ffffff;
+  background-color: @white_colour;
+  border: @white_colour;
 }
 
 #homepage-accordion .accordion-heading{
-   background-color: #ffffff;
-   border: #ffffff;
+   background-color: @white_colour;
+   border: @white_colour;
    padding: 15px;
 }
 
 #homepage-accordion .accordion-heading a{
-  color: #F49700;
-  font-family: 'GillSansLight';
+  color: @orange_colour;
+  font-family: @header_font;
   font-size: 51px;
   font-weight: normal;
   line-height: 40px;
@@ -415,18 +426,18 @@ ul.footer-links li a:hover,  ul.footer-links li a:focus{
 }
 
 #homepage-accordion .accordion-inner{
-  border: #ffffff;
+  border: @white_colour;
   padding-top: 0px;
 }
 
-#homepage-accordion .minus-laranja{
-  background-image: url('minus-laranja.png');
+.minus-laranja{
+  background-image: url('minus_laranja.png');
   width:22px;
   height:22px;
   float:right;
 }
-#homepage-accordion .plus-laranja{
-  background-image: url('plus-laranja.png');
+.plus-laranja{
+  background-image: url('plus_laranja.png');
   width:22px;
   height:22px;
   float:right;
@@ -441,7 +452,7 @@ ul.footer-links li a:hover,  ul.footer-links li a:focus{
 }
 
 #new_user a.forgot_password, #new_user a.forgot_password:active, #new_user a.forgot_password:visited, #new_user a.forgot_password:hover{
-  color: #F49700;
+  color: @orange_colour;
 }
 
 li.remember_me_li{
@@ -487,7 +498,7 @@ input#user_remember_me{
 
 .control-group{
   width:95%;
-  background-color: #ffffff;
+  background-color: @white_colour;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   border-top-left-radius: 5px;
@@ -496,11 +507,11 @@ input#user_remember_me{
 }
 
 li.select label, li.check_boxes .label{
-  background-color: #ffffff;
-  color: #F49700;
+  background-color: @white_colour;
+  color: @orange_colour;
   font-weight: bold;
   text-shadow: none;
-  border-bottom-color: #ffffff;
+  border-bottom-color: @white_colour;
 }
 #project_guidance_groups_input legend.label{
   margin-bottom: 8px;
@@ -581,10 +592,10 @@ li.choice label input{
 }
 
 #project-tabs li a{
-  background-color: #ffffff;
+  background-color: @white_colour;
   color: #a8a8a8;
   font-weight: bold;
-  border: 1px solid #ffffff;
+  border: 1px solid @white_colour;
   border-top-left-radius: 1px;
   border-top-right-radius: 1px;
   padding-top: 4px;
@@ -593,10 +604,10 @@ li.choice label input{
 }  
 
 #project-tabs li.active a, #project-tabs li.active a:active, #project-tabs li a:hover{
-  background-color: #F49700;
-  color: #ffffff;
+  background-color: @orange_colour;
+  color: @white_colour;
   font-weight: bold;
-  border: 1px solid #F49700;
+  border: 1px solid @orange_colour;
   border-top-left-radius: 1px;
   border-top-right-radius: 1px;
   padding-top: 4px;
@@ -621,23 +632,23 @@ li.choice label input{
 }
 
 .progress .bar{
-  background-color: #F49700;
+  background-color: @orange_colour;
   padding-left: 1px; 
-  background-image: -moz-linear-gradient(top , #f49700, #f47900 49px);
-  background-image: -webkit-linear-gradient(top , #f49700, #f47900 49px);
-  background-image: -o-linear-gradient(top , #f49700, #f47900 49px);
-  background-image: -ms-linear-gradient(top , #f49700, #f47900 49px);
-  background-image: linear-gradient(top , #f49700, #f47900 49px);
+  background-image: -moz-linear-gradient(top , @orange_colour, @orange_light_colour 49px);
+  background-image: -webkit-linear-gradient(top , @orange_colour, @orange_light_colour 49px);
+  background-image: -o-linear-gradient(top , @orange_colour, @orange_light_colour 49px);
+  background-image: -ms-linear-gradient(top , @orange_colour, @orange_light_colour 49px);
+  background-image: linear-gradient(top , @orange_colour, @orange_light_colour 49px);
 } 
 
 .progress .color-text{
-  color: #F49700;
+  color: @orange_colour;
   padding-left: 15px; 
 } 
 
 .project-details-body{
-  background-color: #ffffff;
-  border: 2px solid #F49700;
+  background-color: @white_colour;
+  border: 2px solid @orange_colour;
   border-radius: 1px;
   padding-bottom: 25px;
   padding-left: 15px;
@@ -651,11 +662,11 @@ li.choice label input{
 }
 
 .has_children{
-	display:none;
+  display:none;
 }
 
 #has_more_templates{
-	display:none;
+  display:none;
 }
 
 .new-line-tabs{
@@ -665,8 +676,8 @@ li.choice label input{
 }
 
 .accordion-group{
-  background-color: #F49700;
-  border-color:#F49700;
+  background-color: @orange_colour;
+  border-color:@orange_colour;
   border-radius: 1px;
   margin-bottom: 5px;
   box-shadow: 7px 7px 2px 0px rgba(168, 168, 168, 0.5);
@@ -675,11 +686,11 @@ li.choice label input{
 }
 
 .accordion-heading{
-  background-color: #F49700;
+  background-color: @orange_colour;
 }
 
 .accordion-heading a, .accordion-heading a:hover, .accordion-heading a:active, .accordion-heading a:visited{
-  color:#ffffff;
+  color:@white_colour;
   font-weight: bold;
   text-decoration: none;
   background-color: none;
@@ -690,47 +701,47 @@ li.choice label input{
 }
 
 .section-status{
-  background-color: #F49700;
+  background-color: @orange_colour;
 }
 
 .accordion-inner{
-  background-color: #ffffff;
+  background-color: @white_colour;
 }
 
 #sections-accordion {
-	.question-div {
-		float:left;
-		width:60%;
-	}
-	.question-guidance {
-		padding-left:5px;
-		float:right;
-		width:35%;
-	}
-	label {
-		font-size: 1.2em;
-		font-weight: bold;
-	}
-	.guidance_header {
-		font-weight: bold;
-	}
-	.loading {
-		display:none;
-	}
+  .question-div {
+    float:left;
+    width:60%;
+  }
+  .question-guidance {
+    padding-left:5px;
+    float:right;
+    width:35%;
+  }
+  label {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  .guidance_header {
+    font-weight: bold;
+  }
+  .loading {
+    display:none;
+  }
 }
 
 .two-column-clear {
-	clear: both;
+  clear: both;
 }
 
 .formtastic {
-	ol { list-style-type: none; }
-	fieldset { border: none; }
+  ol { list-style-type: none; }
+  fieldset { border: none; }
 }
 
 .new_user {
-	ul { list-style-type: none; }
-	fieldset { border: none; }
+  ul { list-style-type: none; }
+  fieldset { border: none; }
 }
 
 /*** rich text editor ***/
@@ -742,34 +753,3 @@ li.choice label input{
 
 
 
-
-
-@import "twitter/bootstrap/responsive";
-
-// Set the correct sprite paths
-@iconSpritePath: "assets/images/glyphicons-halflings";
-@iconWhiteSpritePath: "assets/images/glyphicons-halflings-white";
-
-// Set the Font Awesome (Font Awesome is default. You can disable by commenting below lines)
-@fontAwesomeEotPath: asset-url("fontawesome-webfont.eot");
-@fontAwesomeEotPath_iefix: asset-url("fontawesome-webfont.eot#iefix");
-@fontAwesomeWoffPath: asset-url("fontawesome-webfont.woff");
-@fontAwesomeTtfPath: asset-url("fontawesome-webfont.ttf");
-@fontAwesomeSvgPath: asset-url("fontawesome-webfont.svg#fontawesomeregular");
-
-// Font Awesome
-@import "fontawesome/font-awesome";
-
-// Glyphicons
-//@import "twitter/bootstrap/sprites.less";
-
-// Your custom LESS stylesheets goes here
-//
-// Since bootstrap was imported above you have access to its mixins which
-// you may use and inherit here
-//
-// If you'd like to override bootstrap's own variables, you can do so here as well
-// See http://twitter.github.com/bootstrap/customize.html#variables for their names and documentation
-//
-// Example:
-// @linkColor: #ff0000;
