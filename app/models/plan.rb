@@ -1,6 +1,4 @@
 class Plan < ActiveRecord::Base
-
-	extend FriendlyId
 	
 	attr_accessible :locked, :project_id, :version_id, :version, :plan_sections
 
@@ -12,9 +10,7 @@ class Plan < ActiveRecord::Base
 	accepts_nested_attributes_for :project
 	accepts_nested_attributes_for :answers
 	accepts_nested_attributes_for :version
-	
-	friendly_id :project_and_phase, use: :slugged, :use => :history
-  
+	  
 	def answer(qid, create_if_missing = true)
   		answer = answers.where(:question_id => qid).order("created_at DESC").first
   		question = Question.find(qid)
@@ -32,10 +28,6 @@ class Plan < ActiveRecord::Base
 			answer.options = default_options
 		end
 		return answer
-	end
-	
-	def project_and_phase
-		"#{project.title} #{version.phase.title}"
 	end
 	
 	def sections

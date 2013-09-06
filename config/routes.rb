@@ -23,22 +23,23 @@ DMPonline4::Application.routes.draw do
   resources :guidances
   
   resources :answers
-  resources :plans do
-  	member do
-		get 'status'
-		get 'locked'
-		get 'answer'
-		post 'delete_recent_locks'
-		post 'lock_section'
-		post 'unlock_section'
-		post 'unlock_all_sections'
-		get 'export'
-		get 'warning'
-	end
-  end
   resources :plan_sections
   
-  resources :projects
+  resources :projects do
+  	resources :plans do
+		member do
+			get 'status'
+			get 'locked'
+			get 'answer'
+			post 'delete_recent_locks'
+			post 'lock_section'
+			post 'unlock_section'
+			post 'unlock_all_sections'
+			get 'export'
+			get 'warning'
+		end
+	end
+  end
   resources :project_partners
   resources :project_groups
 
