@@ -4,16 +4,19 @@
 		<%= devise_error_messages! %>
 	</li>
 	<li>
-		<%= f.label :email %><%= f.text_field :email %>
+		<%= f.text_field :email, placeholder: t('helpers.user_name')  %>
 	</li>
 	<li>
-		<%= f.label :password %><%= f.password_field :password %>
+		<%= f.password_field :password, placeholder: t('helpers.password') %>
 	</li>
 	<li>
-		<%= f.check_box :remember_me %><%= f.label :remember_me %>
+		<%= link_to t('helpers.forgot_password'), new_password_path('user'), :class => "forgot_password" %>
+	</li>
+	<li class="remember_me_li">
+		<%= f.check_box :remember_me %><%= f.label t('helpers.remember_me'), :class => "remember_div" %>
 	</li>
 	<li>
-		<%= f.submit t('helpers.sign_in') %><%= link_to t('helpers.forgot_password'), new_password_path('user') %>
+		<%= f.submit t('helpers.sign_in'), :class => "btn btn-primary" %>
 	</li>
 </ul>
 <% end %>

@@ -1,17 +1,27 @@
 <div class="welcome-message">
-	<h3>
-		<%= t('welcome_text')%>
-		<%= t('welcome_text_part1')%>%>
-		<%= link_to t('dcc_name'), 'http://dcc.ac.uk'%>
-		<%= t('welcome_text_part2')%>
-	</h3>
+	<p>
+		<h3><%= t('welcome_text')%></h3>
+	</p>
+	<p>
+		<h3>
+			<%= t('welcome_text_part1')%>
+			<%= link_to t('dcc_name'), 'http://dcc.ac.uk'%>
+			<%= t('welcome_text_part2')%>
+		</h3>
+	</p>
+	<p>
+		<h3>
+			<%= t('welcome_text_part3')%>
+		</h3>
+	</p>
+	
 </div>
 <div class="accordion" id="homepage-accordion">
 	<div class="accordion-group">
 		<div class="accordion-heading">
-			<a class="accordion-toggle" data-toggle="collapse" data-parent="#homepage-accordion" href="#collapse-login">t('helpers.sign_in')<span class="icon-minus icon-white accordion-icon"> </span></a>
+			<a class="accordion-toggle" data-toggle="collapse" data-parent="#homepage-accordion" href="#collapse-login"><%= t('helpers.sign_in')%><span class="minus-laranja"> </span></a>
 		</div>
-		<div id="collapse-login" class="accordion-body collapse in">
+		<div id="collapse-login" class="accordion-home collapse in">
 			<div class="accordion-inner">
 				<%= render :partial => 'shared/login_form' %>
 			</div>
@@ -19,9 +29,13 @@
 	</div>
 	<div class="accordion-group">
 		<div class="accordion-heading">
-			<a class="accordion-toggle" data-toggle="collapse" data-parent="#homepage-accordion" href="#collapse-register">Sign Up<span class="icon-plus icon-white accordion-icon"> </span></a>
+			<a class="accordion-toggle" data-toggle="collapse" data-parent="#homepage-accordion" href="#collapse-register"><%= t('helpers.sign_up') %><span class="plus-laranja"> </span></a>
+			<p>
+				<%= t('helpers.sign_up_text')%>
+			</p>
+			
 		</div>
-		<div id="collapse-register" class="accordion-body collapse">
+		<div id="collapse-register" class="accordion-home collapse">
 			<div class="accordion-inner">
 				<%= render :partial => 'shared/register_form' %>
 			</div>

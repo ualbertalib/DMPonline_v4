@@ -1,11 +1,26 @@
 @import "twitter/bootstrap/bootstrap";
 
-/******* MR *******/
+/*******************************
+ *  DMPonline v4 stylesheet
+ * 
+ * 
+ *  strating date: June 2013
+ *******************************/
+
+/**** font configuration ****/
+@font-face {
+  font-family: 'GillSansLight';
+  src: font-url('GillSansLight.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 
 body { 
   font-family: Arial, sans-serif;
   color: #333;
-  background-image: url('/assets/images/background.jpg');
+  background-image: url('background.jpg')!important;
   background-repeat: repeat-x;
   margin: 0 15% 0 15%;
 }
@@ -41,7 +56,7 @@ footer {
 
 
 h1, h2 {
-    font-family: "gill sans", sans-serif;
+    font-family: 'GillSansLight';
     color: #F49700;
     font-weight:lighter;
 }
@@ -52,7 +67,7 @@ h1, h2 {
  h3, h4 {
    color: #F49700;  
    font-weight: normal;
-   font-family: "gill sans", sans-serif;
+   font-family: 'GillSansLight';
 }
 
 a, a:active {
@@ -186,7 +201,7 @@ ul#signIn_dropdown li a:hover, ul#signIn_dropdown li a:focus{
   box-shadow: 0 !important;
   -webkit-box-shadow: none !important;
  }
-
+/*
 .orange a, .orange a:active, .orange a:visited, .orange, .orange:active, .orange:visited {
   background-color: #F49700;
   background-image: none;
@@ -225,17 +240,25 @@ ul#signIn_dropdown li a:hover, ul#signIn_dropdown li a:focus{
   background-image: -ms-linear-gradient(top , #787475, #656263 49px);
   background-image: linear-gradient(top , #787475, #656263 49px);
   color: #ffffff;
- } 
+} */
 
 /**  button colour **/
 ul.nav-pills li{
     margin: 0 5px 20px 0;
    }
 
+ul.nav-pills li.last_li{
+    margin: 0 0px 20px 0;
+}
+   
 ul.nav-pills li a.header_button{
   height: 18px;
   padding: 4px 22px 2px 22px;
   border-radius: 3px;
+}
+
+ul.nav-pills li.last_li a.header_button{
+  margin-right:0px;
 }
 
 .btn-primary, .btn-primary:active, .btn-primary:visited  {
@@ -277,7 +300,7 @@ ul.nav-pills li a.header_button{
 /******   Footer  ******/
 footer{
   clear:both;
-  margin-top: 140px;  
+  margin-top: 180px;  
   width: 99%;
 }
 
@@ -298,7 +321,7 @@ footer .left_side_footer{
 footer .right_side_footer{
   float: right;
   width: 35%;
-  padding: 0 4% 0 0;
+  padding: 0 4.5% 0 0;
   }
   
 footer .right_side_footer p{
@@ -336,7 +359,7 @@ ul.footer-links li a:hover,  ul.footer-links li a:focus{
     text-decoration: none;
     color: #999999;
 }
-  #dcc_link a:hover,  #dcc_link a:focus{
+#dcc_link a:hover,  #dcc_link a:focus{
     color: #F49700;
   }
 
@@ -362,16 +385,97 @@ ul.footer-links li a:hover,  ul.footer-links li a:focus{
   background-color: none !important;
 }  
 
+/** accordion **/
+
 #homepage-accordion {
-  float:left;
-  width:45%;
-  margin:0 0 0 1.5%;
+  float:right;
+  width:48%;
+  margin:0 1% 0 1.5%;
 }
 
+#homepage-accordion .accordion-group{
+  background-color: #ffffff;
+  border: #ffffff;
+}
 
+#homepage-accordion .accordion-heading{
+   background-color: #ffffff;
+   border: #ffffff;
+   padding: 15px;
+}
 
+#homepage-accordion .accordion-heading a{
+  color: #F49700;
+  font-family: 'GillSansLight';
+  font-size: 51px;
+  font-weight: normal;
+  line-height: 40px;
+  margin-bottom: 23px;
+  padding: 0;
+}
 
+#homepage-accordion .accordion-inner{
+  border: #ffffff;
+  padding-top: 0px;
+}
 
+#homepage-accordion .minus-laranja{
+  background-image: url('minus-laranja.png');
+  width:22px;
+  height:22px;
+  float:right;
+}
+#homepage-accordion .plus-laranja{
+  background-image: url('plus-laranja.png');
+  width:22px;
+  height:22px;
+  float:right;
+}
+
+#new_user ul{
+  margin-left: 0px;
+}
+
+#new_user input{
+  width: 80%;
+}
+
+#new_user a.forgot_password, #new_user a.forgot_password:active, #new_user a.forgot_password:visited, #new_user a.forgot_password:hover{
+  color: #F49700;
+}
+
+li.remember_me_li{
+  margin-top:18px;  
+}
+
+#new_user ul li input.btn{
+  padding: 4px 40px 2px 40px;
+  width:40%;
+  border-radius: 3px;
+}
+
+label.remember_div{
+  display: inline-block;
+  margin: 0 0 4px 12px;
+}
+
+input#user_remember_me{
+  float:left;
+  width:10px;
+  margin-top:4px;
+}
+  
+.sign_up_org_label{
+  margin: 0 0 6px 0;
+  float:left;
+} 
+
+#s2id_user_organisation_id{
+  min-width:84% !important; 
+  clear:both;
+  float:left;
+  margin: 0 0 10px 0;
+}
 /******************************
         Project  page 
 *******************************/

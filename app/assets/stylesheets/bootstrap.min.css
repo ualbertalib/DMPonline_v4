@@ -162,14 +162,12 @@ body {
     font-size: 14px;
     line-height: 20px;
     color: #333;
-    background-color: #fff
-}
+
 a {
-    color: #08c;
     text-decoration: none
 }
 a:hover, a:focus {
-    color: #005580;
+    
     text-decoration: underline
 }
 .img-rounded {

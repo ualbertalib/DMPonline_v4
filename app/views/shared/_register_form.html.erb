@@ -4,20 +4,20 @@
 		<%= devise_error_messages! %>
 	</li>
 	<li>
-		<%= f.label :email %><%= f.email_field :email %>
+		<%= f.email_field :email, placeholder: t('helpers.email') %>
 	</li>
 	<li>
-		<%= f.label :organisation_id %>
-		<%= collection_select(:user, :organisation_id, OrganisationType.find_by_name(t('helpers.org_type.institution')).organisations.order("name"), :id, :name, {}, { :class => 'typeahead' }) %>
+		<%= f.label t('helpers.org_type.organisation'), :class => "sign_up_org_label" %>
+		<%= collection_select(:user, :organisation_id, OrganisationType.find_by_name(t('helpers.org_type.institution')).organisations.order("name"), :id, :name, {}, { :class => 'typeahead org_sign_up' }) %>
 	</li>
 	<li>
-		<%= f.label :password %><%= f.password_field :password %>
+		<%= f.password_field :password, placeholder: t('helpers.password') %>
 	</li>
 	<li>
-		<%= f.label :password_confirmation %><%= f.password_field :password_confirmation %>
+		<%= f.password_field :password_confirmation, placeholder: t('helpers.password_conf') %>
 	</li>
 	<li>
-		<%= f.submit t('helpers.sign_up') %>
+		<%= f.submit t('helpers.sign_up'), :class => "btn btn-primary" %>
 	</li>
 </ul>
 <% end %>
