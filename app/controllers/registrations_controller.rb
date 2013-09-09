@@ -18,7 +18,7 @@ class RegistrationsController < Devise::RegistrationsController
       end
     else
       clean_up_passwords resource
-      redirect_to root_path, notice: 'Error processing registration.'
+      redirect_to after_sign_up_error_path_for(resource), alert: 'Error processing registration.'
     end
   end
 

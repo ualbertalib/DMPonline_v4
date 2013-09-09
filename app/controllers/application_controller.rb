@@ -20,4 +20,16 @@ class ApplicationController < ActionController::Base
 	  session[:previous_url] || root_path
 	end
 
+	def after_sign_up_path_for(resource)
+	  session[:previous_url] || root_path
+	end
+	
+	def after_sign_in_error_path_for(resource)
+	  session[:previous_url] || root_path
+	end
+	
+	def after_sign_up_error_path_for(resource)
+	  session[:previous_url] || root_path
+	end
+
 end
