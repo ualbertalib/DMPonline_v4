@@ -60,5 +60,6 @@ module DMPonline4
     config.assets.version = '1.0'
     config.assets.precompile += %w(plans.js)
     config.assets.precompile += %w(projects.js)
+    config.autoload_paths += %W(#{config.root}/lib)
   end
 end
