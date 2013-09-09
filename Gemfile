@@ -15,10 +15,12 @@ gem 'recaptcha'
 # in production environments by default.
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'
-  gem 'uglifier', '>= 1.0.3'
-end
-
+ 
+ end
+ 
+gem 'uglifier', '>= 1.0.3'
 gem 'less-rails'
+
 gem 'therubyracer', '0.11.4', platforms: :ruby
 gem 'libv8'
 gem 'twitter-bootstrap-rails'
