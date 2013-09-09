@@ -42,19 +42,31 @@
 @grey_colour: #656263;
 @grey_lighter_colour: #827d7e;
 @grey_very_light_colour: #cccccc;
-@background_colour: #d0d4d3;
+@background_lighter_colour: #f9f9f9;
+@background_darker_colour: #d1d5d4;
 @green_colour: #007e30;
 @red_colour: #e3000f;
 @white_colour: #ffffff;
 
-
+html{
+  background-image: -moz-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
+  background-image: -webkit-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
+  background-image: -o-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
+  background-image: -ms-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
+  background-image: linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
+  background-repeat:repeat-y;
+  
+}
 body { 
   font-family: @text_font;
   color: @font_colour;
-  background-color: @background_colour;
-  background-image: url('background.jpg');
-  background-repeat: repeat-y;
-  margin: 0 15% 0 15%;
+  background-image: -moz-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
+  background-image: -webkit-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
+  background-image: -o-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
+  background-image: -ms-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
+  background-image: linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
+ background-repeat:repeat-y;
+    margin: 0 15% 0 15%;
   line-height: 24px;
 }
 
@@ -84,6 +96,14 @@ p{
   font-size: 13px;  
 }
 
+p.white_background{
+ background-color: @white_colour;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding: 20px 20px 20px 20px;
+}
 
 a, a:active {
   color: @orange_colour;
@@ -318,7 +338,7 @@ footer{
 footer .left_side_footer{
     float: left;
     clear:both;
-    width: 70%;
+    width: 60%;
   } 
   footer .first_row{
     float:left;
@@ -331,8 +351,8 @@ footer .left_side_footer{
    
 footer .right_side_footer{
   float: right;
-  width: 28%;
-  padding: 0 4.5% 0 0;
+  width: 38%;
+  
   }
   
 footer .right_side_footer p{
