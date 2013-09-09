@@ -32,7 +32,7 @@ en:
   tool_title: "DMPonline"
   dcc_name: "Digital Curation Centre"
   welcome_title: "Welcome."
-  welcome_text: "<p>DMPonline has been developed by the <a href='http://dcc.ac.uk' target='_blank'>Digital Curation Centre</a> to help you manage your research data.</p><p>Create an account to start your first plan.</p>"
+  welcome_text: "<p>DMPonline has been developed by the <a href='http://dcc.ac.uk' target='_blank'>Digital Curation Centre</a> to help you write data management plans.</p><p>Create an account to start your first plan.</p>"
 
   helpers:
     sign_in: "Sign in"
@@ -93,9 +93,9 @@ en:
       edit: "(Edit plan details)"
       tab_plan: "Plan details"
       project_title: "My plans"
-      project_text_when_no_project: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-      project_text_when_project: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-      
+      project_text_when_no_project: "Welcome.</br> You can now startLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      project_text_when_project: "Below is a list of your plans. These can be edited, share or deleted at anytime."
+     
       create_page: 
         title: "Create a new plan"
         desc: "To create a plan, you will have to answer a set of questions. Some can be posed by a funder, others by an institution.</br>Please select from the following drop-downs and we will provide you with the apropriated template and guidance for your plan"
