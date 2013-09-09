@@ -6,7 +6,7 @@ en:
       # When no format has been given, it uses default.
       # You can provide other formats here if you like!
       default: "%d-%m-%Y"
-      short: "%d %b"
+      short: "%d/%m/%Y"
       long: "%d %B, %Y"
 
     day_names: [Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday]
@@ -59,6 +59,12 @@ en:
       create: "Create"
       update: "Update"
     title: "Title"
+    name: "Name"
+    owner: "Owner"
+    me: "Me"
+    last_edit: "Last edited"
+    select_action: "Select an action"
+    view: "View"
     desc: "Description"
     save: "Save"
     notanswered: "Not answered yet"
@@ -87,9 +93,12 @@ en:
       edit: "(Edit plan details)"
       tab_plan: "Plan details"
       project_title: "My plans"
-      create_page:
+      project_text_when_no_project: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      project_text_when_project: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      
+      create_page: 
         title: "Create a new plan"
-        desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        desc: "To create a plan, you will have to answer a set of questions. Some can be posed by a funder, others by an institution.</br>Please select from the following drop-downs and we will provide you with the apropriated template and guidance for your plan"
         
       
   

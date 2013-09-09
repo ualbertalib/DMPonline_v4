@@ -211,4 +211,17 @@ class Plan < ActiveRecord::Base
 			return false
 		end
 	end
+	
+	def latest_update
+		if answers.any? then
+			last_answered = answers.order("updated_at DESC").first.updated_at
+			if last_answered > updated_at then
+				return last_answered
+			else
+				return updated_at
+			end
+		else
+			return updated_at
+		end
+	end
 end

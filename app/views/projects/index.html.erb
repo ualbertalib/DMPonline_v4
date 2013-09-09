@@ -5,46 +5,64 @@
     </h1>
 </div>
 
-<!-- If user doesn't own or shares any projects -->
-
-
 
 <!-- if the user has projects -->
 
 
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= model_class.human_attribute_name(:title) %></th>
-      <th><%= model_class.human_attribute_name(:organisation) %></th>
-      <th><%= model_class.human_attribute_name(:funder) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @projects.each do |project| %>
-      <tr>
-        <td><%= link_to project.title, project_path(project) %></td>
-        <td><%= project.organisation %></td>
-        <td><%= project.funder %></td>
-        <td><%= l project.created_at.to_date, :format => :long %></td>
-        <td>
-        	<% if project.editable_by(current_user.id) then %>
-						<%= link_to t('.edit', :default => t("helpers.links.edit")),
-												project_path(project), :class => 'btn btn-mini' %>
-						<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-												project_path(project),
-												:method => :delete,
-												:data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-												:class => 'btn btn-mini btn-danger' %>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% if @projects.any? %>
+
+	<p>
+		<%= t('helpers.project.project_text_when_project')%>
+	</p>
+	<table class="dmp_table">
+	  <thead>
+	    <tr>
+	      	<th><%= t('helpers.name') %></th>
+	      	<th><%= t('helpers.owner') %></th>
+			<th><%= t('helpers.last_edit') %></th>
+			<th><%= t('helpers.select_action')%></th>
+	      
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <% @projects.each do |project| %>
+	      <tr>
+	        <td>
+	        	<%= link_to project.title, project_path(project)%>
+	        </td>
+	        <td>
+	        	<% user = project.project_groups.find_by_project_creator(true).user %>
+	        	<% if user == current_user then %>
+	        		<%= t('helpers.me')%>
+	        	<% else%>
+	        		<%= user.name %>
+	        	<% end%>
+	        </td>
+	        <td>
+	        	<%= l project.latest_update.to_date, :formats => :short %>
+	        </td>
+	        <td>
+	        	<% if project.editable_by(current_user.id) then %>
+					<%= link_to t('.edit', :default => t("helpers.links.edit")), project_path(project)%>
+					<%= link_to t('.destroy', :default => t("helpers.links.destroy")), project_path(project), 
+						:method => :delete, :data => { 
+							:confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) 
+						}%>
+				<%else%>
+					<%= link_to t('.view', :default => t("helpers.view")), project_path(project)%>
+	          	<% end %>
+	        </td>
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
+<% else %>
+	<p>
+		<%= t('helpers.project.project_text_when_no_project')%>
+	</p>
+
+<%end%>
 
 <%= link_to t('.new', :default => t("helpers.project.create")),
             new_project_path,

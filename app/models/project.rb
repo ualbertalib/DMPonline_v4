@@ -8,7 +8,7 @@ class Project < ActiveRecord::Base
 	belongs_to :dmptemplate
 	belongs_to :organisation
 	has_many :plans
-	has_many :project_groups
+	has_many :project_groups, :dependent => :destroy
 	has_and_belongs_to_many :guidance_groups, join_table: "project_guidance"
 	
 	friendly_id :title, use: :slugged, :use => :history
@@ -105,10 +105,31 @@ class Project < ActiveRecord::Base
 		groups = ProjectGroup.where("user_id = ?", user_id)
 		unless groups.nil? then
 			groups.each do |group|
-				projects << group.project
+				unless group.project.nil? then
+					projects << group.project
+				end
 			end
 		end
 		return projects
+	end
+	
+	def created_by(user_id)
+		user = project_groups.find_by_user_id(user_id)
+		if (! user.nil?) && user.project_creator then
+			return true
+		else
+			return false
+		end
+	end
+	
+	def latest_update
+		latest_update = updated_at
+		plans.each do |plan|
+			if plan.latest_update > latest_update then
+				latest_update = plan.latest_update
+			end
+		end
+		return latest_update
 	end
 	
 	private
