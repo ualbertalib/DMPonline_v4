@@ -515,44 +515,50 @@ input#user_remember_me{
 *******************************/
 /*** View projects table ***/
 
-.dmp_table{
-  width: 99%;
+table.dmp_table{
+  width: 100%;
   border-collapse: separate;
-  border-spacing: 4px;  
+  border-spacing: 2px;  
   border-bottom: 0px;
   margin-bottom: 10px;
   
 }
 
-.dmp_table tr{
-   border-bottom: 0px;
-}
-
-.dmp_table th{
+table.dmp_table thead{
+  margin: 0px 4px 0px 0px;
   background-color: @orange_colour;
-  color: @white_colour;
-  margin-right:5px;
-  padding-top: 4px;
-  padding-right: 20px;
-  padding-bottom: 4px;
-  box-shadow: 4px 0px 2px 0px rgba(119, 119, 119, 0.5);
-  -moz-box-shadow: 4px 0px 2px 0px rgba(119, 119, 119, 0.5);
-  -webkit-box-shadow: 4px 0px 2px 0px rgba(119, 119, 119, 0.5);
 }
 
-.dmp_table td{
+table.dmp_table thead th{
+  color: @white_colour;
+  padding: 4px 4px 4px 15px;
+  font-weight:normal;
+  text-align: left;
+ }
+
+table.dmp_table tbody td{
   background-color: @white_colour;
   color: @font_colour;
-  padding-top: 4px;
-  margin-right:5px;
-  padding-right: 20px;
-  padding-bottom: 4px;
-  box-shadow: 4px 0px 2px 0px rgba(119, 119, 119, 0.5);
-  -moz-box-shadow: 4px 0px 2px 0px rgba(119, 119, 119, 0.5);
-  -webkit-box-shadow: 4px 0px 2px 0px rgba(119, 119, 119, 0.5);
-  
+  padding: 4px 4px 4px 15px;  
+}
+table.dmp_table tbody td.dmp_td_big, table.dmp_table thead th.dmp_th_big{
+  width: 35%;
+}
+table.dmp_table tbody td.dmp_td_medium, table.dmp_table thead th.dmp_th_medium{
+  width: 25%;
+}
+table.dmp_table tbody td.dmp_td_small, table.dmp_table thead th.dmp_th_small{
+  width: 14%;
 }
 
+table.dmp_table a.dmp_table_link, table.dmp_table a.dmp_table_link:active, table.dmp_table a.dmp_table_link:visited{
+  text-decoration: none !important;
+  padding: 0px 10px 0px 0px;
+}
+table.dmp_table a.dmp_table_link:hover{
+  text-decoration: underline !important;
+  color: @orange_colour;
+}
 
 
 /***  Project creation ***/
@@ -625,7 +631,7 @@ li.choice label input{
 }
 
 
-
+/*** project details ***/
 
 .project-title-container{
   float: left;
