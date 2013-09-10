@@ -44,7 +44,7 @@
 @grey_very_light_colour: #cccccc;
 @background_lighter_colour: #f9f9f9;
 @background_darker_colour: #d1d5d4;
-@green_colour: #007e30;
+@green_colour: #114b8b; //#007e30;
 @red_colour: #e3000f;
 @white_colour: #ffffff;
 
@@ -630,64 +630,7 @@ li.choice label input{
   margin: 0 8px 2px 3px;
 }
 
-
-/*** project details ***/
-
-.project-title-container{
-  float: left;
-  width: 45%;
-  margin: 0 0 20px 0;
-}
-
-.project-title{
-  float: left;
-}
-
-.project-title-edit{
-  float: left;
-  margin: 14px 0 0 20px;
-  font-weight:normal;
-}
-
-.project-title-edit h5{
-   font-weight:normal;
-}
- 
-.nav-project-tabs{
-  clear:both;
-}
-
-#project-tabs ul{
-  margin-bottom: 0px;
-}
-
-#project-tabs li a{
-  background-color: @white_colour;
-  color: #a8a8a8;
-  font-weight: bold;
-  border: 1px solid @white_colour;
-  border-top-left-radius: 1px;
-  border-top-right-radius: 1px;
-  padding-top: 4px;
-  padding-right: 20px;
-  padding-bottom: 4px;
-}  
-
-#project-tabs li.active a, #project-tabs li.active a:active, #project-tabs li a:hover{
-  background-color: @orange_colour;
-  color: @white_colour;
-  font-weight: bold;
-  border: 1px solid @orange_colour;
-  border-top-left-radius: 1px;
-  border-top-right-radius: 1px;
-  padding-top: 4px;
-  padding-right: 20px;
-  padding-bottom: 4px;
-  box-shadow: 4px 0px 2px -2px rgba(119, 119, 119, 0.5);
-  -moz-box-shadow: 4px 0px 2px -2px rgba(119, 119, 119, 0.5);
-  -webkit-box-shadow: 4px 0px 2px -2px rgba(119, 119, 119, 0.5);
-}
-
+/*** project progress bar ***/
 .progress{
   margin:20px 0 0 10%;
   width: 45%;
@@ -715,6 +658,55 @@ li.choice label input{
   color: @orange_colour;
   padding-left: 15px; 
 } 
+
+
+/*** project nav tabs ***/
+.nav-project-tabs{
+  clear:both;
+}
+
+#project-tabs ul{
+  margin-bottom: 0px;
+}
+
+#project-tabs li a{
+  background-color: @white_colour;
+  color: @grey_very_light_colour;
+  font-weight: bold;
+  padding: 4px 20px 4px 20px;
+  text-decoration: none !important;
+}  
+
+#project-tabs li.active a, #project-tabs li.active a:active, #project-tabs li a:hover{
+  background-color: @orange_colour;
+  color: @white_colour;
+  font-weight: bold;
+  border: 1px solid @orange_colour;
+  padding: 4px 20px 4px 20px;
+  text-decoration: none !important;
+}
+
+/*** project details ***/
+.project-title-container{
+  float: left;
+  width: 45%;
+  margin: 0 0 20px 0;
+}
+
+.project-title{
+  float: left;
+}
+
+.project-title-edit{
+  float: left;
+  margin: 14px 0 0 20px;
+  font-weight:normal;
+}
+
+.project-title-edit h5{
+   font-weight:normal;
+}
+ 
 
 .project-details-body{
   background-color: @white_colour;
