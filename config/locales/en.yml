@@ -64,6 +64,7 @@ en:
     owner: "Owner"
     me: "Me"
     none: "None"
+    section_label: "Section"
     last_edit: "Last edited"
     select_action: "Select an action"
     view: "View"
@@ -72,11 +73,7 @@ en:
     notanswered: "Not answered yet"
     noquestionanswered: "No questions have been answered"
     jisc: "The DCC is funded by"
-    funders_question: "To which research funder are you applying (if any)?"
-    funders_question_description: " " 
-    institution_question: "With whose institutional requirements do you need to comply (if any)?"
-    institution_question_description: "This maybe a different institution from your own if the project will be led by another, or the data will be stored elsewhere."
-    other_guidance_question: "What other sources of guidance are relevant to the project?"
+    
     
     org_type:
       funders: "Funder"
@@ -103,6 +100,10 @@ en:
       create_page: 
         title: "Create a new plan"
         desc: "To create a plan, you will have to answer a set of questions. Some can be posed by a funder, others by an institution.</br>Please select from the following drop-downs and we will provide you with the apropriated template and guidance for your plan"
-        
+        funders_question: "To which research funder are you applying (if any)?"
+        funders_question_description: " " 
+        institution_question: "With whose institutional requirements do you need to comply (if any)?"
+        institution_question_description: "This maybe a different institution from your own if the project will be led by another, or the data will be stored elsewhere."
+        other_guidance_question: "What other sources of guidance are relevant to the project?"  
       
   
