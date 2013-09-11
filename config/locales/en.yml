@@ -96,6 +96,7 @@ en:
       project_text_when_no_project: "Welcome.</br> You can now startLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
       project_text_when_project: "Below is a list of your plans. These can be edited, share or deleted at anytime."
       confirmation_text: "Confirm project details"   
+      confirmation_text_desc: "Where your funder or institution doesn't have specific requirements (or if you left these options blank), you will see the DCC Checklist. This offers a generic set of DMP questions and guidance. For more details see: <a href='http://www.dcc.ac.uk/sites/default/files/documents/resource/DMP_Checklist_2013.pdf'>DMP checklist 2013</a>."
       confirmation_button_text: "Yes, create project"  
       create_page: 
         title: "Create a new plan"
