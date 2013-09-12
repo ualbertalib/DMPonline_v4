@@ -3,11 +3,7 @@
 <header>
 	<div class='header_left'>
 		<div class="home_logo">
-		 	<% if user_signed_in? %>
-				<%= link_to( image_tag('logo.jpg'), root_path)%>
-			<% else %>
-				<%= link_to( image_tag('logo.jpg'), projects_path )%>
-			<% end %>	
+			<%= link_to( image_tag('logo.jpg'), root_path)%>
 		</div>
 	</div>
 	<div class="header_right">	

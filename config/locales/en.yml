@@ -58,10 +58,13 @@ en:
     submit:
       create: "Create"
       update: "Update"
+      cancel: "Cancel"
     title: "Title"
     name: "Name"
     owner: "Owner"
     me: "Me"
+    none: "None"
+    section_label: "Section"
     last_edit: "Last edited"
     select_action: "Select an action"
     view: "View"
@@ -70,11 +73,7 @@ en:
     notanswered: "Not answered yet"
     noquestionanswered: "No questions have been answered"
     jisc: "The DCC is funded by"
-    funders_question: "To which research funder are you applying (if any)?"
-    funders_question_description: " " 
-    institution_question: "With whose institutional requirements do you need to comply (if any)?"
-    institution_question_description: "This maybe a different institution from your own if the project will be led by another, or the data will be stored elsewhere."
-    other_guidance_question: "What other sources of guidance are relevant to the project?"
+    
     
     org_type:
       funders: "Funder"
@@ -84,6 +83,7 @@ en:
       school: "School"
       publisher: "Publisher"
       other_guidance: "Other guidance"
+      template: "Template"
       templates: "Templates"
       child: "Unit"
       
@@ -95,10 +95,16 @@ en:
       project_title: "My plans"
       project_text_when_no_project: "Welcome.</br> You can now startLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
       project_text_when_project: "Below is a list of your plans. These can be edited, share or deleted at anytime."
-     
+      confirmation_text: "Confirm project details"   
+      confirmation_text_desc: "Where your funder or institution doesn't have specific requirements (or if you left these options blank), you will see the DCC Checklist. This offers a generic set of DMP questions and guidance. For more details see: <a href='http://www.dcc.ac.uk/sites/default/files/documents/resource/DMP_Checklist_2013.pdf'>DMP checklist 2013</a>."
+      confirmation_button_text: "Yes, create project"  
       create_page: 
         title: "Create a new plan"
         desc: "To create a plan, you will have to answer a set of questions. Some can be posed by a funder, others by an institution.</br>Please select from the following drop-downs and we will provide you with the apropriated template and guidance for your plan"
-        
+        funders_question: "To which research funder are you applying (if any)?"
+        funders_question_description: " " 
+        institution_question: "With whose institutional requirements do you need to comply (if any)?"
+        institution_question_description: "This maybe a different institution from your own if the project will be led by another, or the data will be stored elsewhere."
+        other_guidance_question: "What other sources of guidance are relevant to the project?"  
       
   

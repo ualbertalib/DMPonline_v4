@@ -1,34 +1,70 @@
 <!-- Project title = default title is the template title plus date of creation -->
-<div class="project-details-body">
-	<% if @project.editable_by(current_user.id) then %>
-		<p><%= link_to t('.edit', :default => t("helpers.project.edit")),edit_project_path(@project) %></p>
-	<% end %>
-   <div class="project-details">
-      <!-- template description -->   
-        <p>
-            <%= @project.dmptemplate.description %>
-        </p>
-    </div>	
-		
-	<!-- If project has plans-->
-	<div class="plans-details">
-		<% if @project.plans.any? %>
-			<% @project.plans.each do |plan| %>
-				<div class='project_details_plan'>
-					<h4>
-						<%= plan.version.phase.title %>
-					</h4>
-					<hr class="new-line-tabs">
-					<% if !plan.sections.nil? %>
-                        <% plan.sections.each do |section| %>
-                            <dl class="dl-horizontal">
-                                <dt></dt>
-                                <dd><%= section.title %></dd>
-                        	</dl>
-                        <% end %>	
-					<% end %>	
+<div class="project-tabs-body">
+	<div class="accordion" id="accordion_project">
+		<div class="accordion-group">
+			
+			<!-- accordion 1-->
+			<div class="accordion-heading">
+				<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion_project" href="#collapse-template">
+					<%= t('helpers.org_type.template') %>
+    				<!-- + or - icon-->
+                    <span class="icon-minus icon-white accordion-icon"> </span>
+    			</a>
+    		</div>
+			<div id="collapse-template" class="accordion-body collapse in">
+				<div class="accordion-inner">	
+					<% if @project.editable_by(current_user.id) then %>
+						<p><%= link_to t('.edit', :default => t("helpers.project.edit")), edit_project_path(@project) %></p>
+					<% end %>
+				   <div class="project-details">
+						<!-- template description -->
+						<p>
+							<%= @project.dmptemplate.description %>
+						</p>
+					</div>
 				</div>
-			<% end %>
-		<% end %>
+			</div>
+			
+			<!-- If project has plans-->
+			<% if @project.plans.any? %>
+				<% @project.plans.each do |plan| %>
+					<!-- accordion 1-->				
+					<div class="accordion-heading">
+						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion_project" href="#collapse-<%= plan.version.phase.id %>">
+							<%= plan.version.phase.title %>
+		    				<!-- + or - icon-->
+		                    <span class="icon-plus icon-white accordion-icon"> </span>
+		    			</a>
+		    		</div>
+						<div id="collapse-<%= plan.version.phase.id %>" class="accordion-body collapse">
+							<div class="accordion-inner">	
+								<div class="plans-details">
+									<div class='project_details_plan'>
+										<% if !plan.sections.nil? %>
+											<ul class="section_ul"	>
+											<% plan.sections.each do |section| %>
+												<li>
+													<%= t('helpers.section_label')%> - <%= section.title %>
+													<% if section.questions.any? %>
+														<ul class="question_ul">
+															<% section.questions.each do |ques|%>
+																<li>
+																	<%= ques.text %>
+																</li>	
+															<%end%>
+														</ul>
+													<%end%>		
+												</li>
+											<% end %>
+											</ul>
+										<% end %>
+									</div>
+								</div>
+							</div>	
+						</div>
+					<% end %>
+				<% end %>
+			</div>
+			
 	</div>
 </div>	

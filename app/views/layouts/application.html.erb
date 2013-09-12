@@ -34,7 +34,9 @@
 			<% if alert %>
  				<p class="alert alert-error"><%= alert %></p>
 			<% end %>
-		      <%= yield %>
+		    <div class="main_page_content">
+		    	<%= yield %>
+		    </div>	
 		</div>
 		
 		<!-- footer rendering -->

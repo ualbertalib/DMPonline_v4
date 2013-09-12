@@ -42,19 +42,31 @@
 @grey_colour: #656263;
 @grey_lighter_colour: #827d7e;
 @grey_very_light_colour: #cccccc;
-@background_colour: #d0d4d3;
-@green_colour: #007e30;
+@background_lighter_colour: #f9f9f9;
+@background_darker_colour: #d1d5d4;
+@green_colour: #114b8b; //#007e30;
 @red_colour: #e3000f;
 @white_colour: #ffffff;
 
-
+html{
+  background-image: -moz-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
+  background-image: -webkit-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
+  background-image: -o-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
+  background-image: -ms-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
+  background-image: linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
+  background-repeat:repeat-y;
+  
+}
 body { 
   font-family: @text_font;
   color: @font_colour;
-  background-color: @background_colour;
-  background-image: url('background.jpg');
-  background-repeat: repeat-y;
-  margin: 0 15% 0 15%;
+  background-image: -moz-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
+  background-image: -webkit-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
+  background-image: -o-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
+  background-image: -ms-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
+  background-image: linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
+ background-repeat:repeat-y;
+    margin: 0 15% 0 15%;
   line-height: 24px;
 }
 
@@ -84,6 +96,14 @@ p{
   font-size: 13px;  
 }
 
+p.white_background{
+ background-color: @white_colour;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding: 20px 20px 20px 20px;
+}
 
 a, a:active {
   color: @orange_colour;
@@ -97,10 +117,14 @@ a.visited{
 
 a.hover{
    font-weight:bold;
-   color: @orange_colour;
+   color: @orange_colour !important;
    background-color: none !important;
 }
 
+p a.hover{
+  color: @orange_colour !important;
+   background-color: none !important;
+}
 
 /*** ***/
 header{
@@ -272,9 +296,9 @@ ul.nav-pills li.last_li a.header_button{
   margin-right:0px;
 }
 
-.btn-primary, .btn-primary:active, .btn-primary:visited  {
-  background: @orange_colour;
-  background-image: none;
+.btn-primary, .btn-primary:active, .btn-primary:visited, .btn-primary:focus    {
+  background: @orange_colour !important;
+  background-image: none !important;
   text-decoration:none;
   color: @white_colour;
  
@@ -318,7 +342,7 @@ footer{
 footer .left_side_footer{
     float: left;
     clear:both;
-    width: 70%;
+    width: 60%;
   } 
   footer .first_row{
     float:left;
@@ -331,8 +355,8 @@ footer .left_side_footer{
    
 footer .right_side_footer{
   float: right;
-  width: 28%;
-  padding: 0 4.5% 0 0;
+  width: 38%;
+  
   }
   
 footer .right_side_footer p{
@@ -446,6 +470,8 @@ ul.footer-links li a:hover,  ul.footer-links li a:focus{
   float:right;
 }
 
+
+
 #new_user ul{
   margin-left: 0px;
 }
@@ -495,44 +521,50 @@ input#user_remember_me{
 *******************************/
 /*** View projects table ***/
 
-.dmp_table{
-  width: 99%;
+table.dmp_table{
+  width: 100%;
   border-collapse: separate;
-  border-spacing: 4px;  
+  border-spacing: 2px;  
   border-bottom: 0px;
   margin-bottom: 10px;
   
 }
 
-.dmp_table tr{
-   border-bottom: 0px;
-}
-
-.dmp_table th{
+table.dmp_table thead{
+  margin: 0px 4px 0px 0px;
   background-color: @orange_colour;
-  color: @white_colour;
-  margin-right:5px;
-  padding-top: 4px;
-  padding-right: 20px;
-  padding-bottom: 4px;
-  box-shadow: 4px 0px 2px 0px rgba(119, 119, 119, 0.5);
-  -moz-box-shadow: 4px 0px 2px 0px rgba(119, 119, 119, 0.5);
-  -webkit-box-shadow: 4px 0px 2px 0px rgba(119, 119, 119, 0.5);
 }
 
-.dmp_table td{
+table.dmp_table thead th{
+  color: @white_colour;
+  padding: 4px 4px 4px 15px;
+  font-weight:normal;
+  text-align: left;
+ }
+
+table.dmp_table tbody td{
   background-color: @white_colour;
   color: @font_colour;
-  padding-top: 4px;
-  margin-right:5px;
-  padding-right: 20px;
-  padding-bottom: 4px;
-  box-shadow: 4px 0px 2px 0px rgba(119, 119, 119, 0.5);
-  -moz-box-shadow: 4px 0px 2px 0px rgba(119, 119, 119, 0.5);
-  -webkit-box-shadow: 4px 0px 2px 0px rgba(119, 119, 119, 0.5);
-  
+  padding: 4px 4px 4px 15px;  
+}
+table.dmp_table tbody td.dmp_td_big, table.dmp_table thead th.dmp_th_big{
+  width: 35%;
+}
+table.dmp_table tbody td.dmp_td_medium, table.dmp_table thead th.dmp_th_medium{
+  width: 25%;
+}
+table.dmp_table tbody td.dmp_td_small, table.dmp_table thead th.dmp_th_small{
+  width: 14%;
 }
 
+table.dmp_table a.dmp_table_link, table.dmp_table a.dmp_table_link:active, table.dmp_table a.dmp_table_link:visited{
+  text-decoration: none !important;
+  padding: 0px 10px 0px 0px;
+}
+table.dmp_table a.dmp_table_link:hover{
+  text-decoration: underline !important;
+  color: @orange_colour;
+}
 
 
 /***  Project creation ***/
@@ -604,64 +636,7 @@ li.choice label input{
   margin: 0 8px 2px 3px;
 }
 
-
-
-
-.project-title-container{
-  float: left;
-  width: 45%;
-  margin: 0 0 20px 0;
-}
-
-.project-title{
-  float: left;
-}
-
-.project-title-edit{
-  float: left;
-  margin: 14px 0 0 20px;
-  font-weight:normal;
-}
-
-.project-title-edit h5{
-   font-weight:normal;
-}
- 
-.nav-project-tabs{
-  clear:both;
-}
-
-#project-tabs ul{
-  margin-bottom: 0px;
-}
-
-#project-tabs li a{
-  background-color: @white_colour;
-  color: #a8a8a8;
-  font-weight: bold;
-  border: 1px solid @white_colour;
-  border-top-left-radius: 1px;
-  border-top-right-radius: 1px;
-  padding-top: 4px;
-  padding-right: 20px;
-  padding-bottom: 4px;
-}  
-
-#project-tabs li.active a, #project-tabs li.active a:active, #project-tabs li a:hover{
-  background-color: @orange_colour;
-  color: @white_colour;
-  font-weight: bold;
-  border: 1px solid @orange_colour;
-  border-top-left-radius: 1px;
-  border-top-right-radius: 1px;
-  padding-top: 4px;
-  padding-right: 20px;
-  padding-bottom: 4px;
-  box-shadow: 4px 0px 2px -2px rgba(119, 119, 119, 0.5);
-  -moz-box-shadow: 4px 0px 2px -2px rgba(119, 119, 119, 0.5);
-  -webkit-box-shadow: 4px 0px 2px -2px rgba(119, 119, 119, 0.5);
-}
-
+/*** project progress bar ***/
 .progress{
   margin:20px 0 0 10%;
   width: 45%;
@@ -689,6 +664,55 @@ li.choice label input{
   color: @orange_colour;
   padding-left: 15px; 
 } 
+
+
+/*** project nav tabs ***/
+.nav-project-tabs{
+  clear:both;
+}
+
+#project-tabs ul{
+  margin-bottom: 0px;
+}
+
+#project-tabs li a{
+  background-color: @white_colour;
+  color: @grey_very_light_colour;
+  font-weight: bold;
+  padding: 4px 20px 4px 20px;
+  text-decoration: none !important;
+}  
+
+#project-tabs li.active a, #project-tabs li.active a:active, #project-tabs li a:hover{
+  background-color: @orange_colour;
+  color: @white_colour;
+  font-weight: bold;
+  border: 1px solid @orange_colour;
+  padding: 4px 20px 4px 20px;
+  text-decoration: none !important;
+}
+
+/*** project details ***/
+.project-title-container{
+  float: left;
+  width: 45%;
+  margin: 0 0 20px 0;
+}
+
+.project-title{
+  float: left;
+}
+
+.project-title-edit{
+  float: left;
+  margin: 14px 0 0 20px;
+  font-weight:normal;
+}
+
+.project-title-edit h5{
+   font-weight:normal;
+}
+ 
 
 .project-details-body{
   background-color: @white_colour;
@@ -719,6 +743,26 @@ li.choice label input{
   
 }
 
+ul.section_ul {
+  list-style-type: none; 
+  margin-left:0px;
+}
+
+ul.section_ul li{
+  color: @orange_colour;
+ }
+
+ul.question_ul{
+  list-style-type: none; 
+   margin-bottom: 15px;
+}
+
+ul.question_ul li{
+  color: @font_colour;
+}
+
+
+/*** Accordion  css ***/
 .accordion-group{
   background-color: @orange_colour;
   border-color:@orange_colour;
@@ -778,6 +822,8 @@ li.choice label input{
   clear: both;
 }
 
+
+/***  ***/
 .formtastic {
   ol { list-style-type: none; }
   fieldset { border: none; }
