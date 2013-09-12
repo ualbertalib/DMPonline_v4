@@ -1,22 +1,21 @@
 <!-- Project title = default title is the template title plus date of creation -->
 <div class="project-tabs-body">
 	<div class="accordion" id="accordion_project">
-		<div class="accordion-group">
-			
+		<div class="accordion-group">			
 			<!-- accordion 1-->
 			<div class="accordion-heading">
 				<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion_project" href="#collapse-template">
 					<%= t('helpers.org_type.template') %>
     				<!-- + or - icon-->
                     <span class="icon-minus icon-white accordion-icon"> </span>
-    			</a>
-    		</div>
+				</a>
+			</div>
 			<div id="collapse-template" class="accordion-body collapse in">
 				<div class="accordion-inner">	
 					<% if @project.editable_by(current_user.id) then %>
 						<p><%= link_to t('.edit', :default => t("helpers.project.edit")), edit_project_path(@project) %></p>
 					<% end %>
-				   <div class="project-details">
+				  <div class="project-details">
 						<!-- template description -->
 						<p>
 							<%= @project.dmptemplate.description %>
@@ -24,19 +23,21 @@
 					</div>
 				</div>
 			</div>
+		</div>
 			
-			<!-- If project has plans-->
-			<% if @project.plans.any? %>
-				<% @project.plans.each do |plan| %>
-					<!-- accordion 1-->				
+		<!-- If project has plans-->
+		<% if @project.plans.any? %>
+			<% @project.plans.each do |plan| %>
+				<!-- accordion 1-->
+				<div class="accordion-group">
 					<div class="accordion-heading">
 						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion_project" href="#collapse-<%= plan.version.phase.id %>">
 							<%= plan.version.phase.title %>
-		    				<!-- + or - icon-->
-		                    <span class="icon-plus icon-white accordion-icon"> </span>
-		    			</a>
-		    		</div>
-						<div id="collapse-<%= plan.version.phase.id %>" class="accordion-body collapse">
+								<!-- + or - icon-->
+												<span class="icon-plus icon-white accordion-icon"> </span>
+						</a>
+					</div>
+					<div id="collapse-<%= plan.version.phase.id %>" class="accordion-body collapse">
 							<div class="accordion-inner">	
 								<div class="plans-details">
 									<div class='project_details_plan'>
@@ -62,9 +63,8 @@
 								</div>
 							</div>	
 						</div>
-					<% end %>
-				<% end %>
-			</div>
-			
+				</div>
+			<% end %>
+		<% end %>
 	</div>
 </div>	
