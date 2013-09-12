@@ -1,8 +1,12 @@
 <!-- Project title = default title is the template title plus date of creation -->
 <div class="project-tabs-body">
-	<div class="accordion" id="accordion1">
-		<div class="accordion-heading">
-				<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse-template"><%= t('helpers.org_type.template') %>
+	<div class="accordion" id="accordion_project">
+		<div class="accordion-group">
+			
+			<!-- accordion 1-->
+			<div class="accordion-heading">
+				<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion_project" href="#collapse-template">
+					<%= t('helpers.org_type.template') %>
     				<!-- + or - icon-->
                     <span class="icon-minus icon-white accordion-icon"> </span>
     			</a>
@@ -20,43 +24,47 @@
 					</div>
 				</div>
 			</div>
+			
 			<!-- If project has plans-->
 			<% if @project.plans.any? %>
 				<% @project.plans.each do |plan| %>
+					<!-- accordion 1-->				
 					<div class="accordion-heading">
-						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse-<%= plan.version.phase.id %>"><%= plan.version.phase.title %>
+						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion_project" href="#collapse-<%= plan.version.phase.id %>">
+							<%= plan.version.phase.title %>
 		    				<!-- + or - icon-->
 		                    <span class="icon-plus icon-white accordion-icon"> </span>
 		    			</a>
 		    		</div>
-					<div id="collapse-<%= plan.version.phase.id %>" class="accordion-body collapse">
-						<div class="accordion-inner">	
-							<div class="plans-details">
-								<div class='project_details_plan'>
-									<% if !plan.sections.nil? %>
-										<ul class="section_ul"	>
-										<% plan.sections.each do |section| %>
-											<li>
-												<%= t('helpers.section_label')%> - <%= section.title %>
-												<% if section.questions.any? %>
-													<ul class="question_ul">
-														<% section.questions.each do |ques|%>
-															<li>
-																<%= ques.text %>
-															</li>	
-														<%end%>
-													</ul>
-												<%end%>		
-											</li>
+						<div id="collapse-<%= plan.version.phase.id %>" class="accordion-body collapse">
+							<div class="accordion-inner">	
+								<div class="plans-details">
+									<div class='project_details_plan'>
+										<% if !plan.sections.nil? %>
+											<ul class="section_ul"	>
+											<% plan.sections.each do |section| %>
+												<li>
+													<%= t('helpers.section_label')%> - <%= section.title %>
+													<% if section.questions.any? %>
+														<ul class="question_ul">
+															<% section.questions.each do |ques|%>
+																<li>
+																	<%= ques.text %>
+																</li>	
+															<%end%>
+														</ul>
+													<%end%>		
+												</li>
+											<% end %>
+											</ul>
 										<% end %>
-										</ul>
-									<% end %>
+									</div>
 								</div>
-							</div>
-						</div>	
-					</div>
+							</div>	
+						</div>
+					<% end %>
 				<% end %>
-			<% end %>
+			</div>
 			
 	</div>
 </div>	

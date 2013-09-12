@@ -35,6 +35,8 @@ $( document ).ready(function() {
 		var minus = $(this).parent().find(".minus-laranja").removeClass("minus-laranja").addClass("plus-laranja");
 	});
 	
+	
+	
 	$('.typeahead').select2({
 		width: "element",
 		allowClear: true
