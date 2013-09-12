@@ -81,9 +81,24 @@
 		<span id='<%= question.id %>-status' class="label label-info answer-status">Answered <abbr class="timeago" data-time="<%= answer.created_at.iso8601 %>" title="<%= answer.created_at.iso8601 %>"><%= answer.created_at %></abbr> by <%= answer.user.name %></span>
 	<% end %>
 </div>
-<div class="question-guidance">
-	<% @plan.guidance_for_question(question).each do |guidance| %>
-		<div><%= raw guidance %></div>
+<div class="question-guidance accordion" id="<%= question.id %>-guidance">
+	<div class="accordion-group">
+		<div class="accordion-heading">
+			<a class="accordion-toggle guidance-accordion-toggle" data-toggle="collapse" data-parent="#<%= question.id %>-guidance" href="#collapse-default-guidance-<%= question.id%>"><%= question.section.organisation.name %> Guidance</a>
+		</div>
+		<div id="collapse-default-guidance-<%= question.id%>" class="accordion-body collapse in">
+			<div class="accordion-inner"><%= raw question.guidance %></div>
+		</div>
+	</div>
+	<% @plan.guidance_for_question(question).each_pair do |title,guidance| %>
+		<div class="accordion-group">
+			<div class="accordion-heading">
+				<a class="accordion-toggle guidance-accordion-toggle" data-toggle="collapse" data-parent="#<%= question.id %>-guidance" href="#collapse-guidance-<%= guidance.id%>"><%= title%></a>
+			</div>
+			<div id="collapse-guidance-<%= guidance.id%>" class="accordion-body collapse">
+				<div class="accordion-inner"><%= raw guidance.text %></div>
+			</div>
+		</div>
 	<% end %>
 </div>
 <div class="two-column-clear"></div>

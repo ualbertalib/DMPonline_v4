@@ -7,22 +7,56 @@ dcc:
   organisation_type: organisation
   
 ahrc:
-  name: "Arts & Humanities Research Council"
+  name: "Arts and Humanities Research Council"
   abbreviation: "AHRC"
   organisation_type: funder
-  
 
-uoe_si:
-  name: "School of informatics"
-  abbreviation: "UoE SI"
-  organisation_type: school
-  parent: uoe
-  
-hatii:
-  name: Humanities Advanced Technology and Information Institute
-  abbreviation: HATII
-  organisation_type: school
-  parent: uog
+bbsrc:
+  name: "Biotechnology and Biological Sciences Research Council"
+  abbreviation: "BBSRC"
+  organisation_type: funder
+
+cruk:
+  name: "Cancer Research UK"
+  abbreviation: "CRUK"
+  organisation_type: funder
+
+esrc:
+  name: "Economic and Social Research Council"
+  abbreviation: "ESRC"
+  organisation_type: funder
+
+#nerc:
+#  name: "Natural Environment Research Council"
+#  abbreviation: "NERC"
+#  organisation_type: funder
+#
+#mrc:
+#  name: "Medical Research Council"
+#  abbreviation: "MRC"
+#  organisation_type: funder
+#
+#stfc:
+#  name: "Science and Technology Facilities  Council"
+#  abbreviation: "STFC"
+#  organisation_type: funder
+#
+#wellcome:
+#  name: "Wellcome Trust"
+#  abbreviation: "Wellcome"
+#  organisation_type: funder
+
+#uoe_si:
+#  name: "School of informatics"
+#  abbreviation: "UoE SI"
+#  organisation_type: school
+#  parent: uoe
+#  
+#hatii:
+#  name: Humanities Advanced Technology and Information Institute
+#  abbreviation: HATII
+#  organisation_type: school
+#  parent: uog
 
 aru:
   name: Anglia Ruskin University

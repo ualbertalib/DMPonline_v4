@@ -9,3 +9,5 @@ toolbar:
   - table
 plugins:
   - table
+  - autoresize
+autoresize_min_height: 300

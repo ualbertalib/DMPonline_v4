@@ -16,6 +16,12 @@ class Project < ActiveRecord::Base
 	after_create :create_plans
 	
 	def funder_id=(new_funder_id)
+		if new_funder_id != "" then
+			new_funder = Organisation.find(new_funder_id);
+			if new_funder.dmptemplates.count == 1 then
+				dmptemplate = new_funder.dmptemplates.first
+			end
+		end
 	end
 	
 	def funder_id

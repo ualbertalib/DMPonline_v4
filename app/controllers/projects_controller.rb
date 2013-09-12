@@ -54,7 +54,12 @@ class ProjectsController < ApplicationController
 	def create
     	if user_signed_in? then
 			@project = Project.new(params[:project])
-			if @project.dmptemplate.nil?
+			if @project.dmptemplate.nil? && params[:project][:funder_id] != "" then # this shouldn't be necessary - see setter for funder_id in project.rb
+				funder = Organisation.find(params[:project][:funder_id])
+				if funder.dmptemplates.count == 1 then
+					@project.dmptemplate = funder.dmptemplates.first
+				end
+			elsif @project.dmptemplate.nil? then
 				if @project.organisation.nil? || @project.organisation.dmptemplates.first.nil? then
 					@project.dmptemplate = Dmptemplate.find_by_is_default(true)
 				else

@@ -1,6 +1,6 @@
 class CustomFailure < Devise::FailureApp
   def redirect_url
-    after_sign_in_error_path_for(resource)
+    root_path
   end
 
   def respond

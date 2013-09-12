@@ -1,7 +1,46 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 DCC_phase_1:
-  title: DCC Phase 1
-  description: The first phase of the DCC default template
+  title: "DCC Data Management Questions"
   number: 1
   dmptemplate: dcc_template
+
+ahrc_template_1:
+  title: "AHRC Data Management Questions"
+  number: 1
+  dmptemplate: ahrc_template
+
+bbsrc_template_1:
+  title: "BBSRC Data Management Questions"
+  number: 1
+  dmptemplate: bbsrc_template
+
+cruk_template_1:
+  title: "CRUK Data Management Questions"
+  number: 1
+  dmptemplate: cruk_template
+
+esrc_template_1:
+  title: "ESRC Data Management Questions"
+  number: 1
+  dmptemplate: esrc_template
+
+#nerc_template_1:
+#  title: "NERC Data Management Questions"
+#  number: 1
+#  dmptemplate: nerc_template
+#
+#mrc_template_1:
+#  title: "MRC Data Management Questions"
+#  number: 1
+#  dmptemplate: mrc_template
+#
+#stfc_template_1:
+#  title: "STFC Data Management Questions"
+#  number: 1
+#  dmptemplate: stfc_template
+#
+#wellcome_template_1:
+#  title: "Wellcome Trust Data Management Questions"
+#  number: 1
+#  dmptemplate: wellcome_template

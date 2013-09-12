@@ -25,11 +25,24 @@ $( document ).ready(function() {
 		},500);
 	});
 	
+	$('.guidance-accordion-toggle').click(function(e){
+		e.stopPropagation();
+		var div_to_toggle = $($(this).attr("href"));
+		var show = true
+		if (div_to_toggle.hasClass('in')) {
+			show = false;
+		}
+		$(this).closest(".question-guidance").find(".collapse").removeClass("in");
+		if (show) {
+			$($(this).attr("href")).toggleClass("in");
+		}
+	});
+	
 	// Periodically check locks on open section - every 20 seconds
 	setInterval(function(){
 		// Only lock/unlock if there are forms on the page (not read-only)
 		if ($('form').length > 0) {
-			section = $('.accordion-body.in.collapse');
+			section = $('.section-collapse');
 			if (section.length > 0) {
 				check_section_lock(section);
 			}
@@ -37,7 +50,7 @@ $( document ).ready(function() {
 	}, 20000);
 	
 	// Handle section actions on accordion expansion/collapse
-	$('.collapse').on('show', function() {
+	$('.section-collapse').on('show', function() {
 		var section = $(this);
 		section.find(".loaded").hide();
 		section.find(".loading").show();

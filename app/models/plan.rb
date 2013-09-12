@@ -41,22 +41,21 @@ class Plan < ActiveRecord::Base
 	
 	def guidance_for_question(question)
 		# pulls together guidance from various sources for question
-		guidance_texts = Array.new
-		guidance_texts << question.guidance
+		guidances = {}
 		theme_ids = question.theme_ids
 		unless project.organisation.nil? then
 			project.organisation.guidance_groups.each do |group|
-				group.guidances.where("theme_id IN (?)", theme_ids).each do |guidance|
-					guidance_texts << guidance.text
+				group.guidances.where("theme_id IN (?)", theme_ids).each do |g|
+					guidances["#{group.display_name} guidance on #{g.theme.title}"] = g
 				end
 			end
 		end
 		project.guidance_groups.each do |group|
-			group.guidances.where("theme_id IN (?)", theme_ids).each do |guidance|
-				guidance_texts << guidance.text
+			group.guidances.where("theme_id IN (?)", theme_ids).each do |g|
+				guidances["#{group.display_name} guidance on #{g.theme.title}"] = g
 			end
 		end
-		return guidance_texts
+		return guidances
 	end
 	
 	def warning(option_id)
