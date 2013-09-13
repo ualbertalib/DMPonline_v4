@@ -60,6 +60,7 @@ en:
       update: "Update"
       cancel: "Cancel"
     title: "Title"
+    note: "Note"
     name: "Name"
     owner: "Owner"
     me: "Me"
@@ -90,7 +91,10 @@ en:
      
     project:
       create: "Create plan"
-      edit: "(Edit plan details)"
+      edit: "Edit plan details"
+      project_title_help: "This should be the same as the title on the grant award."
+      grant_title: "Grant numbers"
+      grant_help_text: "This is some information about grant numbers"
       tab_plan: "Plan details"
       project_title: "My plans"
       project_text_when_no_project: "Welcome.</br> You can now startLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."

@@ -13,7 +13,7 @@
 			<div id="collapse-template" class="accordion-body collapse in">
 				<div class="accordion-inner">	
 					<% if @project.editable_by(current_user.id) then %>
-						<p><%= link_to t('.edit', :default => t("helpers.project.edit")), edit_project_path(@project) %></p>
+						<%= link_to t('.edit', :default => t("helpers.project.edit")), edit_project_path(@project), :class => 'btn btn-primary' %>
 					<% end %>
 				  <div class="project-details">
 						<!-- template description -->
