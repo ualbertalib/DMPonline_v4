@@ -9,7 +9,7 @@ class Phase < ActiveRecord::Base
 	#Link the child's data
 	accepts_nested_attributes_for :versions
  
-	attr_accessible :description, :number, :title, :dmptemplate_id
+	attr_accessible :description, :number, :title, :dmptemplate_id, :external_guidance_url
 	
 	friendly_id :title, use: :slugged, :use => :history
   

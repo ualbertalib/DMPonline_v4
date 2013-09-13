@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130913134657) do
+ActiveRecord::Schema.define(:version => 20130913161023) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -188,9 +188,10 @@ ActiveRecord::Schema.define(:version => 20130913134657) do
     t.text     "description"
     t.integer  "number"
     t.integer  "dmptemplate_id"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
     t.string   "slug"
+    t.string   "external_guidance_url"
   end
 
   add_index "phases", ["dmptemplate_id"], :name => "index_phases_on_dmptemplate_id"
