@@ -16,6 +16,7 @@
 						<%= link_to t('.edit', :default => t("helpers.project.edit")), edit_project_path(@project), :class => 'btn btn-primary' %>
 					<% end %>
 				  <div class="project-details">
+				  		<% if @project
 						<!-- template description -->
 						<p>
 							<%= @project.dmptemplate.description %>
