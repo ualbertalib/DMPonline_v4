@@ -66,7 +66,7 @@ class ProjectsController < ApplicationController
 					@project.dmptemplate = @project.organisation.dmptemplates.first
 				end
 			end
-			@project.principal_investigator = "#{current_user.firstname} #{current_user.surname}"
+			@project.principal_investigator = current_user.name(false)
 			@project.title = @project.dmptemplate.title
 			@project.assign_creator(current_user.id)
 			respond_to do |format|
