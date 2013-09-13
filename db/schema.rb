@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130905073232) do
+ActiveRecord::Schema.define(:version => 20130913134657) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -234,11 +234,16 @@ ActiveRecord::Schema.define(:version => 20130905073232) do
     t.text     "note"
     t.boolean  "locked"
     t.integer  "dmptemplate_id"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
     t.string   "slug"
     t.integer  "organisation_id"
     t.string   "grant_number"
+    t.string   "identifier"
+    t.string   "description"
+    t.string   "principal_investigator"
+    t.string   "principal_investigator_identifier"
+    t.string   "data_contact"
   end
 
   add_index "projects", ["slug"], :name => "index_projects_on_slug", :unique => true
