@@ -24,9 +24,9 @@ $( document ).ready(function() {
 	});
 
 	$('.accordion-body').on('show', function() {
-		var plus = $(this).parent().find(".icon-plus").removeClass("icon-plus").addClass("icon-minus");
+		var plus = $(this).parent().children(".accordion-heading").children(".accordion-toggle").children(".icon-plus").removeClass("icon-plus").addClass("icon-minus");
 	}).on('hide', function(){
-		var minus = $(this).parent().find(".icon-minus").removeClass("icon-minus").addClass("icon-plus");
+		var minus = $(this).parent().children(".accordion-heading").children(".accordion-toggle").children(".icon-minus").removeClass("icon-minus").addClass("icon-plus");
 	});
 	
 	$('.accordion-home').on('show', function() {
