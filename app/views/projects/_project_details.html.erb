@@ -1,71 +1,68 @@
 <!-- Project title = default title is the template title plus date of creation -->
-<div class="project-tabs-body">
-	<div class="accordion" id="accordion_project">
-		<div class="accordion-group">			
-			<!-- accordion 1-->
-			<div class="accordion-heading">
-				<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion_project" href="#collapse-template">
-					<%= t('helpers.org_type.template') %>
-    				<!-- + or - icon-->
-                    <span class="icon-minus icon-white accordion-icon"> </span>
-				</a>
-			</div>
-			<div id="collapse-template" class="accordion-body collapse in">
-				<div class="accordion-inner">	
-					<% if @project.editable_by(current_user.id) then %>
-						<%= link_to t('.edit', :default => t("helpers.project.edit")), edit_project_path(@project), :class => 'btn btn-primary' %>
-					<% end %>
-				  <div class="project-details">
-				  		<% if @project
-						<!-- template description -->
-						<p>
-							<%= @project.dmptemplate.description %>
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
-			
-		<!-- If project has plans-->
-		<% if @project.plans.any? %>
-			<% @project.plans.each do |plan| %>
-				<!-- accordion 1-->
-				<div class="accordion-group">
-					<div class="accordion-heading">
-						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion_project" href="#collapse-<%= plan.version.phase.id %>">
-							<%= plan.version.phase.title %>
-								<!-- + or - icon-->
-												<span class="icon-plus icon-white accordion-icon"> </span>
-						</a>
-					</div>
-					<div id="collapse-<%= plan.version.phase.id %>" class="accordion-body collapse">
-							<div class="accordion-inner">	
-								<div class="plans-details">
-									<div class='project_details_plan'>
-										<% if !plan.sections.nil? %>
-											<ul class="section_ul"	>
-											<% plan.sections.each do |section| %>
-												<li>
-													<%= t('helpers.section_label')%> - <%= section.title %>
-													<% if section.questions.any? %>
-														<ul class="question_ul">
-															<% section.questions.each do |ques|%>
-																<li>
-																	<%= ques.text %>
-																</li>	
-															<%end%>
-														</ul>
-													<%end%>		
-												</li>
-											<% end %>
-											</ul>
-										<% end %>
-									</div>
-								</div>
-							</div>	
-						</div>
-				</div>
-			<% end %>
+<div class="project-details-body">
+	
+		<% if @project.editable_by(current_user.id) then %>
+			<%= link_to t('.edit', :default => t("helpers.project.edit")), edit_project_path(@project), :class => 'btn btn-primary' %>
 		<% end %>
+	<div class="project-details">
+  		<!-- template description -->
+		<p>
+			<%= @project.dmptemplate.description %>
+		</p>
 	</div>
-</div>	
+				
+	<!-- If project has plans-->
+	<% if @project.plans.any? %>
+		
+		<div class="div_left">
+			<% if @project.plans.count > 1 then %>
+				<h3>
+					<%= @project.plan.version.phase.title %>
+				</h3>
+				<p>
+					<%= @project.plan.version.phase.description %>
+				</p>
+			<%end%>	
+		</div>
+		<% @project.plans.each do |plan| %>
+			<div class="div_right">
+					<%= link_to t('helpers.answer_questions'), [:edit, @project, plan], :class => 'btn btn-primary'  %>
+			</div>
+		
+			
+			<% if !plan.sections.nil? %>
+				<table class="dmp_table">
+					<thead>
+					    <tr>
+					      	<th class="dmp_th_medium"><%= t('helpers.sections_label')%></th>
+					      	<th class="dmp_th_big"><%= t('helpers.questions_label')%></th>
+	   					</tr>
+   					</thead>
+   					<tbody>
+   						<% plan.sections.each do |section| %>
+							<tr >
+								<th class="dmp_th_border" >
+									<p><%= section.title %></p>
+								</th>
+        						<td class="dmp_td_border" >	
+									<% if section.questions.any? %>
+										<ul class="question_ul">
+											<% section.questions.each do |ques|%>
+												<li>
+													- <%= ques.text %>
+												</li>	
+											<%end%>
+										</ul>
+									<%end%>		
+								</td>
+							</tr>		
+						<%end%>
+					</tbody>	
+				</table>
+			<%end%>
+		<%end%>
+	<%end%>				
+</div>						
+							
+							
+						

@@ -557,6 +557,25 @@ table.dmp_table tbody td.dmp_td_small, table.dmp_table thead th.dmp_th_small{
   width: 14%;
 }
 
+table.dmp_table tbody th.dmp_th_border{
+  font-weight: normal;
+  text-align: left;
+  border-spacing: 4px;  
+  border-bottom: 1px solid @grey_very_light_colour;
+  border-top: 10x solid @white_colour;
+}
+
+table.dmp_table tbody th.dmp_th_border p{
+   padding: 0px 0px 0px 5px;
+  
+}
+
+table.dmp_table tbody td.dmp_td_border{
+  border-bottom: 1px solid @grey_very_light_colour; 
+  border-left: 1px solid @grey_very_light_colour;
+  
+}
+
 table.dmp_table a.dmp_table_link, table.dmp_table a.dmp_table_link:active, table.dmp_table a.dmp_table_link:visited{
   text-decoration: none !important;
   padding: 0px 10px 0px 0px;
@@ -565,6 +584,7 @@ table.dmp_table a.dmp_table_link:hover{
   text-decoration: underline !important;
   color: @orange_colour;
 }
+
 
 
 /***  Project creation ***/
@@ -760,6 +780,11 @@ li.choice label input{
   
 }
 
+
+/*** ***/
+
+
+
 .has_children{
   display:none;
 }
@@ -786,6 +811,7 @@ ul.section_ul li{
 ul.question_ul{
   list-style-type: none; 
    margin-bottom: 15px;
+   margin-left:0px;
 }
 
 ul.question_ul li{
