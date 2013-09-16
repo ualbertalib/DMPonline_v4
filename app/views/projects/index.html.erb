@@ -1,6 +1,6 @@
 <%- model_class = Project -%>
 <h1>
-	<%= t('helpers.project.project_title') %>
+	<%= t('helpers.project.projects_title') %>
 </h1>
 
 <!-- if the user has projects -->
@@ -54,12 +54,14 @@
 <!-- if the user does not have projects -->	
 <% else %>
 	<p>
-		<%= t('helpers.project.project_text_when_no_project')%>
+		<%= raw t('helpers.project.project_text_when_no_project')%>
 	</p>
 
 <%end%>
 
 <!-- link button to create a new project -->
-<%= link_to t('.new', :default => t("helpers.project.create")),
+<p>
+	<%= link_to t('.new', :default => t("helpers.project.create")),
             new_project_path,
             :class => 'btn btn-primary' %>
+</p>

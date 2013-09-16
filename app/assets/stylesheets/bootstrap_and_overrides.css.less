@@ -89,7 +89,7 @@ h3{
 }
 
 h4{
-  font-size: 13px;  
+  font-size: @font_size;  
 }
 
 p{
@@ -103,6 +103,10 @@ p.white_background{
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   padding: 20px 20px 20px 20px;
+}
+p a.hover{
+  color: @orange_colour !important;
+   background-color: none !important;
 }
 
 a, a:active {
@@ -121,10 +125,6 @@ a.hover{
    background-color: none !important;
 }
 
-p a.hover{
-  color: @orange_colour !important;
-   background-color: none !important;
-}
 
 /*** ***/
 header{
@@ -778,6 +778,25 @@ li.choice label input{
 .project-details{
   padding: 20px 0 25px 0;
   
+}
+
+.div_right{
+  float:right;
+  padding:0 2px 15px 0;
+}
+
+table.project_details_table {
+   margin: 15px 0 25px 0;
+}
+
+table.project_details_table tr td{
+  padding-left: 15px;
+}
+
+table.project_details_table tr td.first{
+  border-right: 1px solid @orange_colour;
+  padding-right: 15px;
+  width: 150px;
 }
 
 

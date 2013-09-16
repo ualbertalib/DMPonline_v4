@@ -1,14 +1,94 @@
 <!-- Project title = default title is the template title plus date of creation -->
 <div class="project-details-body">
-	
+	<div class="div_right">
 		<% if @project.editable_by(current_user.id) then %>
 			<%= link_to t('.edit', :default => t("helpers.project.edit")), edit_project_path(@project), :class => 'btn btn-primary' %>
 		<% end %>
+	</div>
 	<div class="project-details">
-  		<!-- template description -->
-		<p>
-			<%= @project.dmptemplate.description %>
-		</p>
+		<!-- If not first time login in or editing project details -->
+		<table class="project_details_table">
+			<tr>
+				<td class="first"><%= t('helpers.project.project_name') %></td>
+				<td><%= @project.title %></td>
+			</tr>
+			<tr>
+				<td class="first"><%= t('helpers.project.project_identifier') %></td>
+				<td>
+					<% if !@project.identifier.nil? %>
+						<%= @project.identifier %>
+					<%else%>
+						 -
+					<%end%>	
+				</td>
+			</tr>
+			<tr>
+				<td class="first"><%= t('helpers.project.grant_title') %></td>
+				<td><% if !@project.grant_number.nil? %>
+						<%= @project.grant_number %>
+					<%else%>
+						 -
+					<%end%>	
+				</td>
+			</tr>
+			<tr>
+				<td class="first"><%= t('helpers.project.principal_investigator') %></td>
+				<td><% if !@project.principal_investigator.nil? %>
+						<%= @project.principal_investigator %>
+					<%else%>
+						 -
+					<%end%>	
+				</td>
+			</tr>
+			<tr>
+				<td class="first"><%= t('helpers.project.principal_investigator_id') %></td>
+				<td><% if !@project.principal_investigator_identifier.nil? %>
+						<%= @project.principal_investigator_identifier %>
+					<%else%>
+						 -
+					<%end%>	
+				</td>
+			</tr>
+			<tr>
+				<td class="first"><%= t('helpers.project.project_data_contact') %></td>
+				<td><% if !@project.data_contact.nil? %>
+						<%= @project.data_contact %>
+					<%else%>
+						 -
+					<%end%>	
+				</td>
+			</tr>
+			<tr>
+				<td class="first"><%= t('helpers.desc') %></td>
+				<td><% if !@project.description.nil? %>
+						<%= @project.description %>
+					<%else%>
+						 -
+					<%end%>	
+				</td>
+			</tr>
+		</table>
+			
+		<h3><%= t('helpers.project.project_static_info')%></h3>
+		<table class="project_details_table">
+			<!-- get the funder name if there is one -->
+			<%if @project.dmptemplate.organisation.organisation_type.name == t('helpers.org_type.funder') %>
+				<tr>
+					<td class="first"><%= t('helpers.org_type.funder') %></td>
+					<td><%= @project.dmptemplate.organisation.name %></td>
+				</tr>
+			<%end%>
+			<%if !@project.organisation_id.nil?	%>
+				<tr>
+					<td class="first"><%= t('helpers.org_type.institution') %></td>
+					<td><%= @project.organisation.name %></td>
+				</tr>
+			<%end%>
+		</table>
+			<!-- template description -->
+			<p><%= @project.dmptemplate.description %>
+			</p>
+		
 	</div>
 				
 	<!-- If project has plans-->
@@ -27,6 +107,7 @@
 		<% @project.plans.each do |plan| %>
 			<div class="div_right">
 					<%= link_to t('helpers.answer_questions'), [:edit, @project, plan], :class => 'btn btn-primary'  %>
+					<%= link_to t('helpers.export'), '#', :class => 'btn btn-primary'  %>
 			</div>
 		
 			
