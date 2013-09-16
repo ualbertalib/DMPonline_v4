@@ -85,65 +85,106 @@
 				</tr>
 			<%end%>
 		</table>
-			<!-- template description -->
-			<p><%= @project.dmptemplate.description %>
-			</p>
-		
+			
 	</div>
 				
 	<!-- If project has plans-->
 	<% if @project.plans.any? %>
-		
-		<div class="div_left">
-			<% if @project.plans.count > 1 then %>
-				<% @project.plans.each do |plan| %>
-					<h3>
-						<%= plan.version.phase.title %>
-					</h3>
-					<p>
-						<%= raw plan.version.phase.description %>
-					</p>
-				<% end %>
-			<%end%>	
-		</div>
-		<% @project.plans.each do |plan| %>
-			<div class="div_right">
+		<% if @project.plans.count == 1 then %>
+			<% @project.plans.each do |plan| %>
+				
+				<div class="div_right">
 					<%= link_to t('helpers.answer_questions'), [:edit, @project, plan], :class => 'btn btn-primary'  %>
 					<%= link_to t('helpers.export'), '#', :class => 'btn btn-primary'  %>
-			</div>
-		
-			
-			<% if !plan.sections.nil? %>
-				<table class="dmp_table">
-					<thead>
-					    <tr>
-					      	<th class="dmp_th_medium"><%= t('helpers.sections_label')%></th>
-					      	<th class="dmp_th_big"><%= t('helpers.questions_label')%></th>
-	   					</tr>
-   					</thead>
-   					<tbody>
-   						<% plan.sections.each do |section| %>
-							<tr >
-								<th class="dmp_th_border" >
-									<p><%= section.title %></p>
-								</th>
-        						<td class="dmp_td_border" >	
-									<% if section.questions.any? %>
-										<ul class="question_ul">
-											<% section.questions.each do |ques|%>
-												<li>
-													- <%= ques.text %>
-												</li>	
-											<%end%>
-										</ul>
-									<%end%>		
-								</td>
-							</tr>		
-						<%end%>
-					</tbody>	
-				</table>
+				</div>
+				<div class="div_clear"></div>
+				<p><%= raw plan.version.phase.description %></p>
+				<% if !plan.sections.nil? %>
+					<table class="dmp_table">
+						<thead>
+						    <tr>
+						      	<th class="dmp_th_medium"><%= t('helpers.sections_label')%></th>
+						      	<th class="dmp_th_big"><%= t('helpers.questions_label')%></th>
+		   					</tr>
+	   					</thead>
+	   					<tbody>
+	   						<% plan.sections.each do |section| %>
+								<tr >
+									<th class="dmp_th_border" >
+										<p><%= section.title %></p>
+									</th>
+	        						<td class="dmp_td_border" >	
+										<% if section.questions.any? %>
+											<ul class="question_ul">
+												<% section.questions.each do |ques|%>
+													<li>
+														- <%= ques.text %>
+													</li>	
+												<%end%>
+											</ul>
+										<%end%>		
+									</td>
+								</tr>		
+							<%end%>
+						</tbody>	
+					</table>
+				<%end%>	
 			<%end%>
-		<%end%>
+		<%else%>	
+			<% @project.plans.each do |plan| %>
+				<div class="accordion" id="project-accordion">
+					<div class="accordion-group">
+						<div class="accordion-heading">
+							<a class="accordion-toggle" data-toggle="collapse" data-parent="#project-accordion" href="#<%= plan.version.phase.id %>">
+								<h3><%= plan.version.phase.title %></h3>
+							<span class="plus-laranja"> </span></a>
+						</div>
+						<div id="<%= plan.version.phase.id %>" class="accordion-project collapse">
+							<div class="accordion-inner">
+								<div class="div_right">
+										<%= link_to t('helpers.answer_questions'), [:edit, @project, plan], :class => 'btn btn-primary'  %>
+										<%= link_to t('helpers.export'), '#', :class => 'btn btn-primary'  %>
+								</div>
+								<div class="div_clear"></div>
+									<p><%= raw plan.version.phase.description %>
+								</p>
+												
+								<% if !plan.sections.nil? %>
+									<table class="dmp_table">
+										<thead>
+										    <tr>
+										      	<th class="dmp_th_medium"><%= t('helpers.sections_label')%></th>
+										      	<th class="dmp_th_big"><%= t('helpers.questions_label')%></th>
+						   					</tr>
+					   					</thead>
+					   					<tbody>
+					   						<% plan.sections.each do |section| %>
+												<tr >
+													<th class="dmp_th_border" >
+														<p><%= section.title %></p>
+													</th>
+					        						<td class="dmp_td_border" >	
+														<% if section.questions.any? %>
+															<ul class="question_ul">
+																<% section.questions.each do |ques|%>
+																	<li>
+																		- <%= ques.text %>
+																	</li>	
+																<%end%>
+															</ul>
+														<%end%>		
+													</td>
+												</tr>		
+											<%end%>
+										</tbody>	
+									</table>
+								<%end%>
+							</div>
+						</div>
+					</div>
+				</div>				
+			<%end%>	
+		<%end%>	
 	<%end%>				
 </div>						
 							

@@ -34,6 +34,11 @@ $( document ).ready(function() {
 	}).on('hide', function(){
 		var minus = $(this).parent().find(".minus-laranja").removeClass("minus-laranja").addClass("plus-laranja");
 	});
+	$('.accordion-project').on('show', function() {
+		var plus = $(this).parent().find(".plus-laranja").removeClass("plus-laranja").addClass("minus-laranja");
+	}).on('hide', function(){
+		var minus = $(this).parent().find(".minus-laranja").removeClass("minus-laranja").addClass("plus-laranja");
+	});
 	
 	$('.typeahead').select2({
 		width: "element",
