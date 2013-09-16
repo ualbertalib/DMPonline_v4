@@ -96,12 +96,14 @@
 		
 		<div class="div_left">
 			<% if @project.plans.count > 1 then %>
-				<h3>
-					<%= @project.plan.version.phase.title %>
-				</h3>
-				<p>
-					<%= @project.plan.version.phase.description %>
-				</p>
+				<% @project.plans.each do |plan| %>
+					<h3>
+						<%= plan.version.phase.title %>
+					</h3>
+					<p>
+						<%= raw plan.version.phase.description %>
+					</p>
+				<% end %>
 			<%end%>	
 		</div>
 		<% @project.plans.each do |plan| %>
