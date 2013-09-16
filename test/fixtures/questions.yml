@@ -406,3 +406,134 @@ esrc_8_1:
   number: 1
   section: esrc_8
   themes: project_data_contact, responsibilities
+
+nerc_1_1_1:
+  text: Data management procedures to be followed during the lifetime of the grant or fellowship
+  guidance: "<p>Consider issues like:<ul><li>metadata: will you document discovery (what, where, when, why, who) and descriptive (how collected, how processed, how stored, how linked) metadata and implement the NERC Discovery Metadata Standard (http://data-search.nerc.ac.uk/documents/metadatastandard_v1.0.pdf) early in the project?</li><li>data storage: have you access to enough storage and backup? Will you need specialist help with database design?</li><li>data quality: will there be an earmarked data manager within the team, what data quality checks will be used, will student data be integrated in the data plan?</li><li>ethical and access issues: are there special data security or licensing issues and how will you address these?</li></ul></p>"
+  number: 1
+  section: nerc_1_1
+  themes: metadata_capture, active_data_storage, data_quality, ethical_issues, managed_access_procedures
+
+nerc_1_2_1:
+  text: Existing datasets to be used by the grant or fellowship
+  guidance: "<p>Comment on any restrictions on reuse.</p>"
+  number: 1
+  section: nerc_1_2
+  themes: existing_data, licensing_of_existing_data
+
+nerc_1_3_1:
+  text: Data Centre
+  guidance: "<p>The most appropriate NERC Data Centre – projects can contribute to more than one Data Centre.</p>"
+  number: 1
+  section: nerc_1_3
+  themes: data_repository
+
+nerc_1_3_2:
+  text: Data Description
+  guidance: "<p>1-2 sentences describing the data.</p>"
+  number: 2
+  section: nerc_1_3
+  themes: description_of_data_content
+
+nerc_1_3_3:
+  text: Release Date to Data Centre
+  guidance: "<p>Data should normally be delivered to a data centre within 2 years of collection.</p>"
+  number: 3
+  section: nerc_1_3
+  themes: timeframe_for_data_sharing
+
+nerc_1_3_4:
+  text: Reuse Scenarios
+  guidance: "<p>Possible user types and estimate of numbers if possible.</p>"
+  number: 4
+  section: nerc_1_3
+  themes: expected_reuse
+
+nerc_2_1_1:
+  text: Nominated Data Centre
+  number: 1
+  section: nerc_2_1
+  themes: data_repository
+
+nerc_2_1_2:
+  text: Data Centre Contact
+  number: 2
+  section: nerc_2_1
+
+nerc_2_1_3:
+  text: Please specify any other team members with responsibility for data
+  number: 3
+  section: nerc_2_1
+
+nerc_2_2_1:
+  text: Roles and Responsibilities
+  guidance: "<p>For example: who is responsible for obtaining 3rd party data, for capturing data in the field, producing metadata, transferring metadata and data to DDC.</p>"
+  number: 1
+  section: nerc_2_2
+  themes: responsibilities
+
+nerc_2_3_1:
+  text: Data Generation Activities
+  guidance: "<p>Short description of the what, how much, when and how etc.</p>"
+  number: 1
+  section: nerc_2_3
+  themes: data_capture_methods
+
+nerc_2_4_1:
+  text: In-Project Data Management Approach
+  guidance: "<p>Statement about how the data will be managed within the project, including backup & security.</p>"
+  number: 1
+  section: nerc_2_4
+  themes: active_data_storage, backup_procedures, data_security
+  
+nerc_2_5_1:
+  text: Metadata and Documentation
+  guidance: "<p>Insert statement about how metadata will be supplied and standards to which it will adhere.</p>"
+  number: 1
+  section: nerc_2_5
+  themes: metadata_capture, metadata_standards
+
+nerc_2_6_1:
+  text: Data Quality
+  guidance: "<p>List procedures for quality control of data.</p>"
+  number: 1
+  section: nerc_2_6
+  themes: data_quality
+
+nerc_2_7_1:
+  text: Exceptions or Additional Services
+  guidance: "<p>Any exceptional expectations of Data Centres (for example exceptional size or complexity) - funding for which should be included within the project's Directly Incurred costs and explained within the Justification of Resources attachment.</p>"
+  number: 1
+  section: nerc_2_7
+  themes: resourcing_preservation_and_data_sharing
+
+nerc_2_8_1:
+  text: Digital Information
+  guidance: "<p>Enter a brief description of the activities that will produce the data.</p>"
+  suggested_answer: "<table><tr> <th>Dataset Description</th> <th>Contact	Dataset</th> <th>Data Volume</th> <th>Data Format</th> <th>Issues</th> <th>Delivery Date</th> <th>Embargo Date</th> <th>Reuse Scenario</th> <th>Preservation Plan</th> </tr><tr> <td></td> <td></td> <td></td> <td></td> <td><em>Any issues with the data, e.g. legal, access, retention, etc.</em></td> <td><em>Date expect to receive data</em></td> <td><em>No more than two years after delivery</em></td> <td></td> <td><em>e.g. Keep indefinitely, Do not keep, etc. including destination data centre (if not owning data centre)</em></td> </tr></table>"
+  number: 1
+  section: nerc_2_8
+  themes: data_capture_methods, description_of_data_content, project_data_contact, data_volumes, data_format, ipr_ownership_and_licencing, timeframe_for_data_sharing, timeframe_for_data_sharing, expected_reuse, preservation_plan
+
+nerc_2_8_2:
+  text: Hardcopy Records
+  guidance: "<p>Enter a brief description of the activities that will produce the data.</p>"
+  suggested_answer: "<table><tr> <th>Dataset Name</th> <th>Contact</th> <th>Data Volume</th> <th>Data Format</th> <th>Issues</th> <th>Delivery Date</th> <th>Preservation Plan</th> </tr><tr> <td></td> <td></td> <td></td> <td></td> <td><em>Any issues with the data, e.g. legal, access, retention, etc.</em></td> <td><em>Date expect to receive data</em></td> <td><em>e.g. Keep indefinitely, Do not keep, etc.</em></td> </table>"
+  number: 2
+  section: nerc_2_8
+  themes: data_capture_methods, project_data_contact, data_volumes, data_format, ipr_ownership_and_licencing, timeframe_for_data_sharing, preservation_plan
+  
+nerc_2_8_3:
+  text: Physical Collections & Samples
+  guidance: "<p>Enter a brief description of the activities that will produce the data</p>"
+  suggested_answer: "<table><tr> <th>Dataset Name</th> <th>Contact</th> <th>Data Volume</th> <th>Data Format</th> <th>Issues</th> <th>Delivery Date</th> <th>Preservation Plan</th> </tr><tr> <td></td> <td></td> <td></td> <td></td> <td><em>Any issues with the data, e.g. legal, access, retention, etc.</em></td> <td><em>Date expect to receive data</em></td> <td><em>e.g. Keep indefinitely, Do not keep, etc.</em></td> </table>"
+  number: 3
+  section: nerc_2_8
+  themes: data_capture_methods,project_data_contact,data_volumes,data_format,ipr_ownership_and_licencing,timeframe_for_data_sharing,preservation_plan
+
+nerc_2_9_1:
+  text: Third Party/Existing Datasets
+  suggested_answer: "<table><tr> <th>Dataset Name</th> <th>Contact</th> <th>Location</th> <th>Contents</th> <th>Estimated Size</th> <th>Responsibility</th> <th>Licence Issues</th> <th>Comments</th> </tr><tr> <td></td> <td><em>Name of contact for dataset</em></td> <td><em>Where is it stored</em></td> <td><em>Brief description</em></td> <td></td> <td><em>Who is responsible for sourcing the dataset</em></td> <td></td> <td><em>Any additional information (e.g. licence or use restrictions?)</em></td> </tr></table>"
+  number: 1
+  section: nerc_2_9
+  themes: existing_data, data_volumes, responsibilities, licensing_of_existing_data, restrictions_on_sharing

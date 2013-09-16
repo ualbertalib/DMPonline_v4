@@ -230,3 +230,75 @@ esrc_8:
   number: 8
   version: esrc_template_1_version_1
   organisation: esrc
+
+nerc_1_1:
+  title: Data management procedures to be followed during the lifetime of the grant or fellowship
+  number: 1
+  version: nerc_template_1_version_1
+  organisation: nerc
+
+nerc_1_2:
+  title: Existing datasets to be used by the grant or fellowship
+  number: 2
+  version: nerc_template_1_version_1
+  organisation: nerc
+
+nerc_1_3:
+  title: Datasets likely to be created by the grant or fellowship which will be made available to a NERC Environmental Data Centre at the end of the Grant
+  number: 3
+  version: nerc_template_1_version_1
+  organisation: nerc
+
+nerc_2_1:
+  title: Organisation
+  number: 1
+  version: nerc_template_2_version_1
+  organisation: nerc
+
+nerc_2_2:
+  title: Roles and Responsibilities
+  number: 2
+  version: nerc_template_2_version_1
+  organisation: nerc
+
+nerc_2_3:
+  title: Data Generation Activities
+  number: 3
+  version: nerc_template_2_version_1
+  organisation: nerc
+
+nerc_2_4:
+  title: In-Project Data Management Approach
+  number: 4
+  version: nerc_template_2_version_1
+  organisation: nerc
+
+nerc_2_5:
+  title: Metadata and Documentation
+  number: 5
+  version: nerc_template_2_version_1
+  organisation: nerc
+
+nerc_2_6:
+  title: Data Quality
+  number: 6
+  version: nerc_template_2_version_1
+  organisation: nerc
+
+nerc_2_7:
+  title: Exceptions or Additional Services
+  number: 7
+  version: nerc_template_2_version_1
+  organisation: nerc
+
+nerc_2_8:
+  title: New Datasets
+  number: 8
+  version: nerc_template_2_version_1
+  organisation: nerc
+
+nerc_2_9:
+  title: Third Party/Existing Datasets
+  number: 9
+  version: nerc_template_2_version_1
+  organisation: nerc

@@ -26,11 +26,11 @@ esrc:
   abbreviation: "ESRC"
   organisation_type: funder
 
-#nerc:
-#  name: "Natural Environment Research Council"
-#  abbreviation: "NERC"
-#  organisation_type: funder
-#
+nerc:
+  name: "Natural Environment Research Council"
+  abbreviation: "NERC"
+  organisation_type: funder
+
 #mrc:
 #  name: "Medical Research Council"
 #  abbreviation: "MRC"
