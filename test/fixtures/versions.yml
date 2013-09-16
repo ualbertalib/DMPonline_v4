@@ -30,12 +30,18 @@ esrc_template_1_version_1:
   number: 1
   phase: esrc_template_1
 
-#nerc_template_1_version_1:
-#  title: "NERC Data Management Questions (Version 1)"
-#  published: 1
-#  number: 1
-#  phase: nerc_template_1
-#
+nerc_template_1_version_1:
+  title: "Outline for application (Version 1)"
+  published: 1
+  number: 1
+  phase: nerc_template_1
+
+nerc_template_2_version_1:
+  title: "Detail following award (Version 1)"
+  published: 1
+  number: 1
+  phase: nerc_template_2
+
 #mrc_template_1_version_1:
 #  title: "MRC Data Management Questions (Version 1)"
 #  published: 1

@@ -33,11 +33,20 @@ esrc_template_1:
   external_guidance_url: http://www.esrc.ac.uk/_images/Research_Data_Policy_2010_tcm8-4595.pdf
   dmptemplate: esrc_template
 
-#nerc_template_1:
-#  title: "NERC Data Management Questions"
-#  number: 1
-#  dmptemplate: nerc_template
-#
+nerc_template_1:
+  title: "Outline for application"
+  number: 1
+  description: "<p>NERC proposals should normally be accompanied by a Case for Support, and the length of these is specific to each scheme. In all cases this length should be increased by one page to be used for the Outline Data Management Plan.</p>"
+  external_guidance_url: http://www.nerc.ac.uk/research/sites/data/documents/odmp-guidance.pdf
+  dmptemplate: nerc_template
+
+nerc_template_2:
+  title: "Detail following award"
+  number: 2
+  description: "<p>The Case for Support for successful proposals will be made available to the NERC <a href='http://www.nerc.ac.uk/research/sites/data/index.asp?cookieConsent=A'>Environmental Data Centres</a> and, where appropriate, used to draft, in collaboration with the Principal Investigator, a full Data Management Plan (DMP). This full DMP should be mutually agreed between the Data Centre and the Principal Investigator within three months of the start date of the grant.</p>"
+  external_guidance_url: http://www.nerc.ac.uk/research/sites/data/documents/dmp-template.pdf
+  dmptemplate: nerc_template
+
 #mrc_template_1:
 #  title: "MRC Data Management Questions"
 #  number: 1
