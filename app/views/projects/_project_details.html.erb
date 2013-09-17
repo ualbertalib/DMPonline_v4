@@ -131,12 +131,10 @@
 			</div>
 			<% end %>
 			<!-- submit buttons -->
-			<%= f.actions do %>
-				<%= f.submit nil, :class => 'btn btn-primary' %>
+			<%= f.actions do %>	
 				<div class="div_right">
-					<% if @project.editable_by(current_user.id) then %>
-						<a href='#' class='btn btn-primary show-edit-toggle'><%= t("helpers.links.cancel") %></a>
-					<% end %>
+					<%= f.submit nil, :class => 'btn btn-primary' %>
+					<a href='#' class='btn btn-primary show-edit-toggle'><%= t("helpers.links.cancel") %></a>
 				</div>
 			<%end%>
 		<%end%>	
