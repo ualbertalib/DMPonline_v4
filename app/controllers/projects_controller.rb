@@ -17,6 +17,10 @@ class ProjectsController < ApplicationController
 	# GET /projects/1.json
 	def show
 		@project = Project.find(params[:id])
+		@show_form = false
+		if params[:show_form] == "yes" then
+			@show_form = true
+		end
 		if user_signed_in? && @project.readable_by(current_user.id)then
 			respond_to do |format|
 				format.html # show.html.erb
@@ -71,7 +75,7 @@ class ProjectsController < ApplicationController
 			@project.assign_creator(current_user.id)
 			respond_to do |format|
 				if @project.save
-					format.html { redirect_to @project, notice: 'Project was successfully created.' }
+					format.html { redirect_to({:action => "show", :id => @project.slug, :show_form => "yes"}, {:notice => 'Project was successfully created.'}) }
 					format.json { render json: @project, status: :created, location: @project }
 				else
 					format.html { render action: "new" }
@@ -89,6 +93,7 @@ class ProjectsController < ApplicationController
 	# PUT /projects/1
 	# PUT /projects/1.json
 	def update
+		logger.debug "UPDATING!!"
 		@project = Project.find(params[:id])
 		if user_signed_in? && @project.editable_by(current_user.id) then
 			respond_to do |format|
