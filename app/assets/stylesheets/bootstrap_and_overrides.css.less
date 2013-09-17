@@ -805,21 +805,42 @@ table.project_details_table tr td.first{
   clear:both;
 }
 
-#project-accordion .accordion-group, #project-accordion .accordion-heading{
+#project-accordion .accordion-group{
   background-color:@white_colour;
   border-color: @white_colour;
   border:none !important;
   box-shadow:none !important;
   -moz-box-shadow: none !important;
   -webkit-box-shadow:none !important;
+} 
+
+#project-accordion .accordion-heading{
+  background-color:@white_colour;
+  border-bottom: 1px solid @orange_colour;
+  min-height: 50px;
+}
+
+#project-accordion .accordion-heading a{
+    padding-left:0px;
 }
 
  #project-accordion .accordion-heading h3{
   float: left;
+  margin-top: 0px;
+}
+
+#project-accordion .accordion-heading span{
+  margin: 7px;
 }
 
 #project-accordion .accordion-project{
  clear:both;
+}
+
+#project-accordion .accordion-inner{
+ border:none !important;
+ padding-right: 0px;
+ padding-left:0px;
 }
 
 .project-hide {
