@@ -73,13 +73,13 @@
 		</div>
 	</div>
 	<% if @project.editable_by(current_user.id) then %>
+		<div class="edit-project project-hide">
 		<!-- edit project button -->
 		<div class="div_right">
 			<% if @project.editable_by(current_user.id) then %>
 				<a href='#' class='btn btn-primary show-edit-toggle'><%= t("helpers.links.cancel") %></a>
 			<% end %>
 		</div>
-		<div class="edit-project project-hide">
 		<%= semantic_form_for @project, :url => {:controller => :projects, :action => :edit }, :html=>{:method=>:post} do |f| %>
 		<%= f.inputs do %>
 			<div class="project-details">
