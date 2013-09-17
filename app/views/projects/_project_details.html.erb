@@ -94,7 +94,7 @@
 					<tr>
 						<td class="first"><%= t('helpers.project.project_identifier') %></td>
 						<td>
-							<%= f.text_field :title, :class => 'text_field has-tooltip', 'data-toggle' => "tooltip", 'title' => t('helpers.project.project_identifier_help_text') %>
+							<%= f.text_field :identifier, :class => 'text_field has-tooltip', 'data-toggle' => "tooltip", 'title' => t('helpers.project.project_identifier_help_text') %>
 						</td>
 					</tr>
 					<tr>
@@ -124,7 +124,7 @@
 					<tr>
 						<td class="first"><%= t('helpers.desc') %></td>
 						<td>
-							<%= f.text_area :description, :class => 'text_area', :rows => 10, 'title' => t('helpers.project.project_name_help_text') %>
+							<%= f.text_area :description, :class => 'text_area', :rows => 10, 'title' => t('helpers.project.project_desc_help_text') %>
 						</td>
 					</tr>
 				</table>				
