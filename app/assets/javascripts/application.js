@@ -51,5 +51,10 @@ $( document ).ready(function() {
     placement: "right",
     trigger: "focus"
 	});
+	
+	$(".show-edit-toggle").click(function () {
+		$(".edit-project").toggle();
+		$(".view-project").toggle();
+	});
 
 });
