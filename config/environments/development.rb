@@ -37,6 +37,7 @@ DMPonline4::Application.configure do
 
   #devise config
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.delivery_method = :letter_opener
   
   
 	# Add the fonts path

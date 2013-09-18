@@ -15,7 +15,10 @@ gem 'recaptcha'
 # in production environments by default.
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'
- 
+end
+
+group :development do
+	gem "letter_opener"
 end
 
 gem 'uglifier', '>= 1.0.3'
