@@ -302,3 +302,129 @@ nerc_2_9:
   number: 9
   version: nerc_template_2_version_1
   organisation: nerc
+  
+mrc_1:
+  title: Description of Data
+  number: 1
+  version: mrc_template_1_version_1
+  organisation: mrc
+
+mrc_2:
+  title: Data collection / generation
+  number: 2
+  version: mrc_template_1_version_1
+  organisation: mrc
+
+mrc_3:
+  title: Data management, documentation and curation
+  number: 3
+  version: mrc_template_1_version_1
+  organisation: mrc
+
+mrc_4:
+  title: Data security and confidentiality of potentially disclosive personal information
+  number: 4
+  version: mrc_template_1_version_1
+  organisation: mrc
+
+mrc_5:
+  title: Data sharing and access
+  number: 5
+  version: mrc_template_1_version_1
+  organisation: mrc
+
+mrc_6:
+  title: Policies and Responsibilities
+  number: 6
+  version: mrc_template_1_version_1
+  organisation: mrc
+
+stfc_1:
+  title: Data types
+  number: 1
+  version: stfc_template_1_version_1
+  organisation: stfc
+
+stfc_2:
+  title: Which data will be preserved and how
+  number: 2
+  version: stfc_template_1_version_1
+  organisation: stfc
+
+stfc_3:
+  title: Software and metadata implications
+  number: 3
+  version: stfc_template_1_version_1
+  organisation: stfc
+
+stfc_4:
+  title: Preservation period
+  number: 4
+  version: stfc_template_1_version_1
+  organisation: stfc
+
+stfc_5:
+  title: Which data will have value to others and should be shared
+  number: 5
+  version: stfc_template_1_version_1
+  organisation: stfc
+
+stfc_6:
+  title: Proprietary period
+  number: 6
+  version: stfc_template_1_version_1
+  organisation: stfc
+
+stfc_7:
+  title: How data will be shared
+  number: 7
+  version: stfc_template_1_version_1
+  organisation: stfc
+
+stfc_8:
+  title: Resources required to preserve and share data
+  number: 8
+  version: stfc_template_1_version_1
+  organisation: stfc
+
+wellcome_1:
+  title: Data outputs
+  number: 1
+  version: wellcome_template_1_version_1
+  organisation: wellcome
+
+wellcome_2:
+  title: Data sharing timeframe
+  number: 2
+  version: wellcome_template_1_version_1
+  organisation: wellcome
+
+wellcome_3:
+  title: Data sharing method
+  number: 3
+  version: wellcome_template_1_version_1
+  organisation: wellcome
+
+wellcome_4:
+  title: Access for other researchers
+  number: 4
+  version: wellcome_template_1_version_1
+  organisation: wellcome
+
+wellcome_5:
+  title: Data sharing limits
+  number: 5
+  version: wellcome_template_1_version_1
+  organisation: wellcome
+
+wellcome_6:
+  title: Data preservation
+  number: 6
+  version: wellcome_template_1_version_1
+  organisation: wellcome
+
+wellcome_7:
+  title: Required resources
+  number: 7
+  version: wellcome_template_1_version_1
+  organisation: wellcome

@@ -42,20 +42,20 @@ nerc_template_2_version_1:
   number: 1
   phase: nerc_template_2
 
-#mrc_template_1_version_1:
-#  title: "MRC Data Management Questions (Version 1)"
-#  published: 1
-#  number: 1
-#  phase: mrc_template_1
-#
-#stfc_template_1_version_1:
-#  title: "STFC Data Management Questions (Version 1)"
-#  published: 1
-#  number: 1
-#  phase: stfc_template_1
-#
-#wellcome_template_1_version_1:
-#  title: "Wellcome Trust Data Management Questions (Version 1)"
-#  published: 1
-#  number: 1
-#  phase: wellcome_template_1
+mrc_template_1_version_1:
+  title: "MRC Data Management Questions (Version 1)"
+  published: 1
+  number: 1
+  phase: mrc_template_1
+
+stfc_template_1_version_1:
+  title: "STFC Data Management Questions (Version 1)"
+  published: 1
+  number: 1
+  phase: stfc_template_1
+
+wellcome_template_1_version_1:
+  title: "Wellcome Trust Data Management Questions (Version 1)"
+  published: 1
+  number: 1
+  phase: wellcome_template_1

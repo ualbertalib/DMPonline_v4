@@ -43,23 +43,23 @@ nerc_template:
   organisation: nerc
   locale: en
 
-#mrc_template:
-#  title: "MRC Template"
-#  description: "MRC template"
-#  published: true
-#  organisation: mrc
-#  locale: en
-#
-#stfc_template:
-#  title: "STFC Template"
-#  description: "STFC template"
-#  published: true
-#  organisation: stfc
-#  locale: en
-#
-#wellcome_template:
-#  title: "Wellcome Trust Template"
-#  description: "Wellcome Trust template"
-#  published: true
-#  organisation: wellcome
-#  locale: en
+mrc_template:
+  title: "MRC Template"
+  description: "MRC template"
+  published: true
+  organisation: mrc
+  locale: en
+
+stfc_template:
+  title: "STFC Template"
+  description: "STFC template"
+  published: true
+  organisation: stfc
+  locale: en
+
+wellcome_template:
+  title: "Wellcome Trust Template"
+  description: "Wellcome Trust template"
+  published: true
+  organisation: wellcome
+  locale: en

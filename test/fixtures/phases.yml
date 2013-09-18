@@ -47,17 +47,17 @@ nerc_template_2:
   external_guidance_url: http://www.nerc.ac.uk/research/sites/data/documents/dmp-template.pdf
   dmptemplate: nerc_template
 
-#mrc_template_1:
-#  title: "MRC Data Management Questions"
-#  number: 1
-#  dmptemplate: mrc_template
-#
-#stfc_template_1:
-#  title: "STFC Data Management Questions"
-#  number: 1
-#  dmptemplate: stfc_template
-#
-#wellcome_template_1:
-#  title: "Wellcome Trust Data Management Questions"
-#  number: 1
-#  dmptemplate: wellcome_template
+mrc_template_1:
+  title: "MRC Data Management Questions"
+  number: 1
+  dmptemplate: mrc_template
+
+stfc_template_1:
+  title: "STFC Data Management Questions"
+  number: 1
+  dmptemplate: stfc_template
+
+wellcome_template_1:
+  title: "Wellcome Trust Data Management Questions"
+  number: 1
+  dmptemplate: wellcome_template

@@ -77,3 +77,13 @@
 #  question: checkbox
 #  text: Option 4
 #  number: 4
+
+mrc_5_2_yes:
+  question: mrc_5_2
+  text: Yes
+  number: 1
+
+mrc_5_2_no:
+  question: mrc_5_2
+  text: No
+  number: 2

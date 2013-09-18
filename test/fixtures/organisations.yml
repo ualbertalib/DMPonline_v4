@@ -31,20 +31,20 @@ nerc:
   abbreviation: "NERC"
   organisation_type: funder
 
-#mrc:
-#  name: "Medical Research Council"
-#  abbreviation: "MRC"
-#  organisation_type: funder
-#
-#stfc:
-#  name: "Science and Technology Facilities  Council"
-#  abbreviation: "STFC"
-#  organisation_type: funder
-#
-#wellcome:
-#  name: "Wellcome Trust"
-#  abbreviation: "Wellcome"
-#  organisation_type: funder
+mrc:
+  name: "Medical Research Council"
+  abbreviation: "MRC"
+  organisation_type: funder
+
+stfc:
+  name: "Science and Technology Facilities  Council"
+  abbreviation: "STFC"
+  organisation_type: funder
+
+wellcome:
+  name: "Wellcome Trust"
+  abbreviation: "Wellcome Trust"
+  organisation_type: funder
 
 #uoe_si:
 #  name: "School of informatics"
