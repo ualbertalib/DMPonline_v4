@@ -40,6 +40,10 @@ DMPonline4::Application.routes.draw do
 			get 'warning'
 		end
 	end
+	member do
+		get 'share'
+		post 'invite'
+	end
   end
   resources :project_partners
   resources :project_groups

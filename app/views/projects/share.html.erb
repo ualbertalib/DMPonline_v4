@@ -1,0 +1,18 @@
+<%- model_class = Project -%>
+
+<!-- render the project title -->
+<%= render :partial => "/projects/project_title", locals: {project: @project} %>
+
+<!-- render navigation tabs for the project-->
+<%= render :partial => "project_nav_tabs", locals: {project: @project, active: "show_project"} %>
+
+<% project_group = ProjectGroup.new %>
+<% project_group.project = @project %>
+<%= semantic_form_for project_group, :url => {:controller => :project_groups, :action => :create }, :html=>{:method=>:post} do |f| %>
+	<%= f.inputs do %>
+		<%= f.input :project_id, :as => :hidden %>
+		<%= f.input :email %>
+		<%= f.input :project_editor %>
+	<% end %>
+	<%= f.actions %>
+<% end %>

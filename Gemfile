@@ -40,6 +40,7 @@ gem 'activeadmin'
 
 # devise for user authentication
 gem 'devise'
+gem 'devise_invitable'
 
 #cancan for usergroups
 gem 'cancan'

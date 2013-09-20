@@ -52,6 +52,13 @@ class ProjectsController < ApplicationController
 			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
 		end
 	end
+	
+	def share
+		@project = Project.find(params[:id])
+		unless user_signed_in? && @project.editable_by(current_user.id) then
+			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
+		end
+	end
 
 	# POST /projects
 	# POST /projects.json
@@ -87,13 +94,9 @@ class ProjectsController < ApplicationController
 		end
 	end
 
-
-
-
 	# PUT /projects/1
 	# PUT /projects/1.json
 	def update
-		logger.debug "UPDATING!!"
 		@project = Project.find(params[:id])
 		if user_signed_in? && @project.editable_by(current_user.id) then
 			respond_to do |format|
