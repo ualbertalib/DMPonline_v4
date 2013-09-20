@@ -56,5 +56,9 @@ $( document ).ready(function() {
 		$(".edit-project").toggle();
 		$(".view-project").toggle();
 	});
+	
+	$(".toggle-existing-user-access").click(function(){
+		$(this).closest("form").submit();
+	});
 
 });
