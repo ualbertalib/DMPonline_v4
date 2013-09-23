@@ -164,8 +164,9 @@
 				
 				<div class="div_right">
 					<%= link_to t('helpers.answer_questions'), [:edit, @project, plan], :class => 'btn btn-primary'  %>
-					<%= link_to t('helpers.export'), '#', :class => 'btn btn-primary'  %>
+					<a href="#<%= plan.id %>-export-dialog" data-toggle="modal" class		='btn btn-primary'><%= t('helpers.export') %></a>
 				</div>
+				<%= render :partial => "plans/export", locals: {plan: plan} %>
 				<div class="div_clear"></div>
 				<p><%= raw plan.version.phase.description %></p>
 				<% if !plan.sections.nil? %>
@@ -212,8 +213,9 @@
 							<div class="accordion-inner">
 								<div class="div_right">
 										<%= link_to t('helpers.answer_questions'), [:edit, @project, plan], :class => 'btn btn-primary'  %>
-										<%= link_to t('helpers.export'), '#', :class => 'btn btn-primary'  %>
+										<a href="#<%= plan.id %>-export-dialog" data-toggle="modal" class		='btn btn-primary'><%= t('helpers.export') %></a>
 								</div>
+								<%= render :partial => "plans/export", locals: {plan: plan} %>
 								<div class="div_clear"></div>
 									<p><%= raw plan.version.phase.description %>
 								</p>

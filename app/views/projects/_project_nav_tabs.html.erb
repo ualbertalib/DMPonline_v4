@@ -23,16 +23,16 @@
 			<% end %>   
 			</li>
     <% end %>
-      <% if active == "share_project" then %>
-      <li class="active">
-      <% else %>
-      <li>
-      <% end %>
-      <% if active == "show_project" || active == "share_project" then %>
-      <%= link_to "Share", ["share", project] %>
-      <% else %>
-      <%= link_to "Share", ["share", project] %>
-      <% end %>
-      </li>
-    </ul>
+		<% if active == "share_project" then %>
+		<li class="active">
+		<% else %>
+		<li>
+		<% end %>
+		<% if active == "show_project" || active == "share_project" then %>
+		<%= link_to "Share", ["share", project] %>
+		<% else %>
+		<%= link_to "Share", ["share", project] %>
+		<% end %>
+		</li>
+	</ul>
 </div>

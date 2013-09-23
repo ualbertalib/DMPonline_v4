@@ -120,7 +120,7 @@ class Plan < ActiveRecord::Base
 			"phase_title" => version.phase.title,
 			"sections" => {}
 		}
-		sections.order("number").each do |s|
+		sections.sort_by(&:"number").each do |s|
 			details["sections"][s.number] = {}
 			details["sections"][s.number]["title"] = s.title
 			details["sections"][s.number]["questions"] = {}

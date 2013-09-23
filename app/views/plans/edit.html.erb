@@ -68,4 +68,8 @@
     	<% end %>
     </div>
     <%= tinymce %>
-</div>    
+</div>
+<div class="div_right">
+	<a href="#<%= @plan.id %>-export-dialog" data-toggle="modal" class		='btn btn-primary'><%= t('helpers.export') %></a>
+</div>
+<%= render :partial => "export", locals: {plan: @plan} %>

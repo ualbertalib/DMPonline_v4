@@ -1,9 +1,9 @@
 <h1><%= @plan.project.title %></h1>
 <h2><%= @plan.version.phase.title %></h2>
-<% sections = @plan.sections.order("number") %>
+<% sections = @plan.sections.sort_by(&:"number") %>
 <% sections.each do |section| %>
 	<h3><%= section.title %></h3>
-	<% questions = section.questions.order("number") %>
+	<% questions = section.questions.sort_by(&:"number") %>
 	<% questions.each do |question| %>
 		<h4><%= question.text %></h4>
 		<% answer = @plan.answer(question.id, false) %>

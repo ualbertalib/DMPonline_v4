@@ -2,11 +2,11 @@
 
 <%= @plan.version.phase.title %>
 
-<% sections = @plan.sections.order("number") %>
+<% sections = @plan.sections.sort_by(&:"number") %>
 <% sections.each do |section| %>
 
 <%= section.title %>
-<% questions = section.questions.order("number") %>
+<% questions = section.questions.sort_by(&:"number") %>
 <% questions.each do |question| %>
 
 <%= question.text %>
