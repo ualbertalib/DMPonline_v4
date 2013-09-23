@@ -4,55 +4,57 @@
 <%= render :partial => "/projects/project_title", locals: {project: @project} %>
 
 <!-- render navigation tabs for the project-->
-<%= render :partial => "project_nav_tabs", locals: {project: @project, active: "show_project"} %>
-<h2>Collaborators</h2>
-<div>
-<% if @project.project_groups.any? then %>
-	<table class="dmp_table">
-		<thead>
-			<tr>
-				<th>User</th>
-				<th>Can edit?</th>
-				<th></th>
-			</tr>
-		</thead>
-		<tbody>
-		<%  @project.project_groups.each do |group| %>
-			<tr>
-				<td><%= group.user.name %></td>
-				<td>
-					<% if group.project_creator then %>
-						Creator
-					<% else %>
-						<%= form_for group, :url => {:controller => :project_groups, :action => :update, :id => group.id }, :html=>{:method=>:put} do |f| %>
-								<%= f.check_box :project_editor, :id => "#{group.id}-can-edit", :class => "toggle-existing-user-access" %>
+<%= render :partial => "project_nav_tabs", locals: {project: @project, active: "share_project"} %>
+<div class="project-details-body">
+	<h3>Collaborators</h3>
+	<div>
+	<% if @project.project_groups.any? then %>
+		<table class="dmp_table">
+			<thead>
+				<tr>
+					<th>User</th>
+					<th>Can edit?</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+			<%  @project.project_groups.each do |group| %>
+				<tr>
+					<td><%= group.user.name %></td>
+					<td>
+						<% if group.project_creator then %>
+							Creator
+						<% else %>
+							<%= form_for group, :url => {:controller => :project_groups, :action => :update, :id => group.id }, :html=>{:method=>:put} do |f| %>
+								<%= f.select :project_editor, {'Edit' => true, 'Read-only' => false}, {}, {:id => "#{group.id}-can-edit", :class => "toggle-existing-user-access"} %>
+							<% end %>
 						<% end %>
-					<% end %>
-				</td>
-				<td>
-					<% unless group.project_creator || group.user == current_user then %>
-						<%= link_to 'Remove access', group, method: :delete, data: { confirm: 'Are you sure?' } %>
-					<% end %>
-				</td>
-			</tr>
-		<% end %>
-		</tbody>
-	</table>
-<% end %>
-</div>
+					</td>
+					<td>
+						<% unless group.project_creator || group.user == current_user then %>
+							<%= link_to 'Remove access', group, method: :delete, data: { confirm: 'Are you sure?' } %>
+						<% end %>
+					</td>
+				</tr>
+			<% end %>
+			</tbody>
+		</table>
+	<% end %>
+	</div>
 
-<h2>Add Collaborator</h2>
-<div>
-<% new_project_group = ProjectGroup.new %>
-<% new_project_group.project = @project %>
-<%= semantic_form_for new_project_group, :url => {:controller => :project_groups, :action => :create }, :html=>{:method=>:post} do |f| %>
-	<%= f.inputs do %>
-		<%= f.input :project_id, :as => :hidden %>
-		<%= f.input :email %>
-		<%= f.input :project_editor %>
-	<% end %>
-	<%= f.actions do %>
-		<%= f.action :submit, :label => "Add user" %>
-	<% end %>
-<% end %>
+	<h3>Add Collaborator</h3>
+	<div>
+		<% new_project_group = ProjectGroup.new %>
+		<% new_project_group.project = @project %>
+		<%= semantic_form_for new_project_group, :url => {:controller => :project_groups, :action => :create }, :html=>{:method=>:post} do |f| %>
+			<%= f.inputs do %>
+				<%= f.input :project_id, :as => :hidden %>
+				<%= f.input :email %>
+				<%= f.select :project_editor, [['Edit', true], ['Read-only', false]] %>
+			<% end %>
+			<%= f.actions do %>
+				<%= f.action :submit, :label => "Add collaborator" %>
+			<% end %>
+		<% end %>
+	</div>
 </div>

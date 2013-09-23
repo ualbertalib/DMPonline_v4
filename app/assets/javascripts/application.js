@@ -57,7 +57,7 @@ $( document ).ready(function() {
 		$(".view-project").toggle();
 	});
 	
-	$(".toggle-existing-user-access").click(function(){
+	$(".toggle-existing-user-access").change(function(){
 		$(this).closest("form").submit();
 	});
 

@@ -1,34 +1,38 @@
-<!-- project navigation -->
-<script>
-  $(function(){
-        $('.nav-tabs').tabs()
-    });
-</script> 
-
 <!-- project navigation -->  
 <div id="project-tabs" class="nav-project-tabs">
-    <ul class="nav nav-tabs" data-tabs="tabs">
-        <!-- Project details (views/projects/_project_details.html.erb)-->
-        <% if active == "edit_project" || active == "show_project" then %>
-            <li class="active">
-        <% else %>
-            <li>
-        <% end %>
-                <%= link_to t('helpers.project.tab_plan'), project %>
-            </li>
-        <!-- Plans (phases)-->
-        <% project.plans.each do |plan| %>
-            <% if active == plan.id then %>
-                <li class="active">
-            <% else %>
-                <li>
-            <% end %>
-            <% if active == "show_project" || active == "edit_project" then %>
-                <%= link_to plan.version.phase.title, [:edit, @project, plan]%>
-            <% else %>
-            	<%= link_to plan.version.phase.title, [:edit, @plan.project, plan]%>
-            <% end %>   
-            </li>
-        <% end %>
+	<ul class="nav nav-tabs" data-tabs="tabs">
+		<!-- Project details (views/projects/_project_details.html.erb)-->
+		<% if active == "show_project" then %>
+		<li class="active">
+		<% else %>
+		<li>
+		<% end %>
+		<%= link_to t('helpers.project.tab_plan'), project %>
+    </li>
+    <!-- Plans (phases)-->
+    <% project.plans.each do |plan| %>
+			<% if active == plan.id then %>
+			<li class="active">
+			<% else %>
+			<li>
+			<% end %>
+			<% if active == "show_project" || active == "share_project" then %>
+			<%= link_to plan.version.phase.title, [:edit, @project, plan]%>
+			<% else %>
+			<%= link_to plan.version.phase.title, [:edit, @plan.project, plan]%>
+			<% end %>   
+			</li>
+    <% end %>
+      <% if active == "share_project" then %>
+      <li class="active">
+      <% else %>
+      <li>
+      <% end %>
+      <% if active == "show_project" || active == "share_project" then %>
+      <%= link_to "Share", ["share", project] %>
+      <% else %>
+      <%= link_to "Share", ["share", project] %>
+      <% end %>
+      </li>
     </ul>
 </div>
