@@ -30,6 +30,7 @@ gem 'jquery-rails', "2.3.0"
 
 gem 'tinymce-rails'
 gem 'friendly_id'
+gem 'contact_us', '~> 0.4.0'
 
 #implementation of forms
 gem 'activeadmin'
