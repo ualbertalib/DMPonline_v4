@@ -108,4 +108,8 @@
 		</div>
 	<% end %>
 </div>
-<div class="two-column-clear"></div>
+<% if last_question_id == question.id then %>
+	<div class="two-column-clear"></div>
+<% else %>
+	<div class="two-column-clear question-divider"></div>
+<% end %>

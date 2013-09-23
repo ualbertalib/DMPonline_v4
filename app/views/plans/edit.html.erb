@@ -59,7 +59,7 @@
 							</div>
 							<div class="loaded">
 								<% section.questions.order("number").each do |question| %>
-									<%= render partial: "answer_form", locals: {question: question, readonly: readonly} %>
+									<%= render partial: "answer_form", locals: {question: question, readonly: readonly, last_question_id: section.questions.order("number DESC").first.id} %>
 								<% end %>
 							</div>
     				</div>
