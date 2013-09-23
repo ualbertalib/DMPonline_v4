@@ -80,10 +80,10 @@
 
 mrc_5_2_yes:
   question: mrc_5_2
-  text: Yes
+  text: "Yes"
   number: 1
 
 mrc_5_2_no:
   question: mrc_5_2
-  text: No
+  text: "No"
   number: 2

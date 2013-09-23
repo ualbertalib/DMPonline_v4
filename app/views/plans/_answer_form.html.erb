@@ -39,7 +39,14 @@
 							<% end %>
 						<% end %>
 					<% end %>
-					<div id="option-warning-<%= question.id %>" class="alert" style="display:none"></div>
+					<div id="option-warning-<%= question.id %>" class="alert" style="display:none">
+						<% question.options.order("number").each do |option| %>
+							<% warning = @plan.warning(option.id) %>
+							<% unless warning.nil? then %>
+								<p id="<%= option.id %>-warning" data-option='<%= option.id %>'><%= warning %></p>
+							<% end %>
+						<% end %>
+					</div>
 					<%= label_tag("answer-text-#{question.id}".to_sym, "Comment") %>
 				<% else %>
 					<%= label_tag("answer-text-#{question.id}".to_sym, question.text) %>

@@ -246,8 +246,8 @@ $( document ).ready(function() {
 	
 	function display_warning(option_id, question_id, hide){
 		if (hide) {
+			$("#option-warning-"+question_id+" > p").hide();
 			$("#option-warning-"+question_id).hide();
-			$("#option-warning-"+question_id).html("");
 		}
 		if ($.isArray(option_id)) {
 			$.each(option_id, function () {
@@ -255,19 +255,13 @@ $( document ).ready(function() {
 			});
 		}
 		else {
-			$.getJSON("warning.json?option_id="+option_id, function(data) {
-				if (data != null) {
-					$("#option-warning-"+question_id).append("<p data-option='"+option_id+"'>"+data.text+"</p>");
-					$("#option-warning-"+question_id).show();
-				}
-			});
+			$("#"+option_id+"-warning").show();
+			$("#option-warning-"+question_id).show();
 		}
 	}
 	
 	function clear_warning(option_id, question_id){
-		var warning = $("[data-option = "+option_id+"]");
-		var parent= warning.parent();
-		$("[data-option = "+option_id+"]").remove();
-		parent.not(":has(p)").hide();
+		$("#"+option_id+"-warning").hide();
+		$("#option-warning-"+question_id).not(":has(p)").hide();
 	}
 });
