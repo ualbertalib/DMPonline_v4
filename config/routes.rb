@@ -1,7 +1,7 @@
 DMPonline4::Application.routes.draw do
   
-  devise_for :users, :controllers => {:registrations => "registrations"}
-
+  devise_for :users, :controllers => {:registrations => "registrations", :confirmations => 'confirmations'}
+  
   devise_for :admin_users, ActiveAdmin::Devise.config
   
     # You can have the root of your site routed with "root"
