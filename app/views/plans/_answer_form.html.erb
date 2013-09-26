@@ -58,7 +58,8 @@
 					<%= f.action :submit, :label => t('helpers.save'), :input_html => { :disabled => true } %>
 				<% else %>
 					<%= f.action :submit, :label => t('helpers.save')%>
-				<% end %> 
+				<% end %>
+					<li id='saving-<%= question.id %>' style='display:none;'>Saving...</li> 
 			<% end %> 
 		<% end %>
 		</div>

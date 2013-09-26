@@ -11,7 +11,10 @@ $( document ).ready(function() {
 	
 	// Update status messages on form submission
 	$("form.answer").submit(function(){
+		var submit_button = $(this).find('input[type="submit"]');
+		submit_button.parent().hide();
 		q_id = $(this).find(".question_id").val();
+		$("#saving-"+q_id).show();
 		s_status = $(this).closest(".accordion-group").find(".section-status:first");
 		// Allow half a second for database to update
 		timeout = setTimeout(function(){		
@@ -20,7 +23,9 @@ $( document ).ready(function() {
 				update_plan_progress(data);
 				update_timestamp(q_id, data);
 				// Get section status element
-				update_section_progress(s_status, data)
+				update_section_progress(s_status, data);
+				submit_button.parent().show();
+				$("#saving-"+q_id).hide();
 			});
 		},500);
 	});
