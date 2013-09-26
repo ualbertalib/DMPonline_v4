@@ -61,5 +61,10 @@ module DMPonline4
     config.assets.precompile += %w(plans.js)
     config.assets.precompile += %w(projects.js)
     config.autoload_paths += %W(#{config.root}/lib)
+    
+    # Set the default host for mailer URLs
+    config.action_mailer.default_url_options = { :host => 'dmponline-beta.dcc.ac.uk' }
+    config.active_record.whitelist_attributes = true
+    
   end
 end
