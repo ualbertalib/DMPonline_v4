@@ -1,6 +1,7 @@
 DMPonline4::Application.routes.draw do
   
   devise_for :users, :controllers => {:registrations => "registrations", :confirmations => 'confirmations'}
+  resources :contacts, :controllers => {:contacts => 'contacts'}
   
   devise_for :admin_users, ActiveAdmin::Devise.config
   
@@ -11,7 +12,6 @@ DMPonline4::Application.routes.draw do
   ActiveAdmin.routes(self)
 
   get "about_us" => 'static_pages#about_us', :as => "about_us"
-  get "contact_us" => 'static_pages#contact_us', :as => "contact_us"
  
   resources :dmptemplates
   resources :phases

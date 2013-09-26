@@ -46,13 +46,13 @@ class Plan < ActiveRecord::Base
 		unless project.organisation.nil? then
 			project.organisation.guidance_groups.each do |group|
 				group.guidances.where("theme_id IN (?)", theme_ids).each do |g|
-					guidances["#{group.display_name} guidance on #{g.theme.title}"] = g
+					guidances["#{group.abbreviation} guidance on #{g.theme.title}"] = g
 				end
 			end
 		end
 		project.guidance_groups.each do |group|
 			group.guidances.where("theme_id IN (?)", theme_ids).each do |g|
-				guidances["#{group.display_name} guidance on #{g.theme.title}"] = g
+				guidances["#{group.abbreviation} guidance on #{g.theme.title}"] = g
 			end
 		end
 		return guidances

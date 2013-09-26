@@ -1,3 +1,8 @@
+<script type="text/javascript">
+ var RecaptchaOptions = {
+    theme : 'clean'
+ };
+</script>
 <h2><%= t('.contact_us') %></h2>
 <div class="project-details-body">
 	<%= form_for @contact, :url => contacts_path do |f| %>
@@ -57,6 +62,14 @@
 						<% if f.object.errors[:message].present? %>
 							<p class='inline-error'><%= f.object.errors[:message].join(' and ') %></p>
 						<% end %>
+					</td>
+				</tr>
+				<tr>
+					<td class='text required first'>
+						Security check
+					</td>
+					<td>
+						<%= recaptcha_tags %>
 					</td>
 				</tr>
 			</table>
