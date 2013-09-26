@@ -40,10 +40,10 @@ $( document ).ready(function() {
 		$(this).closest(".question-guidance").find(".collapse").removeClass("in");
 		if (show) {
 			$($(this).attr("href")).toggleClass("in");
-			$(this).children(".icon-plus").removeClass("icon-plus").addClass("icon-minus");
+			$(this).children(".plus-laranja").removeClass("plus-laranja").addClass("minus-laranja");
 		}
 		else {
-			$(this).children(".icon-minus").removeClass("icon-minus").addClass("icon-plus");
+			$(this).children(".minus-laranja").removeClass("minus-laranja").addClass("plus-laranja");
 		}
 	});
 	

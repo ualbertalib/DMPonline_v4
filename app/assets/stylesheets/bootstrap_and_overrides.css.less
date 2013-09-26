@@ -448,16 +448,20 @@ ul.footer-links li a:hover,  ul.footer-links li a:focus{
    padding: 15px;
 }
 
-#homepage-accordion .accordion-heading a{
+#homepage-accordion .accordion-heading a.accordion-toggle{
   color: @orange_colour;
   font-family: @header_font;
   font-size: 51px;
   font-weight: normal;
-  line-height: 40px;
   margin-bottom: 23px;
   padding: 0;
- 
-}
+  background-color: transparent !important;
+  line-height: 51px;
+ }
+#homepage-accordion .accordion-heading a.accordion-toggle:hover,
+ #homepage-accordion .accordion-heading a.accordion-toggle:focus{
+   color: @orange_colour!important;
+ }
 
 #homepage-accordion .accordion-inner{
   border: @white_colour;
@@ -466,13 +470,16 @@ ul.footer-links li a:hover,  ul.footer-links li a:focus{
 
 .minus-laranja:before{
   content: "\2212"; 
-  color: @orange_colour;
   float:right;
+  background-color: transparent !important;
+  padding-right:2px;
 }
 .plus-laranja:before{
   content: "+"; 
-  color: @orange_colour;
   float:right;
+  background-color: transparent !important;
+  padding-right:2px;
+
 }
 
 
@@ -961,11 +968,12 @@ ul.question_ul li{
 .question-guidance .accordion-heading{
   background-color:@white_colour;
   border-bottom: 1px solid @orange_colour;
-  min-height: 50px;
+
 }
 
 .question-guidance .accordion-heading a,  .question-guidance .accordion-heading a:hover{
     padding-left:0px;
+    padding-right: 0px;
     color:  @orange_colour !important;
     font-weight: bold;
 }
@@ -1042,10 +1050,6 @@ div {
     font-size: 12px;
     list-style: square;
   }
-}
-
-#recaptcha_widget_div td {
-	min-width: 0px;
 }
 
 

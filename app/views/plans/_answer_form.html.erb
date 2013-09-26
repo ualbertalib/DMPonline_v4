@@ -92,7 +92,9 @@
 <div class="question-guidance accordion" id="<%= question.id %>-guidance">
 	<div class="accordion-group">
 		<div class="accordion-heading">
-			<a class="accordion-toggle guidance-accordion-toggle" data-toggle="collapse" data-parent="#<%= question.id %>-guidance" href="#collapse-default-guidance-<%= question.id%>"><%= question.section.organisation.abbreviation %> Guidance <span class="icon-plus icon-white accordion-icon"> </span></a>
+			<a class="accordion-toggle guidance-accordion-toggle" data-toggle="collapse" data-parent="#<%= question.id %>-guidance" href="#collapse-default-guidance-<%= question.id%>">
+				<%= question.section.organisation.abbreviation %> Guidance 
+				<span class="plus-laranja"> </span></a>
 		</div>
 		<div id="collapse-default-guidance-<%= question.id%>" class="accordion-body collapse">
 			<div class="accordion-inner"><%= raw question.guidance %></div>
@@ -101,7 +103,9 @@
 	<% @plan.guidance_for_question(question).each_pair do |title,guidance| %>
 		<div class="accordion-group">
 			<div class="accordion-heading">
-				<a class="accordion-toggle guidance-accordion-toggle" data-toggle="collapse" data-parent="#<%= question.id %>-guidance" href="#collapse-guidance-<%= guidance.id%>"><%= title%> <span class="icon-plus icon-white accordion-icon"> </span></a>
+				<a class="accordion-toggle guidance-accordion-toggle" data-toggle="collapse" data-parent="#<%= question.id %>-guidance" href="#collapse-guidance-<%= guidance.id%>">
+					<%= title%> 
+					<span class="plus-laranja"> </span></a>
 			</div>
 			<div id="collapse-guidance-<%= guidance.id%>" class="accordion-body collapse">
 				<div class="accordion-inner"><%= raw guidance.text %></div>
