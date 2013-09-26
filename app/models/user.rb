@@ -21,7 +21,8 @@ class User < ActiveRecord::Base
 		if firstname.nil? && surname.nil? && use_email then
 			return email
 		else
-			return "#{firstname} #{surname}"
+			name = "#{firstname} #{surname}"
+			return name.strip
 		end
 	end
 	
