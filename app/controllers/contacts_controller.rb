@@ -1,7 +1,7 @@
 class ContactsController < ContactUs::ContactsController	
 	def create
 		@contact = ContactUs::Contact.new(params[:contact_us_contact])
-		if @contact.save
+		if verify_recaptcha(:message => "You have not added the validation words correctly") && @contact.save
 			flash[:notice] = t('contact_us.notices.success')
 			if user_signed_in? then
 		  		redirect_to :controller => 'projects', :action => 'index'
