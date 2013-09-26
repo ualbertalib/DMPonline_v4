@@ -36,8 +36,8 @@ gem 'contact_us', '~> 0.4.0'
 gem 'activeadmin'
 
 # devise for user authentication
-gem 'devise'
-gem 'devise_invitable'
+gem 'devise', '~>3.0.0'
+gem 'devise_invitable', '>= 1.2.1'
 
 #cancan for usergroups
 gem 'cancan'

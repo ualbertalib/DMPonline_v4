@@ -77,7 +77,7 @@ class Project < ActiveRecord::Base
 	end
 	
 	def assign_creator(user_id)
-		add_user(user_id, true, true)
+		add_user(user_id, true, true, true)
 	end
 	
 	def assign_editor(user_id)
@@ -86,6 +86,19 @@ class Project < ActiveRecord::Base
 	
 	def assign_reader(user_id)
 		add_user(user_id)
+	end
+	
+	def assign_administrator(user_id)
+		add_user(user_id, true, true)
+	end
+	
+	def administerable_by(user_id)
+		user = project_groups.find_by_user_id(user_id)
+		if (! user.nil?) && user.project_administrator then
+			return true
+		else
+			return false
+		end
 	end
 	
 	def editable_by(user_id)
@@ -140,11 +153,12 @@ class Project < ActiveRecord::Base
 	
 	private
 	
-	def add_user(user_id, is_editor = false, is_creator = false)
+	def add_user(user_id, is_editor = false, is_administrator = false, is_creator = false)
 		group = ProjectGroup.new
 		group.user_id = user_id
 		group.project_creator = is_creator
 		group.project_editor = is_editor
+		group.project_administrator = is_administrator
 		project_groups << group
 	end
 	

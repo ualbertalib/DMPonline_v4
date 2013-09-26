@@ -273,5 +273,4 @@ Devise.setup do |config|
     manager.failure_app = CustomFailure
   end
   
-  config.secret_key = 'aea046d7848af5778b3029757613796431fb452aa043a2d1584b4a43e951eef7fb3ef49c627d779d35a541c0232f8416b6f8c07c97efade916406fce4b2ecc8a'
 end

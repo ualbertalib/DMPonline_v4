@@ -55,7 +55,7 @@ class ProjectsController < ApplicationController
 	
 	def share
 		@project = Project.find(params[:id])
-		unless user_signed_in? && @project.editable_by(current_user.id) then
+		unless user_signed_in? && @project.administerable_by(current_user.id) then
 			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
 		end
 	end

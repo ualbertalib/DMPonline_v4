@@ -70,6 +70,10 @@ class Plan < ActiveRecord::Base
 		return project.readable_by(user_id)
 	end
 	
+	def administerable_by(user_id)
+		return project.readable_by(user_id)
+	end
+	
 	def status
 		status = {
 			"num_questions" => 0,

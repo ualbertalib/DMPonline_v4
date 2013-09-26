@@ -23,16 +23,14 @@
 			<% end %>   
 			</li>
     <% end %>
-		<% if active == "share_project" then %>
-		<li class="active">
-		<% else %>
-		<li>
+    <% if project.administerable_by(current_user.id) then %>
+			<% if active == "share_project" then %>
+			<li class="active">
+			<% else %>
+			<li>
+			<% end %>
+			<%= link_to "Share", ["share", project] %>
+			</li>
 		<% end %>
-		<% if active == "show_project" || active == "share_project" then %>
-		<%= link_to "Share", ["share", project] %>
-		<% else %>
-		<%= link_to "Share", ["share", project] %>
-		<% end %>
-		</li>
 	</ul>
 </div>

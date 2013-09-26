@@ -2,10 +2,18 @@ class ProjectGroupsController < ApplicationController
 	
 	def create
 		@project_group = ProjectGroup.new(params[:project_group])
-		if (user_signed_in?) && @project_group.project.editable_by(current_user.id) then
+		access_level = params[:project_group][:access_level].to_i
+		if access_level >= 3 then
+  			@project_group.project_administrator = true
+  		end
+  		if access_level >= 2 then
+  			@project_group.project_editor = true
+  		end
+		if (user_signed_in?) && @project_group.project.administerable_by(current_user.id) then
 			respond_to do |format|
 				message = 'User added to project'
 			  	if @project_group.save
+			  		@project_group.save
 					if @project_group.user.nil? then
 						if User.find_by_email(params[:project_group][:email]).nil? then
 							User.invite!(:email => params[:project_group][:email])
@@ -29,7 +37,18 @@ class ProjectGroupsController < ApplicationController
 	
 	def update
     	@project_group = ProjectGroup.find(params[:id])
-    	if (user_signed_in?) && @project_group.project.editable_by(current_user.id) then
+    	access_level = params[:project_group][:access_level].to_i
+		if access_level >= 3 then
+  			@project_group.project_administrator = true
+  		else
+  			@project_group.project_administrator = false
+  		end
+  		if access_level >= 2 then
+  			@project_group.project_editor = true
+  		else
+  			@project_group.project_editor = false
+  		end
+    	if (user_signed_in?) && @project_group.project.administerable_by(current_user.id) then
 			respond_to do |format|
 				if @project_group.update_attributes(params[:project_group])
 					flash[:notice] = 'Sharing details successfully updated.'
@@ -47,7 +66,7 @@ class ProjectGroupsController < ApplicationController
 
 	def destroy
 		@project_group = ProjectGroup.find(params[:id])
-		if (user_signed_in?) && @project_group.project.editable_by(current_user.id) then
+		if (user_signed_in?) && @project_group.project.administerable_by(current_user.id) then
 			@project_group.destroy
 			respond_to do |format|
 				flash[:notice] = 'Access removed'

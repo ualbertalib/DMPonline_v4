@@ -26,7 +26,7 @@
 							Creator
 						<% else %>
 							<%= form_for group, :url => {:controller => :project_groups, :action => :update, :id => group.id }, :html=>{:method=>:put} do |f| %>
-								<%= f.select :project_editor, {'Edit' => true, 'Read-only' => false}, {}, {:id => "#{group.id}-can-edit", :class => "toggle-existing-user-access"} %>
+								<%= f.select :access_level, {'Administrator' => 3, 'Editor' => 2, 'Read-only' => 1}, {}, {:id => "#{group.id}-can-edit", :class => "toggle-existing-user-access"} %>
 							<% end %>
 						<% end %>
 					</td>
@@ -50,7 +50,7 @@
 			<%= f.inputs do %>
 				<%= f.input :project_id, :as => :hidden %>
 				<%= f.input :email %>
-				<%= f.select :project_editor, [['Edit', true], ['Read-only', false]] %>
+				<%= f.select :access_level, [['Administrator', 3], ['Editor', 2], ['Read-only', 1]] %>
 			<% end %>
 			<%= f.actions do %>
 				<%= f.action :submit, :label => "Add collaborator" %>
