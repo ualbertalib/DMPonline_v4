@@ -38,11 +38,10 @@
 @font_size: 13px;
 @font_colour: #3e3c3c;
 @orange_colour: #F49700;
-@orange_darker_colour: #f47900;
+@orange_light_colour: #f47900;
 @grey_colour: #656263;
 @grey_lighter_colour: #827d7e;
 @grey_very_light_colour: #cccccc;
-@grey_darker_colour: #515151;
 @background_lighter_colour: #f9f9f9;
 @background_darker_colour: #d1d5d4;
 @green_colour: #114b8b; //#007e30;
@@ -94,7 +93,7 @@ h4{
 }
 
 p{
-  font-size: @font_size; 
+  font-size: 13px;  
 }
 
 p.white_background{
@@ -105,9 +104,9 @@ p.white_background{
   border-top-right-radius: 5px;
   padding: 20px 20px 20px 20px;
 }
-p a:hover, a.a-orange:hover, div.signIn a:hover, td a:hover{
-  color: @orange_darker_colour !important;
-  background-color: none !important;
+p a.hover{
+  color: @orange_colour !important;
+   background-color: none !important;
 }
 
 a, a:active {
@@ -120,8 +119,9 @@ a.visited{
   color: @orange_colour;
 }
 
-a:hover, a.btn:hover{
-   color: @white_colour !important;
+a.hover{
+   font-weight:bold;
+   color: @orange_colour !important;
    background-color: none !important;
 }
 
@@ -305,11 +305,11 @@ ul.nav-pills li.last_li a.header_button{
 }
 
 .btn-primary:hover{
-  background-image: -moz-linear-gradient(top , @orange_colour, @orange_darker_colour 49px);
-  background-image: -webkit-linear-gradient(top , @orange_colour, @orange_darker_colour 49px);
-  background-image: -o-linear-gradient(top , @orange_colour, @orange_darker_colour 49px);
-  background-image: -ms-linear-gradient(top , @orange_colour, @orange_darker_colour 49px);
-  background-image: linear-gradient(top , @orange_colour, @orange_darker_colour 49px);
+  background-image: -moz-linear-gradient(top , @orange_colour, @orange_light_colour 49px);
+  background-image: -webkit-linear-gradient(top , @orange_colour, @orange_light_colour 49px);
+  background-image: -o-linear-gradient(top , @orange_colour, @orange_light_colour 49px);
+  background-image: -ms-linear-gradient(top , @orange_colour, @orange_light_colour 49px);
+  background-image: linear-gradient(top , @orange_colour, @orange_light_colour 49px);
   color: @white_colour;
  }
 
@@ -382,26 +382,20 @@ ul.footer-links li {
 }
 
 ul.footer-links li a, ul.footer-links li a:active, ul.footer-links li a:visited {
-  color: @grey_colour;
+  color: #999999;
   text-decoration: none;
 }
 
 ul.footer-links li a:hover,  ul.footer-links li a:focus{
-   color: @grey_darker_colour !important;
-   text-decoration:underline;
+   color: @orange_colour;
 }
 
-#dcc_link{
-  color: @grey_colour;
-}
-
-#dcc_link a, #dcc_link a:active, #dcc_link a:visited{
+#dcc_link, #dcc_link a, #dcc_link a:active, #dcc_link a:visited{
     text-decoration: none;
-    color: @grey_colour;
+    color: #999999;
 }
 #dcc_link a:hover,  #dcc_link a:focus{
-   color: @grey_darker_colour !important;
-   text-decoration:underline;
+    color: @orange_colour;
   }
 
 
@@ -456,7 +450,6 @@ ul.footer-links li a:hover,  ul.footer-links li a:focus{
   line-height: 40px;
   margin-bottom: 23px;
   padding: 0;
- 
 }
 
 #homepage-accordion .accordion-inner{
@@ -464,14 +457,16 @@ ul.footer-links li a:hover,  ul.footer-links li a:focus{
   padding-top: 0px;
 }
 
-.minus-laranja:before{
-  content: "\2212"; 
-  color: @orange_colour;
+.minus-laranja{
+  background-image: url('minus_laranja.png');
+  width:22px;
+  height:22px;
   float:right;
 }
-.plus-laranja:before{
-  content: "+"; 
-  color: @orange_colour;
+.plus-laranja{
+  background-image: url('plus_laranja.png');
+  width:22px;
+  height:22px;
   float:right;
 }
 
@@ -705,11 +700,11 @@ li.choice label input{
 .progress .bar{
   background-color: @orange_colour;
   padding-left: 1px; 
-  background-image: -moz-linear-gradient(top , @orange_colour, @orange_darker_colour 49px);
-  background-image: -webkit-linear-gradient(top , @orange_colour, @orange_darker_colour 49px);
-  background-image: -o-linear-gradient(top , @orange_colour, @orange_darker_colour 49px);
-  background-image: -ms-linear-gradient(top , @orange_colour, @orange_darker_colour 49px);
-  background-image: linear-gradient(top , @orange_colour, @orange_darker_colour 49px);
+  background-image: -moz-linear-gradient(top , @orange_colour, @orange_light_colour 49px);
+  background-image: -webkit-linear-gradient(top , @orange_colour, @orange_light_colour 49px);
+  background-image: -o-linear-gradient(top , @orange_colour, @orange_light_colour 49px);
+  background-image: -ms-linear-gradient(top , @orange_colour, @orange_light_colour 49px);
+  background-image: linear-gradient(top , @orange_colour, @orange_light_colour 49px);
 } 
 
 .progress .color-text{
@@ -802,7 +797,6 @@ table.project_details_table tr td{
 table.project_details_table tr td.first{
   border-right: 1px solid @orange_colour;
   padding-right: 15px;
-  vertical-align:top;
   text-align: right;
   width: 250px;
 }
@@ -828,13 +822,11 @@ table.project_details_table tr td.first{
 
 #project-accordion .accordion-heading a{
     padding-left:0px;
-    padding-right:0px;
 }
 
  #project-accordion .accordion-heading h3{
   float: left;
   margin-top: 0px;
-  min-width:100%;
 }
 
 #project-accordion .accordion-heading span{
@@ -937,8 +929,8 @@ ul.question_ul li{
     width:35%;
   }
   label {
-    font-size: 14px;  
-    font-weight:normal;
+    font-size: 1.2em;
+    font-weight: bold;
   }
   .guidance_header {
     font-weight: bold;
@@ -946,28 +938,6 @@ ul.question_ul li{
   .loading {
     display:none;
   }
-}
-
-/*** accordion guidance***/
-.question-guidance .accordion-group{
-  background-color:@white_colour;
-  border-color: @white_colour;
-  border:none !important;
-  box-shadow:none !important;
-  -moz-box-shadow: none !important;
-  -webkit-box-shadow:none !important;
-} 
-
-.question-guidance .accordion-heading{
-  background-color:@white_colour;
-  border-bottom: 1px solid @orange_colour;
-  min-height: 50px;
-}
-
-.question-guidance .accordion-heading a,  .question-guidance .accordion-heading a:hover{
-    padding-left:0px;
-    color:  @orange_colour !important;
-    font-weight: bold;
 }
 
 .two-column-clear {
@@ -1000,10 +970,7 @@ ul.question_ul li{
   margin: 5px;
 }
 
-.mce-panel i.mce-ico{
-  font-size: @font_size;  
-  font-weight:normal;
-}
+
 
 div {
   &.field, &.actions {
@@ -1042,10 +1009,6 @@ div {
     font-size: 12px;
     list-style: square;
   }
-}
-
-#recaptcha_widget_div td {
-	min-width: 0px;
 }
 
 

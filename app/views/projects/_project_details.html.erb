@@ -164,7 +164,7 @@
 				
 				<div class="div_right">
 					<%= link_to t('helpers.answer_questions'), [:edit, @project, plan], :class => 'btn btn-primary'  %>
-					<a href="#<%= plan.id %>-export-dialog" data-toggle="modal" class		='btn btn-primary'><%= t('helpers.export') %></a>
+					<a href="#<%= plan.id %>-export-dialog" data-toggle="modal" class='btn btn-primary'><%= t('helpers.export') %></a>
 				</div>
 				<%= render :partial => "plans/export", locals: {plan: plan} %>
 				<div class="div_clear"></div>
@@ -206,14 +206,15 @@
 					<div class="accordion-group">
 						<div class="accordion-heading">
 							<a class="accordion-toggle" data-toggle="collapse" data-parent="#project-accordion" href="#<%= plan.version.phase.id %>">
-								<h3><%= plan.version.phase.title %></h3>
-							<span class="plus-laranja"> </span></a>
+								<h3><%= plan.version.phase.title %><span class="plus-laranja"> </span>
+								</h3>
+							</a>
 						</div>
 						<div id="<%= plan.version.phase.id %>" class="accordion-project collapse">
 							<div class="accordion-inner">
 								<div class="div_right">
 										<%= link_to t('helpers.answer_questions'), [:edit, @project, plan], :class => 'btn btn-primary'  %>
-										<a href="#<%= plan.id %>-export-dialog" data-toggle="modal" class		='btn btn-primary'><%= t('helpers.export') %></a>
+										<a href="#<%= plan.id %>-export-dialog" data-toggle="modal" class='btn btn-primary'><%= t('helpers.export') %></a>
 								</div>
 								<%= render :partial => "plans/export", locals: {plan: plan} %>
 								<div class="div_clear"></div>

@@ -67,6 +67,12 @@ DMPonline4::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+	
+	 # Error notifications by email
+  	config.middleware.use ExceptionNotifier,
+    sender_address: 'noreply@dcc.ac.uk',
+    exception_recipients: 'marta.ribeiro@ed.ac.uk',
+    email_prefix: '[DMPOnline v4 ERROR] '
 
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
