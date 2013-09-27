@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130926121718) do
+ActiveRecord::Schema.define(:version => 20130927092206) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -167,6 +167,7 @@ ActiveRecord::Schema.define(:version => 20130926121718) do
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false
     t.integer  "parent_id"
+    t.boolean  "is_other"
   end
 
   create_table "pages", :force => true do |t|
@@ -365,6 +366,7 @@ ActiveRecord::Schema.define(:version => 20130926121718) do
     t.integer  "invitation_limit"
     t.integer  "invited_by_id"
     t.string   "invited_by_type"
+    t.string   "other_organisation"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
