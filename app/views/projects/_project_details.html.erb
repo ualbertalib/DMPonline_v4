@@ -1,9 +1,9 @@
 <!-- Project title = default title is the template title plus date of creation -->
 <div class="project-details-body">
-	<div class="view-project <%= if @show_form && @project.editable_by(current_user.id) then "project-hide" end %>">
+	<div class="view-project <%= if @show_form && @project.administerable_by(current_user.id) then "project-hide" end %>">
 		<!-- edit project button -->
 		<div class="div_right">
-			<% if @project.editable_by(current_user.id) then %>
+			<% if @project.administerable_by(current_user.id) then %>
 				<a href='#' class='btn btn-primary show-edit-toggle'><%= t("helpers.project.edit") %></a>
 			<% end %>
 		</div>
@@ -72,13 +72,11 @@
 			</table>
 		</div>
 	</div>
-	<% if @project.editable_by(current_user.id) then %>
+	<% if @project.administerable_by(current_user.id) then %>
 		<div class="edit-project <%= unless @show_form then "project-hide" end %>">
 		<!-- edit project button -->
 		<div class="div_right">
-			<% if @project.editable_by(current_user.id) then %>
-				<a href='#' class='btn btn-primary show-edit-toggle'><%= t("helpers.links.cancel") %></a>
-			<% end %>
+			<a href='#' class='btn btn-primary show-edit-toggle'><%= t("helpers.links.cancel") %></a>
 		</div>
 		<%= semantic_form_for @project, :url => {:controller => :projects, :action => :update }, :html=>{:method=>:put} do |f| %>
 		<%= f.inputs do %>
@@ -213,8 +211,8 @@
 						<div id="<%= plan.version.phase.id %>" class="accordion-project collapse">
 							<div class="accordion-inner">
 								<div class="div_right">
-										<%= link_to t('helpers.answer_questions'), [:edit, @project, plan], :class => 'btn btn-primary'  %>
-										<a href="#<%= plan.id %>-export-dialog" data-toggle="modal" class='btn btn-primary'><%= t('helpers.export') %></a>
+									<%= link_to t('helpers.answer_questions'), [:edit, @project, plan], :class => 'btn btn-primary'  %>
+									<a href="#<%= plan.id %>-export-dialog" data-toggle="modal" class='btn btn-primary'><%= t('helpers.export') %></a>
 								</div>
 								<%= render :partial => "plans/export", locals: {plan: plan} %>
 								<div class="div_clear"></div>
