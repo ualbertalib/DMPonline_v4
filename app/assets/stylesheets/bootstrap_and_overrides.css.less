@@ -79,6 +79,7 @@ h1, h2, h3, h4 {
 }
 h1{
   font-size: 40px;  
+  line-height:53px;
 }
 
 h2{
@@ -158,7 +159,9 @@ footer {
 }
 
 
-
+#send_btn {
+  width:100% !important;
+}
 
 
 /**** header ****/
@@ -777,7 +780,7 @@ li.choice label input{
 }
  
 
-.project-details-body{
+.dmp_details_body{
   background-color: @white_colour;
   border: 2px solid @orange_colour;
   border-radius: 1px;
@@ -785,9 +788,10 @@ li.choice label input{
   padding-left: 15px;
   padding-right: 15px;
   padding-top: 9px;
+  min-width: 410px;
 }
 
-.project-details{
+.dmp_details{
   padding: 20px 0 25px 0;
   
 }
@@ -797,16 +801,16 @@ li.choice label input{
   padding:0 2px 15px 0;
 }
 
-table.project_details_table {
+table.dmp_details_table {
    margin: 15px 0 25px 0;
 }
 
-table.project_details_table tr td{
+table.dmp_details_table tr td{
   padding-left: 15px;
   min-width:150px;
 }
 
-table.project_details_table tr td.first{
+table.dmp_details_table tr td.first{
   border-right: 1px solid @orange_colour;
   padding-right: 15px;
   vertical-align:top;

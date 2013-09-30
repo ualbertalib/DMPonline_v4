@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
     attr_accessible :password_confirmation, :encrypted_password, :remember_me, :id, :email, :firstname, :last_login, :login_count, :orcid_id, :password, :shibboleth_id, :user_status_id, :surname, :user_type_id, :organisation_id, :skip_invitation
 
 	def name(use_email = true)
-		if firstname.nil? && surname.nil? && use_email then
+		if ((firstname.nil? && surname.nil?) || (firstname.strip == "" && surname.strip == "")) && use_email then
 			return email
 		else
 			name = "#{firstname} #{surname}"

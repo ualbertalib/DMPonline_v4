@@ -3,11 +3,11 @@
     theme : 'clean'
  };
 </script>
-<h2><%= t('.contact_us') %></h2>
-<div class="project-details-body">
+<h1><%= t('.contact_us') %></h1>
+<div class="dmp_details_body">
 	<%= form_for @contact, :url => contacts_path do |f| %>
-		<div class="project-details">
-			<table class="project_details_table">
+		<div class="dmp_details">
+			<table class="dmp_details_table">
 				<% if ContactUs.require_name %>
 					<tr>
 						<td class='string required first' id='contact_us_contact_name_input'>
@@ -58,7 +58,7 @@
 						<%= f.label :message, (t('.message') + content_tag(:abbr, '*', :class => 'required')).html_safe %>
 					</td>
 					<td>
-						<%= f.text_area :message %>
+						<%= f.text_area :message, :rows => 10, :style => "width:95%;"%>
 						<% if f.object.errors[:message].present? %>
 							<p class='inline-error'><%= f.object.errors[:message].join(' and ') %></p>
 						<% end %>

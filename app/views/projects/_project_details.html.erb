@@ -1,5 +1,5 @@
 <!-- Project title = default title is the template title plus date of creation -->
-<div class="project-details-body">
+<div class="dmp_details_body">
 	<div class="view-project <%= if @show_form && @project.administerable_by(current_user.id) then "project-hide" end %>">
 		<!-- edit project button -->
 		<div class="div_right">
@@ -8,8 +8,8 @@
 			<% end %>
 		</div>
 		<!-- display project details -->
-		<div class="project-details">
-			<table class="project_details_table">
+		<div class="dmp_details">
+			<table class="dmp_details_table">
 				<tr>
 					<td class="first"><%= t('helpers.project.project_name') %></td>
 					<td><%= @project.title %></td>
@@ -80,9 +80,9 @@
 		</div>
 		<%= semantic_form_for @project, :url => {:controller => :projects, :action => :update }, :html=>{:method=>:put} do |f| %>
 		<%= f.inputs do %>
-			<div class="project-details">
+			<div class="dmp_details">
 				<!-- If not first time login in or editing project details -->
-				<table class="project_details_table">
+				<table class="dmp_details_table">
 					<tr>
 						<td class="first"><%= t('helpers.project.project_name') %></td>
 						<td>
@@ -139,7 +139,7 @@
 	</div>
 	<% end %>
 	<h3><%= t('helpers.project.project_static_info')%></h3>
-	<table class="project_details_table">
+	<table class="dmp_details_table">
 		<!-- get the funder name if there is one -->
 		<%if @project.dmptemplate.organisation.organisation_type.name == t('helpers.org_type.funder') %>
 			<tr>
