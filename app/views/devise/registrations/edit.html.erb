@@ -17,6 +17,14 @@
 				<td class="first"><%= t('helpers.last_name') %></td>
 				<td><%= f.text_field :surname %></td>
 			</tr>
+			<tr>
+				<td class="first"><%= t('helpers.org_type.organisation') %></td>
+				<td><%= collection_select(:user, :organisation_id, Organisation.where("parent_id IS NULL").order("name"), :id, :name, {include_blank: t('helpers.org_type.organisation')}, { :class => 'typeahead org_sign_up' }) %></td>
+			</tr>	
+			<tr>
+				<td class="first"><%= t('helpers.orcid_id') %></td>
+				<td><%= f.text_field :orcid_id , :class => 'text_field has-tooltip', 'data-toggle' => "tooltip", 'data-html' => "true", 'title' => t('helpers.orcid_html') %></td>
+			</tr>
 			<% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
 					    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
 			<% end %>
