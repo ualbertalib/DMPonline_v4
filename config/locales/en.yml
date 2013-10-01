@@ -75,7 +75,7 @@ en:
     first_name_help_text: "Please entre your first name, otherwise every time you login to the tool you will be redirect to this page."
     last_name: "Last name"
     orcid_id: "ORCID number"
-    orcid_html: "ORCID number is a persistent digital identifier that distinguishes each researcher, <a href='http://orcid.org/content/initiative' target='_blank' class='a_orange'>more infor</a>."
+    orcid_html: "ORCID number is a persistent digital identifier that distinguishes each researcher, <a href='http://orcid.org/content/initiative' target='_blank' rel='external' class='a_orange'>more info</a>."
     owner: "Owner"
     me: "Me"
     none: "None"
