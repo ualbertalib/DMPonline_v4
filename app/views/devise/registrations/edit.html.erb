@@ -17,10 +17,10 @@
 				<td class="first"><%= t('helpers.last_name') %></td>
 				<td><%= f.text_field :surname %></td>
 			</tr>
-			<tr>
+			<!--tr>
 				<td class="first"><%= t('helpers.org_type.organisation') %></td>
-				<td><%= collection_select(:user, :organisation_id, Organisation.where("parent_id IS NULL").order("name"), :id, :name, {include_blank: t('helpers.org_type.organisation')}, { :class => 'typeahead org_sign_up' }) %></td>
-			</tr>	
+				<td><%# = collection_select(:user, :organisation_id, Organisation.where("parent_id IS NULL").order("name"), :id, :name, {include_blank: t('helpers.org_type.organisation')}, { :class => 'typeahead org_sign_up' }) %></td>
+			</tr-->	
 			<tr>
 				<td class="first"><%= t('helpers.orcid_id') %></td>
 				<td><%= f.text_field :orcid_id , :class => 'text_field has-tooltip', 'data-toggle' => "tooltip", 'data-html' => "true", 'title' => t('helpers.orcid_html') %></td>
@@ -46,6 +46,7 @@
 		</table>
 		<div class="div_right">
 			<%= f.submit t('helpers.submit.update'), :class => 'btn btn-primary' %>
+			<%= link_to t('helpers.submit.cancel'), :back, :class => 'btn btn-primary' %>
 		</div>
 	<% end %>	
 		<!--br/>
@@ -53,9 +54,6 @@
 		<p>Unhappy? 
 			<%# = button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %>
 		</p-->
-		<div class="div_right">
-			<%= link_to t('helpers.submit.cancel'), :back, :class => 'btn btn-primary' %>
-		</div>
 		
 	</div>
 </div>	

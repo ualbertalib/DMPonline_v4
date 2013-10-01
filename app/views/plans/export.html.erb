@@ -1,23 +1,45 @@
-<h1><%= @plan.project.title %></h1>
-<h2><%= @plan.version.phase.title %></h2>
-<% sections = @plan.sections.sort_by(&:"number") %>
-<% sections.each do |section| %>
-	<h3><%= section.title %></h3>
-	<% questions = section.questions.sort_by(&:"number") %>
-	<% questions.each do |question| %>
-		<h4><%= question.text %></h4>
-		<% answer = @plan.answer(question.id, false) %>
-		<% if answer.nil? then %>
-			<p>Question not answered.</p>
-		<% else %>
-			<% if question.multiple_choice then %>
-				<ul>
-					<% answer.options.each do |option| %>
-						<li><%= option.text %></li>
-					<% end %>
-				</ul>
+<div id="export_font">
+	<h1><%= @plan.project.title %></h1>
+	<h2><%= @plan.version.phase.title %></h2>
+	<div class="dmp_details_body">
+		<div class="dmp_details">
+			<% sections = @plan.sections.sort_by(&:"number") %>
+			<% sections.each do |section| %>
+				<h3><%= section.title %></h3>
+				<table class="dmp_table">
+					<thead>
+					    <tr>
+					      	<th class="dmp_th_medium"><%= t('helpers.questions_label')%></th>
+					      	<th class="dmp_th_big"><%= t('helpers.answers_label')%></th>
+	   					</tr>
+   					</thead>
+   					<tbody>
+						<% questions = section.questions.sort_by(&:"number") %>	
+						<% questions.each do |question| %>
+							<tr>
+								<th class="dmp_th_border" >
+									<p>- <%= question.text %></p>
+								</th>
+	        					<td class="dmp_td_border" >	
+									<% answer = @plan.answer(question.id, false) %>
+									<% if answer.nil? then %>
+										<p>Question not answered.</p>
+									<% else %>
+										<% if question.multiple_choice then %>
+											<ul>
+												<% answer.options.each do |option| %>
+													<li><%= option.text %></li>
+												<% end %>
+											</ul>
+										<% end %>
+										<%= raw answer.text %>
+									<% end %>	
+								</td>
+							</tr>
+						<% end %>
+					</tbody>	
+				</table>			
 			<% end %>
-			<%= raw answer.text %>
-		<% end %>
-	<% end %>
-<% end %>
+		</div>	
+	</div>	
+</div>

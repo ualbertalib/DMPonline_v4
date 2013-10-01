@@ -82,6 +82,7 @@ en:
     section_label: "Section"
     sections_label: "Sections"
     questions_label: "Questions"
+    answers_label: "Answers"
     answer_questions: "Answer questions"
     last_edit: "Last edited"
     select_action: "Select an action"
