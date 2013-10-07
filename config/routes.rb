@@ -2,9 +2,7 @@ DMPonline4::Application.routes.draw do
   
   devise_for :users, :controllers => {:registrations => "registrations", :confirmations => 'confirmations'}
   resources :contacts, :controllers => {:contacts => 'contacts'}
-  
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  
+    
     # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   root :to => 'home#index'

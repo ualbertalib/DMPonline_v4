@@ -48,4 +48,8 @@ class User < ActiveRecord::Base
 			return nil
 		end
 	end
+	
+	def is_admin?
+		return true
+	end
 end
