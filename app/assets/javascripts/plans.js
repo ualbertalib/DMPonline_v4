@@ -199,8 +199,15 @@ $( document ).ready(function() {
 	}
 	
 	function update_plan_progress(data) {
-		$("#questions-progress").css("width", (data.num_answers/data.num_questions*100)+"%");
-		$("#questions-progress").text(data.num_answers+"/"+data.num_questions);
+		if (data.num_answers > 0) {
+			$(".progress").children(".color-text").remove();
+			$("#questions-progress").show();
+			$("#questions-progress").css("width", (data.num_answers/data.num_questions*100)+"%");
+			$("#questions-progress").text(data.num_answers+"/"+data.num_questions);
+		}
+		else {
+			$("#questions-progress").hide();
+		}
 	}
 	
 	function update_timestamp(question_id, data) {
