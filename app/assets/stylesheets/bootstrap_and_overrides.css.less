@@ -476,17 +476,16 @@ ul.footer-links li a:hover,  ul.footer-links li a:focus{
   content: "\2212"; 
   float:right;
   background-color: transparent !important;
-  padding-right:2px;
+  line-height: 13px;
+  padding-top:0px;
 }
 .plus-laranja:before{
   content: "+"; 
   float:right;
   background-color: transparent !important;
   padding-right:2px;
-
+  line-height: 13px;
 }
-
-
 
 #new_user ul{
   margin-left: 0px;
@@ -917,6 +916,7 @@ ul.question_ul li{
 
 .accordion-heading{
   background-color: @orange_colour;
+
 }
 
 .accordion-heading a, .accordion-heading a:hover, .accordion-heading a:active, .accordion-heading a:visited{
@@ -924,12 +924,24 @@ ul.question_ul li{
   font-weight: bold;
   text-decoration: none;
   background-color: none;
+  min-height: 20px;
+}
+
+.accordion_heading_text{
+  width:98%;
+  float:left;
+ 
 }
 
 .accordion-icon{
+  width:2%;
   float:right;
-}
+  padding-top:4px;
+ }
 
+.accordion-body{
+  clear:both;
+}
 .section-status{
   background-color: @orange_colour;
 }
