@@ -972,9 +972,25 @@ ul.question_ul li{
 
 .question-guidance .accordion-heading{
   background-color:@white_colour;
-  border-bottom: 1px solid @orange_colour;
+ }
 
+.question-guidance .accordion-body {
+  border: 1px solid @orange_colour;
 }
+ 
+.accordion-body ul{
+  font-size: @font_size;  
+  list-style:none;
+  margin-left:0;
+  padding-left:1em;
+}
+.accordion-body ul li:before{ 
+   display:inline-block;
+    content:"-";
+    width:1em;
+    margin-left:-1em;
+ }
+
 
 .question-guidance .accordion-heading a,  .question-guidance .accordion-heading a:hover{
     padding-left:0px;

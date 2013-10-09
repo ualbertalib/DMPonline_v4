@@ -5,57 +5,61 @@
 
 <!-- render navigation tabs for the project-->
 <%= render :partial => "project_nav_tabs", locals: {project: @project, active: "share_project"} %>
-<div class="project-details-body">
-	<h3><%= t('helpers.project.share.collaborators')%></h3>
-	<div>
-	<% if @project.project_groups.any? then %>
-		<table class="dmp_table">
-			<thead>
-				<tr>
-					<th><%= t('helpers.user_name')%></th>
-					<th><%= t('helpers.project.share.permissions')%></th>
-					<th></th>
-				</tr>
-			</thead>
-			<tbody>
-			<%  @project.project_groups.each do |group| %>
-				<tr>
-					<td><%= group.user.name %></td>
-					<td>
-						<% if group.project_creator then %>
-							<%= t('helpers.project.share.creator')%>
-						<% else %>
-							<%= form_for group, :url => {:controller => :project_groups, :action => :update, :id => group.id }, :html=>{:method=>:put} do |f| %>
-								<%= f.select :access_level, {'Administrator' => 3, 'Editor' => 2, 'Read-only' => 1}, {}, {:id => "#{group.id}-can-edit", :class => "toggle-existing-user-access has-tooltip", 'data-toggle' => "tooltip", 'title' => "Editors can contribute to plans. Administrators have additional rights to edit plan details and control access." } %>
-							<% end %>
-						<% end %>
-					</td>
-					<td>
-						<% unless group.project_creator || group.user == current_user then %>
-							<%= link_to t('helpers.project.share.remove'), group, method: :delete, data: { confirm: t('helpers.project.share.confirmation_question') }, :class => "a-orange" %>
-						<% end %>
-					</td>
-				</tr>
+<div class="dmp_details_body">
+	
+	<div class="dmp_details">
+		<h3><%= t('helpers.project.share.collaborators')%></h3>
+		<div>	
+			<% if @project.project_groups.any? then %>
+			
+				<table class="dmp_table">
+					<thead>
+						<tr>
+							<th><%= t('helpers.user_name')%></th>
+							<th><%= t('helpers.project.share.permissions')%></th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+					<%  @project.project_groups.each do |group| %>
+						<tr>
+							<th class="dmp_th_border" ><%= group.user.name %></th>
+							<td class="dmp_td_border">
+								<% if group.project_creator then %>
+									<%= t('helpers.project.share.creator')%>
+								<% else %>
+									<%= form_for group, :url => {:controller => :project_groups, :action => :update, :id => group.id }, :html=>{:method=>:put} do |f| %>
+										<%= f.select :access_level, {'Administrator' => 3, 'Editor' => 2, 'Read-only' => 1}, {}, {:id => "#{group.id}-can-edit", :class => "toggle-existing-user-access has-tooltip", 'data-toggle' => "tooltip", 'title' => "Editors can contribute to plans. Administrators have additional rights to edit plan details and control access." } %>
+									<% end %>
+								<% end %>
+							</td>
+							<td class="dmp_td_border">
+								<% unless group.project_creator || group.user == current_user then %>
+									<%= link_to t('helpers.project.share.remove'), group, method: :delete, data: { confirm: t('helpers.project.share.confirmation_question') }, :class => "a-orange" %>
+								<% end %>
+							</td>
+						</tr>
+					<% end %>
+					</tbody>
+				</table>
 			<% end %>
-			</tbody>
-		</table>
-	<% end %>
-	</div>
-
-	<h3><%= t('helpers.project.share.add_collaborator')%></h3>
-	<div>
-		<% new_project_group = ProjectGroup.new %>
-		<% new_project_group.project = @project %>
-		<%= semantic_form_for new_project_group, :url => {:controller => :project_groups, :action => :create }, :html=>{:method=>:post} do |f| %>
-			<%= f.inputs do %>
-				<%= f.input :project_id, :as => :hidden %>
-				<%= f.input :email, :label => false,  placeholder: t('helpers.email')  %>
-				<p><%= t('helpers.project.share.permissions')%>:</p>
-				<%= f.select :access_level, [['Administrator', 3], ['Editor', 2], ['Read-only', 1]], {}, {:class => 'has-tooltip', 'data-toggle' => "tooltip", 'title' => "Editors can contribute to plans. Administrators have additional rights to edit plan details and control access." } %>
+		</div>
+	
+		<h3><%= t('helpers.project.share.add_collaborator')%></h3>
+		<div>
+			<% new_project_group = ProjectGroup.new %>
+			<% new_project_group.project = @project %>
+			<%= semantic_form_for new_project_group, :url => {:controller => :project_groups, :action => :create }, :html=>{:method=>:post} do |f| %>
+				<%= f.inputs do %>
+					<%= f.input :project_id, :as => :hidden %>
+					<%= f.input :email, :label => false,  placeholder: t('helpers.email')  %>
+					<p><%= t('helpers.project.share.permissions')%>:</p>
+					<%= f.select :access_level, [['Administrator', 3], ['Editor', 2], ['Read-only', 1]], {}, {:class => 'has-tooltip', 'data-toggle' => "tooltip", 'title' => "Editors can contribute to plans. Administrators have additional rights to edit plan details and control access." } %>
+				<% end %>
+				<%= f.actions do %>
+					<%= f.action :submit, :label => I18n.t('helpers.project.share.add_collaborator'), :button_html => { :class => "btn btn-primary" } %>
+				<% end %>
 			<% end %>
-			<%= f.actions do %>
-				<%= f.action :submit, :label => I18n.t('helpers.project.share.add_collaborator'), :button_html => { :class => "btn btn-primary" } %>
-			<% end %>
-		<% end %>
+		</div>
 	</div>
 </div>
