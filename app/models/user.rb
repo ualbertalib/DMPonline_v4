@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
     has_many :project_groups, :dependent => :destroy
     has_many :organisations , through: :user_org_roles
     has_many :user_role_types, through: :user_org_roles
+    has_and_belongs_to_many :roles, :join_table => :users_roles
   
     attr_accessible :password_confirmation, :encrypted_password, :remember_me, :id, :email, :firstname, :last_login, :login_count, :orcid_id, :password, :shibboleth_id, :user_status_id, :surname, :user_type_id, :organisation_id, :skip_invitation
 
@@ -50,6 +51,8 @@ class User < ActiveRecord::Base
 	end
 	
 	def is_admin?
-		return true
+		return true #Remove this!
+		admin = roles.find_by_name("admin")
+		return !admin.nil?
 	end
 end
