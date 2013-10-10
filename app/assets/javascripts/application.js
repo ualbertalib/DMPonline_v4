@@ -29,17 +29,22 @@ $( document ).ready(function() {
 		var minus = $(this).parent().children(".accordion-heading").children(".accordion-toggle").children(".icon-minus").removeClass("icon-minus").addClass("icon-plus");
 	});
 	
+	//accordion home page 
 	$('.accordion-home').on('show', function() {
 		var plus = $(this).parent().find(".plus-laranja").removeClass("plus-laranja").addClass("minus-laranja");
 	}).on('hide', function(){
 		var minus = $(this).parent().find(".minus-laranja").removeClass("minus-laranja").addClass("plus-laranja");
 	});
+	
+	//accordion project details page when project has more than 1 plan
 	$('.accordion-project').on('show', function() {
 		var plus = $(this).parent().find(".plus-laranja").removeClass("plus-laranja").addClass("minus-laranja");
 	}).on('hide', function(){
 		var minus = $(this).parent().find(".minus-laranja").removeClass("minus-laranja").addClass("plus-laranja");
 	});
 	
+	
+		
 	$('.typeahead').select2({
 		width: "element",
 		allowClear: true
