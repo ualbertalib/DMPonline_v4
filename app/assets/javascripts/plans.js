@@ -29,9 +29,10 @@ $( document ).ready(function() {
 			});
 		},500);
 	});
+
 	
 	//accordion guidance 
-	$('.guidance-accordion-toggle').click(function(e){
+	$('.accordion-guidance-link').on('click', function (e) {
 		e.stopPropagation();
 		var show = true;
 		var div_to_toggle = $($(this).attr("href"));
@@ -40,23 +41,21 @@ $( document ).ready(function() {
 			show = false;
 		}
 		
+		$($(this).attr("href")).toggleClass("in");
+		
 		if (show) {
-			$($(this).attr("href")).toggleClass("in");
 			$(this).children(".plus-laranja").removeClass("plus-laranja").addClass("minus-laranja");
 			
 		}
 		else {
-			$($(this).attr("href")).toggleClass("in");
 			$(this).children(".minus-laranja").removeClass("minus-laranja").addClass("plus-laranja");
 		}
 		
+		delete show;
+		delete div_to_toggle;
 		e.preventDefault();
-	    return false;
-	});	
-	
-	
-	
-	
+	    //return false;
+	});
 	
 	
 	// Periodically check locks on open section - every 20 seconds

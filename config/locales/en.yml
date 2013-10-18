@@ -152,7 +152,7 @@ en:
         read_only: "Read only"
       create_page: 
         title: "Create a new plan"
-        desc: "To create a plan, you will have to answer a set of questions. Some can be posed by a funder, others by an institution.</br>Please select from the following drop-downs and we will provide you with the apropriated template and guidance for your plan"
+        desc: "To create a plan, you will have to answer a set of questions. Some can be posed by a funder, others by an institution.</br>Please select from the following drop-downs and we will provide you with the appropriated template and guidance for your plan"
         funders_question: "To which research funder are you applying (if any)?"
         funders_question_description: " " 
         institution_question: "With whose institutional requirements do you need to comply (if any)?"

@@ -986,25 +986,26 @@ ul.question_ul li{
   background-color:@white_colour;
  }
 
-.question-guidance .accordion-guidance-body {
+.question-guidance .guidance-accordion-body {
   border: 1px solid @orange_colour;
+  clear:both;
 }
  
-.accordion-guidance-body ul{
+.question-guidance .guidance-accordion-body ul{
   font-size: @font_size;  
   list-style:none;
   margin-left:0;
   padding-left:1em;
 }
-.accordion-guidance-body ul li:before{ 
+.question-guidance .guidance-accordion-body ul li:before{ 
    display:inline-block;
-    content:"-";
+    content:"\2212";
     width:1em;
     margin-left:-1em;
  }
 
 
-.question-guidance .accordion-heading a,  .question-guidance .accordion-heading a:hover{
+.question-guidance .accordion-heading a, .question-guidance .accordion-heading a:hover{
     padding-left:0px;
     padding-right: 0px;
     color:  @orange_colour !important;
