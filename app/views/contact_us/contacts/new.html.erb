@@ -64,14 +64,16 @@
 						<% end %>
 					</td>
 				</tr>
-				<tr>
-					<td class='text required first'>
-						Security check
-					</td>
-					<td>
-						<%= recaptcha_tags %>
-					</td>
-				</tr>
+				<% if !user_signed_in? then %>
+					<tr>
+						<td class='text required first'>
+							Security check
+						</td>
+						<td>
+							<%= recaptcha_tags %>
+						</td>
+					</tr>
+				<% end %>	
 			</table>
 		</div>
 		<div class="div_right">
