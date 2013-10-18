@@ -40,6 +40,7 @@ DMPonline4::Application.routes.draw do
 	end
 	member do
 		get 'share'
+		get 'export'
 		post 'invite'
 	end
   end

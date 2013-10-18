@@ -59,6 +59,13 @@ class ProjectsController < ApplicationController
 			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
 		end
 	end
+	
+	def export
+		@project = Project.find(params[:id])
+		unless user_signed_in? then
+			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
+		end
+	end
 
 	# POST /projects
 	# POST /projects.json

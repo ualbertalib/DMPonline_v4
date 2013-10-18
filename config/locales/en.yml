@@ -133,6 +133,7 @@ en:
       funder_help_text: "Research funder if relevant"
       project_question_desc_label: "Summary about the questions"
       tab_plan: "Plan details"
+      tab_export: "Export"
       project_static_info: "This plan is based on:"
       projects_title: "My plans"
       project_text_when_no_project: "Welcome.</br>You are now ready to create your first data management plan.</br>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
@@ -141,6 +142,7 @@ en:
       confirmation_text_desc: "Where your funder or institution doesn't have specific requirements (or if you left these options blank), you will see the DCC Checklist. This offers a generic set of DMP questions and guidance. For more details see: <a href='http://www.dcc.ac.uk/sites/default/files/documents/resource/DMP_Checklist_2013.pdf'>DMP checklist 2013</a>."
       confirmation_button_text: "Yes, create project"  
       share:
+        tab_share: "Share"
         collaborators: "Collaborators"
         add_collaborator: "Add collaborator"
         add: "Add"

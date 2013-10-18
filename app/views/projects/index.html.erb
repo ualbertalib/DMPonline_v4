@@ -39,12 +39,19 @@
 	        <td class="dmp_td_medium">
 	        	<% if project.editable_by(current_user.id) then %>
 					<%= link_to t('.edit', :default => t("helpers.links.edit")), project_path(project), :class => "dmp_table_link"%>
-					<%= link_to t('.destroy', :default => t("helpers.links.destroy")), project_path(project), :class => "dmp_table_link" , 
-						:method => :delete, :data => { 
-							:confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?'))
-						}%>
+					<% if project.administerable_by(current_user.id) then %>
+						<%= link_to t("helpers.project.share.tab_share"), project_path([project, "share"]), :class => "dmp_table_link"%>
+					<%end%>
+					<%= link_to t("helpers.project.tab_export"), project_path([project, "export"]), :class => "dmp_table_link"%>
+					<% if project.administerable_by(current_user.id) then %>
+						<%= link_to t('.destroy', :default => t("helpers.links.destroy")), project_path(project), :class => "dmp_table_link" , 
+							:method => :delete, :data => { 
+								:confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?'))
+							}%>
+					<%end%>		
 				<%else%>
 					<%= link_to t('.view', :default => t("helpers.view")), project_path(project), :class => "dmp_table_link"%>
+					<%= link_to t("helpers.project.tab_export"), project_path([project, "export"]), :class => "dmp_table_link"%>
 	          	<% end %>
 	        </td>
 	      </tr>
