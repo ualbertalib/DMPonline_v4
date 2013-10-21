@@ -39,6 +39,7 @@
 @font_colour: #3e3c3c;
 @orange_colour: #F49700;
 @orange_darker_colour: #f47900;
+@orange_lighter_colour: #fbb400;
 @grey_colour: #656263;
 @grey_lighter_colour: #827d7e;
 @grey_very_light_colour: #cccccc;
@@ -70,6 +71,8 @@ body {
   background-repeat:repeat-y;
   margin: 0 15% 0 15%;
   line-height: 24px;
+  min-width: 540px;
+  padding:0 0 0 0;
 }
 
 h1, h2, h3, h4 {
@@ -131,7 +134,7 @@ a:hover, a.btn:hover{
 /*** ***/
 header{
   height: 161px;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
   position: relative;
   float:left;
   width: 99%;
@@ -284,8 +287,8 @@ ul#signIn_dropdown li a:hover, ul#signIn_dropdown li a:focus{
 
 /**  button colour **/
 ul.nav-pills li{
-    margin: 0 5px 20px 0;
-   }
+    margin: 0 2px 20px 0;
+  }
 
 ul.nav-pills li.last_li{
     margin: 0 0px 20px 0;
@@ -293,7 +296,7 @@ ul.nav-pills li.last_li{
    
 ul.nav-pills li a.header_button{
   height: 18px;
-  padding: 4px 22px 2px 22px;
+  padding: 4px 10px 2px 10px;
   border-radius: 3px;
 }
 
@@ -302,21 +305,22 @@ ul.nav-pills li.last_li a.header_button{
 }
 
 .btn-primary, .btn-primary:active, .btn-primary:visited, .btn-primary:focus    {
-  background: @orange_colour !important;
-  background-image: none !important;
+  background: @orange_colour;
+  background-image: none;
   text-decoration:none;
   color: @white_colour;
- 
-}
+  text-shadow: rgba(0, 0, 0, 0.247059) 0px -1px 0px;
+  border-color: rgba(0, 0, 0, 0.247059);
+ }
 
 .btn-primary:hover{
-  background-image: -moz-linear-gradient(top , @orange_colour, @orange_darker_colour 49px);
-  background-image: -webkit-linear-gradient(top , @orange_colour, @orange_darker_colour 49px);
-  background-image: -o-linear-gradient(top , @orange_colour, @orange_darker_colour 49px);
-  background-image: -ms-linear-gradient(top , @orange_colour, @orange_darker_colour 49px);
-  background-image: linear-gradient(top , @orange_colour, @orange_darker_colour 49px);
+  background-image: -moz-linear-gradient(top, @orange_colour, @orange_lighter_colour 49px);
+  background-image: -webkit-linear-gradient(top , @orange_colour, @orange_lighter_colour 49px);
+  background-image: -o-linear-gradient(top , @orange_colour, @orange_lighter_colour 49px);
+  background-image: -ms-linear-gradient(top , @orange_colour, @orange_lighter_colour 49px);
+  background-image: linear-gradient(top , @orange_colour, @orange_lighter_colour 49px);
   color: @white_colour;
- }
+}
 
 .btn-grey, .btn-grey:active, .btn-grey:visited  {
   background: @grey_colour;
@@ -325,8 +329,7 @@ ul.nav-pills li.last_li a.header_button{
   color: @white_colour;
   text-shadow: rgba(0, 0, 0, 0.247059) 0px -1px 0px;
   border-color: rgba(0, 0, 0, 0.247059);
- 
-}
+ }
 
 .btn-grey:hover{
   background-image: -moz-linear-gradient(top ,@grey_colour , @grey_lighter_colour 49px);
@@ -335,7 +338,7 @@ ul.nav-pills li.last_li a.header_button{
   background-image: -ms-linear-gradient(top ,@grey_colour , @grey_lighter_colour 49px);
   background-image: linear-gradient(top ,@grey_colour , @grey_lighter_colour 49px);
   color: @white_colour;
- }
+}
 
 /******   Footer  ******/
 footer{

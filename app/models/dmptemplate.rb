@@ -19,7 +19,7 @@ class Dmptemplate < ActiveRecord::Base
     
     org_templates = Array.new
     new_org_obejcts.each do |neworg|
-       org_templates += neworg.dmptemplates
+       org_templates += neworg.dmptemplates.where("published = ?", true)
     end
     
     return org_templates
@@ -27,9 +27,9 @@ class Dmptemplate < ActiveRecord::Base
   
   #retrieves info on a specific template belonging to an organisation
   def self.templates_of_org(org_id)
-    org_template = Dmptemplate.where(organisation_id: org_id)
+	   org_template = Dmptemplate.where("organisation_id = ? AND published = ?", org_id, true)
     return org_template
       
   end
-  
+
 end

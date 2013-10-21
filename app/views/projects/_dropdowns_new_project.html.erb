@@ -12,13 +12,20 @@
         <!-- dropdown 1 = funders -->
         <div class="control-group">
             <div class="controls">
-                <% org_type_funder = OrganisationType.find_by_name(t('helpers.org_type.funder')).organisations.order("name") %>
-                <%= f.input :funder_id, :as => :select, :collection => org_type_funder, :label => t('helpers.project.create_page.funders_question'), :input_html => { :multiple => false, :class => "typeahead" }, :include_blank =>  t('helpers.org_type.funder') %>
+                <!-- Verify if each funder has a least a publish template -->
+               <% templates_from_funders = Dmptemplate.templates_org_type(t('helpers.org_type.funder')) %>
+               <% org_type_funder = Array.new %>
+               <% templates_from_funders.each do |p|%>
+               		<% org_type_funder << Organisation.find(p.organisation_id) %>
+	           <%end%>	
+               <% org_type_funder.sort!{|p1, p2| p1.name <=> p2.name}  %>
+               <%= f.input :funder_id, :as => :select, :collection => org_type_funder, :label => t('helpers.project.create_page.funders_question'), :input_html => { :multiple => false, :class => "typeahead" }, :include_blank =>  t('helpers.org_type.funder') %>
                 <div class="create_project_question_descriptions">
                 	<%= t('helpers.project.create_page.funders_question_description')%>
                 </div>
+               	<!-- if a funder has more than one template -->
                 <% org_template = Dmptemplate.templates_org_type(t('helpers.org_type.funder') ) %>
-                <% if org_template.length > 1  then %>
+                <% if org_template.length > 1 then %>
                 <div id="has_more_templates">
                     <%= f.input :dmptemplate, :as => :select, :collection => org_template, :label => t('helpers.org_type.templates'), :input_html => { :multiple => false, :class => "typeahead" } %>
                 </div>
@@ -30,9 +37,10 @@
         <div class="control-group">
             <div class="controls">
                 <% org_type_inst = OrganisationType.find_by_name(t('helpers.org_type.institution')).organisations.order("name") %>
-                <% unless current_user.organisation.nil? %>
-									<% user_inst = current_user.organisation.root %>
-									<% org_type_inst.unshift(user_inst) %>
+                
+                <% unless current_user.organisation.nil? || (current_user.organisation.organisation_type_id != OrganisationType.find_by_name(t('helpers.org_type.institution')).id) %>
+                	<% user_inst = current_user.organisation.root %>
+					<% org_type_inst.unshift(user_inst) %>
                 <% end %>
                 <%= f.input :institution_id, :as => :select, :collection => org_type_inst, :label => t('helpers.project.create_page.institution_question'), :input_html => { :multiple => false, :class => "typeahead" }, :include_blank =>  t('helpers.org_type.institution')  %>
                 <div class="create_project_question_descriptions">
