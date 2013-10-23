@@ -7,6 +7,9 @@
 <%= render :partial => "project_nav_tabs", locals: {project: @project, active: "share_project"} %>
 <div class="dmp_details_body">
 	
+	<!--Text describing page content-->
+	<%= raw t('helpers.project.share.share_text_html')%>
+	
 	<div class="dmp_details">
 		<h3><%= t('helpers.project.share.collaborators')%></h3>
 		<div>	
@@ -26,10 +29,10 @@
 							<th class="dmp_th_border" ><%= group.user.name %></th>
 							<td class="dmp_td_border">
 								<% if group.project_creator then %>
-									<%= t('helpers.project.share.creator')%>
+									<%= t('helpers.project.share.owner')%>
 								<% else %>
 									<%= form_for group, :url => {:controller => :project_groups, :action => :update, :id => group.id }, :html=>{:method=>:put} do |f| %>
-										<%= f.select :access_level, {'Administrator' => 3, 'Editor' => 2, 'Read-only' => 1}, {}, {:id => "#{group.id}-can-edit", :class => "toggle-existing-user-access has-tooltip", 'data-toggle' => "tooltip", 'title' => "Editors can contribute to plans. Administrators have additional rights to edit plan details and control access." } %>
+										<%= f.select :access_level, {t('helpers.project.share.co_owner') => 3, t('helpers.project.share.edit') => 2,  t('helpers.project.share.read_only') => 1}, {}, {:id => "#{group.id}-can-edit", :class => "toggle-existing-user-access has-tooltip", 'data-toggle' => "tooltip", 'title' => t('helpers.project.share.permissions_desc') } %>
 									<% end %>
 								<% end %>
 							</td>
@@ -54,7 +57,7 @@
 					<%= f.input :project_id, :as => :hidden %>
 					<%= f.input :email, :label => false,  placeholder: t('helpers.email')  %>
 					<p><%= t('helpers.project.share.permissions')%>:</p>
-					<%= f.select :access_level, [['Administrator', 3], ['Editor', 2], ['Read-only', 1]], {}, {:class => 'has-tooltip', 'data-toggle' => "tooltip", 'title' => "Editors can contribute to plans. Administrators have additional rights to edit plan details and control access." } %>
+					<%= f.select :access_level, [[t('helpers.project.share.co_owner'), 3], [ t('helpers.project.share.edit') , 2], [ t('helpers.project.share.read_only'), 1]], {}, {:class => 'has-tooltip', 'data-toggle' => "tooltip", 'title' => t('helpers.project.share.permissions_desc') } %>
 				<% end %>
 				<%= f.actions do %>
 					<%= f.action :submit, :label => I18n.t('helpers.project.share.add_collaborator'), :button_html => { :class => "btn btn-primary" } %>

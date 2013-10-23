@@ -1,9 +1,14 @@
 <h1><%= t('helpers.edit_profile') %></h1>
-<div class="dmp_details_body">
+<!-- information about content in the page-->
+		<%= raw t('helpers.user_deatails_text_html')%>
+
+<div class="white_background">
 	<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
  	<%= devise_error_messages! %>
 	<!-- body -->
 	<div class="dmp_details">
+		
+		
 		<table class="dmp_details_table">
 			<tr>
 				<td class="first"><%= t('helpers.email') %></td>

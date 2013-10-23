@@ -36,6 +36,7 @@
 @header_font: "GillSansLight";
 @text_font: Arial, sans-serif;
 @font_size: 13px;
+@font_size_small: 11px;
 @font_colour: #3e3c3c;
 @orange_colour: #F49700;
 @orange_darker_colour: #f47900;
@@ -102,14 +103,6 @@ p{
   font-size: @font_size; 
 }
 
-p.white_background{
- background-color: @white_colour;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  padding: 20px 20px 20px 20px;
-}
 p a:hover, a.a-orange:hover, div.signIn a:hover, td a:hover{
   color: @orange_darker_colour !important;
   background-color: none !important;
@@ -168,6 +161,17 @@ footer {
 }
 
 
+.tooltip_box{
+ text-align:left;
+ }
+
+.tooltip_box p{
+  font-size: @font_size_small;
+}
+.tooltip_box ul{
+  list-style-type: none;
+  margin-left:0px;
+}
 /**** header ****/
 .header_left{
   clear:both;
@@ -567,13 +571,13 @@ table.dmp_table tbody td{
   padding: 4px 4px 4px 15px;  
 }
 table.dmp_table tbody td.dmp_td_big, table.dmp_table thead th.dmp_th_big{
-  width: 35%;
+  min-width: 32%;
 }
 table.dmp_table tbody td.dmp_td_medium, table.dmp_table thead th.dmp_th_medium{
-  width: 25%;
+  min-width: 24%;
 }
 table.dmp_table tbody td.dmp_td_small, table.dmp_table thead th.dmp_th_small{
-  width: 14%;
+  min-width: 18%;
 }
 
 table.dmp_table tbody th.dmp_th_border{
@@ -796,17 +800,39 @@ li.choice label input{
 }
 
 .dmp_details{
-  padding: 20px 0 25px 0;
-  
+  padding: 0 0 5px 0;
+   clear: both;
+}
+
+.edit-project ol{
+  margin-bottom: 0px;
+}
+
+.div_left{
+  float:left;
+  width:74%;
+  padding:0 2px 10px 0;
 }
 
 .div_right{
   float:right;
-  padding:0 2px 15px 0;
+  width:25%;
+  padding:0 2px 10px 0;
+  
+  .btn{
+    float:right;
+    margin:0 0 0 4px;
+  }
 }
 
+.move_2_right{
+  float:right;
+  padding:0 2px 10px 0;
+}
+
+
 table.dmp_details_table {
-   margin: 15px 0 25px 0;
+   margin: 0 0 0 0;
 }
 
 table.dmp_details_table tr td{
@@ -820,6 +846,19 @@ table.dmp_details_table tr td.first{
   vertical-align:top;
   text-align: right;
   width: 250px;
+}
+
+table.dmp_details_table .text_area{
+  width: 90%;
+} 
+
+table.dmp_details_table .text_field{
+  height: 17px;
+  margin-bottom:5px;
+} 
+
+.edit-project .actions{
+  margin-top: 0px;
 }
 
 .div_clear{
@@ -1094,4 +1133,54 @@ div {
 /*************  Exporting *************/
 #export_font{
   font-family: @text_font;
+}
+
+/************ Static pages **********/
+.column_left{
+  float:left;
+  width:49%;
+  min-width: 400px;
+  margin: 2px 5px 0 0; 
+  .white_background{
+    min-height: 465px;
+    
+      table.dmp_details_table tr td{
+      padding-left: 10px;
+      min-width:94px;
+    }
+    
+    table.dmp_details_table tr td.first{
+      border-right: 1px solid @orange_colour;
+      padding-right: 15px;
+      vertical-align:top;
+      text-align: right;
+      width: 50px;
+    }
+  }
+}
+
+.column_right{
+  float:left;
+  width:49%;
+  margin: 2px 0 0 5px; 
+  min-width: 400px;
+  
+  .white_background{
+    min-height: 465px;
+    
+  }
+}
+
+.white_background{
+  background-color: @white_colour;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding: 20px 20px 20px 20px;
+  
+  ul{
+    list-style-type: none;
+    margin-left:0px;
+  }
 }

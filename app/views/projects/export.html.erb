@@ -8,6 +8,9 @@
 
 <!-- main info to export -->
 <div class="dmp_details_body">
+	<!--Text describing page content-->
+	<%= raw t('helpers.project.export_text_html')%>
+	
 	<!-- If project has plans-->
 	<% if @project.plans.any? %>
 		<% if @project.plans.count == 1 then %>
