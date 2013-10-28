@@ -64,6 +64,7 @@ html{
 body { 
   font-family: @text_font;
   color: @font_colour;
+  font-size: @font_size;
   background-image: -moz-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
   background-image: -webkit-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
   background-image: -o-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
@@ -108,7 +109,7 @@ p a:hover, a.a-orange:hover, div.signIn a:hover, td a:hover{
   background-color: none !important;
 }
 
-a, a:active {
+a, a:active, a:focus {
   color: @orange_colour;
   text-decoration:underline;
 }
@@ -326,7 +327,7 @@ ul.nav-pills li.last_li a.header_button{
   color: @white_colour;
 }
 
-.btn-grey, .btn-grey:active, .btn-grey:visited  {
+.btn-grey, .btn-grey:active, .btn-grey:visited, .btn-grey:focus   {
   background: @grey_colour;
   background-image: none;
   text-decoration:none;
@@ -971,10 +972,9 @@ ul.question_ul li{
 }
 
 .accordion_heading_text{
-  width:98%;
+  width:96%;
   float:left;
- 
-}
+ }
 
 .accordion-icon{
   width:2%;
@@ -1136,10 +1136,14 @@ div {
 }
 
 /************ Static pages **********/
+
+.column_container{
+  width:100%;
+  float:left;
+}
 .column_left{
   float:left;
-  width:49%;
-  min-width: 400px;
+  width:50%;
   margin: 2px 5px 0 0; 
   .white_background{
     min-height: 465px;
@@ -1156,14 +1160,18 @@ div {
       text-align: right;
       width: 50px;
     }
+    table.dmp_details_table input{
+      width:80%
+    }
   }
 }
 
 .column_right{
   float:left;
-  width:49%;
+  width:48%;
+ 
   margin: 2px 0 0 5px; 
-  min-width: 400px;
+  
   
   .white_background{
     min-height: 465px;

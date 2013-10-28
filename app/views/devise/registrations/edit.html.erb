@@ -1,6 +1,6 @@
 <h1><%= t('helpers.edit_profile') %></h1>
 <!-- information about content in the page-->
-		<%= raw t('helpers.user_deatails_text_html')%>
+		<%= raw t('helpers.user_details_text_html')%>
 
 <div class="white_background">
 	<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
@@ -8,6 +8,7 @@
 	<!-- body -->
 	<div class="dmp_details">
 		
+		<p><%= raw t('helpers.user_details_paragraph_html')%></p>
 		
 		<table class="dmp_details_table">
 			<tr>
@@ -30,12 +31,21 @@
 				<td class="first"><%= t('helpers.orcid_id') %></td>
 				<td><%= f.text_field :orcid_id , :class => 'text_field has-tooltip', 'data-toggle' => "tooltip", 'data-html' => "true", 'title' => t('helpers.orcid_html') %></td>
 			</tr>
+		</table>
+		</br>
+		</br>
+		<div class="div_clear">
+		</div>
+		<p>
+			<%= raw t('helpers.edit_password_info')%>
+		</p>
+		<table class="dmp_details_table">
 			<% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
 					    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
 			<% end %>
 			<tr>
 				<td class="first"><%= t('helpers.current_password') %></td>
-				<td><p><i><%= raw t('helpers.edit_password_info')%></i></p>
+				<td>
 					 <%= f.password_field :current_password %>
 				</td>
 			</tr>
@@ -49,7 +59,7 @@
 				<td><%= f.password_field :password_confirmation %></td>
 			</tr>
 		</table>
-		<div class="div_right">
+		<div class="move_2_right">
 			<%= f.submit t('helpers.submit.update'), :class => 'btn btn-primary' %>
 			<%= link_to t('helpers.submit.cancel'), :back, :class => 'btn btn-primary' %>
 		</div>
