@@ -2,7 +2,7 @@ class Theme < ActiveRecord::Base
 
   #associations between tables
   has_and_belongs_to_many :questions
-  has_many :guidance
+  has_many :guidances
   
   attr_accessible :description, :title, :locale
 end

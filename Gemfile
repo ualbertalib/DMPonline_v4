@@ -21,6 +21,7 @@ gem 'therubyracer', '0.11.4', platforms: :ruby
 gem 'libv8'
 gem 'twitter-bootstrap-rails'
 gem 'sass-rails',   '~> 3.2.3'
+gem 'sass', '3.2.10'
 
 gem 'jquery-rails', "2.3.0"
 #gem 'jquery-ui-rails'

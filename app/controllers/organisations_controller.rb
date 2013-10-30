@@ -101,7 +101,9 @@ class OrganisationsController < ApplicationController
 		#if user_signed_in? then
 		templates = {}
 		@organisation.dmptemplates.each do |template|
-			templates[template.id] = template.title
+			if template.is_published? then
+				templates[template.id] = template.title
+			end
 		end
 		respond_to do |format|
 			format.json { render json: templates.to_json }
