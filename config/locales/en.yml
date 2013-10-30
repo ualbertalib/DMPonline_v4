@@ -39,6 +39,11 @@ en:
     theme: "Theme"
     guidance_group: "Guidance group"
     no_guidance_group: "No guidance group"
+    name: "Name"
+    abbrev: "Abbreviation"
+    question: "Question"
+    template_title: "Template title"
+    section_title: "Section title"
   
   helpers:
     sign_in: "Sign in"
