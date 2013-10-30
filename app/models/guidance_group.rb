@@ -6,6 +6,10 @@ class GuidanceGroup < ActiveRecord::Base
 	has_and_belongs_to_many :guidances, join_table: "guidance_in_group"
 	has_and_belongs_to_many :projects, join_table: "project_guidance"
 	
+	def to_s
+		"#{display_name}"
+	end
+	
 	def display_name
 		if organisation.guidance_groups.count > 1
 			return "#{organisation.name}: #{name}"
@@ -21,5 +25,5 @@ class GuidanceGroup < ActiveRecord::Base
 		end
 		return GuidanceGroup.where("organisation_id NOT IN (?)", excluded_org_ids)
 	end
-
+	
 end

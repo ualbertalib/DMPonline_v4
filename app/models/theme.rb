@@ -5,4 +5,9 @@ class Theme < ActiveRecord::Base
   has_many :guidances
   
   attr_accessible :description, :title, :locale
+  
+  def to_s
+  	title
+  end
+  
 end
