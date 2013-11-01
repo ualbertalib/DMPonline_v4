@@ -44,6 +44,10 @@ en:
     question: "Question"
     template_title: "Template title"
     section_title: "Section title"
+    user_name: "User name"
+    firstname: "First name"
+    surname: "Surname"
+    user_status: "User status"
   
   helpers:
     sign_in: "Sign in"
