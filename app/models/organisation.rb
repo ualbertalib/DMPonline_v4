@@ -44,11 +44,11 @@ class Organisation < ActiveRecord::Base
 		return organisations_list
 	end
 	
-	def all_sections
+	def all_sections(version_id)
 		if parent.nil?
-			return sections
+			return sections.find_by_version_id(version_id)
 		else
-			return sections + parent.all_sections
+			return sections.find_by_version_id(version_id) + parent.all_sections(version_id)
 		end
 	end
 	

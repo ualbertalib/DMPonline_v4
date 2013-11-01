@@ -32,7 +32,7 @@ class Plan < ActiveRecord::Base
 	
 	def sections
 		unless project.organisation.nil? then
-			sections = version.sections + project.organisation.all_sections
+			sections = version.sections + project.organisation.all_sections(version_id)
 		else
 			sections = version.sections
 		end
