@@ -4,16 +4,25 @@
 		<%= devise_error_messages! %>
 	</li>
 	<li>
-		<%= f.email_field :email, placeholder: t('helpers.email') %>
+		<%= f.email_field :email, placeholder: t('helpers.email'), :class => 'text_field has-tooltip reg-input', 'data-toggle' => "tooltip", 'data-container' => "body", 'title' => "This must be a valid email address - a message will be sent to it for confirmation." %>
+		<div class="alert alert-error" style="display:none">  
+			<strong>Error!</strong> You must enter a valid email address.  
+		</div> 
 	</li>
 	<li>
 		<%= collection_select(:user, :organisation_id, Organisation.where("parent_id IS NULL").order("name"), :id, :name, {include_blank: t('helpers.org_type.organisation')}, { :class => 'typeahead org_sign_up' }) %>
 	</li>
 	<li>
-		<%= f.password_field :password, placeholder: t('helpers.password') %>
+		<%= f.password_field :password, placeholder: t('helpers.password'), :class => 'text_field has-tooltip reg-input', 'data-toggle' => "tooltip", 'data-container' => "body", 'title' => "This must be at least 8 characters long." %>
+		<div class="alert alert-error" style="display:none">  
+			<strong>Error!</strong> Your password must contain at least 8 characters.  
+		</div>
 	</li>
 	<li>
-		<%= f.password_field :password_confirmation, placeholder: t('helpers.password_conf') %>
+		<%= f.password_field :password_confirmation, placeholder: t('helpers.password_conf'), :class => 'text_field has-tooltip reg-input', 'data-toggle' => "tooltip", 'data-container' => "body", 'title' => "This must match what you entered in the previous field." %>
+		<div class="alert alert-error" style="display:none">  
+			<strong>Error!</strong> This must match what you entered in the previous field.
+		</div>	
 	</li>
 	<li>
 		<%= f.submit t('helpers.sign_up'), :class => "btn btn-primary" %>

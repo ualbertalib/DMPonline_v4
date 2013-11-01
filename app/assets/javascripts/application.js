@@ -65,5 +65,42 @@ $( document ).ready(function() {
 	$(".toggle-existing-user-access").change(function(){
 		$(this).closest("form").submit();
 	});
+	
+	$("#user_email.text_field.reg-input").blur(function () {
+		if (validateEmail($(this).val())) {
+			$(this).parent().children("div").hide();
+		}
+		else {
+			$(this).parent().children("div").show();
+		}
+	});
+	
+	$("#user_password.text_field.reg-input").blur(function () {
+		if ($(this).val().length >= 8) {
+			$(this).parent().children("div").hide();
+		}
+		else {
+			$(this).parent().children("div").show();
+		}
+	});
+	
+	$("#user_password_confirmation.text_field.reg-input").blur(function () {
+		if ($(this).val() == $("#user_password.text_field.reg-input").val()) {
+			$(this).parent().children("div").hide();
+		}
+		else {
+			$(this).parent().children("div").show();
+		}
+	});
 
 });
+
+function validateEmail(sEmail) {
+  var filter = /^[a-zA-Z0-9]+[a-zA-Z0-9_.-]+[a-zA-Z0-9_-]+@[a-zA-Z0-9]+[a-zA-Z0-9.-]+[a-zA-Z0-9]+.[a-z]{2,4}$/;
+  if (filter.test(sEmail)) {
+    return true;
+  }
+  else {
+    return false;
+  }
+}

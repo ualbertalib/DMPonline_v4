@@ -7,15 +7,15 @@
 		<table class="dmp_details_table">
 			<tr>
 				<td class="first"><%= t('helpers.email') %></td>
-				<td><%= f.email_field :email, :autofocus => true %></td>
+				<td><%= f.email_field :email, :autofocus => true, :class => 'text_field has-tooltip', 'data-toggle' => "tooltip", 'title' => "This must be a valid email address - an email will be sent to it for confirmation." %></td>
 			</tr>
 			<tr>
 				<td class="first"><%= t('helpers.password') %></td>
-				<td><%= f.password_field :password %></td>
+				<td><%= f.password_field :password, :class => 'text_field has-tooltip', 'data-toggle' => "tooltip", 'title' => "This must be at least 8 characters long." %></td>
 			</tr>
 			<tr>
 				<td class="first"><%= t('helpers.password_conf') %></td>
-				<td><%= f.password_field :password_confirmation %></td>
+				<td><%= f.password_field :password_confirmation, :class => 'text_field has-tooltip', 'data-toggle' => "tooltip", 'title' => "This must match what you entered in the previous field." %></td>
 			</tr>
 		</table>
 	  <div class="div_right">

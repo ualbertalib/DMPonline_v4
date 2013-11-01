@@ -18,7 +18,7 @@ class RegistrationsController < Devise::RegistrationsController
       end
     else
       clean_up_passwords resource
-      redirect_to after_sign_up_error_path_for(resource), alert: 'Error processing registration.'
+      redirect_to after_sign_up_error_path_for(resource), alert: 'Error processing registration. Please check that you have entered a valid email address and that your chosen password is at least 8 characters long.'
     end
   end
 
