@@ -164,7 +164,7 @@ Select what format you wish to use and click to 'Export'.</p>"
       project_details_editing_text_html: "Please fill in the basic project details below and click 'Update' to save"
       share:
         tab_share: "Share"
-        share_text_html: "<p>You can share your plan to allow others to read or edit it. Please insert the email address of the person you wish to share it with. You can leave a note to explain why you are sharing the plan, or what you wish them to look at.</p>"
+        share_text_html: "<p>You can share your plan to allow others to read or edit it. Please insert the email address of the person you wish to share it with.</p>"
         collaborators: "Collaborators"
         add_collaborator: "Add collaborator"
         add: "Add"

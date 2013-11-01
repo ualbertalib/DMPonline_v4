@@ -1,0 +1,3 @@
+<p>Hello <%= @project_group.user.name %>!</p>
+
+<p>You have been given access to the DMP "<%= link_to @project_group.project.title, project_path(@project_group.project, :only_path => false) %>".</p>

@@ -40,6 +40,10 @@ DMPonline4::Application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }
   
+  ActionMailer::Base.default :from => 'address@example.com'
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = { :address => "localhost", :port => 1025 }
+  
   
 	# Add the fonts path
 	config.assets.paths << Rails.root.join('app', 'assets', 'fonts')

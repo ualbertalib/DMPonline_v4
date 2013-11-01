@@ -13,14 +13,21 @@ class ProjectGroupsController < ApplicationController
 			respond_to do |format|
 				message = 'User added to project'
 			  	if @project_group.save
-			  		@project_group.save
 					if @project_group.user.nil? then
 						if User.find_by_email(params[:project_group][:email]).nil? then
 							User.invite!(:email => params[:project_group][:email])
 							message = 'Invitation issued successfully.'
+							@project_group.user = User.find_by_email(params[:project_group][:email])
+							@project_group.save
+						else
+							@project_group.user = User.find_by_email(params[:project_group][:email])
+							@project_group.save
+							UserMailer.sharing_notification(@project_group).deliver
+							logger.debug("Email sent from here?")
 						end
-						@project_group.user = User.find_by_email(params[:project_group][:email])
-						@project_group.save
+					else
+						UserMailer.sharing_notification(@project_group).deliver
+						logger.debug("Email sent from there?")
 					end
 					flash[:notice] = message
 					format.html { redirect_to :controller => 'projects', :action => 'share', :id => @project_group.project.slug }
