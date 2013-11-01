@@ -59,6 +59,7 @@ class ProjectGroupsController < ApplicationController
 			respond_to do |format|
 				if @project_group.update_attributes(params[:project_group])
 					flash[:notice] = 'Sharing details successfully updated.'
+					UserMailer.permissions_change_notification(@project_group).deliver
 					format.html { redirect_to :controller => 'projects', :action => 'share', :id => @project_group.project.slug }
 					format.json { head :no_content }
 				else
@@ -74,9 +75,12 @@ class ProjectGroupsController < ApplicationController
 	def destroy
 		@project_group = ProjectGroup.find(params[:id])
 		if (user_signed_in?) && @project_group.project.administerable_by(current_user.id) then
+			user = @project_group.user
+			project = @project_group.project
 			@project_group.destroy
 			respond_to do |format|
 				flash[:notice] = 'Access removed'
+				UserMailer.project_access_removed_notification(user, project).deliver
 				format.html { redirect_to :controller => 'projects', :action => 'share', :id => @project_group.project.slug }
 				format.json { head :no_content }
 			end
