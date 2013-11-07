@@ -11,17 +11,10 @@ ActiveAdmin.register User do
   	column I18n.t('admin.surname'), :sortable => :surname do |user|
         link_to user.surname, [:admin, user]
     end
-   	column I18n.t('admin.user_status'), :sortable => :user_status_id do |status|
-   		if !status.user_status.nil? then
-        status.user_status.name	 
-			else
-        	'-'
-      end
-   	end
+   	   	
    	
-   	column I18n.t('admin.user_status'), :sortable => :last_login
+  	column I18n.t('admin.user_status'), :last_login
    	
-  	
   	default_actions
   end
 end

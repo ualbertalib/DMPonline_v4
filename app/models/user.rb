@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
     has_many :user_role_types, through: :user_org_roles
     has_and_belongs_to_many :roles, :join_table => :users_roles
   
-    attr_accessible :password_confirmation, :encrypted_password, :remember_me, :id, :email, :firstname, :last_login, :login_count, :orcid_id, :password, :shibboleth_id, :user_status_id, :surname, :user_type_id, :organisation_id, :skip_invitation
+    attr_accessible :password_confirmation, :encrypted_password, :remember_me, :id, :email, :firstname, :last_login, :login_count, :orcid_id, :password, :shibboleth_id, :user_status_id, :surname, :user_type_id, :organisation_id, :skip_invitation, :other_organisation
 
 	def name(use_email = true)
 		if ((firstname.nil? && surname.nil?) || (firstname.strip == "" && surname.strip == "")) && use_email then
