@@ -4,7 +4,11 @@ ActiveAdmin.register Theme do
   	column :title , :sortable => :title do |theme|
         link_to theme.title, [:admin, theme]
     end
-		column :description
+		column :description do |descr|
+  		if !descr.description.nil? then
+  			descr.description.html_safe
+  		end
+  	end
   	
   	default_actions
   end

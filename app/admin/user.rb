@@ -13,7 +13,7 @@ ActiveAdmin.register User do
     end
    	   	
    	
-  	column I18n.t('admin.user_status'), :last_login
+  	column I18n.t('admin.last_logged_in'), :last_login
    	
   	default_actions
   end

@@ -11,7 +11,11 @@ ActiveAdmin.register Question do
   	column I18n.t('admin.template_title'), :sortable => :section_id do |dmptemplate|
         link_to dmptemplate.section.version.phase.dmptemplate.title, [:admin, dmptemplate.section.version.phase.dmptemplate]
     end
-  	column I18n.t('admin.question'), :text 
+  	column I18n.t('admin.question'), :text do |descr|
+  		if !descr.text.nil? then
+  			descr.text.html_safe
+  		end
+  	end	
    
   	
   	default_actions

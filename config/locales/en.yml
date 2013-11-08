@@ -47,12 +47,18 @@ en:
     template_title: "Template title"
     section_title: "Section title"
     phase_title: "Phase title"
+    version_title: "Version title"
     user_name: "User name"
     firstname: "First name"
     surname: "Surname"
     user_status: "User status"
+    last_logged_in: "Last logged in"
     version_numb: "Version number"
-    
+    details: "Details"
+    phases: "Phases"
+    version: "Versions"
+    sections: "Sections"
+    questions: "Questions"
   
   helpers:
     sign_in: "Sign in"
