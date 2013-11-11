@@ -66,5 +66,13 @@ module DMPonline4
     config.action_mailer.default_url_options = { :host => 'dmponline-beta.dcc.ac.uk' }
     config.active_record.whitelist_attributes = true
     
+     # Enable shibboleth as an alternative authentication method
+    # Requires server configuration and omniauth shibboleth provider configuration
+    # See config/initializers/omniauth.rb
+    config.shibboleth_enabled = true
+    
+    # Absolute path to Shibboleth SSO Login
+    config.shibboleth_login = '/Shibboleth.sso/Login'
+    
   end
 end

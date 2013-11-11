@@ -18,7 +18,7 @@ class Plan < ActiveRecord::Base
 			answer = Answer.new
 			answer.plan_id = id
 			answer.question_id = qid
-			answer.text = question.suggested_answer
+			answer.text = question.get_suggested_answer(project.organisation_id)
 			default_options = Array.new
 			question.options.each do |option|
 				if option.is_default
@@ -52,7 +52,9 @@ class Plan < ActiveRecord::Base
 		end
 		project.guidance_groups.each do |group|
 			group.guidances.where("theme_id IN (?)", theme_ids).each do |g|
-				guidances["#{group.organisation.abbreviation} guidance on #{g.theme.title}"] = g
+				if g.dmptemplate_id.nil? || g.dmptemplate_id == project.dmptemplate_id then
+					guidances["#{group.organisation.abbreviation} guidance on #{g.theme.title}"] = g
+				end
 			end
 		end
 		return guidances

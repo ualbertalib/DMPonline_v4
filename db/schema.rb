@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130927094924) do
+ActiveRecord::Schema.define(:version => 20131111090129) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -111,7 +111,6 @@ ActiveRecord::Schema.define(:version => 20130927094924) do
     t.integer  "organisation_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
-    t.boolean  "default"
   end
 
   create_table "guidance_in_group", :id => false, :force => true do |t|
@@ -128,6 +127,7 @@ ActiveRecord::Schema.define(:version => 20130927094924) do
     t.integer  "theme_id"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
+    t.integer  "dmptemplate_id"
   end
 
   create_table "option_warnings", :force => true do |t|
@@ -294,6 +294,14 @@ ActiveRecord::Schema.define(:version => 20130927094924) do
     t.integer  "number"
     t.integer  "version_id"
     t.integer  "organisation_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "suggested_answers", :force => true do |t|
+    t.integer  "question_id"
+    t.integer  "organisation_id"
+    t.text     "text"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end

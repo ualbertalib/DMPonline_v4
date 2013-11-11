@@ -5,6 +5,7 @@ class Dmptemplate < ActiveRecord::Base
   has_many :phases
   belongs_to :organisation
   has_many :projects
+  has_many :guidances
   
   accepts_nested_attributes_for :phases
   accepts_nested_attributes_for :organisation

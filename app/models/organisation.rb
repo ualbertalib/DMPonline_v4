@@ -8,6 +8,7 @@ class Organisation < ActiveRecord::Base
 	has_many :users
 	has_many :user_org_roles
 	has_many :option_warnings
+	has_many :suggested_answers
 	belongs_to :parent, :class_name => 'Organisation'
 	has_many :children, :class_name => 'Organisation', :foreign_key => 'parent_id'
 	 
@@ -46,7 +47,11 @@ class Organisation < ActiveRecord::Base
 	
 	def all_sections(version_id)
 		if parent.nil?
-			return sections.find_by_version_id(version_id)
+			secs = sections.find_by_version_id(version_id)
+			if secs == nil then
+				secs = Array.new
+			end
+			return secs
 		else
 			return sections.find_by_version_id(version_id) + parent.all_sections(version_id)
 		end
