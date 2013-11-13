@@ -25,12 +25,5 @@ class Dmptemplate < ActiveRecord::Base
     
     return org_templates
    end 
-  
-  #retrieves info on a specific template belonging to an organisation
-  def self.templates_of_org(org_id)
-	   org_template = Dmptemplate.where("organisation_id = ? AND published = ?", org_id, true)
-    return org_template
-      
-  end
 
 end

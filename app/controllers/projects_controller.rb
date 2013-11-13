@@ -75,13 +75,13 @@ class ProjectsController < ApplicationController
 			if @project.dmptemplate.nil? && params[:project][:funder_id] != "" then # this shouldn't be necessary - see setter for funder_id in project.rb
 				funder = Organisation.find(params[:project][:funder_id])
 				if funder.dmptemplates.count == 1 then
-					@project.dmptemplate = funder.dmptemplates.first
+					@project.dmptemplate = funder.published_templates.first
 				end
 			elsif @project.dmptemplate.nil? then
-				if @project.organisation.nil? || @project.organisation.dmptemplates.first.nil? then
+				if @project.organisation.nil? || @project.organisation.published_templates.first.nil? then
 					@project.dmptemplate = Dmptemplate.find_by_is_default(true)
 				else
-					@project.dmptemplate = @project.organisation.dmptemplates.first
+					@project.dmptemplate = @project.organisation.published_templates.first
 				end
 			end
 			@project.principal_investigator = current_user.name(false)

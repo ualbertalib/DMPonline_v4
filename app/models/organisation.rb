@@ -66,11 +66,15 @@ class Organisation < ActiveRecord::Base
 	end
 	
 	def warning(option_id)
-		warning = option_warnings.find_by_option_id(option_id);
+		warning = option_warnings.find_by_option_id(option_id)
 		if warning.nil? && !parent.nil? then
 			return parent.warning(option_id)
 		else
 			return warning
 		end
+	end
+	
+	def published_templates
+		return dmptemplates.find_all_by_published(1)
 	end
 end
