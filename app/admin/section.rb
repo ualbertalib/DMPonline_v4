@@ -36,9 +36,10 @@ ActiveAdmin.register Section do
 		 
 		end 
   
+  
   #questions sidebar(:default_value, :dependency_id, :dependency_text, :guidance, :number, :parent_id, :suggested_answer, :text, :question_type, :section_id)
  		sidebar I18n.t("admin.questions"), :only => :show do
- 		 	table_for version.sections.order("number asc") do |temp_phases|
+ 		 	table_for section.questions.order("number asc") do |temp_questions|
  		 		column :number
  		 		column :text do |row|
       		link_to row.text, [:admin, row]
@@ -46,6 +47,5 @@ ActiveAdmin.register Section do
       	
  		 	end
  		end
-  
   
 end

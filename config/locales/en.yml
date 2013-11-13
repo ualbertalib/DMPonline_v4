@@ -192,7 +192,7 @@ Select what format you wish to use and click to 'Export'.</p>"
         desc: "Please select from the following drop-downs so we can determine what questions and guidance should be displayed in your plan."
         funders_question: "If applying for funding, select your research funder."
         funders_question_description: "Otherwise leave blank."
-        institution_question: "To see institutional questions and/or guidance, select your university?"
+        institution_question: "To see institutional questions and/or guidance, select your university."
         institution_question_description: "You may leave blank or select a different institution to your own."
         other_guidance_question: "Tick to select any other sources of guidance you wish to see."  
  
