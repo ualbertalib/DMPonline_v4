@@ -47,6 +47,7 @@ gem 'email_validator'
 gem 'validate_url'
 # gem 'sword2ruby'
 
+gem 'thin'
 
 
 # To use ActiveModel has_secure_password

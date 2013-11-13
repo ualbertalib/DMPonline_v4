@@ -72,7 +72,7 @@ module DMPonline4
     config.shibboleth_enabled = true
     
     # Absolute path to Shibboleth SSO Login
-    config.shibboleth_login = '/Shibboleth.sso/Login'
+    config.shibboleth_login = 'https://localhost/Shibboleth.sso/Login'
     
   end
 end
