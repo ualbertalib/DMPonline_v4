@@ -39,7 +39,7 @@ ActiveAdmin.register Phase do
 		end 
   
   #versions sidebar
- 		sidebar I18n.t("admin.version"), :only => :show do
+ 		sidebar I18n.t("admin.version"), :only => :show, :if => proc { phase.versions.count >= 1}  do
  		 	table_for phase.versions.order("number asc") do |temp_phases|
  		 		column :number
  		 		column :title do |row|
@@ -56,5 +56,5 @@ ActiveAdmin.register Phase do
  		 	end
  		end
   
-  
+      
 end

@@ -1,4 +1,4 @@
-ActiveAdmin.register Section do
+ActiveAdmin.register Section do 
 
 	index do   # :organisation_id, :description, :number, :title, :version_id
   	column :title , :sortable => :title do |section|
@@ -14,7 +14,7 @@ ActiveAdmin.register Section do
   	default_actions
   end
   
-   #show details of a section
+  #show details of a section
   show do 
 		attributes_table do
 			row :title
@@ -38,14 +38,25 @@ ActiveAdmin.register Section do
   
   
   #questions sidebar(:default_value, :dependency_id, :dependency_text, :guidance, :number, :parent_id, :suggested_answer, :text, :question_type, :section_id)
- 		sidebar I18n.t("admin.questions"), :only => :show do
- 		 	table_for section.questions.order("number asc") do |temp_questions|
- 		 		column :number
- 		 		column :text do |row|
-      		link_to row.text, [:admin, row]
-      	end	
-      	
- 		 	end
+ 		sidebar I18n.t("admin.questions"), :only => :show, :if => proc { (Question.where("section_id = ?", params[:id])).count >= 1}  do 
+ 			table_for( Question.where("section_id = ?", params[:id] ).order("number asc")) do
+		 				column (:number){|question| question.number} 
+	  				column (I18n.t("admin.question")){|question| link_to question.text, [:admin, question]}
+		 	end	
+	 		
  		end
+ 		
+ 	#form 
+  form do |f|
+  	f.inputs "Details" do
+  		f.input :title
+  		f.input :number
+  		f.input :version, :collection => Version.all.map{ |ver| [ver.title, ver.id] }
+  		f.input :organisation, :as => :select, :collection => Organisation.all.map{ |org| [org.name, org.id] }
+  		f.input :description
+   	end
+  	
+  	 f.actions 
+  end
   
 end

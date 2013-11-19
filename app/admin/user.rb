@@ -1,7 +1,7 @@
 ActiveAdmin.register User do
 	
-	index do   # :password_confirmation, :encrypted_password, :remember_me, :id, :email, :firstname, :last_login, :login_count, :orcid_id, 
-		#:password, :shibboleth_id, :user_status_id, :surname, :user_type_id, :organisation_id, :skip_invitation
+	index do   # :password_confirmation, :encrypted_password, :remember_me, :id, :email, :firstname, :orcid_id, 
+		# :shibboleth_id, :user_status_id, :surname, :user_type_id, :organisation_id, :skip_invitation
   	column I18n.t('admin.user_name'), :sortable => :email do |user_email|
         link_to user_email.email, [:admin, user_email]
     end
@@ -11,10 +11,65 @@ ActiveAdmin.register User do
   	column I18n.t('admin.surname'), :sortable => :surname do |user|
         link_to user.surname, [:admin, user]
     end
-   	   	
-   	
-  	column I18n.t('admin.last_logged_in'), :last_login
-   	
+   	column I18n.t('admin.last_logged_in'), :last_sign_in_at 
+   	column I18n.t('admin.org_title'), :organisation_id do |org_title|
+      if !org_title.organisation.nil? then
+        	 link_to org_title.organisation.name, [:admin, org_title.organisation]
+        else
+        	'-'
+        end
+   	end
+      	
   	default_actions
   end
+  
+  show do
+  		attributes_table do
+  			row :firstname
+  			row :surname
+  			row :email
+  			row :orcid_id
+  			row I18n.t('admin.org_title'), :organisation_id do |org_title|
+		      if !org_title.organisation.nil? then
+		        	 link_to org_title.organisation.name, [:admin, org_title.organisation]
+		        else
+		        	'-'
+		        end
+		   	end
+  			row I18n.t('admin.user_status'), :user_status_id do |us|
+  				if !us.user_status.nil? then
+  					link_to us.user_status.name, [:admin, us.user_status]
+  				else
+  					'-'
+  				end		
+  			end
+  			row I18n.t('admin.user_type'), :user_type_id do |ut|
+  				if !ut.user_type.nil? then
+  					link_to ut.user_type.name, [:admin, ut.user_type]
+  				else
+  					'-'
+  				end		
+  			end
+  			row :last_sign_in_at
+  			row :sign_in_count 
+
+  		end
+  end
+  
+  
+  form do |f|
+  	f.inputs "Details" do
+        f.input :firstname
+        f.input :firstname
+  			f.input :surname
+  			f.input :email
+  			f.input :organisation_id
+  			f.input :user_status_id
+  			f.input :user_type_id
+  			
+    end
+    
+    f.actions    
+  end
+  
 end

@@ -45,7 +45,7 @@ ActiveAdmin.register Version do
 		end 
   
   #sections sidebar  (:organisation_id, :description, :number, :title, :version_id)
- 		sidebar I18n.t("admin.sections"), :only => :show do
+ 		sidebar I18n.t("admin.sections"), :only => :show, :if => proc { version.sections.count >= 1}  do
  		 	table_for version.sections.order("number asc") do |temp_phases|
  		 		column :number
  		 		column :title do |row|

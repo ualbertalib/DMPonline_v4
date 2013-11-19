@@ -10,4 +10,32 @@ ActiveAdmin.register GuidanceGroup do
   	
   	default_actions
   end
+  
+  #show details of guidance group
+  show do
+		attributes_table do
+			row	:name
+			row :organisation_id do |org_title|
+        link_to org_title.organisation.name, [:admin, org_title.organisation]
+    	end
+    	row :default
+    	row :created_at
+    	row :updated_at
+		end
+	end
+	
+	#guidance list
+	sidebar I18n.t("admin.guidance"), :only => :show, :if => proc { guidance_group.guidances.count >= 1}  do
+ 		 	table_for guidance_group.guidances.order("text asc") do |guis|
+ 		 		column :text do |gtext|
+ 		 			link_to gtext.text.html_safe, [:admin, gtext]
+ 		 		end
+ 		 		column I18n.t('admin.theme'), :theme_id do |themelist|
+   				themelist.theme
+	    	end
+ 		 	end
+ 		end
+	
+	
+			
 end

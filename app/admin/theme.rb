@@ -12,4 +12,16 @@ ActiveAdmin.register Theme do
   	
   	default_actions
   end
+  
+  #show details of a theme
+  show do
+  	attributes_table do
+			row :title
+			row :description
+			row :created_at
+			row :updated_at
+		end	
+  end
+  
+  
 end

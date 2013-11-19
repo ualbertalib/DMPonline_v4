@@ -36,11 +36,15 @@ en:
 
   admin:
     org_title: "Organisation name"
+    orgs: "Organisations"
+    org_type: "Organisation type"
+    org_parent: "Parent organisation"
     title: "Title"
     desc: "Description"
     theme: "Theme"
     guidance_group: "Guidance group"
     no_guidance_group: "No guidance group"
+    guidance: "Guidance"
     name: "Name"
     abbrev: "Abbreviation"
     question: "Question"
@@ -48,10 +52,11 @@ en:
     section_title: "Section title"
     phase_title: "Phase title"
     version_title: "Version title"
-    user_name: "User name"
+    user_name: "Username"
     firstname: "First name"
     surname: "Surname"
     user_status: "User status"
+    user_type: "User type"
     last_logged_in: "Last logged in"
     version_numb: "Version number"
     details: "Details"
@@ -59,6 +64,8 @@ en:
     version: "Versions"
     sections: "Sections"
     questions: "Questions"
+    templates: "Templates"
+    template: "Template"
   
   helpers:
     sign_in: "Sign in"
