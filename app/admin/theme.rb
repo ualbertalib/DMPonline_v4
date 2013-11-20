@@ -23,5 +23,14 @@ ActiveAdmin.register Theme do
 		end	
   end
   
-  
+  #form
+  form do |f|
+  	f.inputs "Details" do
+  		f.input :title
+  		f.input :description
+		end
+		 f.actions  
+	end			
+	
+	
 end

@@ -10,6 +10,9 @@ ActiveAdmin.register Dmptemplate do
   		end
   		
   	end
+  	column I18n.t('admin.org_title'), :sortable => :organisation_id do |org_title|
+        link_to org_title.organisation.name, [:admin, org_title.organisation]
+   	end
   	column :published
   	column :is_default
   	
@@ -26,7 +29,11 @@ ActiveAdmin.register Dmptemplate do
 	  			descr.description.html_safe
 	  		end
 	  	end
+	  	row I18n.t('admin.org_title'), :sortable => :organisation_id do |org_title|
+        link_to org_title.organisation.name, [:admin, org_title.organisation]
+   		end
 	 		row :published
+	 		row :is_default
 	 		row :created_at
      	row :updated_at
 		 end
@@ -43,6 +50,19 @@ ActiveAdmin.register Dmptemplate do
  		 	end
  		end
 			 
+ 	#form 	
+ 	form do |f|
+  	f.inputs "Details" do
+  		f.input :title
+  		f.input :description
+  		f.input :organisation_id, :label => I18n.t('admin.org_title'), 
+  						:as => :select, 
+  						:collection => Organisation.find(:all, :order => 'name ASC').map{|orgp|[orgp.name, orgp.id]}
+  		f.input :published
+  		f.input :is_default
+  	end
+  	f.actions  
+  end		
  
 end
 

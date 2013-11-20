@@ -1,5 +1,7 @@
 class Guidance < ActiveRecord::Base
-  attr_accessible :file_id, :text, :guidance_group_id, :theme_id, :dmptemplate_id
+  attr_accessible :file_id, :text, :theme_id, :dmptemplate_id
+  
+  attr_accessible :guidance_group_ids
 
 	#associations between tables
 	belongs_to :theme

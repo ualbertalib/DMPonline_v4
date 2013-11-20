@@ -58,5 +58,16 @@ ActiveAdmin.register Version do
  		 	end
  		end
   
+ 	#form 	
+ 	form do |f|
+  	f.inputs "Details" do
+  		f.input :title
+  		f.input :number
+  		f.input :description
+  		f.input :organisation_id, :label => I18n.t('admin.org_title'), :as => :select, :collection => Organisation.find(:all, :order => 'name ASC').map{|orgp|[orgp.name, orgp.id]}
+  		f.input :published  
+  	end
+  	f.actions  
+  end		
 
 end

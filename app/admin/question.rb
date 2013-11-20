@@ -2,7 +2,6 @@ ActiveAdmin.register Question do
 
 	index do  #:default_value, :dependency_id, :dependency_text, :guidance, :number, :parent_id, 
 		#:suggested_answer, :text, :question_type, :section_id
-  	
   	column I18n.t('admin.question'), :text do |descr|
   		if !descr.text.nil? then
   			descr.text.html_safe
@@ -59,7 +58,7 @@ ActiveAdmin.register Question do
 	  			dep_text.dependency_text.html_safe
 	  		end
 	  	end	
-	  	row "Themes" do
+	  	row I18n.t('admin.themes') do
 	 		 	(question.themes.map{|t_q| link_to t_q.title, [:admin, t_q]}).join(', ').html_safe
 	 		end	
 	  	row :created_at
@@ -74,19 +73,29 @@ ActiveAdmin.register Question do
   	f.inputs "Details" do
   		f.input :text
   		f.input :number
-  		f.input :section, :collection => Section.all.map{ |sec| [sec.title, sec.id] }
+  		f.input :section, 
+  						:collection => Section.find(:all, :order => 'title ASC').map{ |sec| [sec.title, sec.id] }
   		f.input :question_type
   		f.input :default_value
   		f.input :suggested_answer
   		f.input :guidance 
-  		f.input :parent_id, :label => "Parent", :as => :select, :collection => Question.all.map{|que|[que.text, que.id]}
-  		f.input :dependency_id, :label => "Dependency question", :as => :select, :collection => Question.all.map{|que|[que.text, que.id]}
+  		f.input :parent_id, :label => "Parent", 
+  						:as => :select, 
+  						:collection => Question.find(:all, :order => 'text ASC').map{|que|[que.text, que.id]}
+  		f.input :dependency_id, :label => "Dependency question", 
+  						:as => :select, 
+  						:collection => Question.find(:all, :order => 'text ASC').map{|que|[que.text, que.id]}
   		f.input :dependency_text
   		f.input :multiple_choice
   		f.input :multiple_permitted
   		f.input :is_expanded  	
   	end
-  	 f.actions  
+  	f.inputs "Themes" do
+  			f.input :theme_ids, :label => "Dependency question", 
+  							:as => :check_boxes, 
+  							:collection => Theme.find(:all, :order => 'title ASC').map{|the| [the.title, the.id]}	
+  	end
+	 	f.actions  
   end		
 
 end

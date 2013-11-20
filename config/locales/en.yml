@@ -66,6 +66,8 @@ en:
     questions: "Questions"
     templates: "Templates"
     template: "Template"
+    themes: "Themes"
+    theme: "Theme"
   
   helpers:
     sign_in: "Sign in"
