@@ -1,4 +1,6 @@
 ActiveAdmin.register UserRoleType do
+	
+	 menu :priority => 5, :label => I18n.t('admin.user_role'), :parent => I18n.t('admin.user')
 
 	index do   # :description, :name
   	column I18n.t('admin.title'), :sortable => :name do |user_n|
@@ -12,5 +14,7 @@ ActiveAdmin.register UserRoleType do
   	
   	default_actions
   end
+
+
 
 end

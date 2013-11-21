@@ -1,5 +1,7 @@
 ActiveAdmin.register Question do
 
+	menu :priority => 1, :label => I18n.t('admin.question'), :parent => I18n.t('admin.template')
+
 	index do  #:default_value, :dependency_id, :dependency_text, :guidance, :number, :parent_id, 
 		#:suggested_answer, :text, :question_type, :section_id
   	column I18n.t('admin.question'), :text do |descr|

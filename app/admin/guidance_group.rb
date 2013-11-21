@@ -1,4 +1,6 @@
 ActiveAdmin.register GuidanceGroup do
+
+	menu :priority => 2, :label => I18n.t('admin.guidance_group'), :parent => I18n.t('admin.guidance')
 	
 	index do   #:organisation_id, :name
   	column I18n.t('admin.name'), :sortable => :name do |ggn|
@@ -18,7 +20,6 @@ ActiveAdmin.register GuidanceGroup do
 			row :organisation_id do |org_title|
         link_to org_title.organisation.name, [:admin, org_title.organisation]
     	end
-    	row :default
     	row :created_at
     	row :updated_at
 		end
@@ -40,8 +41,9 @@ ActiveAdmin.register GuidanceGroup do
  	form do |f|
   	f.inputs "Details" do
   		f.input :name
-			f.input :organisation_id, :label => I18n.t('admin.org_title'), :as => :select, :collection => Organisation.find(:all, :order => 'name ASC').map{|orgp|[orgp.name, orgp.id]}
-			f.input :default
+			f.input :organisation_id, :label => I18n.t('admin.org_title'), 
+							:as => :select, 
+							:collection => Organisation.find(:all, :order => 'name ASC').map{|orgp|[orgp.name, orgp.id]}
 		end
   	f.actions  
   end		

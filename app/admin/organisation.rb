@@ -1,4 +1,6 @@
 ActiveAdmin.register Organisation do
+	
+	 menu :priority => 14, :label => I18n.t('admin.org'), :parent => I18n.t('admin.org')
 
 	index do   # :abbreviation, :banner_file_id, :description, :domain, :logo_file_id, :name, 
 		#:stylesheet_file_id, :target_url, :organisation_type_id, :wayfless_entity, :parent_id

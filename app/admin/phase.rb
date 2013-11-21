@@ -1,17 +1,14 @@
 ActiveAdmin.register Phase do	
+
+	menu :priority => 1, :label => I18n.t('admin.phase'), :parent => I18n.t('admin.template')
 	
 	# :description, :number, :title, :dmptemplate_id, :external_guidance_url
 	index do   
   	column :title do |ph|
         link_to ph.title, [:admin, ph]
     end
-  	column :description do |des_ph|
-  		if !des_ph.description.nil? then
-  			des_ph.description.html_safe
-  		end
-  	end
-  	column :number
-  	column I18n.t('admin.template_title'), :sortable => :dmptemplate_id do |temp_title|
+    column :number
+  	column I18n.t('admin.template'), :sortable => :dmptemplate_id do |temp_title|
       link_to temp_title.dmptemplate.title, [:admin, temp_title.dmptemplate]
      end
   	
@@ -28,7 +25,7 @@ ActiveAdmin.register Phase do
 	  			descr.description.html_safe
 	  		end
 	  	end	
-	  	row I18n.t('admin.template_title'), :sortable => :dmptemplate_id do |temp_title|
+	  	row I18n.t('admin.template'), :sortable => :dmptemplate_id do |temp_title|
       	link_to temp_title.dmptemplate.title, [:admin, temp_title.dmptemplate]
      	end
      	row :external_guidance_url
@@ -45,16 +42,24 @@ ActiveAdmin.register Phase do
  		 		column :title do |row|
       		link_to row.title, [:admin, row]
       	end	
-      	column :published, :sortable => :published do |v_published|
-					if (v_published.published == 1)
-						'Yes'
-					else
-						'No'	
-					end
-				end
-      	
- 		 	end
+      	column :published
+		 	end
  		end
+ 		
+ 		
+ 			#form 	
+ 	form do |f|
+  	f.inputs "Details" do
+  		f.input :title
+  		f.input :number
+  		f.input :description
+  		f.input :dmptemplate_id, :label => I18n.t('admin.template'), 
+  						:as => :select, 
+  						:collection => Dmptemplate.find(:all, :order => 'title ASC').map{|temp|[temp.title, temp.id]}
+  
+  	end
+  	f.actions  
+  end		
   
       
 end

@@ -1,4 +1,6 @@
 ActiveAdmin.register UserStatus do
+	
+	 menu :priority => 5, :label => I18n.t('admin.user_status'), :parent => I18n.t('admin.user')
 
 index do   # :description, :name
   	column I18n.t('admin.title'), :sortable => :name do |user_n|

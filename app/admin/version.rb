@@ -1,23 +1,14 @@
 ActiveAdmin.register Version do
 
+	menu :priority => 1, :label => I18n.t('admin.version'), :parent => I18n.t('admin.template')
+
 	index do   # :description, :number, :published, :title, :phase_id
   	column I18n.t('admin.title'), :sortable => :title  do |version_used|
         link_to version_used.title, [:admin, version_used]
     end
-    column I18n.t('admin.desc'),:description do |descr|
-  		if !descr.description.nil? then
-  			descr.description.html_safe
-  		end
-  	end	
-    column I18n.t('admin.version_numb'), :number
-		column :published, :sortable => :published do |v_published|
-			if (v_published.published == 1)
-				'Yes'
-			else
-				'No'	
-			end
-		end
-		column I18n.t('admin.phase_title'), :sortable => :phase_id do |version_phase|
+   column I18n.t('admin.version_numb'), :number
+		column :published
+		column I18n.t('admin.phase'), :sortable => :phase_id do |version_phase|
         link_to version_phase.phase.title, [:admin, version_phase.phase]
     end
     	
@@ -34,7 +25,7 @@ ActiveAdmin.register Version do
 	  			descr.description.html_safe
 	  		end
 	  	end
-	  	row I18n.t('admin.phase_title'), :sortable => :phase_id do |phase_title|
+	  	row I18n.t('admin.phase'), :sortable => :phase_id do |phase_title|
       	link_to phase_title.phase.title, [:admin, phase_title.phase]
      	end
      	row :published
@@ -64,7 +55,9 @@ ActiveAdmin.register Version do
   		f.input :title
   		f.input :number
   		f.input :description
-  		f.input :organisation_id, :label => I18n.t('admin.org_title'), :as => :select, :collection => Organisation.find(:all, :order => 'name ASC').map{|orgp|[orgp.name, orgp.id]}
+  		f.input :phase, :label => I18n.t('admin.phase_title'), 
+  						:as => :select, 
+  						:collection => Phase.find(:all, :order => 'title ASC').map{|ph|[ph.title, ph.id]}
   		f.input :published  
   	end
   	f.actions  

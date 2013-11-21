@@ -1,5 +1,7 @@
 ActiveAdmin.register User do
 	
+	 menu :priority => 15, :label => I18n.t('admin.user'), :parent => I18n.t('admin.user')
+	
 	index do   # :password_confirmation, :encrypted_password, :remember_me, :id, :email, :firstname, :orcid_id, 
 		# :shibboleth_id, :user_status_id, :surname, :user_type_id, :organisation_id, :skip_invitation
   	column I18n.t('admin.user_name'), :sortable => :email do |user_email|
@@ -15,9 +17,7 @@ ActiveAdmin.register User do
    	column I18n.t('admin.org_title'), :organisation_id do |org_title|
       if !org_title.organisation.nil? then
         	 link_to org_title.organisation.name, [:admin, org_title.organisation]
-        else
-        	'-'
-        end
+       end
    	end
       	
   	default_actions
@@ -32,15 +32,11 @@ ActiveAdmin.register User do
   			row I18n.t('admin.org_title'), :organisation_id do |org_title|
 		      if !org_title.organisation.nil? then
 		        	 link_to org_title.organisation.name, [:admin, org_title.organisation]
-		        else
-		        	'-'
-		        end
+		      end
 		   	end
   			row I18n.t('admin.user_status'), :user_status_id do |us|
   				if !us.user_status.nil? then
   					link_to us.user_status.name, [:admin, us.user_status]
-  				else
-  					'-'
   				end		
   			end
   			row I18n.t('admin.user_type'), :user_type_id do |ut|
@@ -63,10 +59,16 @@ ActiveAdmin.register User do
         f.input :firstname
   			f.input :surname
   			f.input :email
-  			f.input :organisation_id
-  			f.input :user_status_id
-  			f.input :user_type_id
-  			
+  			f.input :orcid_id
+  			f.input :organisation_id,:label => I18n.t('admin.org_title'), 
+  						:as => :select, 
+  						:collection => Organisation.find(:all, :order => 'name ASC').map{|orgp|[orgp.name, orgp.id]}
+  			f.input :user_status_id, :label => I18n.t('admin.user_status'), 
+  						:as => :select, 
+  						:collection => UserStatus.find(:all, :order => 'name ASC').map{|us|[us.name, us.id]}
+  			f.input :user_type_id, :label => I18n.t('admin.user_type'), 
+  						:as => :select, 
+  						:collection => UserType.find(:all, :order => 'name ASC').map{|ut|[ut.name, ut.id]}  			
     end
     
     f.actions    

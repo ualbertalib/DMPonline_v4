@@ -1,4 +1,6 @@
 ActiveAdmin.register OrganisationType do
+	
+	 menu :priority => 4, :label => I18n.t('admin.org_type'), :parent => I18n.t('admin.org')
 
 	index do   #:organisation_id, :name
   	column I18n.t('admin.title'), :sortable => :name do |ggn|

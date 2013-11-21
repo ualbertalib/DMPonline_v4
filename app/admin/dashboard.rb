@@ -1,6 +1,7 @@
 ActiveAdmin.register_page "Dashboard" do
 
-  menu :priority => 1, :label => proc{ I18n.t("active_admin.dashboard") }
+  menu :priority => 10, :label => proc{ I18n.t("active_admin.dashboard") }
+ 
  
   #section "Recent Products" do
    # table_for Product.order("released_at desc").limit(5) do
