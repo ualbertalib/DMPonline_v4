@@ -1,6 +1,6 @@
 ActiveAdmin.register Guidance do
 
-	menu :priority => 13, :label => I18n.t('admin.guidance'), :parent => I18n.t('admin.guidance')
+	menu :priority => 13, :label => proc{ I18n.t('admin.guidance')}, :parent => "Guidance list"
 	 
 	  index do   #:file_id, :text, :guidance_group_id, :theme_id
   		column (:text) { |guidance| raw(guidance.text) }

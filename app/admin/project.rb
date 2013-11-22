@@ -1,6 +1,6 @@
 ActiveAdmin.register Project do
 	
-	 menu :priority => 25, :label => I18n.t('admin.plans')
+	 menu :priority => 25, :label => proc{I18n.t('admin.plans')}
 
 
 	#:dmptemplate_id, :locked, :note, :title, :organisation_id, :unit_id, :guidance_group_ids, :project_group_ids, :funder_id, :institution_id, 

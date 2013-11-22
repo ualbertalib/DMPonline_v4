@@ -1,6 +1,6 @@
 ActiveAdmin.register SuggestedAnswer do
 	
-	 menu :priority => 1, :label => I18n.t('admin.sug_answer'), :parent => I18n.t('admin.template')
+	 menu :priority => 1, :label => proc{I18n.t('admin.sug_answer')}, :parent => "Templates management"
 	 
 	 
 	 #form 	

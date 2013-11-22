@@ -1,6 +1,6 @@
 ActiveAdmin.register GuidanceGroup do
 
-	menu :priority => 2, :label => I18n.t('admin.guidance_group'), :parent => I18n.t('admin.guidance')
+	menu :priority => 2, :label => proc{I18n.t('admin.guidance_group')}, :parent => "Guidance list"
 	
 	index do   #:organisation_id, :name
   	column I18n.t('admin.name'), :sortable => :name do |ggn|

@@ -1,6 +1,6 @@
 ActiveAdmin.register Dmptemplate do
 	
-	 menu :priority => 11, :label => proc{ I18n.t('admin.template')}, :parent => I18n.t('admin.template')
+	 menu :priority => 11, :label => proc{ I18n.t('admin.template')}, :parent => "Templates management"
 	
 	
   index do   

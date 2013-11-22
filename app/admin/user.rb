@@ -1,6 +1,6 @@
 ActiveAdmin.register User do
 	
-	 menu :priority => 15, :label => I18n.t('admin.user'), :parent => I18n.t('admin.user')
+	 menu :priority => 15, :label => proc{ I18n.t('admin.user')}, :parent => "User management"
 	
 	index do   # :password_confirmation, :encrypted_password, :remember_me, :id, :email, :firstname, :orcid_id, 
 		# :shibboleth_id, :user_status_id, :surname, :user_type_id, :organisation_id, :skip_invitation

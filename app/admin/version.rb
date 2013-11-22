@@ -1,6 +1,6 @@
 ActiveAdmin.register Version do
 
-	menu :priority => 1, :label => I18n.t('admin.version'), :parent => I18n.t('admin.template')
+	menu :priority => 1, :label => proc{I18n.t('admin.version')}, :parent =>  "Templates management"
 
 	index do   # :description, :number, :published, :title, :phase_id
   	column I18n.t('admin.title'), :sortable => :title  do |version_used|

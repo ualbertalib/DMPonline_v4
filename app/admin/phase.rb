@@ -1,6 +1,6 @@
 ActiveAdmin.register Phase do	
 
-	menu :priority => 1, :label => I18n.t('admin.phase'), :parent => I18n.t('admin.template')
+	menu :priority => 1, :label => proc{I18n.t('admin.phase')}, :parent => "Templates management"
 	
 	# :description, :number, :title, :dmptemplate_id, :external_guidance_url
 	index do   

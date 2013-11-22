@@ -1,6 +1,6 @@
 ActiveAdmin.register Theme do
 
-	menu :priority => 12, :label => I18n.t('admin.theme')
+	menu :priority => 12, :label => "Themes"
 
 	index do   # :description, :title, :locale
   	column :title , :sortable => :title do |theme|

@@ -1,6 +1,6 @@
 ActiveAdmin.register Question do
 
-	menu :priority => 1, :label => I18n.t('admin.question'), :parent => I18n.t('admin.template')
+	menu :priority => 1, :label => proc{I18n.t('admin.question')}, :parent =>  "Templates management"
 
 	index do  #:default_value, :dependency_id, :dependency_text, :guidance, :number, :parent_id, 
 		#:suggested_answer, :text, :question_type, :section_id
@@ -93,8 +93,9 @@ ActiveAdmin.register Question do
   		f.input :is_expanded  	
   	end
   	f.inputs "Themes" do
-  			f.input :theme_ids, :label => "Dependency question", 
+  			f.inputs :themes, :label => "Selected themes"
   							:as => :check_boxes, 
+  							:multiple => true,
   							:collection => Theme.find(:all, :order => 'title ASC').map{|the| [the.title, the.id]}	
   	end
 	 	f.actions  
