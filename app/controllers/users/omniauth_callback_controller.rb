@@ -24,12 +24,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       else
         if user_signed_in?
           # Reset user password to expire old login details now user using shibboleth
-          pw = rand(36**8).to_s(36)
           current_user.update_attribute('shibboleth_id', uid)
-          current_user.update_attribute('password', pw)
           sign_out current_user
           session.delete(:shibboleth_data)
-          flash[:notice] = I18n.t('dmp.auth.password_reset_shib')
           s_user = User.find_by_shibboleth_id(uid)
           sign_in_and_redirect s_user, event: :authentication
         else

@@ -2,7 +2,11 @@ class Users::OmniauthShibbolethRequestController < ApplicationController
   before_filter :authenticate_user!, :only => :associate
 
   def redirect
-    idp = params[:idp] || current_user.organisation.wayfless_entity
+  	unless current_user.nil?
+    	idp = params[:idp] || current_user.organisation.wayfless_entity
+    else
+    	idp = params[:idp]
+    end
     query_params = {target: user_omniauth_callback_path(:shibboleth)}
     unless idp.blank?
       query_params[:entityID] = idp
