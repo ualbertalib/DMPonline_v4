@@ -1,0 +1,57 @@
+<div class="welcome-message">
+	<h2><%= raw t('welcome_title')%></h2>
+	<p>Welcome to the new DMPonline!</p>
+	<p>We need to check a few details.</p>
+</div>
+<div class="accordion" id="homepage-accordion">
+	<%= form_for(resource, :as => "user", :url => registration_path("user")) do |f| %>
+  <ul>
+	<li>
+		<%= devise_error_messages! %>
+	</li>
+	<li>
+		<%= f.hidden_field :email, :value => @email %>
+		<p>Email address: <%= @email %></p> 
+	</li>
+	<li>
+		<%= f.text_field :firstname, placeholder: "First name", :class => 'text_field' %>
+	</li>
+	<li>
+		<%= f.text_field :surname, placeholder: "Last name", :class => 'text_field' %>
+	</li>
+	<li>
+		<%= collection_select(:user, :organisation_id, Organisation.where("parent_id IS NULL").order("name"), :id, :name, {include_blank: t('helpers.org_type.organisation')}, { :class => 'typeahead org_sign_up' }) %>
+	</li>
+	<% other_organisations = Array.new %>
+	<% Organisation.where("parent_id IS ? AND is_other = ?", nil, 1).each do |org| %>
+		<% other_organisations << org.id %>
+	<% end %>
+	<li id="other-organisation-name" style="display:none" data-orgs="<%= other_organisations.join(',') %>">
+		<%= f.text_field :other_organisation, placeholder: "Organisation Name", :class => 'text_field has-tooltip reg-input', 'data-toggle' => "tooltip", 'data-container' => "body", 'title' => "Please enter the name of your organisation." %>
+		<div class="alert alert-error" style="display:none">  
+			<strong>Error!</strong> You must enter a valid email address.  
+		</div> 
+	</li>
+	<li>
+		<%= f.password_field :password, placeholder: t('helpers.password'), :class => 'text_field has-tooltip reg-input', 'data-toggle' => "tooltip", 'data-container' => "body", 'title' => "This must be at least 8 characters long." %>
+		<div class="alert alert-error" style="display:none">  
+			<strong>Error!</strong> Your password must contain at least 8 characters.  
+		</div>
+	</li>
+	<li>
+		<%= f.password_field :password_confirmation, placeholder: t('helpers.password_conf'), :class => 'text_field has-tooltip reg-input', 'data-toggle' => "tooltip", 'data-container' => "body", 'title' => "This must match what you entered in the previous field." %>
+		<div class="alert alert-error" style="display:none">  
+			<strong>Error!</strong> This must match what you entered in the previous field.
+		</div>	
+	</li>
+	<li>
+		<%= f.check_box :accept_terms %>
+		<%= f.label(:accept_terms, "I accept the terms and conditions") %>
+	</li>
+	<li>
+		<%= f.submit "Sign in", :class => "btn btn-primary" %>
+	</li>
+</ul>
+<% end %>
+</div>
+<div class="two-column-clear"></div>

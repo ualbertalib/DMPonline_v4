@@ -1,7 +1,7 @@
 DMPonline4::Application.routes.draw do
   
     
-  devise_for :users, :controllers => {:registrations => "registrations", :confirmations => 'confirmations', :passwords => 'passwords', :omniauth_callbacks => 'users/omniauth_callbacks'}
+  devise_for :users, :controllers => {:registrations => "registrations", :confirmations => 'confirmations', :passwords => 'passwords', :sessions => 'sessions', :omniauth_callbacks => 'users/omniauth_callbacks'}
   resources :contacts, :controllers => {:contacts => 'contacts'}
   # WAYFless access point - use query param idp
     get 'auth/shibboleth' => 'users/omniauth_shibboleth_request#redirect', :as => 'user_omniauth_shibboleth'
@@ -16,6 +16,7 @@ DMPonline4::Application.routes.draw do
   get "about_us" => 'static_pages#about_us', :as => "about_us"
   get "help" => 'static_pages#help', :as => "help"
   get "terms" => 'static_pages#termsuse', :as => "terms"
+  get "existing_users" => 'existing_users#index', :as => "existing_users"
  
   resources :dmptemplates
   resources :phases
