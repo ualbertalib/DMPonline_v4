@@ -35,6 +35,10 @@
 		</div>	
 	</li>
 	<li>
+		<%= f.check_box :accept_terms %>
+		<%= f.label(:accept_terms, "I accept the terms and conditions") %>
+	</li>
+	<li>
 		<%= f.submit t('helpers.sign_up'), :class => "btn btn-primary" %>
 	</li>
 </ul>

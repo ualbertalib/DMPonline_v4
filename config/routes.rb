@@ -15,7 +15,7 @@ DMPonline4::Application.routes.draw do
 
   get "about_us" => 'static_pages#about_us', :as => "about_us"
   get "help" => 'static_pages#help', :as => "help"
-  get "termsuse" => 'static_pages#termsuse', :as => "termsuse"
+  get "terms" => 'static_pages#termsuse', :as => "terms"
  
   resources :dmptemplates
   resources :phases

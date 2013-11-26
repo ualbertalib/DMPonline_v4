@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131118094629) do
+ActiveRecord::Schema.define(:version => 20131126135301) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -111,7 +111,6 @@ ActiveRecord::Schema.define(:version => 20131118094629) do
     t.integer  "organisation_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
-    t.boolean  "default"
   end
 
   create_table "guidance_in_group", :id => false, :force => true do |t|
@@ -377,6 +376,8 @@ ActiveRecord::Schema.define(:version => 20131118094629) do
     t.integer  "invited_by_id"
     t.string   "invited_by_type"
     t.string   "other_organisation"
+    t.boolean  "dmponline3"
+    t.boolean  "accept_terms"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
