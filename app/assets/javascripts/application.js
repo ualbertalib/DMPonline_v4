@@ -92,6 +92,18 @@ $( document ).ready(function() {
 			$(this).parent().children("div").show();
 		}
 	});
+	
+	$('#user_organisation_id').on("change", function(e) {
+		var selected_org = $(this).select2("val");
+		var other_orgs = $("#other-organisation-name").attr("data-orgs").split(",");
+		var index = $.inArray(selected_org, other_orgs);
+		if (index > -1) {
+			$("#other-organisation-name").show();
+		}
+		else {
+			$("#other-organisation-name").hide();
+		}
+	});
 
 });
 

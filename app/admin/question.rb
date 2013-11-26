@@ -93,7 +93,7 @@ ActiveAdmin.register Question do
   		f.input :is_expanded  	
   	end
   	f.inputs "Themes" do
-  			f.inputs :themes, :label => "Selected themes"
+  			f.inputs :themes, :label => "Selected themes",
   							:as => :check_boxes, 
   							:multiple => true,
   							:collection => Theme.find(:all, :order => 'title ASC').map{|the| [the.title, the.id]}	
