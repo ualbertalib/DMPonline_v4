@@ -10,13 +10,19 @@ ActiveAdmin.register Question do
   		end
   	end	
   	column I18n.t('admin.section_title'), :sortable => :section_id do |dmptemplate|
-        link_to dmptemplate.section.title, [:admin, dmptemplate.section]
+        if !dmptemplate.section_id.nil? then
+       		 link_to dmptemplate.section.title, [:admin, dmptemplate.section]
+        end
     end
     column :number, :sortable => :number do |question_n|
+    	if !question_n.number.nil? then
   		 link_to question_n.number, [:admin, question_n]
+  		end 
   	end
   	column I18n.t('admin.template_title'), :sortable => :section_id do |dmptemplate|
+  		 if !dmptemplate.section_id.nil? then
         link_to dmptemplate.section.version.phase.dmptemplate.title, [:admin, dmptemplate.section.version.phase.dmptemplate]
+       end 
     end
   	
    	default_actions
@@ -35,7 +41,6 @@ ActiveAdmin.register Question do
         link_to question.section.title, [:admin, question.section]
     	end
 	 		row :number
-	 		row :question_type
 	 		row :suggested_answer
 	 		row :default_value
 	 		row :guidance do |qguidance|
@@ -77,7 +82,6 @@ ActiveAdmin.register Question do
   		f.input :number
   		f.input :section, 
   						:collection => Section.find(:all, :order => 'title ASC').map{ |sec| ["#{sec.version.phase.dmptemplate.title} - #{sec.title}", sec.id] }
-  		f.input :question_type
   		f.input :default_value
   		f.input :suggested_answer
   		f.input :guidance 
@@ -96,8 +100,8 @@ ActiveAdmin.register Question do
   			f.inputs :themes, :label => "Selected themes",
   							:as => :check_boxes, 
   							:multiple => true,
-  							:collection => Theme.find(:all, :order => 'title ASC').map{|the| [the.title, the.id]},	
-  							:selected => @themes
+  							:collection => Theme.order('title').map{|the| [the.title, the.id]}	
+  							
   	end
 	 	f.actions  
   end		
