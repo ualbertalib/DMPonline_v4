@@ -46,6 +46,9 @@ ActiveAdmin.register User do
   					'-'
   				end		
   			end
+  			row I18n.t('admin.user_role') do 
+  				(user.roles.map{|ro| link_to ro.name, [:admin, ro]}).join(', ').html_safe
+  			end
   			row :last_sign_in_at
   			row :sign_in_count 
 
@@ -68,7 +71,11 @@ ActiveAdmin.register User do
   						:collection => UserStatus.find(:all, :order => 'name ASC').map{|us|[us.name, us.id]}
   			f.input :user_type_id, :label => I18n.t('admin.user_type'), 
   						:as => :select, 
-  						:collection => UserType.find(:all, :order => 'name ASC').map{|ut|[ut.name, ut.id]}  			
+  						:collection => UserType.find(:all, :order => 'name ASC').map{|ut|[ut.name, ut.id]}  		
+  			f.inputs :roles, :label => "User role",
+  							:as => :select, 
+  							:collection => Role.find(:all, :order => 'name ASC').map{|ro| [ro.name, ro.id]},	
+  							:selected => @roles				
     end
     
     f.actions    
