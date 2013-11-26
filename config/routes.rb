@@ -42,6 +42,7 @@ DMPonline4::Application.routes.draw do
 			post 'unlock_all_sections'
 			get 'export'
 			get 'warning'
+			get 'section_answers'
 		end
 	end
 	member do

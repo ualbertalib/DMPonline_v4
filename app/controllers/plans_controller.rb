@@ -43,6 +43,17 @@ class PlansController < ApplicationController
 		end
 	end
 	
+	def section_answers
+  		@plan = Plan.find(params[:id])
+  		if user_signed_in? && @plan.readable_by(current_user.id) then
+			respond_to do |format|
+				format.json { render json: @plan.section_answers(params[:section_id]) }
+			end
+		else
+			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
+		end
+	end
+	
 	def locked
   		@plan = Plan.find(params[:id])
   		if user_signed_in? && @plan.readable_by(current_user.id) then

@@ -149,19 +149,18 @@ class Plan < ActiveRecord::Base
 	end
 	
 	def locked(section_id, user_id)
-		plan_section = plan_sections.where(:section_id => section_id).order("created_at DESC").first
+		plan_section = plan_sections.where("section_id = ? AND user_id != ? AND release_time > ?", section_id, user_id, Time.now).last
+		logger.debug("LOCK: #{plan_section.inspect}")	
 		if plan_section.nil? then
 			status = {
 				"locked" => false,
-				"current_user" => false,
 				"locked_by" => nil,
 				"timestamp" => nil,
 				"id" => nil
 			}
 		else
 			status = {
-				"locked" => plan_section.release_time > Time.now,
-				"current_user" => plan_section.user_id == user_id,
+				"locked" => true,
 				"locked_by" => plan_section.user.name,
 				"timestamp" => plan_section.updated_at,
 				"id" => plan_section.id
@@ -228,5 +227,34 @@ class Plan < ActiveRecord::Base
 		else
 			return updated_at
 		end
+	end
+	
+	def section_answers(section_id)
+		section = Section.find(section_id)
+ 		section_questions = Array.new
+ 		counter = 0
+ 		section.questions.each do |q|
+ 			section_questions[counter] = {}
+ 			section_questions[counter]["id"] = q.id
+ 			section_questions[counter]["multiple_choice"] = q.multiple_choice
+ 			q_answer = answer(q.id, false)
+ 			if q_answer.nil? then
+ 				section_questions[counter]["answer_id"] = nil
+ 				if q.get_suggested_answer(project.organisation_id).nil? then
+ 					section_questions[counter]["answer_text"] = ""
+ 				else
+ 					section_questions[counter]["answer_text"] = q.get_suggested_answer(project.organisation_id)
+ 				end
+ 				section_questions[counter]["answer_timestamp"] = nil
+ 				section_questions[counter]["answer_options"] = Array.new
+ 			else
+ 				section_questions[counter]["answer_id"] = q_answer.id
+ 				section_questions[counter]["answer_text"] = q_answer.text
+ 				section_questions[counter]["answer_timestamp"] = q_answer.created_at
+ 				section_questions[counter]["answer_options"] = q_answer.options.pluck(:id)
+ 			end
+ 			counter = counter + 1
+ 		end
+ 		return section_questions
 	end
 end

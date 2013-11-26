@@ -12,11 +12,12 @@ $( document ).ready(function() {
 	// Update status messages on form submission
 	$("form.answer").submit(function(){
 		var submit_button = $(this).find('input[type="submit"]');
+		var saving_message = $(this).find('.saving-message');
 		submit_button.parent().hide();
 		q_id = $(this).find(".question_id").val();
-		$("#saving-"+q_id).show();
+		saving_message.show();
 		s_status = $(this).closest(".accordion-group").find(".section-status:first");
-		// Allow half a second for database to update
+		// Allow quarter of a second for database to update
 		timeout = setTimeout(function(){		
 			// Get plan status
 			$.getJSON("status.json", function(data) {			
@@ -25,9 +26,9 @@ $( document ).ready(function() {
 				// Get section status element
 				update_section_progress(s_status, data);
 				submit_button.parent().show();
-				$("#saving-"+q_id).hide();
+				saving_message.hide();
 			});
-		},500);
+		},250);
 	});
 
 	
@@ -36,25 +37,20 @@ $( document ).ready(function() {
 		e.stopPropagation();
 		var show = true;
 		var div_to_toggle = $($(this).attr("href"));
-		
 		if (div_to_toggle.hasClass('in')) {
 			show = false;
 		}
-		
 		$($(this).attr("href")).toggleClass("in");
-		
 		if (show) {
 			$(this).children(".plus-laranja").removeClass("plus-laranja").addClass("minus-laranja");
-			
 		}
 		else {
 			$(this).children(".minus-laranja").removeClass("minus-laranja").addClass("plus-laranja");
 		}
-		
 		delete show;
 		delete div_to_toggle;
 		e.preventDefault();
-	    //return false;
+	  //return false;
 	});
 	
 	
@@ -62,7 +58,7 @@ $( document ).ready(function() {
 	setInterval(function(){
 		// Only lock/unlock if there are forms on the page (not read-only)
 		if ($('form').length > 0) {
-			section = $('.section-collapse');
+			section = $('.section-collapse.in');
 			if (section.length > 0) {
 				check_section_lock(section);
 			}
@@ -113,7 +109,52 @@ $( document ).ready(function() {
   	if ($('form').length > 0) {
 			var section_id = section.attr("id").split('-')[1];
 			$.post('unlock_section', {section_id: section_id} );
+			var updated_questions = [];
+			$.ajax({
+				type: 'GET',
+				url: "section_answers.json?section_id="+section_id,
+				dataType: 'json',
+				async: false,
+				success: function(data) {
+					var num_questions = data.length;
+					for (var i = 0; i < num_questions; i++) {
+						if($('#answer-text-'+data[i].id).val() != data[i].answer_text) {
+							updated_questions.push(data[0].id);
+						}
+						//Needs to work for multiple choice too
+					}
+				}
+			});
+			if (updated_questions.length > 0) {
+				if (updated_questions.length == 1) {
+					$('#section-' + section_id + '-collapse-alert-singular').show();
+					$('#section-' + section_id + '-collapse-alert-plural').hide();
+				}
+				else {
+					$('#section-' + section_id + '-collapse-alert-count').text(updated_questions.length);
+					$('#section-' + section_id + '-collapse-alert-singular').hide();
+					$('#section-' + section_id + '-collapse-alert-plural').show();
+				}
+				$('#section-' + section_id + '-collapse-alert').modal();
+			}
     }
+  });
+  
+  $(".cancel-section-collapse").click(function () {
+  	var section_id = $(this).attr('data-section');
+  	$("#collapse-" + section_id).collapse("show");
+  	$('#section-' + section_id + '-collapse-alert').modal("hide");
+  });
+  
+  $(".discard-section-collapse").click(function () {
+  	var section_id = $(this).attr('data-section');
+  	$('#section-' + section_id + '-collapse-alert').modal("hide");
+  });
+  
+  $(".save-section-collapse").click(function () {
+  	var section_id = $(this).attr('data-section');
+  	$("#collapse-" + section_id).find("input[type='submit']").click();
+  	$('#section-' + section_id + '-collapse-alert').modal("hide");
   });
   
   $("select").change(function() {
@@ -250,7 +291,9 @@ $( document ).ready(function() {
 	function check_section_lock(section) {
 		var section_id = section.attr("id").split('-')[1];
 		$.getJSON("locked.json?section_id="+section_id, function(data) {
-			if (data.locked == true && data.current_user == false) {
+			if (data.locked) {
+				section.find(".section-lock-notice").html("<p>This section is locked for editing by " + data.locked_by + ".</p>");
+				section.find(".section-lock-notice").show();
 				section.find("input").attr('disabled', 'disabled');
 				section.find(".question-form").hide();
 				section.find("select").attr('disabled', 'disabled');
@@ -258,8 +301,10 @@ $( document ).ready(function() {
 			}    		
 			else {
 				$.post('lock_section', {section_id: section_id} );
+				section.find(".section-lock-notice").html("");
+				section.find(".section-lock-notice").hide();
 				section.find("input").removeAttr('disabled');
-				section.find("question-form").show();
+				section.find(".question-form").show();
 				section.find("select").removeAttr('disabled');
 				section.find(".question-readonly").hide();
 			}

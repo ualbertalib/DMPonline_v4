@@ -33,7 +33,7 @@
     	<% sections = @plan.sections %>
     	<% sections.each do |section| %>
     		<% locked = @plan.locked(section.id, current_user.id) %>
-				<% if readonly == nil && locked['locked'] && locked['current_user'] != true then %>
+				<% if readonly == nil && locked['locked'] then %>
 					<% readonly = 'conditional' %>
 				<% end %>
     		<div class="accordion-group">
@@ -65,6 +65,11 @@
 								<p><%= t ('helpers.loading')%></p>
 							</div>
 							<div class="loaded">
+								<div id="section-lock-message-<%= section.id %>" class="alert section-lock-notice"<% if !locked['locked'] then %> style="display:none"<% end %>>
+									<% if locked['locked'] then %>
+										<p>This section is locked for editing by <%= locked['locked_by'] %>.</p>
+									<% end %>
+								</div>
 								<% section.questions.order("number").each do |question| %>
 									<%= render partial: "answer_form", locals: {question: question, readonly: readonly, last_question_id: section.questions.order("number DESC").first.id} %>
 								<% end %>
@@ -72,6 +77,27 @@
     				</div>
     			</div>
     		</div>
+    		<div id='section-<%= section.id %>-collapse-alert' data-container="body" class='modal hide fade'>
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h3>Unsaved answers</h3>
+					</div>
+					<div class="modal-body">
+						<div id='section-<%= section.id %>-collapse-alert-singular'>
+							<p>You have altered an answer but have not saved it.</p>
+							<p>Would you like to save it now?</p>
+						</div>
+						<div id='section-<%= section.id %>-collapse-alert-plural'>
+							<p>You have altered <span id='section-<%= section.id %>-collapse-alert-count'>x</span> answers but have not saved them.</p>
+							<p>Would you like to save them now?</p>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<a href="#" id="section-<%= section.id %>-collapse-cancel" data-section="<%= section.id %>" class="cancel-section-collapse btn"><%= t('helpers.submit.cancel')%></a>
+						<a href="#" id="section-<%= section.id %>-collapse-discard" data-section="<%= section.id %>" class="discard-section-collapse btn">Discard</a>
+						<a href="#" id="section-<%= section.id %>-collapse-save" data-section="<%= section.id %>" class="save-section-collapse btn btn-primary">Save</a>
+					</div>
+				</div>
     	<% end %>
     </div>
     <%= tinymce %>

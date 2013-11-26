@@ -31,7 +31,7 @@ gem 'friendly_id'
 gem 'contact_us', '~> 0.4.0'
 
 #implementation of forms
-gem 'activeadmin', '0.6.2'
+gem 'activeadmin'
 
 # devise for user authentication
 gem 'devise', '3.0.0'
