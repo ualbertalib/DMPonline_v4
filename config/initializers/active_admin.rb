@@ -55,9 +55,7 @@ ActiveAdmin.setup do |config|
   #
   # This setting changes the method which Active Admin calls
   # within the controller.
-  	def authenticate_admin!
-		redirect_to new_user_session_path unless current_user.is_admin?
-	end
+  config.authentication_method = :authenticate_admin!
 
   # == User Authorization
   #

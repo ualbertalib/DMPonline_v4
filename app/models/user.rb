@@ -51,7 +51,6 @@ class User < ActiveRecord::Base
 	end
 	
 	def is_admin?
-		return true #Remove this!
 		admin = roles.find_by_name("admin")
 		return !admin.nil?
 	end
