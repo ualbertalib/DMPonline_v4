@@ -14,6 +14,7 @@
 	    <tr>
 	      	<th class="dmp_th_big"><%= t('helpers.name') %></th>
 	      	<th class="dmp_th_medium"><%= t('helpers.owner') %></th>
+	      	<th class="dmp_th_small"><%= t('helpers.project.share.shared_label') %></th>
 			<th class="dmp_th_small"><%= t('helpers.last_edit') %></th>
 			<th class="dmp_th_medium"><%= t('helpers.select_action')%></th>
 	      
@@ -33,6 +34,14 @@
 	        		<%= user.name %>
 	        	<% end%>
 	        </td>
+	        <td class="dmp_td_small">
+	        	<% shared_num = project.project_groups.count - 1 %>
+	        	<% if shared_num > 0 then%>
+	        		<%= t('helpers.yes') +" (with #{shared_num } people)" %>
+	        	<%else%>
+	        		<%= t('helpers.no')%>
+	        	<%end%>		
+	        </td>	
 	        <td class="dmp_td_small">
 	        	<%= l project.latest_update.to_date, :formats => :short %>
 	        </td>

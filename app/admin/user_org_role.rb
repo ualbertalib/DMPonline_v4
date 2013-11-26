@@ -1,0 +1,34 @@
+ActiveAdmin.register UserOrgRole do
+	menu :priority => 5, :label => proc{I18n.t('admin.user_org_role')}, :parent => "User management"
+
+	index do   # :user_id, :organisation_id, :user_role_type_id
+  	column I18n.t('admin.user'), :sortable => :user_id do |user_n|
+        link_to user_n.user.firstname, [:admin, user_n.user]
+    end
+   	column I18n.t('admin.org'), :sortable => :organisation_id do |org|
+			 link_to org.organisation.name, [:admin, org.organisation]
+		end
+		column I18n.t('admin.user_role_type'), :sortable => :user_role_type_id do |role|
+      link_to role.user_role_type.name, [:admin, role.user_role_type]
+  	end
+  	
+  	default_actions
+  end
+  
+  show do
+		attributes_table do
+			row I18n.t('admin.user'), :user_id do |user_n|
+        link_to user_n.user.firstname, [:admin, user_n.user]
+	    end
+	    row I18n.t('admin.org'), :organisation_id do |org|
+				 link_to org.organisation.name, [:admin, org.organisation]
+			end
+			row I18n.t('admin.user_role_type'), :user_role_type_id do |role|
+	      link_to role.user_role_type.name, [:admin, role.user_role_type]
+	  	end
+	  	row :created_at
+			row :updated_at
+		end
+	end		
+
+end
