@@ -15,17 +15,21 @@
 	                	  	<%= current_user.name %> <b class="caret"></b>
 	                	</a>
 						<ul class="dropdown-menu" id="signIn_dropdown">
-							<li ><%= link_to t('helpers.edit_profile'), edit_user_registration_path %></li>
+							<li><%= link_to t('helpers.edit_profile'), edit_user_registration_path %></li>
+							<% if current_user.is_admin? %>
+								<li><%= link_to t('helpers.admin_area'), '/admin'%></li>
+							<%end%>	
 							<li><%= link_to t('helpers.sign_out'), destroy_user_session_path, method: :delete %></li>
+							
 						</ul>
 	            	</li>
 	            <% else %>
 	            	
 	            	<li>
 	            	<% unless controller_name == "home" && action_name == "index" then %>
-									<a href="#header-login-form" data-toggle="modal"><%= t('helpers.sign_in')%></a> / 
-									<a href="#header-register-form" data-toggle="modal"><%= t('helpers.sign_up')%></a>
-								<% else %>
+						<a href="#header-login-form" data-toggle="modal"><%= t('helpers.sign_in')%></a> / 
+						<a href="#header-register-form" data-toggle="modal"><%= t('helpers.sign_up')%></a>
+					<% else %>
                   <%= raw "&nbsp;" %>
                 <% end %>
 					</li>

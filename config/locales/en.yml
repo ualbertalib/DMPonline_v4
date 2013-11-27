@@ -86,6 +86,7 @@ en:
     sign_up: "Sign up"
     sign_up_text: "New to DMPonline? Sign up today."
     signed_in: "Signed in as "
+    admin_area: "Admin area"
     user_name: "Email address"
     email: "Email"
     password: "Password"
