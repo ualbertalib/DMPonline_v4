@@ -18,7 +18,7 @@ class Plan < ActiveRecord::Base
 			answer = Answer.new
 			answer.plan_id = id
 			answer.question_id = qid
-			answer.text = question.get_suggested_answer(project.organisation_id)
+			answer.text = question.default_value
 			default_options = Array.new
 			question.options.each do |option|
 				if option.is_default

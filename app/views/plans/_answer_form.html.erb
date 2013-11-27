@@ -51,6 +51,10 @@
 				<% else %>
 					<%= label_tag("answer-text-#{question.id}".to_sym, question.text) %>
 				<% end %>
+				<% suggested_answer = question.get_suggested_answer(@plan.project.organisation_id) %>
+				<% if !suggested_answer.nil? %>
+					<p class="suggested-answer"><span class="suggested-answer-intro">Suggested answer:</span> <%= question.get_suggested_answer(@plan.project.organisation_id) %></p>
+				<% end %>
 				<%= text_area_tag("answer-text-#{question.id}".to_sym, answer.text, class: "tinymce") %>
 			<% end %>
 			<%= f.actions do %>
