@@ -4,7 +4,7 @@
 	max-width: 500px;
 }
 
-.mce-item-table th,td {
+.mce-item-table th, .mce-item-table td {
 	border: 1px solid black !important;
 }
 
