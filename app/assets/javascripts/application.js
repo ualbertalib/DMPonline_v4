@@ -104,6 +104,13 @@ $( document ).ready(function() {
 			$("#other-organisation-name").hide();
 		}
 	});
+	
+	$('#continue-to-new').click(function(e){
+		var destination = $(this).attr("href");
+		$.post('splash_logs', {destination: destination} );
+		$("#3-or-4-splash").modal('hide');
+		return false;
+	});
 
 });
 
