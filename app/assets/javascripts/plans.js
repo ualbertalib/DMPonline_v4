@@ -118,7 +118,9 @@ $( document ).ready(function() {
 				success: function(data) {
 					var num_questions = data.length;
 					for (var i = 0; i < num_questions; i++) {
-						if($('#answer-text-'+data[i].id).val() != data[i].answer_text) {
+						var entered_text_to_compare = strip_tags_and_whitespace(tinymce.get('answer-text-'+data[i].id).getContent());
+						var stored_text_to_compare = strip_tags_and_whitespace(data[i].answer_text);
+						if(entered_text_to_compare != stored_text_to_compare) {
 							updated_questions.push(data[0].id);
 						}
 						//Needs to work for multiple choice too
@@ -332,4 +334,15 @@ $( document ).ready(function() {
 		$("#"+option_id+"-warning").hide();
 		$("#option-warning-"+question_id).not(":has(p)").hide();
 	}
+	
+	function strip_tags_and_whitespace(html) {
+		var div = document.createElement("div");
+		div.innerHTML = html;
+		var text = div.textContent || div.innerText || "";
+		text = text.replace(/\s+/g,"");
+		text = text.replace(/(\r\n|\n|\r)/gm,"");
+		return text;
+	}
+	
+	
 });

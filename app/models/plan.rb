@@ -32,11 +32,11 @@ class Plan < ActiveRecord::Base
 	
 	def sections
 		unless project.organisation.nil? then
-			sections = version.sections + project.organisation.all_sections(version_id)
+			sections = version.global_sections + project.organisation.all_sections(version_id)
 		else
-			sections = version.sections
+			sections = version.global_sections
 		end
-		return sections.sort_by &:number
+		return sections.uniq.sort_by &:number
 	end
 	
 	def guidance_for_question(question)
@@ -61,7 +61,11 @@ class Plan < ActiveRecord::Base
 	end
 	
 	def warning(option_id)
-		return project.organisation.warning(option_id)
+		if project.organisation.nil?
+			return nil
+		else
+			return project.organisation.warning(option_id)
+		end
 	end
 	
 	def editable_by(user_id)

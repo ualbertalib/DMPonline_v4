@@ -18,6 +18,8 @@ DMPonline4::Application.routes.draw do
   get "terms" => 'static_pages#termsuse', :as => "terms"
   get "existing_users" => 'existing_users#index', :as => "existing_users"
  
+  resources :splash_logs
+  
   resources :dmptemplates
   resources :phases
   resources :versions

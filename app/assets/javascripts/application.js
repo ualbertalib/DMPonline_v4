@@ -43,7 +43,7 @@ $( document ).ready(function() {
 		var minus = $(this).parent().find(".minus-laranja").removeClass("minus-laranja").addClass("plus-laranja");
 	});
 	
-	
+	$('#3-or-4-splash').modal();
 		
 	$('.typeahead').select2({
 		width: "element",

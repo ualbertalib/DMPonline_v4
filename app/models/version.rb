@@ -13,4 +13,8 @@ class Version < ActiveRecord::Base
   def to_s
   	"#{title}"
   end
+  
+  def global_sections
+  	sections.find_all_by_organisation_id(phase.dmptemplate.organisation_id)
+  end
 end

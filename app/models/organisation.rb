@@ -47,7 +47,7 @@ class Organisation < ActiveRecord::Base
 	
 	def all_sections(version_id)
 		if parent.nil?
-			secs = sections.find_by_version_id(version_id)
+			secs = sections.find_all_by_version_id(version_id)
 			if secs == nil then
 				secs = Array.new
 			end
