@@ -59,7 +59,6 @@ ActiveAdmin.register User do
   form do |f|
   	f.inputs "Details" do
         f.input :firstname
-        f.input :firstname
   			f.input :surname
   			f.input :email
   			f.input :orcid_id

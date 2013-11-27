@@ -3,7 +3,7 @@ ActiveAdmin.register UserType do
 	 menu :priority => 5, :label => proc{I18n.t('admin.user_type')}, :parent => "User management"
 
 	index do   # :description, :name
-  	column :sortable => :name do |user_n|
+  	column I18n.t('admin.user_type'), :sortable => :name do |user_n|
         link_to user_n.name, [:admin, user_n]
     end
      	
