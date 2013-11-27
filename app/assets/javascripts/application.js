@@ -107,6 +107,8 @@ $( document ).ready(function() {
 	
 	$('#continue-to-new').click(function(e){
 		var destination = $(this).attr("href");
+		var n = destination.lastIndexOf('=');
+		destination = decodeURIComponent(destination.substring(n + 1));
 		$.post('splash_logs', {destination: destination} );
 		$("#3-or-4-splash").modal('hide');
 		return false;
