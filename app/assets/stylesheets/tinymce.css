@@ -1,14 +1,14 @@
-table {
+.mce-item-table {
 	border-collapse: collapse;
 	font-size: 10pt;
 	max-width: 500px;
 }
 
-table,th,td {
+.mce-item-table th,td {
 	border: 1px solid black !important;
 }
 
-th {
+.mce-item-table th {
 	font-weight: normal;
 	background-color: #f49700;
 }
