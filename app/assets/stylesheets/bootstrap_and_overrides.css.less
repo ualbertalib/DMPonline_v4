@@ -50,31 +50,25 @@
 @green_colour: #114b8b; //#007e30;
 @red_colour: #e3000f;
 @white_colour: #ffffff;
-
-html{
-  background-image: -moz-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
-  background-image: -webkit-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
-  background-image: -o-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
-  background-image: -ms-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
-  background-image: linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
-  background-repeat:repeat-y;
-  //min-height:2000px;
   
-}
-body { 
+
+body.dmponline { 
   font-family: @text_font;
   color: @font_colour;
   font-size: @font_size;
-  background-image: -moz-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
-  background-image: -webkit-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
-  background-image: -o-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
-  background-image: -ms-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
-  background-image: linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
-  background-repeat:repeat-y;
   margin: 0 15% 0 15%;
   line-height: 24px;
   min-width: 540px;
   padding:0 0 0 0;
+}
+
+.dmponline {
+	background-image: -moz-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
+  background-image: -webkit-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
+  background-image: -o-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
+  background-image: -ms-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
+  background-image: linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
+  background-repeat:repeat-y;
 }
 
 h1, h2, h3, h4 {
@@ -1196,7 +1190,12 @@ div {
   }
 }
 
-/* TinyMCE Tables */
+/* TinyMCE */
+
+#tinymce,.mce-content-body {
+	background-color: @white_colour !important;
+	padding: 2px;
+}
 
 .mce-item-table {
 	border-collapse: collapse;
@@ -1206,9 +1205,11 @@ div {
 
 .mce-item-table th, .mce-item-table td {
 	border: 1px solid black !important;
+	padding: 2px;
+	line-height: 18px;
 }
 
 .mce-item-table th {
 	font-weight: normal;
-	background-color: #f49700;
+	background-color: @orange_colour;
 }
