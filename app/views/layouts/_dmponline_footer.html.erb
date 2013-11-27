@@ -43,7 +43,7 @@
 			<%= render :partial => 'shared/register_form' %>
 		</div>
 	</div>
-	<% unless params['nosplash'] == "true" %>
+	<% unless params['nosplash'] == "true" || cookies[:dmp_splash_seen] == "splash_dialog_seen" then %>
 		<div id='3-or-4-splash' class='modal hide fade'>
 			<div class="modal-header">
 				<h3>Welcome to the new DMPonline!</h3>
