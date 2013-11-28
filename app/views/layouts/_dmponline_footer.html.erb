@@ -40,7 +40,7 @@
 			<h3><%= t('helpers.sign_up')%></h3>
 		</div>
 		<div class="modal-body">
-			<%= render :partial => 'shared/register_form' %>
+			<%= render :partial => 'shared/register_form', locals: {extended: false} %>
 		</div>
 	</div>
 	<% unless params['nosplash'] == "true" || cookies[:dmp_splash_seen] == "splash_dialog_seen" then %>

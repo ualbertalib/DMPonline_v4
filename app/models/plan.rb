@@ -247,7 +247,7 @@ class Plan < ActiveRecord::Base
  				if q.get_suggested_answer(project.organisation_id).nil? then
  					section_questions[counter]["answer_text"] = ""
  				else
- 					section_questions[counter]["answer_text"] = q.get_suggested_answer(project.organisation_id)
+ 					section_questions[counter]["answer_text"] = q.default_value
  				end
  				section_questions[counter]["answer_timestamp"] = nil
  				section_questions[counter]["answer_options"] = Array.new

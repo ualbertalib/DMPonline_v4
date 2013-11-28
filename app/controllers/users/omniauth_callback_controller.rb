@@ -3,7 +3,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def shibboleth
     if user_signed_in? && current_user.shibboleth_id.present?
       flash[:warning] = I18n.t('devise.failure.already_authenticated')
-      redirect_to frontpage_path
+      redirect_to root_path
     else
       auth = request.env['omniauth.auth'] || {}
       eppn = auth['extra']['raw_info']['eppn']

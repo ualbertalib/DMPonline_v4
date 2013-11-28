@@ -9,6 +9,17 @@
 			<strong>Error!</strong> You must enter a valid email address.  
 		</div> 
 	</li>
+	<% if extended then %>
+		<% unless session[:shibboleth_data].nil? %>
+			<%= f.hidden_field :shibboleth_id, :value => session[:shibboleth_data][:uid] %>
+		<% end %>
+		<li>
+			<%= f.text_field :firstname, placeholder: "First name", :class => 'text_field' %>
+		</li>
+		<li>
+			<%= f.text_field :surname, placeholder: "Last name", :class => 'text_field' %>
+		</li>
+	<% end %>
 	<li>
 		<%= collection_select(:user, :organisation_id, Organisation.where("parent_id IS NULL").order("name"), :id, :name, {include_blank: t('helpers.org_type.organisation')}, { :class => 'typeahead org_sign_up' }) %>
 	</li>
