@@ -29,9 +29,6 @@
 	<% end %>
 	<li id="other-organisation-name" style="display:none" data-orgs="<%= other_organisations.join(',') %>">
 		<%= f.text_field :other_organisation, placeholder: "Organisation Name", :class => 'text_field has-tooltip reg-input', 'data-toggle' => "tooltip", 'data-container' => "body", 'title' => "Please enter the name of your organisation." %>
-		<div class="alert alert-error" style="display:none">  
-			<strong>Error!</strong> You must enter a valid email address.  
-		</div> 
 	</li>
 	<li>
 		<%= f.password_field :password, placeholder: t('helpers.password'), :class => 'text_field has-tooltip reg-input', 'data-toggle' => "tooltip", 'data-container' => "body", 'title' => "This must be at least 8 characters long." %>

@@ -18,5 +18,8 @@
 	<li>
 		<%= f.submit t('helpers.sign_in'), :class => "btn btn-primary" %>
 	</li>
+	<li>
+		<%= link_to "Or, sign in with your institutional credentials", user_omniauth_shibboleth_path, :class => "a-orange" %>
+	</li>
 </ul>
 <% end %>
