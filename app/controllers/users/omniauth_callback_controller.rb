@@ -32,7 +32,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         else
           session[:shibboleth_data] = request.env['omniauth.auth']
           session[:shibboleth_data][:uid] = uid
-          redirect_to new_user_registration_url
+          redirect_to new_user_registration_url(:nosplash => 'true')
         end
       end
     end

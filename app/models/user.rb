@@ -28,10 +28,16 @@ class User < ActiveRecord::Base
 	end
 	
 	def organisation_id=(new_organisation_id)
-		new_user_org_role = UserOrgRole.new
-		new_user_org_role.organisation_id = new_organisation_id
-		new_user_org_role.user_role_type = UserRoleType.find_by_name("user");
-		self.user_org_roles << new_user_org_role
+		if self.user_org_roles.count != 1 then
+			new_user_org_role = UserOrgRole.new
+			new_user_org_role.organisation_id = new_organisation_id
+			new_user_org_role.user_role_type = UserRoleType.find_by_name("user");
+			self.user_org_roles << new_user_org_role
+		else
+			user_org_role = self.user_org_roles.first
+			user_org_role.organisation_id = new_organisation_id
+			user_org_role.save
+		end
 	end
 	
 	def organisation_id
@@ -48,6 +54,10 @@ class User < ActiveRecord::Base
 		else
 			return nil
 		end
+	end
+	
+	def organisation=(new_organisation)
+		organisation_id = organisation.id
 	end
 	
 	def is_admin?
