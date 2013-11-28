@@ -49,6 +49,7 @@ ActiveAdmin.register User do
   			row I18n.t('admin.user_role') do 
   				(user.roles.map{|ro| link_to ro.name, [:admin, ro]}).join(', ').html_safe
   			end
+  			row :shibboleth_id
   			row :last_sign_in_at
   			row :sign_in_count 
 

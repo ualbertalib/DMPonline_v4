@@ -27,12 +27,15 @@
 	        	<%= link_to project.title, project_path(project), :class => "dmp_table_link"%>
 	        </td>
 	        <td class="dmp_td_medium">
-	        	<% user = project.project_groups.find_by_project_creator(true).user %>
-	        	<% if user == current_user then %>
-	        		<%= t('helpers.me')%>
-	        	<% else%>
-	        		<%= user.name %>
-	        	<% end%>
+	        	<% if !project.project_groups.find_by_project_creator(true).nil? then%>
+	        		<% user = project.project_groups.find_by_project_creator(true).user %>
+	        	
+		        	<% if user == current_user then %>
+		        		<%= t('helpers.me')%>
+		        	<% else%>
+		        		<%= user.name %>
+		        	<% end%>
+			     <%end%>   	
 	        </td>
 	        <td class="dmp_td_small">
 	        	<% shared_num = project.project_groups.count - 1 %>
