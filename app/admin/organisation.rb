@@ -39,6 +39,7 @@ ActiveAdmin.register Organisation do
         	'-'
         end
 			end
+			row :sort_name 
 			row I18n.t('admin.org_type'), :organisation_type_id do |org_type|
 				if !org_type.organisation_type_id.nil? then
         	link_to org_type.organisation_type.name, [:admin, org_type]
@@ -81,6 +82,7 @@ ActiveAdmin.register Organisation do
   	f.inputs "Details" do
   		f.input :name
   		f.input :abbreviation
+  		f.input :sort_name
   		f.input :description
   		f.input :organisation_type_id, :label => I18n.t('admin.org_type'), :as => :select, :collection => OrganisationType.find(:all, :order => 'name ASC').map{|orgt|[orgt.name, orgt.id]}
   		f.input :target_url

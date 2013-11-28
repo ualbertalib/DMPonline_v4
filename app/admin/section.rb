@@ -40,7 +40,7 @@ ActiveAdmin.register Section do
   
   
   #questions sidebar(:default_value, :dependency_id, :dependency_text, :guidance, :number, :parent_id, :suggested_answer, :text, :question_type, :section_id)
- 		sidebar I18n.t("admin.questions"), :only => :show, :if => proc { (Question.where("section_id = ?", params[:id])).count >= 1}  do 
+ 		sidebar proc{I18n.t("admin.questions")}, :only => :show, :if => proc { (Question.where("section_id = ?", params[:id])).count >= 1}  do 
  			table_for( Question.where("section_id = ?", params[:id] ).order("number asc")) do
 		 				column (:number){|question| question.number} 
 	  				column (I18n.t("admin.question")){|question| link_to question.text, [:admin, question]}

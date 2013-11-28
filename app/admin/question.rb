@@ -81,6 +81,7 @@ ActiveAdmin.register Question do
   		f.input :text
   		f.input :number
   		f.input :section, 
+  						:as => :select, 
   						:collection => Section.find(:all, :order => 'title ASC').map{ |sec| ["#{sec.version.phase.dmptemplate.title} - #{sec.title}", sec.id] }
   		f.input :default_value
   		f.input :suggested_answer
