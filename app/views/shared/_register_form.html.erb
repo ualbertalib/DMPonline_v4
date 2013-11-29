@@ -6,7 +6,7 @@
 	<li>
 		<%= f.email_field :email, placeholder: t('helpers.email'), :class => 'text_field has-tooltip reg-input', 'data-toggle' => "tooltip", 'data-container' => "body", 'title' => "This must be a valid email address - a message will be sent to it for confirmation." %>
 		<div class="alert alert-error" style="display:none">  
-			<strong>Error!</strong> You must enter a valid email address.  
+			<strong><%= t('helpers.error')%></strong> <%= t('helpers.valid_email')%>  
 		</div> 
 	</li>
 	<% if extended then %>
@@ -14,10 +14,10 @@
 			<%= f.hidden_field :shibboleth_id, :value => session[:shibboleth_data][:uid] %>
 		<% end %>
 		<li>
-			<%= f.text_field :firstname, placeholder: "First name", :class => 'text_field' %>
+			<%= f.text_field :firstname, placeholder: t('helpers.first_name'), :class => 'text_field' %>
 		</li>
 		<li>
-			<%= f.text_field :surname, placeholder: "Last name", :class => 'text_field' %>
+			<%= f.text_field :surname, placeholder: t('helpers.last_name'), :class => 'text_field' %>
 		</li>
 	<% end %>
 	<li>
@@ -28,23 +28,22 @@
 		<% other_organisations << org.id %>
 	<% end %>
 	<li id="other-organisation-name" style="display:none" data-orgs="<%= other_organisations.join(',') %>">
-		<%= f.text_field :other_organisation, placeholder: "Organisation Name", :class => 'text_field has-tooltip reg-input', 'data-toggle' => "tooltip", 'data-container' => "body", 'title' => "Please enter the name of your organisation." %>
+		<%= f.text_field :other_organisation, placeholder: t('helpers.org_type.org_name'), :class => 'text_field has-tooltip reg-input', 'data-toggle' => "tooltip", 'data-container' => "body", 'title' => "Please enter the name of your organisation." %>
 	</li>
 	<li>
 		<%= f.password_field :password, placeholder: t('helpers.password'), :class => 'text_field has-tooltip reg-input', 'data-toggle' => "tooltip", 'data-container' => "body", 'title' => "This must be at least 8 characters long." %>
 		<div class="alert alert-error" style="display:none">  
-			<strong>Error!</strong> Your password must contain at least 8 characters.  
+			<strong><%= t('helpers.error')%></strong> <%= t('helpers.password_too_small')%> 
 		</div>
 	</li>
 	<li>
 		<%= f.password_field :password_confirmation, placeholder: t('helpers.password_conf'), :class => 'text_field has-tooltip reg-input', 'data-toggle' => "tooltip", 'data-container' => "body", 'title' => "This must match what you entered in the previous field." %>
 		<div class="alert alert-error" style="display:none">  
-			<strong>Error!</strong> This must match what you entered in the previous field.
+			<strong><%= t('helpers.error')%></strong> <%= t('helpers.password_no_match')%>
 		</div>	
 	</li>
-	<li>
-		<%= f.check_box :accept_terms %>
-		<%= f.label(:accept_terms, "I accept the terms and conditions") %>
+	<li class="remember_me_li">
+		<%= f.check_box :accept_terms %><%= f.label t('helpers.accept_terms'), :class => "remember_div" %>
 	</li>
 	<li>
 		<%= f.submit t('helpers.sign_up'), :class => "btn btn-primary" %>

@@ -2,7 +2,16 @@
 <html class="dmponline">
 	<head>
 	  <title><%= t('tool_title')%></title>
-	  <!--[if lt IE 9]>
+	  <!--[ if IE 7]>
+      	<%= stylesheet_link_tag 'dmponline_ie7'%>
+      <![endif]-->
+      <!--[ if IE 8]>
+      	<%= stylesheet_link_tag 'dmponline_ie8'%>
+      <![endif]-->
+      <!--[ if IE 9]>
+      	<%= stylesheet_link_tag 'dmponline_ie9'%>
+      <![endif]-->
+      <!--[ if lt IE 9]>
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
       <![endif]-->
 	  <%= stylesheet_link_tag   "application", :media => "all"%>
@@ -10,9 +19,19 @@
 	  <%= yield(:head) %>
 	  <%= csrf_meta_tags %>
 	
-	  
+	  <!--[if IE]>
+	  	<script src="http://rawgithub.com/mathiasbynens/jquery-placeholder/master/jquery.placeholder.js"></script>
+	  	<script>
+	  		$(function() {
+			    // Invoke the plugin
+			    $('input, textarea').placeholder();
+			});    
+	  	</script>	
+	  <![endif]-->
 	  <!-- link to the font family -->
 	  <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+	  
+	  
 	  
 	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	  
