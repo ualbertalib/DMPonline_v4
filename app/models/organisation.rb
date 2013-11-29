@@ -53,7 +53,7 @@ class Organisation < ActiveRecord::Base
 			end
 			return secs
 		else
-			return sections.find_by_version_id(version_id) + parent.all_sections(version_id)
+			return sections.find_all_by_version_id(version_id) + parent.all_sections(version_id)
 		end
 	end
 	

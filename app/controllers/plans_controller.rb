@@ -157,12 +157,48 @@ class PlansController < ApplicationController
 	
 	def export
 		@plan = Plan.find(params[:id])
+		@include_admin = nil;
+		if params[:include_admin] == "true" then
+			@include_admin = true
+		end
 		if user_signed_in? && @plan.readable_by(current_user.id) then
+			exported_plan = ExportedPlan.new
+			exported_plan.plan = @plan
+			exported_plan.user = current_user
 			respond_to do |format|
-			  format.html { render action: "export" }
-			  format.xml { render action: "export" }
-			  format.json { render json: @plan.details }
-			  format.text { render action: "export" }
+			  format.html {
+			  	exported_plan.format = "html"
+			  	exported_plan.save
+			  	render action: "export"
+			  }
+			  format.xml {
+			  	exported_plan.format = "xml"
+			  	exported_plan.save
+			  	render action: "export"
+			  }
+			  format.json {
+			  	exported_plan.format = "json"
+			  	exported_plan.save
+			  	render json: @plan.details
+			  }
+			  format.text {
+			  	exported_plan.format = "text"
+			  	exported_plan.save
+			  	render action: "export"
+			  }
+			  file_name = @plan.project.title
+			  if @plan.project.dmptemplate.phases.count > 1 then
+			  	file_name = "#{@plan.project.title} - #{@plan.version.phase.title}"
+			  end
+			  format.pdf do
+			  	if @include_admin then
+			  		exported_plan.format = "pdf (with admin)"
+			  	else
+			  		exported_plan.format = "pdf (without admin)"
+			  	end
+			  	exported_plan.save
+				render :pdf => file_name, :margin => {:top => 20, :bottom => 20, :left => 20, :right => 20}
+			  end
 			end
 		else
 			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
