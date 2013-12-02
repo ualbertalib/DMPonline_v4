@@ -15,17 +15,7 @@
 	<% if @project.plans.any? %>
 		<% if @project.plans.count == 1 then %>
 			<% @project.plans.each do |plan| %>
-				<!-- render the project title -->
-				<div class="modal-body">
-					<p><%= link_to "View as a web page", [:export, plan.project, plan], :target => "_blank" %></p>
-					<p><%= link_to "View as plain text", export_project_plan_path(plan.project, plan, :format => "text"), :target => "_blank" %></p>
-					<p>View as PDF:
-						<ul>
-							<li><%= link_to "Without administrative details", export_project_plan_path(plan.project, plan, :format => :pdf), :target => "_blank" %></li>
-							<li><%= link_to "With administrative details", export_project_plan_path(plan.project, plan, :format => :pdf, :include_admin => 'true'), :target => "_blank" %></li>
-						</ul>
-					</p>
-				</div>
+				<%= render :partial => "/shared/export_links", locals: {plan: plan} %>
 			<% end %>
 		<%else%>	
 			<% @project.plans.each do |plan| %>
@@ -39,16 +29,7 @@
 						</div>
 						<div id="<%= plan.version.phase.id %>" class="accordion-project collapse">
 							<div class="accordion-inner">
-								<div class="modal-body">
-									<p><%= link_to "View as a web page", [:export, plan.project, plan], :target => "_blank" %></p>
-									<p><%= link_to "View as plain text", export_project_plan_path(plan.project, plan, :format => "text"), :target => "_blank" %></p>
-									<p>View as PDF:
-										<ul>
-											<li><%= link_to "Without administrative details", export_project_plan_path(plan.project, plan, :format => :pdf), :target => "_blank" %></li>
-											<li><%= link_to "With administrative details", export_project_plan_path(plan.project, plan, :format => :pdf, :include_admin => 'true'), :target => "_blank" %></li>
-										</ul>
-									</p>
-								</div>
+								<%= render :partial => "/shared/export_links", locals: {plan: plan} %>
 							</div>
 						</div>
 					</div>

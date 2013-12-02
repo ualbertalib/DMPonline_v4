@@ -62,7 +62,7 @@
 								<% end %>
 							</ul>
 						<% end %>
-						<%= raw answer.text %>
+						<%= raw answer.text.gsub(/<tr>(\s|<td>|<\/td>|&nbsp;)*(<\/tr>|<tr>)/,"") %>
 					<% end %>
 				</div>
 			<% end %>
