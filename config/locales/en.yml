@@ -183,6 +183,8 @@ en:
       edit: "Edit plan details"
       grant_title: "Grant number"
       grant_help_text: "Grant reference number if applicable [POST-AWARD DMPs ONLY]"
+      not_applicable: "Not applicable/not listed."
+      multi_templates: "There are a number of possible templates you could use. Please choose one."
       project_name: "Project name"
       my_project_name: "My project"
       project_name_help_text: "If applying for funding, state the name exactly as in the grant proposal."

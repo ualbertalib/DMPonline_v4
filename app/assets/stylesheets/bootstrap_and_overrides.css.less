@@ -65,19 +65,17 @@ body.dmponline {
 }
 
 .dmponline {
-  background-color: @background_darker_colour;
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, @background_darker_colour), color-stop(1, background_lighter_colour));
-  background-image: -webkit-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
+  background-image: linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
   background-image: -moz-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
+  background-image: -webkit-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
   background-image: -o-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
   background-image: -ms-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#d1d5d4', endColorstr='#f9f9f9', gradientType='0');
-  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#d1d5d4', endColorstr='#f9f9f9', gradientType='0')";
   background-image: linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
-  
-  //*height: 1%;/*For IE7*/ 
   background-repeat:repeat-y;
-  
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#d1d5d4', endColorstr='#f9f9f9', gradientType='0')";
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#d1d5d4', endColorstr='#f9f9f9') ;/*For IE7-8-9*/
+  *height: 1%;/*For IE7*/ 
   
    
   }
@@ -109,7 +107,7 @@ p{
   font-size: @font_size; 
 }
 
-p a:hover, a.a-orange:hover, div.signIn a:hover, td a:hover, .question-guidance .accordion-inner a:hover{
+p a:hover, a.a-orange:hover, div.signIn a:hover, td a:hover, .question-guidance .accordion-inner a:hover, div a:hover{
   color: @orange_darker_colour !important;
   background-color: none !important;
 }
@@ -124,11 +122,15 @@ a.visited{
   color: @orange_colour;
 }
 
-a:hover, a.btn:hover{
+a:hover, a.btn:hover, div.nav-project-tabs a:hover{
    color: @white_colour !important;
    background-color: none !important;
 }
 
+ul{
+  list-style-type: none;
+  margin-left:0px;
+}
 
 /*** ***/
 header{
@@ -314,21 +316,25 @@ ul.nav-pills li.last_li a.header_button{
   margin-right:0px;
 }
 
-.btn-primary, .btn-primary:active, .btn-primary:visited, .btn-primary:focus    {
+body.dmponline .btn-primary, body.dmponline .btn-primary:active, body.dmponline .btn-primary:visited, body.dmponline .btn-primary:focus    {
   background: @orange_colour;
   background-image: none;
   text-decoration:none;
   color: @white_colour;
   text-shadow: rgba(0, 0, 0, 0.247059) 0px -1px 0px;
   border-color: rgba(0, 0, 0, 0.247059);
+  border-color: @orange_colour @orange_colour @orange_lighter_colour;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
  }
 
-.btn-primary:hover{
+body.dmponline .btn-primary:hover{
   background-image: -moz-linear-gradient(top, @orange_colour, @orange_lighter_colour 49px);
   background-image: -webkit-linear-gradient(top , @orange_colour, @orange_lighter_colour 49px);
   background-image: -o-linear-gradient(top , @orange_colour, @orange_lighter_colour 49px);
   background-image: -ms-linear-gradient(top , @orange_colour, @orange_lighter_colour 49px);
   background-image: linear-gradient(top , @orange_colour, @orange_lighter_colour 49px);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr= @orange_colour, endColorstr= @orange_lighter_colour, gradientType='0')";
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr= @orange_colour, endColorstr= @orange_lighter_colour) ;/*For IE7-8-9*/
   color: @white_colour;
 }
 
@@ -347,6 +353,8 @@ ul.nav-pills li.last_li a.header_button{
   background-image: -o-linear-gradient(top ,@grey_colour , @grey_lighter_colour 49px);
   background-image: -ms-linear-gradient(top ,@grey_colour , @grey_lighter_colour 49px);
   background-image: linear-gradient(top ,@grey_colour , @grey_lighter_colour 49px);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr= @grey_colour, endColorstr= @grey_lighter_colour , gradientType='0')";
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr= @grey_colour, endColorstr= @grey_lighter_colour ) ;/*For IE7-8-9*/
   color: @white_colour;
 }
 
@@ -360,7 +368,7 @@ footer{
 footer .left_side_footer{
     float: left;
     clear:both;
-    width: 60%;
+    width: 45%;
   } 
   footer .first_row{
     float:left;
@@ -373,7 +381,7 @@ footer .left_side_footer{
    
 footer .right_side_footer{
   float: right;
-  width: 38%;
+  width: 45%;
   
   }
   
@@ -750,6 +758,9 @@ li.choice label input{
   background-image: -o-linear-gradient(top , @orange_colour, @orange_darker_colour 49px);
   background-image: -ms-linear-gradient(top , @orange_colour, @orange_darker_colour 49px);
   background-image: linear-gradient(top , @orange_colour, @orange_darker_colour 49px);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr= @orange_colour, endColorstr=  @orange_darker_colour , gradientType='0')";
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr= @orange_colour, endColorstr=  @orange_darker_colour) ;/*For IE7-8-9*/
+  
 } 
 
 .progress .color-text{
@@ -765,6 +776,7 @@ li.choice label input{
 .nav li a{
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
+  
 }
 
 #project-tabs ul{

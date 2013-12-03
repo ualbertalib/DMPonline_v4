@@ -12,9 +12,3 @@
  *= require_self
  *= require_tree .
  */
-
-.dmponline{
-    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#d1d5d4', endColorstr='#f9f9f9')\9;/*For IE7-8-9*/
-    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#d1d5d4', endColorstr='#f9f9f9', gradientType='0')";
-    *height: 1%;/*For IE7*/ 
-}
