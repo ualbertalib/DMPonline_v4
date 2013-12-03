@@ -4,13 +4,19 @@ ActiveAdmin.register Section do
 
 	index do   # :organisation_id, :description, :number, :title, :version_id
   	column :title , :sortable => :title do |section|
+  		if !section.title.nil? then
         link_to section.title, [:admin, section]
+     end
     end
-    column I18n.t('admin.template'), :sortable => :version_id do |dmptemplate|
-        link_to dmptemplate.version.phase.dmptemplate.title, [:admin, dmptemplate.version.phase.dmptemplate]
+    column I18n.t('admin.template'), :sortable => :version_id do |version_title|
+       if !version_title.version_id.nil? then
+        	link_to version_title.version.phase.dmptemplate.title, [:admin, version_title.version.phase.dmptemplate]
+       end	
     end
     column I18n.t('admin.org_title'), :sortable => :organisation_id do |org_title|
-        link_to org_title.organisation.name, [:admin, org_title.organisation]
+       if !org_title.organisation_id.nil? then
+        	link_to org_title.organisation.name, [:admin, org_title.organisation]
+       end
     end
   	
   	default_actions
@@ -27,10 +33,14 @@ ActiveAdmin.register Section do
 	  		end
 	  	end
 	  	row I18n.t('admin.version'), :sortable => :version_id do |version_title|
-      	link_to version_title.version.title, [:admin, version_title.version]
+	  		if !version_title.version_id.nil? then
+      		link_to version_title.version.title, [:admin, version_title.version]
+      	end		
      	end
      	row I18n.t('admin.org_title'), :sortable => :organisation_id do |org_title|
-        link_to org_title.organisation.name, [:admin, org_title.organisation]
+        if !org_title.organisation_id.nil? then
+        	link_to org_title.organisation.name, [:admin, org_title.organisation]
+       end
    	 	end
      	row :created_at
      	row :updated_at

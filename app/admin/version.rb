@@ -4,12 +4,16 @@ ActiveAdmin.register Version do
 
 	index do   # :description, :number, :published, :title, :phase_id
   	column I18n.t('admin.title'), :sortable => :title  do |version_used|
-        link_to version_used.title, [:admin, version_used]
+  		if !version_used.title.nil? then
+        	 link_to version_used.title, [:admin, version_used]
+       end
     end
-   column I18n.t('admin.version_numb'), :number
+   	column I18n.t('admin.version_numb'), :number
 		column :published
 		column I18n.t('admin.phase'), :sortable => :phase_id do |version_phase|
+			if !version_phase.phase_id.nil? then
         link_to version_phase.phase.title, [:admin, version_phase.phase]
+      end  
     end
     	
   	default_actions
@@ -26,7 +30,9 @@ ActiveAdmin.register Version do
 	  		end
 	  	end
 	  	row I18n.t('admin.phase'), :sortable => :phase_id do |phase_title|
-      	link_to phase_title.phase.title, [:admin, phase_title.phase]
+	  		if !phase_title.phase_id.nil? then
+      		link_to phase_title.phase.title, [:admin, phase_title.phase]	  
+	   		end
      	end
      	row :published
      	row :created_at
