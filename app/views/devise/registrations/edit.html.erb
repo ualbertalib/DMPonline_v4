@@ -21,7 +21,7 @@
 			</tr>
 			<tr>
 				<td class="first"><%= t('helpers.last_name') %></td>
-				<td><%= f.text_field :surname %></td>
+				<td><%= f.text_field :surname, :id => "first_time_login_surname", :class => 'text_field has-tooltip', 'data-toggle' => "tooltip", 'data-trigger' => "focus" ,'title' => t('helpers.surname_help_text') %></td>
 			</tr>
 			<tr>
 				<td class="first"><%= t('helpers.org_type.organisation') %></td>
@@ -75,7 +75,7 @@
 			</tr>
 		</table>
 		<div class="move_2_right">
-			<%= f.submit t('helpers.submit.update'), :class => 'btn btn-primary' %>
+			<%= f.submit t('helpers.submit.save'), :class => 'btn btn-primary' %>
 			<%= link_to t('helpers.submit.cancel'), :back, :class => 'btn btn-primary' %>
 		</div>
 	<% end %>	
