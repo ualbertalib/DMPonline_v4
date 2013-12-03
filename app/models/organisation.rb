@@ -21,6 +21,14 @@ class Organisation < ActiveRecord::Base
 		name
 	end
 	
+	def short_name
+		if abbreviation.nil? then
+			return name
+		else
+			return abbreviation
+		end
+	end
+	
 	#retrieves info off a child org 
 	def self.orgs_with_parent_of_type(org_type)
 		parents = OrganisationType.find_by_name(org_type).organisations
