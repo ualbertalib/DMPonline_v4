@@ -36,6 +36,9 @@ class ProjectsController < ApplicationController
 	def new
 		if user_signed_in? then
 			@project = Project.new
+			@project.organisation = current_user.organisation
+			@funders = orgs_of_type(t('helpers.org_type.funder'), true)
+			@institutions = orgs_of_type(t('helpers.org_type.institution'))
 			respond_to do |format|
 			  format.html # new.html.erb
 			  format.json { render json: @project }
@@ -133,6 +136,73 @@ class ProjectsController < ApplicationController
 			end
 		else
 			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
+		end
+	end
+	
+	# GET /projects/possible_templates.json
+	def possible_templates
+		if !params[:funder].nil? && params[:funder] != "" then
+			funder = Organisation.find(params[:funder])
+		else
+			funder = nil
+		end
+		if !params[:institution].nil? && params[:institution] != "" then
+			institution = Organisation.find(params[:institution])
+		else
+			institution = nil
+		end
+		templates = {}
+		unless funder.nil? then
+			funder.published_templates.each do |t|
+				templates[t.id] = t.title
+			end
+		end
+		if templates.count == 0 && !institution.nil? then
+			institution.published_templates.each do |t|
+				templates[t.id] = t.title
+			end
+			institution.children.each do |o|
+				o.published_templates.each do |t|
+					templates[t.id] = t.title
+				end
+			end
+		end
+		respond_to do |format|
+			format.json { render json: templates.to_json }
+		end
+	end
+	
+	def possible_guidance
+		institution = Organisation.find(params[:institution])
+		excluded_orgs = orgs_of_type(t('helpers.org_type.funder')) + orgs_of_type(t('helpers.org_type.institution')) + Organisation.orgs_with_parent_of_type(t('helpers.org_type.institution'))
+		guidance_groups = {}
+		ggs = (GuidanceGroup.guidance_groups_excluding(excluded_orgs))
+		institution.children.each do |o|
+			ggs = ggs + o.guidance_groups
+		end
+		ggs.each do |gg|
+			guidance_groups[gg.id] = gg.name
+		end
+		respond_to do |format|
+			format.json { render json: guidance_groups.to_json }
+		end
+	end
+	
+	private
+	
+	def orgs_of_type(org_type_name, published_templates = false)
+		org_type = OrganisationType.find_by_name(org_type_name)
+		all_such_orgs = org_type.organisations
+		if published_templates then
+			with_published = Array.new
+			all_such_orgs.each do |o|
+				if o.published_templates.count > 0 then
+					with_published << o
+				end
+			end
+			return with_published.sort_by {|o| [o.sort_name, o.name] }
+		else
+			return all_such_orgs.sort_by {|o| [o.sort_name, o.name] }
 		end
 	end
 end

@@ -55,7 +55,12 @@ DMPonline4::Application.routes.draw do
 		get 'export'
 		post 'invite'
 	end
+	collection do
+		get 'possible_templates'
+		get 'possible_guidance'
+	end
   end
+    
   resources :project_partners
   resources :project_groups
 
