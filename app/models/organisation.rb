@@ -57,6 +57,14 @@ class Organisation < ActiveRecord::Base
 		end
 	end
 	
+	def all_guidance_groups
+		ggs = guidance_groups
+		children.each do |c|
+			ggs = ggs + c.all_guidance_groups
+		end
+		return ggs
+	end
+	
 	def root
 		if parent.nil?
 			return self
