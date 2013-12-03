@@ -31,6 +31,8 @@
 @font-face {
   font-family: 'GillSansLight';
   src: font-url('GillSansLight.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
  }
 
 @header_font: "GillSansLight";
@@ -51,7 +53,6 @@
 @red_colour: #e3000f;
 @white_colour: #ffffff;
   
-
 body.dmponline { 
   font-family: @text_font;
   color: @font_colour;
@@ -59,17 +60,27 @@ body.dmponline {
   margin: 0 15% 0 15%;
   line-height: 24px;
   min-width: 540px;
-  padding:0 0 0 0;  
+  padding:0 0 0 0; 
+  
 }
 
 .dmponline {
-	background-image: -moz-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
+  background-color: @background_darker_colour;
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, @background_darker_colour), color-stop(1, background_lighter_colour));
   background-image: -webkit-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
+  background-image: -moz-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
   background-image: -o-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
   background-image: -ms-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#d1d5d4', endColorstr='#f9f9f9', gradientType='0');
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#d1d5d4', endColorstr='#f9f9f9', gradientType='0')";
   background-image: linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
+  
+  //*height: 1%;/*For IE7*/ 
   background-repeat:repeat-y;
-}
+  
+  
+   
+  }
 
 h1, h2, h3, h4 {
   font-family: @header_font;
