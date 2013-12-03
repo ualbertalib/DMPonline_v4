@@ -21,7 +21,7 @@
 		</li>
 	<% end %>
 	<li>
-		<%= collection_select(:user, :organisation_id, Organisation.where("parent_id IS NULL").order("name"), :id, :name, {include_blank: t('helpers.org_type.organisation')}, { :class => 'typeahead org_sign_up' }) %>
+		<%= collection_select(:user, :organisation_id, Organisation.where("parent_id IS NULL").order("sort_name ASC, name ASC"), :id, :name, {include_blank: t('helpers.org_type.organisation')}, { :class => 'typeahead org_sign_up' }) %>
 	</li>
 	<% other_organisations = Array.new %>
 	<% Organisation.where("parent_id IS ? AND is_other = ?", nil, 1).each do |org| %>
