@@ -49,6 +49,7 @@ gem 'validate_url'
 
 gem 'thin'
 gem 'wicked_pdf'
+gem 'feedzirra'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

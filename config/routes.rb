@@ -17,6 +17,7 @@ DMPonline4::Application.routes.draw do
 
   get "about_us" => 'static_pages#about_us', :as => "about_us"
   get "help" => 'static_pages#help', :as => "help"
+  get "news" => 'static_pages#news', :as => "news"
   get "terms" => 'static_pages#termsuse', :as => "terms"
   get "existing_users" => 'existing_users#index', :as => "existing_users"
  
