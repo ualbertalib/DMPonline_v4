@@ -189,17 +189,19 @@ class ProjectsController < ApplicationController
 		ggs.each do |gg|
 			guidance_groups[gg.id] = gg.name
 		end
-		institution.children.each do |o|
-			o.guidance_groups.each do |gg|
-				include = false
-				gg.guidances.each do |g|
-					if g.dmptemplate.nil? || g.dmptemplate_id == template.id then
-						include = true
-						break
+		unless institution.nil? then
+			institution.children.each do |o|
+				o.guidance_groups.each do |gg|
+					include = false
+					gg.guidances.each do |g|
+						if g.dmptemplate.nil? || g.dmptemplate_id == template.id then
+							include = true
+							break
+						end
 					end
-				end
-				if include then
-					guidance_groups[gg.id] = gg.name
+					if include then
+						guidance_groups[gg.id] = gg.name
+					end
 				end
 			end
 		end
