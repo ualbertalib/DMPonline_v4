@@ -34,6 +34,7 @@ ActiveAdmin.register User do
 		        	 link_to org_title.organisation.name, [:admin, org_title.organisation]
 		      end
 		   	end
+		   	row :other_organisation
   			row I18n.t('admin.user_status'), :user_status_id do |us|
   				if !us.user_status.nil? then
   					link_to us.user_status.name, [:admin, us.user_status]
