@@ -31,6 +31,7 @@ $( document ).ready(function() {
 	});
 		
 	$("#project_dmptemplate_id").change(function (f) {
+		update_guidance_options();
 		$("#confirm-template").text($("#project_dmptemplate_id :selected").text());
 	});
 	
@@ -100,9 +101,10 @@ $( document ).ready(function() {
 	
 	function update_guidance_options() {
 		var institution = $("#project_institution_id").select2('val');
+		var template = $("#project_dmptemplate_id :selected").val();
 		$.ajax({
 			type: 'GET',
-			url: "possible_guidance.json?institution="+institution,
+			url: "possible_guidance.json?institution="+institution+"&template="+template,
 			dataType: 'json',
 			async: false, //Needs to be synchronous, otherwise end up mixing up answers
 			success: function(data) {	

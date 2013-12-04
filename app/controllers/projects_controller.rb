@@ -141,12 +141,12 @@ class ProjectsController < ApplicationController
 	
 	# GET /projects/possible_templates.json
 	def possible_templates
-		if !params[:funder].nil? && params[:funder] != "" then
+		if !params[:funder].nil? && params[:funder] != "" && params[:funder] != "undefined" then
 			funder = Organisation.find(params[:funder])
 		else
 			funder = nil
 		end
-		if !params[:institution].nil? && params[:institution] != "" then
+		if !params[:institution].nil? && params[:institution] != "" && params[:institution] != "undefined" then
 			institution = Organisation.find(params[:institution])
 		else
 			institution = nil
@@ -173,15 +173,35 @@ class ProjectsController < ApplicationController
 	end
 	
 	def possible_guidance
-		institution = Organisation.find(params[:institution])
+		if !params[:template].nil? && params[:template] != "" && params[:template] != "undefined" then
+			template = Dmptemplate.find(params[:template])
+		else
+			template = nil
+		end
+		if !params[:institution].nil? && params[:institution] != "" && params[:institution] != "undefined" then
+			institution = Organisation.find(params[:institution])
+		else
+			institution = nil
+		end
 		excluded_orgs = orgs_of_type(t('helpers.org_type.funder')) + orgs_of_type(t('helpers.org_type.institution')) + Organisation.orgs_with_parent_of_type(t('helpers.org_type.institution'))
 		guidance_groups = {}
-		ggs = (GuidanceGroup.guidance_groups_excluding(excluded_orgs))
-		institution.children.each do |o|
-			ggs = ggs + o.guidance_groups
-		end
+		ggs = GuidanceGroup.guidance_groups_excluding(excluded_orgs)
 		ggs.each do |gg|
 			guidance_groups[gg.id] = gg.name
+		end
+		institution.children.each do |o|
+			o.guidance_groups.each do |gg|
+				include = false
+				gg.guidances.each do |g|
+					if g.dmptemplate.nil? || g.dmptemplate_id == template.id then
+						include = true
+						break
+					end
+				end
+				if include then
+					guidance_groups[gg.id] = gg.name
+				end
+			end
 		end
 		respond_to do |format|
 			format.json { render json: guidance_groups.to_json }

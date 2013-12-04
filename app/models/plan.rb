@@ -51,9 +51,11 @@ class Plan < ActiveRecord::Base
 			end
 		end
 		project.guidance_groups.each do |group|
-			group.guidances.where("theme_id IN (?)", theme_ids).each do |g|
-				if g.dmptemplate_id.nil? || g.dmptemplate_id == project.dmptemplate_id then
-					guidances["#{group.organisation.short_name} guidance on #{g.theme.title}"] = g
+			if group.organisation != project.dmptemplate.organisation then
+				group.guidances.where("theme_id IN (?)", theme_ids).each do |g|
+					if g.dmptemplate_id.nil? || g.dmptemplate_id == project.dmptemplate_id then
+						guidances["#{group.organisation.short_name} guidance on #{g.theme.title}"] = g
+					end
 				end
 			end
 		end
