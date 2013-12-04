@@ -1,5 +1,8 @@
 <h1><%= t('helpers.sign_up') %></h1>
-	<p class="alert alert-notice">If you want to link your institutional credentials to an existing account, you need to <%= link_to "log in", root_path %> first.</p>
+	<% unless session[:shibboleth_data].nil? %>
+		<p class="alert alert-notice">If you want to link your institutional credentials to an existing account, you need to <%= link_to "log in", root_path %> first.</p>
+		<% cookies[:show_shib_link] = { value: 'show_shib_link', expires: 3.hours.from_now } %>
+	<% end %>
 	<div class="dmp_details_body">
 
 	<%= render :partial => 'shared/register_form', locals: {extended: true} %>
