@@ -50,6 +50,7 @@ ActiveAdmin.register User do
   			row I18n.t('admin.user_role') do 
   				(user.roles.map{|ro| link_to ro.name, [:admin, ro]}).join(', ').html_safe
   			end
+  			row :dmponline3
   			row :shibboleth_id
   			row :last_sign_in_at
   			row :sign_in_count 
@@ -64,6 +65,7 @@ ActiveAdmin.register User do
   			f.input :surname
   			f.input :email
   			f.input :orcid_id
+  			f.input :shibboleth_id
   			f.input :organisation_id,:label => I18n.t('admin.org_title'), 
   						:as => :select, 
   						:collection => Organisation.find(:all, :order => 'name ASC').map{|orgp|[orgp.name, orgp.id]}
