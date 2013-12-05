@@ -53,7 +53,14 @@
 				<% end %>
 				<% suggested_answer = question.get_suggested_answer(@plan.project.organisation_id) %>
 				<% if !suggested_answer.nil? && suggested_answer != "" then %>
-					<p class="suggested-answer"><span class="suggested-answer-intro">Suggested answer:</span> <%= question.get_suggested_answer(@plan.project.organisation_id) %></p>
+					<div class="suggested-answer-div">	
+						<span class="suggested-answer-intro">Suggested answer:</span> 
+						<div class="suggested-answer-border">
+							<p class="suggested-answer">
+								<%= question.get_suggested_answer(@plan.project.organisation_id) %>
+							</p>
+						</div>
+					</div>	
 				<% end %>
 				<%= text_area_tag("answer-text-#{question.id}".to_sym, answer.text, class: "tinymce") %>
 			<% end %>

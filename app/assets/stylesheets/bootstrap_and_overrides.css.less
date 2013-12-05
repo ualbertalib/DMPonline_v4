@@ -73,7 +73,7 @@ body.dmponline {
   background-image: -ms-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
   background-image: linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
   background-repeat:repeat-y;
-  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#d1d5d4', endColorstr='#f9f9f9', gradientType='0')";
+  -ms-filter: 'progid:DXImageTransform.Microsoft.gradient(startColorstr='#d1d5d4', endColorstr='#f9f9f9', gradientType='0')';
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#d1d5d4', endColorstr='#f9f9f9') ;/*For IE7-8-9*/
   *height: 1%;/*For IE7*/ 
   
@@ -122,7 +122,7 @@ a.visited{
   color: @orange_colour;
 }
 
-a:hover, a.btn:hover, div.nav-project-tabs a:hover{
+a:hover, a.btn:hover, div.nav-project-tabs ul.nav-tabs li a:hover, div#sections-accordion a.accordion-toggle:hover{
    color: @white_colour !important;
    background-color: none !important;
 }
@@ -161,6 +161,7 @@ footer {
   clear:both;
   padding: 30px 0 100px 0;
   margin-top: 70px;
+  font-size: @font_size; 
 }
 
 
@@ -241,7 +242,7 @@ footer {
   top: 100%;
   right: 0;
   left:45%;
-  z-index: 1000;
+  z-index: 99;
   display: none;
   float: right;
   padding: 5px 0;
@@ -260,27 +261,33 @@ footer {
   -webkit-background-clip: padding-box;
      -moz-background-clip: padding;
           background-clip: padding-box;
+  
 
 }
 
 
 ul#signIn_dropdown{
-  background-color: @grey_colour;
+  background: @grey_colour !important;
 }
 
-ul#signIn_dropdown li , ul#signIn_dropdown li a:link, ul#signIn_dropdown li a:active, ul#signIn_dropdown li a:visited{
+ul#signIn_dropdown li , ul#signIn_dropdown li a.signIn_dropdown_link,
+ ul#signIn_dropdown li a.signIn_dropdown_link:link,
+ ul#signIn_dropdown li a.signIn_dropdown_link:active, 
+ ul#signIn_dropdown li a.signIn_dropdown_link:visited{
   font-size:17px;
   text-decoration:none;
   font-weight:normal;
-  background-color: none !important;
+  background: @grey_colour !important;
+  filter:none;
 }
 
-ul#signIn_dropdown li a:hover, ul#signIn_dropdown li a:focus{
-  font-size:17px;
+ul#signIn_dropdown li a.signIn_dropdown_link:hover, 
+ul#signIn_dropdown li a.signIn_dropdown_link:focus{
   text-decoration:underline;
-  font-weight:normal;
-  background: @grey_colour;
-  
+  background-color: @grey_colour !important;
+  background-image: none;
+  filter: none;
+ 
 }
 
 .main_nav{
@@ -294,6 +301,9 @@ ul#signIn_dropdown li a:hover, ul#signIn_dropdown li a:focus{
   border-color: none !important;
   box-shadow: 0 !important;
   -webkit-box-shadow: none !important;
+  position: static;
+   filter:none !important; 
+   overflow: visible;
  }
 
 
@@ -310,6 +320,8 @@ ul.nav-pills li a.header_button{
   height: 18px;
   padding: 4px 10px 2px 10px;
   border-radius: 3px;
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
 }
 
 ul.nav-pills li.last_li a.header_button{
@@ -333,9 +345,12 @@ body.dmponline .btn-primary:hover{
   background-image: -o-linear-gradient(top , @orange_colour, @orange_lighter_colour 49px);
   background-image: -ms-linear-gradient(top , @orange_colour, @orange_lighter_colour 49px);
   background-image: linear-gradient(top , @orange_colour, @orange_lighter_colour 49px);
-  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr= @orange_colour, endColorstr= @orange_lighter_colour, gradientType='0')";
+  -ms-filter: 'progid:DXImageTransform.Microsoft.gradient(startColorstr= @orange_colour, endColorstr= @orange_lighter_colour, gradientType='0')';
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr= @orange_colour, endColorstr= @orange_lighter_colour) ;/*For IE7-8-9*/
   color: @white_colour;
+   border-radius: 3px;
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
 }
 
 .btn-grey, .btn-grey:active, .btn-grey:visited, .btn-grey:focus   {
@@ -345,6 +360,8 @@ body.dmponline .btn-primary:hover{
   color: @white_colour;
   text-shadow: rgba(0, 0, 0, 0.247059) 0px -1px 0px;
   border-color: rgba(0, 0, 0, 0.247059);
+  border-color: @grey_colour @grey_colour @grey_lighter_colour;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
  }
 
 .btn-grey:hover{
@@ -353,9 +370,12 @@ body.dmponline .btn-primary:hover{
   background-image: -o-linear-gradient(top ,@grey_colour , @grey_lighter_colour 49px);
   background-image: -ms-linear-gradient(top ,@grey_colour , @grey_lighter_colour 49px);
   background-image: linear-gradient(top ,@grey_colour , @grey_lighter_colour 49px);
-  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr= @grey_colour, endColorstr= @grey_lighter_colour , gradientType='0')";
+  -ms-filter: 'progid:DXImageTransform.Microsoft.gradient(startColorstr= @grey_colour, endColorstr= @grey_lighter_colour , gradientType='0')';
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr= @grey_colour, endColorstr= @grey_lighter_colour ) ;/*For IE7-8-9*/
   color: @white_colour;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
 }
 
 /******   Footer  ******/
@@ -1046,6 +1066,31 @@ ul.question_ul li{
   .loading {
     display:none;
   }
+}
+
+
+/*** suggested answers ***/
+
+div.suggested-answer-div{
+  position:relative;
+}
+
+div.suggested-answer-border {
+  border: 1px solid @orange_colour;
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+  padding: 10px 10px 5px 10px;
+  margin-bottom:10px;
+
+}
+
+span.suggested-answer-intro{
+  position:relative;
+  background-color: @white_colour;
+  padding: 2px 10px 2px 6px;
+  left:15px;
+  top:10px;
 }
 
 /*** accordion guidance***/
