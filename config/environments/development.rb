@@ -14,7 +14,7 @@ DMPonline4::Application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
@@ -50,5 +50,21 @@ DMPonline4::Application.configure do
 	
 	# Precompile additional assets
 	config.assets.precompile += %w( .svg .eot .woff .ttf )
-
+# Error notifications by email
+	 config.middleware.use ExceptionNotification::Rack,
+	  :email => {
+	    :email_prefix => "[DMPonline4 ERROR] ",
+	    :sender_address => %{"No-reply" <noreply@dcc.ac.uk>},
+	    :exception_recipients => %w{dmponline@dcc.ac.uk}
+	  }
+	  
+	#  config.action_mailer.delivery_method = :sendmail
+# Defaults to:
+# config.action_mailer.sendmail_settings = {
+#   :location => '/usr/sbin/sendmail',
+#   :arguments => '-i -t'
+# }
+config.action_mailer.perform_deliveries = true
+#config.action_mailer.raise_delivery_errors = true
+	  
 end

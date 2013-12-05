@@ -40,6 +40,9 @@ gem 'devise_invitable', '>= 1.2.1'
 #cancan for usergroups
 gem 'cancan'
 
+#to notify admin of errors
+gem 'exception_notification'
+
 #rolify for roles
 gem 'rolify'
 # Gems for repository integration

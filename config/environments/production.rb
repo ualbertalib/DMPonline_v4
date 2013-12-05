@@ -56,7 +56,7 @@ DMPonline4::Application.configure do
   # config.assets.precompile += %w( search.js )
 
   # Disable delivery errors, bad email addresses will be ignored
-  # config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   # Enable threaded mode
   # config.threadsafe!
@@ -69,10 +69,13 @@ DMPonline4::Application.configure do
   config.active_support.deprecation = :notify
 	
 	 # Error notifications by email
-  	config.middleware.use ExceptionNotifier,
-    sender_address: 'noreply@dcc.ac.uk',
-    exception_recipients: 'marta.ribeiro@ed.ac.uk',
-    email_prefix: '[DMPOnline v4 ERROR] '
+	 config.middleware.use ExceptionNotification::Rack,
+	  :email => {
+	    :email_prefix => "[DMPonline4 ERROR] ",
+	    :sender_address => %{"No-reply" <noreply@dcc.ac.uk>},
+	    :exception_recipients => %w{dmponline@dcc.ac.uk}
+	  }
+   
 
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
