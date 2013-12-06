@@ -99,7 +99,8 @@ en:
     sign_up: "Sign up"
     sign_up_text: "New to DMPonline? Sign up today."
     signed_in: "Signed in as "
-    institution_sing_in: "Or, sign in with your institutional credentials"
+    institution_sing_in_link: "Or, sign in with your institutional credentials"
+    institution_sing_in: " (UK users only)"
         
     user_name: "Email address"
     email: "Email"
@@ -302,10 +303,6 @@ Select what format you wish to use and click to 'Export'.</p>"
      <p>Tel. +44 (0) 131 651 1239</p>
      <p>Email <a href='mailto:dmponline@dcc.ac.uk?Subject=DMPonline%20inquiry' target='_top'>dmponline@dcc.ac.uk</a></p>"
   
-  accessibility_page:
-    title: "Accessibility"
-    body_text_html:
-    
   terms_page:
     title: "Terms of use"
     body_text_html: "<div class='white_background'>
@@ -313,32 +310,29 @@ Select what format you wish to use and click to 'Export'.</p>"
     </div>
     <h3>DMPonline</h3>
     <div class='white_background'> 
-    <p>DMPonline ('the tool', 'the system') is a tool developed by the DCC as a shared resource for the research community. It is hosted at the University of Edinburgh.</p>
+      <p>DMPonline ('the tool', 'the system') is a tool developed by the DCC as a shared resource for the research community. It is hosted at the University of Edinburgh.</p>
     </div>
     <h3>Your personal details</h3>
     <div class='white_background'>
-    <p>In order to help identify and administer your account with DMPonline, we need to store your email address. We may also use it to contact you to obtain feedback on your use of the tool, or to inform you of the latest developments or releases. The information may be transferred between the DCC partner institutions but only for legitimate DCC purposes. We will not sell, rent or trade any personal information you provide to us.</p>
+      <p>In order to help identify and administer your account with DMPonline, we need to store your email address. We may also use it to contact you to obtain feedback on your use of the tool, or to inform you of the latest developments or releases. The information may be transferred between the DCC partner institutions but only for legitimate DCC purposes. We will not sell, rent or trade any personal information you provide to us.</p>
     </div>
     <h3>Privacy policy</h3>
     <div class='white_background'>
-    <p>The information you enter into this system can be seen by you, people you have chosen to share access with, and - solely for the purposes of maintaining the service - system administrators at the University of Edinburgh.  We compile anonymised, automated and aggregated information from plans, but we will not directly access, make use of, or share your content with anyone else without your permission. Authorised officers of your home institution may access your plans for specific purposes - for example, to track compliance with funder/institutional requirements or to calculate storage requirements.</p>
+      <p>The information you enter into this system can be seen by you, people you have chosen to share access with, and - solely for the purposes of maintaining the service - system administrators at the University of Edinburgh.  We compile anonymised, automated and aggregated information from plans, but we will not directly access, make use of, or share your content with anyone else without your permission. Authorised officers of your home institution may access your plans for specific purposes - for example, to track compliance with funder/institutional requirements or to calculate storage requirements.</p>
     </div>
     <h3>Freedom of Information</h3>
     <div class='white_background'>
-    <p>The University of Edinburgh holds your plans on your behalf, but they are your property and responsibility. Any FOI applicants will be referred back to your home institution.</p></div>
+      <p>The University of Edinburgh holds your plans on your behalf, but they are your property and responsibility. Any FOI applicants will be referred back to your home institution.</p>
+    </div>
     <h3>Passwords</h3>
     <div class='white_background'>
-    <p>Your password is stored in encrypted form and cannot be retrieved. If forgotten it has to be reset.</p></div>
+      <p>Your password is stored in encrypted form and cannot be retrieved. If forgotten it has to be reset.</p>
+    </div>
     <h3>Cookies</h3>
     <div class='white_background'>
-    <p>Please note that DMPonline uses Cookies. Further information about Cookies and how we use them is available on the <a target='_blank' href='http://www.dcc.ac.uk/about-us/about-site/website-terms-use/cookies'>main DCC website</a>.</p></div>
+      <p>Please note that DMPonline uses Cookies. Further information about Cookies and how we use them is available on the <a target='_blank' href='http://www.dcc.ac.uk/about-us/about-site/website-terms-use/cookies'>main DCC website</a>.</p>
     </div>
     <br />
     <div class='white_background'>
     <p>Use of the tool indicates that you understand and agree to these terms and conditions.</p></div>"
-
-  privacy_policy_page:
-    title: "Privacy Policy"
-    body_text_html:
-
   

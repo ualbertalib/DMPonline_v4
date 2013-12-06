@@ -50,7 +50,8 @@ DMPonline4::Application.configure do
 	
 	# Precompile additional assets
 	config.assets.precompile += %w( .svg .eot .woff .ttf )
-# Error notifications by email
+
+	# Error notifications by email
 	 config.middleware.use ExceptionNotification::Rack,
 	  :email => {
 	    :email_prefix => "[DMPonline4 ERROR] ",
@@ -58,12 +59,7 @@ DMPonline4::Application.configure do
 	    :exception_recipients => %w{dmponline@dcc.ac.uk}
 	  }
 	  
-	#  config.action_mailer.delivery_method = :sendmail
-# Defaults to:
-# config.action_mailer.sendmail_settings = {
-#   :location => '/usr/sbin/sendmail',
-#   :arguments => '-i -t'
-# }
+	
 config.action_mailer.perform_deliveries = true
 #config.action_mailer.raise_delivery_errors = true
 	  

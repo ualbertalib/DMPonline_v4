@@ -9,7 +9,7 @@
 	<li>
 		<%= f.password_field :password, placeholder: t('helpers.password') %>
 	</li>
-	<li>
+	<li class="forgot_password_link">
 		<%= link_to t('helpers.forgot_password'), new_password_path('user'), :class => "a-orange" %>
 	</li>
 	<li class="remember_me_li">
@@ -19,7 +19,10 @@
 		<%= f.submit t('helpers.sign_in'), :class => "btn btn-primary" %>
 	</li>
 	<li>
-		<%= link_to t('helpers.institution_sing_in'), user_omniauth_shibboleth_path, :class => "a-orange" %>
+		<div class="institution_login_link">
+			<%= link_to t('helpers.institution_sing_in_link'), user_omniauth_shibboleth_path, :class => "a-orange" %>
+			<%= t('helpers.institution_sing_in')%>
+		</div>
 	</li>
 </ul>
 <% end %>

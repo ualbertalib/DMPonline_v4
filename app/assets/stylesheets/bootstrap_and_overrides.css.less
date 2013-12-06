@@ -32,12 +32,12 @@
   font-family: 'GillSansLight';
   src: font-url('GillSansLight.ttf') format('truetype');
   font-weight: normal;
-  font-style: normal;
  }
 
 @header_font: "GillSansLight";
 @text_font: Arial, sans-serif;
-@font_size: 13px;
+@font_size: 14px;
+@font_size_medium: 13px;
 @font_size_small: 11px;
 @font_colour: #3e3c3c;
 @orange_colour: #F49700;
@@ -132,6 +132,11 @@ ul{
   margin-left:0px;
 }
 
+hr.orange_break_line{
+  clear: both;
+  margin-top: 40px;
+  border-top-color: @orange_lighter_colour;
+}
 /*** ***/
 header{
   height: 161px;
@@ -288,6 +293,11 @@ ul#signIn_dropdown li a.signIn_dropdown_link:focus{
   background-image: none;
   filter: none;
  
+}
+  
+div.institution_login_link{
+  padding-top: 15px;
+  font-size: @font_size_medium;
 }
 
 .main_nav{
@@ -539,10 +549,15 @@ ul.footer-links li a:hover,  ul.footer-links li a:focus{
 
 #new_user a.forgot_password, #new_user a.forgot_password:active, #new_user a.forgot_password:visited, #new_user a.forgot_password:hover{
   color: @orange_colour;
+   font-size: @font_size_medium;
 }
 
 li.remember_me_li{
   margin-top:18px;  
+}
+
+li.remember_me_li label{
+  font-size: @font_size_medium;
 }
 
 #new_user ul li input.btn{
@@ -583,7 +598,7 @@ table.dmp_table{
   border-collapse: separate;
   border-spacing: 2px;  
   border-bottom: 0px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   
 }
 
