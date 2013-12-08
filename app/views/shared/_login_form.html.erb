@@ -4,10 +4,10 @@
 		<%= devise_error_messages! %>
 	</li>
 	<li>
-		<%= f.text_field :email, placeholder: t('helpers.user_name')  %>
+		<%= f.email_field :email, placeholder: (t('helpers.user_name')  + ' *') , :as => :email%>
 	</li>
 	<li>
-		<%= f.password_field :password, placeholder: t('helpers.password') %>
+		<%= f.password_field :password, placeholder: (t('helpers.password') + ' *'), :as => :password %>
 	</li>
 	<li class="forgot_password_link">
 		<%= link_to t('helpers.forgot_password'), new_password_path('user'), :class => "a-orange" %>
