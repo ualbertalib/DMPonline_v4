@@ -15,6 +15,7 @@
 //= require bootstrap
 //= require v1.js
 //= require select2.min.js
+//= require jquery.placeholder.js 
 
 
 $( document ).ready(function() {
