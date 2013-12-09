@@ -22,15 +22,15 @@ class AnswersController < ApplicationController
 						format.html { redirect_to :back, status: :found, notice: 'Answer was successfully recorded.' }
 						format.json { render json: @answer, status: :created, location: @answer }
 					else
-						# this needs to do something more sensible
-						format.html { render action: "new" }
+						format.html { redirect_to :back, notice: 'There was an error saving the answer.' }
 						format.json { render json: @answer.errors, status: :unprocessable_entity }
 					end
 				end
 			else
-				# this needs to do something more sensible
-				format.html { render action: "new" }
-				format.json { render json: @answer.errors, status: :unprocessable_entity }
+				respond_to do |format|
+					format.html { redirect_to :back, notice: 'No change in answer content - not saved.' }
+					format.json { render json: @answer.errors, status: :unprocessable_entity }
+				end
 			end
 		else
 			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
