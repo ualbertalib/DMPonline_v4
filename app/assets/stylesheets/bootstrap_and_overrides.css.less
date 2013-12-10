@@ -473,7 +473,7 @@ ul.footer-links li a:hover,  ul.footer-links li a:focus{
   margin:0 20px 0 0;
 }
 
-.welcome-message a, .welcome-message a:active, .welcome-message a:visited, .welcome-message p{
+.welcome-message p{
   color: @orange_colour;
   background-color: none !important;
   font-weight:lighter;
@@ -483,8 +483,21 @@ ul.footer-links li a:hover,  ul.footer-links li a:focus{
   line-height: 34px;
 }
 
+.welcome-message a, .welcome-message a:active, .welcome-message a:visited{
+  color: @orange_colour;
+  background-color: none !important;
+  font-weight:lighter;
+  text-decoration: underline;
+  font-size:20px;
+  font-family: @header_font;
+  padding-bottom: 15px;
+  line-height: 34px;
+}
+
 .welcome-message a:hover{
   background-color: none !important;
+  text-decoration: underline;
+  
 }  
 
 /** accordion **/
@@ -1256,7 +1269,7 @@ div {
       width: 50px;
     }
     table.dmp_details_table input{
-      width:80%
+      width:60%
     }
   }
 }
