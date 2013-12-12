@@ -160,6 +160,8 @@ en:
     select_action: "Select an action"
     answered_by: "Answered "
     answered_by_part2: " by "
+    suggested_answer: "Suggested answer"
+    suggested_example: "Example answer"
     notanswered: "Not answered yet"
     noquestionanswered: "No questions have been answered"
     guidance: "Guidance"

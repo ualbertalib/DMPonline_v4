@@ -52,12 +52,14 @@
 					<%= label_tag("answer-text-#{question.id}".to_sym, question.text) %>
 				<% end %>
 				<% suggested_answer = question.get_suggested_answer(@plan.project.organisation_id) %>
-				<% if !suggested_answer.nil? && suggested_answer != "" then %>
+				<% if !suggested_answer["content"].nil? && suggested_answer["content"] != "" then %>
 					<div class="suggested-answer-div">	
-						<span class="suggested-answer-intro">Suggested answer:</span> 
+						<span class="suggested-answer-intro">
+							<%= suggested_answer['heading'] %>
+						</span> 
 						<div class="suggested-answer-border">
 							<p class="suggested-answer">
-								<%= question.get_suggested_answer(@plan.project.organisation_id) %>
+								<%= suggested_answer['content']%>
 							</p>
 						</div>
 					</div>	

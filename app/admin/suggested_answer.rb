@@ -13,6 +13,7 @@ ActiveAdmin.register SuggestedAnswer do
   						:as => :select, 
   						:collection => Organisation.find(:all, :order => 'name ASC').map{|orgp|[orgp.name, orgp.id]}
   		f.input :text
+  		f.input :is_example
   	end
   	f.actions  
   end		

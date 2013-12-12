@@ -14,10 +14,17 @@ class Question < ActiveRecord::Base
 
 	def get_suggested_answer(organisation_id)
 		answer = suggested_answers.find_by_organisation_id(organisation_id)
+		return_value = {}
 		if answer.nil? then
-			suggested_answer
+			return_value["heading"] = I18n.t('helpers.suggested_answer')
+			return_value["content"] = suggested_answer
+		elsif answer.is_example then
+			return_value["heading"] = I18n.t('helpers.suggested_example')
+			return_value["content"] = answer.text
 		else
-			answer.text
+			return_value["heading"] = I18n.t('helpers.suggested_answer')
+			return_value["content"] = answer.text
 		end
+		return return_value
 	end
 end
