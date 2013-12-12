@@ -4,7 +4,7 @@
 
 <div class="white_background">
 	<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
- 	<%= devise_error_messages! %>
+ 	
 	<!-- body -->
 	<div class="dmp_details">
 		
@@ -17,11 +17,22 @@
 			</tr>
 			<tr>
 				<td class="first"><%= t('helpers.first_name') %></td>
-				<td><%= f.text_field :firstname, :as => :srting, :id => "first_time_login_firstname", :autofocus => true, :class => 'text_field has-tooltip', 'data-toggle' => "tooltip", 'data-trigger' => "focus" ,'title' => t('helpers.first_name_help_text') %></td>
+				<td><%= f.text_field :firstname, :as => :srting, 
+							:id => "first_time_login_firstname", 
+							:autofocus => true, 
+							:class => 'text_field has-tooltip', 
+							'data-toggle' => "tooltip", 
+							'data-trigger' => "focus" ,
+							'title' => t('helpers.first_name_help_text') %></td>
 			</tr>
 			<tr>
 				<td class="first"><%= t('helpers.last_name') %></td>
-				<td><%= f.text_field :surname, :as => :srting, :id => "first_time_login_surname", :class => 'text_field has-tooltip', 'data-toggle' => "tooltip", 'data-trigger' => "focus" ,'title' => t('helpers.surname_help_text') %></td>
+				<td><%= f.text_field :surname, 
+					:as => :srting, :id => "first_time_login_surname", 
+					:class => 'text_field has-tooltip', 
+					'data-toggle' => "tooltip", 
+					'data-trigger' => "focus" ,
+					'title' => t('helpers.surname_help_text') %></td>
 			</tr>
 			<tr>
 				<td class="first"><%= t('helpers.org_type.organisation') %></td>
