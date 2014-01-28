@@ -32,13 +32,7 @@ public/assets/manifest.yml
 
 Gemfile.lock
 
-Gemfile.lock
-
 public/assets/application-d7a55927ebc82a139b122d77d4a8a9c7.css
-
-public/assets/application-d7a55927ebc82a139b122d77d4a8a9c7.css
-
-public/assets/application-d7a55927ebc82a139b122d77d4a8a9c7.css.gz
 
 public/assets/application.css
 
@@ -58,4 +52,8 @@ public/assets/rails.png
 
 db/schema.rb
 
+config/database.yml
+
 config/initializers/recaptcha.rb
+
+config/initializers/devise.rb

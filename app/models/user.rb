@@ -64,4 +64,11 @@ class User < ActiveRecord::Base
 		admin = roles.find_by_name("admin")
 		return !admin.nil?
 	end
+	
+	def is_org_admin?
+		org_admin = roles.find_by_name("org_admin")
+		return !org_admin.nil?		
+	end
+
+	
 end
