@@ -57,3 +57,5 @@ config/database.yml
 config/initializers/recaptcha.rb
 
 config/initializers/devise.rb
+
+config/environments/*
