@@ -80,11 +80,23 @@ en:
     theme: "Theme"
     sug_answer: "Suggested answer"
     sug_answers: "Suggested answers"
+    
+  org_admin:
+    admin_area: "Admin area"  
+    template_label: "Templates"
+    guidance_label: "Guidance"
+    user_list_label:  "Users"
+    org_details_label:  "Organisation details"
+    users_list: "Users list"
+    user_full_name: "Name"
+    user_name: "Email address"
+    last_logged_in: "Last logged in"
+    how_many_plans: "How many plans?"
   
   helpers:
     home: "Home"
     return_home: "Return to the home page"
-    admin_area: "Admin area"
+    admin_area: "Super admin area"
     edit_profile: "Edit profile"
     view_plans_label: "View plans"
     create_plan_label: "Create plan"

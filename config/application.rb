@@ -61,6 +61,7 @@ module DMPonline4
     config.assets.precompile += %w(plans.js)
     config.assets.precompile += %w(projects.js)
     config.assets.precompile += %w(jquery.placeholder.js)
+    config.assets.precompile += %w(admin.css.less)
     config.autoload_paths += %W(#{config.root}/lib)
     
     # Set the default host for mailer URLs

@@ -3,13 +3,19 @@ ActiveAdmin.register UserOrgRole do
 
 	index do   # :user_id, :organisation_id, :user_role_type_id
   	column I18n.t('admin.user'), :sortable => :user_id do |user_n|
+  		if !user_n.user.nil? then
         link_to user_n.user.firstname, [:admin, user_n.user]
+      end
     end
    	column I18n.t('admin.org'), :sortable => :organisation_id do |org|
-			 link_to org.organisation.name, [:admin, org.organisation]
+   		if !org.organisation.nil? then
+				link_to org.organisation.name, [:admin, org.organisation]
+			end	
 		end
 		column I18n.t('admin.user_role_type'), :sortable => :user_role_type_id do |role|
-      link_to role.user_role_type.name, [:admin, role.user_role_type]
+			if !role.user_role_type.nil? then
+				link_to role.user_role_type.name, [:admin, role.user_role_type]
+			end
   	end
   	
   	default_actions
