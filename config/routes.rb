@@ -5,21 +5,25 @@ DMPonline4::Application.routes.draw do
   	get "/users/sign_out", :to => "devise/sessions#destroy"
   end 
   resources :contacts, :controllers => {:contacts => 'contacts'}
+  
   # WAYFless access point - use query param idp
-    get 'auth/shibboleth' => 'users/omniauth_shibboleth_request#redirect', :as => 'user_omniauth_shibboleth'
+  get 'auth/shibboleth' => 'users/omniauth_shibboleth_request#redirect', :as => 'user_omniauth_shibboleth'
 	get 'auth/shibboleth/assoc' => 'users/omniauth_shibboleth_request#associate', :as => 'user_shibboleth_assoc'
-    # You can have the root of your site routed with "root"
+  
+  # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   root :to => 'home#index'
 
 	ActiveAdmin.routes(self)
   
-
   get "about_us" => 'static_pages#about_us', :as => "about_us"
   get "help" => 'static_pages#help', :as => "help"
   get "news" => 'static_pages#news', :as => "news"
   get "terms" => 'static_pages#termsuse', :as => "terms"
   get "existing_users" => 'existing_users#index', :as => "existing_users"
+  
+  #organisation admin area
+  get "organisation_admin/users" => 'organisation_users#admin_index', :as => "organisation_admin/users"
  
   resources :splash_logs
   

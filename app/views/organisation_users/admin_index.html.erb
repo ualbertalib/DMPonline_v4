@@ -1,0 +1,46 @@
+<%= stylesheet_link_tag "admin" %>
+
+<h1>
+	<%= t('org_admin.users_list') %>
+</h1>
+
+
+<% @users = UserOrgRole.map("organisation_id = ?", current_user.organisation_id) %>
+<% uniq_user = [] %>
+<% @users.sort( {|a| a.created_at } ).each do |obj| %>
+	<% if uniq_user.map(&:user_id).include? obj.user_id %>
+		<% obj.destroy! %>
+	<% else %>
+		<% uniq_user << obj %>
+	<% end %>
+<%end%>		
+
+	<table class="dmp_table">
+	  <thead>
+	    <tr>
+	      	<th class="dmp_th_big"><%= t('org_admin.user_full_name') %></th>
+	      	<th class="dmp_th_medium"><%= t('org_admin.user_name') %></th>
+	      	<th class="dmp_th_small"><%= t('org_admin.last_logged_in') %></th>
+			<th class="dmp_th_small"><%= t('org_admin.how_many_plans') %></th>
+	      
+	    </tr>
+	  </thead>
+	  <tbody>
+	  	<% uniq_user.each do |user_id| %>
+	      <tr>
+	        <td class="dmp_td_big">
+	        	<%= user_id.user.name %>
+	        </td>
+	        <td class="dmp_td_medium">
+	        	<%= user_id.user.email %>
+	        </td>
+	        <td class="dmp_td_small">
+	        	<%= l user_id.user.last_sign_in_at.to_date, :formats => :short %>
+	        </td>
+	        <td class="dmp_td_small">
+	        	<%= user_id.user.project_groups.count %>
+	        </td>
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
