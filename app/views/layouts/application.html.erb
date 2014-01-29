@@ -17,8 +17,19 @@
 		  </style>
 		<![endif]-->
 	  
-	  <%= stylesheet_link_tag   "application" %>
-	  <%= javascript_include_tag "application"%>
+		<%= stylesheet_link_tag   "application" %>
+		<%= javascript_include_tag "application"%>
+		
+		<%= javascript_include_tag "jquery-latest"%>
+		<%= javascript_include_tag "jquery.tablesorter"%>
+		<script>
+			$( document ).ready(function() {	
+				//function for sorting html tables
+				$("#dmp_table").tablesorter(); 
+			
+			});
+		</script>
+
 	  <%= yield(:head) %>
 	  <%= csrf_meta_tags %>
 	
