@@ -20,7 +20,7 @@
 								<li><%= link_to t('helpers.admin_area'), '/admin', :class => 'signIn_dropdown_link' %></li>
 							<%end%>	
 							<% if current_user.is_org_admin? %>
-								<li><%= link_to t('org_admin.admin_area'), '/organisation_admin/users', :class => 'signIn_dropdown_link' %></li>
+								<li><%= link_to t('org_admin.admin_area'), '/org/admin/users', :class => 'signIn_dropdown_link' %></li>
 							<%end%>	
 							<li><%= link_to t('helpers.sign_out'), destroy_user_session_path, method: :delete, :class => 'signIn_dropdown_link' %></li>
 							
@@ -50,10 +50,10 @@
 	                	<%= link_to t('org_admin.guidance_label'), '#', :class => "btn header_button btn-primary"%>
 	                </li>
 	                <li>
-	                	<%= link_to t('org_admin.org_details_label'), '#', :class => "btn header_button btn-primary"%>
+	                	<%= link_to t('org_admin.org_details_label'), admin_show_organisation_path(current_user.organisation_id), :class => "btn header_button btn-primary"%>
 	                </li>
 	                <li>
-	                	<%= link_to t('org_admin.user_list_label'), '/organisation_admin/users', :class => "btn header_button btn-primary"%>
+	                	<%= link_to t('org_admin.user_list_label'), '/org/admin/users', :class => "btn header_button btn-primary"%>
 	                </li>
                 <% else %>
                 	<% if user_signed_in? %>

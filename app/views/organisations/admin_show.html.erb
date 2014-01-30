@@ -1,0 +1,40 @@
+<%= stylesheet_link_tag "admin" %>
+
+<h1>
+	<%= t('org_admin.org_details_label') %>
+</h1>
+<!-- :abbreviation, :banner_file_id, :description, :domain, :logo_file_id, :name,
+ :stylesheet_file_id, :target_url, :organisation_type_id, :wayfless_entity, :parent_id, :sort_name
+	-->
+<div class="white_background">
+	<!-- body -->
+	<div class="dmp_details">
+		
+		<table class="dmp_details_table">
+			<tr>
+				<td class="first"><%= t('org_admin.org_name') %></td>
+				<td><%= @organisation.name %></td>
+			</tr>
+			<tr>
+				<td class="first"><%= t('org_admin.org_abbr') %></td>
+				<td><%= @organisation.abbreviation %></td>
+			</tr>
+			<tr>
+				<td class="first"><%= t('org_admin.org_desc') %></td>
+				<td><%= @organisation.description %></td>
+			</tr>
+			<tr>
+				<td class="first"><%= t('org_admin.org_target_url') %></td>
+				<td><%= @organisation.target_url %></td>
+			</tr>
+			<tr>
+				<td class="first"><%= t('org_admin.org_type') %></td>
+				<td><%= @organisation.organisation_type.name %></td>
+			</tr>
+		</table>
+		<div class="move_2_right">
+			<%= link_to t('helpers.submit.edit'), admin_edit_organisation_path(current_user.organisation_id), :class => 'btn btn-primary'%>
+		</div>
+		<br />
+	</div>
+</div>	

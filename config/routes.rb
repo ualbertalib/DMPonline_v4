@@ -23,7 +23,19 @@ DMPonline4::Application.routes.draw do
   get "existing_users" => 'existing_users#index', :as => "existing_users"
   
   #organisation admin area
-  get "organisation_admin/users" => 'organisation_users#admin_index', :as => "organisation_admin/users"
+  get "org/admin/users" => 'organisation_users#admin_index', :as => "org/admin/users"
+ 
+ 	resources :organisations, :path => 'org/admin' do
+  	member do
+			get 'children'
+			get 'templates'
+			get 'admin_show'
+			get 'admin_edit'
+			put 'admin_update'
+		end
+	end
+ 
+ 	resource :organisation 
  
   resources :splash_logs
   
@@ -76,12 +88,7 @@ DMPonline4::Application.routes.draw do
   resources :user_role_types
   resources :user_org_roles
   
-  resources :organisations do
-  	member do
-		get 'children'
-		get 'templates'
-	end
-end
+  
   resources :organisation_types
   resources :pages
  

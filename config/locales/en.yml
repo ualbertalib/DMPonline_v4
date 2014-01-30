@@ -87,11 +87,20 @@ en:
     guidance_label: "Guidance"
     user_list_label:  "Users"
     org_details_label:  "Organisation details"
-    users_list: "Users list"
+    users_list: "List of users"
     user_full_name: "Name"
     user_name: "Email address"
     last_logged_in: "Last logged in"
     how_many_plans: "How many plans?"
+    org_name: "Name"
+    org_abbr: "Abbreviation"
+    org_desc: "Description"
+    org_target_url: "Website"
+    org_type: "Organisation type"
+    desc_help_text_html: "<div class='tooltip_box'>Please enter information describing your organisation.</div>"
+    abbre_help_text: "Please enter an abbreviation to your organisation's name."
+    target_url_help_text: "Please enter a web address valid."
+    name_help_text: "Please enter your organisation's name."
   
   helpers:
     home: "Home"
@@ -149,6 +158,7 @@ en:
     saving: "Saving..."
     loading: "Loading..."
     submit:
+      edit: "Edit"
       create: "Create"
       update: "Update"
       cancel: "Cancel"
@@ -179,6 +189,7 @@ en:
     guidance: "Guidance"
     export: "Export"
     
+    
     org_type:
       funder: "Funder"
       institution: "Institution"
@@ -191,6 +202,8 @@ en:
       template: "Template"
       templates: "Templates"
       child: "Unit"
+      other_org_help_text: "Please enter the name of your organisation."
+    
       
      
     project:
@@ -203,7 +216,7 @@ en:
       project_name: "Project name"
       my_project_name: "My project"
       project_name_help_text: "If applying for funding, state the name exactly as in the grant proposal."
-      project_desc_help_text_html: "<div class='tooltip_box'<h4>Questions to consider:</h4><ul><li>- What is the nature of your research project?</li><li>- What research questions are you addressing? </li><li>- For what purpose are the data being collected or created? </li></ul><h4>Guidance:</h4><p>Briefly summarise the type of study (or studies) to help others understand the purposes for which the data are being collected or created.</p></div>"
+      project_desc_help_text_html: "<div class='tooltip_box'><h4>Questions to consider:</h4><ul><li>- What is the nature of your research project?</li><li>- What research questions are you addressing? </li><li>- For what purpose are the data being collected or created? </li></ul><h4>Guidance:</h4><p>Briefly summarise the type of study (or studies) to help others understand the purposes for which the data are being collected or created.</p></div>"
       project_identifier: "ID"
       project_identifier_help_text: "A pertinent ID as determined by the funder and/or institution."
       principal_investigator: "Principal Investigator/Researcher"
