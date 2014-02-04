@@ -47,7 +47,7 @@
 	                    <%= link_to t('org_admin.template_label'), '#', :class => "btn header_button btn-primary" %>
 	                </li>    
 	                <li>
-	                	<%= link_to t('org_admin.guidance_label'), '#', :class => "btn header_button btn-primary"%>
+	                	<%= link_to t('org_admin.guidance_label'), admin_index_guidance_path(current_user.organisation_id), :class => "btn header_button btn-primary"%>
 	                </li>
 	                <li>
 	                	<%= link_to t('org_admin.org_details_label'), admin_show_organisation_path(current_user.organisation_id), :class => "btn header_button btn-primary"%>

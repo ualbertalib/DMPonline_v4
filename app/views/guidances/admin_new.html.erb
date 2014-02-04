@@ -1,0 +1,51 @@
+<%= stylesheet_link_tag "admin" %>
+
+<h1>
+	<%= t('org_admin.guidance.new_label') %>
+	<!-- link button to add new guidance -->
+	<div class="move_2_right">
+		<%= link_to t("org_admin.guidance.view_all_guidance"),
+		            admin_index_guidance_path,
+		            :class => 'btn btn-primary' %>
+	</div>            
+</h1>
+
+<div class="div_clear"></div>
+<div class="white_background">
+	<!-- body -->
+	<div class="dmp_details">
+		<%= form_for :guidance, :url => {:action => 'admin_create'} do |f| %>
+			<table class="dmp_details_table">
+					<tr>
+						<td class="first"><%= t('org_admin.guidance.text_label') %></td>
+						<td><%= f.text_area :text, { 
+								:rows => 5, 
+								:class => 'text_area has-tooltip', 'data-toggle' => "tooltip", 'data-html' => "true", 'title'=> t('org_admin.guidance.help_text_html')} %></td>
+					</tr>
+					<tr>
+						<td class="first"><%= t('org_admin.guidance.theme_label') %></td>
+						<td><%=collection_select(:guidance, 
+								:theme_id, Theme.order("title"), 
+								:id, :title, {include_blank: ''}) %></td>
+					
+					</tr>
+					<tr>
+						<td class="first"><%= t('org_admin.guidance.guidance_group_label') %></td>
+						<td><%= f.collection_select(:guidance_group_ids,
+								GuidanceGroup.find(:all, :order => 'name ASC'),
+								:id, :name, {:prompt => false}, {:multiple => true})%>
+						</td>
+					</tr>									
+				</table>
+			
+			<!-- submit buttons -->
+			
+				<div class="move_2_right">
+					<%= f.submit t('helpers.submit.save'), :class => 'btn btn-primary' %>
+					<%= link_to t('helpers.submit.cancel'), :back, :class => 'btn btn-primary' %>
+				</div>
+			
+			<br />
+		<%end%>
+	</div>
+</div>	

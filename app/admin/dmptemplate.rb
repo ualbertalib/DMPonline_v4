@@ -43,7 +43,7 @@ ActiveAdmin.register Dmptemplate do
 		end 
 		 
 		#phases sidebar
- 		sidebar I18n.t("admin.phases"), :only => :show, :if => proc { dmptemplate.phases.count >= 1} do
+ 		sidebar I18n.t('admin.phases'), :only => :show, :if => proc { dmptemplate.phases.count >= 1} do
  		 	table_for dmptemplate.phases.order("number asc") do |temp_phases|
  		 		column :number
  		 		column :title do |row|

@@ -68,7 +68,7 @@ ActiveAdmin.register Organisation do
 	end		
 	
 	#templates sidebar
- 	sidebar I18n.t("admin.templates"), :only => :show, :if => proc { organisation.dmptemplates.count >= 1} do
+ 	sidebar I18n.t('admin.templates'), :only => :show, :if => proc { organisation.dmptemplates.count >= 1} do
 	 	table_for organisation.dmptemplates.order("title asc") do |temp|
 	 		column :title do |dmptemp|
      		link_to dmptemp.title, [:admin, dmptemp]

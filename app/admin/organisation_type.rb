@@ -31,7 +31,7 @@ ActiveAdmin.register OrganisationType do
 	end
 	
 	#organisations sidebar
- 	sidebar I18n.t("admin.orgs"), :only => :show, :if => proc { organisation_type.organisations.count >= 1} do
+ 	sidebar I18n.t('admin.orgs'), :only => :show, :if => proc { organisation_type.organisations.count >= 1} do
 	 	table_for organisation_type.organisations.order("name asc") do |org_list|
 	 		column I18n.t('admin.org_title'), :sortable => :name do |ggn|
         link_to ggn.name, [:admin, ggn]

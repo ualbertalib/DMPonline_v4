@@ -5,9 +5,10 @@
         	<ul class="footer-links">	
 	            <li><a href="/contact-us"><%= t('contact_page.title') %></a></li>
 	            <li class="muted">|</li>
-	            <!--li><a href="#"><%# = t('accessibility_page.title') %></a></li>
-	            <li class="muted">|</li-->
 	            <li><a href="/terms"><%= t('terms_page.title') %></a></li>
+	            <li class="muted">|</li>
+	            <li><a href="http://dmponline3.dcc.ac.uk/" target='_blank'><%= t('dmponline3_text') %></a></li>
+	            
 	            <!--li class="muted">|</li>
 	            <li><a href="#"><%# = t('privacy_policy_page.title') %></a></li-->
        		</ul>
@@ -24,6 +25,7 @@
     
     
 </footer>
+
 <% if !user_signed_in? then %>
 	<div id='header-login-form' class='modal hide fade'>
 		<div class="modal-header">
@@ -43,7 +45,8 @@
 			<%= render :partial => 'shared/register_form', locals: {extended: false} %>
 		</div>
 	</div>
-	<% unless params['nosplash'] == "true" || cookies[:dmp_splash_seen] == "splash_dialog_seen" then %>
+<!--	
+	<%# unless params['nosplash'] == "true" || cookies[:dmp_splash_seen] == "splash_dialog_seen" then %>
 		<div id='3-or-4-splash' class='modal hide fade'>
 			<div class="modal-header">
 				<h3>Welcome to the new DMPonline!</h3>
@@ -62,17 +65,18 @@
 				</div>
 				<div id="splash-4">I want to create a new Data Management Plan 
 					<div class="move_2_right">
-						<%= link_to "New DMPonline", splash_logs_path(:destination => "http://dmponline4.dcc.ac.uk"), :method => :post, :class => "btn btn-primary", :id => "continue-to-new" %>
+						<%# = link_to "New DMPonline", splash_logs_path(:destination => "http://dmponline4.dcc.ac.uk"), :method => :post, :class => "btn btn-primary", :id => "continue-to-new" %>
 					</div>
 				</div>	
 				<div class="div_clear"></div>
 				<div id="splash-3">I need to work with an old Data Management Plan 
 					<div class="move_2_right">
-						<%= link_to "Old DMPonline", splash_logs_path(:destination => "http://dmponline3.dcc.ac.uk"), :method => :post, :class => "btn btn-primary" %>
+						<%# = link_to "Old DMPonline", splash_logs_path(:destination => "http://dmponline3.dcc.ac.uk"), :method => :post, :class => "btn btn-primary" %>
 					</div>
 				</div>	
 				<div class="two-column-clear"></div>
 			</div>
 		</div>
-	<% end %>
+	<%# end %>
+	-->
 <% end %>

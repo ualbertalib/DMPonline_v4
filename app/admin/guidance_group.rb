@@ -26,7 +26,7 @@ ActiveAdmin.register GuidanceGroup do
 	end
 	
 	#guidance list
-	sidebar I18n.t("admin.guidance"), :only => :show, :if => proc { guidance_group.guidances.count >= 1}  do
+	sidebar I18n.t('admin.guidance'), :only => :show, :if => proc { guidance_group.guidances.count >= 1}  do
  		 	table_for guidance_group.guidances.order("text asc") do |guis|
  		 		column :text do |gtext|
  		 			link_to gtext.text.html_safe, [:admin, gtext]

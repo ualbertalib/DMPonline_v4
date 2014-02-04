@@ -58,7 +58,7 @@ class OrganisationsController < ApplicationController
 
     respond_to do |format|
       if @organisation.save
-        format.html { redirect_to @organisation, notice: 'Organisation was successfully created.' }
+        format.html { redirect_to @organisation, notice: I18n.t("admin.org_created_message") }
         format.json { render json: @organisation, status: :created, location: @organisation }
       else
         format.html { render action: "new" }
@@ -75,7 +75,7 @@ class OrganisationsController < ApplicationController
 		if user_signed_in? && current_user.is_org_admin? then
 	    respond_to do |format|
 	      if @organisation.update_attributes(params[:organisation])
-	        format.html { redirect_to admin_show_organisation_path(params[:id]), notice: 'Organisation was successfully updated.' }
+	        format.html { redirect_to admin_show_organisation_path(params[:id]), notice: I18n.t("admin.org_updated_message")  }
 	        format.json { head :no_content }
 	      else
 	        format.html { render action: "edit" }
@@ -97,6 +97,12 @@ class OrganisationsController < ApplicationController
       format.html { redirect_to organisations_url }
       format.json { head :no_content }
     end
+  end
+  
+  def parent
+  	@organisation = Organisation.find(params[:id])
+  	parent_org = @organisation.find_by {|o| o.parent_id }
+  	return parent_org
   end
   
 	def children

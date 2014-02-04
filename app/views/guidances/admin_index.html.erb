@@ -1,0 +1,55 @@
+<%= stylesheet_link_tag "admin" %>
+
+<h1>
+	<%= t('org_admin.guidance.guidance_list') %>
+	<!-- link button to add new guidance -->
+	<div class="move_2_right">
+		<%= link_to t("org_admin.guidance.add_guidance"),
+		            admin_new_guidance_path(),
+		            :class => 'btn btn-primary' %>
+	</div>            
+</h1>
+
+<div class="div_clear"></div>
+
+<% if !@guidances.nil? then%>	
+	<table id="dmp_table" class="dmp_table tablesorter">
+	  <thead>
+	    <tr>
+	      	<th class="dmp_th_big"><%= t('org_admin.guidance.text_label') %></th>
+	      	<th class="dmp_th_small"><%= t('org_admin.guidance.theme_label') %></th>
+	      	<th class="dmp_th_small"><%= t('org_admin.guidance.guidance_group_label') %></th>
+			<th class="dmp_th_small"><%= t('org_admin.guidance.last_updated') %></th>
+	      	<td class="dmp_th_medium"><%= t('org_admin.guidance.actions') %></td>
+	    </tr>
+	  </thead>
+	  <tbody>
+	  	<% @guidances.each do |guidance| %>
+	  		<% if guidance.in_group_belonging_to?(current_user.organisation_id) then %>
+		      <tr>
+		        <td class="dmp_td_big">
+		        	<%= guidance.text.truncate(80, omission: '... (continued)') %>
+		        </td>
+		        <td class="dmp_td_small">
+		        	<%= guidance.theme.title %>
+		        </td>
+		        <td class="dmp_td_small">
+		        	<% guidance.guidance_groups.each do |p|%>
+						<%= p.name %>
+					<%end%>
+		        </td>
+		        <td class="dmp_td_small">
+		        	<%= l guidance.updated_at.to_date, :formats => :short %>
+		        </td>
+		        <td class="dmp_td_medium">
+		        	<%= link_to t("helpers.view"), admin_show_guidance_path(guidance), :class => "dmp_table_link"%>
+					<%= link_to t("helpers.submit.edit"), admin_edit_guidance_path(guidance), :class => "dmp_table_link"%>
+					<%= link_to t("helpers.submit.delete"), admin_destroy_guidance_path(guidance),
+						:confirm => t("org_admin.guidance.delete_message", :guidance_summary => guidance.text.truncate(80) ), :method => :delete, :class => "dmp_table_link"%>
+		        </td>
+		      </tr>
+		    <%end%>
+	    <%end%>
+	  </tbody>
+	</table>
+<%end%>	

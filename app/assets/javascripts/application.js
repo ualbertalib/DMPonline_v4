@@ -44,7 +44,7 @@ $( document ).ready(function() {
 		var minus = $(this).parent().find(".minus-laranja").removeClass("minus-laranja").addClass("plus-laranja");
 	});
 	
-	$('#3-or-4-splash').modal();
+	//$('#3-or-4-splash').modal();
 		
 	$('.typeahead').select2({
 		width: "element",
@@ -106,14 +106,14 @@ $( document ).ready(function() {
 		}
 	});
 	
-	$('#continue-to-new').click(function(e){
+	/*$('#continue-to-new').click(function(e){
 		var destination = $(this).attr("href");
 		var n = destination.lastIndexOf('=');
 		destination = decodeURIComponent(destination.substring(n + 1));
 		$.post('splash_logs', {destination: destination} );
 		$("#3-or-4-splash").modal('hide');
 		return false;
-	});
+	});*/
 
 });
 

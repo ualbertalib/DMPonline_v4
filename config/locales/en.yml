@@ -30,6 +30,7 @@ en:
     pm: "pm"
 
   tool_title: "DMPonline"
+  dmponline3_text: "DMPonline previous version" 
   dcc_name: "Digital Curation Centre"
   welcome_title: "Welcome."
   welcome_text: "<p>DMPonline has been developed by the <a href='http://dcc.ac.uk' target='_blank'>Digital Curation Centre</a> to help you write data management plans.</p><p>Create an account to start your first plan.</p>"
@@ -40,6 +41,8 @@ en:
     orgs: "Organisations"
     org_type: "Organisation type"
     org_parent: "Parent organisation"
+    org_created_message: "Organisation was successfully created."
+    org_updated_message: "Organisation was successfully updated."
     plans: "Plans"
     title: "Title"
     desc: "Description"
@@ -81,11 +84,11 @@ en:
     sug_answer: "Suggested answer"
     sug_answers: "Suggested answers"
     
+
   org_admin:
     admin_area: "Admin area"  
     template_label: "Templates"
-    guidance_label: "Guidance"
-    user_list_label:  "Users"
+    user_list_label: "Users"
     org_details_label:  "Organisation details"
     users_list: "List of users"
     user_full_name: "Name"
@@ -97,10 +100,30 @@ en:
     org_desc: "Description"
     org_target_url: "Website"
     org_type: "Organisation type"
+    parent_org: "Main organisation"
+    last_updated: "Last updated"
     desc_help_text_html: "<div class='tooltip_box'>Please enter information describing your organisation.</div>"
     abbre_help_text: "Please enter an abbreviation to your organisation's name."
     target_url_help_text: "Please enter a web address valid."
     name_help_text: "Please enter your organisation's name."
+    guidance_label: "Guidance"
+    guidance:
+      guidance_list: "Guidance list"
+      text_label: "Text"
+      theme_label: "Theme"
+      guidance_group_label: "Guidance group"
+      created: "Created"
+      last_updated: "Last updated"
+      actions: "Actions"
+      add_guidance: "Add new guidance"
+      created_message: "Guidance was successfully created."
+      updated_message: "Guidance was successfully updated."
+      help_text_html: "<div class='tooltip_box'>Please enter guidance text for this theme.</div>"
+      new_label: "New guidance"
+      view_all_guidance: "View all guidance"
+      delete_message: "You are about to delete '%{guidance_summary}'. Are you sure?"
+      
+    
   
   helpers:
     home: "Home"
@@ -163,6 +186,8 @@ en:
       update: "Update"
       cancel: "Cancel"
       save: "Save"
+      delete: "Delete"
+      back: "Back"
    
     name: "Name"
     first_name: "First name"
@@ -261,7 +286,7 @@ Select what format you wish to use and click to 'Export'.</p>"
         desc: "Please select from the following drop-downs so we can determine what questions and guidance should be displayed in your plan."
         funders_question: "If applying for funding, select your research funder."
         funders_question_description: "Otherwise leave blank."
-        institution_question: "To see institutional questions and/or guidance, select your university."
+        institution_question: "To see institutional questions and/or guidance, select your organisation."
         institution_question_description: "You may leave blank or select a different institution to your own."
         other_guidance_question: "Tick to select any other sources of guidance you wish to see."  
  
@@ -283,7 +308,11 @@ Select what format you wish to use and click to 'Export'.</p>"
     </div>
     <h3>Additional Information</h3>
     <div class='white_background'>
-    <p>We are constantly improving the user interface and functionality of DMPonline. If you would like to contribute with feedback and suggestions, please contact us by emailing <a href='mailto:dmponline@dcc.ac.uk?Subject=DMPonline%20inquiry' target='_top'>dmponline@dcc.ac.uk</a>.</p></div>"
+    <p>We are constantly improving the user interface and functionality of DMPonline. 
+    If you would like to contribute with feedback and suggestions, please contact us by emailing 
+    <a href='mailto:dmponline@dcc.ac.uk?Subject=DMPonline%20inquiry' target='_top'>dmponline@dcc.ac.uk</a>. You can also report bugs and request new features directly on <a href='https://github.com/DigitalCurationCentre/DMPonline_v4' target='_top'>GitHub</a></p>
+    <p>If you need to access plans from the earlier version of the tool please visit <a href='https://dmponline3.dcc.ac.uk' target='_top'>DMPonline v3</a>.</p></div>"
+    
     
   help_page:
     title: "Help"
@@ -314,7 +343,11 @@ Select what format you wish to use and click to 'Export'.</p>"
     </div>
     <h3>Export plans</h3>
     <div class='white_background'>
-    <p>From here you can download your plan in various formats. This may be useful if you need to submit your plan as part of a grant application. Choose what format you would like to view/download your plan in and click to export. When you login to DMPonline you will be directed to the 'My plans' page. From here you can edit, share, export or delete any of your plans. You will also see plans that have been shared with you by others.</p></div>"
+    <p>From here you can download your plan in various formats. This may be useful if you need to submit your plan as part of a grant application. Choose what format you would like to view/download your plan in and click to export. When you login to DMPonline you will be directed to the 'My plans' page. From here you can edit, share, export or delete any of your plans. You will also see plans that have been shared with you by others.</p></div>
+    <h3>Legacy data</h3>
+    <div class='white_background'>
+    <p>If you need to access plans from the earlier version of the tool please visit <a href='https://dmponline3.dcc.ac.uk' target='_top'>DMPonline v3</a>.</p>
+    </div>"
   
   contact_page:
     title: "Contact us"

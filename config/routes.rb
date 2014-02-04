@@ -35,9 +35,21 @@ DMPonline4::Application.routes.draw do
 		end
 	end
  
+ 	resources :guidances, :path => 'org/admin/guidance' do
+  	member do
+  		get 'admin_show'
+  		get 'admin_index'
+			get 'admin_edit'
+			get 'admin_new'
+			delete 'admin_destroy' 
+			post 'admin_create'
+			put 'admin_update'
+  	end
+  end
+ 
  	resource :organisation 
  
-  resources :splash_logs
+  #resources :splash_logs
   
   resources :dmptemplates
   resources :phases
@@ -47,7 +59,7 @@ DMPonline4::Application.routes.draw do
   resources :question_themes
   
   resources :themes
-  resources :guidances
+  
   
   resources :answers
   resources :plan_sections
