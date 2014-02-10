@@ -23,12 +23,15 @@
 		<%= stylesheet_link_tag   "application" %>
 		<%= javascript_include_tag "application"%>
 		
-		<%= yield(:head) %>
-		<%= csrf_meta_tags %>
-			
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		
+		<%= javascript_include_tag "jquery.tablesorter"%>
+		<script>
+			$(function() {	
+				//function for sorting html tables
+				$("#dmp_table").tablesorter(); 
+				$("#dmp_table_2").tablesorter();
+			});
+		</script>
+
 		<!--[if IE]>
 			  	<script>
 			  		$(function() {
@@ -36,7 +39,14 @@
 					    $('input, textarea').placeholder();
 					});    
 				</script>
-		<![endif]-->
+		<![endif]-->	
+
+		<%= yield(:head) %>
+		<%= csrf_meta_tags %>
+
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		    
 	</head>
 	<body class="dmponline">

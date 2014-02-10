@@ -10,7 +10,7 @@ class Question < ActiveRecord::Base
   accepts_nested_attributes_for :themes
   attr_accessible :theme_ids
   
-  attr_accessible :default_value, :dependency_id, :dependency_text, :guidance, :number, :parent_id, :suggested_answer, :text, :question_type, :section_id, :multiple_choice, :multiple_permitted, :is_expanded
+  attr_accessible :default_value, :dependency_id, :dependency_text, :guidance, :number, :parent_id, :suggested_answer, :text, :question_type, :section_id, :multiple_choice, :multiple_permitted, :is_expanded, :is_text_field
 
 	def get_suggested_answer(organisation_id)
 		answer = suggested_answers.find_by_organisation_id(organisation_id)

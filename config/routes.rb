@@ -42,6 +42,7 @@ DMPonline4::Application.routes.draw do
 			get 'admin_edit'
 			get 'admin_new'
 			delete 'admin_destroy' 
+			delete 'admin_gdestroy'
 			post 'admin_create'
 			put 'admin_update'
   	end

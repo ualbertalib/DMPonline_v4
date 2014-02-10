@@ -122,6 +122,12 @@ en:
       new_label: "New guidance"
       view_all_guidance: "View all guidance"
       delete_message: "You are about to delete '%{guidance_summary}'. Are you sure?"
+    guidance_group:
+      guidance_group_list: "Guidance groups list"
+      name_label: "Name"
+      delete_message: "You are about to delete '%{guidance_group_name}'. This will affect guidance. Are you sure?"
+      created_message: "Guidance group was successfully created."
+      updated_message: "Guidance group was successfully updated."
       
     
   

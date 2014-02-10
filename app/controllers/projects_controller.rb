@@ -226,8 +226,8 @@ class ProjectsController < ApplicationController
 				end
 			end
 			return with_published.sort_by {|o| [o.sort_name, o.name] }
-		#else
-			#return all_such_orgs.sort_by {|o| [o.sort_name, o.name] }
+		else
+			return all_such_orgs.sort_by {|o| [o.sort_name, o.name] }
 		end
 	end
 end

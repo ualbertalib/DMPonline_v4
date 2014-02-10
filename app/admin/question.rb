@@ -95,6 +95,7 @@ ActiveAdmin.register Question do
   		f.input :dependency_text
   		f.input :multiple_choice
   		f.input :multiple_permitted
+  		f.input :is_text_field
   		f.input :is_expanded  	
   	end
   	f.inputs "Themes" do

@@ -5,11 +5,12 @@ class GuidancesController < ApplicationController
   def admin_index
     if user_signed_in? && current_user.is_org_admin? then
 	    @guidances = Guidance.all
+	    @guidance_groups = GuidanceGroup.where('organisation_id = ?', current_user.organisation_id )
 	    
 	
 	    respond_to do |format|
 	      format.html # index.html.erb
-	      format.json { render json: @guidance_group }
+	      format.json { render json: @guidances }
 	    end
     else
 			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
