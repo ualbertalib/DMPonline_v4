@@ -118,8 +118,18 @@ $( document ).ready(function() {
 				success: function(data) {
 					var num_questions = data.length;
 					for (var i = 0; i < num_questions; i++) {
-						var entered_text_to_compare = strip_tags_and_whitespace(tinymce.get('answer-text-'+data[i].id).getContent());
+						var entered_text_to_field;
+						
+						if ( $('#is-text-field-'+data[i].id).attr('value')  ) {
+							entered_text_to_compare = $('answer-text-'+data[i].id).attr('value');
+							alert('here now');
+						}
+						else{
+							entered_text_to_compare = strip_tags_and_whitespace(tinymce.get('answer-text-'+data[i].id).getContent());
+						}
+						
 						var stored_text_to_compare = strip_tags_and_whitespace(data[i].answer_text);
+						
 						if(entered_text_to_compare != stored_text_to_compare) {
 							updated_questions.push(data[0].id);
 						}
