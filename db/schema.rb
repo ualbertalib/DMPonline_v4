@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131212111049) do
+ActiveRecord::Schema.define(:version => 20140210121753) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -119,7 +119,6 @@ ActiveRecord::Schema.define(:version => 20131212111049) do
     t.integer  "organisation_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
-    t.boolean  "default"
   end
 
   create_table "guidance_in_group", :id => false, :force => true do |t|
@@ -278,6 +277,7 @@ ActiveRecord::Schema.define(:version => 20131212111049) do
     t.boolean  "multiple_choice"
     t.boolean  "multiple_permitted"
     t.boolean  "is_expanded"
+    t.boolean  "is_text_field"
   end
 
   create_table "questions_themes", :id => false, :force => true do |t|
