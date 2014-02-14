@@ -118,11 +118,11 @@ $( document ).ready(function() {
 				success: function(data) {
 					var num_questions = data.length;
 					for (var i = 0; i < num_questions; i++) {
-						var entered_text_to_field;
-						var stored_text_to_compare;
+						var entered_text_to_compare = null;
+						var stored_text_to_compare = null;
 						
-						if ( $('#is-text-field-'+data[i].id).attr('value')  ) {
-							entered_text_to_compare = $('answer-text-'+data[i].id).attr('value');
+						if ($('input#answer-text-'+data[i].id).length == 1) {
+							entered_text_to_compare = $('input#answer-text-'+data[i].id).val();
 							stored_text_to_compare = (data[i].answer_text);
 						}
 						else{
@@ -197,10 +197,17 @@ $( document ).ready(function() {
 					//Get divs containing the form and readonly versions
 					var form_div = $("#question-form-"+question_id);
 					var readonly_div = $("#question-readonly-"+question_id);
-					//Update answer text - both in textarea and readonly
-					$('#answer-text-'+question_id).val(data.text);
-					tinymce.get('answer-text-'+question_id).setContent(data.text);
-					readonly_div.find('.answer-text-readonly').html(data.text);
+					//Look for textfields
+					if ($("input#answer-text-"+question_id).length == 1) {
+						$("input#answer-text-"+question_id).val(data.text);
+						readonly_div.find('.answer-text-readonly').html("<p>"+data.text+"</p>");
+					}
+					else {
+						//Update answer text - both in textarea and readonly
+						$('#answer-text-'+question_id).val(data.text);
+						tinymce.get('answer-text-'+question_id).setContent(data.text);
+						readonly_div.find('.answer-text-readonly').html(data.text);	
+					}
 					//Update answer options - both in textarea and readonly
 					num_options = data.options.length;
 					form_div.find('option').each(function(){
