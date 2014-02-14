@@ -210,7 +210,9 @@ class Plan < ActiveRecord::Base
 	
 	def unlock_section(section_id, user_id)
 		plan_section = plan_sections.where(:section_id => section_id, :user_id => user_id).order("created_at DESC").first
-		unlock_plan_section(plan_section, user_id)
+		unless plan_section.nil?
+			unlock_plan_section(plan_section, user_id)
+		end
 	end
 	
 	def unlock_plan_section(plan_section, user_id)
