@@ -40,27 +40,34 @@ class Plan < ActiveRecord::Base
 	end
 	
 	def guidance_for_question(question)
-		# pulls together guidance from various sources for question
-		guidances = {}
-		theme_ids = question.theme_ids
-		unless project.organisation.nil? then
-			project.organisation.guidance_groups.each do |group|
-				group.guidances.where("theme_id IN (?)", theme_ids).each do |g|
-					guidances["#{group.organisation.short_name} guidance on #{g.theme.title}"] = g
+	  # pulls together guidance from various sources for question
+	  guidances = {}
+	  theme_ids = question.theme_ids
+	  unless project.organisation.nil? then
+			question.guidances.each do |g|
+				g.guidance_groups.each do |group|
+			  	if group.organisation == project.organisation
+			    	guidances["#{group.organisation.short_name} guidance"] = g
+			   	end
 				end
-			end
+	  	end
+	  	project.organisation.guidance_groups.each do |group|
+	    	group.guidances.where("theme_id IN (?)", theme_ids).each do |g|
+	     		guidances["#{group.organisation.short_name} guidance on #{g.theme.title}"] = g
+	    	end
+	  	end
 		end
-		project.guidance_groups.each do |group|
-			if group.organisation != project.dmptemplate.organisation then
-				group.guidances.where("theme_id IN (?)", theme_ids).each do |g|
-					if g.dmptemplate_id.nil? || g.dmptemplate_id == project.dmptemplate_id then
-						guidances["#{group.organisation.short_name} guidance on #{g.theme.title}"] = g
-					end
-				end
-			end
-		end
-		return guidances
-	end
+	  project.guidance_groups.each do |group|
+	   	if group.organisation != project.dmptemplate.organisation then
+	    	group.guidances.where("theme_id IN (?)", theme_ids).each do |g|
+	     		if g.dmptemplate_id.nil? || g.dmptemplate_id == project.dmptemplate_id then
+	      		guidances["#{group.organisation.short_name} guidance on #{g.theme.title}"] = g
+	     		end
+	    	end
+	   	end
+	  end
+	  return guidances
+ end
 	
 	def warning(option_id)
 		if project.organisation.nil?

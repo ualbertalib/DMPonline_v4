@@ -42,7 +42,16 @@ DMPonline4::Application.routes.draw do
 			get 'admin_edit'
 			get 'admin_new'
 			delete 'admin_destroy' 
-			delete 'admin_gdestroy'
+			post 'admin_create'
+			put 'admin_update'
+  	end
+  end
+ 
+ 	resources :guidance_groups, :path => 'org/admin/guidancegroup' do
+ 		member do
+ 			get 'admin_show'
+ 			get 'admin_edit'
+			delete 'admin_destroy' 
 			post 'admin_create'
 			put 'admin_update'
   	end

@@ -1,4 +1,5 @@
 <%= stylesheet_link_tag "admin" %>
+<% javascript 'admin.js' %>
 
 <h1>
 	<%= t('org_admin.guidance_label') %>
@@ -23,22 +24,27 @@
 				<table class="dmp_details_table">
 					<tr>
 						<td class="first"><%= t('org_admin.guidance.text_label') %></td>
-						<td><%= f.text_area :text, { 
-								:rows => 5, 
-								:class => 'text_area has-tooltip', 'data-toggle' => "tooltip", 'data-html' => "true", 'title'=> t('org_admin.guidance.help_text_html')} %></td>
+						<td><%= text_area_tag("guidance-text", @guidance.text, class: "tinymce") %></td>
 					</tr>
 					<tr>
 						<td class="first"><%= t('org_admin.guidance.theme_label') %></td>
+						<td><%= f.collection_select(:theme_ids,
+								Theme.find(:all, :order => 'title ASC'),
+								:id, :title, {:prompt => false, :include_blank => 'None'}, {:multiple => true})%>
+						</td>
+					</tr>
+					<tr>
+						<td class="first"><%= t('org_admin.guidance.question') %></td>
 						<td><%=collection_select(:guidance, 
-								:theme_id, Theme.order("title"), 
-								:id, :title, {include_blank: ''}) %></td>
+								:question_id, Question.order("text"), 
+								:id, :text, {include_blank: 'None'}) %></td>
 					
 					</tr>
 					<tr>
 						<td class="first"><%= t('org_admin.guidance.guidance_group_label') %></td>
 						<td><%= f.collection_select(:guidance_group_ids,
 								GuidanceGroup.find(:all, :order => 'name ASC'),
-								:id, :name, {:prompt => false}, {:multiple => true})%>
+								:id, :name, {:prompt => false, :include_blank => 'None'}, {:multiple => true})%>
 						</td>
 					</tr>
 					
@@ -52,6 +58,7 @@
 				</div>
 			
 			<br />
+			<%= tinymce :content_css => asset_path('application.css') %>
 		<%end%>
 	</div>
 </div>	

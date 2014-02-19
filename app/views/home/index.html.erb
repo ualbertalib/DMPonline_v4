@@ -1,34 +1,45 @@
-
-<div class="welcome-message">
-	<h2><%= raw t('welcome_title')%></h2>
-	<%= raw t('welcome_text')%>
-</div>
-<div class="accordion" id="homepage-accordion">
-	<div class="accordion-group">
-		<div class="accordion-heading">
-			<a class="accordion-toggle" data-toggle="collapse" data-parent="#homepage-accordion" href="#collapse-login">
-				<%= t('helpers.sign_in')%><span class="minus-laranja"> </span></a>
-		</div>
-		<div id="collapse-login" class="accordion-home collapse in">
-			<div class="accordion-inner">
-				<%= render :partial => 'shared/login_form' %>
-			</div>
-		</div>
-	</div>
-	<div class="accordion-group">
-		<div class="accordion-heading">
-			<a class="accordion-toggle" data-toggle="collapse" data-parent="#homepage-accordion" href="#collapse-register">
-				<%= t('helpers.sign_up') %><span class="plus-laranja"> </span></a>
-			<p>
-				<%= t('helpers.sign_up_text')%>
-			</p>
+<div class="content">
+	<div class="home_left_column">	
+		<div class="welcome-message">
 			
-		</div>
-		<div id="collapse-register" class="accordion-home collapse">
-			<div class="accordion-inner">
-				<%= render :partial => 'shared/register_form', locals: {extended: false} %>
-			</div>
+			<h2><%= raw t('welcome_title')%></h2>
+			<%= raw t('welcome_text')%>
+			<div class="screencast_home_page">
+				<p><%= t('screencast_text') %></p>
+				<div class="clear"></div>				
+				<iframe src="http://www.screenr.com/embed/PJHN" width="100%" height="200" frameborder="0"></iframe>
+			</div>	
 		</div>
 	</div>
+	<div class="home_right_column">	
+		<div class="accordion" id="homepage-accordion">
+			<div class="accordion-group">
+				<div class="accordion-heading">
+					<a class="accordion-toggle" data-toggle="collapse" data-parent="#homepage-accordion" href="#collapse-login">
+						<%= t('helpers.sign_in')%><span class="minus-laranja"> </span></a>
+				</div>
+				<div id="collapse-login" class="accordion-home collapse in">
+					<div class="accordion-inner">
+						<%= render :partial => 'shared/login_form' %>
+					</div>
+				</div>
+			</div>
+			<div class="accordion-group">
+				<div class="accordion-heading">
+					<a class="accordion-toggle" data-toggle="collapse" data-parent="#homepage-accordion" href="#collapse-register">
+						<%= t('helpers.sign_up') %><span class="plus-laranja"> </span></a>
+					<p>
+						<%= t('helpers.sign_up_text')%>
+					</p>
+					
+				</div>
+				<div id="collapse-register" class="accordion-home collapse">
+					<div class="accordion-inner">
+						<%= render :partial => 'shared/register_form', locals: {extended: false} %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+	<div class="two-column-clear"></div>
 </div>
-<div class="two-column-clear"></div>

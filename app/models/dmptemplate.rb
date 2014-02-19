@@ -7,6 +7,12 @@ class Dmptemplate < ActiveRecord::Base
   has_many :projects
   has_many :guidances
   
+  
+	has_and_belongs_to_many :guidance_groups, join_table: "dmptemplates_guidance_groups"
+	
+	accepts_nested_attributes_for :guidance_groups
+  attr_accessible :guidance_group_ids  
+  
   accepts_nested_attributes_for :phases
   accepts_nested_attributes_for :organisation
   accepts_nested_attributes_for :projects

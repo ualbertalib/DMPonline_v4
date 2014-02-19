@@ -8,7 +8,7 @@ class GuidanceGroupsController < ApplicationController
 	    @guidance_group = GuidanceGroup.find(params[:id])
 	
 	    respond_to do |format|
-	      format.html # show.html.erb
+	      format.html 
 	      format.json { render json: @guidance_group }
 	    end
     else
@@ -17,21 +17,12 @@ class GuidanceGroupsController < ApplicationController
   end
 
  
-
-  # GET /guidance_groups/1/edit
-  def admin_edit
-  	if user_signed_in? && current_user.is_org_admin? then
-      @guidance_group = GuidanceGroup.find(params[:id])
-    else
-			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
-		end 
-  end
-
-  # POST /guidance_groups
+	# POST /guidance_groups
   # POST /guidance_groups.json
   def admin_create
     if user_signed_in? && current_user.is_org_admin? then
 	    @guidance_group = GuidanceGroup.new(params[:guidance_group])
+	    @guidance_group.organisation_id = current_user.organisation_id
 	
 	    respond_to do |format|
 	      if @guidance_group.save
@@ -46,12 +37,25 @@ class GuidanceGroupsController < ApplicationController
 			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
 		end 
   end
+  
+
+  # GET /guidance_groups/1/edit
+  def admin_edit
+  	if user_signed_in? && current_user.is_org_admin? then
+      @guidance_group = GuidanceGroup.find(params[:id])
+    else
+			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
+		end 
+  end
+
+ 
 
   # PUT /guidance_groups/1
   # PUT /guidance_groups/1.json
   def admin_update
  		if user_signed_in? && current_user.is_org_admin? then
    		@guidance_group = GuidanceGroup.find(params[:id])
+	    @guidance_group.organisation_id = current_user.organisation_id
 
 	    respond_to do |format|
 	      if @guidance_group.update_attributes(params[:guidance_group])
@@ -76,7 +80,7 @@ class GuidanceGroupsController < ApplicationController
 	    @guidance_group.destroy
 	
 	    respond_to do |format|
-	      format.html { redirect_to admin_index_guidance_path }
+	      format.html { redirect_to admin_index_guidance_path, notice: I18n.t('org_admin.guidance_group.destroyed_message') }
 	      format.json { head :no_content }
 	    end
 	 	else

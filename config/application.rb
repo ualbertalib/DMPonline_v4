@@ -59,6 +59,7 @@ module DMPonline4
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
     config.assets.precompile += %w(plans.js)
+    config.assets.precompile += %w(admin.js)
     config.assets.precompile += %w(projects.js)
     config.assets.precompile += %w(jquery.placeholder.js)
     config.assets.precompile += %w(admin.css.less)
