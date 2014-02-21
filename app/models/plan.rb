@@ -44,23 +44,28 @@ class Plan < ActiveRecord::Base
 	  guidances = {}
 	  theme_ids = question.theme_ids
 	  unless project.organisation.nil? then
-			question.guidances.each do |g|
-				g.guidance_groups.each do |group|
+			# Guidance link to directly to a question
+			question.guidance do |g_by_q|
+				g_by_q.guidance_group do |group|
 			  	if group.organisation == project.organisation
-			    	guidances["#{group.organisation.short_name} guidance"] = g
+			    	guidances["#{group.organisation.short_name} guidance"] = g_by_q
 			   	end
 				end
 	  	end
 	  	project.organisation.guidance_groups.each do |group|
-	    	group.guidances.where("theme_id IN (?)", theme_ids).each do |g|
-	     		guidances["#{group.organisation.short_name} guidance on #{g.theme.title}"] = g
+	    	group.guidances.each do |g|
+	    			g.themes.where("id IN (?)", theme_ids).each do |gg|
+	     				guidances["#{group.organisation.short_name} guidance on #{gg.title}"] = g
+	     			end	
 	    	end
 	  	end
 		end
+		
+		# guidance selected on 'create a plan' wizard
 	  project.guidance_groups.each do |group|
-	   	if group.organisation != project.dmptemplate.organisation then
+	   	if group.organisation != project.organisation then
 	    	group.guidances.where("theme_id IN (?)", theme_ids).each do |g|
-	     		if g.dmptemplate_id.nil? || g.dmptemplate_id == project.dmptemplate_id then
+	     		if group.dmptemplate == [] || g.dmptemplate_id == project.dmptemplate_id then
 	      		guidances["#{group.organisation.short_name} guidance on #{g.theme.title}"] = g
 	     		end
 	    	end

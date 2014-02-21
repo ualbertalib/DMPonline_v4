@@ -188,7 +188,8 @@ class ProjectsController < ApplicationController
 		end
 		excluded_orgs = orgs_of_type(t('helpers.org_type.funder')) + orgs_of_type(t('helpers.org_type.institution')) + Organisation.orgs_with_parent_of_type(t('helpers.org_type.institution'))
 		guidance_groups = {}
-		ggs = GuidanceGroup.guidance_groups_excluding(excluded_orgs)
+		ggs = GuidanceGroup.guidance_groups_excluding(excluded_orgs) 
+	
 		ggs.each do |gg|
 			guidance_groups[gg.id] = gg.name
 		end
