@@ -45,18 +45,18 @@ class Plan < ActiveRecord::Base
 	  theme_ids = question.theme_ids
 	  unless project.organisation.nil? then
 			# Guidance link to directly to a question
-			question.guidance do |g_by_q|
-				g_by_q.guidance_group do |group|
+			question.guidances.each do |g_by_q|
+				g_by_q.guidance_groups.each do |group|
 			  	if group.organisation == project.organisation
-			    	guidances["#{group.organisation.short_name} guidance"] = g_by_q
+			    	guidances["#{group.organisation.short_name} guidance for this question"] = g_by_q
 			   	end
 				end
 	  	end
 	  	project.organisation.guidance_groups.each do |group|
 	    	group.guidances.each do |g|
-	    			g.themes.where("id IN (?)", theme_ids).each do |gg|
-	     				guidances["#{group.organisation.short_name} guidance on #{gg.title}"] = g
-	     			end	
+	    		g.themes.where("id IN (?)", theme_ids).each do |gg|
+	     			guidances["#{group.organisation.short_name} guidance on #{gg.title}"] = g
+	     		end	
 	    	end
 	  	end
 		end

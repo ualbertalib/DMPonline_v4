@@ -662,7 +662,7 @@ table.dmp_table tbody td.dmp_td_medium, table.dmp_table thead th.dmp_th_medium{
 }
 table.dmp_table tbody td.dmp_td_small, table.dmp_table thead th.dmp_th_small{
   //min-width: 18%;
-  padding-right: 10px;
+  padding-right: 20px;
 }
 
 table.dmp_table tbody th.dmp_th_border{
@@ -1261,6 +1261,30 @@ div {
 #export_font{
   font-family: @text_font;
 }
+
+
+ul.export_list li{
+  padding-bottom: 5px;
+  
+  ul.export_sub_list {
+    list-style:none;
+    margin-left: 14px;
+    
+    li:before {
+      display:inline-block;
+      color: @orange_colour;
+      content:"-";
+      width:1em;
+      margin-left:-1em;
+    }
+    
+    li {
+      padding-bottom: 5px;
+    } 
+  }
+}
+
+
 
 /************ Static pages **********/
 

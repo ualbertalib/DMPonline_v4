@@ -11,26 +11,36 @@
 	<div class="dmp_details">
 		
 		<table class="dmp_details_table">
+			<% if !@organisation.name.nil? then%>
 			<tr>
 				<td class="first"><%= t('org_admin.org_name') %></td>
 				<td><%= @organisation.name %></td>
 			</tr>
+			<%end%>
+			<% if !@organisation.name.nil? then%>
 			<tr>
 				<td class="first"><%= t('org_admin.org_abbr') %></td>
 				<td><%= @organisation.abbreviation %></td>
 			</tr>
+			<%end%>
+			<% if !@organisation.name.nil? then%>
 			<tr>
 				<td class="first"><%= t('org_admin.org_desc') %></td>
-				<td><%= @organisation.description %></td>
+				<td><%= raw @organisation.description %></td>
 			</tr>
+			<%end%>
+			<% if !@organisation.name.nil? then%>
 			<tr>
 				<td class="first"><%= t('org_admin.org_target_url') %></td>
 				<td><%= @organisation.target_url %></td>
 			</tr>
+			<%end%>
+			<% if !@organisation.name.nil? then%>
 			<tr>
 				<td class="first"><%= t('org_admin.org_type') %></td>
 				<td><%= @organisation.organisation_type.name %></td>
 			</tr>
+			<%end%>
 			<% if !@organisation.parent_id.nil? then%>
 				<tr>
 					<td class="first"><%= t('org_admin.parent_org') %></td>

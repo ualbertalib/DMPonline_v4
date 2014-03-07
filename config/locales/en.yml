@@ -35,6 +35,7 @@ en:
   welcome_title: "Welcome."
   welcome_text: "<p>DMPonline has been developed by the <a href='http://dcc.ac.uk' target='_blank'>Digital Curation Centre</a> to help you write data management plans.</p>"
   screencast_text: "Screencast on how to use DMPonline"
+  screencast_error_text: "Your browser does not support the video tag."
 
   admin:
     org_title: "Organisation name"
@@ -110,6 +111,7 @@ en:
     target_url_help_text: "Please enter a web address valid."
     name_help_text: "Please enter your organisation's name."
     guidance_label: "Guidance"
+    templates_label: "Templates"
     guidance:
       guidance_list: "Guidance list"
       text_label: "Text"
@@ -137,7 +139,22 @@ en:
       created_message: "Guidance group was successfully created."
       updated_message: "Guidance group was successfully updated."
       destroyed_message: "Guidance group was successfully deleted."
+    templates:
+      create_template: "Create a template"
+      funders_temp: "Funders templates"
+      own_temp: "Own templates"
+      add_phase: "Add phase"
+      add_section: "Add section"
+      add_question: "Add question"
+      created: "Created at"
+      last_updated: "Last updated"
+      published_label: "Published"
+      title_label: "Title"
+      desc_label: "Description"
+      actions: "Actions"
+      customise: "Customise" 
       
+           
     
   
   helpers:
@@ -180,7 +197,7 @@ en:
     no_unlock_instructions: "Didn't receive unlock instructions?"
     send_password_info: "Reset password instructions"
     edit_password_info: "If you would like to change your password please complete the following fields."
-    accept_terms: "I accept the terms and conditions"
+    accept_terms_html: " I accept the <a href='/terms'>terms and conditions</a> *"
     
     error: "Error!"
     send: "Send"
@@ -302,7 +319,7 @@ Select what format you wish to use and click to 'Export'.</p>"
         funders_question: "If applying for funding, select your research funder."
         funders_question_description: "Otherwise leave blank."
         institution_question: "To see institutional questions and/or guidance, select your organisation."
-        institution_question_description: "You may leave blank or select a different institution to your own."
+        institution_question_description: "You may leave blank or select a different organisation to your own."
         other_guidance_question: "Tick to select any other sources of guidance you wish to see."  
  
   about_page:

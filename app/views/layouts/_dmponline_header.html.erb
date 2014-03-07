@@ -20,7 +20,7 @@
 								<li><%= link_to t('helpers.admin_area'), '/admin', :class => 'signIn_dropdown_link' %></li>
 							<%end%>	
 							<% if current_user.is_org_admin? %>
-								<li><%= link_to t('org_admin.admin_area'), '/org/admin/users', :class => 'signIn_dropdown_link' %></li>
+								<li><%= link_to t('org_admin.admin_area'), admin_index_dmptemplate_path(current_user.organisation_id), :class => 'signIn_dropdown_link' %></li>
 							<%end%>	
 							<li><%= link_to t('helpers.sign_out'), destroy_user_session_path, method: :delete, :class => 'signIn_dropdown_link' %></li>
 							
@@ -42,9 +42,10 @@
 		<!-- main menu -->
 		<div class="main_nav">
 			<ul class="nav nav-pills">
+				<!-- Navigation for organisation admin -->
                 <% if (user_signed_in? && current_user.is_org_admin? && ( action_name.include? "admin_" ) ) %>
                 	<li>
-	                    <%= link_to t('org_admin.template_label'), '#', :class => "btn header_button btn-primary" %>
+	                    <%= link_to t('org_admin.template_label'), admin_index_dmptemplate_path(current_user.organisation_id), :class => "btn header_button btn-primary" %>
 	                </li>    
 	                <li>
 	                	<%= link_to t('org_admin.guidance_label'), admin_index_guidance_path(current_user.organisation_id), :class => "btn header_button btn-primary"%>

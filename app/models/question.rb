@@ -4,6 +4,7 @@ class Question < ActiveRecord::Base
   has_many :answers
   has_many :options
   has_many :suggested_answers
+  has_many :guidances
   has_and_belongs_to_many :themes
   belongs_to :section
   accepts_nested_attributes_for :answers

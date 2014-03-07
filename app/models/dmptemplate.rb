@@ -32,4 +32,7 @@ class Dmptemplate < ActiveRecord::Base
     return org_templates
    end 
 
+	
+
+
 end
