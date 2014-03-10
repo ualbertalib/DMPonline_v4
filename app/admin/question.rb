@@ -99,10 +99,12 @@ ActiveAdmin.register Question do
   		f.input :is_expanded  	
   	end
   	f.inputs "Themes" do
-  			f.inputs :themes, :label => "Selected themes",
+  			f.input :theme_ids, :label => "Selected themes",
   							:as => :check_boxes, 
   							:multiple => true,
-  							:collection => Theme.order('title').map{|the| [the.title, the.id]}	
+  							:include_blank => "All Templates", 
+  							:collection => Theme.order('title').map{|the| [the.title, the.id]}	,
+  							:hint => 'Choose all themes that apply.'
   							
   	end
 	 	f.actions  

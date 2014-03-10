@@ -9,6 +9,7 @@ class Guidance < ActiveRecord::Base
 	has_and_belongs_to_many :themes, join_table: "themes_in_guidance"
   
   accepts_nested_attributes_for :themes
+  accepts_nested_attributes_for :guidance_groups
   
   attr_accessible :guidance_group_ids
   attr_accessible :theme_ids

@@ -68,10 +68,12 @@ ActiveAdmin.register Guidance do
   			
 		end
 		f.inputs "Themes" do
-  			f.inputs :themes, :label => "Selected themes",
+  			f.input :theme_ids, :label => "Selected themes",
   							:as => :check_boxes, 
+  							:include_blank => "All themes", 
   							:multiple => true,
-  							:collection => Theme.order('title').map{|the| [the.title, the.id]}	
+  							:collection => Theme.order('title').map{|the| [the.title, the.id]},
+  							:hint => 'Choose all themes that apply.'	
   	end
 		
 		 f.actions  
