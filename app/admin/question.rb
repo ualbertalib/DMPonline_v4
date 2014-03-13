@@ -100,7 +100,7 @@ ActiveAdmin.register Question do
   	end
   	f.inputs "Themes" do
   			f.input :theme_ids, :label => "Selected themes",
-  							:as => :check_boxes, 
+  							:as => :select,
   							:multiple => true,
   							:include_blank => "All Templates", 
   							:collection => Theme.order('title').map{|the| [the.title, the.id]}	,

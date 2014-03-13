@@ -7,6 +7,9 @@ ActiveAdmin.register Guidance do
   		column I18n.t('admin.theme') do |t|
 	 		 	(t.themes.map{|t_q| link_to t_q.title, [:admin, t_q]}).join(', ').html_safe
 	 		end	  
+	 		column I18n.t('admin.old_theme_field'), :sortable => :theme_id do |t|
+	 		 	t.theme
+	 		end	 	 		
 	 		column I18n.t('admin.question'),  :sortable => :question_id do |que|
 	    	if !que.nil? then
    				que.question
@@ -69,7 +72,7 @@ ActiveAdmin.register Guidance do
 		end
 		f.inputs "Themes" do
   			f.input :theme_ids, :label => "Selected themes",
-  							:as => :check_boxes, 
+  							:as => :select, 
   							:include_blank => "All themes", 
   							:multiple => true,
   							:collection => Theme.order('title').map{|the| [the.title, the.id]},
