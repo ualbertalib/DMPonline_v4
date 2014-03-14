@@ -14,7 +14,8 @@ class User < ActiveRecord::Base
     has_many :project_groups, :dependent => :destroy
     has_many :organisations , through: :user_org_roles
     has_many :user_role_types, through: :user_org_roles
-    has_and_belongs_to_many :roles, :join_table => :users_roles 
+    has_and_belongs_to_many :roles, :join_table => :users_roles
+    has_many :plan_sections 
     
     accepts_nested_attributes_for :roles
     attr_accessible :role_ids

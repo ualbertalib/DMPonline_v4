@@ -9,5 +9,10 @@ class SessionsController < Devise::SessionsController
 			super
 		end
 	end
+	
+	def destroy
+		current_user.plan_sections.delete_all
+		super
+	end
 
 end

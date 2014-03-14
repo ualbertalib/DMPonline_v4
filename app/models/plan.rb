@@ -172,7 +172,6 @@ class Plan < ActiveRecord::Base
 	
 	def locked(section_id, user_id)
 		plan_section = plan_sections.where("section_id = ? AND user_id != ? AND release_time > ?", section_id, user_id, Time.now).last
-		logger.debug("LOCK: #{plan_section.inspect}")	
 		if plan_section.nil? then
 			status = {
 				"locked" => false,
@@ -197,13 +196,11 @@ class Plan < ActiveRecord::Base
 	end
 	
 	def unlock_all_sections(user_id)
-		plan_sections.where(:user_id => user_id).order("created_at DESC").each do |plan_section|
-			unlock_plan_section(plan_section)
-		end
+		plan_sections.where(:user_id => user_id).order("created_at DESC").delete_all
 	end
 	
 	def delete_recent_locks(user_id)
-		plan_sections.where(:user_id => user_id, :created_at => 30.seconds.ago..Time.now).delete_all
+		plan_sections.where(:user_id => user_id).delete_all
 	end
 	
 	def lock_section(section_id, user_id, release_time = 30)
@@ -225,19 +222,7 @@ class Plan < ActiveRecord::Base
 	end
 	
 	def unlock_section(section_id, user_id)
-		plan_section = plan_sections.where(:section_id => section_id, :user_id => user_id).order("created_at DESC").first
-		unless plan_section.nil?
-			unlock_plan_section(plan_section, user_id)
-		end
-	end
-	
-	def unlock_plan_section(plan_section, user_id)
-		if plan_section.release_time > Time.now then
-			plan_section.release_time = Time.now
-			plan_section.save
-		else
-			return false
-		end
+		plan_sections.where(:section_id => section_id, :user_id => user_id).order("created_at DESC").delete_all
 	end
 	
 	def latest_update
