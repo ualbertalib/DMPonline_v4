@@ -4,7 +4,7 @@
 $( document ).ready(function() {
 	
 	// Delete 30min locks set in case user doesn't have JS
-	$.post('delete_recent_locks');
+// 	$.post('delete_recent_locks');
 	
 	// Make timestamps readable
 	$('abbr.timeago').timeago();

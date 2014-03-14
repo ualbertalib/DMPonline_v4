@@ -31,7 +31,7 @@ class ProjectsController < ApplicationController
 			end
 		elsif user_signed_in? then
 			respond_to do |format|
-				format.html { redirect_to projects_url, notice: {"This account does not have access to that plan."} }
+				format.html { redirect_to projects_url, notice: "This account does not have access to that plan."}
 			end
 		else
 			respond_to do |format|

@@ -196,11 +196,15 @@ class Plan < ActiveRecord::Base
 	end
 	
 	def unlock_all_sections(user_id)
-		plan_sections.where(:user_id => user_id).order("created_at DESC").delete_all
+		plan_sections.where(:user_id => user_id).order("created_at DESC").each do |lock|
+			lock.delete
+		end
 	end
 	
 	def delete_recent_locks(user_id)
-		plan_sections.where(:user_id => user_id).delete_all
+		plan_sections.where(:user_id => user_id).each do |lock|
+			lock.delete
+		end
 	end
 	
 	def lock_section(section_id, user_id, release_time = 30)
@@ -222,7 +226,9 @@ class Plan < ActiveRecord::Base
 	end
 	
 	def unlock_section(section_id, user_id)
-		plan_sections.where(:section_id => section_id, :user_id => user_id).order("created_at DESC").delete_all
+		plan_sections.where(:section_id => section_id, :user_id => user_id).order("created_at DESC").each do |lock|
+			lock.delete
+		end
 	end
 	
 	def latest_update

@@ -6,10 +6,10 @@ class PlansController < ApplicationController
 	def edit
 		@plan = Plan.find(params[:id])
 		if user_signed_in? && @plan.readable_by(current_user.id) then
-			@plan.lock_all_sections(current_user.id)
+# 			@plan.lock_all_sections(current_user.id)
 		else
     		render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
-    	end
+    end
 	end
 
 	# PUT /plans/1
