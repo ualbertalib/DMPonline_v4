@@ -26,9 +26,10 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 					if user_signed_in?
 						# Reset user password to expire old login details now user using shibboleth
 						current_user.update_attribute('shibboleth_id', uid)
+						user_id = current_user.id
 						sign_out current_user
 						session.delete(:shibboleth_data)
-						s_user = User.find_by_shibboleth_id(uid)
+						s_user = User.find(user_id)
 						sign_in_and_redirect s_user, event: :authentication
 					else
 						session[:shibboleth_data] = request.env['omniauth.auth']
