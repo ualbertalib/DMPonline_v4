@@ -12,20 +12,28 @@ The tool has four main functions
 3. To export attractive and useful plans in a variety of formats;
 4. To allow collaborative work when creating Data Management Plans.
 
-== Documentation & Support
-
-* You can contact us by email, dmponline@dcc.ac.uk, but we can only provide limited support for your installation
-
 == Bugs & Feature Requests
 
 * Bug Reports & Feature Requests: https://github.com/DigitalCurationCentre/DMPonline_v4/issues
 
 == Prerequisites
 
-DMPonline is a Ruby on Rails application and you will need to have Ruby 2.0.0p247 or greater installed on your server and a MySQL server v5.0 or greater.
+DMPonline is a Ruby on Rails application and you will need to have Ruby 2.0.0p247 or greater and Rails 3.2.13 installed on your server and a MySQL server v5.0 or greater.
 
-Further details on how to install Ruby on Rails applications are available from the Ruby on Rails site, http://rubyonrails.org
+Prerequisites
+-------------
+DMPonline is a Ruby on Rails application and you'll need to have Ruby 2.0.0p247 [x86_64-linux], plus Rails 3.2.13 on your server and a MySQL server v5.1 or greater.  
 
+You will need to ensure you have [RubyGems installed](http://guides.rubygems.org/rubygems-basics/) too. If you've had to upgrade the version of Ruby running on your server, don't forget to update the gems system too by running the following:
+
+    $ gem update --system
+    $ gem install bundler
+
+Further details on how to install Ruby on Rails applications are available from the [Ruby on Rails site](http://rubyonrails.org).  
+
+While not a prerequisite, the DCC runs this using [Phusion Passenger 4](http://www.modrails.com/) with an Apache webserver  
+
+The shell utility [wkhtmltopdf](http://code.google.com/p/wkhtmltopdf/) is used to create PDF output and so this needs to be installed on your server.  
 
 == Getting Started
 
@@ -41,9 +49,9 @@ If `wkhtmltopdf` is not installed to `/usr/local/bin/wkhtmltopdf` then you will 
 
 You'll need to install the gems, build the database and start the server:
 
-	cd dmponline4  
-	bundle update  
-	rake db:setup  
+	$ cd dmponline4  
+	$ bundle update  
+	$ rake db:setup  
 
 
 == Copyright
