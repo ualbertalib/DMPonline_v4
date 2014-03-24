@@ -29,20 +29,21 @@ Further details on how to install Ruby on Rails applications are available from 
 
 == Getting Started
 
-1. At the command prompt, create a new Rails application:
-       <tt>rails new myapp</tt> (where <tt>myapp</tt> is the application name)
+After downloading, create a `config/database.yml` file based on the provided `config/database_example.yml` file. Currently only MySQL databases are supported.
 
-2. Change directory to <tt>myapp</tt> and start the web server:
-       <tt>cd myapp; rails server</tt> (run with --help for options)
+Edit the configuration files at `config/environments` to include your contact email addresses.
 
-3. Go to http://localhost:3000/ and you'll see:
-       "Welcome aboard: You're riding Ruby on Rails!"
+Edit the configuration setting `config.action_mailer.default_url_options` in `config/application.rb`
 
-4. Follow the guidelines to start developing your application. You can find
-the following resources handy:
+Edit values for `config.mailer_sender` and `config.pepper` in `config/initializers/devise.rb`.  For config.pepper you can use a random string, or even an empty string for development.
 
-* The Getting Started Guide: http://guides.rubyonrails.org/getting_started.html
-* Ruby on Rails Tutorial Book: http://www.railstutorial.org/
+If `wkhtmltopdf` is not installed to `/usr/local/bin/wkhtmltopdf` then you will need to edit the config value in `config/initializers/wicked_pdf.rb`
+
+You'll need to install the gems, build the database and start the server:
+
+	cd dmponline4  
+	bundle update  
+	rake db:setup  
 
 
 == Copyright
