@@ -1,0 +1,8 @@
+*.gem
+.bundle
+Gemfile.lock
+pkg/*
+benchmarks
+/.rvmrc
+/tags
+.DS_Store
