@@ -5,11 +5,15 @@ class PlansController < ApplicationController
 	# GET /plans/1/edit
 	def edit
 		@plan = Plan.find(params[:id])
-		if user_signed_in? && @plan.readable_by(current_user.id) then
-# 			@plan.lock_all_sections(current_user.id)
-		else
-    		render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
-    end
+          if !user_signed_in? then
+               respond_to do |format|
+				format.html { redirect_to edit_user_registration_path }
+			end
+		elsif !@plan.editable_by(current_user.id) then
+			respond_to do |format|
+				format.html { redirect_to projects_url, notice: "This account does not have access to that plan." }
+			end
+		end
 	end
 
 	# PUT /plans/1
@@ -200,8 +204,14 @@ class PlansController < ApplicationController
 				render :pdf => file_name, :margin => {:top => 20, :bottom => 20, :left => 20, :right => 20}
 			  end
 			end
-		else
-			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
+		elsif !user_signed_in? then
+               respond_to do |format|
+				format.html { redirect_to edit_user_registration_path }
+			end
+		elsif !@plan.editable_by(current_user.id) then
+			respond_to do |format|
+				format.html { redirect_to projects_url, notice: "This account does not have access to that plan." }
+			end
 		end
 	end
 end

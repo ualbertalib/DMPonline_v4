@@ -12,7 +12,9 @@ class ProjectsController < ApplicationController
 				format.json { render json: @projects }
 			end
 		else
-			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
+			respond_to do |format|
+				format.html { redirect_to edit_user_registration_path }
+			end
 		end
 	end
 
@@ -53,29 +55,50 @@ class ProjectsController < ApplicationController
 			  format.json { render json: @project }
 			end
 		else
-			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
+			respond_to do |format|
+				format.html { redirect_to edit_user_registration_path }
+			end
 		end
 	end
 
 	# GET /projects/1/edit
+     # Should this be removed?
 	def edit
 		@project = Project.find(params[:id])
-		unless user_signed_in? && @project.editable_by(current_user.id) then
-			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
+		if !user_signed_in? then
+               respond_to do |format|
+				format.html { redirect_to edit_user_registration_path }
+			end
+		elsif !@project.editable_by(current_user.id) then
+			respond_to do |format|
+				format.html { redirect_to projects_url, notice: "This account does not have access to that plan." }
+			end
 		end
 	end
 	
 	def share
 		@project = Project.find(params[:id])
-		unless user_signed_in? && @project.administerable_by(current_user.id) then
-			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
+		if !user_signed_in? then
+               respond_to do |format|
+				format.html { redirect_to edit_user_registration_path }
+			end
+		elsif !@project.editable_by(current_user.id) then
+			respond_to do |format|
+				format.html { redirect_to projects_url, notice: "This account does not have access to that plan." }
+			end
 		end
 	end
 	
 	def export
 		@project = Project.find(params[:id])
-		unless user_signed_in? then
-			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
+		if !user_signed_in? then
+               respond_to do |format|
+				format.html { redirect_to edit_user_registration_path }
+			end
+		elsif !@project.editable_by(current_user.id) then
+			respond_to do |format|
+				format.html { redirect_to projects_url, notice: "This account does not have access to that plan." }
+			end
 		end
 	end
 
