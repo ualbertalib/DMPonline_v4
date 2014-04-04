@@ -12,13 +12,13 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       if !uid.nil? && !uid.blank? then
 				s_user = User.where(shibboleth_id: uid).first
 				# Take out previous record if was not confirmed.  
-				# Stops Shibboleth ID being blocked if email incorrectly entered.
 				if s_user.confirmed_at.nil?
 					sign_out s_user
 					User.delete(s_user.id)
 					s_user = nil
 				end
-
+				
+				# Stops Shibboleth ID being blocked if email incorrectly entered.
 				if s_user.try(:persisted?)
 					flash[:notice] = I18n.t('devise.omniauth_callbacks.success', :kind => 'Shibboleth')
 					sign_in_and_redirect s_user, event: :authentication

@@ -41,8 +41,10 @@ ActiveAdmin.register Question do
         link_to question.section.title, [:admin, question.section]
     	end
 	 		row :number
-	 		row :suggested_answer
 	 		row :default_value
+	 		row I18n.t('admin.question_format') do |format|
+	 			link_to format.question_format.title, [:admin, format.question_format]
+	 		end
 	 		row :guidance do |qguidance|
 	  		if !qguidance.guidance.nil? then
 	  			qguidance.guidance.html_safe
@@ -84,7 +86,6 @@ ActiveAdmin.register Question do
   						:as => :select, 
   						:collection => Section.find(:all, :order => 'title ASC').map{ |sec| ["#{sec.version.phase.dmptemplate.title} - #{sec.title}", sec.id] }
   		f.input :default_value
-  		f.input :suggested_answer
   		f.input :guidance 
   		f.input :parent_id, :label => "Parent", 
   						:as => :select, 
@@ -98,16 +99,22 @@ ActiveAdmin.register Question do
   		f.input :is_text_field
   		f.input :is_expanded  	
   	end
+  	f.inputs "Question Format" do
+  			f.input :question_format_id, :label => "Select question format",
+  							:as => :select,
+  							:collection => QuestionFormat.order('title').map{|format| [format.title, format.id]}								
+  	end
   	f.inputs "Themes" do
   			f.input :theme_ids, :label => "Selected themes",
   							:as => :select,
   							:multiple => true,
-  							:include_blank => "All Templates", 
+  							:include_blank => "None", 
   							:collection => Theme.order('title').map{|the| [the.title, the.id]}	,
   							:hint => 'Choose all themes that apply.'
   							
   	end
 	 	f.actions  
   end		
+
 
 end

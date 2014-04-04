@@ -1,45 +1,33 @@
-<!-- project navigation -->  
+<!-- templates navigation -->  
 <div id="project-tabs" class="nav-project-tabs">
 	<ul class="nav nav-tabs" data-tabs="tabs">
-		<!-- Project details (views/projects/_project_details.html.erb)-->
-		<% if active == "show_project" then %>
+		<!-- template details (views/dmptemplate/_project_details.html.erb)-->
+		<% if active == "show_template" then %>
 			<li class="active">
 		<% else %>
 			<li>
 		<% end %>
-		<%= link_to t('helpers.project.tab_plan'), project %>
-	   		</li>
-    <!-- Plans (phases)-->
-    <% project.plans.each do |plan| %>
-		<% if active == plan.id then %>
+			<%= link_to t('org_admin.templates.template_details'), admin_show_dmptemplate_path(dmptemplate) %>
+	   	</li>
+    <!-- Phases -->
+    <% dmptemplate.phases.each do |phase| %>
+		<% if active == phase.id then %>
 			<li class="active">
 		<% else %>
 			<li>
 		<% end %>
-		<% if active == "show_project" || active == "share_project" || active == "export_page" then %>
-			<%= link_to plan.version.phase.title, [:edit, @project, plan]%>
-		<% else %>
-			<%= link_to plan.version.phase.title, [:edit, @plan.project, plan]%>
-		<% end %>   
+			<%= link_to phase.title, admin_showphase_dmptemplate_path(phase) %>
 		</li>
     <% end %>
-    <!--Share project (project admin only)-->
-    <% if project.administerable_by(current_user.id) then %>
-		<% if active == "share_project" then %>
-			<li class="active">
+    <!-- Add another phase button -->
+    <% if (action_name.include? "admin_add") || (action_name.include? "admin_edit") %>
+    	<% if active == 'add_phase' then %>
+			<li class="active">	
 		<% else %>
 			<li>
 		<% end %>
-		<%= link_to t('helpers.project.share.tab_share'), ["share", project] %>
+			<%= link_to t('org_admin.templates.add_phase_label'), admin_addphase_dmptemplate_path(dmptemplate) %>
 		</li>
-	<% end %>
-	<!-- Export page that display all plans options to export-->
-		<% if active == "export_page" then %>
-			<li class="active">
-		<% else %>
-			<li>
-		<% end %>
-		<%= link_to t('helpers.project.tab_export'), ["export",project] %>
-	   		</li>
+    <%end%>
 	</ul>
 </div>

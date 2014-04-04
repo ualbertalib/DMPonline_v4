@@ -67,9 +67,13 @@ DMPonline4::Application.routes.draw do
  			get 'admin_index'
  			get 'admin_edit'
 			get 'admin_new'
+			get 'admin_addphase'
+			get 'admin_editphase'
+			get 'admin_showphase'
 			delete 'admin_destroy' 
 			post 'admin_create'
 			put 'admin_update'
+			put 'admin_updatephase'
   	end
   end
   

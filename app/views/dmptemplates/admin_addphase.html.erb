@@ -1,0 +1,127 @@
+<%- model_class = Phase -%>
+<%= stylesheet_link_tag "admin" %>
+<% javascript 'admin.js' %>
+
+<h1>
+	<%= @phase.dmptemplate.title %>
+	<!-- link button to add new guidance -->
+	<div class="move_2_right">
+		<%= link_to t("org_admin.templates.view_all_templates"),
+		            admin_index_dmptemplate_path,
+		            :class => 'btn btn-primary' %>
+	</div>            
+</h1>
+
+<div class="div_clear"></div>
+
+<!-- render navigation tabs for the template-->
+<%= render :partial => "templates_nav_tabs", locals: {dmptemplate: @phase.dmptemplate, active: @phase.id} %>
+
+<!-- plan main container -->
+<div class="project-tabs-body">
+    <div class="accordion" id="sections-accordion">
+    	<%if !@phase.versions.nil? then %>
+    		<% @phase.versions.each do |version|%>
+		    	<% sections = version.sections %>
+		    	<% sections.each do |section| %>
+		    		<div class="accordion-group">
+		    			<div class="accordion-heading">
+		    				<a class="accordion-toggle" data-toggle="collapse" data-parent="#sections-accordion" href="#collapse-<%= section.id%>">
+		    					<div class="accordion_heading_text">
+									<%= section.title %>
+								</div>	
+		    					<!-- + or - icon-->
+		                    	<span class="icon-plus icon-white accordion-icon"> </span>
+		                    	
+		    				</a>
+		    			</div>
+		    			<div id="collapse-<%= section.id%>" class="accordion-body collapse section-collapse">
+		    				<div class="accordion-inner">
+								<% section.questions.order("number").each do |question| %>
+									<% last_question_id = section.questions.order("number DESC").first.id%>
+									<div class="question-div">
+										<!-- suggested answer -->
+										<% suggested_answer = question.get_suggested_answer(question.section.organisation.id) %>
+										<% if !suggested_answer["content"].nil? && suggested_answer["content"] != "" then %>
+											<div class="suggested-answer-div">	
+												<span class="suggested-answer-intro">
+													<%= suggested_answer['heading'] %>
+												</span> 
+												<div class="suggested-answer-border">
+													<p class="suggested-answer">
+														<%= raw suggested_answer['content']%>
+													</p>
+												</div>
+											</div>	
+										<% end %>
+										<!--question text -->
+										<p><strong>Question</strong>: <%= question.text %></p>
+										<div class="answer-readonly">
+											<% if question.multiple_choice %>
+												<ul class='options'>
+												<% if question.options.is_a? Option then %>
+													<li>- <%= question.options.text %></li>
+												<% else %>
+													<% question.options.each do |o| %>
+														<li>- <%= o.text %></li>
+													<% end %>
+												<% end %>
+												</ul>
+											<% end %>
+										</div>	
+										<p><strong>Question type:</strong> <%= question.question_type?%></p>
+										<% themes_q = question.question_themes? %>
+										<%if themes_q != {} then%>
+											<p><strong>Themes:</strong> <%= themes_q%></p>
+										<%end%>	
+									</div>			
+									<!--guidance area -->
+									<div class="question-guidance">
+										<div class="accordion" id="<%= question.id %>-guidance">
+											<% if !question.guidance.nil? && question.guidance != "" then %>
+												<div class="accordion-group">
+													<div class="accordion-heading">
+														<a class="accordion-guidance-link" data-toggle="collapse" data-parent="#<%= question.id %>-guidance" href="#collapse-guidance-<%= question.id%>">
+															<div class="accordion_heading_text">
+															<%= question.section.organisation.abbreviation %> <%= t('helpers.guidance')%> 
+															</div>
+															<span class="plus-laranja"> </span></a>
+													</div>
+													<div id="collapse-guidance-<%= question.id%>" class="guidance-accordion-body collapse">
+														<div class="accordion-inner"><%= raw question.guidance %></div>
+													</div>
+												</div>
+											<% end %>
+											
+											<% @phase.guidance_for_question(question, current_user.organisation).each_pair do |title,guidance| %>
+												<div class="accordion-group">											
+													<div class="accordion-heading">
+														<a class="accordion-guidance-link" data-toggle="collapse" data-parent="#<%= question.id %>-guidance" href="#collapse-guidance-<%= guidance.id%>-<%= question.id %>">
+															<div class="accordion_heading_text">
+															<%= title%> 
+															</div>
+															<span class="plus-laranja"> </span></a>
+													</div>
+													<div id="collapse-guidance-<%= guidance.id%>-<%= question.id %>" class="guidance-accordion-body collapse">
+														<div class="accordion-inner"><%= raw guidance.text %></div>
+													</div>
+												</div>
+											<% end %>	
+										</div>
+									</div>		
+									<% if last_question_id == question.id then %>
+										<div class="two-column-clear"></div>
+									<% else %>
+										<div class="two-column-clear question-divider"></div>
+									<% end %>	
+										
+								<%end%>
+		    				</div>
+		    			</div>
+		    		</div>
+		    	<% end %>
+		    <%end%>
+	 	<%end%>   	
+    </div>
+    <%= tinymce :content_css => asset_path('application.css') %>
+</div>
