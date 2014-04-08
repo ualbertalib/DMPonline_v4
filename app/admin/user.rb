@@ -1,6 +1,16 @@
 ActiveAdmin.register User do
 	
 	 menu :priority => 15, :label => proc{ I18n.t('admin.user')}, :parent => "User management"
+	 
+	filter :firstname
+	filter :surname
+	filter :email
+	filter :organisations
+	filter :role_ids
+	filter :created_at
+	filter :updated_at
+	
+	 
 	
 	index do   # :password_confirmation, :encrypted_password, :remember_me, :id, :email, :firstname, :orcid_id, 
 		# :shibboleth_id, :user_status_id, :surname, :user_type_id, :organisation_id, :skip_invitation
@@ -75,10 +85,11 @@ ActiveAdmin.register User do
   			f.input :user_type_id, :label => I18n.t('admin.user_type'), 
   						:as => :select, 
   						:collection => UserType.find(:all, :order => 'name ASC').map{|ut|[ut.name, ut.id]}  		
-  			f.inputs :roles, :label => "User role",
+  			f.input :role_ids, :label => "User role",
   							:as => :select, 
-  							:collection => Role.find(:all, :order => 'name ASC').map{|ro| [ro.name, ro.id]},	
-  							:selected => @roles				
+  							:multiple => true,
+  							:collection => Role.find(:all, :order => 'name ASC').map{|ro| [ro.name, ro.id]}
+  									
     end
     
     f.actions    

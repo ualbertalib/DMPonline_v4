@@ -5,7 +5,7 @@
 </h1>
 
 
-<% @user_roles = UserOrgRole.where("organisation_id = ?", current_user.organisation_id) %>
+<% @user_roles = current_user.organisation.user_org_roles %>
 <% @user_roles = @user_roles.uniq_by {|u| u.user_id } %>  	
   	<table id="dmp_table" class="dmp_table tablesorter">
 	  <thead>
@@ -19,20 +19,28 @@
 	  </thead>
 	  <tbody>
 	  	<% @user_roles.each do |user_id| %>
-	      <tr>
-	        <td class="dmp_td_big">
-	        	<%= user_id.user.name %>
-	        </td>
-	        <td class="dmp_td_medium">
-	        	<%= user_id.user.email %>
-	        </td>
-	        <td class="dmp_td_small">
-	        	<%= l user_id.user.last_sign_in_at.to_date, :formats => :short %>
-	        </td>
-	        <td class="dmp_td_small">
-	        	<%= user_id.user.project_groups.count %>
-	        </td>
-	      </tr>
+	  		<% if !user_id.user.nil? then%>
+		      <tr>
+		        <td class="dmp_td_big">
+		        	<% if !user_id.user.name.nil? then%>
+		        		<%= user_id.user.name %>
+		        	<%end%>	
+		        </td>
+		        <td class="dmp_td_medium">
+		        	<%= user_id.user.email %>
+		        </td>
+		        <td class="dmp_td_small">
+		        	<% if !user_id.user.last_sign_in_at.nil? then%>
+		        	<%= l user_id.user.last_sign_in_at.to_date, :formats => :short %>
+					<%end%>
+		        </td>
+		        <td class="dmp_td_small">
+		        	<% if !user_id.user.project_groups.nil? then%>
+		        	<%= user_id.user.project_groups.count %>
+		        	<%end%>
+		        </td>
+		      </tr>
+	      	<%end%>
 	    <% end %>
 	  </tbody>
 	</table>

@@ -9,6 +9,9 @@ ActiveAdmin.register GuidanceGroup do
     column I18n.t('admin.org_title'), :sortable => :organisation_id do |org_title|
         link_to org_title.organisation.name, [:admin, org_title.organisation]
     end
+    column I18n.t('admin.template') do |t|
+	 		 	(t.dmptemplates.map{|t_q| link_to t_q.title, [:admin, t_q]}).join(', ').html_safe
+	 	end	
   	
   	default_actions
   end
@@ -20,6 +23,9 @@ ActiveAdmin.register GuidanceGroup do
 			row :organisation_id do |org_title|
         link_to org_title.organisation.name, [:admin, org_title.organisation]
     	end
+    	row I18n.t('admin.template') do
+	 		 	(guidance_group.dmptemplates.map{|t_q| link_to t_q.title, [:admin, t_q]}).join(', ').html_safe
+	 		end	
     	row :created_at
     	row :updated_at
 		end
@@ -45,6 +51,15 @@ ActiveAdmin.register GuidanceGroup do
 							:as => :select, 
 							:collection => Organisation.find(:all, :order => 'name ASC').map{|orgp|[orgp.name, orgp.id]}
 		end
+		
+  	f.inputs "Templates" do
+  			f.input :dmptemplate_ids,  :label => "Selected templates",
+  							:as => :select, 
+  							:include_blank => "All Templates", 
+  							:multiple => true,
+  							:collection => Dmptemplate.order('title').map{|the| [the.title, the.id]},
+  							:hint => 'Choose all templates that apply.'
+  	end
   	f.actions  
   end		
   		

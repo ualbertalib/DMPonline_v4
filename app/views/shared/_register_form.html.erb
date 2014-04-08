@@ -43,7 +43,9 @@
 		</div>	
 	</li>
 	<li class="remember_me_li">
-		<%= f.check_box :accept_terms, :required => true %><%= f.label (t('helpers.accept_terms') + ' *'), :class => "remember_div" %>
+		<%= f.check_box :accept_terms, :required => true %><%= f.label :class => "remember_div" do %>
+		  <%= raw t('helpers.accept_terms_html')%>
+		<%end%>
 	</li>
 	<li>
 		<%= f.submit t('helpers.sign_up'), :class => "btn btn-primary" %>

@@ -9,5 +9,12 @@ class SessionsController < Devise::SessionsController
 			super
 		end
 	end
+	
+	def destroy
+		current_user.plan_sections.each do |lock|
+			lock.delete
+		end
+		super
+	end
 
 end

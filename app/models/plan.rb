@@ -40,27 +40,43 @@ class Plan < ActiveRecord::Base
 	end
 	
 	def guidance_for_question(question)
-		# pulls together guidance from various sources for question
-		guidances = {}
-		theme_ids = question.theme_ids
-		unless project.organisation.nil? then
+	  # pulls together guidance from various sources for question
+	  guidances = {}
+	  theme_ids = question.theme_ids
+	  unless project.organisation.nil? then
+	  
 			project.organisation.guidance_groups.each do |group|
-				group.guidances.where("theme_id IN (?)", theme_ids).each do |g|
-					guidances["#{group.organisation.short_name} guidance on #{g.theme.title}"] = g
+				group.guidances.each do |g|
+		    		g.themes.where("id IN (?)", theme_ids).each do |gg|
+		     			guidances["#{group.organisation.short_name} guidance on #{gg.title}"] = g
+		     		end	
+		    	end
+		    		
+	  	end
+	  	
+	  	# Guidance link to directly to a question
+			question.guidances.each do |g_by_q|
+				g_by_q.guidance_groups.each do |group|
+			  	if group.organisation == project.organisation
+			    	guidances["#{group.organisation.short_name} guidance for this question"] = g_by_q
+			   	end
 				end
-			end
+	  	end
+	  	
 		end
-		project.guidance_groups.each do |group|
-			if group.organisation != project.dmptemplate.organisation then
-				group.guidances.where("theme_id IN (?)", theme_ids).each do |g|
-					if g.dmptemplate_id.nil? || g.dmptemplate_id == project.dmptemplate_id then
-						guidances["#{group.organisation.short_name} guidance on #{g.theme.title}"] = g
-					end
-				end
-			end
-		end
-		return guidances
-	end
+		
+		# guidance selected on 'create a plan' wizard
+	  project.guidance_groups.each do |group|
+	   	if group.organisation != project.organisation then
+	    	group.guidances.where("theme_id IN (?)", theme_ids).each do |g|
+	     		if group.dmptemplates == [] || g.dmptemplate_id == project.dmptemplate_id then
+	      		guidances["#{group.organisation.short_name} guidance on #{g.theme.title}"] = g
+	     		end
+	    	end
+	   	end
+	  end
+	  return guidances
+ end
 	
 	def warning(option_id)
 		if project.organisation.nil?
@@ -156,7 +172,6 @@ class Plan < ActiveRecord::Base
 	
 	def locked(section_id, user_id)
 		plan_section = plan_sections.where("section_id = ? AND user_id != ? AND release_time > ?", section_id, user_id, Time.now).last
-		logger.debug("LOCK: #{plan_section.inspect}")	
 		if plan_section.nil? then
 			status = {
 				"locked" => false,
@@ -181,13 +196,15 @@ class Plan < ActiveRecord::Base
 	end
 	
 	def unlock_all_sections(user_id)
-		plan_sections.where(:user_id => user_id).order("created_at DESC").each do |plan_section|
-			unlock_plan_section(plan_section)
+		plan_sections.where(:user_id => user_id).order("created_at DESC").each do |lock|
+			lock.delete
 		end
 	end
 	
 	def delete_recent_locks(user_id)
-		plan_sections.where(:user_id => user_id, :created_at => 30.seconds.ago..Time.now).delete_all
+		plan_sections.where(:user_id => user_id).each do |lock|
+			lock.delete
+		end
 	end
 	
 	def lock_section(section_id, user_id, release_time = 30)
@@ -209,16 +226,8 @@ class Plan < ActiveRecord::Base
 	end
 	
 	def unlock_section(section_id, user_id)
-		plan_section = plan_sections.where(:section_id => section_id, :user_id => user_id).order("created_at DESC").first
-		unlock_plan_section(plan_section, user_id)
-	end
-	
-	def unlock_plan_section(plan_section, user_id)
-		if plan_section.release_time > Time.now then
-			plan_section.release_time = Time.now
-			plan_section.save
-		else
-			return false
+		plan_sections.where(:section_id => section_id, :user_id => user_id).order("created_at DESC").each do |lock|
+			lock.delete
 		end
 	end
 	

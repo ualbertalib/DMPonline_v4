@@ -61,6 +61,7 @@ class GuidancesController < ApplicationController
   def admin_create
     if user_signed_in? && current_user.is_org_admin? then
 	    @guidance = Guidance.new(params[:guidance])
+	    @guidance.text = params["guidance-text"]   	
 	
 	    respond_to do |format|
 	      if @guidance.save
@@ -81,6 +82,8 @@ class GuidancesController < ApplicationController
   def admin_update
  		if user_signed_in? && current_user.is_org_admin? then
    		@guidance = Guidance.find(params[:id])
+   		
+			@guidance.text = params["guidance-text"]   		
 
 	    respond_to do |format|
 	      if @guidance.update_attributes(params[:guidance])
@@ -113,6 +116,7 @@ class GuidancesController < ApplicationController
 		end 
 	
 	end
+	
   
   
 end

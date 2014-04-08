@@ -59,9 +59,11 @@ module DMPonline4
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
     config.assets.precompile += %w(plans.js)
+    config.assets.precompile += %w(admin.js)
     config.assets.precompile += %w(projects.js)
     config.assets.precompile += %w(jquery.placeholder.js)
-    config.assets.precompile += %w(admin.css.less)
+    config.assets.precompile += %w(jquery.tablesorter.js)
+    config.assets.precompile += %w(admin.css)
     config.autoload_paths += %W(#{config.root}/lib)
     
     # Set the default host for mailer URLs

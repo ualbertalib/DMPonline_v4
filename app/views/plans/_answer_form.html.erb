@@ -7,7 +7,6 @@
 			<%= f.inputs do %>
 				<%= f.input :plan_id, :as => :hidden %>
 				<%= f.input :user_id, :as => :hidden, :input_html => { :value => current_user.id } %>
-				<%= f.input 'is_text_field', :as => :hidden , :input_html => {:id => "is-text-field-#{question.id}", :value => question.is_text_field} %>
 				<%= f.input :question_id, :as => :hidden, :input_html => { :class => 'question_id' } %>
 				<% if question.multiple_choice then %>
 					<% options = question.options.order("number") %>
@@ -66,7 +65,7 @@
 					</div>	
 				<% end %>
 				<% if question.is_text_field? then %>
-					<%= text_field_tag("answer-text-#{question.id}".to_sym, answer.text, class: "tinymce question_text_field") %>
+					<%= text_field_tag("answer-text-#{question.id}".to_sym, answer.text, class: "question_text_field") %>
 				<%else%>
 					<%= text_area_tag("answer-text-#{question.id}".to_sym, answer.text, class: "tinymce") %>
 				<%end%>	

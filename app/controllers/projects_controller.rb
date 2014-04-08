@@ -24,13 +24,19 @@ class ProjectsController < ApplicationController
 		if params[:show_form] == "yes" then
 			@show_form = true
 		end
-		if user_signed_in? && @project.readable_by(current_user.id)then
+		if user_signed_in? && @project.readable_by(current_user.id) then
 			respond_to do |format|
 				format.html # show.html.erb
 				format.json { render json: @project }
 			end
+		elsif user_signed_in? then
+			respond_to do |format|
+				format.html { redirect_to projects_url, notice: "This account does not have access to that plan." }
+			end
 		else
-			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
+			respond_to do |format|
+				format.html { redirect_to edit_user_registration_path }
+			end
 		end
 	end
 
@@ -188,7 +194,8 @@ class ProjectsController < ApplicationController
 		end
 		excluded_orgs = orgs_of_type(t('helpers.org_type.funder')) + orgs_of_type(t('helpers.org_type.institution')) + Organisation.orgs_with_parent_of_type(t('helpers.org_type.institution'))
 		guidance_groups = {}
-		ggs = GuidanceGroup.guidance_groups_excluding(excluded_orgs)
+		ggs = GuidanceGroup.guidance_groups_excluding(excluded_orgs) 
+	
 		ggs.each do |gg|
 			guidance_groups[gg.id] = gg.name
 		end
