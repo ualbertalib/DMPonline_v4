@@ -47,12 +47,18 @@ Edit values for `config.mailer_sender` and `config.pepper` in `config/initialize
 
 If `wkhtmltopdf` is not installed to `/usr/local/bin/wkhtmltopdf` then you will need to edit the config value in `config/initializers/wicked_pdf.rb`
 
+Use [mailcatcher](http://mailcatcher.me) in development to send email.
+
 You'll need to install the gems, build the database and start the server:
 
-	$ cd dmponline4  
-	$ bundle update  
-	$ rake db:setup  
+    $ cd dmponline4  
+    $ bundle update  
+    $ rake db:setup
+    $ rake db:populate  
 
+The second rake task creates a sample admin user.  See lib/tasks/user_data.rake for more details.
+
+Use the local_db_backup sql file to pre-populate the dev database so that you can use the app without getting a bunch of errors.
 
 == Copyright
 
