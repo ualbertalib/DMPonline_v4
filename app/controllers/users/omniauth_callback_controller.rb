@@ -7,19 +7,19 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     else
       auth = request.env['omniauth.auth'] || {}
       eppn = auth['extra']['raw_info']['eppn']
-      uid = eppn.blank? ? auth['uid'] : eppn        
-      
+      uid = eppn.blank? ? auth['uid'] : eppn
+
       if !uid.nil? && !uid.blank? then
 				s_user = User.where(shibboleth_id: uid).first
-				# Take out previous record if was not confirmed.  
-				if s_user.confirmed_at.nil?
+				# Take out previous record if was not confirmed.
+				if !s_user.nil? && s_user.confirmed_at.nil?
 					sign_out s_user
 					User.delete(s_user.id)
 					s_user = nil
 				end
-				
+
 				# Stops Shibboleth ID being blocked if email incorrectly entered.
-				if s_user.try(:persisted?)
+				if !s_user.nil? && s_user.try(:persisted?)
 					flash[:notice] = I18n.t('devise.omniauth_callbacks.success', :kind => 'Shibboleth')
 					sign_in_and_redirect s_user, event: :authentication
 				else
@@ -39,6 +39,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 				end
       end
     end
+    redirect_to root_path
   end
-  
+
 end
