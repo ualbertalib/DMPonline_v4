@@ -1,7 +1,7 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def shibboleth
-    if user_signed_in? && current_user.shibboleth_id.present?
+    if user_signed_in? && current_user.shibboleth_id.present? && current_user.shibboleth_id.length > 0 then
       flash[:warning] = I18n.t('devise.failure.already_authenticated')
       redirect_to root_path
     else

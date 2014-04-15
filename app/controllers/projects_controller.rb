@@ -3,7 +3,7 @@ class ProjectsController < ApplicationController
 	# GET /projects.json
 	def index
 		if user_signed_in? then
-			if current_user.shibboleth_id.nil? && !cookies[:show_shib_link].nil? && cookies[:show_shib_link] == "show_shib_link" then
+			if (current_user.shibboleth_id.nil? || current_user.shibboleth_id.length == 0) && !cookies[:show_shib_link].nil? && cookies[:show_shib_link] == "show_shib_link" then
 				flash.notice = "Would you like to #{view_context.link_to 'link your DMPonline account to your institutional credentials?', user_omniauth_shibboleth_path}".html_safe
 			end
 			@projects = Project.projects_for_user(current_user.id)
@@ -75,7 +75,7 @@ class ProjectsController < ApplicationController
 			end
 		end
 	end
-	
+
 	def share
 		@project = Project.find(params[:id])
 		if !user_signed_in? then
@@ -88,7 +88,7 @@ class ProjectsController < ApplicationController
 			end
 		end
 	end
-	
+
 	def export
 		@project = Project.find(params[:id])
 		if !user_signed_in? then
@@ -170,7 +170,7 @@ class ProjectsController < ApplicationController
 			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
 		end
 	end
-	
+
 	# GET /projects/possible_templates.json
 	def possible_templates
 		if !params[:funder].nil? && params[:funder] != "" && params[:funder] != "undefined" then
@@ -203,7 +203,7 @@ class ProjectsController < ApplicationController
 			format.json { render json: templates.to_json }
 		end
 	end
-	
+
 	def possible_guidance
 		if !params[:template].nil? && params[:template] != "" && params[:template] != "undefined" then
 			template = Dmptemplate.find(params[:template])
@@ -217,8 +217,8 @@ class ProjectsController < ApplicationController
 		end
 		excluded_orgs = orgs_of_type(t('helpers.org_type.funder')) + orgs_of_type(t('helpers.org_type.institution')) + Organisation.orgs_with_parent_of_type(t('helpers.org_type.institution'))
 		guidance_groups = {}
-		ggs = GuidanceGroup.guidance_groups_excluding(excluded_orgs) 
-	
+		ggs = GuidanceGroup.guidance_groups_excluding(excluded_orgs)
+
 		ggs.each do |gg|
 			guidance_groups[gg.id] = gg.name
 		end
@@ -242,9 +242,9 @@ class ProjectsController < ApplicationController
 			format.json { render json: guidance_groups.to_json }
 		end
 	end
-	
+
 	private
-	
+
 	def orgs_of_type(org_type_name, published_templates = false)
 		org_type = OrganisationType.find_by_name(org_type_name)
 		all_such_orgs = org_type.organisations
