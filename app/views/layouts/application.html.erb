@@ -50,23 +50,23 @@
 		    
 	</head>
 	<body class="dmponline">
-		
-	    <!-- header renedering -->
-	    <%= render "layouts/dmponline_header" %>
+		<div class="wrap">
+	    	<!-- header renedering -->
+	    	<%= render "layouts/dmponline_header" %>
 	    
-		<div class="main_page_container">
-			<% if notice %>
-  				<p class="alert alert-notice"><%= notice %></p>
+			<div class="main_page_container">
+				<% if notice %>
+  					<p class="alert alert-notice"><%= notice %></p>
 				<% end %>
-			<% if alert %>
- 				<p class="alert alert-error"><%= alert %></p>
-			<% end %>
+				<% if alert %>
+ 					<p class="alert alert-error"><%= alert %></p>
+				<% end %>
 			
-		    <div class="main_page_content">
-		    	<%= yield %>
-		    </div>	
+		    	<div class="main_page_content">
+		    		<%= yield %>
+		    	</div>	
+			</div>
 		</div>
-		
 		<!-- footer rendering -->
 		<%= render "layouts/dmponline_footer" %>
 			
