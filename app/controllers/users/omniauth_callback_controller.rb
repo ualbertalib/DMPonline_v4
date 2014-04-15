@@ -37,9 +37,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 						redirect_to new_user_registration_url(:nosplash => 'true')
 					end
 				end
+      else
+        redirect_to root_path
       end
     end
-    redirect_to root_path
   end
-
 end
