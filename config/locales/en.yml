@@ -171,12 +171,13 @@ en:
     jisc: "The DCC is funded by"
     
     sign_in: "Sign in"
+    sign_in_text: "to an existing account."
     sign_out: "Sign out"
     sign_up: "Sign up"
     sign_up_text: "New to DMPonline? Sign up today."
     signed_in: "Signed in as "
-    institution_sing_in_link: "Or, sign in with your institutional credentials"
-    institution_sing_in: " (UK users only)"
+    institution_sing_in_link: ""
+    institution_sing_in: "CCID authentication is not available yet, but we are working on it."
         
     user_name: "Email address"
     email: "Email"
@@ -323,7 +324,7 @@ Select what format you wish to use and click to 'Export'.</p>"
         other_guidance_question: "Tick to select any other sources of guidance you wish to see."  
  
   about_page:
-    title: "About DMPonline"
+    title: "About the DMP tool"
     body_text_html: "<div class='white_background'>
     <p>Funding bodies increasingly require their grant-holders to produce Data Management Plans(DMP), both during the bid-preparation stage and after funding has been secured. DMPonline has been produced by the UK's Digital Curation Centre to help research teams respond to this requirement, and any expectations that their institution or others may apply.</p>
     <p>The <a href='http://www.dcc.ac.uk/' target='_blank'>DCC</a> has worked closely with research funders and universities to produce a tool that assists researchers to produce an effective data management plan (DMP) to cater for the whole lifecycle of a project, from bid-preparation stage through to completion.</p>
