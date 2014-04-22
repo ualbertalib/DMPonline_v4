@@ -5,9 +5,9 @@
 			<h2><%= raw t('welcome_title')%></h2>
 			<%= raw t('welcome_text')%>
 			<div class="screencast_home_page">
-					
+			<%= raw t('welcome_links')%>
+			</div>
 			
-			</div>	
 		</div>
 	</div>
 	<div class="home_right_column">	
@@ -40,7 +40,11 @@
 						<%= render :partial => 'shared/register_form', locals: {extended: false} %>
 					</div>
 				</div>
+					
 			</div>
+			<div class="ccid_message">		
+				<%= raw t('ccid_message')%>	
+				</div>
 		</div>
 	</div>	
 	<div class="two-column-clear"></div>

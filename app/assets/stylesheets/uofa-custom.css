@@ -131,3 +131,7 @@ background: -moz-linear-gradient(top, #FFFFFF 0%, #F4F4F4 100%);
 .caret {
 	border-top: 4px solid #fff;
 }
+.screencast_home_page a {
+	box-shadow: none;
+	font-size:18px;
+}
