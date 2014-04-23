@@ -53,6 +53,12 @@ footer .right_side_footer a{
 body.dmponline{
 	margin: 0;
 }
+.header_right{
+	width: 60%
+}
+.header_left{
+	width: 40%;
+}
 .dmponline{
 	background-image: none;
 	background: url('https://www.library.ualberta.ca/2012assets/top_back.png') top center repeat-x;
@@ -65,10 +71,18 @@ body.dmponline{
 	height: 60px;
 }
 .home_logo {
-	width: 314px;
+	width: 280px;
 	margin-right: 0px;
+	margin-top: -8px;
 }
+h3.subhead{
+	color: #fff;
+	font-size: 17px;
+	margin-top: -3px;
+	margin-left: 45px;
+	letter-spacing: 1px;
 
+}
 .header_right{
 	padding-top: 10px;
 	
@@ -116,4 +130,8 @@ background: -moz-linear-gradient(top, #FFFFFF 0%, #F4F4F4 100%);
 }
 .caret {
 	border-top: 4px solid #fff;
+}
+.screencast_home_page a {
+	box-shadow: none;
+	font-size:18px;
 }
