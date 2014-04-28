@@ -55,7 +55,7 @@ class Organisation < ActiveRecord::Base
 	
 	def all_sections(version_id)
 		if parent.nil?
-			secs = sections.find_all_by_version_id(version_id)
+			secs = sections.where("version_id = ? AND published = ?",version_id, true)
 			if secs == nil then
 				secs = Array.new
 			end

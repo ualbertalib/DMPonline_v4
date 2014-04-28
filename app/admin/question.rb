@@ -16,7 +16,7 @@ ActiveAdmin.register Question do
     end
     column :number, :sortable => :number do |question_n|
     	if !question_n.number.nil? then
-  		 link_to question_n.number, [:admin, question_n]
+  		 question_n.number
   		end 
   	end
   	column I18n.t('admin.template_title'), :sortable => :section_id do |dmptemplate|

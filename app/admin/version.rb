@@ -10,11 +10,7 @@ ActiveAdmin.register Version do
     end
    	column I18n.t('admin.version_numb'), :number
 		column :published
-		column I18n.t('admin.phase'), :sortable => :phase_id do |version_phase|
-			if !version_phase.phase_id.nil? then
-        link_to version_phase.phase.title, [:admin, version_phase.phase]
-      end  
-    end
+		column :phase_id
     	
   	default_actions
   end

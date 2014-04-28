@@ -16,6 +16,18 @@ class GuidanceGroupsController < ApplicationController
 		end 
   end
 
+	
+	# GET add new guidance groups
+	def admin_new
+    if user_signed_in? && current_user.is_org_admin? then
+	    @guidance_group = GuidanceGroup.new
+	    	
+	    respond_to do |format|
+	      format.html # new.html.erb
+	      format.json { render json: @guidance }
+	    end
+   	end
+	end 
  
 	# POST /guidance_groups
   # POST /guidance_groups.json

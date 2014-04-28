@@ -46,32 +46,43 @@ class Plan < ActiveRecord::Base
 	  theme_ids = question.theme_ids
 	  unless project.organisation.nil? then
 	  
+	  	#institutional guidance by themes     ------- need to see if guidance_group has the template
 			project.organisation.guidance_groups.each do |group|
-				group.guidances.each do |g|
-		    		g.themes.where("id IN (?)", theme_ids).each do |gg|
-		     			guidances["#{group.organisation.short_name} guidance on #{gg.title}"] = g
-		     		end	
-		    	end
-		    		
-	  	end
+				if group.dmptemplates == project.dmptemplate_id then
+					group.guidances.each do |g|
+			    	g.themes.where("id IN (?)", theme_ids).each do |gg|
+			     		guidances["#{group.name} guidance on #{gg.title}"] = g
+			     	end	
+			    end
+			  end  
+   		end
 	  	
-	  	# Guidance link to directly to a question
+	  	# Guidance link directly to the question 
 			question.guidances.each do |g_by_q|
 				g_by_q.guidance_groups.each do |group|
 			  	if group.organisation == project.organisation
-			    	guidances["#{group.organisation.short_name} guidance for this question"] = g_by_q
+			    	guidances["#{group.name} guidance for this question"] = g_by_q
 			   	end
 				end
 	  	end
-	  	
-		end
+	  end
 		
-		# guidance selected on 'create a plan' wizard
+		# guidance by themes selected on 'create a plan' wizard 
 	  project.guidance_groups.each do |group|
+	  	#verify if the project org != from guidance group org and if true verify the guidance group templates
 	   	if group.organisation != project.organisation then
 	    	group.guidances.where("theme_id IN (?)", theme_ids).each do |g|
+	    		#If guidance groups doesn't have any templates it means that guidance group apply to all templates
+	     		if group.dmptemplates == [] || g.dmptemplate_id == project.dmptemplate_id then  #not sure about the second part
+	      		guidances["#{group.name} guidance on #{g.theme.title}"] = g
+	     		end
+	    	end
+	   	end
+	   	
+	   	if (group.organisation == project.organisation && group.optional_subset )then
+	    	group.guidances.where("theme_id IN (?)", theme_ids).each do |g|
 	     		if group.dmptemplates == [] || g.dmptemplate_id == project.dmptemplate_id then
-	      		guidances["#{group.organisation.short_name} guidance on #{g.theme.title}"] = g
+	      		guidances["#{group.name} guidance on #{g.theme.title}"] = g
 	     		end
 	    	end
 	   	end
@@ -256,7 +267,7 @@ class Plan < ActiveRecord::Base
  			q_answer = answer(q.id, false)
  			if q_answer.nil? then
  				section_questions[counter]["answer_id"] = nil
- 				if q.get_suggested_answer(project.organisation_id).nil? then
+ 				if q.suggested_answers.find_by_organisation_id(project.organisation_id).nil? then
  					section_questions[counter]["answer_text"] = ""
  				else
  					section_questions[counter]["answer_text"] = q.default_value

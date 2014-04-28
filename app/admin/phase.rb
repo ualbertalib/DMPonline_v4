@@ -5,11 +5,15 @@ ActiveAdmin.register Phase do
 	# :description, :number, :title, :dmptemplate_id, :external_guidance_url
 	index do   
   	column :title do |ph|
+  		if !ph.title.nil? then
         link_to ph.title, [:admin, ph]
+      end  
     end
     column :number
   	column I18n.t('admin.template'), :sortable => :dmptemplate_id do |temp_title|
-      link_to temp_title.dmptemplate.title, [:admin, temp_title.dmptemplate]
+  		if !temp_title.nil? then
+      	link_to temp_title.dmptemplate.title, [:admin, temp_title.dmptemplate]
+      end	
      end
   	
     default_actions

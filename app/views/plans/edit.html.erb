@@ -60,6 +60,9 @@
     				</a>
     			</div>
     			<div id="collapse-<%= section.id%>" class="accordion-body collapse section-collapse">
+    				<div class="section_desc">
+						<%= raw section.description %>
+					</div>
     				<div class="accordion-inner">
 							<div class="loading">
 								<p><%= t ('helpers.loading')%></p>

@@ -1,5 +1,5 @@
 class GuidanceGroup < ActiveRecord::Base
-  	attr_accessible :organisation_id, :name, :default
+  	attr_accessible :organisation_id, :name, :optional_subset
 
 		#associations between tables
 		belongs_to :organisation

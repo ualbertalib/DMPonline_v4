@@ -44,14 +44,20 @@ DMPonline4::Application.routes.draw do
 			delete 'admin_destroy' 
 			post 'admin_create'
 			put 'admin_update'
-  	end
+			
+			get 'update_phases', :as => 'update_phases'
+  		get 'update_versions', :as => 'update_versions'
+  		get 'update_sections', :as => 'update_sections'
+  		get 'update_questions', :as => 'update_questions'
+   	end
   end
  
  	resources :guidance_groups, :path => 'org/admin/guidancegroup' do
  		member do
  			get 'admin_show'
+ 			get 'admin_new'
  			get 'admin_edit'
-			delete 'admin_destroy' 
+ 			delete 'admin_destroy' 
 			post 'admin_create'
 			put 'admin_update'
   	end
@@ -63,19 +69,32 @@ DMPonline4::Application.routes.draw do
   
   resources :dmptemplates, :path => 'org/admin/templates' do
  		member do
- 			get 'admin_show'
  			get 'admin_index'
- 			get 'admin_edit'
+ 			get 'admin_template'
 			get 'admin_new'
 			get 'admin_addphase'
-			get 'admin_editphase'
-			get 'admin_showphase'
+			get 'admin_phase'
+			get 'admin_cloneversion'
 			delete 'admin_destroy' 
+			delete 'admin_destroyversion'
+			delete 'admin_destroyphase'
+			delete 'admin_destroysection'
+			delete 'admin_destroyquestion'
+			delete 'admin_destroysuggestedanswer'
 			post 'admin_create'
+			post 'admin_createphase'
+			post 'admin_createsection'
+			post 'admin_createquestion'
+			post 'admin_createsuggestedanswer'
 			put 'admin_update'
 			put 'admin_updatephase'
+			put 'admin_updateversion'
+			put 'admin_updatesection'
+			put 'admin_updatequestion'
+			put 'admin_updatesuggestedanswer'
   	end
   end
+  
   
   
   resources :phases
@@ -132,7 +151,7 @@ DMPonline4::Application.routes.draw do
  
   resources :file_types
   resources :file_uploads
-   
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

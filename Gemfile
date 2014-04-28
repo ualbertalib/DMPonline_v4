@@ -33,6 +33,9 @@ gem 'contact_us', '~> 0.4.0'
 #implementation of forms
 gem 'activeadmin'
 
+#to allow cloning of objects
+gem 'amoeba'
+
 # devise for user authentication
 gem 'devise', '3.0.0'
 gem 'devise_invitable', '>= 1.2.1'

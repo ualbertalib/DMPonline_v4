@@ -15,12 +15,13 @@ module ApplicationHelper
 	  content_for(:head) { javascript_include_tag(*files) }
 	end
 	
-	def link_to_add_options(name, f, association)
+	def link_to_add_object(name, f, association, css_class)
     new_object = f.object.class.reflect_on_association(association).klass.new
     fields = f.fields_for(association, new_object, :child_index => "new_#{association}") do |builder|
       render(association.to_s.singularize + "_fields", :f => builder)
     end
-    link_to_function(name, "add_options(this, \"#{association}\", \"#{escape_javascript(fields)}\")")
+    link_to_function(name, "add_object(this, \"#{association}\", \"#{escape_javascript(fields)}\")", :class => css_class)
   end
+
 	
 end

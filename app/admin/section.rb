@@ -15,11 +15,7 @@ ActiveAdmin.register Section do
         link_to section.title, [:admin, section]
      end
     end
-    column I18n.t('admin.template'), :sortable => :version_id do |version_title|
-       if !version_title.version_id.nil? then
-        	link_to version_title.version.phase.dmptemplate.title, [:admin, version_title.version.phase.dmptemplate]
-       end	
-    end
+    column I18n.t('admin.template'), :version_id 
     column I18n.t('admin.org_title'), :sortable => :organisation_id do |org_title|
        if !org_title.organisation_id.nil? then
         	link_to org_title.organisation.name, [:admin, org_title.organisation]

@@ -38,6 +38,7 @@ class RegistrationsController < Devise::RegistrationsController
  def update
  	if user_signed_in? then
 		@user = User.find(current_user.id)
+		
 		do_update
     else
     	render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
@@ -55,15 +56,24 @@ class RegistrationsController < Devise::RegistrationsController
   end
   
   def do_update(require_password = true, confirm = false)
+  	
+		if @user.is_org_admin? then
+			 role = @user.roles.find_by_name("org_admin")
+				if @user.current_organisation.id != params[:user][:organisation_id] then
+					@user.roles.delete(role)
+				end	
+		end
+		
+  		
   	if require_password then
 		successfully_updated = if needs_password?(@user, params)
-			@user.update_with_password(params[:user])
-		else
-			# remove the virtual current_password attribute update_without_password
-			# doesn't know how to ignore it
-			params[:user].delete(:current_password)
-			@user.update_without_password(params[:user])
-		end
+				@user.update_with_password(params[:user])
+				else
+					# remove the virtual current_password attribute update_without_password
+					# doesn't know how to ignore it
+					params[:user].delete(:current_password)
+					@user.update_without_password(params[:user])
+				end
     else
     	@user.update_attributes(:password => params[:user][:password], :password_confirmation => params[:user][:password_confirmation])
     	successfully_updated = @user.update_without_password(params[:user])
@@ -77,7 +87,7 @@ class RegistrationsController < Devise::RegistrationsController
       set_flash_message :notice, :updated
       # Sign in the user bypassing validation in case his password changed
       sign_in @user, :bypass => true
-      redirect_to({:controller => "projects", :action => "index"}, {:notice => 'Details successfully updated.'})
+      redirect_to({:controller => "projects", :action => "index"}, {:notice => "Details successfully updated."})
     else
       render "edit"
     end

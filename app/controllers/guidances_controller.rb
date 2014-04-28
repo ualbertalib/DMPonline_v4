@@ -27,30 +27,70 @@ class GuidancesController < ApplicationController
 	      format.html # show.html.erb
 	      format.json { render json: @guidance }
 	    end
-    else
-			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
-		end 
-  end
+   end
+  end 
 
-  # GET /guidances/new
-  # GET /guidances/new.json
   def admin_new
     if user_signed_in? && current_user.is_org_admin? then
 	    @guidance = Guidance.new
+	    @dmptemplates = Dmptemplate.find(:all,:order => 'title ASC')
+			@phases = Phase.find(:all,:order => 'number ASC')
+			@versions = Version.find(:all,:order => 'title ASC')
+		  @sections = Section.find(:all,:order => 'number ASC')
+		  @questions = Question.find(:all,:order => 'number ASC')	
 	
 	    respond_to do |format|
-	      format.html # new.html.erb
-	      format.json { render json: @guidance }
+	      format.html 
 	    end
-    else
-			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
-		end 
+   	end
+	end 
+
+	#setup variables for use in the dynamic updating
+	def update_phases
+    # updates phases, versions, sections and questions based on template selected
+    dmptemplate = Dmptemplate.find(params[:dmptemplate_id])
+    # map to title and id for use in our options_for_select
+    @phases = dmptemplate.phases.map{|a| [a.title, a.id]}.insert(0, "Select a phase")
+    @versions = dmptemplate.versions.map{|s| [s.title, s.id]}.insert(0, "Select a version")
+    @sections = dmptemplate.sections.map{|s| [s.title, s.id]}.insert(0, "Select a section")
+    @questions = dmptemplate.questions.map{|s| [s.text, s.id]}.insert(0, "Select a question")
+    
   end
+ 
+ def update_versions
+    # updates versions, sections and questions based on phase selected
+    phase = Phase.find(params[:phase_id])
+    # map to name and id for use in our options_for_select
+    @versions = phase.versions.map{|s| [s.title, s.id]}.insert(0, "Select a version")
+    @sections = phase.sections.map{|s| [s.title, s.id]}.insert(0, "Select a section")
+    @questions = phase.questions.map{|s| [s.text, s.id]}.insert(0, "Select a question")
+  end
+  
+  def update_sections
+    # updates sections and questions based on version selected
+    version = Version.find(params[:version_id])
+    # map to name and id for use in our options_for_select
+    @sections = version.sections.map{|s| [s.title, s.id]}.insert(0, "Select a section")
+    @questions = version.questions.map{|s| [s.text, s.id]}.insert(0, "Select a question")
+  end
+ 
+  def update_questions
+    # updates songs based on artist selected
+    section = Section.find(params[:section_id])
+    @questions = section.questions.map{|s| [s.text, s.id]}.insert(0, "Select a question")
+  end
+
 
   # GET /guidances/1/edit
   def admin_edit
   	if user_signed_in? && current_user.is_org_admin? then
-      @guidance = Guidance.find(params[:id])
+      @guidance = Guidance.find(params[:id]) 
+      @dmptemplates = Dmptemplate.find(:all,:order => 'title ASC')
+			@phases = Phase.find(:all,:order => 'title ASC')
+			@versions = Version.find(:all,:order => 'title ASC')
+		  @sections = Section.find(:all,:order => 'title ASC')
+		  @questions = Question.find(:all,:order => 'text ASC')	
+	    
     else
 			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
 		end 
@@ -62,6 +102,7 @@ class GuidancesController < ApplicationController
     if user_signed_in? && current_user.is_org_admin? then
 	    @guidance = Guidance.new(params[:guidance])
 	    @guidance.text = params["guidance-text"]   	
+	    @guidance.question_id = params["question_id"]
 	
 	    respond_to do |format|
 	      if @guidance.save
@@ -83,7 +124,9 @@ class GuidancesController < ApplicationController
  		if user_signed_in? && current_user.is_org_admin? then
    		@guidance = Guidance.find(params[:id])
    		
-			@guidance.text = params["guidance-text"]   		
+			@guidance.text = params["guidance-text"]   
+					
+			@guidance.question_id = params["question_id"]
 
 	    respond_to do |format|
 	      if @guidance.update_attributes(params[:guidance])

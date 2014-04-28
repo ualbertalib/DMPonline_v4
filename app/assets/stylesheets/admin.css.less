@@ -531,6 +531,8 @@ ul.footer-links li a:hover,  ul.footer-links li a:focus{
   background-color: transparent !important;
   line-height: 51px;
  }
+ 
+ 
 #homepage-accordion .accordion-heading a.accordion-toggle:hover,
  #homepage-accordion .accordion-heading a.accordion-toggle:focus{
    color: @orange_colour!important;
@@ -546,7 +548,7 @@ ul.footer-links li a:hover,  ul.footer-links li a:focus{
   float:right;
   background-color: transparent !important;
   line-height: 13px;
-  padding-top:0px;
+  padding-top:10px;
 }
 .plus-laranja:before{
   content: "+"; 
@@ -554,6 +556,7 @@ ul.footer-links li a:hover,  ul.footer-links li a:focus{
   background-color: transparent !important;
   padding-right:2px;
   line-height: 13px;
+  padding-top: 10px;
 }
 
 #new_user ul{
@@ -637,14 +640,15 @@ table.dmp_table tbody td{
   padding: 4px 4px 4px 15px;  
 }
 table.dmp_table tbody td.dmp_td_big, table.dmp_table thead th.dmp_th_big{
-  min-width: 32%;
+  width: 32%;
 }
 table.dmp_table tbody td.dmp_td_medium, table.dmp_table thead th.dmp_th_medium{
-  min-width: 24%;
+  width: 24%;
 }
 table.dmp_table tbody td.dmp_td_small, table.dmp_table thead th.dmp_th_small{
-  //min-width: 18%;
   padding-right: 20px;
+  width: 13%;
+ 
 }
 
 table.dmp_table tbody th.dmp_th_border{
@@ -666,6 +670,11 @@ table.dmp_table tbody td.dmp_td_border{
   
 }
 
+table.dmp_table tbody td.dmp_td_no_border{
+  border-bottom: 1px solid @grey_very_light_colour;
+  
+}
+
 table.dmp_table a.dmp_table_link, table.dmp_table a.dmp_table_link:active, table.dmp_table a.dmp_table_link:visited{
   text-decoration: none !important;
   padding: 0px 10px 0px 0px;
@@ -675,21 +684,30 @@ table.dmp_table a.dmp_table_link:hover{
   color: @orange_colour;
 }
 
+
+/*****************************/
+/****** NEW TEMPLATE *********/
+/*****************************/
+
+.blue_border{
+  border: 1px solid @orange_colour;
+}
+
 /*****************************/
 /*** phase creation/update ***/
 /*****************************/
 
 div.phase_details{
   background-color: @orange_colour;
-  border-bottom: 1px solid @orange_colour;
+  border-bottom: 2px solid @orange_colour;
   min-height: 50px;
-  border-radius: 1px;
+  border-radius: 2px;
   margin-bottom: 5px;
   box-shadow: 7px 7px 2px 0px rgba(168, 168, 168, 0.5);
   -moz-box-shadow: 7px 7px 2px 0px rgba(168, 168, 168, 0.5);
   -webkit-box-shadow: 7px 7px 2px 0px rgba(168, 168, 168, 0.5);
-  padding-top: 8px;
-
+  padding-top:2px;
+  
   div.phase_details_text{
     color: @white_colour;
     float:left;
@@ -702,18 +720,25 @@ div.phase_details{
   
   div.phase_details_body{
     background-color: @white_colour;
-    padding:10px 0 25px 0;
-    margin: 0 1px 0 1px;
+    padding: 10px 15px 25px 15px;
+    margin: 0 2px 0 2px;
   }
 }
 
+.versions_display_table{
+  padding: 30px 0 0 0;  
+}
 
 .dmp_details_table td.first_template{
   border-right: 1px solid @orange_colour;
   padding-right: 15px;
   vertical-align:top;
   text-align: right;
-    min-width: 30px;
+  width: 120px;
+}
+
+table td.phase_table_last_column {
+  padding-bottom: 25px;  
 }
 
 table.dmp_details_table .phase .text_area{
@@ -733,6 +758,16 @@ table.dmp_details_table .phase .text_area{
 
 .ques_format_option{
   width: 300px;  
+}
+
+.section_desc{
+  color:  @white_colour;
+  font-weight: normal;
+  padding: 10px 0 10px 15px;
+}
+
+form.edit_section{
+  margin: 0 0 8px 0;
 }
 
 table.options_table{
@@ -772,6 +807,11 @@ table.options_table{
 
 .add_space{
   height: 10px;
+}
+
+a.cancel, a.cancel:hover{
+  color: @orange_colour !important;
+  text-decoration: none;
 }
 
 /***  Project creation ***/
@@ -1153,15 +1193,46 @@ ul.question_ul li{
   min-height: 20px;
 }
 
+div.accordion-heading span.icon-white{
+   color:@white_colour;
+}
+div.accordion .make_div_longer{
+  width:69%;
+  padding-right: 5px;
+}
+
+div.accordion .make_div_smaller{
+  width:28%;
+ padding-left: 11px;
+  padding-top: 8px;
+  padding-bottom: 6px;
+}
+//guidance accordion link too long
+.accordion-guidance-link .accordion_heading_text{
+  width:80%;
+  height: initial;
+  line-height: normal;
+  margin-bottom: 4px;
+}
+
+.accordion-guidance-link .accordion-icon{
+  margin-top:11px;
+}
+
+//section accordion
 .accordion_heading_text{
-  width:96%;
+  width:90%;
   float:left;
+  padding-left: 1px;
+  padding-top: 1px;
+  height: 35px;
  }
 
 .accordion-icon{
   width:2%;
   float:right;
-  padding-top:4px;
+  padding-right: 10px;
+  padding-top:11px;
  }
 
 .accordion-body{
@@ -1195,6 +1266,10 @@ ul.question_ul li{
   .loading {
     display:none;
   }
+  #sections-accordion {
+    margin-bottom: 10px;
+  }
+  
 }
 
 
@@ -1427,6 +1502,9 @@ div {
   margin-left: 0px;
 }
 
+.mce-container iframe{
+  max-height:150px;
+}
 
 /* css for sorting tables */
 
@@ -1458,20 +1536,22 @@ div#add_guidance_group_button_div{
 
 div#add_guidance_group_form_div{
   float:right;
-  width: 350px;
+  width: 380px;
   margin-right: 2px; 
   
   div#add_guid_gr_form{
-    width: 62%;
+    width: 58%;
     float: left;
+    padding-top: 6px;
     input.text_field{
-      width: 180px;
+      width: 200px;
     }
   }
   
   div#guidance_group_add_buttons{
-    width: 38%;
+    width: 140px;
     float: right;
+    margin-left: 1px;
   }
 
 }

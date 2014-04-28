@@ -12,7 +12,7 @@
 
 <div class="div_clear"></div>
 
-<div class="white_background">
+<div class="white_background blue_border">
 	<!-- body -->
 	<div class="dmp_details">
 		<%= form_for(@guidance_group, :url => admin_update_guidance_group_path(@guidance_group), :html => { :method => :put}) do |f| %>
@@ -23,13 +23,24 @@
 						<td><%= f.text_field :name, 
 								:as => :string, 
 								:class => 'text_field has-tooltip', 'data-toggle' => "tooltip", 'title' => t('org_admin.guidance_group.help_text_add') %>
-					</td>
+						</td>
 					</tr>
 					<tr>
 						<td class="first"><%= t('org_admin.guidance.template') %></td>
-						<td><%= f.collection_select(:dmptemplate_ids,
-								Dmptemplate.find(:all, :order => 'title ASC'),
-								:id, :title, {:prompt => false , :include_blank => 'All templates'}, {:multiple => true})%>
+						<td><% if @guidance_group.dmptemplate_ids == [] then %>
+								<% default_select = "" %>
+							<%else%>
+								<% default_select = @guidance_group.dmptemplate_ids %>
+							<%end%>	
+							<%= f.select :dmptemplate_ids, options_for_select( 
+							[['All templates', ""]].concat( Dmptemplate.funders_and_own_templates(current_user.organisation_id).collect{ |g| [g.title, g.id] }), :selected => default_select ),{} ,
+							{:prompt => false , :multiple => true}%>
+						</td>
+					</tr>
+					<tr>
+						<td class="first"><%= t('org_admin.guidance_group.subset') %></td>
+						<td>
+							<%= f.check_box :optional_subset %> <%= t('org_admin.guidance_group.subset_eg') %>
 						</td>
 					</tr>
 										

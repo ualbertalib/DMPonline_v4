@@ -16,8 +16,7 @@
 <div class="div_clear"></div>
 
 <!-- List of own templates -->
-<% org_own_temp = @dmptemplates_own %>	
-<% if !org_own_temp.nil? && org_own_temp != "" then %>
+<% if @dmptemplates_own.count > 0 then %>
 	<table id="dmp_table" class="dmp_table tablesorter">
 		  <thead>
 		    <tr>
@@ -29,7 +28,7 @@
 		    </tr>
 		  </thead>
 		  <tbody>
-			<% org_own_temp.each do |org_template| %>	
+			<% @dmptemplates_own.each do |org_template| %>	
 		
 		  	<tr>
 	  			<td class="dmp_td_small">
@@ -45,9 +44,13 @@
 		        	<%= l org_template.updated_at.to_date, :formats => :short %>
 		        </td>
 		        <td class="dmp_td_medium">
-		        	<%= link_to t("helpers.view"), admin_show_dmptemplate_path(org_template), :class => "dmp_table_link"%>
-		        	<%= link_to t("helpers.submit.edit"), admin_edit_dmptemplate_path(org_template), :class => "dmp_table_link"%>
-				</td>
+		        	<%if current_user.is_org_admin? then%>
+						<% b_label = t('helpers.submit.edit')%>
+					<%else%>
+						<% b_label = t('helpers.view')%>
+					<%end%> 
+					<%= link_to b_label, admin_template_dmptemplate_path(org_template), :class => "dmp_table_link"%>
+		       	</td>
 		     </tr>
 	    	<%end%>	
 		  </tbody>
@@ -61,8 +64,8 @@
 	<%= t('org_admin.templates.funders_temp') %>
 </h2>	
 
-<% org_temp = @dmptemplates %>	
-<% if !org_temp.nil? && org_temp != "" then %>
+<!-- List of funders templates -->
+<% if @dmptemplates_funders.count > 0 then %>
 	
 		<table id="dmp_table_2" class="dmp_table tablesorter">
 		  <thead>
@@ -75,7 +78,7 @@
 		    </tr>
 		  </thead>
 		  <tbody>
-		  	<% org_temp.each do |org_template| %>	
+		  	<% @dmptemplates_funders.each do |org_template| %>	
 		  	<tr>
 	  			<td class="dmp_td_small">
 	  				<%= org_template.title%>
@@ -90,8 +93,20 @@
 		        	<%= l org_template.updated_at.to_date, :formats => :short %>
 		        </td>
 		        <td class="dmp_td_medium">
-		        	<%= link_to t("helpers.view"), admin_show_dmptemplate_path(org_template), :class => "dmp_table_link"%>
-					<%= link_to t("org_admin.templates.customise"), admin_edit_dmptemplate_path(org_template), :class => "dmp_table_link"%>
+		        	<%if current_user.is_org_admin? then%>
+		        		<% if org_template.org_type == t("helpers.org_type.funder") then %>
+			        		<%if org_template.has_customisations?(current_user.organisation_id, org_template) then%>
+								<% b_label = t('org_admin.templates.edit_customisation')%>
+							<%else%>	
+								<% b_label = t('org_admin.templates.customise')%>
+							<%end%>	
+						<%else%>
+							<% b_label = t('helpers.submit.edit')%>
+						<%end%>	
+					<%else%>
+						<% b_label = t('helpers.view')%>
+					<%end%> 
+					<%= link_to b_label, admin_template_dmptemplate_path(org_template), :class => "dmp_table_link"%>
 				</td>
 		     </tr>
 	    	<%end%>	

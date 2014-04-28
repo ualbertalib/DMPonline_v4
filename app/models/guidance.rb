@@ -28,7 +28,7 @@ class Guidance < ActiveRecord::Base
 	end
 	
 	def get_guidance_group_templates? (guidance_group)
-			templates = Dmptemplatesguidancegroups.where("guidance_group_id (?)", guidance_group.id).template 
+			templates = guidancegroups.where("guidance_group_id (?)", guidance_group.id).template 
 			return templates
 		end
 			

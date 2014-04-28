@@ -14,13 +14,17 @@ class User < ActiveRecord::Base
     has_many :project_groups, :dependent => :destroy
     has_many :organisations , through: :user_org_roles
     has_many :user_role_types, through: :user_org_roles
+    
     has_and_belongs_to_many :roles, :join_table => :users_roles
     has_many :plan_sections 
     
     accepts_nested_attributes_for :roles
     attr_accessible :role_ids
   
-    attr_accessible :password_confirmation, :encrypted_password, :remember_me, :id, :email, :firstname, :last_login, :login_count, :orcid_id, :password, :shibboleth_id, :user_status_id, :surname, :user_type_id, :organisation_id, :skip_invitation, :other_organisation, :accept_terms, :role_ids, :dmponline3
+    attr_accessible :password_confirmation, :encrypted_password, :remember_me, :id, :email, :firstname, :last_login,
+     :login_count, :orcid_id, :password, :shibboleth_id, :user_status_id, 
+     :surname, :user_type_id, :organisation_id, :skip_invitation, :other_organisation, 
+     :accept_terms, :role_ids, :dmponline3
 
 	def name(use_email = true)
 		if ((firstname.nil? && surname.nil?) || (firstname.strip == "" && surname.strip == "")) && use_email then
@@ -31,6 +35,7 @@ class User < ActiveRecord::Base
 		end
 	end
 	
+				
 	def organisation_id=(new_organisation_id)
 		if self.user_org_roles.count != 1  && !self.user_org_roles.pluck(:organisation_id).include?(new_organisation_id) then
 			new_user_org_role = UserOrgRole.new
@@ -60,6 +65,14 @@ class User < ActiveRecord::Base
 		end
 	end
 	
+	def current_organisation
+		if self.organisations.count > 0 then
+			return self.organisations.last
+		else
+			return nil
+		end
+	end
+	
 	def organisation=(new_organisation)
 		organisation_id = organisation.id
 	end
@@ -74,5 +87,5 @@ class User < ActiveRecord::Base
 		return !org_admin.nil?		
 	end
 
-	
+		
 end

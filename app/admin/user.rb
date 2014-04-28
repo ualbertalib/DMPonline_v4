@@ -1,4 +1,4 @@
-ActiveAdmin.register User do
+ActiveAdmin.register User do 
 	
 	 menu :priority => 15, :label => proc{ I18n.t('admin.user')}, :parent => "User management"
 	 
@@ -7,13 +7,17 @@ ActiveAdmin.register User do
 	filter :email
 	filter :organisations
 	filter :role_ids
+	filter :dmponline3
 	filter :created_at
 	filter :updated_at
 	
 	 
 	
-	index do   # :password_confirmation, :encrypted_password, :remember_me, :id, :email, :firstname, :orcid_id, 
-		# :shibboleth_id, :user_status_id, :surname, :user_type_id, :organisation_id, :skip_invitation
+	index do   # :password_confirmation, :encrypted_password, :remember_me, :id, :email,
+		# :firstname, :last_login, :login_count, :orcid_id, :password, :shibboleth_id, 
+		#:user_status_id, :surname, :user_type_id, :organisation_id, :skip_invitation,
+		# :other_organisation, :accept_terms, :role_ids, :dmponline3
+
   	column I18n.t('admin.user_name'), :sortable => :email do |user_email|
         link_to user_email.email, [:admin, user_email]
     end
@@ -24,10 +28,15 @@ ActiveAdmin.register User do
         link_to user.surname, [:admin, user]
     end
    	column I18n.t('admin.last_logged_in'), :last_sign_in_at 
-   	column I18n.t('admin.org_title'), :organisation_id do |org_title|
+   	column I18n.t('admin.org_title'), :sortable => 'organisations.name' do |org_title|
       if !org_title.organisation.nil? then
-        	 link_to org_title.organisation.name, [:admin, org_title.organisation]
-       end
+      	if org_title.other_organisation.nil? || org_title.other_organisation == "" then
+      		link_to org_title.organisation.name, [:admin, org_title.organisation]
+      	else
+      		I18n.t('helpers.org_type.org_name') + ' - ' + org_title.other_organisation
+        	 
+        end	 
+      end
    	end
       	
   	default_actions
@@ -40,8 +49,8 @@ ActiveAdmin.register User do
   			row :email
   			row :orcid_id
   			row I18n.t('admin.org_title'), :organisation_id do |org_title|
-		      if !org_title.organisation.nil? then
-		        	 link_to org_title.organisation.name, [:admin, org_title.organisation]
+		      if !org_title.organisation_id.nil? then
+		        	 link_to org_title.organisation_id, [:admin, org_title.organisation]
 		      end
 		   	end
 		   	row :other_organisation
@@ -76,9 +85,10 @@ ActiveAdmin.register User do
   			f.input :email
   			f.input :orcid_id
   			f.input :shibboleth_id
-  			f.input :organisation_id,:label => I18n.t('admin.org_title'), 
+  			f.input :organisation_id ,:label => I18n.t('admin.org_title'), 
   						:as => :select, 
-  						:collection => Organisation.find(:all, :order => 'name ASC').map{|orgp|[orgp.name, orgp.id]}
+  						:collection => Organisation.find_all_by_parent_id(nil, :order => 'name ASC').map{|orgp|[orgp.name, orgp.id]}
+  						
   			f.input :user_status_id, :label => I18n.t('admin.user_status'), 
   						:as => :select, 
   						:collection => UserStatus.find(:all, :order => 'name ASC').map{|us|[us.name, us.id]}
@@ -93,6 +103,14 @@ ActiveAdmin.register User do
     end
     
     f.actions    
+  end
+  
+  
+  
+  controller do
+    def scoped_collection
+      resource_class.includes(:organisations) # prevents N+1 queries to your database
+    end
   end
   
 end

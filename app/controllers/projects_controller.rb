@@ -3,7 +3,7 @@ class ProjectsController < ApplicationController
 	# GET /projects.json
 	def index
 		if user_signed_in? then
-			if current_user.shibboleth_id.nil? && !cookies[:show_shib_link].nil? && cookies[:show_shib_link] == "show_shib_link" then
+			if (current_user.shibboleth_id.nil? || current_user.shibboleth_id.length == 0) && !cookies[:show_shib_link].nil? && cookies[:show_shib_link] == "show_shib_link" then
 				flash.notice = "Would you like to #{view_context.link_to 'link your DMPonline account to your institutional credentials?', user_omniauth_shibboleth_path}".html_safe
 			end
 			@projects = Project.projects_for_user(current_user.id)
@@ -124,7 +124,7 @@ class ProjectsController < ApplicationController
 			@project.assign_creator(current_user.id)
 			respond_to do |format|
 				if @project.save
-					format.html { redirect_to({:action => "show", :id => @project.slug, :show_form => "yes"}, {:notice => 'Project was successfully created.'}) }
+					format.html { redirect_to({:action => "show", :id => @project.slug, :show_form => "yes"}, {:notice => I18n.t('helpers.project.success')}) }
 					format.json { render json: @project, status: :created, location: @project }
 				else
 					format.html { render action: "new" }
@@ -217,12 +217,17 @@ class ProjectsController < ApplicationController
 		end
 		excluded_orgs = orgs_of_type(t('helpers.org_type.funder')) + orgs_of_type(t('helpers.org_type.institution')) + Organisation.orgs_with_parent_of_type(t('helpers.org_type.institution'))
 		guidance_groups = {}
-		ggs = GuidanceGroup.guidance_groups_excluding(excluded_orgs)
-
+		ggs = GuidanceGroup.guidance_groups_excluding(excluded_orgs) 
+	
 		ggs.each do |gg|
 			guidance_groups[gg.id] = gg.name
 		end
 		unless institution.nil? then
+			optional_gg = GuidanceGroup.where("optional_subset =  ? && organisation_id = ?", true, institution.id)
+			optional_gg.each do|optional|
+				guidance_groups[optional.id] = optional.name
+			end
+			
 			institution.children.each do |o|
 				o.guidance_groups.each do |gg|
 					include = false
@@ -242,7 +247,7 @@ class ProjectsController < ApplicationController
 			format.json { render json: guidance_groups.to_json }
 		end
 	end
-
+	
 	private
 
 	def orgs_of_type(org_type_name, published_templates = false)

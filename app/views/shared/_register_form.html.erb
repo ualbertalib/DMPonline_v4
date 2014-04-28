@@ -1,4 +1,4 @@
-<%= form_for(resource, :as => "user", :url => registration_path("user")) do |f| %>
+<%= form_for(resource, :as => "user", :url => registration_path("user"),  :htmlb => {:autocomplete =>"off"}) do |f| %>
   <ul>
 	<li>
 		<%= devise_error_messages! %>
@@ -28,7 +28,7 @@
 		<% other_organisations << org.id %>
 	<% end %>
 	<li id="other-organisation-name" style="display:none" data-orgs="<%= other_organisations.join(',') %>">
-		<%= f.text_field :other_organisation, placeholder: (t('helpers.org_type.org_name') + ' *'), :as => :string, :class => 'text_field has-tooltip reg-input', 'data-toggle' => "tooltip", 'data-container' => "body", 'title' => "Please enter the name of your organisation." %>
+		<%= f.text_field :other_organisation, placeholder: (t('helpers.org_type.org_name') + ' *'), :as => :string , :autocomplete => "off", :class => 'text_field has-tooltip reg-input', 'data-toggle' => "tooltip", 'data-container' => "body", 'title' => "Please enter the name of your organisation." %>
 	</li>
 	<li>
 		<%= f.password_field :password, placeholder: (t('helpers.password') + ' *'), :autocomplete => "off", :required => true, :as => :password, :class => 'text_field has-tooltip reg-input', 'data-toggle' => "tooltip", 'data-container' => "body", 'title' => "This must be at least 8 characters long." %>
