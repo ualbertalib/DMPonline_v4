@@ -1,13 +1,13 @@
 <!-- edit a section and its questions and guidance. Section is passed as an argument-->
 
 <%= form_for(section, :url => admin_updatesection_dmptemplate_path(section, :phase => phase, :edit => edit), :html => { :method => :put}) do |s| %>
-	<%if @open == 'true' && @section_id == section.id then%>
+	<%if @open && @section_id == section.id then%>
 			<% @toggle = 'accordion-body  section-collapse in collapse'%>
 			<% @jump_to = "onload='scrollView(this); alert('here');'" %>
 		<%else%>
-			<% @toggle = 'accordion-body collapse section-collapse' %>	
-		<%end%>	
-	
+			<% @toggle = 'accordion-body collapse section-collapse' %>
+		<%end%>
+
 	<div class="accordion-group" >
 		<div class="accordion-heading">
 			<div class="div_left make_div_smaller">
@@ -20,10 +20,10 @@
 					<!-- + or - icon-->
 		        	<span class="icon-plus icon-white accordion-icon"> </span>
 		        </a>
-			</div>	
+			</div>
 		</div>
-		
-		
+
+
 		<div id="collapse-sec-<%= section.id %>" class="<%= @toggle%>" >
 			<div class="accordion-inner">
 				<table class="dmp_details_table">
@@ -42,10 +42,10 @@
 					<% if !section.version.published? || phase.dmptemplate.org_type == t("helpers.org_type.funder")  then%>
 						<%= link_to t("helpers.submit.delete"), admin_destroysection_dmptemplate_path(:section_id => section.id),
 						:confirm => t("org_admin.templates.section_delete_message", :section_title => section.title ), :method => :delete, :class => "btn btn-primary"%>
-					<%end%>	
+					<%end%>
 					<%= link_to t('helpers.submit.cancel'), :back, :class => 'btn cancel' %>
 				</div>
-			<%end%>	
+			<%end%>
 				<div class="two-column-clear question-divider"></div>
 				<% @questions = section.questions.order("number")%>
 				<%if @questions.count > 0 %>
@@ -55,12 +55,12 @@
 							<!-- render the show question block-->
 							<%= render :partial => 'show_question', locals: {question: question} %>
 						</div>
-						
+
 						<div id="edit_question_div_<%= question.id%>"  style="display: none">
 							<!-- render the edit question block-->
 							<%= render :partial => 'edit_question', locals: {question: question} %>
 						</div>
-											
+
 						<!--verify how many questions are left -->
 						<%if question_left.to_i > 1 then %>
 							<div class="two-column-clear question-divider"></div>
@@ -69,29 +69,27 @@
 						<%end%>
 						<% question_left = question_left - 1 %>
 					<%end%>
-				<%end%>	
-				
+				<%end%>
+
 				<!-- Add a new question if the version is not published-->
 				<% if !section.version.published? || phase.dmptemplate.org_type == t("helpers.org_type.funder")  then%>
 					<%if @questions.count != 0 %>
 						<div class="two-column-clear question-divider"></div>
-					<%end%>	
+					<%end%>
 					<!-- add question block -->
 					<div id="add_question_block_div" style="display: none">
 						<%= render :partial => 'add_question', locals: {section: section} %>
-					</div>	
-				
+					</div>
+
 					<!-- add question button-->
 					<div id="add_question_button_div">
 						<div class="div_left">
-							<%= link_to t('org_admin.add_question_label'), '#', :id => 'add_question_button', :class => 'btn btn-primary' %> 
-						</div>	
+							<%= link_to t('org_admin.add_question_label'), '#', :id => 'add_question_button', :class => 'btn btn-primary' %>
+						</div>
 					</div>
 				<%end%>
-					
+
 				<div class="two-column-clear"></div>
 			</div>
 		</div>
 	</div>
-	
-

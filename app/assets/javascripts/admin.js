@@ -7,6 +7,10 @@ $( document ).ready(function() {
 	    'placement': 'left'
 	});
 
+	$(document.body).animate({
+		'scrollTop': $('#'+$(".in").attr('id')).offset().top
+	}, 1000);
+
 
 	//show or hide divs based on what the user selects from the question format. New question
 	$('.ques_format').on("change", function(e) {
@@ -266,15 +270,4 @@ function add_object(link, association, content) {
 	  if (association == 'options') {
 		  $(link).parent().children('.options_table').children('.options_tbody').children('.new_option_before').before(content.replace(regexp, new_id));
 	  }
-
-
 }
-
-
-//scroll to position
-function scrollView(location) {
-	  $('html, body').animate({
-	      scrollTop: $(location).offset().top
-	    }, 100);
-
-	}
