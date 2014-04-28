@@ -250,6 +250,11 @@ $( document ).ready(function() {
 		 e.preventDefault();
 	 });
 	 
+	 $('#edit_submit_action_suggested_answer').click(function(e){
+		 var sa_id = $(this).prev(".suggested_answer_id").val();
+		
+		$("#edit_suggested_answer_"+ sa_id).submit();
+	 });
 });
 
 
