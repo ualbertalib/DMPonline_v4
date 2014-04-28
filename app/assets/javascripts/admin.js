@@ -249,7 +249,6 @@ $( document ).ready(function() {
 		 $('#show_suggested_answer_div_'+ q_id).hide();
 		 e.preventDefault();
 	 });
-
 });
 
 

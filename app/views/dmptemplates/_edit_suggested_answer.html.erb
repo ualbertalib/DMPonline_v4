@@ -1,7 +1,7 @@
 <!--edit suggested answer. question is passed as an argument-->
 <%= form_for(suggested_answer, :url => admin_updatesuggestedanswer_dmptemplate_path(suggested_answer), :html => { :method => :put}) do |f| %>
 	<%= f.hidden_field :organisation_id, :value => current_user.organisation.id %>
-	
+
 	<table class="dmp_details_table phase">
 		<tr>
 			<td class="first_template"><%= t('org_admin.questions.suggested_or_example_answer_label')%></td>
@@ -12,9 +12,9 @@
 				</ul>
 			</td>
 		</tr>
-	</table>	
+	</table>
 	<br/>
-		
+
 	<!-- submit buttons -->
 	<div class="move_2_right">
 		<%= f.submit t('helpers.submit.save'), :class => 'btn btn-primary' %>
