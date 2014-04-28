@@ -63,3 +63,7 @@ config/initializers/secret_token.rb
 config/initializers/contact_us.rb
 
 config/environments/*.rb
+
+config/initializers/secret_token.rb
+
+db/schema.rb

@@ -2,16 +2,16 @@
 //= require tinymce
 
 $( document ).ready(function() {
-	
+
 	$('#gg_new_text').tooltip({
 	    'placement': 'left'
 	});
-	
-	
+
+
 	//show or hide divs based on what the user selects from the question format. New question
 	$('.ques_format').on("change", function(e) {
 		var selected_format = $('#new-select-format').val();
-		
+
 		//text area
 		if (selected_format == 1){
 			$("#new-options").hide();
@@ -33,14 +33,14 @@ $( document ).ready(function() {
 			$("#new-default-text-area").hide();
 			$("#new-default-value-field").hide();
 		}
-		delete selected_format; 
+		delete selected_format;
 	}).trigger('change');
-	
-		
+
+
 	//show or hide divs based on what the user selects from the question format
 	$('.ques_format').on("change", function(e) {
 		var q_id = $(this).find('.quest_id').val();
-		
+
 		var selected_format = $('#'+ q_id +'-select-format').val();
 		//text area
 		if (selected_format == 1){
@@ -63,17 +63,17 @@ $( document ).ready(function() {
 			$("#default-text-area-"+ q_id).hide();
 			$("#default-value-field-"+ q_id).hide();
 		}
-		delete selected_format; 
+		delete selected_format;
 		delete q_id;
 	}).trigger('change');
-	
-	
+
+
 	//Code to show/hide divs on new guidance (by themes or by question)
 	$('#g_options').on("change", function (){
 		var g_t_q = $(this).val();
-		
+
 		e_g_q_f = $("#edit_guid_ques_flag").val();
-	
+
 		if (g_t_q == 1){
 			$(".guindace_by_question").hide();
 			$(".guindance_by_theme").show();
@@ -81,19 +81,19 @@ $( document ).ready(function() {
 		else if (g_t_q == 2){
 			$(".guindace_by_question").show();
 			$(".guindance_by_theme").hide();
-			//check if editing 
+			//check if editing
 			if( e_g_q_f != 2){
 				$('#phases_select').hide();
 			 	$('#versions_select').hide();
 			 	$('#sections_select').hide();
 			 	$('#questions_select').hide();
-				
+
 			}
 		}
-		
+
 	}).trigger('change');
-	
-	
+
+
 	//filter from template to question 5 dropdowns
 	 $('#templates_select').change(function() {
 	 	$.ajax({
@@ -108,7 +108,7 @@ $( document ).ready(function() {
 	 	$('#versions_select').hide();
 	 	$('#sections_select').hide();
 	 	$('#questions_select').hide();
-	 	 
+
 	 });
 	 $('#phases_select').change(function() {
 		 	$.ajax({
@@ -152,33 +152,33 @@ $( document ).ready(function() {
 		 	$('#sections_select').show();
 		 	$('#questions_select').show();
 		 });
-	
-	 
+
+
 	 //action for show or hide template editing display
 	 $('#edit_template_button').click(function(){
 		 $('#edit_template_div').show();
 		 $('#show_template_div').hide();
 	 });
-	 
-	 
+
+
 	 //action for show or hide phase display
 	 $('#edit_phase_button').click(function(){
 		 $('#edit_phase_div').show();
 		 $('#show_phase_div').hide();
 	 });
-	
-	 
+
+
 	 //action to hide the alert to edit a version
 	 $("#edit-version-confirmed").click(function (){
 		$("#version_edit_alert").modal("hide");
 	 });
-	 
-		 
+
+
 	 //action to clone/add a version
 	 $("#clone-version-confirmed").click(function (){
 		$("#new_project").submit();
 	 });
-		
+
 	 //action for show question editing display
 	 $('.edit_question_button').click(function(e){
 		 var q_id = $(this).prev(".question_id").val();
@@ -186,54 +186,54 @@ $( document ).ready(function() {
 		 $('#show_question_div_'+ q_id).hide();
 		 e.preventDefault();
 	 });
-	 
-	 
+
+
 	$(".cancel_edit_question").click(function(e){
 		 var q_id = $(this).prev(".question_id").val();
 		 $('#edit_question_div_'+ q_id).hide();
 		 $('#show_question_div_'+ q_id).show();
 		 e.preventDefault();
 	 });
-	 
-	 //action for adding a new question 
+
+	 //action for adding a new question
 	 $('#add_question_button').click(function(e){
 		 $('#add_question_block_div').show();
 		 $('#add_question_button_div').hide();
 		 e.preventDefault();
 	 });
-	 
-	 //action for cancelling a new question 
+
+	 //action for cancelling a new question
 	 $('#cancel_add_question').click(function(e){
 		 $('#add_question_block_div').hide();
 		 $('#add_question_button_div').show();
 		 e.preventDefault();
 	 });
-	 
-	 //action for adding a new section 
+
+	 //action for adding a new section
 	 $('#add_section_button').click(function(e){
 		 $('#add_section_block_div').show();
 		 $('#add_section_button_div').hide();
 		 e.preventDefault();
 	 });
-	 
-	 
-	 //action for cancelling a new section 
+
+
+	 //action for cancelling a new section
 	 $('#cancel_add_section').click(function(e){
 		 $('#add_section_block_div').hide();
 		 $('#add_section_button_div').show();
 		 e.preventDefault();
 	 });
-	 
+
 	 //SUGGESTED ANSWERS
-	//action for adding a new suggested answer 
+	//action for adding a new suggested answer
 	 $('.add_suggested_answer_button').click(function(e){
 		 var q_id = $(this).prev(".question_id").val();
-		 
+
 		 $('#add_suggested_answer_block_'+ q_id).show();
 		 $('#add_suggested_answer_button_'+ q_id).hide();
 		 e.preventDefault();
 	 });
-	 
+
 	 //cancelling edit of a suggested answer
 	 $(".cancel_edit_suggested_answer").click(function(e){
 		 var q_id = $(this).prev(".question_id").val();
@@ -241,15 +241,15 @@ $( document ).ready(function() {
 		 $('#show_suggested_answer_div_'+ q_id).show();
 		 e.preventDefault();
 	 });
-	 
-	 //edit a suggested answer 
-	 $('.edit_suggested_answer').click(function(e){
+
+	 //edit a suggested answer
+	 $('.edit_form_for_suggested_answer').click(function(e){
 		 var q_id = $(this).prev(".question_id").val();
 		 $('#edit_suggested_answer_div_'+ q_id).show();
 		 $('#show_suggested_answer_div_'+ q_id).hide();
 		 e.preventDefault();
 	 });
-	 
+
 });
 
 
@@ -267,8 +267,8 @@ function add_object(link, association, content) {
 	  if (association == 'options') {
 		  $(link).parent().children('.options_table').children('.options_tbody').children('.new_option_before').before(content.replace(regexp, new_id));
 	  }
-	  
-	 
+
+
 }
 
 
@@ -277,5 +277,5 @@ function scrollView(location) {
 	  $('html, body').animate({
 	      scrollTop: $(location).offset().top
 	    }, 100);
-	 
+
 	}
