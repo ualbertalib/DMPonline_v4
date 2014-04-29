@@ -108,6 +108,12 @@ p{
   font-family: @text_font;
 }
 
+div.popover-content div.tooltip_box p {
+  font-size: @font_size; 
+  font-family: @text_font;
+  margin-bottom: 0px;
+}
+
 p a:hover, a.a-orange:hover, div.signIn a:hover, td a:hover, .question-guidance .accordion-inner a:hover, div a:hover{
   color: @orange_darker_colour !important;
   background-color: none !important;
@@ -797,6 +803,9 @@ table.options_table{
     float:left;
     padding: 2px;
   }
+  .question_options_popover{
+    padding-left: 12px;
+  }
 }
 
 .border_bottom{
@@ -1272,7 +1281,17 @@ div.accordion .make_div_smaller{
   
 }
 
+.div_left_icon{
+  float:left;
+  width:74%;
+  padding:0 2px 10px 0;
+}
 
+.div_right_icon{
+  float:right;
+  width:24%;
+  padding:3px 2px 10px 0;
+}
 /*** suggested answers ***/
 
 div.suggested-answer-div{
@@ -1555,10 +1574,6 @@ div#add_guidance_group_form_div{
   }
 
 }
-
-
-
-
 
 
 

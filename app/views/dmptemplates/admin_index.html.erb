@@ -5,14 +5,20 @@
 </h1>
 <div class="div_clear"></div>
 <h2>
-	<%= t('org_admin.templates.own_temp') %>
+	<%= t('org_admin.templates.own_temp') %>      
+</h2>
+
+<div class="div_left">
+	<%= raw t('org_admin.templates.create_own_template_text_html')%>
+</div>
+<div class="div_right">
 	<!-- link button to add new guidance -->
 	<div class="move_2_right">
 		<%= link_to t("org_admin.templates.create_template"),
 		            admin_new_dmptemplate_path(),
 		            :class => 'btn btn-primary' %>
-	</div>            
-</h2>
+	</div>    
+</div>
 <div class="div_clear"></div>
 
 <!-- List of own templates -->

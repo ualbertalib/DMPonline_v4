@@ -3,11 +3,79 @@
 
 $( document ).ready(function() {
 
-	$('#gg_new_text').tooltip({
-	    'placement': 'left'
-	});
+	//set the tinymce popover help text
+	$(".template_desc_popover").on('click', function(e) {
+	    e.preventDefault();
+	}).popover();
+	
+	$(".phase_desc_popover").on('click', function(e) {
+	    e.preventDefault();
+	}).popover(); 
+	
+	$(".version_desc_popover").on('click', function(e) {
+	    e.preventDefault();
+	}).popover();
+	
+	$(".section_desc_popover").on('click', function(e) {
+	    e.preventDefault();
+	}).popover();
+	
+	$(".question_format_popover").on('click', function(e) {
+	    e.preventDefault();
+	}).popover();
+	
+	$(".default_answer_popover").on('click', function(e) {
+	    e.preventDefault();
+	}).popover();
+	
+	$(".suggested_answer_popover").on('click', function(e) {
+	    e.preventDefault();
+	}).popover();
+	
+	$(".question_guidance_popover").on('click', function(e) {
+	    e.preventDefault();
+	}).popover();
+	
+	$(".question_themes_popover").on('click', function(e) {
+	    e.preventDefault();
+	}).popover();
+	
+	$(".question_options_popover").on('click', function(e) {
+	    e.preventDefault();
+	}).popover();
+	
+	$(".guidance_group_title_popover").on('click', function(e) {
+	    e.preventDefault();
+	}).popover();
 
+	$(".guidance_group_template_popover").on('click', function(e) {
+	    e.preventDefault();
+	}).popover();
 
+	$(".guidance_group_subset_popover").on('click', function(e) {
+	    e.preventDefault();
+	}).popover();
+	
+	$(".guidance_text_popover").on('click', function(e) {
+	    e.preventDefault();
+	}).popover();
+	
+	$(".guidance_apply_to_popover").on('click', function(e) {
+	    e.preventDefault();
+	}).popover();
+	
+	$(".guidance_by_themes_popover").on('click', function(e) {
+	    e.preventDefault();
+	}).popover();
+	
+	$(".guidance_by_question_popover").on('click', function(e) {
+	    e.preventDefault();
+	}).popover();
+	
+	$(".guidance_group_select_popover").on('click', function(e) {
+	    e.preventDefault();
+	}).popover();
+	
 	//show or hide divs based on what the user selects from the question format. New question
 	$('.ques_format').on("change", function(e) {
 		var selected_format = $('#new-select-format').val();

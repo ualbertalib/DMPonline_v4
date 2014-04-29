@@ -4,14 +4,16 @@
 
 <h1>
 	<%= t('org_admin.guidance_group.guidance_group_list') %>
-	
+</h1>
+
+<div class="div_left">
+	<%= raw t('org_admin.guidance_group.guidance_group_text_html')%>
+</div>
+<div class="div_right">
 	<div class="move_2_right">
 		<%= link_to t("org_admin.guidance_group.add_guidance_group"), admin_new_guidance_group_path(), :class => 'btn btn-primary' %>
 	</div>
-</h1>
-
-
-
+</div>
 	
 <!-- List of guidance groups -->
 <% if @guidance_groups.count > 0 then%>	
@@ -78,14 +80,20 @@
 <div class="div_clear"></div>
 
 <h1>
-	<%= t('org_admin.guidance.guidance_list') %>
+	<%= t('org_admin.guidance.guidance_list') %>           
+</h1>
+
+<div class="div_left">
+	<%= raw t('org_admin.guidance.guidance_text_html')%>
+</div>
+<div class="div_right">
 	<!-- link button to add new guidance -->
 	<div class="move_2_right">
 		<%= link_to t("org_admin.guidance.add_guidance"),
 		            admin_new_guidance_path(),
 		            :class => 'btn btn-primary' %>
-	</div>            
-</h1>
+	</div> 
+</div>
 
 <div class="div_clear"></div>
 
