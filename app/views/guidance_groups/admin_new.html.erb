@@ -20,22 +20,40 @@
 				<table class="dmp_details_table">
 					<tr>
 						<td class="first"><%= t('org_admin.guidance.name_label') %></td>
-						<td><%= f.text_field :name, 
+						<td><div class="div_left_icon">
+								<%= f.text_field :name, 
 								:as => :string, 
-								:class => 'text_field has-tooltip', 'data-toggle' => "tooltip", 'title' => t('org_admin.guidance_group.help_text_add') %>
+								:class => 'text_field' %>
+							</div>
+							<div class="div_right_icon">
+								<%= link_to( image_tag('help_button.png'), '#', :class => 'guidance_group_title_popover', :rel => "popover", 'data-html' => "true", 'data-content' => t('org_admin.guidance_group.title_help_text_html'))%>
+							</div>
+							<div class="clearfix"></div>
 						</td>
 					</tr>
 					<tr>
 						<td class="first"><%= t('org_admin.guidance.template') %></td>
-						<td><%= f.select :dmptemplate_ids, options_for_select( 
-							[['All templates', ""]].concat( Dmptemplate.funders_and_own_templates(current_user.organisation_id).collect{ |g| [g.title, g.id] })),{} ,
-							{:prompt => false , :multiple => true}%>
+						<td><div class="div_left_icon">
+								<%= f.select :dmptemplate_ids, options_for_select( 
+								[['All templates', ""]].concat( Dmptemplate.funders_and_own_templates(current_user.organisation_id).collect{ |g| [g.title, g.id] })),{} ,
+								{:prompt => false , :multiple => true}%>
+							</div>
+							<div class="div_right_icon">
+								<%= link_to( image_tag('help_button.png'), '#', :class => 'guidance_group_template_popover', :rel => "popover", 'data-html' => "true", 'data-content' => t('org_admin.guidance_group.template_help_text_html'))%>
+							</div>
+							<div class="clearfix"></div>
 						</td>
 					</tr>
 					<tr>
 						<td class="first"><%= t('org_admin.guidance_group.subset') %></td>
-						<td>
-							<%= f.check_box :optional_subset %> <%= t('org_admin.guidance_group.subset_eg') %>
+						<td><div class="div_left_icon">
+								<%= f.check_box :optional_subset %> <%= t('org_admin.guidance_group.subset_eg') %>
+							</div>
+							<div class="div_right_icon">
+								<%= link_to( image_tag('help_button.png'), '#', :class => 'guidance_group_subset_popover', :rel => "popover", 'data-html' => "true", 'data-content' => t('org_admin.guidance_group.subset_option_help_text'))%>
+							</div>
+							<div class="clearfix"></div>
+							
 						</td>
 					</tr>
 										
