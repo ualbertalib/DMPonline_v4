@@ -248,6 +248,10 @@ class DmptemplatesController < ApplicationController
 				@version.description = params["version-desc"]
 				@phase = @version.phase
 
+				if @version.published && !@phase.dmptemplate.published then
+					@phase.dmptemplate.published = true
+				end
+
 		    respond_to do |format|
 		      if @version.update_attributes(params[:version])
 		        format.html { redirect_to admin_phase_dmptemplate_path(@phase, :version_id =>  @version.id, :edit => 'false'), notice: I18n.t('org_admin.templates.updated_message') }
