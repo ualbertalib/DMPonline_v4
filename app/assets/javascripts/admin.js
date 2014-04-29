@@ -90,6 +90,10 @@ $( document ).ready(function() {
 	    e.preventDefault();
 	}).popover();
 	
+	$(".org_abbr_popover").on('click', function(e) {
+	    e.preventDefault();
+	}).popover();
+	
 	//show or hide divs based on what the user selects from the question format. New question
 	$('.ques_format').on("change", function(e) {
 		var selected_format = $('#new-select-format').val();
