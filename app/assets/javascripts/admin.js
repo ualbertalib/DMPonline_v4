@@ -7,10 +7,18 @@ $( document ).ready(function() {
 	    'placement': 'left'
 	});
 
-	$(document.body).animate({
-		'scrollTop': $('#'+$(".in").attr('id')).offset().top
-	}, 1000);
-
+	if($('.in').length > 0) {
+		if ($('.in .current_question').length > 0) {
+			$(document.body).animate({
+				'scrollTop': $('.in .current_question').offset().top
+			}, 1000);
+		}
+		else {
+			$(document.body).animate({
+				'scrollTop': $('.in').offset().top
+			}, 1000);
+		}
+	}
 
 	//show or hide divs based on what the user selects from the question format. New question
 	$('.ques_format').on("change", function(e) {

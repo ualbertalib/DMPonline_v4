@@ -114,7 +114,7 @@ class DmptemplatesController < ApplicationController
 
 
 
-# PHASES
+	# PHASES
 
 	#show and edit a phase of the template
 	def admin_phase
@@ -122,44 +122,47 @@ class DmptemplatesController < ApplicationController
 
 			@phase = Phase.find(params[:id])
 
- 			if !params.has_key?(:version_id) then
- 				@edit = 'false'
- 				#check for the most recent published version, if none is available then return the most recent one
- 				versions = @phase.versions.where('published = ?', true).order('updated_at DESC')
+			if !params.has_key?(:version_id) then
+				@edit = 'false'
+				#check for the most recent published version, if none is available then return the most recent one
+				versions = @phase.versions.where('published = ?', true).order('updated_at DESC')
 				if versions.any?() then
 					@version = versions.first
 				else
 					@version = @phase.versions.order('updated_at DESC').first
 				end
-			# When the version_id is passed as an argument
+				# When the version_id is passed as an argument
 			else
 				@edit = params[:edit]
- 				@version = Version.find(params[:version_id])
- 			end
+				@version = Version.find(params[:version_id])
+			end
 
- 			#verify if there are any sections if not create one
- 			@sections = @version.sections
- 			if !@sections.any?() || @sections.count == 0 then
- 				@section = @version.sections.build
- 				@section.title = ''
- 				@section.version_id = params[:version_id]
- 				@section.number = 1
- 				@section.organisation_id = current_user.organisation.id
- 				@section.published = true
- 				@section.save
- 			end
+			#verify if there are any sections if not create one
+			@sections = @version.sections
+			if !@sections.any?() || @sections.count == 0 then
+				@section = @version.sections.build
+				@section.title = ''
+				@section.version_id = params[:version_id]
+				@section.number = 1
+				@section.organisation_id = current_user.organisation.id
+				@section.published = true
+				@section.save
+			end
 
- 			#verify if section_id has been passed, if so then open that section
- 			if params.has_key?(:section_id) then
- 				@open = true
- 				@section_id = params[:section_id].to_i
- 				@here = 'here'
- 			end
+			#verify if section_id has been passed, if so then open that section
+			if params.has_key?(:section_id) then
+				@open = true
+				@section_id = params[:section_id].to_i
+			end
 
- 			respond_to do |format|
-	      format.html
-	    end
-   	end
+			if params.has_key?(:question_id) then
+				@question_id = params[:question_id].to_i
+			end
+
+			respond_to do |format|
+				format.html
+			end
+		end
 	end
 
 
@@ -359,7 +362,7 @@ class DmptemplatesController < ApplicationController
 
 	    respond_to do |format|
 	      if @question.save
-	        format.html { redirect_to admin_phase_dmptemplate_path(:id => @question.section.version.phase_id, :version_id => @question.section.version_id, :section_id => @question.section_id, :edit => 'true'), notice: I18n.t('org_admin.templates.created_message') }
+	        format.html { redirect_to admin_phase_dmptemplate_path(:id => @question.section.version.phase_id, :version_id => @question.section.version_id, :section_id => @question.section_id, :question_id => @question.id, :edit => 'true'), notice: I18n.t('org_admin.templates.created_message') }
          	format.json { head :no_content }
 	      else
 	        format.html { render action: "admin_phase" }
@@ -381,7 +384,7 @@ class DmptemplatesController < ApplicationController
 
 				respond_to do |format|
 		      if @question.update_attributes(params[:question])
-		        format.html { redirect_to admin_phase_dmptemplate_path(:id => @phase.id, :version_id => @version.id, :section_id => @section.id, :edit => 'true'), notice: I18n.t('org_admin.templates.updated_message') }
+		        format.html { redirect_to admin_phase_dmptemplate_path(:id => @phase.id, :version_id => @version.id, :section_id => @section.id, :question_id => @question.id, :edit => 'true'), notice: I18n.t('org_admin.templates.updated_message') }
 		        format.json { head :no_content }
 		      else
 		        format.html { render action: "admin_phase" }
@@ -416,7 +419,7 @@ class DmptemplatesController < ApplicationController
 
 	    respond_to do |format|
 	      if @suggested_answer.save
-	        format.html { redirect_to admin_phase_dmptemplate_path(:id => @suggested_answer.question.section.version.phase_id, :version_id => @suggested_answer.question.section.version_id, :section_id => @suggested_answer.question.section_id, :edit => 'true'), notice: I18n.t('org_admin.templates.created_message') }
+	        format.html { redirect_to admin_phase_dmptemplate_path(:id => @suggested_answer.question.section.version.phase_id, :version_id => @suggested_answer.question.section.version_id, :section_id => @suggested_answer.question.section_id, :question_id => @suggested_answer.question.id, :edit => 'true'), notice: I18n.t('org_admin.templates.created_message') }
          	format.json { head :no_content }
 	      else
 	        format.html { render action: "admin_phase" }
@@ -437,7 +440,7 @@ class DmptemplatesController < ApplicationController
 
 				respond_to do |format|
 		      if @suggested_answer.update_attributes(params[:suggested_answer])
-		        format.html { redirect_to admin_phase_dmptemplate_path(:id => @phase.id, :version_id => @version.id, :section_id => @section.id, :edit => 'true'), notice: I18n.t('org_admin.templates.updated_message') }
+		        format.html { redirect_to admin_phase_dmptemplate_path(:id => @phase.id, :version_id => @version.id, :section_id => @section.id, :question_id => @question.id, :edit => 'true'), notice: I18n.t('org_admin.templates.updated_message') }
 		        format.json { head :no_content }
 		      else
 		        format.html { render action: "admin_phase" }

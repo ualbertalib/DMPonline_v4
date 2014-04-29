@@ -2,10 +2,9 @@
 
 <%= form_for(section, :url => admin_updatesection_dmptemplate_path(section, :phase => phase, :edit => edit), :html => { :method => :put}) do |s| %>
 	<%if @open && @section_id == section.id then%>
-			<% @toggle = 'accordion-body  section-collapse in collapse'%>
-			<% @jump_to = "onload='scrollView(this); alert('here');'" %>
+			<% toggle = 'accordion-body  section-collapse in collapse'%>
 		<%else%>
-			<% @toggle = 'accordion-body collapse section-collapse' %>
+			<% toggle = 'accordion-body collapse section-collapse' %>
 		<%end%>
 
 	<div class="accordion-group" >
@@ -24,7 +23,7 @@
 		</div>
 
 
-		<div id="collapse-sec-<%= section.id %>" class="<%= @toggle%>" >
+		<div id="collapse-sec-<%= section.id %>" class="<%= toggle %>" >
 			<div class="accordion-inner">
 				<table class="dmp_details_table">
 					<tr>
@@ -51,7 +50,7 @@
 				<%if @questions.count > 0 %>
 					<% question_left = @questions.count %>
 					<% @questions.each do |question| %>
-						<div id="show_question_div_<%= question.id%>">
+						<div id="show_question_div_<%= question.id%>" class="<%= if question.id == @question_id then "current_question" end %>">
 							<!-- render the show question block-->
 							<%= render :partial => 'show_question', locals: {question: question} %>
 						</div>
