@@ -35,19 +35,23 @@ class User < ActiveRecord::Base
 		end
 	end
 
-
 	def organisation_id=(new_organisation_id)
-		if self.user_org_roles.count != 1  && !self.user_org_roles.pluck(:organisation_id).include?(new_organisation_id) then
-			new_user_org_role = UserOrgRole.new
-			new_user_org_role.organisation_id = new_organisation_id
-			new_user_org_role.user_role_type = UserRoleType.find_by_name("user");
-			self.user_org_roles << new_user_org_role
-		elsif self.user_org_roles.count == 1 then
-			user_org_role = self.user_org_roles.first
-			user_org_role.organisation_id = new_organisation_id
-			user_org_role.save
-			roles.delete(roles.find_by_name("org_admin"))
-		end
+    if !self.user_org_roles.pluck(:organisation_id).include?(new_organisation_id.to_i) then
+  		if self.user_org_roles.count != 1 then
+  			new_user_org_role = UserOrgRole.new
+  			new_user_org_role.organisation_id = new_organisation_id
+  			new_user_org_role.user_role_type = UserRoleType.find_by_name("user");
+  			self.user_org_roles << new_user_org_role
+  		else
+  			user_org_role = self.user_org_roles.first
+  			user_org_role.organisation_id = new_organisation_id
+        user_org_role.save
+  			org_admin_role = roles.find_by_name("org_admin")
+  			unless org_admin_role.nil? then
+  				roles.delete(org_admin_role)
+  			end
+  		end
+    end
 	end
 
 	def organisation_id

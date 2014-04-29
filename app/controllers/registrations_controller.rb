@@ -57,15 +57,7 @@ class RegistrationsController < Devise::RegistrationsController
   
   def do_update(require_password = true, confirm = false)
   	
-		if @user.is_org_admin? then
-			 role = @user.roles.find_by_name("org_admin")
-				if @user.current_organisation.id != params[:user][:organisation_id] then
-					@user.roles.delete(role)
-				end	
-		end
-		
-  		
-  	if require_password then
+		if require_password then
 		successfully_updated = if needs_password?(@user, params)
 				@user.update_with_password(params[:user])
 				else
