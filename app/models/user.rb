@@ -46,7 +46,9 @@ class User < ActiveRecord::Base
 			user_org_role = self.user_org_roles.first
 			user_org_role.organisation_id = new_organisation_id
 			user_org_role.save
-			roles.delete(roles.find_by_name("org_admin"))
+			if !roles.find_by_name("org_admin").nil? then
+				roles.delete(roles.find_by_name("org_admin"))
+			end
 		end
 	end
 
