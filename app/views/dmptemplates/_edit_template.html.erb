@@ -4,27 +4,32 @@
 
 	<table class="dmp_details_table">
 		<tr>
-			<td class="first"><%= t('org_admin.templates.title_label') %></td>
+			<td class="first_template"><%= t('org_admin.templates.title_label') %></td>
 			<td><%= f.text_field :title, :as => :string, 
 						:class => 'text_field has-tooltip', 'data-toggle' => "tooltip", 'title' => t('org_admin.templates.title_help_text') %></td>
 		</tr>
 		<tr>
-			<td class="first"><%= t('org_admin.templates.desc_label') %></td>
-			<td><%= text_area_tag("template-desc", dmptemplate.description, class: "tinymce") %>
+			<td class="first_template"><%= t('org_admin.templates.desc_label') %></td>
+			<td><div class="div_left_icon">
+					<%= text_area_tag("template-desc", dmptemplate.description, class: "tinymce") %>
+				</div>
+				<div class="div_right_icon">
+					<%= link_to( image_tag('help_button.png'), '#', :class => 'template_desc_popover', :rel => "popover", 'data-html' => "true", 'data-content' => t('org_admin.templates.desc_help_text_html'))%>
+				</div>
 			</td>
 		</tr>
 		<tr>
-			<td class="first"><%= t('org_admin.templates.published_label') %></td>
+			<td class="first_template"><%= t('org_admin.templates.published_label') %></td>
 			<td><%= f.check_box :published, :as => :check_boxes	%></td>
 		</tr>
 		<tr>
-			<td class="first"><%= t('org_admin.templates.created') %></td>
+			<td class="first_template"><%= t('org_admin.templates.created') %></td>
 			<td>
 				<%= l dmptemplate.created_at.to_date, :formats => :short %>
 			</td>
 		</tr>
 		<tr>
-			<td class="first"><%= t('org_admin.templates.last_updated') %></td>
+			<td class="first_template"><%= t('org_admin.templates.last_updated') %></td>
 			<td>
 				<%= l dmptemplate.updated_at.to_date, :formats => :short %>
 			</td>

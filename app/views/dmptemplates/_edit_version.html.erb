@@ -18,7 +18,13 @@
 			</tr>
 			<tr>
 				<td class="first_template"><%= t('org_admin.templates.desc_label') %></td>
-				<td><%= text_area_tag("version-desc", version.description, class: "tinymce") %></td>
+				<td><div class="div_left_icon">
+						<%= text_area_tag("version-desc", version.description, class: "tinymce") %>
+					</div>
+					<div class="div_right_icon">
+						<%= link_to( image_tag('help_button.png'), '#', :class => 'version_desc_popover', :rel => "popover", 'data-html' => "true", 'data-content' => t('org_admin.versions.desc_help_text_html'))%>
+					</div>
+				</td>
 			</tr>
 			<tr>
 				<td class="first_template"><%= t('org_admin.templates.published_label') %></td>
