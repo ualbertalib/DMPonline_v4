@@ -46,6 +46,7 @@ $( document ).ready(function() {
 	
 	$(".guidance_group_title_popover").on('click', function(e) {
 	    e.preventDefault();
+	  
 	}).popover();
 
 	$(".guidance_group_template_popover").on('click', function(e) {
