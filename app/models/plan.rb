@@ -1,5 +1,5 @@
 class Plan < ActiveRecord::Base
-	
+
 	attr_accessible :locked, :project_id, :version_id, :version, :plan_sections
 
 	#associations between tables
@@ -10,7 +10,7 @@ class Plan < ActiveRecord::Base
 	accepts_nested_attributes_for :project
 	accepts_nested_attributes_for :answers
 	accepts_nested_attributes_for :version
-	  
+
 	def answer(qid, create_if_missing = true)
   		answer = answers.where(:question_id => qid).order("created_at DESC").first
   		question = Question.find(qid)
@@ -29,7 +29,7 @@ class Plan < ActiveRecord::Base
 		end
 		return answer
 	end
-	
+
 	def sections
 		unless project.organisation.nil? then
 			sections = version.global_sections + project.organisation.all_sections(version_id)
@@ -38,58 +38,66 @@ class Plan < ActiveRecord::Base
 		end
 		return sections.uniq.sort_by &:number
 	end
-	
-	#Collect guidance to be displayed with a question 
+
 	def guidance_for_question(question)
-	  # pulls together guidance from various sources for question
-	  guidances = {}
-	  theme_ids = question.theme_ids
-	  unless project.organisation.nil? then
-	  
-	  	#institutional guidance by themes     ------- need to see if guidance_group has the template
+		guidances = {}
+		# If project org isn't nil, get guidance by theme from any "non-subset" groups belonging to project org
+		unless project.organisation.nil? then
 			project.organisation.guidance_groups.each do |group|
-				if group.dmptemplates == project.dmptemplate_id then
-					group.guidances.each do |g|
-			    	g.themes.where("id IN (?)", theme_ids).each do |gg|
-			     		guidances["#{group.name} guidance on #{gg.title}"] = g
-			     	end	
-			    end
-			  end  
-   		end
-	  	
-	  	# Guidance link directly to the question 
-			question.guidances.each do |g_by_q|
-				g_by_q.guidance_groups.each do |group|
-			  	if group.organisation == project.organisation
-			    	guidances["#{group.name} guidance for this question"] = g_by_q
-			   	end
+				if !group.optional_subset && (group.dmptemplates.pluck(:id).include?(project.dmptemplate_id) || group.dmptemplates.count == 0) then
+					group.guidances.each do |guidance|
+						guidance.themes.where("id IN (?)", question.theme_ids).each do |theme|
+							guidances = self.add_guidance_to_array(guidances, group, theme, guidance)
+						end
+					end
 				end
-	  	end
-	  end
-		
-		# guidance by themes selected on 'create a plan' wizard 
-	  project.guidance_groups.each do |group|
-	  	#verify if the project org != from guidance group org and if true verify the guidance group templates
-	   	if group.organisation != project.organisation then
-	    	group.guidances.where("theme_id IN (?)", theme_ids).each do |g|
-	    		#If guidance groups doesn't have any templates it means that guidance group apply to all templates
-	     		if group.dmptemplates == [] || g.dmptemplate_id == project.dmptemplate_id then  #not sure about the second part
-	      		guidances["#{group.name} guidance on #{g.theme.title}"] = g
-	     		end
-	    	end
-	   	end
-	   	
-	   	if (group.organisation == project.organisation && group.optional_subset )then
-	    	group.guidances.where("theme_id IN (?)", theme_ids).each do |g|
-	     		if group.dmptemplates == [] || g.dmptemplate_id == project.dmptemplate_id then
-	      		guidances["#{group.name} guidance on #{g.theme.title}"] = g
-	     		end
-	    	end
-	   	end
-	  end
-	  return guidances
- end
-	
+			end
+		end
+		# Get guidance by theme from any guidance groups selected on creation
+		project.guidance_groups.each do |group|
+			if group.dmptemplates.pluck(:id).include?(project.dmptemplate_id) || group.dmptemplates.count == 0 then
+				group.guidances.each do |guidance|
+					guidance.themes.where("id IN (?)", question.theme_ids).each do |theme|
+						guidances = self.add_guidance_to_array(guidances, group, theme, guidance)
+					end
+				end
+			end
+		end
+		# Get guidance by question where guidance group was selected on creation or if group is organisation default
+		question.guidances.each do |guidance|
+			guidance.guidance_groups.each do |group|
+				if (group.organisation == project.organisation && !group.optional_subset) || project.guidance_groups.include?(group) then
+					guidances = self.add_guidance_to_array(guidances, group, nil, guidance)
+				end
+			end
+		end
+		return guidances
+	end
+
+	def add_guidance_to_array(guidance_array, guidance_group, theme, guidance)
+		logger.debug("Adding guidance to array: #{guidance_array}")
+		if guidance_array[guidance_group].nil? then
+			guidance_array[guidance_group] = {}
+		end
+		if theme.nil? then
+			if guidance_array[guidance_group]["no_theme"].nil? then
+				guidance_array[guidance_group]["no_theme"] = []
+			end
+			if !guidance_array[guidance_group]["no_theme"].include?(guidance) then
+				guidance_array[guidance_group]["no_theme"].push(guidance)
+			end
+		else
+			if guidance_array[guidance_group][theme].nil? then
+				guidance_array[guidance_group][theme] = []
+			end
+			if !guidance_array[guidance_group][theme].include?(guidance) then
+				guidance_array[guidance_group][theme].push(guidance)
+			end
+		end
+		logger.debug("Added guidance to array: #{guidance_array}")
+		return guidance_array
+	end
+
 	def warning(option_id)
 		if project.organisation.nil?
 			return nil
@@ -97,19 +105,19 @@ class Plan < ActiveRecord::Base
 			return project.organisation.warning(option_id)
 		end
 	end
-	
+
 	def editable_by(user_id)
 		return project.editable_by(user_id)
 	end
-	
+
 	def readable_by(user_id)
 		return project.readable_by(user_id)
 	end
-	
+
 	def administerable_by(user_id)
 		return project.readable_by(user_id)
 	end
-	
+
 	def status
 		status = {
 			"num_questions" => 0,
@@ -153,7 +161,7 @@ class Plan < ActiveRecord::Base
 		end
 		return status
 	end
-	
+
 	def details
 		details = {
 			"project_title" => project.title,
@@ -181,7 +189,7 @@ class Plan < ActiveRecord::Base
 		end
 		return details
 	end
-	
+
 	def locked(section_id, user_id)
 		plan_section = plan_sections.where("section_id = ? AND user_id != ? AND release_time > ?", section_id, user_id, Time.now).last
 		if plan_section.nil? then
@@ -200,25 +208,25 @@ class Plan < ActiveRecord::Base
 			}
 		end
 	end
-	
+
 	def lock_all_sections(user_id)
 		sections.each do |s|
 			lock_section(s.id, user_id, 1800)
 		end
 	end
-	
+
 	def unlock_all_sections(user_id)
 		plan_sections.where(:user_id => user_id).order("created_at DESC").each do |lock|
 			lock.delete
 		end
 	end
-	
+
 	def delete_recent_locks(user_id)
 		plan_sections.where(:user_id => user_id).each do |lock|
 			lock.delete
 		end
 	end
-	
+
 	def lock_section(section_id, user_id, release_time = 30)
 		status = locked(section_id, user_id)
 		if ! status["locked"] then
@@ -236,13 +244,13 @@ class Plan < ActiveRecord::Base
 			return false
 		end
 	end
-	
+
 	def unlock_section(section_id, user_id)
 		plan_sections.where(:section_id => section_id, :user_id => user_id).order("created_at DESC").each do |lock|
 			lock.delete
 		end
 	end
-	
+
 	def latest_update
 		if answers.any? then
 			last_answered = answers.order("updated_at DESC").first.updated_at
@@ -255,7 +263,7 @@ class Plan < ActiveRecord::Base
 			return updated_at
 		end
 	end
-	
+
 	def section_answers(section_id)
 		section = Section.find(section_id)
  		section_questions = Array.new
