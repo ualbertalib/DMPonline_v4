@@ -1,20 +1,20 @@
 class GuidancesController < ApplicationController
-	
+
   # GET /guidances
   # GET /guidances.json
   def admin_index
     if user_signed_in? && current_user.is_org_admin? then
 	    @guidances = Guidance.all
 	    @guidance_groups = GuidanceGroup.where('organisation_id = ?', current_user.organisation_id )
-	    
-	
+
+
 	    respond_to do |format|
 	      format.html # index.html.erb
 	      format.json { render json: @guidances }
 	    end
     else
 			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
-		end 
+		end
   end
 
   # GET /guidances/1
@@ -22,28 +22,55 @@ class GuidancesController < ApplicationController
   def admin_show
     if user_signed_in? && current_user.is_org_admin? then
 	    @guidance = Guidance.find(params[:id])
-	
+
 	    respond_to do |format|
 	      format.html # show.html.erb
 	      format.json { render json: @guidance }
 	    end
    end
-  end 
+  end
 
   def admin_new
     if user_signed_in? && current_user.is_org_admin? then
 	    @guidance = Guidance.new
-	    @dmptemplates = Dmptemplate.find(:all,:order => 'title ASC')
-			@phases = Phase.find(:all,:order => 'number ASC')
-			@versions = Version.find(:all,:order => 'title ASC')
-		  @sections = Section.find(:all,:order => 'number ASC')
-		  @questions = Question.find(:all,:order => 'number ASC')	
-	
+			@dmptemplates = Dmptemplate.funders_and_own_templates(current_user.organisation_id)
+			@phases = nil
+			@dmptemplates.each do |template|
+				if @phases.nil? then
+					@phases = template.phases.find(:all,:order => 'number ASC')
+				else
+					@phases = @phases + template.phases.find(:all,:order => 'number ASC')
+				end
+			end
+			@versions = nil
+			@phases.each do |phase|
+				if @versions.nil? then
+					@versions = phase.versions.find(:all,:order => 'title ASC')
+				else
+					@versions = @versions + phase.versions.find(:all,:order => 'title ASC')
+				end
+			end
+			@sections = nil
+			@versions.each do |version|
+				if @sections.nil? then
+					@sections = version.sections.find(:all,:order => 'number ASC')
+				else
+					@sections = @sections + version.sections.find(:all,:order => 'number ASC')
+				end
+			end
+			@questions = nil
+			@sections.each do |section|
+				if @questions.nil? then
+					@questions = section.questions.find(:all,:order => 'number ASC')
+				else
+					@questions = @questions + section.questions.find(:all,:order => 'number ASC')
+				end
+			end
 	    respond_to do |format|
-	      format.html 
+	      format.html
 	    end
    	end
-	end 
+	end
 
 	#setup variables for use in the dynamic updating
 	def update_phases
@@ -54,9 +81,9 @@ class GuidancesController < ApplicationController
     @versions = dmptemplate.versions.map{|s| [s.title, s.id]}.insert(0, "Select a version")
     @sections = dmptemplate.sections.map{|s| [s.title, s.id]}.insert(0, "Select a section")
     @questions = dmptemplate.questions.map{|s| [s.text, s.id]}.insert(0, "Select a question")
-    
+
   end
- 
+
  def update_versions
     # updates versions, sections and questions based on phase selected
     phase = Phase.find(params[:phase_id])
@@ -65,7 +92,7 @@ class GuidancesController < ApplicationController
     @sections = phase.sections.map{|s| [s.title, s.id]}.insert(0, "Select a section")
     @questions = phase.questions.map{|s| [s.text, s.id]}.insert(0, "Select a question")
   end
-  
+
   def update_sections
     # updates sections and questions based on version selected
     version = Version.find(params[:version_id])
@@ -73,7 +100,7 @@ class GuidancesController < ApplicationController
     @sections = version.sections.map{|s| [s.title, s.id]}.insert(0, "Select a section")
     @questions = version.questions.map{|s| [s.text, s.id]}.insert(0, "Select a question")
   end
- 
+
   def update_questions
     # updates songs based on artist selected
     section = Section.find(params[:section_id])
@@ -84,16 +111,43 @@ class GuidancesController < ApplicationController
   # GET /guidances/1/edit
   def admin_edit
   	if user_signed_in? && current_user.is_org_admin? then
-      @guidance = Guidance.find(params[:id]) 
-      @dmptemplates = Dmptemplate.find(:all,:order => 'title ASC')
-			@phases = Phase.find(:all,:order => 'title ASC')
-			@versions = Version.find(:all,:order => 'title ASC')
-		  @sections = Section.find(:all,:order => 'title ASC')
-		  @questions = Question.find(:all,:order => 'text ASC')	
-	    
+      @guidance = Guidance.find(params[:id])
+      @dmptemplates = Dmptemplate.funders_and_own_templates(current_user.organisation_id)
+			@phases = nil
+			@dmptemplates.each do |template|
+				if @phases.nil? then
+					@phases = template.phases.find(:all,:order => 'number ASC')
+				else
+					@phases = @phases + template.phases.find(:all,:order => 'number ASC')
+				end
+			end
+			@versions = nil
+			@phases.each do |phase|
+				if @versions.nil? then
+					@versions = phase.versions.find(:all,:order => 'title ASC')
+				else
+					@versions = @versions + phase.versions.find(:all,:order => 'title ASC')
+				end
+			end
+			@sections = nil
+			@versions.each do |version|
+				if @sections.nil? then
+					@sections = version.sections.find(:all,:order => 'number ASC')
+				else
+					@sections = @sections + version.sections.find(:all,:order => 'number ASC')
+				end
+			end
+			@questions = nil
+			@sections.each do |section|
+				if @questions.nil? then
+					@questions = section.questions.find(:all,:order => 'number ASC')
+				else
+					@questions = @questions + section.questions.find(:all,:order => 'number ASC')
+				end
+			end
     else
 			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
-		end 
+		end
   end
 
   # POST /guidances
@@ -101,9 +155,9 @@ class GuidancesController < ApplicationController
   def admin_create
     if user_signed_in? && current_user.is_org_admin? then
 	    @guidance = Guidance.new(params[:guidance])
-	    @guidance.text = params["guidance-text"]   	
+	    @guidance.text = params["guidance-text"]
 	    @guidance.question_id = params["question_id"]
-	
+
 	    respond_to do |format|
 	      if @guidance.save
 	        format.html { redirect_to admin_show_guidance_path(@guidance), notice: I18n.t('org_admin.guidance.created_message') }
@@ -115,7 +169,7 @@ class GuidancesController < ApplicationController
 	    end
     else
 			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
-		end 
+		end
   end
 
   # PUT /guidances/1
@@ -123,9 +177,9 @@ class GuidancesController < ApplicationController
   def admin_update
  		if user_signed_in? && current_user.is_org_admin? then
    		@guidance = Guidance.find(params[:id])
-   		
-			@guidance.text = params["guidance-text"]   
-					
+
+			@guidance.text = params["guidance-text"]
+
 			@guidance.question_id = params["question_id"]
 
 	    respond_to do |format|
@@ -139,7 +193,7 @@ class GuidancesController < ApplicationController
 	    end
     else
 			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
-		end 
+		end
   end
 
 
@@ -149,17 +203,17 @@ class GuidancesController < ApplicationController
   	if user_signed_in? && current_user.is_org_admin? then
 	   	@guidance = Guidance.find(params[:id])
 	    @guidance.destroy
-	
+
 	    respond_to do |format|
 	      format.html { redirect_to admin_index_guidance_path }
 	      format.json { head :no_content }
 	    end
 	 	else
 			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
-		end 
-	
+		end
+
 	end
-	
-  
-  
+
+
+
 end
