@@ -247,7 +247,8 @@ class DmptemplatesController < ApplicationController
 	   		@version = Version.find(params[:id])
 				@version.description = params["version-desc"]
 				@phase = @version.phase
-				if params[:published] == "0" && !@phase.dmptemplate.published? then
+				
+				if @version.published == true && @phase.dmptemplate.published == false then
 					@phase.dmptemplate.published = true
 				end
 
