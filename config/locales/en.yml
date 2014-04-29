@@ -200,6 +200,7 @@ en:
       created: "Created at"
       last_updated: "Last updated"
       published_label: "Published"
+      cannot_publish: "Please ensure you have created at least one phase with a published version."
       title_label: "Title"
       desc_label: "Description"
       actions: "Actions"

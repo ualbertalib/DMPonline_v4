@@ -90,5 +90,14 @@ class Dmptemplate < ActiveRecord::Base
 			return false 	
 		end	
 	end
+	
+	
+	# verify if there are any publish version for the template
+	def has_published_versions?
+		phases.each do |phase|
+			return true if !phase.latest_published_version.nil?
+		end
+		return false 
+	end
 
 end
