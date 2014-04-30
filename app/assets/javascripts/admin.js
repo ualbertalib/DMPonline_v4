@@ -286,7 +286,6 @@ $( document ).ready(function() {
 		 var s_id = $(this).prev(".section_id").val();
 		 $('#add_question_block_div_'+ s_id).show();
 		 $('#add_question_button_div_'+ s_id).hide();
-		
 		 e.preventDefault();
 	 });
 
