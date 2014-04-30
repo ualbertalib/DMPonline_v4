@@ -96,28 +96,30 @@ $( document ).ready(function() {
 	
 	//show or hide divs based on what the user selects from the question format. New question
 	$('.ques_format').on("change", function(e) {
-		var selected_format = $('#new-select-format').val();
-
+		var s_id = $(this).prev(".section_id").val();
+		
+		var selected_format = $('#new-select-format-'+ s_id).val();
+		
 		//text area
 		if (selected_format == 1){
-			$("#new-options").hide();
-			$("#new-default-text-field").hide();
-			$("#new-default-text-area").show();
-			$("#new-default-value-field").show();
+			$("#new-options-"+ s_id).hide();
+			$("#new-default-text-field-"+ s_id).hide();
+			$("#new-default-text-area-"+ s_id).show();
+			$("#new-default-value-field-"+ s_id).show();
 		}
 		//text field
 		else if (selected_format == 2){
-			$("#new-options").hide();
-			$("#new-default-text-field").show();
-			$("#new-default-value-field").show();
-			$("#new-default-text-area").hide();
+			$("#new-options-"+ s_id).hide();
+			$("#new-default-text-field-"+ s_id).show();
+			$("#new-default-value-field-"+ s_id).show();
+			$("#new-default-text-area-"+ s_id).hide();
 		}
 		//checkbox,radio button, dropdown, multi select
 		else if (selected_format == 3 ||selected_format == 4 || selected_format == 5 || selected_format == 6){
-			$("#new-options").show();
-			$("#new-default-text-field").hide();
-			$("#new-default-text-area").hide();
-			$("#new-default-value-field").hide();
+			$("#new-options-"+ s_id).show();
+			$("#new-default-text-field-"+ s_id).hide();
+			$("#new-default-text-area-"+ s_id).hide();
+			$("#new-default-value-field-"+ s_id).hide();
 		}
 		delete selected_format;
 	}).trigger('change');
