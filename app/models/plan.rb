@@ -6,6 +6,7 @@ class Plan < ActiveRecord::Base
 	belongs_to :project
 	has_many :answers
 	has_many :plan_sections
+	has_many :plan_summaries
 	belongs_to :version
 	accepts_nested_attributes_for :project
 	accepts_nested_attributes_for :answers
