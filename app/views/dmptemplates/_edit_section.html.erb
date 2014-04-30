@@ -91,7 +91,7 @@
 					<div id="add_question_button_div_<%= section.id%>">
 						<div class="div_left">
 							<%= hidden_field_tag :section_id, section.id, :class => "section_id" %>
-							<%= link_to t('org_admin.add_question_label'), '#', :id => 'add_question_button', :class => 'btn btn-primary' %>
+							<%= link_to t('org_admin.add_question_label'), '#', :class => 'btn btn-primary add_question_button' %>
 						</div>
 					</div>
 				<%end%>
