@@ -83,13 +83,14 @@
 						<div class="two-column-clear question-divider"></div>
 					<%end%>
 					<!-- add question block -->
-					<div id="add_question_block_div" style="display: none">
+					<div id="add_question_block_div_<%= section.id%>" style="display: none">
 						<%= render :partial => 'add_question', locals: {section: section} %>
 					</div>
 
 					<!-- add question button-->
-					<div id="add_question_button_div">
+					<div id="add_question_button_div_<%= section.id%>">
 						<div class="div_left">
+							<%= hidden_field_tag :section_id, section.id, :class => "section_id" %>
 							<%= link_to t('org_admin.add_question_label'), '#', :id => 'add_question_button', :class => 'btn btn-primary' %>
 						</div>
 					</div>

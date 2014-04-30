@@ -283,8 +283,9 @@ $( document ).ready(function() {
 
 	 //action for adding a new question
 	 $('#add_question_button').click(function(e){
-		 $('#add_question_block_div').show();
-		 $('#add_question_button_div').hide();
+		 var s_id = $(this).prev(".section_id").val();
+		 $('#add_question_block_div_'+ q_id).show();
+		 $('#add_question_button_div_'+ q_id).hide();
 		 e.preventDefault();
 	 });
 
