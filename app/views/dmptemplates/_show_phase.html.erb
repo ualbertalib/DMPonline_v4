@@ -10,9 +10,13 @@
 		</div>
 	<%end%>
 </h3>
-<div class="div_left">
-	<%= raw t('org_admin.templates.phase_details_text_html')%>
-</div>
+
+<%if @phase.dmptemplate.org_type != t("helpers.org_type.funder") then%>
+	<div class="div_left">
+		<%= raw t('org_admin.templates.phase_details_text_html')%>
+	</div>	
+<%end%>	
+
 <br />
 <div class="div_clear"></div>
 

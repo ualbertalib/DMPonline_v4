@@ -7,6 +7,7 @@
 		</div>
 	</h3>
 <%end%>		
+<br/>
 <table class="dmp_details_table">
 	<tr>
 		<td class="first_template"><%= t('org_admin.templates.title_label') %></td>
@@ -23,7 +24,12 @@
 	</tr>
 	<tr>
 		<td class="first_template"><%= t('org_admin.templates.published_label') %></td>
-		<td><%= dmptemplate.published %></td>
+		<td><%if dmptemplate.published || dmptemplate.has_published_versions? then%>
+				<%= dmptemplate.published %>
+			<%else%>
+				<%= t('org_admin.templates.cannot_publish')%>
+			<%end%>		
+		</td>
 	</tr>
 	<tr>
 		<td class="first_template"><%= t('org_admin.templates.created') %></td>
