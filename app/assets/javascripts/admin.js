@@ -282,9 +282,11 @@ $( document ).ready(function() {
 	 });
 
 	 //action for adding a new question
-	 $('#add_question_button').click(function(e){
-		 $('#add_question_block_div').show();
-		 $('#add_question_button_div').hide();
+	 $('.add_question_button').click(function(e){
+		 var s_id = $(this).prev(".section_id").val();
+		 $('#add_question_block_div_'+ s_id).show();
+		 $('#add_question_button_div_'+ s_id).hide();
+		 alert('here');
 		 e.preventDefault();
 	 });
 
@@ -299,7 +301,7 @@ $( document ).ready(function() {
 	 $('#add_section_button').click(function(e){
 		 $('#add_section_block_div').show();
 		 $('#add_section_button_div').hide();
-		 e.preventDefault();
+		 e.preventDefault();lo
 	 });
 
 
