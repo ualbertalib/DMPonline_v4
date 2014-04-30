@@ -361,8 +361,8 @@ class DmptemplatesController < ApplicationController
 	def admin_createquestion
     if user_signed_in? && current_user.is_org_admin? then
 	 		@question = Question.new(params[:question])
-	    @question.guidance = params["new-question-guidance"]
-	    @question.default_value = params["new-question-default-value"]
+	    @question.guidance = params["new-question-guidance-#{params[:section_id]}"]
+	    @question.default_value = params["new-question-default-value-#{params[:section_id]}"]
 
 	    respond_to do |format|
 	      if @question.save
