@@ -4,7 +4,6 @@ class Question < ActiveRecord::Base
   has_many :answers, :dependent => :destroy
   has_many :options, :dependent => :destroy
   has_many :suggested_answers, :dependent => :destroy
-  has_many :plan_summaries
   has_many :guidances
 
   has_and_belongs_to_many :themes

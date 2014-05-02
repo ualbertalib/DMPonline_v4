@@ -3,7 +3,6 @@ class Section < ActiveRecord::Base
   #associations between tables
   belongs_to :version
   belongs_to :organisation
-  has_many :plan_summaries
   has_many :questions, :dependent => :destroy
   has_many :plan_sections, :dependent => :destroy
 

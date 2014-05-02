@@ -120,6 +120,7 @@ class Plan < ActiveRecord::Base
 	end
 
 	def status
+		return plan_summaries
 		status = {
 			"num_questions" => 0,
 			"num_answers" => 0,

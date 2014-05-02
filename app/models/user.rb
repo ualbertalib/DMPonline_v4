@@ -14,8 +14,6 @@ class User < ActiveRecord::Base
     has_many :project_groups, :dependent => :destroy
     has_many :organisations , through: :user_org_roles
     has_many :user_role_types, through: :user_org_roles
-    has_many :plan_summary_locks, :class_name => 'PlanSummary', :foreign_key => 'locked_by'
-    has_many :plan_summary_answers, :class_name => 'PlanSummary', :foreign_key => 'answered_by'
 
     has_and_belongs_to_many :roles, :join_table => :users_roles
     has_many :plan_sections
