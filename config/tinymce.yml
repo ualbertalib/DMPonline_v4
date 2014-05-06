@@ -1,12 +1,7 @@
 statusbar: false
 menubar: false
-toolbar:
-  - bold
-  - italic
-  - link
-  - bullist
-  - numlist
-  - table
+toolbar1: bold italic underline | link unlink
+toolbar2: bullist numlist | table
 plugins:
   - table
   - autoresize
