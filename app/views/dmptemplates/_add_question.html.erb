@@ -31,8 +31,8 @@
 				<td><%= f.hidden_field :section_id, :value => section.id, :class => "section_id" %>
 					<div id="new-ques-format" class="ques_format">
 						<div class="div_left_icon">
-								<%= f.select :question_format_id, 
-								options_from_collection_for_select(QuestionFormat.find(:all, :order => 'title ASC'),:id, :title), 
+							<%= f.select :question_format_id, 
+								options_from_collection_for_select(QuestionFormat.find(:all, :order => 'title ASC'),:id, :title, QuestionFormat.find_by_title(t('helpers.text_area')).id), 
 								{},	:id => "new-select-format-#{section.id}"%>
 						</div>
 						<div class="div_right_icon">
