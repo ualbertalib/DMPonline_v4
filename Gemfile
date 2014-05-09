@@ -73,3 +73,7 @@ group :development, :test do
   gem 'rspec'
   gem 'selenium-webdriver'
 end
+
+group :test do
+  gem 'ci_reporter'
+end
