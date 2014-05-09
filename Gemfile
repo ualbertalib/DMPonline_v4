@@ -70,5 +70,6 @@ gem 'feedzirra', '0.5.0'
 # gem 'debugger'
 
 group :development, :test do
-  gem 'rspec-rails', ">=2.0.0.beta"
+  gem 'rspec'
+  gem 'selenium-webdriver'
 end
