@@ -19,7 +19,6 @@
 <!-- body -->
 <div class="dmp_details_body">
 	<div class="dmp_details">
-		<br/>
 		<% if @dmptemplate.org_type != t("helpers.org_type.funder") then %>
 			<div id="edit_template_div" style="display: none">
 				<%= render :partial => "edit_template", locals: {dmptemplate: @dmptemplate}%>	
