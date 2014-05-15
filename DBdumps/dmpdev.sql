@@ -3737,7 +3737,7 @@ LOCK TABLES `user_org_roles` WRITE;
 
 INSERT INTO `user_org_roles` (`id`, `user_id`, `organisation_id`, `user_role_type_id`, `created_at`, `updated_at`)
 VALUES
-	(28,6,1071570821,NULL,'2014-04-23 16:17:38','2014-04-23 16:17:38');
+	(28,5,1071570821,NULL,'2014-04-23 16:17:38','2014-04-23 16:17:38');
 
 /*!40000 ALTER TABLE `user_org_roles` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -3867,10 +3867,7 @@ LOCK TABLES `users` WRITE;
 
 INSERT INTO `users` (`id`, `firstname`, `surname`, `email`, `password`, `orcid_id`, `shibboleth_id`, `user_type_id`, `user_status_id`, `login_count`, `last_login`, `created_at`, `updated_at`, `encrypted_password`, `reset_password_token`, `reset_password_sent_at`, `remember_created_at`, `sign_in_count`, `current_sign_in_at`, `last_sign_in_at`, `current_sign_in_ip`, `last_sign_in_ip`, `confirmation_token`, `confirmed_at`, `confirmation_sent_at`, `invitation_token`, `invitation_created_at`, `invitation_sent_at`, `invitation_accepted_at`, `invitation_limit`, `invited_by_id`, `invited_by_type`, `other_organisation`, `dmponline3`, `accept_terms`)
 VALUES
-	(5,'Test','User','test@test.com',NULL,'',NULL,NULL,NULL,NULL,NULL,'2014-04-17 05:07:20','2014-04-24 15:11:06','$2a$10$bhNRO/Pd/m5uKvKbMeK1rODdSnMUbQJD6WgV.ksaZkk2VRos2nSny',NULL,NULL,NULL,10,'2014-04-24 15:11:06','2014-04-23 17:40:27','127.0.0.1','127.0.0.1',NULL,'2014-04-17 05:08:11','2014-04-17 05:07:20',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'',NULL,NULL),
-	(6,NULL,NULL,'dale.storie@ualberta.ca',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2014-04-23 16:17:37','2014-04-23 16:18:51','$2a$10$U170tJveikpS.aEvHSmHP.kL1QpO1RO5D0zztVO5/BNtuZ5DVINQ2',NULL,NULL,NULL,1,'2014-04-23 16:18:51','2014-04-23 16:18:51','127.0.0.1','127.0.0.1',NULL,'2014-04-23 16:18:51','2014-04-23 16:17:37',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'',NULL,1),
-	(7,NULL,NULL,'trish.chatterley@ualberta.ca',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2014-04-24 15:15:54','2014-04-24 15:15:54','',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'tXx24RpyDA8dYKMEKXW4','2014-04-24 15:15:54','2014-04-24 15:15:54',NULL,NULL,NULL,NULL,NULL,NULL,NULL),
-	(8,NULL,NULL,'dale.storie@gmail.com',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2014-04-24 15:17:15','2014-04-24 15:17:15','',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'qzLbrRY4acZMEo1nTfW6','2014-04-24 15:17:15','2014-04-24 15:17:15',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+       (5,NULL,NULL,'dittest@ualberta.ca',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2014-05-13 17:17:58','2014-05-13 17:20:12','$2a$10$q7XUQxvbFb1QcYhrngqcd..sM8.DsviZUxUBwDpC7ZmuohHrkOeZm',NULL,NULL,NULL,1,'2014-05-13 17:20:12','2014-05-13 17:20:12','192.168.33.1','192.168.33.1',NULL,'2014-05-13 17:20:09','2014-05-13 17:17:58',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'',NULL,1);
 
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
