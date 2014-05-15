@@ -307,6 +307,7 @@ en:
     multi_select_box: "Multi select box"
     
     error: "Error!"
+    comment: "Comment"
     send: "Send"
     yes: "Yes"
     no: "No"
@@ -317,6 +318,7 @@ en:
     view: "View"
     desc: "Description"
     save: "Save"
+    preview: "Preview"
     saving: "Saving..."
     loading: "Loading..."
     submit:

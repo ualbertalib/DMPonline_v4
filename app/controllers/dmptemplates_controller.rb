@@ -164,6 +164,26 @@ class DmptemplatesController < ApplicationController
 			end
 		end
 	end
+	
+	#preview a phase
+	def admin_previewphase
+		if user_signed_in? && current_user.is_org_admin? then
+			
+			@phase = Phase.find(params[:id])
+			
+			#check for the most recent published version, if none is available then return the most recent one
+			versions = @phase.versions.where('published = ?', true).order('updated_at DESC')
+			if versions.any?() then
+				@version = versions.first
+			else
+				@version = @phase.versions.order('updated_at DESC').first
+			end
+				
+			respond_to do |format|
+				format.html
+			end
+		end	
+	end
 
 
 	#add a new phase to a template

@@ -59,7 +59,7 @@ body.dmponline {
   font-size: @font_size;
   margin: 0 15% 0 15%;
   line-height: 24px;
-  min-width: 540px;
+  min-width: 755px;
   padding:0 0 0 0; 
   
 }
@@ -106,6 +106,12 @@ h4{
 p{
   font-size: @font_size; 
   font-family: @text_font;
+}
+
+label.text_colour{
+  font-size: @font_size; 
+  font-family: @text_font;
+  color: @orange_colour;
 }
 
 div.popover-content div.tooltip_box p {
@@ -763,7 +769,11 @@ table.dmp_details_table .phase .text_area{
 }
 
 .ques_format_option{
-  width: 300px;  
+  width: 99%;  
+}
+
+.ques_format div select{
+  width:89%;
 }
 
 .section_desc{
@@ -778,18 +788,28 @@ form.edit_section{
 
 table.options_table{
   width: 100%;
-  tr th{
-    font-weight:normal;
-    float:left;
-    padding: 2px;
-    text-align:left;
-    border-bottom: 1px solid @orange_colour;
-  } 
-  tr th.small{
-    width: 15%;
+  tr {
+    width: 100%;
+    th{
+      font-weight:normal;
+      
+      float:left;
+      padding: 2px;
+      text-align:left;
+      border-bottom: 1px solid @orange_colour;
+    } 
   }
+  tr th.small{
+    width: 15.5%;
+   
+    a{
+      float:right;
+       padding-left:2px;
+    }
+  }
+  
   tr th.medium{
-    width: 48%;
+    width: 46.5%;
   }
   tr td.small{
     width:15%;
@@ -798,8 +818,8 @@ table.options_table{
     padding: 2px;
   }
   tr td.medium{
-    width:48%;
-    min-width:48%;
+    width:47%;
+    min-width:47%;
     float:left;
     padding: 2px;
   }
@@ -1046,6 +1066,11 @@ li.choice label input{
   padding:0 2px 10px 0;
 }
 
+div.admin_left_smaller{
+  width:48%;
+  
+}
+
 .div_right{
   float:right;
   width:25%;
@@ -1056,6 +1081,10 @@ li.choice label input{
     margin:0 0 0 4px;
   }
 }
+
+div.admin_right_bigger{
+  width:51%;
+  }
 
 .move_2_right{
   float:right;
@@ -1283,13 +1312,13 @@ div.accordion .make_div_smaller{
 
 .div_left_icon{
   float:left;
-  width:74%;
+  width:88%;
   padding:0 2px 10px 0;
 }
 
 .div_right_icon{
   float:right;
-  width:24%;
+  width:10%;
   padding:3px 2px 10px 0;
 }
 
@@ -1537,9 +1566,13 @@ div {
   margin-left: 0px;
 }
 
-.mce-container iframe{
+.mce-container iframe html{
   max-height:150px;
+  overflow-x:hidden !important; 
+  overflow-y:scroll !important;
 }
+
+
 
 /* css for sorting tables */
 

@@ -74,6 +74,7 @@ DMPonline4::Application.routes.draw do
 			get 'admin_new'
 			get 'admin_addphase'
 			get 'admin_phase'
+			get 'admin_previewphase'
 			get 'admin_cloneversion'
 			delete 'admin_destroy' 
 			delete 'admin_destroyversion'

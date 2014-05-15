@@ -35,5 +35,25 @@ class Phase < ActiveRecord::Base
 		return nil
 	end
 	
+	#verify if a phase has a published version or a version with one or more sections
+	def has_sections
+		versions = self.versions.where('published = ?', true).order('updated_at DESC')
+		if versions.any? then
+			version = versions.first
+			if !version.sections.empty? then
+				has_section = true
+			else
+				has_section = false
+			end	
+		else
+			version = self.versions.order('updated_at DESC').first 
+			if !version.sections.empty? then
+				has_section = true
+			else
+				has_section = false
+			end	
+		end
+		return has_section
+	end	
 	
 end
