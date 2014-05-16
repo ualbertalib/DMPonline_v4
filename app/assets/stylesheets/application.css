@@ -12,5 +12,5 @@
  *= require_self
  *= require bootstrap.css
  *= require bootstrap_and_overrides.css.less
- *= select2.css
+ *= require select2.css
  */
