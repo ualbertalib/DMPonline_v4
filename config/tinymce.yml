@@ -1,11 +1,10 @@
 statusbar: false
 menubar: false
-toolbar1: bold italic underline | link unlink
-toolbar2: bullist numlist | table
+toolbar: bold italic | bullist numlist | link | table
 plugins:
   - table
   - autoresize
   - link
 target_list: false 
 autoresize_min_height: 130
-extended_valid_elements : "iframe[max-height= 400px|tooltip] , a[href|target=_blank]"
+extended_valid_elements : "iframe[tooltip] , a[href|target=_blank]"

@@ -2,11 +2,15 @@
 
 <div class="div_clear"></div>
 	
-<div class="div_left">
+<div class="div_left admin_left_smaller">
 	<p><%= raw phase.description %></p>
 </div>	 
-<div class="div_right">
+<div class="div_right admin_right_bigger">
 	<!--delete a phase button. only displays when template not published-->
+	
+	<%if phase.has_sections == true then %>
+		<%= link_to t("helpers.preview"), admin_previewphase_dmptemplate_path(phase), :class => 'btn btn-primary'%>
+	<%end%>	
 	<% if phase.latest_published_version == nil then%>
 		<%= link_to t("helpers.submit.delete"), admin_destroyphase_dmptemplate_path(:phase_id => phase.id),
 		:confirm => t("org_admin.templates.phase_delete_message", :phase_title => phase.title ), :method => :delete, :class => "btn btn-primary"%>
