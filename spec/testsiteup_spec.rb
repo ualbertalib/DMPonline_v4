@@ -6,8 +6,9 @@ include RSpec::Expectations
 describe "TestsiteupSpec" do
 
   before(:each) do
+    @properties = YAML.load_file('properties.yml')
     @driver = Selenium::WebDriver.for :firefox
-    @base_url = "http://leeds.library.ualberta.ca/"
+    @base_url = @properties['base_url']
     @accept_next_alert = true
     @driver.manage.timeouts.implicit_wait = 30
     @verification_errors = []
