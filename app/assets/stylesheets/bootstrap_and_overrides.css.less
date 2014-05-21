@@ -73,7 +73,7 @@ html {
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#d1d5d4', endColorstr='#f9f9f9') ;/*For IE7-8-9*/
   /*For IE7*/ 
   *height: 1%;
-   min-width: 755px;
+   min-width: 800px;
 }
 
 body.dmponline { 
@@ -674,14 +674,17 @@ table.dmp_table tbody td{
   padding: 4px 4px 4px 15px;  
 }
 table.dmp_table tbody td.dmp_td_big, table.dmp_table thead th.dmp_th_big{
-  min-width: 32%;
+  width: 32%;
+  min-width: 180px;
 }
 table.dmp_table tbody td.dmp_td_medium, table.dmp_table thead th.dmp_th_medium{
-  min-width: 24%;
+  width: 24%;
+  min-width: 93px;
 }
 table.dmp_table tbody td.dmp_td_small, table.dmp_table thead th.dmp_th_small{
-  //min-width: 18%;
-  padding-right: 20px;
+  width: 14%;
+  min-width: 10px; 
+  //padding-right: 20px;
 }
 
 table.dmp_table tbody th.dmp_th_border{
@@ -694,18 +697,16 @@ table.dmp_table tbody th.dmp_th_border{
 
 table.dmp_table tbody th.dmp_th_border p{
    padding: 0px 0px 0px 5px;
-  
 }
 
 table.dmp_table tbody td.dmp_td_border{
   border-bottom: 1px solid @grey_very_light_colour; 
   border-left: 1px solid @grey_very_light_colour;
-  
 }
 
 table.dmp_table a.dmp_table_link, table.dmp_table a.dmp_table_link:active, table.dmp_table a.dmp_table_link:visited{
   text-decoration: none !important;
-  padding: 0px 10px 0px 0px;
+  padding: 0px 5px 0px 0px;
 }
 table.dmp_table a.dmp_table_link:hover{
   text-decoration: underline !important;
