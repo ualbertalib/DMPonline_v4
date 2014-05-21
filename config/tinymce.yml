@@ -3,13 +3,17 @@ menubar: false
 toolbar:
   - bold
   - italic
-  - formatselect
+  - link
   - bullist
   - numlist
   - table
 plugins:
   - table
+  - link
   #- autoresize
 height: 300
+target_list: false 
 #autoresize_min_height: 50
 #autoresize_max_height: 500
+#autoresize_min_height: 130
+extended_valid_elements : "a[href|target=_blank]"

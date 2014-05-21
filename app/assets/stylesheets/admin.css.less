@@ -675,7 +675,104 @@ table.dmp_table a.dmp_table_link:hover{
   color: @orange_colour;
 }
 
+/*****************************/
+/*** phase creation/update ***/
+/*****************************/
 
+div.phase_details{
+  background-color: @orange_colour;
+  border-bottom: 1px solid @orange_colour;
+  min-height: 50px;
+  border-radius: 1px;
+  margin-bottom: 5px;
+  box-shadow: 7px 7px 2px 0px rgba(168, 168, 168, 0.5);
+  -moz-box-shadow: 7px 7px 2px 0px rgba(168, 168, 168, 0.5);
+  -webkit-box-shadow: 7px 7px 2px 0px rgba(168, 168, 168, 0.5);
+  padding-top: 8px;
+
+  div.phase_details_text{
+    color: @white_colour;
+    float:left;
+    min-height: 20px;
+    line-height: 24px;
+    font-weight: bold;
+    padding: 0 0 8px 15px; 
+        
+  }
+  
+  div.phase_details_body{
+    background-color: @white_colour;
+    padding:10px 0 25px 0;
+    margin: 0 1px 0 1px;
+  }
+}
+
+
+.dmp_details_table td.first_template{
+  border-right: 1px solid @orange_colour;
+  padding-right: 15px;
+  vertical-align:top;
+  text-align: right;
+    min-width: 30px;
+}
+
+table.dmp_details_table .phase .text_area{
+  width: 100%;
+} 
+
+.number_field{
+  width: 30px; 
+}
+.number_field .option{
+  padding:2px;
+}
+
+.small_text_field{
+  width: 80%;
+}
+
+.ques_format_option{
+  width: 300px;  
+}
+
+table.options_table{
+  width: 100%;
+  tr th{
+    font-weight:normal;
+    float:left;
+    padding: 2px;
+    text-align:left;
+    border-bottom: 1px solid @orange_colour;
+  } 
+  tr th.small{
+    width: 15%;
+  }
+  tr th.medium{
+    width: 48%;
+  }
+  tr td.small{
+    width:15%;
+    min-width: 15%;
+    float:left;
+    padding: 2px;
+  }
+  tr td.medium{
+    width:48%;
+    min-width:48%;
+    float:left;
+    padding: 2px;
+  }
+}
+
+.border_bottom{
+  border-bottom: 1px solid @orange_colour;
+  width: 75%;
+  margin-bottom: 6px;
+}
+
+.add_space{
+  height: 10px;
+}
 
 /***  Project creation ***/
 .dropdowns{
@@ -1170,7 +1267,7 @@ span.suggested-answer-intro{
 }
 
 .question-divider {
-	border-bottom-color: rgb(244, 151, 0);
+	border-bottom-color: @orange_colour;
 	border-bottom-style: solid;
 	border-bottom-width: 1px;
 	padding-bottom: 5px;
@@ -1324,6 +1421,10 @@ div {
 .mce-item-table th {
 	font-weight: normal;
 	background-color: @orange_colour;
+}
+
+.mce-foot, .mce-tinymce {
+  margin-left: 0px;
 }
 
 

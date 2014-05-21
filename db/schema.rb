@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140210121753) do
+ActiveRecord::Schema.define(:version => 20140331162130) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -72,6 +72,11 @@ ActiveRecord::Schema.define(:version => 20140210121753) do
     t.datetime "updated_at",      :null => false
     t.string   "locale"
     t.boolean  "is_default"
+  end
+
+  create_table "dmptemplates_guidance_groups", :id => false, :force => true do |t|
+    t.integer "dmptemplate_id"
+    t.integer "guidance_group_id"
   end
 
   create_table "exported_plans", :force => true do |t|
@@ -136,6 +141,7 @@ ActiveRecord::Schema.define(:version => 20140210121753) do
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
     t.integer  "dmptemplate_id"
+    t.integer  "question_id"
   end
 
   create_table "option_warnings", :force => true do |t|
@@ -261,6 +267,13 @@ ActiveRecord::Schema.define(:version => 20140210121753) do
 
   add_index "projects", ["slug"], :name => "index_projects_on_slug", :unique => true
 
+  create_table "question_formats", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "questions", :force => true do |t|
     t.text     "text"
     t.string   "question_type"
@@ -278,6 +291,7 @@ ActiveRecord::Schema.define(:version => 20140210121753) do
     t.boolean  "multiple_permitted"
     t.boolean  "is_expanded"
     t.boolean  "is_text_field"
+    t.integer  "question_format_id"
   end
 
   create_table "questions_themes", :id => false, :force => true do |t|
@@ -329,6 +343,11 @@ ActiveRecord::Schema.define(:version => 20140210121753) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.string   "locale"
+  end
+
+  create_table "themes_in_guidance", :id => false, :force => true do |t|
+    t.integer "theme_id"
+    t.integer "guidance_id"
   end
 
   create_table "user_org_roles", :force => true do |t|

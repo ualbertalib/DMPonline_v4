@@ -12,7 +12,9 @@ class ProjectsController < ApplicationController
 				format.json { render json: @projects }
 			end
 		else
-			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
+			respond_to do |format|
+				format.html { redirect_to edit_user_registration_path }
+			end
 		end
 	end
 
@@ -53,29 +55,50 @@ class ProjectsController < ApplicationController
 			  format.json { render json: @project }
 			end
 		else
-			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
+			respond_to do |format|
+				format.html { redirect_to edit_user_registration_path }
+			end
 		end
 	end
 
 	# GET /projects/1/edit
+     # Should this be removed?
 	def edit
 		@project = Project.find(params[:id])
-		unless user_signed_in? && @project.editable_by(current_user.id) then
-			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
+		if !user_signed_in? then
+               respond_to do |format|
+				format.html { redirect_to edit_user_registration_path }
+			end
+		elsif !@project.editable_by(current_user.id) then
+			respond_to do |format|
+				format.html { redirect_to projects_url, notice: "This account does not have access to that plan." }
+			end
 		end
 	end
-	
+
 	def share
 		@project = Project.find(params[:id])
-		unless user_signed_in? && @project.administerable_by(current_user.id) then
-			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
+		if !user_signed_in? then
+               respond_to do |format|
+				format.html { redirect_to edit_user_registration_path }
+			end
+		elsif !@project.editable_by(current_user.id) then
+			respond_to do |format|
+				format.html { redirect_to projects_url, notice: "This account does not have access to that plan." }
+			end
 		end
 	end
-	
+
 	def export
 		@project = Project.find(params[:id])
-		unless user_signed_in? then
-			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
+		if !user_signed_in? then
+               respond_to do |format|
+				format.html { redirect_to edit_user_registration_path }
+			end
+		elsif !@project.editable_by(current_user.id) then
+			respond_to do |format|
+				format.html { redirect_to projects_url, notice: "This account does not have access to that plan." }
+			end
 		end
 	end
 
@@ -147,7 +170,7 @@ class ProjectsController < ApplicationController
 			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
 		end
 	end
-	
+
 	# GET /projects/possible_templates.json
 	def possible_templates
 		if !params[:funder].nil? && params[:funder] != "" && params[:funder] != "undefined" then
@@ -180,7 +203,7 @@ class ProjectsController < ApplicationController
 			format.json { render json: templates.to_json }
 		end
 	end
-	
+
 	def possible_guidance
 		if !params[:template].nil? && params[:template] != "" && params[:template] != "undefined" then
 			template = Dmptemplate.find(params[:template])
@@ -194,8 +217,8 @@ class ProjectsController < ApplicationController
 		end
 		excluded_orgs = orgs_of_type(t('helpers.org_type.funder')) + orgs_of_type(t('helpers.org_type.institution')) + Organisation.orgs_with_parent_of_type(t('helpers.org_type.institution'))
 		guidance_groups = {}
-		ggs = GuidanceGroup.guidance_groups_excluding(excluded_orgs) 
-	
+		ggs = GuidanceGroup.guidance_groups_excluding(excluded_orgs)
+
 		ggs.each do |gg|
 			guidance_groups[gg.id] = gg.name
 		end
@@ -219,9 +242,9 @@ class ProjectsController < ApplicationController
 			format.json { render json: guidance_groups.to_json }
 		end
 	end
-	
+
 	private
-	
+
 	def orgs_of_type(org_type_name, published_templates = false)
 		org_type = OrganisationType.find_by_name(org_type_name)
 		all_such_orgs = org_type.organisations

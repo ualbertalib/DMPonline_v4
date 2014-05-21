@@ -68,3 +68,13 @@ gem 'feedzirra', '0.5.0'
 
 # To use debugger
 # gem 'debugger'
+
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'rspec'
+  gem 'selenium-webdriver'
+end
+
+group :test do
+  gem 'ci_reporter'
+end

@@ -93,4 +93,6 @@ class Organisation < ActiveRecord::Base
 	def published_templates
 		return dmptemplates.find_all_by_published(1)
 	end
+
+	
 end

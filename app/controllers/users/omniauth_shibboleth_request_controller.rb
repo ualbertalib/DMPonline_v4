@@ -2,7 +2,7 @@ class Users::OmniauthShibbolethRequestController < ApplicationController
   before_filter :authenticate_user!, :only => :associate
 
   def redirect
-  	unless current_user.nil?
+  	if !current_user.nil? && !current_user.organisation.nil?
     	idp = params[:idp] || current_user.organisation.wayfless_entity
     else
     	idp = params[:idp]
