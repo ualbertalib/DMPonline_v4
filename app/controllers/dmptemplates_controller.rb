@@ -13,9 +13,7 @@ class DmptemplatesController < ApplicationController
      end
      @dmptemplates = org_templates
     	
-    	    
-	
-	    respond_to do |format|
+     respond_to do |format|
 	      format.html # index.html.erb
 	      format.json { render json: @dmptemplates_own }
 	    end
@@ -38,6 +36,67 @@ class DmptemplatesController < ApplicationController
 			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
 		end 
   end
+
+	#show a phase	
+	def admin_showphase
+		if user_signed_in? && current_user.is_org_admin? then
+			@phase = Phase.find(params[:id])
+		
+		 	respond_to do |format|
+	      format.html 
+	    	format.json { render json: @phase }
+	    end
+    else
+			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
+		end 
+	end
+	
+	
+	#add a new phase to a template
+	def admin_addphase
+		if user_signed_in? && current_user.is_org_admin? then
+			@phase = Phase.new
+			
+			respond_to do |format|
+	      format.html 
+	    	format.json { render json: @phase }
+	    end
+		end
+	end
+	
+	
+	#edit a phase of the template
+	def  admin_editphase
+		if user_signed_in? && current_user.is_org_admin? then
+			@phase = Phase.find(params[:id])
+			
+			
+						
+			respond_to do |format|
+				format.html
+				format.json {render json: @phase}
+			end
+		end	
+	end
+	
+	
+	#update a phase of a template
+	def admin_updatephase
+		if user_signed_in? && current_user.is_org_admin? then
+   		@phase = Phase.find(params[:id])
+   			
+
+	    respond_to do |format|
+	      if @phase.update_attributes(params[:phase])
+	        format.html { redirect_to admin_showphase_dmptemplate_path(params[:phase]), notice: I18n.t('org_admin.templates.updated_message') }
+	        format.json { head :no_content }
+	      else
+	        format.html { render action: "edit" }
+	        format.json { render json: @dmptemplate.errors, status: :unprocessable_entity }
+	      end
+	    end
+		end
+	end
 
   # GET /dmptemplates/new
   # GET /dmptemplates/new.json

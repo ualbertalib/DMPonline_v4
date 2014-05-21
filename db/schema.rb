@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140218113637) do
+ActiveRecord::Schema.define(:version => 20140331162130) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -267,6 +267,13 @@ ActiveRecord::Schema.define(:version => 20140218113637) do
 
   add_index "projects", ["slug"], :name => "index_projects_on_slug", :unique => true
 
+  create_table "question_formats", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "questions", :force => true do |t|
     t.text     "text"
     t.string   "question_type"
@@ -284,6 +291,7 @@ ActiveRecord::Schema.define(:version => 20140218113637) do
     t.boolean  "multiple_permitted"
     t.boolean  "is_expanded"
     t.boolean  "is_text_field"
+    t.integer  "question_format_id"
   end
 
   create_table "questions_themes", :id => false, :force => true do |t|

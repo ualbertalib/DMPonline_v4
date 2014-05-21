@@ -39,6 +39,7 @@ class Plan < ActiveRecord::Base
 		return sections.uniq.sort_by &:number
 	end
 	
+	#Collect guidance to be displayed with a question 
 	def guidance_for_question(question)
 	  # pulls together guidance from various sources for question
 	  guidances = {}
