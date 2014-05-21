@@ -53,32 +53,6 @@
 @red_colour: #e3000f;
 @white_colour: #ffffff;
   
-body.dmponline { 
-  font-family: @text_font;
-  color: @font_colour;
-  font-size: @font_size;
-  margin: 0 15% 0 15%;
-  line-height: 24px;
-  min-width: 755px;
-  padding:0 0 0 0; 
-  
-}
-
-.dmponline {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, @background_darker_colour), color-stop(1, background_lighter_colour));
-  background-image: linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
-  background-image: -moz-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
-  background-image: -webkit-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
-  background-image: -o-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
-  background-image: -ms-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
-  background-image: linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
-  background-repeat:repeat-y;
-  -ms-filter: 'progid:DXImageTransform.Microsoft.gradient(startColorstr='#d1d5d4', endColorstr='#f9f9f9', gradientType='0')';
-  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#d1d5d4', endColorstr='#f9f9f9') ;/*For IE7-8-9*/
-  *height: 1%;/*For IE7*/ 
-  
-   
-  }
 
 h1, h2, h3, h4 {
   font-family: @header_font;
@@ -86,38 +60,11 @@ h1, h2, h3, h4 {
   font-weight: lighter;
   font-style: normal;
 }
-h1{
-  font-size: 40px;  
-  line-height:53px;
-}
-
-h2{
-  font-size: 32px;  
-}
-
-h3{
-  font-size: 26px;  
-}
-
-h4{
-  font-size: @font_size;  
-}
-
-p{
-  font-size: @font_size; 
-  font-family: @text_font;
-}
 
 label.text_colour{
   font-size: @font_size; 
   font-family: @text_font;
   color: @orange_colour;
-}
-
-div.popover-content div.tooltip_box p {
-  font-size: @font_size; 
-  font-family: @text_font;
-  margin-bottom: 0px;
 }
 
 p a:hover, a.a-orange:hover, div.signIn a:hover, td a:hover, .question-guidance .accordion-inner a:hover, div a:hover{
