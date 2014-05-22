@@ -1,3 +1,5 @@
+require "yaml"
+
 module Before
 
   def setup
