@@ -18,6 +18,7 @@ def create_a_new_user
     @driver.find_element(:link, "Sign up").click
     @driver.find_element(:xpath, "(//input[@id='user_email'])[2]").clear
     @driver.find_element(:xpath, "(//input[@id='user_email'])[2]").send_keys @properties['dmp_user']['name'] 
+    Selenium::WebDriver::Support::Select.new(@driver.find_element(:id, "user_organisation_id")).select_by(:text, "University of Alberta")
     @driver.find_element(:xpath, "(//input[@id='user_password'])[2]").clear
     @driver.find_element(:xpath, "(//input[@id='user_password'])[2]").send_keys @properties['dmp_user']['password'] 
     @driver.find_element(:id, "user_password_confirmation").clear
