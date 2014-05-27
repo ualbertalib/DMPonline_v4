@@ -3,9 +3,12 @@ Role.create!([
   {name: "user"},
   {name: "org_admin"}
 ])
+# uses encrypted password.  See passwrod safe!
 admin = User.new(
-  {firstname: "DMP", surname: "Administrator", email: "dittest@ualberta.ca", encrypted_password: "$2a$10$q7XUQxvbFb1QcYhrngqcd..sM8.DsviZUxUBwDpC7ZmuohHrkOeZm", password: "password", password_confirmation: "password"}
+  {firstname: "DMP", surname: "Administrator", email: "dittest@ualberta.ca", 
+   password: "password", password_confirmation: "password"}
 )
+admin.encrypted_password = "$2a$10$q7XUQxvbFb1QcYhrngqcd..sM8.DsviZUxUBwDpC7ZmuohHrkOeZm"
 admin.add_role(:admin)
 admin.skip_confirmation!
 admin.save!
