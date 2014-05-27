@@ -64,3 +64,5 @@ config/initializers/contact_us.rb
 
 config/environments/*.rb
 .secret
+
+properties.yml
