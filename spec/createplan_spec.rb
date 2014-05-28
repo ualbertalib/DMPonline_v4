@@ -45,8 +45,10 @@ describe "Create Plan" do
     @driver.find_element(:id, "no-funder").click
     verify { element_present?(:id, "create-plan-button").should be_true }
     @driver.find_element(:id, "create-plan-button").click
-    #verify { (@driver.find_element(:css, "div.modal-header > p").text).should == "You are using the generic University of Alberta data management template. If you have suggestions on how to improve the existing template, or if you would like to add additional templates based on funding agency requirements or disciplinary needs, please contact us at data@ualberta.ca." }
-    #verify { (@driver.find_element(:xpath, "//div[@id='project-confirmation-dialog']/div[2]/div[3]/p").text).should == "Template: University of Alberta Template" }
+    
+    !60.times{ break if (@driver.find_element(:id, "confirm-template").text == "University of Alberta Template" rescue false); sleep 1 }
+    verify { (@driver.find_element(:xpath, "//*[@id='project-confirmation-dialog']/div[1]/p").text).should == "You are using the generic University of Alberta data management template. If you have suggestions on how to improve the existing template, or if you would like to add additional templates based on funding agency requirements or disciplinary needs, please contact us at data@ualberta.ca." }
+    verify { (@driver.find_element(:xpath, "//*[@id='confirm-template']").text).should == "University of Alberta Template" }
     verify { element_present?(:id, "new-project-confirmed").should be_true }
     @driver.find_element(:id, "new-project-confirmed").click
     verify { (@driver.find_element(:css, "p.alert.alert-notice").text).should == "Project was successfully created." }
