@@ -74,5 +74,24 @@ def remove_previously_added_user
     verify { (@driver.find_element(:css, "div.flash.flash_notice").text).should == "User was successfully destroyed." }
     sign_out_user
 end
-  
+
+
+def login_as_user
+    @driver.get(@base_url + "/")
+    @driver.find_element(:link, "Sign in").click
+    @driver.find_element(:id, "user_email").clear
+    @driver.find_element(:id, "user_email").send_keys @properties['dmp_user']['name'] 
+    @driver.find_element(:id, "user_password").clear
+    @driver.find_element(:id, "user_password").send_keys @properties['dmp_user']['password'] 
+    @driver.find_element(:name, "commit").click
+
+
+end
+def verify_as_user
+
+    @driver.get(@base_url + "/users/edit")
+    verify { (@driver.find_element(:css, "a.dropdown-toggle").text).should == "Signed in as " + @properties['dmp_user']['name']  }
+
+end
+
 end
