@@ -6,7 +6,7 @@ def destroy_plan
     # destroy plan
     @driver.get(@base_url + "/admin/projects")
     verify { (@driver.find_element(:css, "td.title").text).should == @properties['dmp_plan']['name'] }
-    dmp_plan = @driver.find_element(:xpath, "//td[matches(text(),@properties['dmp_plan']['name'])]").find_element(:xpath, '..')
+    dmp_plan = @driver.find_element(:xpath, "//td[contains(text(),@properties['dmp_plan']['name'])]").find_element(:xpath, '..')
     dmp_plan.find_element(:link, "Delete").click
     close_alert_and_get_its_text().should =~ /^Are you sure you want to delete this[\s\S]$/
     verify { (@driver.find_element(:css, "div.flash.flash_notice").text).should == "Project was successfully destroyed." }
