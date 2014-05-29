@@ -55,7 +55,7 @@ def create_and_verify_user
     sleep 5
     confirmation_url = get_confirmation_url_from_email(date)
     @driver.get(confirmation_url)
-    verify { (@driver.find_element(:css, "a.dropdown-toggle").text).should == "Signed in as dit.test@ualberta.ca" }
+    verify { (@driver.find_element(:css, "a.dropdown-toggle").text).should == "Signed in as " + @properties['dmp_user']['name'] }
 end
 
 def sign_out_user

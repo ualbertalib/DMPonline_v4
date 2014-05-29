@@ -9,5 +9,7 @@ email_user:
 dmp_user:
   name: testuser@test.com 
   password: <password>
+dmp_plan:
+  name: "no one else could possibly have the same name as this"
   
 
