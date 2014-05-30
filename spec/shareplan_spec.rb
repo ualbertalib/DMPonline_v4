@@ -18,9 +18,6 @@ describe "Share Plan" do
 
   setup
   
-  before(:each) do
-    create_and_verify_user
-  end
   
   after(:each) do
    
@@ -30,10 +27,10 @@ describe "Share Plan" do
   
   it "share plan" do
 
-    share_and_verify_plan('Read Only')
+    share_and_verify_plan('Read only')
 
-    #share_and_verify_plan('edit')
-    #share_and_verify_plan('coowner')
+    share_and_verify_plan('Edit')
+    share_and_verify_plan('Co-owner')
 
 
   end

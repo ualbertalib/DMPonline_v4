@@ -123,7 +123,7 @@ def login_as_user
 end
 def verify_as_user(user)
 
-    @driver.get(@base_url)
+    @driver.get(@base_url + "users/edit")
     verify { (@driver.find_element(:css, "a.dropdown-toggle").text).should == "Signed in as " + @properties[user]['name']  }
 
 end

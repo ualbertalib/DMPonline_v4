@@ -44,22 +44,14 @@ end
 def share_plan(access_level)
     verify {element_present?(:link, "My plans").should be_true }
     @driver.find_element(:link, "My plans").click
-    verify { (@driver.find_element(:link, "no one else could possibly have the same name as this except Tricia").text).should == "no one else could possibly have the same name as this except Tricia" }
+    verify { (@driver.find_element(:link, @properties['dmp_plan']['name']).text).should == @properties['dmp_plan']['name'] }
     verify { element_present?(:link, "Share").should be_true }
     @driver.find_element(:link, "Share").click
     @driver.find_element(:id, "project_group_email").clear
     @driver.find_element(:id, "project_group_email").send_keys @properties['dmp_share_user']['name']
-    #select = @driver.find_element(:id, "project_group_access_level")
-    #all_options = select.find_element(:tag_name, "option")
-    #all_options.each do |option|
-    #    puts "Value is: " + option.attribute("value")
-    #    if option.attribute("value") == access_level
-    #        option.click
-    #    end
-    #end
-
-    #@driver.find_element(:id, "project_group_access_level").find_element(:tag_name, "option").find do |option| option.text==access_level end.click
+    Selenium::WebDriver::Support::Select.new(@driver.find_element(:id, "project_group_access_level")).select_by(:text, access_level)
     @driver.find_element(:name, "commit").click
+    !60.times{ break if (element_present?(:css, "p.alert.alert-notice") || element_present?(:css, "p.alert.alert-error") rescue false); sleep 1 }
     verify { (@driver.find_element(:css, "p.alert.alert-notice").text).should == "Invitation issued successfully." }
     sign_out_user
     
@@ -69,30 +61,39 @@ def verify_shared_plan(access_level)
     verify_as_user('dmp_share_user')
     verify{element_present?(:link, "My plans").should be_true}
     @driver.find_element(:link, "My plans").click
-    puts "before verify links"
-    puts access_level
-    verify {element_present?(:xpath, "//td[contains(text(),'no one else could possibly have the same name as this except Tricia')]//a.dmp_table_link[text()='View']")}
-    verify {element_present?(:xpath, "//td[contains(text(),'no one else could possibly have the same name as this except Tricia')]//a.dmp_table_link[text()='Export']")}
-    verify {element_present?(:xpath, "//td[contains(text(),'no one else could possibly have the same name as this except Tricia')]//a.dmp_table_link[text()='Share']")}
-    verify {element_present?(:xpath, "//td[contains(text(),'no one else could possibly have the same name as this except Tricia')]//a.dmp_table_link[text()='Edit']")}
-    puts "check if links don't exist"
-    #if (access_level == "Read Only" )
 
-     #   expect {verify {element_present?(:xpath, "//td[contains(text(),'no one else could possibly have the same name as this except Tricia')]//a.dmp_table_link[text()='Share']")}}.to raise_error(Selenium::WebDriver::Error::NoSuchElementError)
-      #  expect {verify {element_present?(:xpath, "//td[contains(text(),'no one else could possibly have the same name as this except Tricia')]//a.dmp_table_link[text()='Edit']")}}.to raise_error(Selenium::WebDriver::Error::NoSuchElementError)
-    #else 
-    #    puts (access_level)
-    #end
+    verify { element_present?(:link, @properties['dmp_plan']['name']).should be_true }
+    verify {@driver.find_element(:link, @properties['dmp_plan']['name']).find_element(:xpath, '../..//a[text()="Export"]').text.should == "Export"}
+       
+    if (access_level == "Read only" )
+       verify {@driver.find_element(:link, @properties['dmp_plan']['name']).find_element(:xpath, '../..//a[text()="View"]').text.should == "View"}
+       expect {@driver.find_element(:link, @properties['dmp_plan']['name']).find_element(:xpath, '../..//a[text()="Edit"]').to raise_error(Selenium::WebDriver::Error::NoSuchElementError)}
+       expect {@driver.find_element(:link, @properties['dmp_plan']['name']).find_element(:xpath, '../..//a[text()="Delete"]').to raise_error(Selenium::WebDriver::Error::NoSuchElementError)}
+       expect {@driver.find_element(:link, @properties['dmp_plan']['name']).find_element(:xpath, '../..//a[text()="Share"]').to raise_error(Selenium::WebDriver::Error::NoSuchElementError)}
+
+    elsif (access_level == "Edit")
+       verify {@driver.find_element(:link, @properties['dmp_plan']['name']).find_element(:xpath, '../..//a[text()="Edit"]').text.should == "Edit"}
+       expect {@driver.find_element(:link, @properties['dmp_plan']['name']).find_element(:xpath, '../..//a[text()="View"]').to raise_error(Selenium::WebDriver::Error::NoSuchElementError)}
+       expect {@driver.find_element(:link, @properties['dmp_plan']['name']).find_element(:xpath, '../..//a[text()="Delete"]').to raise_error(Selenium::WebDriver::Error::NoSuchElementError)}
+       expect {@driver.find_element(:link, @properties['dmp_plan']['name']).find_element(:xpath, '../..//a[text()="Share"]').to raise_error(Selenium::WebDriver::Error::NoSuchElementError)}
+    else
+       verify {@driver.find_element(:link, @properties['dmp_plan']['name']).find_element(:xpath, '../..//a[text()="Delete"]').text.should == "Delete"}
+       verify {@driver.find_element(:link, @properties['dmp_plan']['name']).find_element(:xpath, '../..//a[text()="Edit"]').text.should == "Edit"}
+       verify {@driver.find_element(:link, @properties['dmp_plan']['name']).find_element(:xpath, '../..//a[text()="Share"]').text.should == "Share"}
+       expect {@driver.find_element(:link, @properties['dmp_plan']['name']).find_element(:xpath, '../..//a[text()="View"]').to raise_error(Selenium::WebDriver::Error::NoSuchElementError)}
+
+    end
    
 end
 
 def share_and_verify_plan(access_level)
+    create_and_verify_user
     create_and_verify_plan
     share_plan(access_level)
     verify_invited_user
     verify_shared_plan(access_level)
     sign_out_user
-    #destroy_plan
+    destroy_plan
     remove_previously_added_user('dmp_user')
     remove_previously_added_user('dmp_share_user')
 end
