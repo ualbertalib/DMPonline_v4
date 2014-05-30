@@ -28,8 +28,9 @@ describe "Share Plan" do
   it "share plan" do
 
     share_and_verify_plan('Read only')
-
+    sleep 10
     share_and_verify_plan('Edit')
+    sleep 10
     share_and_verify_plan('Co-owner')
 
 

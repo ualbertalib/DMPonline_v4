@@ -25,7 +25,7 @@ describe "Export Plan" do
   after(:each) do
     sign_out_user
     destroy_plan
-    remove_previously_added_user
+    remove_previously_added_user('dmp_user')
     
     @driver.quit
     @verification_errors.should == []
