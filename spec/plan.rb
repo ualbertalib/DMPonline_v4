@@ -105,5 +105,41 @@ def visit_export_page
     @driver.find_element(:link, "Export").click
 end
 
+def edit_plan
+    @driver.find_element(:link, "My plans").click
+    @driver.find_element(:link, "Edit").click
+    verify {element_present?(:link, "Edit plan details").should be_true}
+    @driver.find_element(:link, "Edit plan details").click
+    @driver.find_element(:id, "project_principal_investigator").clear
+    @driver.find_element(:id, "project_principal_investigator").send_keys "Dit Test"
+    @driver.find_element(:name, "commit").click
+
+    @driver.find_element(:link, "Answer questions").click
+    verify (@driver.find_element(:xpath, "//div[@class='progress']/span").text.should == "No questions have been answered")
+
+    @driver.find_element(:xpath, "//div[@id='sections-accordion']/div/div/a/span").click
+    @driver.find_element(:css, "span.plus-laranja").click
+
+    verify(@driver.find_element(:css, "span.label.label-warning.answer-status").text.should == "Not answered yet")
+    tinymce_frame = @driver.find_element(:xpath, "//div[@class='question-div']//iframe[starts-with(@id, 'answer-text-')]")
+    @driver.switch_to.frame(tinymce_frame)
+    @driver.find_element(:tag_name, 'body').send_keys ("<p>Sample Answer. </p>")
+    @driver.find_element(:xpath, "//*[@id='answer_submit_action']/input").click
+    verify(@driver.find_element(:css, "span.label.answer-status.label-success").text.should include @properties['dmp_user']['name'])
+    verify (@driver.find_element(:id, "questions-progress").text.should == "1/19")
+
+end
+
+def delete_plan
+
+    verify {element_present?(:link, "My plans").should be_true }
+    @driver.find_element(:link, "My plans").click
+    verify { (@driver.find_element(:link, @properties['dmp_plan']['name']).text).should == @properties['dmp_plan']['name'] }
+    verify { element_present?(:link, "Delete").should be_true }
+    @driver.find_element(:link, "Delete").click
+    close_alert_and_get_its_text().should =~ /^Are you sure you want to delete this[\s\S]$/
+    verify { (@driver.find_element(:css, "div.flash.flash_notice").text).should == "Project was successfully destroyed." }
+    expect { (@driver.find_element(:link, @properties['dmp_plan']['name'])).to raise_error (Selenium::WebDriver::Error::NoSuchElementError) }
+end
 
 end
