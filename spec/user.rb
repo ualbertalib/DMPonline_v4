@@ -31,6 +31,23 @@ def create_a_new_user
 
 end
 
+def get_invitation_url_from_email(date)
+    email =  @properties["email_user"]["name"]
+    password =  @properties["email_user"]["password"]
+    
+    
+    Mail.defaults do
+      retriever_method :imap, :address => "imap.gmail.com",
+                              :port    => 993,
+                              :user_name => email,
+                              :password => password,
+                              :enable_ssl => true
+    end
+    mail = Mail.find(:what => :last, :delete_after_find => true, :count => 1, :keys => ['SUBJECT', 'Invitation instructions','SINCE', date.strftime("%d-%b-%Y")])
+    expect(mail).not_to be_nil
+    mail.body.decoded.scan(/href="(.*)"/)[1]
+end 
+
 def get_confirmation_url_from_email(date)
 
     email =  @properties["email_user"]["name"]
@@ -58,22 +75,39 @@ def create_and_verify_user
     verify { (@driver.find_element(:css, "a.dropdown-toggle").text).should == "Signed in as " + @properties['dmp_user']['name'] }
 end
 
+def verify_invited_user
+    date = Time.now
+    sleep 5
+    invitation_url = get_invitation_url_from_email(date)
+    @driver.get(invitation_url)
+    @driver.find_element(:id, "user_password").clear
+    @driver.find_element(:id, "user_password").send_keys "password"
+    @driver.find_element(:id, "user_password_confirmation").clear
+    @driver.find_element(:id, "user_password_confirmation").send_keys "password"
+    @driver.find_element(:name, "commit").click
+    verify { (@driver.find_element(:css, "a.dropdown-toggle").text).should == "Signed in as "+@properties['dmp_share_user']['name'] }
+    @driver.find_element(:name, "commit").click
+    verify { (@driver.find_element(:css, "p.alert.alert-notice").text).should == "Details successfully updated." }
+
+end
+
 def sign_out_user
     @driver.get(@base_url + "/")
     @driver.find_element(:css, "b.caret").click
     @driver.find_element(:link, "Sign out").click
 end
-  
-def remove_previously_added_user
+
+def remove_previously_added_user(user)
     login_as_admin
-    @driver.get(@base_url + "admin/users")
-    verify { element_present?(:link, @properties['dmp_user']['name']).should be_true }
-    dmp_user = @driver.find_element(:link, @properties['dmp_user']['name']).find_element(:xpath, '../..')
-    dmp_user.find_element(:link, "Delete").click
+    @driver.get(@base_url + "/admin/users")
+    verify { element_present?(:link, @properties[user]['name']).should be_true }
+    user = @driver.find_element(:link, @properties[user]['name']).find_element(:xpath, '../..')
+    user.find_element(:link, "Delete").click
     close_alert_and_get_its_text().should =~ /^Are you sure you want to delete this[\s\S]$/
     verify { (@driver.find_element(:css, "div.flash.flash_notice").text).should == "User was successfully destroyed." }
     sign_out_user
 end
+
 
 
 def login_as_user
@@ -87,10 +121,10 @@ def login_as_user
 
 
 end
-def verify_as_user
+def verify_as_user(user)
 
-    @driver.get(@base_url + "/users/edit")
-    verify { (@driver.find_element(:css, "a.dropdown-toggle").text).should == "Signed in as " + @properties['dmp_user']['name']  }
+    @driver.get(@base_url)
+    verify { (@driver.find_element(:css, "a.dropdown-toggle").text).should == "Signed in as " + @properties[user]['name']  }
 
 end
 
