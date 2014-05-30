@@ -1,3 +1,4 @@
+
 require "json"
 require "selenium-webdriver"
 require "rspec"
@@ -13,7 +14,7 @@ include Before
 include User
 include Plan
 
-describe "Create Plan" do
+describe "Share Plan" do
 
   setup
   
@@ -22,17 +23,18 @@ describe "Create Plan" do
   end
   
   after(:each) do
-    destroy_plan
-    remove_previously_added_user('dmp_user')
-    
+   
     @driver.quit
     @verification_errors.should == []
   end
   
-  it "create plan" do
+  it "share plan" do
 
-    create_and_verify_plan
-    sign_out_user
+    share_and_verify_plan('Read Only')
+
+    #share_and_verify_plan('edit')
+    #share_and_verify_plan('coowner')
+
 
   end
 
