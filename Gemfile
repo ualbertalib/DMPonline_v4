@@ -71,6 +71,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rspec'
   gem 'selenium-webdriver'
+  gem 'pdf-reader'
 end
 
 group :test do
