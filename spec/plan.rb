@@ -131,7 +131,7 @@ def edit_plan
     answer_status = tinymce_frame[0].find_element(:xpath, "../../../../../../../../span[contains(@class,'answer-status')]") 
     verify{answer_status.text.should == "Not answered yet"}
     save_button.find_element(:name, "commit").click
-    sleep 5
+    sleep 30
     verify{answer_status.text.should include @properties['dmp_user']['name']}
     progress_status = "1/" + tinymce_frame.size.to_s
     verify {@driver.find_element(:id, "questions-progress").text.should include progress_status}

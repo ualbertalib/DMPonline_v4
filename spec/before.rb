@@ -12,6 +12,7 @@ module Before
     @driver.manage.timeouts.implicit_wait = 30
     @verification_errors = []
   end
+  sleep 10
 
   end
 
