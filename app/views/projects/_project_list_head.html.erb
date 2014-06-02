@@ -3,5 +3,10 @@
   <th class="dmp_th_medium"><%= t('helpers.owner') %></th>
   <th class="dmp_th_small"><%= t('helpers.project.share.shared_label') %></th>
   <th class="dmp_th_small"><%= t('helpers.last_edit') %></th>
-  <th class="dmp_th_medium"><%= t('helpers.select_action')%></th>
+  <th class="dmp_th_medium">
+    <%= t('helpers.select_action')%>
+    <a class="icon-cog btn-configure" href="#" title="<%= t('helpers.project.configure') -%>">
+      <span class="hide-text"><%= t('helpers.project.configure') -%></span>
+    </a>
+  </th>
 </tr>
