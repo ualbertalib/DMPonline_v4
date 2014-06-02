@@ -52,7 +52,30 @@
 @green_colour: #114b8b; //#007e30;
 @red_colour: #e3000f;
 @white_colour: #ffffff;
-  
+ 
+html {
+  /* fallback */
+  background-repeat:repeat-y;
+  min-height: 100%;
+  /* Safari 4-5, Chrome 1-9 */
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, @background_darker_colour), color-stop(1, @background_lighter_colour));
+  /* Firefox 3.6+ */
+  background-image: -moz-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
+  /* Safari 5.1, Chrome 10+ */
+  background-image: -webkit-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
+  /* Opera 11.10+ */
+  background-image: -o-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
+  /* IE 10 */
+  background-image: -ms-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
+  background-image: linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
+  background-image: linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
+  -ms-filter: 'progid:DXImageTransform.Microsoft.gradient(startColorstr='#d1d5d4', endColorstr='#f9f9f9', gradientType='0')';
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#d1d5d4', endColorstr='#f9f9f9') ;/*For IE7-8-9*/
+  /*For IE7*/ 
+  *height: 1%;
+   min-width: 800px;
+}
+
 body.dmponline { 
   font-family: @text_font;
   color: @font_colour;
@@ -61,24 +84,9 @@ body.dmponline {
   line-height: 24px;
   min-width: 540px;
   padding:0 0 0 0; 
-  
+  background:none;
 }
 
-.dmponline {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, @background_darker_colour), color-stop(1, background_lighter_colour));
-  background-image: linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
-  background-image: -moz-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
-  background-image: -webkit-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
-  background-image: -o-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
-  background-image: -ms-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
-  background-image: linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
-  background-repeat:repeat-y;
-  -ms-filter: 'progid:DXImageTransform.Microsoft.gradient(startColorstr='#d1d5d4', endColorstr='#f9f9f9', gradientType='0')';
-  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#d1d5d4', endColorstr='#f9f9f9') ;/*For IE7-8-9*/
-  *height: 1%;/*For IE7*/ 
-  
-   
-  }
 
 h1, h2, h3, h4 {
   font-family: @header_font;
@@ -417,18 +425,29 @@ footer .left_side_footer{
    
 footer .right_side_footer{
   float: right;
-  width: 45%;
-  
-  }
-  
-footer .right_side_footer p{
-  text-decoration: none;
-  text-align:center;
-  color: #999999;
-  float: right;
-  
+  width: 52%;
 }
   
+footer .right_side_footer p{
+  float: right;
+}
+
+footer a#footer_right_dcc {
+  width: 60%;
+  float: left;
+}
+footer a#footer_right_jisc {
+  width: 38%;
+  float: left;
+  padding-left: 5px;
+}
+
+footer img.footer_logo{
+  width:100%;
+  height:100%;
+}
+  
+//footer left side info  
 ul.footer-links {
   margin-left:0px;
 }
@@ -655,14 +674,17 @@ table.dmp_table tbody td{
   padding: 4px 4px 4px 15px;  
 }
 table.dmp_table tbody td.dmp_td_big, table.dmp_table thead th.dmp_th_big{
-  min-width: 32%;
+  width: 32%;
+  min-width: 180px;
 }
 table.dmp_table tbody td.dmp_td_medium, table.dmp_table thead th.dmp_th_medium{
-  min-width: 24%;
+  width: 24%;
+  min-width: 93px;
 }
 table.dmp_table tbody td.dmp_td_small, table.dmp_table thead th.dmp_th_small{
-  //min-width: 18%;
-  padding-right: 20px;
+  width: 14%;
+  min-width: 10px; 
+  //padding-right: 20px;
 }
 
 table.dmp_table tbody th.dmp_th_border{
@@ -675,18 +697,16 @@ table.dmp_table tbody th.dmp_th_border{
 
 table.dmp_table tbody th.dmp_th_border p{
    padding: 0px 0px 0px 5px;
-  
 }
 
 table.dmp_table tbody td.dmp_td_border{
   border-bottom: 1px solid @grey_very_light_colour; 
   border-left: 1px solid @grey_very_light_colour;
-  
 }
 
 table.dmp_table a.dmp_table_link, table.dmp_table a.dmp_table_link:active, table.dmp_table a.dmp_table_link:visited{
   text-decoration: none !important;
-  padding: 0px 10px 0px 0px;
+  padding: 0px 5px 0px 0px;
 }
 table.dmp_table a.dmp_table_link:hover{
   text-decoration: underline !important;
@@ -940,7 +960,7 @@ ol .choices-group{
 
 .div_left{
   float:left;
-  width:70%;
+  width:74%;
   padding:0 2px 10px 0;
 }
 
