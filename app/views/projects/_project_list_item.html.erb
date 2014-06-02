@@ -1,0 +1,48 @@
+<tr>
+  <td class="dmp_td_big">
+    <%= link_to project.title, project_path(project), :class => "dmp_table_link" %>
+  </td>
+  <td class="dmp_td_medium">
+    <% if !project.project_groups.find_by_project_creator(true).nil? then %>
+      <% user = project.project_groups.find_by_project_creator(true).user %>
+
+      <% if user == current_user then %>
+        <%= t('helpers.me')%>
+      <% else %>
+        <%= user.name %>
+      <% end %>
+   <% end %>
+  </td>
+  <td class="dmp_td_small">
+    <% shared_num = project.project_groups.count - 1 %>
+    <% if shared_num > 0 then%>
+      <%= t('helpers.yes') +" (with #{shared_num } people)" %>
+    <% else %>
+      <%= t('helpers.no')%>
+    <% end %>
+  </td>
+  <td class="dmp_td_small">
+    <%= l project.latest_update.to_date, :formats => :short %>
+  </td>
+  <td class="dmp_td_medium">
+    <% if project.editable_by(current_user.id) then %>
+      <%= link_to t('.edit', :default => t("helpers.links.edit")), project_path(project), :class => "dmp_table_link"%>
+
+      <% if project.administerable_by(current_user.id) then %>
+        <%= link_to t("helpers.project.share.tab_share"), project_path([project, "share"]), :class => "dmp_table_link"%>
+      <% end %>
+
+      <%= link_to t("helpers.project.tab_export"), project_path([project, "export"]), :class => "dmp_table_link"%>
+
+      <% if project.administerable_by(current_user.id) then %>
+        <%= link_to t('.destroy', :default => t("helpers.links.destroy")), project_path(project), :class => "dmp_table_link",
+          :method => :delete, :data => {
+            :confirm => t("helpers.project.confirm_delete_text")
+          }%>
+      <% end %>
+    <% else %>
+      <%= link_to t('.view', :default => t("helpers.view")), project_path(project), :class => "dmp_table_link"%>
+      <%= link_to t("helpers.project.tab_export"), project_path([project, "export"]), :class => "dmp_table_link"%>
+    <% end %>
+  </td>
+</tr>
