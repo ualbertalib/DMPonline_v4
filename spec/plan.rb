@@ -119,20 +119,23 @@ def edit_plan
     verify {(@driver.find_element(:xpath, "//div[@class='progress']/span").text.should == "No questions have been answered")}
     tinymce_frame = @driver.find_elements(:xpath, "//div[@class='question-div']//iframe[starts-with(@id, 'answer-text-')]")
     tinymce_frame[0].find_element(:xpath, "../../../../../../../../../../../../div[@class='accordion-heading']//span[contains(@class, 'icon-plus')]").click
-    #@driver.find_element(:xpath, "//div[@id='sections-accordion']/div/div/a/span").click
     tinymce_frame[0].find_element(:xpath, "../../../../../../../../../div[@class='question-guidance']//span[@class='plus-laranja']").click
-    #@driver.find_element(:css, "span.plus-laranja").click
-
+   
     @driver.switch_to.frame(tinymce_frame[0])
     @driver.find_element(:tag_name, 'body').send_keys ("<p>Sample Answer. </p>")
     @driver.switch_to.default_content
     
     save_button = tinymce_frame[0].find_element(:xpath, "../../../../../../fieldset[@class='actions']//li[@id='answer_submit_action']")
-    answer_status = tinymce_frame[0].find_element(:xpath, "../../../../../../../../span[contains(@class,'answer-status')]") 
-    verify{answer_status.text.should == "Not answered yet"}
     save_button.find_element(:name, "commit").click
-    sleep 30
-    verify{answer_status.text.should include @properties['dmp_user']['name']}
+    sleep 5
+
+    @driver.find_element(:link, "My plans").click
+    verify { (@driver.find_element(:link, @properties['dmp_plan']['name']).text).should == @properties['dmp_plan']['name'] }
+    @driver.find_element(:link, @properties['dmp_plan']['name']).click
+    verify {@driver.find_element(:css, "table.dmp_details_table").find_element(:xpath, "//td[contains(text(), 'Principal Investigator/Researcher')]").find_element(:xpath, "../td[not(@class)]").text.should == "Dit Test"}
+    @driver.find_element(:link, "Answer questions").click
+    answer_status = @driver.find_element(:xpath, "//abbr[@class='timeago']").find_element(:xpath, "..")
+    verify{answer_status.attribute("innerHTML").should include @properties['dmp_user']['name']}
     progress_status = "1/" + tinymce_frame.size.to_s
     verify {@driver.find_element(:id, "questions-progress").text.should include progress_status}
 
