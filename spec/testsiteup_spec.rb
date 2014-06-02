@@ -7,16 +7,16 @@ include RSpec::Expectations
 
 include Before
 
-describe "TestsiteupSpec" do
+describe "Simplest" do
 
   setup
 
-  after(:each) do
+  after(:all) do
     @driver.quit
     @verification_errors.should == []
   end
   
-  it "test_siteup_spec" do
+  it "site is up" do
     @driver.get(@base_url + "/")
     (@driver.title).should == "DMP Tool - University of Alberta Libraries"
     verify { (@driver.find_element(:css, "h3.subhead").text).should == "Data Management Planning Tool" }

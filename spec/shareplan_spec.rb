@@ -19,7 +19,7 @@ describe "Share Plan" do
   setup
   
   
-  after(:each) do
+  after(:all) do
    
     @driver.quit
     @verification_errors.should == []

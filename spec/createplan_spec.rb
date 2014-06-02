@@ -17,11 +17,11 @@ describe "Create Plan" do
 
   setup
   
-  before(:each) do
+  before(:all) do
     create_and_verify_user
   end
   
-  after(:each) do
+  after(:all) do
     destroy_plan
     remove_previously_added_user('dmp_user')
     
