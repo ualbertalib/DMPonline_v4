@@ -6,11 +6,15 @@ module Before
 
   before(:all) do
     @properties = YAML.load_file('properties.yml')
-    @download_dir = Dir.pwd.to_s + '/tmp/'
+    @base_dir = Dir.pwd.to_s
+    @download_dir = @base_dir + '/tmp/'
+    @screenshots_dir = @base_dir + '/spec/reports/'
     if RUBY_PLATFORM == 'i386-cygwin'
       @download_dir = @download_dir.gsub('/cygdrive/c/', 'C:\\').gsub('/', '\\')
+      @screenshots_dir = @screenshots_dir.gsub('/cygdrive/c/', 'C:\\').gsub('/', '\\')
     end      
     Dir.mkdir(@download_dir) unless File.exists?(@download_dir)
+    Dir.mkdir(@screenshots_dir) unless File.exists?(@screenshots_dir)
     
     profile = Selenium::WebDriver::Firefox::Profile.new
     profile["browser.download.folderList"] = 2
