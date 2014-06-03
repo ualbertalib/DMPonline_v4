@@ -5,26 +5,29 @@ require "yaml"
 require "mail"
 require "./spec/helper.rb"
 require "./spec/before.rb"
+require "./spec/after.rb"
 require "./spec/user.rb"
 include RSpec::Expectations
 
 include Before
+include After
 include User
 
 describe "Create User" do
 
   setup 
+
   
+  teardown
+    
   after(:all) do
     remove_previously_added_user('dmp_user')
-    @driver.quit
-    @verification_errors.should == []
   end
-  
+    
   it "create user" do
     create_and_verify_user
     sign_out_user 
     	
   end
-  
+    
 end

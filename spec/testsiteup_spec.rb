@@ -3,18 +3,17 @@ require "selenium-webdriver"
 require "rspec"
 require "./spec/helper.rb"
 require "./spec/before.rb"
+require "./spec/after.rb"
 include RSpec::Expectations
 
 include Before
+include After
 
 describe "Simplest" do
 
   setup
 
-  after(:all) do
-    @driver.quit
-    @verification_errors.should == []
-  end
+  teardown
   
   it "site is up" do
     @driver.get(@base_url + "/")

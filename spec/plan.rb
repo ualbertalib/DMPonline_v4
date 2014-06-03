@@ -87,15 +87,11 @@ def verify_shared_plan(access_level)
 end
 
 def share_and_verify_plan(access_level)
-    create_and_verify_user
-    create_and_verify_plan
+    date = Time.now
     share_plan(access_level)
-    verify_invited_user
+    verify_invited_user(date)
     verify_shared_plan(access_level)
     sign_out_user
-    destroy_plan
-    remove_previously_added_user('dmp_user')
-    remove_previously_added_user('dmp_share_user')
 end
 
 
@@ -120,14 +116,14 @@ def edit_plan
     tinymce_frame = @driver.find_elements(:xpath, "//div[@class='question-div']//iframe[starts-with(@id, 'answer-text-')]")
     tinymce_frame[0].find_element(:xpath, "../../../../../../../../../../../../div[@class='accordion-heading']//span[contains(@class, 'icon-plus')]").click
     tinymce_frame[0].find_element(:xpath, "../../../../../../../../../div[@class='question-guidance']//span[@class='plus-laranja']").click
-   
+
     @driver.switch_to.frame(tinymce_frame[0])
     @driver.find_element(:tag_name, 'body').send_keys ("<p>Sample Answer. </p>")
     @driver.switch_to.default_content
     
     save_button = tinymce_frame[0].find_element(:xpath, "../../../../../../fieldset[@class='actions']//li[@id='answer_submit_action']")
     save_button.find_element(:name, "commit").click
-    sleep 5
+    sleep 30
 
     @driver.find_element(:link, "My plans").click
     verify { (@driver.find_element(:link, @properties['dmp_plan']['name']).text).should == @properties['dmp_plan']['name'] }

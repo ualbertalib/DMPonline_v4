@@ -1,14 +1,7 @@
 module User
 
   def login_as_admin  
-    @driver.get(@base_url + "/")
-    @driver.find_element(:link, "Sign in").click
-    @driver.find_element(:id, "user_email").clear
-    @driver.find_element(:id, "user_email").send_keys @properties['admin_user']['name'] 
-    @driver.find_element(:id, "user_password").clear
-    @driver.find_element(:id, "user_password").send_keys @properties['admin_user']['password'] 
-    @driver.find_element(:name, "commit").click
-    
+    login_as_user(@properties['admin_user']['name'], @properties['admin_user']['password'])    
   end
   
 def create_a_new_user
@@ -32,24 +25,14 @@ def create_a_new_user
 end
 
 def get_invitation_url_from_email(date)
-    email =  @properties["email_user"]["name"]
-    password =  @properties["email_user"]["password"]
-    
-    
-    Mail.defaults do
-      retriever_method :imap, :address => "imap.gmail.com",
-                              :port    => 993,
-                              :user_name => email,
-                              :password => password,
-                              :enable_ssl => true
-    end
-    mail = Mail.find(:what => :last, :delete_after_find => true, :count => 1, :keys => ['SUBJECT', 'Invitation instructions','SINCE', date.strftime("%d-%b-%Y")])
-    expect(mail).not_to be_nil
-    mail.body.decoded.scan(/href="(.*)"/)[1]
+    get_url_from_email(date,'Invitation instructions')
 end 
 
 def get_confirmation_url_from_email(date)
+    get_url_from_email(date,'Confirm your DMPonline account')
+end
 
+def get_url_from_email(date, subject)
     email =  @properties["email_user"]["name"]
     password =  @properties["email_user"]["password"]
     
@@ -60,10 +43,9 @@ def get_confirmation_url_from_email(date)
                               :password => password,
                               :enable_ssl => true
     end
-    mail = Mail.find(:what => :last, :delete_after_find => true, :count => 1, :keys => ['SUBJECT', 'Confirm your DMPonline account','SINCE', date.strftime("%d-%b-%Y")])
+    mail = Mail.find(:what => :last, :delete_after_find => true, :count => 1, :keys => ['SUBJECT', subject,'SINCE', date.strftime("%d-%b-%Y")])
     expect(mail).not_to be_nil
     mail.body.decoded.scan(/href="(.*)"/)[1]
-
 end
 
 def create_and_verify_user
@@ -75,8 +57,7 @@ def create_and_verify_user
     verify { (@driver.find_element(:css, "a.dropdown-toggle").text).should == "Signed in as " + @properties['dmp_user']['name'] }
 end
 
-def verify_invited_user
-    date = Time.now
+def verify_invited_user(date)
     sleep 5
     invitation_url = get_invitation_url_from_email(date)
     @driver.get(invitation_url)
@@ -110,13 +91,13 @@ end
 
 
 
-def login_as_user
+def login_as_user(name, password)
     @driver.get(@base_url + "/")
     @driver.find_element(:link, "Sign in").click
     @driver.find_element(:id, "user_email").clear
-    @driver.find_element(:id, "user_email").send_keys @properties['dmp_user']['name'] 
+    @driver.find_element(:id, "user_email").send_keys name
     @driver.find_element(:id, "user_password").clear
-    @driver.find_element(:id, "user_password").send_keys @properties['dmp_user']['password'] 
+    @driver.find_element(:id, "user_password").send_keys password
     @driver.find_element(:name, "commit").click
 
 
