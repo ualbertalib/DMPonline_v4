@@ -20,7 +20,7 @@ def create_and_verify_plan
     @driver.find_element(:id, "project_title").clear
     @driver.find_element(:id, "project_title").send_keys @properties['dmp_plan']['name']
     @driver.find_element(:name, "commit").click
-    verify { (@driver.find_element(:css, "p.alert.alert-notice").text).should == "Project was successfully created." }
+    verify { (@driver.find_element(:css, "p.alert.alert-notice").text).should == "Project was successfully updated." }
 end
 
 
@@ -114,8 +114,7 @@ def edit_plan
     @driver.find_element(:id, "project_principal_investigator").send_keys "Dit Test"
     @driver.find_element(:name, "commit").click
     verify { (@driver.find_element(:css, "p.alert.alert-notice").text).should == "Project was successfully updated." }
-    verify {@driver.find_element(:css, "table.dmp_details_table").find_element(:xpath, "//td[contains(text(), 'Principal Investigator/Researcher')]").find_element(:xpath, "../td[not(@class)]").text.should == "Dit Test"}
-    
+
     @driver.find_element(:link, "Answer questions").click
     verify {(@driver.find_element(:xpath, "//div[@class='progress']/span").text.should == "No questions have been answered")}
     tinymce_frame = @driver.find_elements(:xpath, "//div[@class='question-div']//iframe[starts-with(@id, 'answer-text-')]")
@@ -128,8 +127,13 @@ def edit_plan
     
     save_button = tinymce_frame[0].find_element(:xpath, "../../../../../../fieldset[@class='actions']//li[@id='answer_submit_action']")
     save_button.find_element(:name, "commit").click
-    sleep 30
+    sleep 5
 
+    @driver.find_element(:link, "My plans").click
+    verify { (@driver.find_element(:link, @properties['dmp_plan']['name']).text).should == @properties['dmp_plan']['name'] }
+    @driver.find_element(:link, @properties['dmp_plan']['name']).click
+    verify {@driver.find_element(:css, "table.dmp_details_table").find_element(:xpath, "//td[contains(text(), 'Principal Investigator/Researcher')]").find_element(:xpath, "../td[not(@class)]").text.should == "Dit Test"}
+    @driver.find_element(:link, "Answer questions").click
     answer_status = @driver.find_element(:xpath, "//abbr[@class='timeago']").find_element(:xpath, "..")
     verify{answer_status.attribute("innerHTML").should include @properties['dmp_user']['name']}
     progress_status = "1/" + tinymce_frame.size.to_s
