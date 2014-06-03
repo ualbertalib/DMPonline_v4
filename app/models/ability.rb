@@ -10,6 +10,10 @@ class Ability
       else
         can :read, :all
       end
+
+    can :manage_settings, User do |viewed_user|
+      user.id == viewed_user.id
+    end
     #
     # The first argument to `can` is the action you are giving the user 
     # permission to do.

@@ -9,7 +9,6 @@
 	<p>
 		<%= raw t('helpers.project.project_text_when_project')%>
 	</p>
-	<%= render(partial: 'configure', locals: { all_columns: @all_columns, selected_columns: @selected_columns }) if @configure %>
 	<%= render(partial: 'toolbar') %>
 	<table id="dmp_table" class="dmp_table tablesorter">
 	  <thead>
