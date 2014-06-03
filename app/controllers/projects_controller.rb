@@ -1,4 +1,6 @@
 class ProjectsController < ApplicationController
+	before_filter :get_project_list_columns, only: %i( index )
+
 	# GET /projects
 	# GET /projects.json
 	def index
@@ -264,5 +266,9 @@ class ProjectsController < ApplicationController
 		else
 			return all_such_orgs.sort_by {|o| [o.sort_name, o.name] }
 		end
+	end
+
+	def get_project_list_columns
+		@selected_columns = %i( name owner shared last_edited )
 	end
 end
