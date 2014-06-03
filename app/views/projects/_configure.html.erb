@@ -11,9 +11,9 @@
     <tr>
       <%
          all_columns.each do |column|
-           params = selected_columns.member?(column) ? { checked: 'checked' } : nil
+           html_opts = selected_columns.member?(column) ? { checked: 'checked' } : nil
       %>
-        <td><%= check_box_tag(column, true, params) -%></td>
+        <td><%= check_box_tag(column, true, html_opts) -%></td>
       <% end %>
     </tr>
   </tbody>
