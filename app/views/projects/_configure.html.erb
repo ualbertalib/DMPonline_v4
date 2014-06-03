@@ -19,9 +19,8 @@
   </tbody>
   <tfoot>
     <tr>
-      <td colspan="<%= all_columns.length - 2 -%>"></td>
-      <td><%= link_to(t('helpers.cancel'), projects_path, class: 'btn btn-primary') -%></td>
       <td><%= submit_tag(t('helpers.save'), class: 'btn btn-primary') -%></td>
+      <td><%= link_to(t('helpers.cancel'), projects_path, class: 'btn btn-primary') -%></td>
     </tr>
   </tfoot>
 <% end %>
