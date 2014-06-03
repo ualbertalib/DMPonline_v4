@@ -2,10 +2,5 @@
   <% @selected_columns.each do |column| %>
     <%= project_list_head(column) %>
   <% end %>
-  <th class="dmp_th_medium">
-    <%= t('helpers.select_action')%>
-    <a class="icon-cog btn-configure" href="<%= projects_path(configure: true) -%>" title="<%= t('helpers.project.configure') -%>">
-      <span class="hide-text"><%= t('helpers.project.configure') -%></span>
-    </a>
-  </th>
+  <th class="dmp_th_medium"><%= t('helpers.select_action')%></th>
 </tr>
