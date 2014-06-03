@@ -269,6 +269,14 @@ class ProjectsController < ApplicationController
 	end
 
 	def get_project_list_columns
-		@selected_columns = %i( name owner shared last_edited )
+		default_columns = %i( name owner shared last_edited)
+		@configure = params.has_key?(:configure)
+
+		if @configure
+			@all_columns = default_columns + %i( identifier grant_number principal_investigator data_contact description )
+		end
+
+		# @selected_columns = current_user.preferences.project_columns if user_signed_in?
+		@selected_columns ||= default_columns
 	end
 end

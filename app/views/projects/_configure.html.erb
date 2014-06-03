@@ -1,0 +1,27 @@
+<%= form_tag() do %>
+<table class="dmp_table">
+  <thead>
+    <tr>
+      <% all_columns.each do |column| %>
+        <th><%= label_tag(column, column.to_s.humanize) -%></th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <%
+         all_columns.each do |column|
+           params = selected_columns.member?(column) ? { checked: 'checked' } : nil
+      %>
+        <td><%= check_box_tag(column, true, params) -%></td>
+      <% end %>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="<%= all_columns.length - 2 -%>"></td>
+      <td><%= link_to(t('helpers.cancel'), projects_path, class: 'btn btn-primary') -%></td>
+      <td><%= submit_tag(t('helpers.save'), class: 'btn btn-primary') -%></td>
+    </tr>
+  </tfoot>
+<% end %>
