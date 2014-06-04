@@ -437,8 +437,9 @@ Select what format you wish to use and click to 'Export'.</p>"
         title: "Settings - My plans"
         desc: "The table below lists the available columns that can be shown on the 'My plans' list. Choose which you would like to appear."
         errors:
-          no_name: "'name' must be included in column list"
+          no_name: "'name' must be included in column list."
           duplicate: "Duplicate column name. Please only include each column once."
+          unknown: "Unknown column name."
 
   about_page:
     title: "About DMPonline"
