@@ -32,9 +32,6 @@ describe "Share Plan" do
   end
   
   before(:each) do
-    if !example.instance_variable_get(:@exception).nil? 
-      screen_capture
-    end
     begin
       login_as_user(@properties['dmp_user']['name'], @properties['dmp_user']['password'])
       create_and_verify_plan  
@@ -50,7 +47,11 @@ describe "Share Plan" do
       screen_capture
     end
   end
+  
   after(:each) do
+    if !example.instance_variable_get(:@exception).nil? 
+      screen_capture
+    end
     begin
       destroy_plan
       remove_previously_added_user('dmp_share_user')
