@@ -432,7 +432,14 @@ Select what format you wish to use and click to 'Export'.</p>"
         institution_question_description: "You may leave blank or select a different organisation to your own."
         other_guidance_question: "Tick to select any other sources of guidance you wish to see."  
       configure: "Configure"
- 
+    settings:
+      projects:
+        title: "Settings - My plans"
+        desc: "The table below lists the available columns that can be shown on the 'My plans' list. Choose which you would like to appear."
+        errors:
+          no_name: "'name' must be included in column list"
+          duplicate: "Duplicate column name. Please only include each column once."
+
   about_page:
     title: "About DMPonline"
     body_text_html: "<div class='white_background'>

@@ -71,3 +71,5 @@ gem 'feedzirra', '0.5.0'
 
 # To use debugger
 # gem 'debugger'
+
+gem 'ledermann-rails-settings'

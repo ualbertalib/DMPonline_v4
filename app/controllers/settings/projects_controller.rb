@@ -1,19 +1,32 @@
 module Settings
   class ProjectsController < SettingsController
-    before_filter :get_project_list_columns
+
+    before_filter :get_plan_list_columns
+    before_filter :get_settings
 
     def show
     end
 
     def update
-      @selected_columns = params[:projects]
-      # TODO: don't simply store in session - persist instead.
-      session[:project_list_columns] = @selected_columns.keys.map(&:intern)
+      columns = (params[:columns] || {}).keys.map(&:intern)
 
-      respond_to do |format|
-        format.html { redirect_to(projects_path) }
-        format.json { @selected_columns.to_json }
+      if @settings.update_attributes(columns: columns)
+        respond_to do |format|
+          format.html { redirect_to(projects_path) }
+          format.json { @settings.to_json }
+        end
+      else
+        render(action: :show) # Expect #show to display errors etc
       end
+    end
+
+  private
+
+    def get_settings
+      @settings = current_user.settings(:plan_list)
+      # :name column should always be present (displayed as a disabled checkbox)
+      # so it's not necessary to include it in the list here
+      @all_columns -= [:name]
     end
 
   end

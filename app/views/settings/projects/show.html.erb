@@ -1,19 +1,29 @@
-<%= form_tag(settings_projects_path, method: :put) do %>
+<h1><%= t('helpers.settings.projects.title') -%></h1>
+<p><%= t('helpers.settings.projects.desc') -%></p>
+
+<% @settings.errors.full_messages.each do |error| %>
+  <div class="error"><%= error %></div>
+<% end %>
+
+<%= form_for(@settings, url: settings_projects_path, method: :put, as: :columns) do |f| %>
+  <%= f.hidden_field(:name, value: true) %>
   <table class="dmp_table">
     <thead>
       <tr>
+        <th><%= label_tag("columns[name]", t('helpers.projects.name')) -%></th>
         <% @all_columns.each do |column| %>
-          <th><%= label_tag("projects[#{column}]", column.to_s.humanize) -%></th>
+          <th><%= label_tag("columns[#{column}]", column.to_s.humanize) -%></th>
         <% end %>
       </tr>
     </thead>
     <tbody>
       <tr>
+        <td><%= check_box_tag("columns[name]", true, true, disabled: true) -%></td>
         <%
            @all_columns.each do |column|
-             html_opts = @selected_columns.member?(column) ? { checked: 'checked' } : nil
+             checked = @selected_columns.member?(column)
         %>
-          <td><%= check_box_tag("projects[#{column}]", true, html_opts) -%></td>
+          <td><%= check_box_tag("columns[#{column}]", true, checked) -%></td>
         <% end %>
       </tr>
     </tbody>
@@ -24,4 +34,5 @@
       </tr>
     </tfoot>
   </table>
+
 <% end %>

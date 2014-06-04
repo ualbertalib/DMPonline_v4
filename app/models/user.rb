@@ -26,6 +26,12 @@ class User < ActiveRecord::Base
      :surname, :user_type_id, :organisation_id, :skip_invitation, :other_organisation,
      :accept_terms, :role_ids, :dmponline3
 
+    # FIXME: The duplication in the block is to set defaults. It might be better if
+    #        they could be set in Settings::PlanList itself, if possible.
+    has_settings :plan_list, class_name: 'Settings::PlanList' do |s|
+      s.key :plan_list, defaults: { columns: Settings::PlanList::DEFAULT_COLUMNS }
+    end
+
 	def name(use_email = true)
 		if ((firstname.nil? && surname.nil?) || (firstname.strip == "" && surname.strip == "")) && use_email then
 			return email
