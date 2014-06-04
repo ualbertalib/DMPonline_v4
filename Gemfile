@@ -19,8 +19,6 @@ group :development do
   gem "binding_of_caller"
 end
 
-gem "schema_plus"
-
 gem 'uglifier', '>= 1.0.3'
 gem 'less-rails'
 

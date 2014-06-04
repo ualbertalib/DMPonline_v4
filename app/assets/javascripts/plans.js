@@ -1,10 +1,27 @@
 //= require jquery.timeago.js
 //= require tinymce
 
+var dirty = {};
+
 $( document ).ready(function() {
 
 	// Make timestamps readable
 	$('abbr.timeago').timeago();
+
+	window.onbeforeunload = function(){
+		if (is_dirty()) {
+			var questions = get_unsaved_questions();
+			var message = 'You have unsaved answers:\n';
+			$.each(questions, function(section_text, question_texts){
+				message += "\n"+section_text;
+				$.each(question_texts, function(index, question_text){
+					message += "\n\u2022 "+question_text;
+				});
+				message += "\n";
+			});
+		  return message;
+		}
+	};
 
 	// Update status messages on form submission
 	$("form.answer").submit(function(){
@@ -14,13 +31,12 @@ $( document ).ready(function() {
 		q_id = $(this).find(".question_id").val();
 		saving_message.show();
 		s_status = $(this).closest(".accordion-group").find(".section-status:first");
+		$.fn.mark_as_clean(s_status.attr("id").split('-')[0], q_id);
 		// Allow quarter of a second for database to update
 		timeout = setTimeout(function(){
-			// Get plan status
 			$.getJSON("status.json", function(data) {
 				update_plan_progress(data);
 				update_timestamp(q_id, data);
-				// Get section status element
 				update_section_progress(s_status, data);
 				submit_button.parent().show();
 				saving_message.hide();
@@ -57,7 +73,7 @@ $( document ).ready(function() {
 				check_section_lock(section);
 			}
     }
-	}, 20000);
+	}, 50000);
 
 	// Handle section actions on accordion expansion/collapse
 	$('.section-collapse').on('show', function() {
@@ -70,30 +86,20 @@ $( document ).ready(function() {
     }
     // check for updated answers
     $.getJSON("status.json", function(data) {
-    	//Update overall progress
     	update_plan_progress(data);
-    	//Update section progress for all sections
     	$(".section-status").each(function(){
     		update_section_progress($(this), data);
     	});
-    	// - for each question in section, check answer timestamp against currently displayed
+    	//For each question in section, check answer timestamp against currently displayed
     	var section_id = section.attr("id").split('-')[1];
     	var num_questions = data.sections[section_id]["questions"].length;
     	for (var i = 0; i < num_questions; i++) {
     		question_id = data.sections[section_id]["questions"][i];
-    		// - if timestamp newer than displayed, update answers
+    		//If timestamp newer than displayed, update answers
     		if (update_timestamp(question_id, data)) {
     			update_answer(question_id);
     		}
     	}
-    	section.find("select").change();
-    	section.find(":radio").each(function(){
-    		update_answer($(this).closest("form").find(".question_id").val()); //hack to cope with previous radio button selections not appearing
-    	});
-    	section.find(":radio:checked").click();
-	    $(":checkbox:checked").each( function(){
-	    	display_warning($(this).val(), $(this).closest("form").find(".question_id").val(), false);
-	    });
     	section.find(".loading").hide();
 			section.find(".loaded").show();
     });
@@ -102,45 +108,12 @@ $( document ).ready(function() {
   	// Only attempt unlock if there are forms on the page (not read-only)
   	if ($('form').length > 0) {
 			var section_id = section.attr("id").split('-')[1];
-			$.post('unlock_section', {section_id: section_id} );
-			var updated_questions = [];
-			$.ajax({
-				type: 'GET',
-				url: "section_answers.json?section_id="+section_id,
-				dataType: 'json',
-				async: false,
-				success: function(data) {
-					var num_questions = data.length;
-					for (var i = 0; i < num_questions; i++) {
-						var entered_text_to_compare = null;
-						var stored_text_to_compare = null;
-
-						if ($('input#answer-text-'+data[i].id).length == 1) {
-							entered_text_to_compare = $('input#answer-text-'+data[i].id).val();
-							stored_text_to_compare = (data[i].answer_text);
-						}
-						else{
-							entered_text_to_compare = strip_tags_and_whitespace(tinymce.get('answer-text-'+data[i].id).getContent());
-							stored_text_to_compare = strip_tags_and_whitespace(data[i].answer_text);
-						}
-
-						if(entered_text_to_compare != stored_text_to_compare) {
-							updated_questions.push(data[0].id);
-						}
-						//Needs to work for multiple choice too
-					}
-				}
-			});
-			if (updated_questions.length > 0) {
-				if (updated_questions.length == 1) {
-					$('#section-' + section_id + '-collapse-alert-singular').show();
-					$('#section-' + section_id + '-collapse-alert-plural').hide();
-				}
-				else {
-					$('#section-' + section_id + '-collapse-alert-count').text(updated_questions.length);
-					$('#section-' + section_id + '-collapse-alert-singular').hide();
-					$('#section-' + section_id + '-collapse-alert-plural').show();
-				}
+			$.post('unlock_section', {section_id: section_id});
+			if (is_dirty(section_id)) {
+				$('#unsaved-answers-'+section_id).text("");
+				$.each(get_unsaved_questions(section_id), function(index, question_text){
+					$('#unsaved-answers-'+section_id).append("<li>"+question_text+"</li>");
+				});
 				$('#section-' + section_id + '-collapse-alert').modal();
 			}
     }
@@ -164,21 +137,81 @@ $( document ).ready(function() {
   });
 
   $("select").change(function() {
-  	display_warning($(this).val(), $(this).closest("form").find(".question_id").val(), true);
+		$.fn.mark_as_dirty($(this).closest(".accordion-group").find(".section-status:first").attr("id").split('-')[0], $(this).closest("form").find(".question_id").val());
   });
 
   $(":radio").click(function() {
-  	display_warning($(this).val(), $(this).closest("form").find(".question_id").val(), true);
+  	$.fn.mark_as_dirty($(this).closest(".accordion-group").find(".section-status:first").attr("id").split('-')[0], $(this).closest("form").find(".question_id").val());
   });
 
   $(":checkbox").click(function() {
-  	if ($(this).is(":checked")) {
-  		display_warning($(this).val(), $(this).closest("form").find(".question_id").val(), false);
-  	}
-  	else {
-  		clear_warning($(this).val());
-  	}
+  	$.fn.mark_as_dirty($(this).closest(".accordion-group").find(".section-status:first").attr("id").split('-')[0], $(this).closest("form").find(".question_id").val());
   });
+
+	$("input").change(function() {
+		$.fn.mark_as_dirty($(this).closest(".accordion-group").find(".section-status:first").attr("id").split('-')[0], $(this).closest("form").find(".question_id").val());
+	});
+
+	function get_unsaved_questions(section_id) {
+		if (section_id != null) {
+			var questions = new Array();
+			$.each(dirty[section_id], function(question_id,value){
+				if (value) {
+					questions.push($("label[for='answer-text-"+question_id+"']").text());
+				}
+			});
+			return questions;
+		}
+		else {
+			var questions = {};
+			$.each(dirty, function(section_id,question_ids){
+				var section_text = $("#section-header-"+section_id).clone().children().remove().end().text().trim();
+				questions[section_text] = new Array();
+				$.each(question_ids, function(question_id,value){
+					if (value) {
+						questions[section_text].push($("label[for='answer-text-"+question_id+"']").text());
+					}
+				});
+			});
+			return questions;
+		}
+	}
+
+	function is_dirty(section_id, question_id) {
+		if (section_id != null) {
+			if (dirty[section_id] != null) {
+				if (question_id != null) {
+					if (dirty[section_id][question_id] != null) {
+						return dirty[section_id][question_id];
+					}
+					else {
+						return false;
+					}
+				}
+				else {
+					var is_dirty = false;
+					$.each(dirty[section_id], function(question_id, value){
+						if (value) {
+							is_dirty = true;
+						}
+					});
+					return is_dirty;
+				}
+			}
+		}
+		else {
+			var is_dirty = false;
+			$.each(dirty, function(section_id, questions){
+				$.each(questions, function(question_id, value){
+					if (value) {
+						is_dirty = true;
+					}
+				});
+			});
+			return is_dirty;
+		}
+		return false;
+	}
 
   function update_answer(question_id) {
   	$.ajax({
@@ -202,7 +235,7 @@ $( document ).ready(function() {
 						tinymce.get('answer-text-'+question_id).setContent(data.text);
 						readonly_div.find('.answer-text-readonly').html(data.text);
 					}
-					//Update answer options - both in textarea and readonly
+					//Update answer options - both in form and readonly
 					num_options = data.options.length;
 					form_div.find('option').each(function(){
 						var selected = false;
@@ -238,25 +271,21 @@ $( document ).ready(function() {
 						list_string += "<li>"+data.options[j].text+"</li>";
 					}
 					readonly_div.find('.options').html(list_string);
+					$.fn.mark_as_clean(form_div.closest(".accordion-group").find(".section-status:first").attr("id").split('-')[0], question_id);
 				}
 			}
 		});
   }
 
 	function update_section_progress(section_status, data) {
-		// Get section ID
 		s_id = section_status.attr("id").split('-')[0];
-		// Get number of questions in section
 		s_qs = data.sections[s_id]["num_questions"];
 		question_word = "questions"
 		if (s_qs == 1) {
 			question_word = "question";
 		}
-		// Get number of answers in section
 		s_as = data.sections[s_id]["num_answers"];
-		// Update section status text
 		section_status.text("("+s_qs+" "+question_word+", "+s_as+" answered)");
-		// Change class of section status - currently has no effect on appearance
 		if (s_qs == s_as) {
 			section_status.removeClass("label-warning");
 			section_status.addClass("label-info");
@@ -325,33 +354,29 @@ $( document ).ready(function() {
 		return true;
 	}
 
-	function display_warning(option_id, question_id, hide){
-		if (hide) {
-			$("#option-warning-"+question_id+" > p").hide();
-			$("#option-warning-"+question_id).hide();
-		}
-		if ($.isArray(option_id)) {
-			$.each(option_id, function () {
-				display_warning(this, question_id, false);
-			});
-		}
-		else {
-			$("#"+option_id+"-warning").show();
-			$("#option-warning-"+question_id).show();
-		}
-	}
-
-	function clear_warning(option_id, question_id){
-		$("#"+option_id+"-warning").hide();
-		$("#option-warning-"+question_id).not(":has(p)").hide();
-	}
-
-	function strip_tags_and_whitespace(html) {
-		var div = document.createElement("div");
-		div.innerHTML = html;
-		var text = div.textContent || div.innerText || "";
-		text = text.replace(/\s+/g,"");
-		text = text.replace(/(\r\n|\n|\r)/gm,"");
-		return text;
-	}
 });
+
+$.fn.mark_as_dirty = function(section_id, question_id) {
+	if (dirty[section_id] == null) {
+		dirty[section_id] = {};
+	}
+	dirty[section_id][question_id] = true;
+	$("#"+question_id+"-unsaved").show();
+};
+
+$.fn.mark_as_clean = function(section_id, question_id) {
+	if (dirty[section_id] == null) {
+		dirty[section_id] = {};
+	}
+	dirty[section_id][question_id] = false;
+	$("#"+question_id+"-unsaved").hide();
+};
+
+$.fn.check_textarea = function(editor) {
+	if (editor.isDirty()) {
+		$.fn.mark_as_dirty($("#"+editor.id).closest(".accordion-group").find(".section-status:first").attr("id").split('-')[0],editor.id.split('-')[2]);
+	}
+	else {
+		$.fn.mark_as_clean($("#"+editor.id).closest(".accordion-group").find(".section-status:first").attr("id").split('-')[0],editor.id.split('-')[2]);
+	}
+};

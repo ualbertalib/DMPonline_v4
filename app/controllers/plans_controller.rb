@@ -34,7 +34,7 @@ class PlansController < ApplicationController
 			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
     	end
   	end
-  
+
   	# GET /status/1.json
 	def status
   		@plan = Plan.find(params[:id])
@@ -46,7 +46,7 @@ class PlansController < ApplicationController
 			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
 		end
 	end
-	
+
 	def section_answers
   		@plan = Plan.find(params[:id])
   		if user_signed_in? && @plan.readable_by(current_user.id) then
@@ -57,10 +57,10 @@ class PlansController < ApplicationController
 			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
 		end
 	end
-	
+
 	def locked
   		@plan = Plan.find(params[:id])
-  		if user_signed_in? && @plan.readable_by(current_user.id) then
+  		if !@plan.nil? && user_signed_in? && @plan.readable_by(current_user.id) then
 			respond_to do |format|
 				format.json { render json: @plan.locked(params[:section_id],current_user.id) }
 			end
@@ -68,7 +68,7 @@ class PlansController < ApplicationController
 			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
 		end
 	end
-	
+
 	def delete_recent_locks
 		@plan = Plan.find(params[:id])
 		if user_signed_in? && @plan.editable_by(current_user.id) then
@@ -85,7 +85,7 @@ class PlansController < ApplicationController
 			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
 		end
 	end
-	
+
 	def unlock_all_sections
 		@plan = Plan.find(params[:id])
 		if user_signed_in? && @plan.editable_by(current_user.id) then
@@ -102,7 +102,7 @@ class PlansController < ApplicationController
 			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
 		end
 	end
-	
+
 	def lock_section
 		@plan = Plan.find(params[:id])
 		if user_signed_in? && @plan.editable_by(current_user.id) then
@@ -119,7 +119,7 @@ class PlansController < ApplicationController
 			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
 		end
 	end
-	
+
 	def unlock_section
 		@plan = Plan.find(params[:id])
 		if user_signed_in? && @plan.editable_by(current_user.id) then
@@ -136,7 +136,7 @@ class PlansController < ApplicationController
 			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
 		end
 	end
-	
+
 	def answer
   		@plan = Plan.find(params[:id])
   		if user_signed_in? && @plan.readable_by(current_user.id) then
@@ -147,7 +147,7 @@ class PlansController < ApplicationController
 			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
 		end
 	end
-	
+
 	def warning
   		@plan = Plan.find(params[:id])
   		if user_signed_in? && @plan.readable_by(current_user.id) then
@@ -158,7 +158,7 @@ class PlansController < ApplicationController
 			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
 		end
 	end
-	
+
 	def export
 		@plan = Plan.find(params[:id])
 		@include_admin = nil;

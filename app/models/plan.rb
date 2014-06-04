@@ -6,7 +6,6 @@ class Plan < ActiveRecord::Base
 	belongs_to :project
 	has_many :answers
 	has_many :plan_sections
-	has_many :plan_summaries
 	belongs_to :version
 	accepts_nested_attributes_for :project
 	accepts_nested_attributes_for :answers
@@ -120,7 +119,6 @@ class Plan < ActiveRecord::Base
 	end
 
 	def status
-		return plan_summaries
 		status = {
 			"num_questions" => 0,
 			"num_answers" => 0,
@@ -229,7 +227,7 @@ class Plan < ActiveRecord::Base
 		end
 	end
 
-	def lock_section(section_id, user_id, release_time = 30)
+	def lock_section(section_id, user_id, release_time = 60)
 		status = locked(section_id, user_id)
 		if ! status["locked"] then
 			plan_section = PlanSection.new
