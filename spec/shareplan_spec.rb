@@ -23,20 +23,40 @@ describe "Share Plan" do
   teardown
   
   before(:all) do
-    create_and_verify_user
-    sign_out_user
+    begin
+      create_and_verify_user
+      sign_out_user
+    rescue
+      screen_capture
+    end
   end
+  
   before(:each) do
-    login_as_user(@properties['dmp_user']['name'], @properties['dmp_user']['password'])
-    create_and_verify_plan  
+    if !example.instance_variable_get(:@exception).nil? 
+      screen_capture
+    end
+    begin
+      login_as_user(@properties['dmp_user']['name'], @properties['dmp_user']['password'])
+      create_and_verify_plan  
+    rescue
+      screen_capture
+    end
   end
   
   after(:all) do
-    remove_previously_added_user('dmp_user')  
+    begin
+      remove_previously_added_user('dmp_user')  
+    rescue
+      screen_capture
+    end
   end
   after(:each) do
-    destroy_plan
-    remove_previously_added_user('dmp_share_user')
+    begin
+      destroy_plan
+      remove_previously_added_user('dmp_share_user')
+    rescue
+      screen_capture
+    end
   end
   
   it "share read only plan" do

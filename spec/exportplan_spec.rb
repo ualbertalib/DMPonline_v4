@@ -23,19 +23,30 @@ describe "Export Plan" do
   teardown
   
   before(:all) do
-    create_and_verify_user
-    create_and_verify_plan
+    begin
+      create_and_verify_user
+      create_and_verify_plan
+    rescue
+      screen_capture
+    end
   end
   
   after(:each) do
+    if !example.instance_variable_get(:@exception).nil? 
+      screen_capture
+    end
     file = @download_dir + @properties['dmp_plan']['name'] + '.pdf' 
     FileUtils.remove file unless not File.exists?(file)
   end
   
   after(:all) do
-    sign_out_user
-    destroy_plan
-    remove_previously_added_user('dmp_user')
+    begin
+      sign_out_user
+      destroy_plan
+      remove_previously_added_user('dmp_user')
+    rescue
+      screen_capture
+    end
   end
 
   it "export plan as webpage" do

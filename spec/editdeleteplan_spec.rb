@@ -22,11 +22,25 @@ describe "Edit and Delete Plan" do
   teardown
   
   before(:all) do
-    create_and_verify_user
+    begin
+      create_and_verify_user
+    rescue
+      screen_capture
+    end
   end
   
   after(:all) do
-    remove_previously_added_user('dmp_user')
+    begin
+      remove_previously_added_user('dmp_user')
+    rescue
+      screen_capture
+    end
+  end
+  
+  after(:each) do
+    if !example.instance_variable_get(:@exception).nil? 
+      screen_capture
+    end
   end
   
   it "edit and delete plan" do

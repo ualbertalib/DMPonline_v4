@@ -15,6 +15,12 @@ describe "Simplest" do
 
   teardown
   
+  after(:each) do
+    if !example.instance_variable_get(:@exception).nil? 
+      screen_capture
+    end
+  end
+  
   it "site is up" do
     @driver.get(@base_url + "/")
     (@driver.title).should == "DMP Tool - University of Alberta Libraries"
