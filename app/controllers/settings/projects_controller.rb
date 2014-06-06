@@ -5,6 +5,10 @@ module Settings
     before_filter :get_settings
 
     def show
+      respond_to do |format|
+        format.html
+        format.json { render json: settings_json }
+      end
     end
 
     def update
@@ -13,7 +17,7 @@ module Settings
       if @settings.update_attributes(columns: columns)
         respond_to do |format|
           format.html { redirect_to(projects_path) }
-          format.json { @settings.to_json }
+          format.json { render json: settings_json }
         end
       else
         render(action: :show) # Expect #show to display errors etc
@@ -29,5 +33,8 @@ module Settings
       @all_columns -= [:name]
     end
 
+    def settings_json
+      @settings_json ||= { settings: @settings.value, all_columns: @all_columns }.to_json
+    end
   end
 end
