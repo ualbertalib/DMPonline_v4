@@ -34,7 +34,7 @@ module Settings
     end
 
     def settings_json
-      @settings_json ||= { settings: @settings.value, all_columns: @all_columns }.to_json
+      @settings_json ||= { selected_columns: @settings.columns, all_columns: @all_columns }.to_json
     end
   end
 end

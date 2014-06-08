@@ -29,7 +29,7 @@ $(document).ready(function() {
         tbody = $('<tbody><tr></tr></tbody>').appendTo(table),
         tfoot = $('<tfoot><tr></tr></tfoot>').appendTo(table),
          cols = data.all_columns,
-     selected = data.settings.columns;
+     selected = data.selected_columns;
 
     table.before('<input name="_method" type="hidden" value="put" />'); // PUT not POST
     table.before('<input name="authenticity_token" type="hidden" value="' + $('meta[name="csrf-token"]').attr('content') + '" />'); // Auth token
