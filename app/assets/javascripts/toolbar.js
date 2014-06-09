@@ -64,7 +64,7 @@ $(document).ready(function() {
      'My plans' filtering
    */
   var rows = $('#dmp_table tbody tr'),
-     filter = $('#filter');
+    filter = $('#filter');
 
   filter.keyup(function() {
     var query = $(this).val(),
@@ -88,5 +88,7 @@ $(document).ready(function() {
     filter.val('');
     rows.show();
   });
+
+ $('#filter_form').submit(function(e) { e.preventDefault() } );
 
 });

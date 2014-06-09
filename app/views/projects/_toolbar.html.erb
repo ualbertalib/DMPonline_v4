@@ -1,5 +1,5 @@
 <div class="dmp_toolbar">
-  <%= form_tag do %>
+  <%= form_tag(:projects, method: :get, id: 'filter_form') do %>
     <%= search_field_tag(:filter, nil, placeholder: t('helpers.project.filter.placeholder')) %>
     <%= submit_tag(:filter, value: t('helpers.project.filter.submit'), class: 'btn btn-primary') %>
     <%= link_to(t('helpers.project.filter.cancel'), projects_path, class: 'btn btn-primary', id: 'clear_filter') %>
