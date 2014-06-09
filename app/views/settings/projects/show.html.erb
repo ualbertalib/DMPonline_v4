@@ -10,9 +10,9 @@
   <table class="dmp_table">
     <thead>
       <tr>
-        <th><%= label_tag("columns[name]", t('helpers.name')) -%></th>
+        <th><%= label_tag("columns[name]", t('helpers.project.columns.name')) -%></th>
         <% @all_columns.each do |column| %>
-          <th><%= label_tag("columns[#{column}]", column.to_s.humanize) -%></th>
+          <th><%= label_tag("columns[#{column}]", t("helpers.project.columns.#{column}")) -%></th>
         <% end %>
         <th><%= label_tag("columns[select]", t('helpers.select_action')) -%></th>
       </tr>
