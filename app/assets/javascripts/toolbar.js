@@ -63,25 +63,30 @@ $(document).ready(function() {
   /*
      'My plans' filtering
    */
-  var rows = $('#dmp_table tbody tr');
+  var rows = $('#dmp_table tbody tr'),
+     filter = $('#filter');
 
-  $('#filter').keyup(function() {
+  filter.keyup(function() {
     var query = $(this).val(),
           len = query.length;
 
     if (len == 0)
       return rows.show();
 
-    if (len < 3)
+    if (len < 2) // Do nothing if term is too small?
       return;
 
-    rows.show();
     rows.each(function() {
       var row = $(this);
-      console.log(row.text());
-      if (!row.text().match(new RegExp(query)))
-        row.hide();
+      row.text().match(new RegExp(query, 'i')) ? row.show() : row.hide();
     });
+  });
+
+  $('#clear_filter').click(function(e) {
+    e.preventDefault();
+
+    filter.val('');
+    rows.show();
   });
 
 });
