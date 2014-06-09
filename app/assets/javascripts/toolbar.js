@@ -55,7 +55,10 @@ $(document).ready(function() {
     var submit = $('<td><input type="Submit" value="Save" class="btn btn-primary" /></td>').appendTo(tfoot);
         cancel = $('<td><a href="#" class="btn btn-primary">Cancel</a></td>').appendTo(tfoot);
 
-    cancel.click(function() { form.toggle(); });
+    cancel.click(function(e) {
+      e.preventDefault();
+      form.toggle();
+    });
 
     toolbar.before(form);
   }
