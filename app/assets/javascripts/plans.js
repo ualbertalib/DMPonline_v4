@@ -11,13 +11,9 @@ $( document ).ready(function() {
 	window.onbeforeunload = function(){
 		if (is_dirty()) {
 			var questions = get_unsaved_questions();
-			var message = 'You have unsaved answers:\n';
+			var message = 'You have unsaved answers in the following sections:\n';
 			$.each(questions, function(section_text, question_texts){
-				message += "\n"+section_text;
-				$.each(question_texts, function(index, question_text){
-					message += "\n\u2022 "+question_text;
-				});
-				message += "\n";
+				message += "\n\u2022"+section_text;
 			});
 		  return message;
 		}

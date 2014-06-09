@@ -5,11 +5,11 @@ class PlansController < ApplicationController
 	# GET /plans/1/edit
 	def edit
 		@plan = Plan.find(params[:id])
-          if !user_signed_in? then
-               respond_to do |format|
+    if !user_signed_in? then
+      respond_to do |format|
 				format.html { redirect_to edit_user_registration_path }
 			end
-		elsif !@plan.editable_by(current_user.id) then
+		elsif !@plan.readable_by(current_user.id) then
 			respond_to do |format|
 				format.html { redirect_to projects_url, notice: "This account does not have access to that plan." }
 			end
