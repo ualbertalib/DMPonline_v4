@@ -1,16 +1,13 @@
 module PlansHelper
 
   def project_list_head(column)
-    klass, content = case column
-      when :name        then %w( dmp_th_big    helpers.name )
-      when :owner       then %w( dmp_th_medium helpers.owner )
-      when :shared      then %w( dmp_th_small  helpers.project.share.shared_label )
-      when :last_edited then %w( dmp_th_small  helpers.last_edit )
-      else # Attempt a sensible default
-        [ 'dmp_th_small', column ]
+    klass = case column
+      when :name  then :dmp_th_big
+      when :owner then :dmp_th_medium
+      else :dmp_th_small
     end
 
-    content_tag(:th, t(content), class: klass)
+    content_tag(:th, t("helpers.project.columns.#{column}"), class: klass)
   end
 
   def project_list_body(column, project)

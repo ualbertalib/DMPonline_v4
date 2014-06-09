@@ -432,6 +432,17 @@ Select what format you wish to use and click to 'Export'.</p>"
         institution_question_description: "You may leave blank or select a different organisation to your own."
         other_guidance_question: "Tick to select any other sources of guidance you wish to see."  
       configure: "Configure"
+      columns:
+        name: "Name"
+        owner: "Owner"
+        shared: "Shared?"
+        last_edited: "Last edited"
+        identifier: "Identifier"
+        grant_number: "Grant number"
+        principal_investigator: "Principal Investigator/Researcher"
+        data_contact: "Plan data contact"
+        description: "Description"
+
     settings:
       projects:
         title: "Settings - My plans"
