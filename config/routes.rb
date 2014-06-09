@@ -152,6 +152,10 @@ DMPonline4::Application.routes.draw do
  
   resources :file_types
   resources :file_uploads
+
+  namespace :settings do
+    resource :projects
+  end
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

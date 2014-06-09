@@ -1,4 +1,6 @@
 class ProjectsController < ApplicationController
+	before_filter :get_plan_list_columns, only: %i( index )
+
 	# GET /projects
 	# GET /projects.json
 	def index

@@ -40,4 +40,10 @@ class ApplicationController < ActionController::Base
 		redirect_to root_path unless user_signed_in? && current_user.is_admin?
 	end
 
+	def get_plan_list_columns
+		if user_signed_in?
+			@selected_columns = current_user.settings(:plan_list).columns
+			@all_columns = Settings::PlanList::ALL_COLUMNS
+		end
+	end
 end
