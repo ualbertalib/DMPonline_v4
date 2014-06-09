@@ -443,6 +443,9 @@ Select what format you wish to use and click to 'Export'.</p>"
         principal_investigator: "Principal Investigator/Researcher"
         data_contact: "Plan data contact"
         description: "Description"
+      filter:
+        placeholder: "Enter filter query"
+        submit: "Filter"
 
     settings:
       projects:

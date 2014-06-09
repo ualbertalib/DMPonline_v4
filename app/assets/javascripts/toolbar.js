@@ -60,4 +60,28 @@ $(document).ready(function() {
     toolbar.before(form);
   }
 
+  /*
+     'My plans' filtering
+   */
+  var rows = $('#dmp_table tbody tr');
+
+  $('#filter').keyup(function() {
+    var query = $(this).val(),
+          len = query.length;
+
+    if (len == 0)
+      return rows.show();
+
+    if (len < 3)
+      return;
+
+    rows.show();
+    rows.each(function() {
+      var row = $(this);
+      console.log(row.text());
+      if (!row.text().match(new RegExp(query)))
+        row.hide();
+    });
+  });
+
 });
