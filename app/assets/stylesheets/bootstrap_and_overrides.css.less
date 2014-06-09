@@ -1431,3 +1431,18 @@ ul.help_ul li{
   float: right;
   padding: @font_size / 2;
 }
+
+table.tablesorter thead  {
+  th.header {
+    cursor: pointer;
+    background: url('/assets/bg.gif') no-repeat center right;
+  }
+
+  th.headerSortDown {
+    background: @orange_lighter_colour url('/assets/desc.gif') no-repeat center right;
+  }
+
+  th.headerSortUp {
+    background: @orange_lighter_colour url('/assets/asc.gif') no-repeat center right;
+  }
+}
