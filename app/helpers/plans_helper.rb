@@ -15,7 +15,7 @@ module PlansHelper
       when :name
         [ 'dmp_td_big', link_to(project.title, project_path(project), class: 'dmp_table_link') ]
       when :owner
-        user = project.project_groups.find_by_project_creator(true).try(:user)
+        user = project.owner
         text = if user.nil?
           'Unknown'
         elsif user == current_user

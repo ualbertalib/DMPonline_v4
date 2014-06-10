@@ -1425,9 +1425,68 @@ ul.help_ul li{
 	background-color: @orange_colour;
 }
 
-/* Configuration button */
-.btn-configure {
-  color: @orange_colour;
-  float: right;
-  padding: @font_size / 2;
+/* My plans toolbar */
+.dmp_toolbar {
+  background-color: @orange_colour;
+  height: 34px;
+  margin-left: 2px;
+  padding: 4px 4px 4px 2px;
+  text-align: right;
+  vertical-align: center;
+  width: 99%;
+
+  form#filter_form {
+    background-color: @white_colour;
+    border-radius: 3px;
+    display: inline-block;
+    height: auto;
+    overflow: hidden;
+    padding: 2px;
+    width: 50%;
+
+    #filter {
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      -webkit-box-shadow: none;
+      margin: 0;
+      outline: none;
+      padding: 0;
+      width: 80%;
+    }
+  }
+
+  .btn-configure {
+    color: @white_colour;
+    float: right;
+    height: 100%;
+    line-height: 250%;
+    margin-left: @font_size / 2;
+
+    &:hover {
+      color: @white_colour !important;
+    }
+  }
+
+  a:focus,
+  a:active,
+  a:hover {
+    text-decoration: none !important;
+  }
+}
+
+/* tablesorter */
+table.tablesorter thead  {
+  th.header {
+    cursor: pointer;
+    background: url('/assets/bg.gif') no-repeat center right;
+  }
+
+  th.headerSortDown {
+    background: @orange_lighter_colour url('/assets/desc.gif') no-repeat center right;
+  }
+
+  th.headerSortUp {
+    background: @orange_lighter_colour url('/assets/asc.gif') no-repeat center right;
+  }
 }
