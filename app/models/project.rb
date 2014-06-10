@@ -150,6 +150,25 @@ class Project < ActiveRecord::Base
 		end
 		return latest_update
 	end
+
+	# Getters to match 'My plans' columns
+	def name
+		self.title
+	end
+
+	def owner
+		self.project_groups.find_by_project_creator(true).try(:user)
+	end
+
+	def last_edited
+		self.latest_update.to_date
+	end
+
+	def shared?
+		self.project_groups.count > 1
+	end
+
+	alias_method :shared, :shared?
 	
 	private
 	

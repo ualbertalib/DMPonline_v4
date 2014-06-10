@@ -1,6 +1,6 @@
 <div class="dmp_toolbar">
   <%= form_tag(:projects, method: :get, id: 'filter_form') do %>
-    <%= search_field_tag(:filter, nil, placeholder: t('helpers.project.filter.placeholder')) %>
+    <%= search_field_tag(:filter, params[:filter], placeholder: t('helpers.project.filter.placeholder')) %>
     <a id="clear_filter" class="icon-remove" href="<%= projects_path -%>" title="<%= t('helpers.project.filter.cancel') -%>">
       <span class="hide-text"><%= t('helpers.project.filter.cancel') -%></span>
     </a>

@@ -447,6 +447,7 @@ Select what format you wish to use and click to 'Export'.</p>"
         placeholder: "Filter plans"
         submit: "Filter"
         cancel: "Cancel"
+        no_matches: "No plans match '%{filter}'"
 
     settings:
       projects:
