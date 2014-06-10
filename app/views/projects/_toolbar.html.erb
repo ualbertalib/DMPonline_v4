@@ -1,11 +1,11 @@
 <div class="dmp_toolbar">
-  <%= form_tag(:projects, method: :get, id: 'filter_form') do %>
+  <form action="<%= projects_path -%>" method="get" id="filter_form">
     <%= search_field_tag(:filter, params[:filter], placeholder: t('helpers.project.filter.placeholder')) %>
     <a id="clear_filter" class="icon-remove" href="<%= projects_path -%>" title="<%= t('helpers.project.filter.cancel') -%>">
       <span class="hide-text"><%= t('helpers.project.filter.cancel') -%></span>
     </a>
-    <%= submit_tag(:filter, value: t('helpers.project.filter.submit'), class: 'btn btn-primary') %>
-  <% end %>
+    <input type="submit" class="btn btn-primary" value="<%= t('helpers.project.filter.submit') -%>" />
+  </form>
   <a id="toolbar_configure" class="icon-cog btn-configure" href="<%= settings_projects_path -%>" title="<%= t('helpers.project.configure') -%>">
     <span class="hide-text"><%= t('helpers.project.configure') -%></span>
   </a>
