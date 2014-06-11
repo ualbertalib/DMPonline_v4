@@ -201,7 +201,9 @@ class PlansController < ApplicationController
 			  		exported_plan.format = "pdf (without admin)"
 			  	end
 			  	exported_plan.save
-				render :pdf => file_name, :margin => {:top => 20, :bottom => 20, :left => 20, :right => 20}
+
+			  	@formatting = @plan.project.dmptemplate.settings(:export).formatting
+  				render pdf: file_name, margin: @formatting[:margin]
 			  end
 			end
 		elsif !user_signed_in? then
