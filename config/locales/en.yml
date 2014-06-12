@@ -459,6 +459,9 @@ Select what format you wish to use and click to 'Export'.</p>"
           unknown: "Unknown column name."
       plans:
         reset: "Reset"
+        custom_formatting: "Using custom formatting values"
+        template_formatting: "Using template formatting values"
+        default_formatting: "Using default formatting values"
         errors:
           missing_key: "A required setting has not been provided"
           invalid_margin: "Margin value is invalid"
