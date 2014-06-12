@@ -6,6 +6,7 @@ module Settings
     def show
       respond_to do |format|
         format.html
+        format.partial
         format.json { render json: settings_json }
       end
     end

@@ -1,24 +1,4 @@
 <h1>Settings - <%= @plan.project.title -%></h1>
 <p><%= t('helpers.settings.plans.desc') -%></p>
 
-<% @export_settings.errors.full_messages.each do |error| %>
-  <div class="error"><%= error %></div>
-<% end %>
-
-<%= form_for(@export_settings, url: settings_plan_path(@plan), method: :put, as: :export) do |f| %>
-  <fieldset>
-    <%= f.label(:font_face, t('helpers.settings.plan.font')) %>
-    <%= f.select(:font_face, options_for_select(Settings::Dmptemplate::VALID_FONT_FACES, @export_settings.formatting[:font_face])) %>
-    <%= f.select(:font_size, options_for_select((1..36).to_a, @export_settings.formatting[:font_size])) %>pt
-  </fieldset>
-  <fieldset>
-    <h3>Margins</h3>
-
-    <% %i( top bottom left right ).each do |pos| %>
-      <%= label_tag("export[margin][#{pos}]", pos) %>
-      <%= select_tag("export[margin][#{pos}]", options_for_select((0..100).to_a, @export_settings.formatting[:margin][pos])) %>mm
-    <% end %>
-  </fieldset>
-  <%= submit_tag(t('helpers.save'), class: 'btn btn-primary') %>
-  <%= submit_tag(t('helpers.settings.plans.reset'), class: 'btn btn-primary') %>
-<% end %>
+<%= render 'export_formatting_form' %>
