@@ -3,6 +3,9 @@
 	<li><%= link_to "View as plain text", export_project_plan_path(plan.project, plan, :format => "text"), :target => "_blank" %> (Best for copying and pasting)</li>
 	
 	<li>View as PDF (Best for sharing e.g. by email): 
+		<a id="toolbar_configure" class="icon-cog btn-configure" href="<%= settings_plan_path(plan) -%>" title="<%= t('helpers.project.configure') -%>">
+			<span class="hide-text"><%= t('helpers.project.configure') -%></span>
+		</a>
 		<ul class="export_sub_list">
 			<li><%= link_to "With admin details", export_project_plan_path(plan.project, plan, :format => :pdf, :include_admin => 'true'), :target => "_blank" %> (Grant Number, Identifier, Principal Investigator, Project Description etc.)</li>
 			<li><%= link_to "Without admin details", export_project_plan_path(plan.project, plan, :format => :pdf), :target => "_blank" %></li>

@@ -202,7 +202,7 @@ class PlansController < ApplicationController
 			  	end
 			  	exported_plan.save
 
-			  	@formatting = @plan.project.dmptemplate.settings(:export).formatting
+			  	@formatting = @plan.settings(:export).formatting
   				render pdf: file_name, margin: @formatting[:margin]
 			  end
 			end

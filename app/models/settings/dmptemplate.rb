@@ -42,12 +42,7 @@ module Settings
             errs << :unknown_margin unless (formatting[:margin].keys - DEFAULT_FORMATTING[:margin].keys).empty?
           end
 
-          if !formatting[:font_size].is_a?(Integer)
-            errs << :invalid_font_size
-          elsif formatting[:font_size].to_i < 0
-            errs << :negative_font_size
-          end
-
+          errs << :invalid_font_size if formatting[:font_size].to_s !~ /^\d+$/
           errs << :invalid_font_face unless VALID_FONT_FACES.member?(formatting[:font_face])
           errs << :unknown_key unless (formatting.keys - DEFAULT_FORMATTING.keys).empty?
         end
@@ -57,6 +52,10 @@ module Settings
         end
 
       end
+    end
+
+    before_save do
+      self.formatting[:font_size] = self.formatting[:font_size].to_i
     end
   end
 end

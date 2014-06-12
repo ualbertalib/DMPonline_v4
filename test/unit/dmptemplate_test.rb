@@ -68,7 +68,7 @@ class DmptemplateTest < ActiveSupport::TestCase
     assert(!@template.valid?)
     assert(!@template.save)
 
-    assert_equal(I18n.t('helpers.settings.templates.errors.negative_font_size'),
+    assert_equal(I18n.t('helpers.settings.templates.errors.invalid_font_size'),
                  @template.errors.messages[:'setting_objects.formatting'].first)
 
     @template.reload
