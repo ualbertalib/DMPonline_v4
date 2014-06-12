@@ -23,7 +23,7 @@ class Plan < ActiveRecord::Base
 	def settings(key)
 		self_settings = self.super_settings(key)
 		return self_settings if self_settings.value?
-		(self.project.dmptemplate || Dmptemplate.new).settings(key)
+		(self.project.try(:dmptemplate) || Dmptemplate.new).settings(key)
 	end
 
 	def answer(qid, create_if_missing = true)
