@@ -11,6 +11,21 @@ class Plan < ActiveRecord::Base
 	accepts_nested_attributes_for :answers
 	accepts_nested_attributes_for :version
 
+	has_settings :export, class_name: 'Settings::Dmptemplate' do |s|
+		s.key :export, defaults: { formatting: Settings::Dmptemplate::DEFAULT_FORMATTING }
+	end
+
+	alias_method :super_settings, :settings
+
+	# Proxy through to the template settings (or defaults if this plan doesn't have
+	# an associated template) if there are no settings stored for this plan.
+	# `key` is required by rails-settings, so it's required here, too.
+	def settings(key)
+		self_settings = self.super_settings(key)
+		return self_settings if self_settings.value?
+		(self.project.dmptemplate || Dmptemplate.new).settings(key)
+	end
+
 	def answer(qid, create_if_missing = true)
   		answer = answers.where(:question_id => qid).order("created_at DESC").first
   		question = Question.find(qid)
@@ -292,4 +307,5 @@ class Plan < ActiveRecord::Base
  		end
  		return section_questions
 	end
+
 end
