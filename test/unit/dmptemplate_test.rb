@@ -38,7 +38,7 @@ class DmptemplateTest < ActiveSupport::TestCase
     assert(!@template.valid?)
     assert(!@template.save)
 
-    assert_equal(I18n.t('helpers.settings.templates.errors.negative_margin'),
+    assert_equal(I18n.t('helpers.settings.plans.errors.negative_margin'),
                  @template.errors.messages[:'setting_objects.formatting'].first)
 
     @template.reload
@@ -53,7 +53,7 @@ class DmptemplateTest < ActiveSupport::TestCase
     assert(!@template.valid?)
     assert(!@template.save)
 
-    assert_equal(I18n.t('helpers.settings.templates.errors.unknown_margin'),
+    assert_equal(I18n.t('helpers.settings.plans.errors.unknown_margin'),
                  @template.errors.messages[:'setting_objects.formatting'].first)
 
     @template.reload
@@ -68,7 +68,7 @@ class DmptemplateTest < ActiveSupport::TestCase
     assert(!@template.valid?)
     assert(!@template.save)
 
-    assert_equal(I18n.t('helpers.settings.templates.errors.invalid_font_size'),
+    assert_equal(I18n.t('helpers.settings.plans.errors.invalid_font_size'),
                  @template.errors.messages[:'setting_objects.formatting'].first)
 
     @template.reload
@@ -82,7 +82,7 @@ class DmptemplateTest < ActiveSupport::TestCase
     assert(!@template.valid?)
     assert(!@template.save)
 
-    assert_equal(I18n.t('helpers.settings.templates.errors.unknown_key'),
+    assert_equal(I18n.t('helpers.settings.plans.errors.unknown_key'),
                  @template.errors.messages[:'setting_objects.formatting'].first)
 
     @template.reload
@@ -96,7 +96,7 @@ class DmptemplateTest < ActiveSupport::TestCase
     assert(!@template.valid?)
     assert(!@template.save)
 
-    assert_equal(I18n.t('helpers.settings.templates.errors.missing_key'),
+    assert_equal(I18n.t('helpers.settings.plans.errors.missing_key'),
                  @template.errors.messages[:'setting_objects.formatting'].first)
 
     @template.reload
@@ -110,7 +110,7 @@ class DmptemplateTest < ActiveSupport::TestCase
     assert(!@template.valid?)
     assert(!@template.save)
 
-    assert_equal(I18n.t('helpers.settings.templates.errors.missing_key'),
+    assert_equal(I18n.t('helpers.settings.plans.errors.missing_key'),
                  @template.errors.messages[:'setting_objects.formatting'].first)
 
     @template.reload
@@ -124,7 +124,7 @@ class DmptemplateTest < ActiveSupport::TestCase
     assert(!@template.valid?)
     assert(!@template.save)
 
-    assert_equal(I18n.t('helpers.settings.templates.errors.missing_key'),
+    assert_equal(I18n.t('helpers.settings.plans.errors.missing_key'),
                  @template.errors.messages[:'setting_objects.formatting'].first)
 
     @template.reload
@@ -140,7 +140,7 @@ class DmptemplateTest < ActiveSupport::TestCase
     assert(!@template.valid?)
     assert(!@template.save)
 
-    assert_equal(I18n.t('helpers.settings.templates.errors.invalid_margin'),
+    assert_equal(I18n.t('helpers.settings.plans.errors.invalid_margin'),
                  @template.errors.messages[:'setting_objects.formatting'].first)
 
     @template.reload
@@ -156,7 +156,7 @@ class DmptemplateTest < ActiveSupport::TestCase
     assert(!@template.valid?)
     assert(!@template.save)
 
-    assert_equal(I18n.t('helpers.settings.templates.errors.invalid_font_size'),
+    assert_equal(I18n.t('helpers.settings.plans.errors.invalid_font_size'),
                  @template.errors.messages[:'setting_objects.formatting'].first)
 
     @template.reload
@@ -172,7 +172,7 @@ class DmptemplateTest < ActiveSupport::TestCase
     assert(!@template.valid?)
     assert(!@template.save)
 
-    assert_equal(I18n.t('helpers.settings.templates.errors.invalid_font_face'),
+    assert_equal(I18n.t('helpers.settings.plans.errors.invalid_font_face'),
                  @template.errors.messages[:'setting_objects.formatting'].first)
 
     @template.reload
@@ -188,7 +188,7 @@ class DmptemplateTest < ActiveSupport::TestCase
     assert(!@template.valid?)
     assert(!@template.save)
 
-    assert_equal(I18n.t('helpers.settings.templates.errors.invalid_font_face'),
+    assert_equal(I18n.t('helpers.settings.plans.errors.invalid_font_face'),
                  @template.errors.messages[:'setting_objects.formatting'].first)
 
     @template.reload

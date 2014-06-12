@@ -48,7 +48,7 @@ module Settings
         end
 
         errs.map do |key|
-          errors.add(:formatting, I18n.t("helpers.settings.templates.errors.#{key}"))
+          errors.add(:formatting, I18n.t("helpers.settings.plans.errors.#{key}"))
         end
 
       end

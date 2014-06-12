@@ -457,6 +457,16 @@ Select what format you wish to use and click to 'Export'.</p>"
           no_name: "'name' must be included in column list."
           duplicate: "Duplicate column name. Please only include each column once."
           unknown: "Unknown column name."
+      plans:
+        reset: "Reset"
+        errors:
+          missing_key: "A required setting has not been provided"
+          invalid_margin: "Margin value is invalid"
+          negative_margin: "Margin cannot be negative"
+          unknown_margin: "Unknown margin. Can only be 'top', 'bottom', 'left' or 'right'"
+          invalid_font_size: "Invalid font size"
+          invalid_font_face: "Invalid font face"
+          unknown_key: "Unknown formatting setting"
 
   about_page:
     title: "About DMPonline"
