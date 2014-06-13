@@ -41,7 +41,7 @@ class PlanTest < ActiveSupport::TestCase
     plan_settings = settings(font_size: 20)
 
     template = dmptemplates(:ahrc_template)
-    template.settings(:export).formatting = template_settings
+    template.settings(:export).update_attributes(formatting: template_settings)
 
     @plan.project.dmptemplate = template
     @plan.super_settings(:export).formatting = plan_settings
@@ -55,6 +55,33 @@ class PlanTest < ActiveSupport::TestCase
     assert_not_equal(plan_settings, template_settings)
     assert_equal(template_settings, template.settings(:export).formatting)
     assert_equal(plan_settings, @plan.settings(:export).formatting)
+  end
+
+  test "explicit settings should not affect other plans with same template" do
+    template_settings = settings
+    plan_settings = settings(font_size: 20)
+
+    template = dmptemplates(:ahrc_template)
+    template.settings(:export).update_attributes(formatting: template_settings)
+
+    @plan.project.dmptemplate = template
+    @plan.super_settings(:export).formatting = plan_settings
+    @plan.save!
+    @plan.reload
+
+    other_plan = Plan.new.tap do |plan|
+      plan.project = Project.new.tap {|p| p.dmptemplate = template }
+    end
+
+    other_plan.save!
+    other_plan.reload
+
+    assert(@plan.super_settings(:export).value?)
+    assert(@plan.settings(:export).value?)
+    assert(template.settings(:export).value?)
+
+    assert_not_equal(plan_settings, other_plan.settings(:export).formatting)
+    assert_equal(template_settings, other_plan.settings(:export).formatting)
   end
 
 end
