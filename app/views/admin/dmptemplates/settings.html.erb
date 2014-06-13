@@ -2,7 +2,7 @@
   <div class="error"><%= error %></div>
 <% end %>
 
-<%= form_for(@settings, url: settings_admin_dmptemplate_path(@template), method: :put, as: :formatting, html: { class: 'formtastic' }) do |f| %>
+<%= form_for(@settings, url: update_settings_admin_dmptemplate_path(@template), method: :put, as: :formatting, html: { class: 'formtastic' }) do |f| %>
   <fieldset class="inputs">
     <legend><span>Formatting</span></legend>
 
@@ -15,9 +15,8 @@
       <li>
         <%= f.label(t('helpers.settings.plans.margin')) %>
         <% %i( top bottom left right ).each do |pos| %>
-          <%# = label_tag("export[margin][#{pos}]", t("helpers.settings.plans.margins.#{pos}")) %>
           <span><%= t("helpers.settings.plans.margins.#{pos}") -%></span>
-          <%= select_tag("export[margin][#{pos}]", options_for_select((0..100).to_a, @settings.formatting[:margin][pos])) %>
+          <%= select_tag("formatting[margin][#{pos}]", options_for_select((0..100).to_a, @settings.formatting[:margin][pos])) %>
         <% end %>
       </li>
     </ol>

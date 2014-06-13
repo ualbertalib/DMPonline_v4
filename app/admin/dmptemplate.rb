@@ -6,6 +6,25 @@ ActiveAdmin.register Dmptemplate do
     @template = resource
     @settings = resource.settings(:export)
   end
+
+  member_action :update_settings, method: :put do
+    settings = resource.settings(:export).tap do |s|
+      s.formatting = if params[:commit] != 'Reset'
+        params[:formatting].try(:deep_symbolize_keys)
+      else
+        nil
+      end
+    end
+
+    if settings.save
+      redirect_to(action: :show, flash: { notice: 'Settings updated successfully' })
+    else
+      settings.formatting = nil
+      @template = resource
+      @settings = settings
+      render(action: :settings)
+    end
+  end
 	
   index do   
   	column :title do |dmptemp|
