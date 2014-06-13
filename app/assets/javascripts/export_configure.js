@@ -1,22 +1,22 @@
 $(document).ready(function() {
-  var form;
+  var form,
+       btn = $('#export_configure');
 
-  $('#export_configure').click(function(e) {
+  btn.click(function(e) {
     e.preventDefault();
 
-    var container = $(this).parent();
+    if (form)
+      return form.toggle();
 
-    if (form) {
-      form.toggle();
-    } else {
+    var container = btn.parent();
 
-      $.get($(this).attr('href') + '.partial')
-       .done(function(data) {
-         form = $(data).appendTo(container);
-       })
-       .fail(function(data) {
-         // Handle failure?
-       });
-    }
+    $.get($(this).attr('href') + '.partial')
+      .done(function(data) {
+        form = $(data)
+          btn.parent().find("ul").first().before(form);
+      })
+      .fail(function(data) {
+        // Handle failure?
+      });
   });
 });

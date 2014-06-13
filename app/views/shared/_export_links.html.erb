@@ -7,13 +7,15 @@
 		<a id="export_configure" class="icon-cog btn-configure" href="<%= settings_plan_path(plan) -%>" title="<%= t('helpers.project.configure') -%>">
 			<span class="hide-text"><%= t('helpers.project.configure') -%></span>
 		</a>
-		<% if plan.settings(:export).value? %>
-			<%= t('helpers.settings.plans.custom_formatting') %>
-		<% elsif plan.project.dmptemplate && plan.project.dmptemplate.settings(:export).value? %>
-			<%= t('helpers.settings.plans.template_formatting') %>
-		<% else %>
-			<%= t('helpers.settings.plans.default_formatting') %>
-		<% end %>
+		<small>
+			<% if plan.settings(:export).value? %>
+				<%= t('helpers.settings.plans.custom_formatting') %>
+			<% elsif plan.project.dmptemplate && plan.project.dmptemplate.settings(:export).value? %>
+				<%= t('helpers.settings.plans.template_formatting') %>
+			<% else %>
+				<%= t('helpers.settings.plans.default_formatting') %>
+			<% end %>
+		</small>
 		<ul class="export_sub_list">
 			<li><%= link_to "With admin details", export_project_plan_path(plan.project, plan, :format => :pdf, :include_admin => 'true'), :target => "_blank" %> (Grant Number, Identifier, Principal Investigator, Project Description etc.)</li>
 			<li><%= link_to "Without admin details", export_project_plan_path(plan.project, plan, :format => :pdf), :target => "_blank" %></li>
