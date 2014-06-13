@@ -46,7 +46,9 @@ ActiveAdmin.register Dmptemplate do
   	column :published
   	column :is_default
   	
-    default_actions
+    actions defaults: true do |template|
+      link_to(I18n.t('helpers.settings.title'), settings_admin_dmptemplate_path(template.id))
+    end
   end
  
  
