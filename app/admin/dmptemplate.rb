@@ -25,6 +25,10 @@ ActiveAdmin.register Dmptemplate do
       render(action: :settings)
     end
   end
+
+  action_item only: %i( show edit ) do
+    link_to(I18n.t('helpers.settings.title'), settings_admin_dmptemplate_path(resource.id))
+  end
 	
   index do   
   	column :title do |dmptemp|
