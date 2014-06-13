@@ -2,6 +2,10 @@ ActiveAdmin.register Dmptemplate do
 	
 	 menu :priority => 11, :label => proc{ I18n.t('admin.template')}, :parent => "Templates management"
 	
+  member_action :settings do
+    @template = resource
+    @settings = resource.settings(:export)
+  end
 	
   index do   
   	column :title do |dmptemp|

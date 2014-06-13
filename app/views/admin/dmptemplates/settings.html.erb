@@ -1,0 +1,29 @@
+<% @settings.errors.full_messages.each do |error| %>
+  <div class="error"><%= error %></div>
+<% end %>
+
+<%= form_for(@settings, url: settings_admin_dmptemplate_path(@template), method: :put, as: :formatting, html: { class: 'formtastic' }) do |f| %>
+  <fieldset class="inputs">
+    <legend><span>Formatting</span></legend>
+
+    <ol>
+      <li>
+        <%= f.label(:font_face, t('helpers.settings.plans.font')) %>
+        <%= f.select(:font_face, options_for_select(Settings::Dmptemplate::VALID_FONT_FACES, @settings.formatting[:font_face])) %>
+        <%= f.select(:font_size, options_for_select((1..36).to_a, @settings.formatting[:font_size])) %>pt
+      </li>
+      <li>
+        <%= f.label(t('helpers.settings.plans.margin')) %>
+        <% %i( top bottom left right ).each do |pos| %>
+          <%# = label_tag("export[margin][#{pos}]", t("helpers.settings.plans.margins.#{pos}")) %>
+          <span><%= t("helpers.settings.plans.margins.#{pos}") -%></span>
+          <%= select_tag("export[margin][#{pos}]", options_for_select((0..100).to_a, @settings.formatting[:margin][pos])) %>
+        <% end %>
+      </li>
+    </ol>
+  </fieldset>
+  <fieldset class="actions">
+    <%= submit_tag(t('helpers.save'), class: 'btn btn-primary') %>
+    <%= submit_tag(t('helpers.settings.plans.reset'), class: 'btn btn-primary') %>
+  </fieldset>
+<% end %>
