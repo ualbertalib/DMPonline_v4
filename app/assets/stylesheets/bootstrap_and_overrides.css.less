@@ -852,11 +852,28 @@ ol .choices-group{
   padding-left: 20px;
 }
 
+/*** progress bar mixin ***/
+.ProgressBar (@start_colour, @stop_colour) {
+  background-color: @start_colour;
+  padding-left: 1px;
+  background-image: -moz-linear-gradient(top , @start_colour, @stop_colour 49px);
+  background-image: -webkit-linear-gradient(top , @start_colour, @stop_colour 49px);
+  background-image: -o-linear-gradient(top , @start_colour, @stop_colour 49px);
+  background-image: -ms-linear-gradient(top , @start_colour, @stop_colour 49px);
+  background-image: linear-gradient(top , @start_colour, @stop_colour 49px);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr= @start_colour, endColorstr=  @stop_colour , gradientType='0')";
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr= @start_colour, endColorstr=  @stop_colour) ;/*For IE7-8-9*/
+  float: left;
+  clear: both;
+}
+
 /*** project progress bar ***/
-.progress{
-  margin:20px 0 0 10%;
+.progress {
+  height: auto;
+  margin: 20px 0 0 10%;
   width: 45%;
-  float:right;
+  float: right;
+  background-color: @grey_lighter_colour;
   border-bottom-left-radius: 9px;
   border-bottom-right-radius: 9px;
   border-top-left-radius: 9px;
@@ -864,26 +881,26 @@ ol .choices-group{
   box-shadow: 4px 5px 20px 3px rgba(168, 168, 168, 0.73);
   -moz-box-shadow: 4px 5px 20px 3px rgba(168, 168, 168, 0.73);
   -webkit-box-shadow: 4px 5px 20px 3px rgba(168, 168, 168, 0.73);
+
+  .bar {
+    .ProgressBar(@orange_colour, @orange_darker_colour);
+  }
+
+  .bar.space {
+    .ProgressBar(@orange_lighter_colour, @orange_colour);
+  }
+
+  hr {
+    float: left;
+    margin: -1px 10px -1px 0;
+    width: 100%;
+  }
+
+ .color-text{
+    color: @orange_colour;
+    padding-left: 15px;
+  }
 }
-
-.progress .bar{
-  background-color: @orange_colour;
-  padding-left: 1px; 
-  background-image: -moz-linear-gradient(top , @orange_colour, @orange_darker_colour 49px);
-  background-image: -webkit-linear-gradient(top , @orange_colour, @orange_darker_colour 49px);
-  background-image: -o-linear-gradient(top , @orange_colour, @orange_darker_colour 49px);
-  background-image: -ms-linear-gradient(top , @orange_colour, @orange_darker_colour 49px);
-  background-image: linear-gradient(top , @orange_colour, @orange_darker_colour 49px);
-  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr= @orange_colour, endColorstr=  @orange_darker_colour , gradientType='0')";
-  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr= @orange_colour, endColorstr=  @orange_darker_colour) ;/*For IE7-8-9*/
-  
-} 
-
-.progress .color-text{
-  color: @orange_colour;
-  padding-left: 15px; 
-} 
-
 
 /*** project nav tabs ***/
 .nav-project-tabs{
