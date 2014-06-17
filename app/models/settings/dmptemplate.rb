@@ -2,7 +2,8 @@ module Settings
   class Dmptemplate < RailsSettings::SettingObject
 
     VALID_FONT_FACES = [
-      'Arial, Helvetica, Sans-Serif'
+      'Arial, Helvetica, Sans-Serif',
+      '"Times New Roman", Times, Serif'
     ]
 
     DEFAULT_FORMATTING = {
