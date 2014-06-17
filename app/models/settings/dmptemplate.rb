@@ -57,6 +57,9 @@ module Settings
 
     before_save do
       self.formatting[:font_size] = self.formatting[:font_size].to_i
+      self.formatting[:margin].each do |key, val|
+        self.formatting[:margin][key] = val.to_i
+      end
     end
   end
 end
