@@ -13,12 +13,12 @@
       answered = %(#{status["num_answers"]}/#{status["num_questions"]})
     %>
       <div class="bar-container">
-        <span><%= answered -%> questions answered</span>
+        <span id="questions-progress-title"><%= answered -%> questions answered</span>
         <span id="questions-progress" class="bar" style="width: <%= number_to_percentage(status["num_answers"].to_f/status["num_questions"].to_f*100) %>;" title="<%= answered -%> questions answered"></span>
       </div>
       <hr>
       <div class="bar-container">
-        <span><%= space_title -%></span>
+        <span id="export-progress-title"><%= space_title -%></span>
         <span id="export-progress" class="bar space" style="width: <%= space_used -%>%;" title="<%= space_title -%>"></span>
       </div>
 </div>

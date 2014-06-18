@@ -270,15 +270,10 @@ $( document ).ready(function() {
 	}
 	
 	function update_plan_progress(data) {
-		if (data.num_answers > 0) {
-			$(".progress").children(".color-text").remove();
-			$("#questions-progress").show();
-			$("#questions-progress").css("width", (data.num_answers/data.num_questions*100)+"%");
-			$("#questions-progress").text(data.num_answers+"/"+data.num_questions);
-		}
-		else {
-			$("#questions-progress").hide();
-		}
+		$("#questions-progress").css("width", (data.num_answers/data.num_questions*100)+"%");
+		$("#questions-progress-title").text(data.num_answers+"/"+data.num_questions + ' questions answered');
+		$('#export-progress').css('width', data.space_used + '%');
+		$("#export-progress-title").text('approx. ' + data.space_used + '% of available space used');
 	}
 	
 	function update_timestamp(question_id, data) {
