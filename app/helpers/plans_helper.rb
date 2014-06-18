@@ -38,4 +38,21 @@ module PlansHelper
     content_tag(:td, content, class: klass)
   end
 
+  # Shows whether the user has default, template-default or custom settings
+  # for the given plan.
+  def plan_settings_indicator(plan)
+    plan_settings     = plan.super_settings(:export)
+    template_settings = plan.project.dmptemplate.try(:settings, :export)
+
+    key = if plan_settings.try(:value?)
+      plan_settings.formatting == template_settings.formatting ? 'template_formatting' : 'custom_formatting'
+    elsif template_settings.try(:value?)
+      'template_formatting'
+    else
+      'default_formatting'
+    end
+
+    content_tag(:small, t("helpers.settings.plans.#{key}"))
+  end
+
 end

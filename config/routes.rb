@@ -155,6 +155,7 @@ DMPonline4::Application.routes.draw do
 
   namespace :settings do
     resource :projects
+    resources :plans
   end
   
   # The priority is based upon order of creation:

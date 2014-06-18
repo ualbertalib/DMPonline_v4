@@ -450,6 +450,7 @@ Select what format you wish to use and click to 'Export'.</p>"
         no_matches: "No plans match '%{filter}'"
 
     settings:
+      title: "Settings"
       projects:
         title: "Settings - My plans"
         desc: "The table below lists the available columns that can be shown on the 'My plans' list. Choose which you would like to appear."
@@ -457,6 +458,27 @@ Select what format you wish to use and click to 'Export'.</p>"
           no_name: "'name' must be included in column list."
           duplicate: "Duplicate column name. Please only include each column once."
           unknown: "Unknown column name."
+      plans:
+        reset: "Reset"
+        custom_formatting: "Using custom formatting values"
+        template_formatting: "Using template formatting values"
+        default_formatting: "Using default formatting values"
+        font_face: "Face"
+        font_size: "Size"
+        margin: "Margin"
+        margins:
+          top: "Top"
+          bottom: "Bottom"
+          left: "Left"
+          right: "Right"
+        errors:
+          missing_key: "A required setting has not been provided"
+          invalid_margin: "Margin value is invalid"
+          negative_margin: "Margin cannot be negative"
+          unknown_margin: "Unknown margin. Can only be 'top', 'bottom', 'left' or 'right'"
+          invalid_font_size: "Invalid font size"
+          invalid_font_face: "Invalid font face"
+          unknown_key: "Unknown formatting setting"
 
   about_page:
     title: "About DMPonline"

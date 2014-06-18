@@ -1406,6 +1406,11 @@ ul.help_ul li{
 #tinymce,.mce-content-body {
 	background-color: @white_colour !important;
 	padding: 2px;
+
+  ul {
+    list-style: disc outside;
+    margin: 0 0 10px 25px;
+  }
 }
 
 .mce-item-table {
@@ -1489,4 +1494,62 @@ table.tablesorter thead  {
   th.headerSortUp {
     background: @orange_lighter_colour url('/assets/asc.gif') no-repeat center right;
   }
+}
+
+/* export formatting settings form */
+
+form.new_export,
+form.edit_export {
+  background-color: @white_colour;
+  border-radius: 5px;
+  padding: 1em;
+
+  fieldset {
+    display: inline-block;
+    width: 47.5%;
+    vertical-align: top;
+
+    div {
+      display: inline-block;
+      width: auto;
+
+      label {
+        font-size: 0.8em;
+        text-align: center;
+      }
+
+      select {
+        text-align: center;
+        width: auto;
+      }
+    }
+
+    h4 {
+      margin-top: 0;
+      text-align: center;
+    }
+
+    &.font {
+      & > div {
+        width: 82.5%;
+
+        select { width: 100%; }
+      }
+
+      & > div:nth-child(2n + 1) { width: 15%; }
+    }
+
+    &.margins {
+      border-left: 1px solid @orange_colour;
+      padding-left: 1em;
+
+      div {
+        width: 24%;
+
+        select { width: 100%; }
+      }
+    }
+  }
+
+  input[type=submit] { margin-top: 1em; }
 }

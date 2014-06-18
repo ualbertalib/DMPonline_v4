@@ -1,0 +1,29 @@
+<% @export_settings.errors.full_messages.each do |error| %>
+  <div class="error"><%= error %></div>
+<% end %>
+
+<%= form_for(@export_settings, url: settings_plan_path(@plan), method: :put, as: :export) do |f| %>
+  <fieldset class="font">
+    <h4><%= t('helpers.settings.plans.font') -%></h4>
+    <div>
+    <%= f.label(:font_face, t('helpers.settings.plans.font_face')) %>
+    <%= f.select(:font_face, options_for_select(Settings::Dmptemplate::VALID_FONT_FACES, @export_settings.formatting[:font_face])) %>
+    </div>
+    <div>
+      <%= f.label(:font_face, t('helpers.settings.plans.font_size') + ' (pt)') %> 
+      <%= f.select(:font_size, options_for_select((1..36).to_a, @export_settings.formatting[:font_size])) %>
+    </div>
+  </fieldset>
+  <fieldset class="margins">
+    <h4><%= t('helpers.settings.plans.margin') -%> (mm)</h4>
+
+    <% %i( top bottom left right ).each do |pos| %>
+      <div>
+        <%= label_tag("export[margin][#{pos}]", t("helpers.settings.plans.margins.#{pos}")) %>
+        <%= select_tag("export[margin][#{pos}]", options_for_select((0..100).to_a, @export_settings.formatting[:margin][pos])) %>
+      </div>
+    <% end %>
+  </fieldset>
+  <%= submit_tag(t('helpers.save'), class: 'btn btn-primary') %>
+  <%= submit_tag(t('helpers.settings.plans.reset'), class: 'btn btn-primary') %>
+<% end %>
