@@ -208,7 +208,8 @@ class PlansController < ApplicationController
 			  	            footer: {
 			  	              center:    t('helpers.plan.export.pdf.generated_by'),
 			  	              font_size: 8,
-			  	              spacing:   (@formatting[:margin][:bottom] / 2) - 4
+			  	              spacing:   (@formatting[:margin][:bottom] / 2) - 4,
+			  	              right: '[page] of [topage]'
 			  	            }
 			  end
 			end
