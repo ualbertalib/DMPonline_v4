@@ -326,8 +326,8 @@ private
 	# This is highly dependent on the layout in the pdf. A more accurate approach
 	# would be to render the pdf and check how much space had been used, but that
 	# could be very slow.
-	# NOTE: This is only an estimate, it is intended for guidance when editing
-	# plan data, not to be 100% accurate.
+	# NOTE: This is only an estimate, rounded up to the nearest 5%; it is intended
+	# for guidance when editing plan data, not to be 100% accurate.
 	def estimate_space_used(lines)
 		@formatting ||= self.settings(:export).formatting
 
@@ -341,7 +341,8 @@ private
 		lines_per_page = ((page_height - margin_height) / line_height).floor
 		total_pages    = lines / lines_per_page.to_f
 
-		(total_pages / max_pages) * 100
+		percentage = (total_pages / max_pages) * 100
+		(percentage / 5).ceil * 5 # round up to nearest five
 	end
 
 	# Take a guess at how many lines will be used by the given text at the
