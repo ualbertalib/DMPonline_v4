@@ -7,17 +7,20 @@
 <!-- progress bar -->
 <% status = @plan.status %>
 <div class="progress">
-    <% if status["num_answers"] == 0  then %>
-        <span class="color-text"><%= t('helpers.noquestionanswered')%></span>
-    <% else %>
-      <%
-        space_used = number_to_percentage(status["space_used"])
-        answered = %(#{status["num_answers"]}/#{status["num_questions"]})
-      %>
-        <div id="questions-progress" class="bar" style="width: <%= number_to_percentage(status["num_answers"].to_f/status["num_questions"].to_f*100) %>;" title="<%= answered -%> questions answered"><%= answered -%></div>
-        <hr>
-        <div id="export-progress" class="bar space" style="width: <%= space_used -%>;" title="<%= space_used -%> of available space used"><%= space_used -%></div>
-    <% end %>
+    <%
+      space_used = status["space_used"].to_i
+      space_title = t('helpers.plan.export.space_used', space_used: space_used, num_pages: 3)
+      answered = %(#{status["num_answers"]}/#{status["num_questions"]})
+    %>
+      <div class="bar-container">
+        <span><%= answered -%> questions answered</span>
+        <span id="questions-progress" class="bar" style="width: <%= number_to_percentage(status["num_answers"].to_f/status["num_questions"].to_f*100) %>;" title="<%= answered -%> questions answered"></span>
+      </div>
+      <hr>
+      <div class="bar-container">
+        <span><%= space_title -%></span>
+        <span id="export-progress" class="bar space" style="width: <%= space_used -%>%;" title="<%= space_title -%>"></span>
+      </div>
 </div>
 
 <% readonly = nil %>
