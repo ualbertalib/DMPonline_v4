@@ -2,7 +2,8 @@ module Settings
   class Dmptemplate < RailsSettings::SettingObject
 
     VALID_FONT_FACES = [
-      'Arial, Helvetica, Sans-Serif'
+      'Arial, Helvetica, Sans-Serif',
+      '"Times New Roman", Times, Serif'
     ]
 
     DEFAULT_FORMATTING = {
@@ -56,6 +57,9 @@ module Settings
 
     before_save do
       self.formatting[:font_size] = self.formatting[:font_size].to_i
+      self.formatting[:margin].each do |key, val|
+        self.formatting[:margin][key] = val.to_i
+      end
     end
   end
 end
