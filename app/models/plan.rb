@@ -351,14 +351,15 @@ private
 	# incorrect for the font-face choices available; the idea is that
 	# they'll hopefully average out to that in the long-run.
 	def lines_from_text(text)
-	  return 0 unless text.present?
+		return 0 unless text.present?
 
-	  @formatting ||= self.settings(:export).formatting
+		@formatting ||= self.settings(:export).formatting
 
-	  margin_width = @formatting[:margin][:left].to_i + @formatting[:margin][:right].to_i
-	  chars_in_line = 91 # @formatting[:font_size] (12)
+		margin_width  = @formatting[:margin][:left].to_i + @formatting[:margin][:right].to_i
+		page_width    = 210
+		chars_in_line = (page_width - margin_width) / ((0.35278 / 2.2) * @formatting[:font_size])
 
-	  (text.length / chars_in_line.to_f).ceil
+		(text.length / chars_in_line).ceil
 	end
 
 end
