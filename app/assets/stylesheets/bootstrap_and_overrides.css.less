@@ -51,6 +51,7 @@
 @background_darker_colour: #d1d5d4;
 @green_colour: #114b8b; //#007e30;
 @red_colour: #e3000f;
+@red_lighter_colour: #fa004f;
 @white_colour: #ffffff;
  
 html {
@@ -914,6 +915,10 @@ ol .choices-group{
 
   .bar.space {
     .ProgressBar(@orange_lighter_colour, @orange_colour);
+  }
+
+  .bar.full {
+    .ProgressBar(@red_lighter_colour, @red_colour);
   }
 
   hr {
