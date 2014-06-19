@@ -9,7 +9,7 @@
 <div class="progress">
     <%
       space_used = status["space_used"].to_i
-      space_title = t('helpers.plan.export.space_used', space_used: space_used, num_pages: 3)
+      space_title = t('helpers.plan.export.space_used', space_used: space_used, num_pages: @plan.dmptemplate.settings(:export).max_pages)
       answered = %(#{status["num_answers"]}/#{status["num_questions"]})
     %>
       <div class="bar-container">

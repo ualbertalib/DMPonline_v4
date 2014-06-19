@@ -23,7 +23,12 @@ class Plan < ActiveRecord::Base
 	def settings(key)
 		self_settings = self.super_settings(key)
 		return self_settings if self_settings.value?
-		(self.project.try(:dmptemplate) || Dmptemplate.new).settings(key)
+
+		self.dmptemplate.settings(key)
+	end
+
+	def dmptemplate
+		self.project.try(:dmptemplate) || Dmptemplate.new
 	end
 
 	def answer(qid, create_if_missing = true)
@@ -337,7 +342,7 @@ private
 		line_height    = (0.35278 * @formatting[:font_size]) * 2 # * 2 to include leading
 		margin_height  = @formatting[:margin][:top].to_i + @formatting[:margin][:bottom].to_i
 		page_height    = 297 # For A4 portrait
-		max_pages      = 3 # settings(:export).max_pages
+		max_pages      = self.dmptemplate.settings(:export).max_pages
 		lines_per_page = ((page_height - margin_height) / line_height).floor
 		total_pages    = lines / lines_per_page.to_f
 

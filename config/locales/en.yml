@@ -486,6 +486,7 @@ Select what format you wish to use and click to 'Export'.</p>"
           invalid_font_size: "Invalid font size"
           invalid_font_face: "Invalid font face"
           unknown_key: "Unknown formatting setting"
+          invalid_max_pages: "Invalid maximum pages"
 
   about_page:
     title: "About DMPonline"

@@ -22,7 +22,10 @@ class Dmptemplate < ActiveRecord::Base
   accepts_nested_attributes_for :projects
 
   has_settings :export, class_name: 'Settings::Dmptemplate' do |s|
-    s.key :export, defaults: { formatting: Settings::Dmptemplate::DEFAULT_FORMATTING }
+    s.key :export, defaults: {
+      formatting: Settings::Dmptemplate::DEFAULT_FORMATTING,
+      max_pages:  Settings::Dmptemplate::DEFAULT_MAX_PAGES
+    }
   end
     
   def to_s
