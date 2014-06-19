@@ -18,7 +18,7 @@ $(document).ready(function() {
     if (form)
       return form.toggle();
 
-    $.get(btn.attr('href') + '.partial')
+    $.get(href + '.partial')
       .done(function(data) {
         forms[href] = $(data);
         btn.parent().find("ul").first().before(forms[href]);
