@@ -1,18 +1,24 @@
 ActiveAdmin.register Dmptemplate do
 	
 	 menu :priority => 11, :label => proc{ I18n.t('admin.template')}, :parent => "Templates management"
-	
+
+  # FIXME: The below member_actions only work on :export settings.
   member_action :settings do
     @template = resource
     @settings = resource.settings(:export)
   end
 
   member_action :update_settings, method: :put do
+    new_settings = params[:settings][:export]
+
     settings = resource.settings(:export).tap do |s|
-      s.formatting = if params[:commit] != 'Reset'
-        params[:formatting].try(:deep_symbolize_keys)
+      s.formatting, s.max_pages = if params[:commit] != 'Reset'
+        [
+          new_settings[:formatting].try(:deep_symbolize_keys),
+          new_settings[:max_pages].try(:to_i)
+        ]
       else
-        nil
+        [ nil, nil ]
       end
     end
 
