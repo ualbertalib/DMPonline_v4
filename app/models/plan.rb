@@ -257,7 +257,7 @@ class Plan < ActiveRecord::Base
 		end
 	end
 
-	def lock_section(section_id, user_id, release_time = 30)
+	def lock_section(section_id, user_id, release_time = 60)
 		status = locked(section_id, user_id)
 		if ! status["locked"] then
 			plan_section = PlanSection.new

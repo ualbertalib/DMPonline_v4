@@ -14,6 +14,11 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
 end
 
+group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
+end
+
 gem 'uglifier', '>= 1.0.3'
 gem 'less-rails'
 

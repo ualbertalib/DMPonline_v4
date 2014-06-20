@@ -129,6 +129,7 @@
 	<% else %>
 		<span id='<%= question.id %>-status' class="label label-info answer-status"><%= t('helpers.answered_by')%><abbr class="timeago" data-time="<%= answer.created_at.iso8601 %>" title="<%= answer.created_at.iso8601 %>"><%= answer.created_at %></abbr><%= t('helpers.answered_by_part2')%><%= answer.user.name %></span>
 	<% end %>
+	<span id='<%= question.id %>-unsaved' class="label label-inverse answer-unsaved" style="display:none;">Unsaved changes</span>
 </div>
 
 <!--guidance area -->
