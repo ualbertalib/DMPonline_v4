@@ -171,7 +171,7 @@ class Plan < ActiveRecord::Base
 						"answer_option_ids" => answer.option_ids,
 						"answered_by" => answer.user.name
 					}
-					status["num_answers"] += 1 if question.multiple_choice? || answer.text.present?
+					status["num_answers"] += 1 if q.multiple_choice? || answer.text.present?
 					section_answers += 1
 				else
 					status["questions"][q.id] = {
