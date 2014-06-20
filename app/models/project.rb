@@ -169,6 +169,10 @@ class Project < ActiveRecord::Base
 	end
 
 	alias_method :shared, :shared?
+
+	def funder
+		self.dmptemplate.try(:organisation).try(:abbreviation)
+	end
 	
 	private
 	
