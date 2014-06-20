@@ -17,18 +17,11 @@ module Settings
       font_size: 12 # pt
     }
 
-    class << self
-      def default_formatting_for(project)
-        if project.dmptemplate.present?
-          project.dmptemplate.settings(:export).formatting
-        else
-          DEFAULT_FORMATTING
-        end
-      end
-    end
+    DEFAULT_MAX_PAGES = 3
 
     validate do
       formatting = value['formatting']
+      max_pages  = value['max_pages']
 
       if formatting.present?
         errs = []
@@ -53,10 +46,14 @@ module Settings
         end
 
       end
+
+      if max_pages.present? && (!max_pages.is_a?(Integer) || max_pages <= 0)
+        errors.add(:max_pages, I18n.t('helpers.settings.plans.errors.invalid_max_pages'))
+      end
     end
 
     before_save do
-      self.formatting[:font_size] = self.formatting[:font_size].to_i
+      self.formatting[:font_size] = self.formatting[:font_size].to_i if self.formatting[:font_size].present?
       self.formatting[:margin].each do |key, val|
         self.formatting[:margin][key] = val.to_i
       end

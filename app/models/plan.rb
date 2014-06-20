@@ -23,7 +23,12 @@ class Plan < ActiveRecord::Base
 	def settings(key)
 		self_settings = self.super_settings(key)
 		return self_settings if self_settings.value?
-		(self.project.try(:dmptemplate) || Dmptemplate.new).settings(key)
+
+		self.dmptemplate.settings(key)
+	end
+
+	def dmptemplate
+		self.project.try(:dmptemplate) || Dmptemplate.new
 	end
 
 	def answer(qid, create_if_missing = true)
@@ -134,13 +139,16 @@ class Plan < ActiveRecord::Base
 	end
 
 	def status
+		lines = 0
 		status = {
 			"num_questions" => 0,
 			"num_answers" => 0,
 			"sections" => {},
-			"questions" => {}
+			"questions" => {},
+			"space_used" => 0 # percentage of available space in pdf used
 		}
 		sections.each do |s|
+			lines += lines_from_text(s.title)
 			section_questions = 0
 			section_answers = 0
 			status["sections"][s.id] = {}
@@ -151,6 +159,10 @@ class Plan < ActiveRecord::Base
 				status["sections"][s.id]["questions"] << q.id
 				status["questions"][q.id] = {}
 				answer = answer(q.id, false)
+
+				lines += lines_from_text(q.text)
+				lines += lines_from_text(answer.try(:text) || I18n.t('helpers.plan.export.pdf.question_not_answered'))
+
 				if ! answer.nil? then
 					status["questions"][q.id] = {
 						"answer_id" => answer.id,
@@ -159,7 +171,7 @@ class Plan < ActiveRecord::Base
 						"answer_option_ids" => answer.option_ids,
 						"answered_by" => answer.user.name
 					}
-					status["num_answers"] += 1
+					status["num_answers"] += 1 if q.multiple_choice? || answer.text.present?
 					section_answers += 1
 				else
 					status["questions"][q.id] = {
@@ -174,6 +186,9 @@ class Plan < ActiveRecord::Base
  				status["sections"][s.id]["num_answers"] = section_answers
 			end
 		end
+
+		lines += lines_from_text(I18n.t('helpers.plan.export.pdf.generated_by'))
+		status['space_used'] = estimate_space_used(lines)
 		return status
 	end
 
@@ -306,6 +321,50 @@ class Plan < ActiveRecord::Base
  			counter = counter + 1
  		end
  		return section_questions
+	end
+
+private
+
+	# Based on the total number of lines (lines_from_text calls from #status),
+	# the font-size, margin heights and max pages, estimate a percentage of
+	# how much space has been used.
+	# This is highly dependent on the layout in the pdf. A more accurate approach
+	# would be to render the pdf and check how much space had been used, but that
+	# could be very slow.
+	# NOTE: This is only an estimate, rounded up to the nearest 5%; it is intended
+	# for guidance when editing plan data, not to be 100% accurate.
+	def estimate_space_used(lines)
+		@formatting ||= self.settings(:export).formatting
+
+		return 0 unless @formatting[:font_size] > 0
+
+		# vertical height of line + leading (ignore difference in heading sizes for now)
+		line_height    = (0.35278 * @formatting[:font_size]) * 2 # * 2 to include leading
+		margin_height  = @formatting[:margin][:top].to_i + @formatting[:margin][:bottom].to_i
+		page_height    = 297 # For A4 portrait
+		max_pages      = self.dmptemplate.settings(:export).max_pages
+		lines_per_page = ((page_height - margin_height) / line_height).floor
+		total_pages    = lines / lines_per_page.to_f
+
+		percentage = (total_pages / max_pages) * 100
+		(percentage / 5).ceil * 5 # round up to nearest five
+	end
+
+	# Take a guess at how many lines will be used by the given text at the
+	# font-size and left/right margins stored in the plan's settings.
+	# This assumes a fixed-width for each glyph, which is obviously
+	# incorrect for the font-face choices available; the idea is that
+	# they'll hopefully average out to that in the long-run.
+	def lines_from_text(text)
+		return 0 unless text.present?
+
+		@formatting ||= self.settings(:export).formatting
+
+		margin_width  = @formatting[:margin][:left].to_i + @formatting[:margin][:right].to_i
+		page_width    = 210
+		chars_in_line = (page_width - margin_width) / ((0.35278 / 2.2) * @formatting[:font_size])
+
+		(text.length / chars_in_line).ceil
 	end
 
 end
