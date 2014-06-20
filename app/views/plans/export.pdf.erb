@@ -9,13 +9,14 @@
 			<% end %>
 		</title>
 		<style>
-			html { font-family: <%= @formatting[:font_face].tr('"','') -%>; font-size: <%= @formatting[:font_size] -%>pt; }
-			h1 { font-size: <%= @formatting[:font_size] + 2 -%>pt; font-face:bold; }
-			h2 { font-size: <%= @formatting[:font_size] + 1 -%>pt; font-face:bold; }
-			h3 { font-size: <%= @formatting[:font_size] + 0 -%>pt; font-face:bold; }
-			table, tr, td, th, tbody, thead, tfoot, .question { page-break-inside: avoid !important; }
+			html { font-family: <%= @formatting[:font_face].tr('"', '') -%>; font-size: <%= @formatting[:font_size] -%>pt; }
+			h1 { font-size: <%= @formatting[:font_size] + 2 -%>pt; font-face:bold; padding: 0;}
+			h2 { font-size: <%= @formatting[:font_size] + 1 -%>pt; font-face:bold; padding: 0; margin: 1em 0 0 0;}
+			h3 { font-size: <%= @formatting[:font_size] + 0 -%>pt; font-face:bold; padding: 0; margin: 1em 0 0 0;}
+			table, tr, td, th, tbody, thead, tfoot { page-break-inside: avoid !important; }
 			table { border-collapse: collapse; }
 			th, td { border: 1px solid black !important; padding: 2px; }
+			p { margin: 0.25em 0; }
 		</style>
 	</head>
 	<body>
@@ -50,7 +51,9 @@
 			<% questions = section.questions.sort_by(&:"number") %>
 			<% questions.each do |question| %>
 				<div class="question">
-					<h3><%= question.text %></h3>
+					<% if question.text != section.title %>
+						<h3><%= question.text %></h3>
+					<% end %>
 					<% answer = @plan.answer(question.id, false) %>
 						<% if answer.nil? then %>
 							<p><%= t('helpers.plan.export.pdf.question_not_answered') -%></p>
@@ -67,6 +70,5 @@
 				</div>
 			<% end %>
 		<% end %>
-		<p><%= t('helpers.plan.export.pdf.generated_by') -%></p>
 	</body>
 </html>

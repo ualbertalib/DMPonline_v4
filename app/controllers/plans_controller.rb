@@ -203,7 +203,14 @@ class PlansController < ApplicationController
 			  	exported_plan.save
 
 			  	@formatting = @plan.settings(:export).formatting
-  				render pdf: file_name, margin: @formatting[:margin]
+			  	render pdf: file_name,
+			  	            margin: @formatting[:margin],
+			  	            footer: {
+			  	              center:    t('helpers.plan.export.pdf.generated_by'),
+			  	              font_size: 8,
+			  	              spacing:   (@formatting[:margin][:bottom] / 2) - 4,
+			  	              right: '[page] of [topage]'
+			  	            }
 			  end
 			end
 		elsif !user_signed_in? then
