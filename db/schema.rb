@@ -22,11 +22,10 @@ ActiveRecord::Schema.define(:version => 20140604092907) do
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
     t.string   "namespace"
+    t.index ["author_type", "author_id"], :name => "index_active_admin_comments_on_author_type_and_author_id"
+    t.index ["namespace"], :name => "index_active_admin_comments_on_namespace"
+    t.index ["resource_type", "resource_id"], :name => "index_admin_notes_on_resource_type_and_resource_id"
   end
-
-  add_index "active_admin_comments", ["author_type", "author_id"], :name => "index_active_admin_comments_on_author_type_and_author_id"
-  add_index "active_admin_comments", ["namespace"], :name => "index_active_admin_comments_on_namespace"
-  add_index "active_admin_comments", ["resource_type", "resource_id"], :name => "index_admin_notes_on_resource_type_and_resource_id"
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -41,10 +40,9 @@ ActiveRecord::Schema.define(:version => 20140604092907) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.index ["email"], :name => "index_admin_users_on_email", :unique => true
+    t.index ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
   end
-
-  add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
-  add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
 
   create_table "answers", :force => true do |t|
     t.text     "text"
@@ -58,9 +56,8 @@ ActiveRecord::Schema.define(:version => 20140604092907) do
   create_table "answers_options", :id => false, :force => true do |t|
     t.integer "answer_id", :null => false
     t.integer "option_id", :null => false
+    t.index ["answer_id", "option_id"], :name => "index_answers_options_on_answer_id_and_option_id"
   end
-
-  add_index "answers_options", ["answer_id", "option_id"], :name => "index_answers_options_on_answer_id_and_option_id"
 
   create_table "dmptemplates", :force => true do |t|
     t.string   "title"
@@ -113,11 +110,10 @@ ActiveRecord::Schema.define(:version => 20140604092907) do
     t.integer  "sluggable_id",                 :null => false
     t.string   "sluggable_type", :limit => 40
     t.datetime "created_at"
+    t.index ["slug", "sluggable_type"], :name => "index_friendly_id_slugs_on_slug_and_sluggable_type", :unique => true
+    t.index ["sluggable_id"], :name => "index_friendly_id_slugs_on_sluggable_id"
+    t.index ["sluggable_type"], :name => "index_friendly_id_slugs_on_sluggable_type"
   end
-
-  add_index "friendly_id_slugs", ["slug", "sluggable_type"], :name => "index_friendly_id_slugs_on_slug_and_sluggable_type", :unique => true
-  add_index "friendly_id_slugs", ["sluggable_id"], :name => "index_friendly_id_slugs_on_sluggable_id"
-  add_index "friendly_id_slugs", ["sluggable_type"], :name => "index_friendly_id_slugs_on_sluggable_type"
 
   create_table "guidance_groups", :force => true do |t|
     t.string   "name"
@@ -130,9 +126,8 @@ ActiveRecord::Schema.define(:version => 20140604092907) do
   create_table "guidance_in_group", :id => false, :force => true do |t|
     t.integer "guidance_id",       :null => false
     t.integer "guidance_group_id", :null => false
+    t.index ["guidance_id", "guidance_group_id"], :name => "index_guidance_in_group_on_guidance_id_and_guidance_group_id"
   end
-
-  add_index "guidance_in_group", ["guidance_id", "guidance_group_id"], :name => "index_guidance_in_group_on_guidance_id_and_guidance_group_id"
 
   create_table "guidances", :force => true do |t|
     t.text     "text"
@@ -210,10 +205,9 @@ ActiveRecord::Schema.define(:version => 20140604092907) do
     t.datetime "updated_at",            :null => false
     t.string   "slug"
     t.string   "external_guidance_url"
+    t.index ["dmptemplate_id"], :name => "index_phases_on_dmptemplate_id"
+    t.index ["slug"], :name => "index_phases_on_slug", :unique => true
   end
-
-  add_index "phases", ["dmptemplate_id"], :name => "index_phases_on_dmptemplate_id"
-  add_index "phases", ["slug"], :name => "index_phases_on_slug", :unique => true
 
   create_table "plan_sections", :force => true do |t|
     t.integer  "user_id"
@@ -245,9 +239,8 @@ ActiveRecord::Schema.define(:version => 20140604092907) do
   create_table "project_guidance", :id => false, :force => true do |t|
     t.integer "project_id",        :null => false
     t.integer "guidance_group_id", :null => false
+    t.index ["project_id", "guidance_group_id"], :name => "index_project_guidance_on_project_id_and_guidance_group_id"
   end
-
-  add_index "project_guidance", ["project_id", "guidance_group_id"], :name => "index_project_guidance_on_project_id_and_guidance_group_id"
 
   create_table "projects", :force => true do |t|
     t.string   "title"
@@ -264,9 +257,15 @@ ActiveRecord::Schema.define(:version => 20140604092907) do
     t.string   "principal_investigator"
     t.string   "principal_investigator_identifier"
     t.string   "data_contact"
+    t.index ["slug"], :name => "index_projects_on_slug", :unique => true
   end
 
-  add_index "projects", ["slug"], :name => "index_projects_on_slug", :unique => true
+  create_table "question_formats", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "question_formats", :force => true do |t|
     t.string   "title"
@@ -297,9 +296,8 @@ ActiveRecord::Schema.define(:version => 20140604092907) do
   create_table "questions_themes", :id => false, :force => true do |t|
     t.integer "question_id", :null => false
     t.integer "theme_id",    :null => false
+    t.index ["question_id", "theme_id"], :name => "index_questions_themes_on_question_id_and_theme_id"
   end
-
-  add_index "questions_themes", ["question_id", "theme_id"], :name => "index_questions_themes_on_question_id_and_theme_id"
 
   create_table "roles", :force => true do |t|
     t.string   "name"
@@ -307,10 +305,9 @@ ActiveRecord::Schema.define(:version => 20140604092907) do
     t.string   "resource_type"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.index ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
+    t.index ["name"], :name => "index_roles_on_name"
   end
-
-  add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
-  add_index "roles", ["name"], :name => "index_roles_on_name"
 
   create_table "sections", :force => true do |t|
     t.string   "title"
@@ -426,20 +423,18 @@ ActiveRecord::Schema.define(:version => 20140604092907) do
     t.string   "other_organisation"
     t.boolean  "dmponline3"
     t.boolean  "accept_terms"
+    t.index ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
+    t.index ["email"], :name => "index_users_on_email", :unique => true
+    t.index ["invitation_token"], :name => "index_users_on_invitation_token", :unique => true
+    t.index ["invited_by_id"], :name => "index_users_on_invited_by_id"
+    t.index ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   end
-
-  add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
-  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
-  add_index "users", ["invitation_token"], :name => "index_users_on_invitation_token", :unique => true
-  add_index "users", ["invited_by_id"], :name => "index_users_on_invited_by_id"
-  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
   create_table "users_roles", :id => false, :force => true do |t|
     t.integer "user_id"
     t.integer "role_id"
+    t.index ["user_id", "role_id"], :name => "index_users_roles_on_user_id_and_role_id"
   end
-
-  add_index "users_roles", ["user_id", "role_id"], :name => "index_users_roles_on_user_id_and_role_id"
 
   create_table "versions", :force => true do |t|
     t.string   "title"
@@ -449,8 +444,7 @@ ActiveRecord::Schema.define(:version => 20140604092907) do
     t.integer  "phase_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.index ["phase_id"], :name => "index_versions_on_phase_id"
   end
-
-  add_index "versions", ["phase_id"], :name => "index_versions_on_phase_id"
 
 end

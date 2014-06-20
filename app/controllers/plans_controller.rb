@@ -5,11 +5,11 @@ class PlansController < ApplicationController
 	# GET /plans/1/edit
 	def edit
 		@plan = Plan.find(params[:id])
-          if !user_signed_in? then
-               respond_to do |format|
+    if !user_signed_in? then
+      respond_to do |format|
 				format.html { redirect_to edit_user_registration_path }
 			end
-		elsif !@plan.editable_by(current_user.id) then
+		elsif !@plan.readable_by(current_user.id) then
 			respond_to do |format|
 				format.html { redirect_to projects_url, notice: "This account does not have access to that plan." }
 			end
@@ -34,7 +34,7 @@ class PlansController < ApplicationController
 			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
     	end
   	end
-  
+
   	# GET /status/1.json
 	def status
   		@plan = Plan.find(params[:id])
@@ -46,7 +46,7 @@ class PlansController < ApplicationController
 			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
 		end
 	end
-	
+
 	def section_answers
   		@plan = Plan.find(params[:id])
   		if user_signed_in? && @plan.readable_by(current_user.id) then
@@ -57,10 +57,10 @@ class PlansController < ApplicationController
 			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
 		end
 	end
-	
+
 	def locked
   		@plan = Plan.find(params[:id])
-  		if user_signed_in? && @plan.readable_by(current_user.id) then
+  		if !@plan.nil? && user_signed_in? && @plan.readable_by(current_user.id) then
 			respond_to do |format|
 				format.json { render json: @plan.locked(params[:section_id],current_user.id) }
 			end
@@ -68,7 +68,7 @@ class PlansController < ApplicationController
 			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
 		end
 	end
-	
+
 	def delete_recent_locks
 		@plan = Plan.find(params[:id])
 		if user_signed_in? && @plan.editable_by(current_user.id) then
@@ -85,7 +85,7 @@ class PlansController < ApplicationController
 			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
 		end
 	end
-	
+
 	def unlock_all_sections
 		@plan = Plan.find(params[:id])
 		if user_signed_in? && @plan.editable_by(current_user.id) then
@@ -102,7 +102,7 @@ class PlansController < ApplicationController
 			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
 		end
 	end
-	
+
 	def lock_section
 		@plan = Plan.find(params[:id])
 		if user_signed_in? && @plan.editable_by(current_user.id) then
@@ -119,7 +119,7 @@ class PlansController < ApplicationController
 			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
 		end
 	end
-	
+
 	def unlock_section
 		@plan = Plan.find(params[:id])
 		if user_signed_in? && @plan.editable_by(current_user.id) then
@@ -136,7 +136,7 @@ class PlansController < ApplicationController
 			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
 		end
 	end
-	
+
 	def answer
   		@plan = Plan.find(params[:id])
   		if user_signed_in? && @plan.readable_by(current_user.id) then
@@ -147,7 +147,7 @@ class PlansController < ApplicationController
 			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
 		end
 	end
-	
+
 	def warning
   		@plan = Plan.find(params[:id])
   		if user_signed_in? && @plan.readable_by(current_user.id) then
@@ -158,7 +158,7 @@ class PlansController < ApplicationController
 			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
 		end
 	end
-	
+
 	def export
 		@plan = Plan.find(params[:id])
 		@include_admin = nil;
@@ -203,7 +203,14 @@ class PlansController < ApplicationController
 			  	exported_plan.save
 
 			  	@formatting = @plan.settings(:export).formatting
-  				render pdf: file_name, margin: @formatting[:margin]
+			  	render pdf: file_name,
+			  	            margin: @formatting[:margin],
+			  	            footer: {
+			  	              center:    t('helpers.plan.export.pdf.generated_by'),
+			  	              font_size: 8,
+			  	              spacing:   (@formatting[:margin][:bottom] / 2) - 4,
+			  	              right: '[page] of [topage]'
+			  	            }
 			  end
 			end
 		elsif !user_signed_in? then

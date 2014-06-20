@@ -3,7 +3,7 @@ module PlansHelper
   def project_list_head(column)
     klass = case column
       when :name  then :dmp_th_big
-      when :owner then :dmp_th_medium
+      when :description then :dmp_th_big
       else :dmp_th_small
     end
 
@@ -24,13 +24,15 @@ module PlansHelper
           user.name
         end
 
-        [ 'tmp_td_medium', text ]
+        [ 'tmp_td_small', text ]
       when :shared
         shared_num = project.project_groups.count - 1
         text = shared_num > 0 ? (t('helpers.yes') + " (with #{shared_num} people) ") : t('helpers.no')
         [ 'dmp_td_small', text ]
       when :last_edited
         [ 'dmp_td_small', l(project.latest_update.to_date, formats: :short) ]
+      when :description
+        [ 'dmp_td_medium', (project.try(column) || 'Unknown') ]
       else
         [ 'dmp_td_small', (project.try(column) || 'Unknown') ]
     end
