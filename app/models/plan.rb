@@ -139,7 +139,6 @@ class Plan < ActiveRecord::Base
 	end
 
 	def status
-		lines = 0
 		status = {
 			"num_questions" => 0,
 			"num_answers" => 0,
@@ -147,8 +146,11 @@ class Plan < ActiveRecord::Base
 			"questions" => {},
 			"space_used" => 0 # percentage of available space in pdf used
 		}
+
+		space_used = height_of_text(self.project.title, 2, 2)
+
 		sections.each do |s|
-			lines += lines_from_text(s.title)
+			space_used += height_of_text(s.title, 1, 1)
 			section_questions = 0
 			section_answers = 0
 			status["sections"][s.id] = {}
@@ -160,8 +162,8 @@ class Plan < ActiveRecord::Base
 				status["questions"][q.id] = {}
 				answer = answer(q.id, false)
 
-				lines += lines_from_text(q.text)
-				lines += lines_from_text(answer.try(:text) || I18n.t('helpers.plan.export.pdf.question_not_answered'))
+				space_used += height_of_text(q.text) unless q.text == s.title
+				space_used += height_of_text(answer.try(:text) || I18n.t('helpers.plan.export.pdf.question_not_answered'))
 
 				if ! answer.nil? then
 					status["questions"][q.id] = {
@@ -187,8 +189,7 @@ class Plan < ActiveRecord::Base
 			end
 		end
 
-		lines += lines_from_text(I18n.t('helpers.plan.export.pdf.generated_by'))
-		status['space_used'] = estimate_space_used(lines)
+		status['space_used'] = estimate_space_used(space_used)
 		return status
 	end
 
@@ -325,46 +326,48 @@ class Plan < ActiveRecord::Base
 
 private
 
-	# Based on the total number of lines (lines_from_text calls from #status),
-	# the font-size, margin heights and max pages, estimate a percentage of
-	# how much space has been used.
+	# Based on the height of the text gathered so far and the available vertical
+	# space of the pdf, estimate a percentage of how much space has been used.
 	# This is highly dependent on the layout in the pdf. A more accurate approach
 	# would be to render the pdf and check how much space had been used, but that
 	# could be very slow.
 	# NOTE: This is only an estimate, rounded up to the nearest 5%; it is intended
 	# for guidance when editing plan data, not to be 100% accurate.
-	def estimate_space_used(lines)
+	def estimate_space_used(used_height)
 		@formatting ||= self.settings(:export).formatting
 
 		return 0 unless @formatting[:font_size] > 0
 
-		# vertical height of line + leading (ignore difference in heading sizes for now)
-		line_height    = (0.35278 * @formatting[:font_size]) * 2 # * 2 to include leading
-		margin_height  = @formatting[:margin][:top].to_i + @formatting[:margin][:bottom].to_i
-		page_height    = 297 # For A4 portrait
-		max_pages      = self.dmptemplate.settings(:export).max_pages
-		lines_per_page = ((page_height - margin_height) / line_height).floor
-		total_pages    = lines / lines_per_page.to_f
+		margin_height    = @formatting[:margin][:top].to_i + @formatting[:margin][:bottom].to_i
+		page_height      = 297 - margin_height # 297mm for A4 portrait
+		available_height = page_height * self.dmptemplate.settings(:export).max_pages
 
-		percentage = (total_pages / max_pages) * 100
+		percentage = (used_height / available_height) * 100
 		(percentage / 5).ceil * 5 # round up to nearest five
 	end
 
-	# Take a guess at how many lines will be used by the given text at the
+	# Take a guess at the vertical height (in mm) of the given text based on the
 	# font-size and left/right margins stored in the plan's settings.
 	# This assumes a fixed-width for each glyph, which is obviously
 	# incorrect for the font-face choices available; the idea is that
 	# they'll hopefully average out to that in the long-run.
-	def lines_from_text(text)
-		return 0 unless text.present?
+	# Allows for hinting different font sizes (offset from base via font_size_inc)
+	# and vertical margins (i.e. for heading text)
+	def height_of_text(text, font_size_inc = 0, vertical_margin = 0)
+		@formatting     ||= self.settings(:export).formatting
+		@margin_width   ||= @formatting[:margin][:left].to_i + @formatting[:margin][:right].to_i
+		@base_font_size ||= @formatting[:font_size]
 
-		@formatting ||= self.settings(:export).formatting
+		return 0 unless @base_font_size > 0
 
-		margin_width  = @formatting[:margin][:left].to_i + @formatting[:margin][:right].to_i
-		page_width    = 210
-		chars_in_line = (page_width - margin_width) / ((0.35278 / 2.2) * @formatting[:font_size])
+		font_height = 0.35278 * (@base_font_size + font_size_inc)
+		font_width  = font_height * (2 / 5.0) # Assume glyph width averages at 2/5s the height
+		leading     = font_height / 2
 
-		(text.length / chars_in_line).ceil
+		chars_in_line = (210 - @margin_width) / font_width # 210mm for A4 portrait
+		num_lines = (text.length / chars_in_line).ceil
+
+		(num_lines * font_height) + vertical_margin + leading
 	end
 
 end
