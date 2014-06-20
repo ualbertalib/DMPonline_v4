@@ -23,3 +23,9 @@
 #  user_status_id: 1
 #  login_count: 1
 #  last_login: 2013-06-11 13:58:06
+
+with_many_projects:
+  firstname: Many
+  surname: Projects
+  email: many.projects@example.com
+  password: password

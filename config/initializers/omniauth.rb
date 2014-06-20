@@ -9,7 +9,12 @@ Rails.application.config.middleware.use OmniAuth::Builder do
     :uid_field => :"persistent-id",
     :fields => [],
     :extra_fields => [
-      :eppn
+      :eppn,
+      :affiliation,
+      :entitlement,
+      :"unscoped-affiliation",
+      :"targeted-id",
+      :mail
     ],
   }
 end

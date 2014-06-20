@@ -1,7 +1,40 @@
 ActiveAdmin.register Dmptemplate do
 	
 	 menu :priority => 11, :label => proc{ I18n.t('admin.template')}, :parent => "Templates management"
-	
+
+  # FIXME: The below member_actions only work on :export settings.
+  member_action :settings do
+    @template = resource
+    @settings = resource.settings(:export)
+  end
+
+  member_action :update_settings, method: :put do
+    new_settings = params[:settings][:export]
+
+    settings = resource.settings(:export).tap do |s|
+      s.formatting, s.max_pages = if params[:commit] != 'Reset'
+        [
+          new_settings[:formatting].try(:deep_symbolize_keys),
+          new_settings[:max_pages].try(:to_i)
+        ]
+      else
+        [ nil, nil ]
+      end
+    end
+
+    if settings.save
+      redirect_to(action: :show, flash: { notice: 'Settings updated successfully' })
+    else
+      settings.formatting = nil
+      @template = resource
+      @settings = settings
+      render(action: :settings)
+    end
+  end
+
+  action_item only: %i( show edit ) do
+    link_to(I18n.t('helpers.settings.title'), settings_admin_dmptemplate_path(resource.id))
+  end
 	
   index do   
   	column :title do |dmptemp|
@@ -19,7 +52,9 @@ ActiveAdmin.register Dmptemplate do
   	column :published
   	column :is_default
   	
-    default_actions
+    actions defaults: true do |template|
+      link_to(I18n.t('helpers.settings.title'), settings_admin_dmptemplate_path(template.id))
+    end
   end
  
  

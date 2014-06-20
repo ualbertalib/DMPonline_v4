@@ -15,109 +15,42 @@ $( document ).ready(function() {
 			}, 1000);
 		}
 	}
-
+		
 	//set the tinymce popover help text
-	$(".template_desc_popover").on('click', function(e) {
-	    e.preventDefault();
-	}).popover();
-	
-	$(".phase_desc_popover").on('click', function(e) {
-	    e.preventDefault();
-	}).popover(); 
-	
-	$(".version_desc_popover").on('click', function(e) {
-	    e.preventDefault();
-	}).popover();
-	
-	$(".section_desc_popover").on('click', function(e) {
-	    e.preventDefault();
-	}).popover();
-	
-	$(".question_format_popover").on('click', function(e) {
-	    e.preventDefault();
-	}).popover();
-	
-	$(".default_answer_popover").on('click', function(e) {
-	    e.preventDefault();
-	}).popover();
-	
-	$(".suggested_answer_popover").on('click', function(e) {
-	    e.preventDefault();
-	}).popover();
-	
-	$(".question_guidance_popover").on('click', function(e) {
-	    e.preventDefault();
-	}).popover();
-	
-	$(".question_themes_popover").on('click', function(e) {
-	    e.preventDefault();
-	}).popover();
-	
-	$(".question_options_popover").on('click', function(e) {
-	    e.preventDefault();
-	}).popover();
-	
-	$(".guidance_group_title_popover").on('click', function(e) {
-	    e.preventDefault();
-	  
-	}).popover();
-
-	$(".guidance_group_template_popover").on('click', function(e) {
-	    e.preventDefault();
-	}).popover();
-
-	$(".guidance_group_subset_popover").on('click', function(e) {
-	    e.preventDefault();
-	}).popover();
-	
-	$(".guidance_text_popover").on('click', function(e) {
-	    e.preventDefault();
-	}).popover();
-	
-	$(".guidance_apply_to_popover").on('click', function(e) {
-	    e.preventDefault();
-	}).popover();
-	
-	$(".guidance_by_themes_popover").on('click', function(e) {
-	    e.preventDefault();
-	}).popover();
-	
-	$(".guidance_by_question_popover").on('click', function(e) {
-	    e.preventDefault();
-	}).popover();
-	
-	$(".guidance_group_select_popover").on('click', function(e) {
-	    e.preventDefault();
-	}).popover();
-	
-	$(".org_abbr_popover").on('click', function(e) {
+	$(".template_desc_popover, .phase_desc_popover, .version_desc_popover, .section_desc_popover, .question_format_popover," +
+			" .default_answer_popover, .suggested_answer_popover, .question_guidance_popover, .question_themes_popover," +
+			" .question_options_popover, .guidance_group_title_popover, .guidance_group_template_popover," +
+			" .guidance_group_subset_popover, .guidance_text_popover, .guidance_apply_to_popover, .guidance_by_themes_popover," +
+			" .guidance_by_question_popover, .guidance_group_select_popover, .org_abbr_popover").on('click', function(e) {
 	    e.preventDefault();
 	}).popover();
 	
 	//show or hide divs based on what the user selects from the question format. New question
 	$('.ques_format').on("change", function(e) {
-		var selected_format = $('#new-select-format').val();
-
+		var s_id = $(this).prev(".section_id").val();
+		
+		var selected_format = $('#new-select-format-'+ s_id).val();
+		
 		//text area
 		if (selected_format == 1){
-			$("#new-options").hide();
-			$("#new-default-text-field").hide();
-			$("#new-default-text-area").show();
-			$("#new-default-value-field").show();
+			$("#new-options-"+ s_id).hide();
+			$("#new-default-text-field-"+ s_id).hide();
+			$("#new-default-text-area-"+ s_id).show();
+			$("#new-default-value-field-"+ s_id).show();
 		}
 		//text field
 		else if (selected_format == 2){
-			$("#new-options").hide();
-			$("#new-default-text-field").show();
-			$("#new-default-value-field").show();
-			$("#new-default-text-area").hide();
+			$("#new-options-"+ s_id).hide();
+			$("#new-default-text-field-"+ s_id).show();
+			$("#new-default-value-field-"+ s_id).show();
+			$("#new-default-text-area-"+ s_id).hide();
 		}
 		//checkbox,radio button, dropdown, multi select
 		else if (selected_format == 3 ||selected_format == 4 || selected_format == 5 || selected_format == 6){
-			$("#new-options").show();
-			$("#new-default-text-field").hide();
-			$("#new-default-text-area").hide();
-			$("#new-default-value-field").hide();
+			$("#new-options-"+ s_id).show();
+			$("#new-default-text-field-"+ s_id).hide();
+			$("#new-default-text-area-"+ s_id).hide();
+			$("#new-default-value-field-"+ s_id).hide();
 		}
 		delete selected_format;
 	}).trigger('change');
@@ -282,9 +215,10 @@ $( document ).ready(function() {
 	 });
 
 	 //action for adding a new question
-	 $('#add_question_button').click(function(e){
-		 $('#add_question_block_div').show();
-		 $('#add_question_button_div').hide();
+	 $('.add_question_button').click(function(e){
+		 var s_id = $(this).prev(".section_id").val();
+		 $('#add_question_block_div_'+ s_id).show();
+		 $('#add_question_button_div_'+ s_id).hide();
 		 e.preventDefault();
 	 });
 

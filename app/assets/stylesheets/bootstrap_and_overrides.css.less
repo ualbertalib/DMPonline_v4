@@ -51,8 +51,32 @@
 @background_darker_colour: #d1d5d4;
 @green_colour: #114b8b; //#007e30;
 @red_colour: #e3000f;
+@red_lighter_colour: #fa004f;
 @white_colour: #ffffff;
-  
+ 
+html {
+  /* fallback */
+  background-repeat:repeat-y;
+  min-height: 100%;
+  /* Safari 4-5, Chrome 1-9 */
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, @background_darker_colour), color-stop(1, @background_lighter_colour));
+  /* Firefox 3.6+ */
+  background-image: -moz-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
+  /* Safari 5.1, Chrome 10+ */
+  background-image: -webkit-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
+  /* Opera 11.10+ */
+  background-image: -o-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
+  /* IE 10 */
+  background-image: -ms-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
+  background-image: linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
+  background-image: linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
+  -ms-filter: 'progid:DXImageTransform.Microsoft.gradient(startColorstr='#d1d5d4', endColorstr='#f9f9f9', gradientType='0')';
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#d1d5d4', endColorstr='#f9f9f9') ;/*For IE7-8-9*/
+  /*For IE7*/ 
+  *height: 1%;
+   min-width: 800px;
+}
+
 body.dmponline { 
   font-family: @text_font;
   color: @font_colour;
@@ -61,24 +85,9 @@ body.dmponline {
   line-height: 24px;
   min-width: 540px;
   padding:0 0 0 0; 
-  
+  background:none;
 }
 
-.dmponline {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, @background_darker_colour), color-stop(1, background_lighter_colour));
-  background-image: linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
-  background-image: -moz-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
-  background-image: -webkit-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
-  background-image: -o-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
-  background-image: -ms-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
-  background-image: linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
-  background-repeat:repeat-y;
-  -ms-filter: 'progid:DXImageTransform.Microsoft.gradient(startColorstr='#d1d5d4', endColorstr='#f9f9f9', gradientType='0')';
-  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#d1d5d4', endColorstr='#f9f9f9') ;/*For IE7-8-9*/
-  *height: 1%;/*For IE7*/ 
-  
-   
-  }
 
 h1, h2, h3, h4 {
   font-family: @header_font;
@@ -417,18 +426,29 @@ footer .left_side_footer{
    
 footer .right_side_footer{
   float: right;
-  width: 45%;
-  
-  }
-  
-footer .right_side_footer p{
-  text-decoration: none;
-  text-align:center;
-  color: #999999;
-  float: right;
-  
+  width: 52%;
 }
   
+footer .right_side_footer p{
+  float: right;
+}
+
+footer a#footer_right_dcc {
+  width: 60%;
+  float: left;
+}
+footer a#footer_right_jisc {
+  width: 38%;
+  float: left;
+  padding-left: 5px;
+}
+
+footer img.footer_logo{
+  width:100%;
+  height:100%;
+}
+  
+//footer left side info  
 ul.footer-links {
   margin-left:0px;
 }
@@ -655,14 +675,18 @@ table.dmp_table tbody td{
   padding: 4px 4px 4px 15px;  
 }
 table.dmp_table tbody td.dmp_td_big, table.dmp_table thead th.dmp_th_big{
-  min-width: 32%;
+  width: 32%;
+  min-width: 180px;
 }
 table.dmp_table tbody td.dmp_td_medium, table.dmp_table thead th.dmp_th_medium{
-  min-width: 24%;
+  width: 24%;
+  min-width: 93px;
 }
 table.dmp_table tbody td.dmp_td_small, table.dmp_table thead th.dmp_th_small{
-  //min-width: 18%;
-  padding-right: 20px;
+  width: 14%;
+  min-width: 10px; 
+  //padding-right: 20px;
+  padding: 0 20px;
 }
 
 table.dmp_table tbody th.dmp_th_border{
@@ -675,18 +699,16 @@ table.dmp_table tbody th.dmp_th_border{
 
 table.dmp_table tbody th.dmp_th_border p{
    padding: 0px 0px 0px 5px;
-  
 }
 
 table.dmp_table tbody td.dmp_td_border{
   border-bottom: 1px solid @grey_very_light_colour; 
   border-left: 1px solid @grey_very_light_colour;
-  
 }
 
 table.dmp_table a.dmp_table_link, table.dmp_table a.dmp_table_link:active, table.dmp_table a.dmp_table_link:visited{
   text-decoration: none !important;
-  padding: 0px 10px 0px 0px;
+  padding: 0px 5px 0px 0px;
 }
 table.dmp_table a.dmp_table_link:hover{
   text-decoration: underline !important;
@@ -832,11 +854,24 @@ ol .choices-group{
   padding-left: 20px;
 }
 
+/*** progress bar mixin ***/
+.ProgressBar (@start_colour, @stop_colour) {
+  background-color: @start_colour;
+  background-image: -moz-linear-gradient(top , @start_colour, @stop_colour 49px);
+  background-image: -webkit-linear-gradient(top , @start_colour, @stop_colour 49px);
+  background-image: -o-linear-gradient(top , @start_colour, @stop_colour 49px);
+  background-image: -ms-linear-gradient(top , @start_colour, @stop_colour 49px);
+  background-image: linear-gradient(top , @start_colour, @stop_colour 49px);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr= @start_colour, endColorstr=  @stop_colour , gradientType='0')";
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr= @start_colour, endColorstr=  @stop_colour) ;/*For IE7-8-9*/
+}
+
 /*** project progress bar ***/
-.progress{
-  margin:20px 0 0 10%;
+.progress {
+  height: auto;
+  margin: 8px 0 0 10%;
   width: 45%;
-  float:right;
+  float: right;
   border-bottom-left-radius: 9px;
   border-bottom-right-radius: 9px;
   border-top-left-radius: 9px;
@@ -844,26 +879,59 @@ ol .choices-group{
   box-shadow: 4px 5px 20px 3px rgba(168, 168, 168, 0.73);
   -moz-box-shadow: 4px 5px 20px 3px rgba(168, 168, 168, 0.73);
   -webkit-box-shadow: 4px 5px 20px 3px rgba(168, 168, 168, 0.73);
+
+  .bar-container {
+    background-color: @grey_very_light_colour;
+    clear: both;
+    float: left;
+    height: 2em;
+    position: relative;
+    text-align: left;
+    width: 100%;
+
+    & > span:first-child {
+      color: @white_colour;
+      height: 100%;
+      text-shadow: @grey_colour 1px 1px;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    & > span {
+      font-size: 12px;
+      overflow: auto;
+      left: 0;
+      text-indent: 1em;
+      position: absolute;
+      text-align: left !important;
+      top: 0;
+      z-index: 1;
+    }
+  }
+
+  .bar {
+    .ProgressBar(@orange_colour, @orange_darker_colour);
+  }
+
+  .bar.space {
+    .ProgressBar(@orange_lighter_colour, @orange_colour);
+  }
+
+  .bar.full {
+    .ProgressBar(@red_lighter_colour, @red_colour);
+  }
+
+  hr {
+    float: left;
+    margin: 0 10px -1px 0;
+    width: 100%;
+  }
+
+ .color-text{
+    color: @orange_colour;
+    padding-left: 15px;
+  }
 }
-
-.progress .bar{
-  background-color: @orange_colour;
-  padding-left: 1px; 
-  background-image: -moz-linear-gradient(top , @orange_colour, @orange_darker_colour 49px);
-  background-image: -webkit-linear-gradient(top , @orange_colour, @orange_darker_colour 49px);
-  background-image: -o-linear-gradient(top , @orange_colour, @orange_darker_colour 49px);
-  background-image: -ms-linear-gradient(top , @orange_colour, @orange_darker_colour 49px);
-  background-image: linear-gradient(top , @orange_colour, @orange_darker_colour 49px);
-  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr= @orange_colour, endColorstr=  @orange_darker_colour , gradientType='0')";
-  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr= @orange_colour, endColorstr=  @orange_darker_colour) ;/*For IE7-8-9*/
-  
-} 
-
-.progress .color-text{
-  color: @orange_colour;
-  padding-left: 15px; 
-} 
-
 
 /*** project nav tabs ***/
 .nav-project-tabs{
@@ -1386,6 +1454,11 @@ ul.help_ul li{
 #tinymce,.mce-content-body {
 	background-color: @white_colour !important;
 	padding: 2px;
+
+  ul {
+    list-style: disc outside;
+    margin: 0 0 10px 25px;
+  }
 }
 
 .mce-item-table {
@@ -1403,4 +1476,128 @@ ul.help_ul li{
 .mce-item-table th {
 	font-weight: normal;
 	background-color: @orange_colour;
+}
+
+/* My plans toolbar */
+.dmp_toolbar {
+  background-color: @orange_colour;
+  height: 34px;
+  margin-left: 2px;
+  padding: 4px 4px 4px 2px;
+  text-align: right;
+  vertical-align: center;
+  width: 99%;
+
+  form#filter_form {
+    background-color: @white_colour;
+    border-radius: 3px;
+    display: inline-block;
+    height: auto;
+    overflow: hidden;
+    padding: 2px;
+    width: 50%;
+
+    #filter {
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      -webkit-box-shadow: none;
+      margin: 0;
+      outline: none;
+      padding: 0;
+      width: 80%;
+    }
+  }
+
+  .btn-configure {
+    color: @white_colour;
+    float: right;
+    height: 100%;
+    line-height: 250%;
+    margin-left: @font_size / 2;
+
+    &:hover {
+      color: @white_colour !important;
+    }
+  }
+
+  a:focus,
+  a:active,
+  a:hover {
+    text-decoration: none !important;
+  }
+}
+
+/* tablesorter */
+table.tablesorter thead  {
+  th.header {
+    cursor: pointer;
+    background: url('/assets/bg.gif') no-repeat center right;
+  }
+
+  th.headerSortDown {
+    background: @orange_lighter_colour url('/assets/desc.gif') no-repeat center right;
+  }
+
+  th.headerSortUp {
+    background: @orange_lighter_colour url('/assets/asc.gif') no-repeat center right;
+  }
+}
+
+/* export formatting settings form */
+
+form.new_export,
+form.edit_export {
+  background-color: @white_colour;
+  border-radius: 5px;
+  padding: 1em;
+
+  fieldset {
+    display: inline-block;
+    width: 47.5%;
+    vertical-align: top;
+
+    div {
+      display: inline-block;
+      width: auto;
+
+      label {
+        font-size: 0.8em;
+        text-align: center;
+      }
+
+      select {
+        text-align: center;
+        width: auto;
+      }
+    }
+
+    h4 {
+      margin-top: 0;
+      text-align: center;
+    }
+
+    &.font {
+      & > div {
+        width: 82.5%;
+
+        select { width: 100%; }
+      }
+
+      & > div:nth-child(2n + 1) { width: 15%; }
+    }
+
+    &.margins {
+      border-left: 1px solid @orange_colour;
+      padding-left: 1em;
+
+      div {
+        width: 24%;
+
+        select { width: 100%; }
+      }
+    }
+  }
+
+  input[type=submit] { margin-top: 1em; }
 }

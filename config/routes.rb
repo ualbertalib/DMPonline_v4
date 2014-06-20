@@ -74,6 +74,7 @@ DMPonline4::Application.routes.draw do
 			get 'admin_new'
 			get 'admin_addphase'
 			get 'admin_phase'
+			get 'admin_previewphase'
 			get 'admin_cloneversion'
 			delete 'admin_destroy' 
 			delete 'admin_destroyversion'
@@ -151,6 +152,11 @@ DMPonline4::Application.routes.draw do
  
   resources :file_types
   resources :file_uploads
+
+  namespace :settings do
+    resource :projects
+    resources :plans
+  end
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -6,8 +6,9 @@
 			<%= link_to t("org_admin.templates.edit_details"), '# ', :class => "btn btn-primary", :id => "edit_template_button"%>
 		</div>
 	</h3>
-<%end%>		
-<br/>
+<%end%>	
+<br/>	
+
 <table class="dmp_details_table">
 	<tr>
 		<td class="first_template"><%= t('org_admin.templates.title_label') %></td>
@@ -24,7 +25,7 @@
 	</tr>
 	<tr>
 		<td class="first_template"><%= t('org_admin.templates.published_label') %></td>
-		<td><%if dmptemplate.published? || dmptemplate.has_published_versions? then%>
+		<td><%if dmptemplate.published || dmptemplate.has_published_versions? then%>
 				<%= dmptemplate.published %>
 			<%else%>
 				<%= t('org_admin.templates.cannot_publish')%>

@@ -20,6 +20,9 @@ $( document ).ready(function() {
 		}
 	};
 
+	// Make timestamps readable
+	$('abbr.timeago').timeago();
+
 	// Update status messages on form submission
 	$("form.answer").submit(function(){
 		var submit_button = $(this).find('input[type="submit"]');
@@ -279,14 +282,17 @@ $.fn.update_section_progress = function(data) {
 };
 
 $.fn.update_plan_progress = function(data) {
-	if (data.num_answers > 0) {
-		$(".progress").children(".color-text").remove();
-		$("#questions-progress").show();
-		$("#questions-progress").css("width", (data.num_answers/data.num_questions*100)+"%");
-		$("#questions-progress").text(data.num_answers+"/"+data.num_questions);
+	$("#questions-progress").css("width", (data.num_answers/data.num_questions*100)+"%");
+	$("#questions-progress-title").text(data.num_answers+"/"+data.num_questions + ' questions answered');
+	$('#export-progress').css('width', data.space_used + '%');
+	$("#export-progress-title").text('approx. ' + data.space_used + '% of available space used');
+	if (data.space_used >= 100) {
+		$('#export-progress').removeClass("space");
+		$('#export-progress').addClass("full");
 	}
 	else {
-		$("#questions-progress").hide();
+		$('#export-progress').removeClass("full");
+		$('#export-progress').addClass("space");
 	}
 };
 

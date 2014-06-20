@@ -7,12 +7,20 @@
 <!-- progress bar -->
 <% status = @plan.status %>
 <div class="progress">
-    <% if status["num_answers"] == 0  then %>
-        <div id="questions-progress" class="bar" style="width: <%= number_to_percentage(status["num_answers"].to_f/status["num_questions"].to_f*100) %>; display:none;"></div>
-        <span class="color-text"><%= t('helpers.noquestionanswered')%></span>
-    <% else %>
-        <div id="questions-progress" class="bar" style="width: <%= number_to_percentage(status["num_answers"].to_f/status["num_questions"].to_f*100) %>;"><%= status["num_answers"] %>/<%= status["num_questions"] %></div>
-    <% end%>
+    <%
+      space_used = status["space_used"].to_i
+      space_title = t('helpers.plan.export.space_used', space_used: space_used, num_pages: @plan.dmptemplate.settings(:export).max_pages)
+      answered = %(#{status["num_answers"]}/#{status["num_questions"]})
+    %>
+      <div class="bar-container">
+        <span id="questions-progress-title"><%= answered -%> questions answered</span>
+        <span id="questions-progress" class="bar" style="width: <%= number_to_percentage(status["num_answers"].to_f/status["num_questions"].to_f*100) %>;" title="<%= answered -%> questions answered"></span>
+      </div>
+      <hr>
+      <div class="bar-container">
+        <span id="export-progress-title"><%= space_title -%></span>
+        <span id="export-progress" class="bar <%= space_used >= 100 ? 'full' : 'space' -%>" style="width: <%= space_used -%>%;" title="<%= space_title -%>"></span>
+      </div>
 </div>
 
 <% readonly = nil %>
@@ -48,7 +56,7 @@
     				<a class="accordion-toggle" data-toggle="collapse" data-parent="#sections-accordion" href="#collapse-<%= section.id%>">
     					<div class="accordion_heading_text" id="section-header-<%= section.id %>">
 							<%= section.title %>
-							<% if num_section_questions > num_section_answers then %>
+							<% if num_section_questions.to_i > num_section_answers.to_i then %>
 								<span id='<%= section.id %>-status' class="label label-warning section-status">(<%= section_status %>)</span>
 							<% else %>
 								<span id='<%= section.id %>-status' class="label label-info section-status">(<%= section_status %>)</span>
