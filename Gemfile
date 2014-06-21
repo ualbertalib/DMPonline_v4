@@ -74,7 +74,7 @@ group :development, :test do
   gem 'pdf-reader'
 end
 
-group :test do
+group :ci do
   gem 'ci_reporter'
 end
 
