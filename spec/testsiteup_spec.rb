@@ -3,20 +3,25 @@ require "selenium-webdriver"
 require "rspec"
 require "./spec/helper.rb"
 require "./spec/before.rb"
+require "./spec/after.rb"
 include RSpec::Expectations
 
 include Before
+include After
 
-describe "TestsiteupSpec" do
+describe "Simplest" do
 
   setup
 
+  teardown
+  
   after(:each) do
-    @driver.quit
-    @verification_errors.should == []
+    if !example.instance_variable_get(:@exception).nil? 
+      screen_capture
+    end
   end
   
-  it "test_siteup_spec" do
+  it "site is up" do
     @driver.get(@base_url + "/")
     (@driver.title).should == "DMP Tool - University of Alberta Libraries"
     verify { (@driver.find_element(:css, "h3.subhead").text).should == "Data Management Planning Tool" }
