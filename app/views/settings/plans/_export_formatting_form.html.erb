@@ -33,7 +33,7 @@
     </div>
     <div>
       <%= label_tag('export[formatting][font_size]', t('helpers.settings.plans.font_size') + ' (pt)') %>
-      <%= select_tag('export[formatting][font_size]', options_for_select((1..36).to_a, @export_settings.formatting[:font_size])) %>
+      <%= select_tag('export[formatting][font_size]', options_for_select(Settings::Dmptemplate::VALID_FONT_SIZE_RANGE.to_a, @export_settings.formatting[:font_size])) %>
     </div>
   </fieldset>
   <fieldset class="margins">
@@ -42,7 +42,7 @@
     <% %i( top bottom left right ).each do |pos| %>
       <div>
         <%= label_tag("export[formatting][margin][#{pos}]", t("helpers.settings.plans.margins.#{pos}")) %>
-        <%= select_tag("export[formatting][margin][#{pos}]", options_for_select((0..100).to_a, @export_settings.formatting[:margin][pos])) %>
+        <%= select_tag("export[formatting][margin][#{pos}]", options_for_select(Settings::Dmptemplate::VALID_MARGIN_RANGE.to_a, @export_settings.formatting[:margin][pos])) %>
       </div>
     <% end %>
   </fieldset>
