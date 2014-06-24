@@ -75,7 +75,11 @@ module Settings
       end
 
       self.fields.each do |key, val|
-        self.fields[key] = val.is_a?(Hash) ? val.keys : val
+        if val.is_a?(Hash)
+          val = key == :sections ? val.keys.map {|k| k.to_s.to_i } : val.keys
+        end
+
+        self.fields[key] = val
       end
 
       # Save empty arrays if we don't have any fields for them
