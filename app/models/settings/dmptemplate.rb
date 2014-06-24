@@ -78,6 +78,10 @@ module Settings
         arr = val.is_a?(Hash) ? val.keys : val.to_a
         self.fields[key] = arr
       end
+
+      # Save empty arrays if we don't have any fields for them
+      self.fields[:admin] ||= []
+      self.fields[:sections] ||= []
     end
   end
 end
