@@ -20,7 +20,7 @@ class PlanTest < ActiveSupport::TestCase
 
   test "no explicit settings should be Settings::Dmptemplate::DEFAULT_SETTINGS" do
     assert(!@plan.settings(:export).value?)
-    assert_equal(Settings::Dmptemplate::DEFAULT_FORMATTING, @plan.settings(:export).formatting)
+    assert_equal(Settings::Dmptemplate::DEFAULT_SETTINGS[:formatting], @plan.settings(:export).formatting)
   end
 
   test "no explicit settings with template settings should use template settings" do
@@ -38,7 +38,7 @@ class PlanTest < ActiveSupport::TestCase
 
   test "explicit settings with template settings should use plan settings" do
     template_settings = settings
-    plan_settings = settings(font_size: 20)
+    plan_settings = settings(font_size: 14)
 
     template = dmptemplates(:ahrc_template)
     template.settings(:export).update_attributes(formatting: template_settings)
@@ -59,7 +59,7 @@ class PlanTest < ActiveSupport::TestCase
 
   test "explicit settings should not affect other plans with same template" do
     template_settings = settings
-    plan_settings = settings(font_size: 20)
+    plan_settings = settings(font_size: 14)
 
     template = dmptemplates(:ahrc_template)
     template.settings(:export).update_attributes(formatting: template_settings)

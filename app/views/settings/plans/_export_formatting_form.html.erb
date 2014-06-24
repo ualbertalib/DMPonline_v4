@@ -1,26 +1,48 @@
+<%
+   plan ||= @plan
+   @export_settings ||= plan.settings(:export)
+%>
 <% @export_settings.errors.full_messages.each do |error| %>
   <div class="error"><%= error %></div>
 <% end %>
 
-<%= form_for(@export_settings, url: settings_plan_path(@plan), method: :put, as: :export) do |f| %>
+<%= form_for(@export_settings, url: settings_plan_path(plan), method: :put, as: :export) do |f| %>
+  <fieldset>
+    <legend>Admin details</legend>
+    <% Settings::Dmptemplate::VALID_ADMIN_FIELDS.each do |field| %>
+      <%= label_tag("export[fields][admin][#{field}]", t("helpers.plan.export.#{field}")) %>
+      <%= check_box_tag("export[fields][admin][#{field}]", true, @export_settings.fields[:admin].member?(field)) %>
+    <% end %>
+  </fieldset>
+  <fieldset>
+    <legend>Sections</legend>
+    <% plan.sections.each do |section| %>
+      <%= label_tag("export[fields][sections][#{section.id}]", section.title) %>
+      <%= check_box_tag("export[fields][sections][#{section.id}]", true, true) %>
+      <!-- <% section.questions.each do |question| %> -->
+      <!--   <label><%= question.text %></label> -->
+      <!--   <%= check_box_tag('include[section][]', true, true) %> -->
+      <!-- <% end %> -->
+    <% end %>
+  </fieldset>
   <fieldset class="font">
-    <h4><%= t('helpers.settings.plans.font') -%></h4>
+    <legend><%= t('helpers.settings.plans.font') -%></legend>
     <div>
-    <%= f.label(:font_face, t('helpers.settings.plans.font_face')) %>
-    <%= f.select(:font_face, options_for_select(Settings::Dmptemplate::VALID_FONT_FACES, @export_settings.formatting[:font_face])) %>
+    <%= label_tag('export[formatting][font_face]', t('helpers.settings.plans.font_face')) %>
+    <%= select_tag('export[formatting][font_face]', options_for_select(Settings::Dmptemplate::VALID_FONT_FACES, @export_settings.formatting[:font_face])) %>
     </div>
     <div>
-      <%= f.label(:font_face, t('helpers.settings.plans.font_size') + ' (pt)') %> 
-      <%= f.select(:font_size, options_for_select((1..36).to_a, @export_settings.formatting[:font_size])) %>
+      <%= label_tag('export[formatting][font_size]', t('helpers.settings.plans.font_size') + ' (pt)') %>
+      <%= select_tag('export[formatting][font_size]', options_for_select((1..36).to_a, @export_settings.formatting[:font_size])) %>
     </div>
   </fieldset>
   <fieldset class="margins">
-    <h4><%= t('helpers.settings.plans.margin') -%> (mm)</h4>
+    <legend><%= t('helpers.settings.plans.margin') -%> (mm)</legend>
 
     <% %i( top bottom left right ).each do |pos| %>
       <div>
-        <%= label_tag("export[margin][#{pos}]", t("helpers.settings.plans.margins.#{pos}")) %>
-        <%= select_tag("export[margin][#{pos}]", options_for_select((0..100).to_a, @export_settings.formatting[:margin][pos])) %>
+        <%= label_tag("export[formatting][margin][#{pos}]", t("helpers.settings.plans.margins.#{pos}")) %>
+        <%= select_tag("export[formatting][margin][#{pos}]", options_for_select((0..100).to_a, @export_settings.formatting[:margin][pos])) %>
       </div>
     <% end %>
   </fieldset>

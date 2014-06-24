@@ -6,39 +6,55 @@ module Settings
       '"Times New Roman", Times, Serif'
     ]
 
-    DEFAULT_FORMATTING = {
-      margin: { # in millimeters
-        top:    20,
-        bottom: 20,
-        left:   20,
-        right:  20
-      },
-      font_face: VALID_FONT_FACES.first,
-      font_size: 12 # pt
-    }
+    VALID_FONT_SIZE_RANGE = (8..14)
+    VALID_MARGIN_RANGE = (5..25)
 
-    DEFAULT_MAX_PAGES = 3
+    VALID_ADMIN_FIELDS = %i(
+      project_name project_identifier grant_title principal_investigator
+      project_data_contact project_description funder institution
+    )
+
+    DEFAULT_SETTINGS = {
+      formatting: {
+        margin: { # in millimeters
+          top:    20,
+          bottom: 20,
+          left:   20,
+          right:  20
+        },
+        font_face: VALID_FONT_FACES.first,
+        font_size: 12 # pt
+      },
+      max_pages: 3,
+      fields: {
+        admin: VALID_ADMIN_FIELDS,
+        sections: :all
+      }
+    }
 
     validate do
       formatting = value['formatting']
       max_pages  = value['max_pages']
+      fields     = value['fields']
 
       if formatting.present?
         errs = []
+        default_formatting = DEFAULT_SETTINGS[:formatting]
 
-        unless (DEFAULT_FORMATTING.keys - formatting.keys).empty?
+        unless (default_formatting.keys - formatting.keys).empty?
           errs << :missing_key
         else
           unless formatting[:margin].is_a?(Hash)
             errs << :invalid_margin
           else
             errs << :negative_margin if formatting[:margin].any? {|k,v| v.to_i < 0 }
-            errs << :unknown_margin unless (formatting[:margin].keys - DEFAULT_FORMATTING[:margin].keys).empty?
+            errs << :unknown_margin unless (formatting[:margin].keys - default_formatting[:margin].keys).empty?
+            errs << :invalid_margin unless formatting[:margin].all? {|k,v| VALID_MARGIN_RANGE.member?(v) }
           end
 
-          errs << :invalid_font_size if formatting[:font_size].to_s !~ /^\d+$/
+          errs << :invalid_font_size unless VALID_FONT_SIZE_RANGE.member?(formatting[:font_size])
           errs << :invalid_font_face unless VALID_FONT_FACES.member?(formatting[:font_face])
-          errs << :unknown_key unless (formatting.keys - DEFAULT_FORMATTING.keys).empty?
+          errs << :unknown_key unless (formatting.keys - default_formatting.keys).empty?
         end
 
         errs.map do |key|
@@ -52,10 +68,15 @@ module Settings
       end
     end
 
-    before_save do
+    before_validation do
       self.formatting[:font_size] = self.formatting[:font_size].to_i if self.formatting[:font_size].present?
       self.formatting[:margin].each do |key, val|
         self.formatting[:margin][key] = val.to_i
+      end
+
+      self.fields.each do |key, val|
+        arr = val.is_a?(Hash) ? val.keys : val.to_a
+        self.fields[key] = arr
       end
     end
   end

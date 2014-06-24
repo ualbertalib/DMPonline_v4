@@ -12,7 +12,7 @@ class Plan < ActiveRecord::Base
 	accepts_nested_attributes_for :version
 
 	has_settings :export, class_name: 'Settings::Dmptemplate' do |s|
-		s.key :export, defaults: { formatting: Settings::Dmptemplate::DEFAULT_FORMATTING }
+		s.key :export, defaults: Settings::Dmptemplate::DEFAULT_SETTINGS
 	end
 
 	alias_method :super_settings, :settings

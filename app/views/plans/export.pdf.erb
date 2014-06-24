@@ -21,29 +21,12 @@
 	</head>
 	<body>
 		<h1><%= @plan.version.phase.title %></h1>
-		<% if @include_admin then %>
-			<p><strong><%= t('helpers.project.project_name') %>:</strong> <%= @plan.project.title %></p>
-			<% if !@plan.project.identifier.nil? && @plan.project.identifier != "" then %>
-				<p><strong><%= t('helpers.project.project_identifier') %>:</strong> <%= @plan.project.identifier %></p>
-			<% end %>
-			<% if !@plan.project.grant_number.nil? && @plan.project.grant_number!= "" then %>
-				<p><strong><%= t('helpers.project.grant_title') %>:</strong> <%= @plan.project.grant_number %></p>
-			<% end %>
-			<% if !@plan.project.principal_investigator.nil? && @plan.project.principal_investigator != "" then%>
-				<p><strong><%= t('helpers.project.principal_investigator') %>:</strong> <%= @plan.project.principal_investigator %></p>
-			<% end %>
-			<% if !@plan.project.data_contact.nil? && @plan.project.data_contact != "" then %>
-			 <p><strong><%= t('helpers.project.project_data_contact') %>:</strong> <%= @plan.project.data_contact %></p>
-			<% end %>
-			<% if !@plan.project.description.nil? && @plan.project.description != "" then%>
-				<p><strong><%= t('helpers.desc') %>:</strong> <%= @plan.project.description %></p>
-			<% end %>
-			<%if @plan.project.dmptemplate.organisation.organisation_type.name == t('helpers.org_type.funder') %>
-				<p><strong><%= t('helpers.org_type.funder') %>:</strong> <%= @plan.project.dmptemplate.organisation.name %></p>
-			<% end %>
-			<%if !@plan.project.organisation_id.nil?	%>
-				<p><strong><%= t('helpers.org_type.institution') %>:</strong> <%= @plan.project.organisation.name %></p>
-			<% end %>
+		<% @exported_plan.settings(:export).fields[:admin].each do |field|
+		     value = @exported_plan.send(field)
+		     if value.present?
+		%>
+		  <p><strong><%= t("helpers.plan.export.#{field}") -%></strong> <%= value -%></p>
+		  <% end %>
 		<% end %>
 		<% sections = @plan.sections.sort_by(&:"number") %>
 		<% sections.each do |section| %>
