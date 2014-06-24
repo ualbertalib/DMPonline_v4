@@ -7,7 +7,7 @@
 <% end %>
 
 <%= form_for(@export_settings, url: settings_plan_path(plan), method: :put, as: :export) do |f| %>
-  <fieldset>
+  <fieldset id="admin_details">
     <legend>Admin details</legend>
     <% Settings::Dmptemplate::VALID_ADMIN_FIELDS.each do |field| %>
       <%= label_tag("export[fields][admin][#{field}]", t("helpers.plan.export.#{field}")) %>

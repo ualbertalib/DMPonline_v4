@@ -1,30 +1,13 @@
 $(document).ready(function() {
-  // Prevent the click handler from being registered multiple times.
-  // This is due to the buggy way this is included.
-  if (window['has_export_js'])
-    return;
 
-  window['has_export_js'] = true;
+  var admin_details_all = $('<input type="checkbox" />').appendTo('#admin_details legend'),
+           admin_checks = $('#admin_details > input[type=checkbox]'),
+            all_checked = admin_checks.length == admin_checks.filter(':checked').length;
 
-  var forms = {};
+  admin_details_all.attr('checked', all_checked);
 
-  $('.export_configure').click(function(e) {
-    e.preventDefault();
+  admin_details_all.click(function() {
+    admin_checks.prop('checked', admin_details_all.is(':checked'));
+  })
 
-    var btn = $(this),
-       href = btn.attr('href'),
-       form = forms[href];
-
-    if (form)
-      return form.toggle();
-
-    $.get(href + '.partial')
-      .done(function(data) {
-        forms[href] = $(data);
-        btn.parent().find("ul").first().before(forms[href]);
-      })
-      .fail(function(data) {
-        // Handle failure?
-      });
-  });
 });
