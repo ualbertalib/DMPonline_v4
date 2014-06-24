@@ -75,8 +75,7 @@ module Settings
       end
 
       self.fields.each do |key, val|
-        arr = val.is_a?(Hash) ? val.keys : val.to_a
-        self.fields[key] = arr
+        self.fields[key] = val.is_a?(Hash) ? val.keys : val
       end
 
       # Save empty arrays if we don't have any fields for them
