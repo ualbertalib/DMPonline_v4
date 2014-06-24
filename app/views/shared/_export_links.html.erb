@@ -5,4 +5,17 @@
   <%= submit_tag(t('helpers.export'), class: 'btn btn-primary') %>
 </form>
 
-<%= render(partial: 'settings/plans/export_formatting_form', locals: { plan: plan }) %>
+<div class="accordion" id="settings-accordion">
+	<div class="accordion-group">
+		<div class="accordion-heading">
+			<a class="accordion-toggle" data-toggle="collapse" data-parent="#settings-accordion" href="#<%= plan.version.phase.id %>">
+				Settings <span class="plus-laranja"> </span>
+			</a>
+		</div>
+		<div id="<%= plan.version.phase.id %>" class="accordion-project collapse">
+			<div class="accordion-inner">
+				<%= render(partial: 'settings/plans/export_formatting_form', locals: { plan: plan }) %>
+			</div>
+		</div>
+	</div>
+</div>
