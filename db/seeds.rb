@@ -469,9 +469,173 @@ versions.each do |v, details|
   version.save!
 end
 
-#sections
+sections = {
+  "Data Collection" => {
+    title: "Data Collection",
+    number: 1,
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    version: "DCC Template Version 1",
+    organisation: "DCC"
+  },
+  "Documentation and Metadata" => {
+    title: "Documentation and Metadata",
+    number: 2,
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    version: "DCC Template Version 1",
+    organisation: "DCC"
+  },
+  "Ethics and Legal Compliance" => {
+    title: "Ethics and Legal Compliance",
+    number: 3,
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    version: "DCC Template Version 1",
+    organisation: "DCC"
+  },
+  "Storage and Backup" => {
+    title: "Storage and Backup",
+    number: 4,
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    version: "DCC Template Version 1",
+    organisation: "DCC"
+  },
+  "Selection and Preservation" => {
+    title: "Selection and Preservation",
+    number: 5,
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    version: "DCC Template Version 1",
+    organisation: "DCC"
+  },
+  "Data Sharing" => {
+    title: "Data Sharing",
+    number: 6,
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    version: "DCC Template Version 1",
+    organisation: "DCC"
+  },
+  "Responsibilities and Resources" => {
+    title: "Responsibilities and Resources",
+    number: 7,
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    version: "DCC Template Version 1",
+    organisation: "DCC"
+  }
+}
 
-#questions
+sections.each do |s, details|
+  section = Section.new
+  section.title = details[:title]
+  section.number = details[:number]
+  section.description = details[:description]
+  section.version = Version.find_by_title(details[:version])
+  section.organisation = Organisation.find_by_name(details[:organisation])
+  section.save!
+end
+
+questions = {
+  "What data will you collect or create?" => {
+    text: "What data will you collect or create?",
+    section: "Data Collection",
+    number: 1,
+    guidance: "<p class='guidance_header'>Questions to consider:</p> <ul> <li>What type, format and volume of data?</li> <li>Do your chosen formats and software enable sharing and long-term access to the data?</li> <li>Are there any existing data that you can reuse?</li> </ul> <p class='guidance_header'>Guidance:</p> <p>Give a brief description of the data, including any existing data or third-party sources that will be used, in each case noting its content, type and coverage. Outline and justify your choice of format and consider the implications of data format and data volumes in terms of storage, backup and access.</p>",
+    themes: ["Existing Data", "Data Volumes", "Data Type", "Data Format"]
+  },
+  "How will the data be collected or created?" => {
+    text: "How will the data be collected or created?",
+    section: "Data Collection",
+    number: 2,
+    guidance: "<p class='guidance_header'>Questions to consider:</p> <ul> <li>What standards or methodologies will you use?</li> <li>How will you structure and name your folders and files?</li> <li>How will you handle versioning?</li> <li>What quality assurance processes will you adopt?</li> </ul> <p class='guidance_header'>Guidance:</p> <p>Outline how the data will be collected/created and which community data standards (if any) will be used. Consider how the data will be organised during the project, mentioning for example naming conventions, version control and folder structures. Explain how the consistency and quality of data collection will be controlled and documented. This may include processes such as calibration, repeat samples or measurements, standardised data capture or recording, data entry validation, peer review of data or representation with controlled vocabularies.</p>",
+    themes: ["Data Capture Methods", "Data Quality"]
+  },
+  "What documentation and metadata will accompany the data?" => {
+    text: "What documentation and metadata will accompany the data?",
+    section: "Documentation and Metadata",
+    number: 1,
+    guidance: "<p class='guidance_header'>Questions to consider:</p> <ul> <li>What information is needed for the data to be to be read and interpreted in the future?</li> <li>How will you capture / create this documentation and metadata?</li> <li>What metadata standards will you use and why?</li> </ul> <p class='guidance_header'>Guidance:</p> <p>Describe the types of documentation that will accompany the data to help secondary users to understand and reuse it. This should at least include basic details that will help people to find the data, including who created or contributed to the data, its title, date of creation and under what conditions it can be accessed.</p> <p>Documentation may also include details on the methodology used, analytical and procedural information, definitions of variables, vocabularies, units of measurement, any assumptions made, and the format and file type of the data. Consider how you will capture this information and where it will be recorded. Wherever possible you should identify and use existing community standards.</p>",
+    themes: ["Documentation", "Metadata"]
+  },
+  "How will you manage any ethical issues?" => {
+    text: "How will you manage any ethical issues?",
+    section: "Ethics and Legal Compliance",
+    number: 1,
+    guidance: "<p class='guidance_header'>Questions to consider:</p> <ul> <li>Have you gained consent for data preservation and sharing?</li> <li>How will you protect the identity of participants if required? e.g. via anonymisation</li> <li>How will sensitive data be handled to ensure it is stored and transferred securely?</li> </ul> <p class='guidance_header'>Guidance:</p> <p>Ethical issues affect how you store data, who can see/use it and how long it is kept. Managing ethical concerns may include: anonymisation of data; referral to departmental or institutional ethics committees; and formal consent agreements. You should show that you are aware of any issues and have planned accordingly. If you are carrying out research involving human participants, you must also ensure that consent is requested to allow data to be shared and reused.</p>",
+    themes: ["Ethical Issues"]
+  },
+  "How will you manage copyright and Intellectual Property Rights (IPR) issues?" => {
+    text: "How will you manage copyright and Intellectual Property Rights (IPR) issues?",
+    section: "Ethics and Legal Compliance",
+    number: 2,
+    guidance: "<p class='guidance_header'>Questions to consider:</p> <ul> <li>Who owns the data?</li> <li>How will the data be licensed for reuse?</li> <li>Are there any restrictions on the reuse of third-party data?</li> <li>Will data sharing be postponed / restricted e.g. to publish or seek patents?</li> </ul> <p class='guidance_header'>Guidance:</p> <p>State who will own the copyright and IPR of any data that you will collect or create, along with the licence(s) for its use and reuse. For multi-partner projects, IPR ownership may be worth covering in a consortium agreement. Consider any relevant funder, institutional, departmental or group policies on copyright or IPR. Also consider permissions to reuse third-party data and any restrictions needed on data sharing.</p>",
+    themes: ["IPR Ownership and Licencing"]
+  },
+  "How will the data be stored and backed up during the research?" => {
+    text: "How will the data be stored and backed up during the research?",
+    section: "Storage and Backup",
+    number: 1,
+    guidance: "<p class='guidance_header'>Questions to consider:</p> <ul> <li>Do you have sufficient storage or will you need to include charges for additional services?</li> <li>How will the data be backed up?</li> <li>Who will be responsible for backup and recovery?</li> <li>How will the data be recovered in the event of an incident?</li> </ul> <p class='guidance_header'>Guidance: </p> <p>State how often the data will be backed up and to which locations. How many copies are being made? Storing data on laptops, computer hard drives or external storage devices alone is very risky. The use of robust, managed storage provided by university IT teams is preferable. Similarly, it is normally better to use automatic backup services provided by IT Services than rely on manual processes. If you choose to use a third-party service, you should ensure that this does not conflict with any funder, institutional, departmental or group policies, for example in terms of the legal jurisdiction in which data are held or the protection of sensitive data.</p>",
+    themes: ["Storage and Backup"]
+  },
+  "How will you manage access and security?" => {
+    text: "How will you manage access and security?",
+    section: "Storage and Backup",
+    number: 2,
+    guidance: "<p class='guidance_header'>Questions to consider:</p> <ul> <li>What are the risks to data security and how will these be managed?</li> <li>How will you control access to keep the data secure?</li> <li>How will you ensure that collaborators can access your data securely?</li> <li>If creating or collecting data in the field how will you ensure its safe transfer into your main secured systems?</li> </ul> <p class='guidance_header'>Guidance: </p> <p>If your data is confidential (e.g. personal data not already in the public domain, confidential information or trade secrets), you should outline any appropriate security measures and note any formal standards that you will comply with e.g. ISO 27001.&quot;</p>",
+    themes: ["Data Security"]
+  },
+  "Which data are of long-term value and should be retained, shared, and/or preserved?" => {
+    text: "Which data are of long-term value and should be retained, shared, and/or preserved?",
+    section: "Selection and Preservation",
+    number: 1,
+    guidance: "<p class='guidance_header'>Questions to consider:</p> <ul> <li>What data must be retained/destroyed for contractual, legal, or regulatory purposes?</li> <li>How will you decide what other data to keep?</li> <li>What are the foreseeable research uses for the data?</li> <li>How long will the data be retained and preserved?</li> </ul> <p class='guidance_header'>Guidance:</p> <p>Consider how the data may be reused e.g. to validate your research findings, conduct new studies, or for teaching. Decide which data to keep and for how long. This could be based on any obligations to retain certain data, the potential reuse value, what is economically viable to keep, and any additional effort required to prepare the data for data sharing and preservation. Remember to consider any additional effort required to prepare the data for sharing and preservation, such as changing file formats.</p>",
+    themes: ["Data Selection"]
+  },
+  "What is the long-term preservation plan for the dataset?" => {
+    text: "What is the long-term preservation plan for the dataset?",
+    section: "Selection and Preservation",
+    number: 2,
+    guidance: "<p class='guidance_header'>Questions to consider:</p> <ul> <li>Where e.g. in which repository or archive will the data be held?</li> <li>What costs if any will your selected data repository or archive charge?</li> <li>Have you costed in time and effort to prepare the data for sharing / preservation?</li> </ul> <p class='guidance_header'>Guidance: </p> <p>Consider how datasets that have long-term value will be preserved and curated beyond the lifetime of the grant. Also outline the plans for preparing and documenting data for sharing and archiving. If you do not propose to use an established repository, the data management plan should demonstrate that resources and systems will be in place to enable the data to be curated effectively beyond the lifetime of the grant.</p>",
+    themes: ["Preservation Plan", "Data Repository"]
+  },
+  "How will you share the data?" => {
+    text: "How will you share the data?",
+    section: "Data Sharing",
+    number: 1,
+    guidance: "<p class='guidance_header'>Questions to consider:</p> <ul> <li>How will potential users find out about your data?</li> <li>With whom will you share the data, and under what conditions?</li> <li>Will you share data via a repository, handle requests directly or use another mechanism?</li> <li>When will you make the data available?</li> <li>Will you pursue getting a persistent identifier for your data?</li> </ul> <p class='guidance_header'>Guidance:</p> <p>Consider where, how, and to whom data with acknowledged long-term value should be made available. The methods used to share data will be dependent on a number of factors such as the type, size, complexity and sensitivity of data. If possible, mention earlier examples to show a track record of effective data sharing. Consider how people might acknowledge the reuse of your data.</p>",
+    themes: ["Method For Data Sharing"]
+  },
+  "Are any restrictions on data sharing required?" => {
+    text: "Are any restrictions on data sharing required?",
+    section: "Data Sharing",
+    number: 2,
+    guidance: "<p class='guidance_header'>Questions to consider:</p> <ul> <li>What action will you take to overcome or minimise restrictions?</li> <li>For how long do you need exclusive use of the data and why?</li> <li>Will a data sharing agreement (or equivalent) be required?</li> </ul> <p class='guidance_header'>Guidance:</p> <p>Outline any expected difficulties in sharing data with acknowledged long-term value, along with causes and possible measures to overcome these. Restrictions may be due to confidentiality, lack of consent agreements or IPR, for example. Consider whether a non-disclosure agreement would give sufficient protection for confidential data.</p>",
+    themes: ["Restrictions on Sharing"]
+  },
+  "Who will be responsible for data management?" => {
+    text: "Who will be responsible for data management?",
+    section: "Responsibilities and Resources",
+    number: 1,
+    guidance: "<p class='guidance_header'>Questions to consider:</p> <ul> <li>Who is responsible for implementing the DMP, and ensuring it is reviewed and revised?</li> <li>Who will be responsible for each data management activity?</li> <li>How will responsibilities be split across partner sites in collaborative research projects?</li> <li>Will data ownership and responsibilities for RDM be part of any consortium agreement or contract agreed between partners?</li> </ul> <p class='guidance_header'>Guidance:</p> <p>Outline the roles and responsibilities for all activities e.g. data capture, metadata production, data quality, storage and backup, data archiving &amp; data sharing. Consider who will be responsible for ensuring relevant policies will be respected. Individuals should be named where possible.</p>",
+    themes: ["Responsibilities"]
+  },
+  "What resources will you require to deliver your plan?" => {
+    text: "What resources will you require to deliver your plan?",
+    section: "Responsibilities and Resources",
+    number: 2,
+    guidance: "<p class='guidance_header'>Questions to consider:</p> <ul> <li>Is additional specialist expertise (or training for existing staff) required?</li> <li>Do you require hardware or software which is additional or exceptional to existing institutional provision?</li> <li>Will charges be applied by data repositories?</li> </ul> <p class='guidance_header'>Guidance:</p> <p>Carefully consider any resources needed to deliver the plan, e.g. software, hardware, technical expertise, etc. Where dedicated resources are needed, these should be outlined and justified.</p>",
+    themes: ["Resourcing"]
+  }
+}
+
+questions.each do |q, details|
+  question = Question.new
+  question.text = details[:text]
+  question.number = details[:number]
+  question.guidance = details[:guidance]
+  question.section = Section.find_by_title(details[:section])
+  details[:themes].each do |theme|
+    question.themes << Theme.find_by_title(theme)
+  end
+  question.save!
+end
 
 #suggested_answers
 
