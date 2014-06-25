@@ -20,7 +20,7 @@
        section_settings = @export_settings.fields[:sections]
        selected = section_settings == :all || section_settings.member?(section.id)
     %>
-      <%= label_tag("export[fields][sections][#{section.id}]", section.title) %>
+      <%= label_tag("export[fields][sections][#{section.id}]", section.title.truncate(50), title: section.title) %>
       <%= check_box_tag("export[fields][sections][#{section.id}]", true, selected) %>
       <!-- <% section.questions.each do |question| %> -->
       <!--   <label><%= question.text %></label> -->
