@@ -16,9 +16,12 @@
   </fieldset>
   <fieldset>
     <legend>Sections</legend>
-    <% plan.sections.each do |section| %>
+    <% plan.sections.each do |section|
+       section_settings = @export_settings.fields[:sections]
+       selected = section_settings == :all || section_settings.member?(section.id)
+    %>
       <%= label_tag("export[fields][sections][#{section.id}]", section.title) %>
-      <%= check_box_tag("export[fields][sections][#{section.id}]", true, true) %>
+      <%= check_box_tag("export[fields][sections][#{section.id}]", true, selected) %>
       <!-- <% section.questions.each do |question| %> -->
       <!--   <label><%= question.text %></label> -->
       <!--   <%= check_box_tag('include[section][]', true, true) %> -->
