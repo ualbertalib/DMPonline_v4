@@ -1572,15 +1572,35 @@ form.edit_export {
       }
     }
 
-    label {
-      clear: left;
-      float: left;
+    ol {
+      margin-left: 0;
+
+      li {
+        display: block;
+        height: 2em;
+        list-style-type: none;
+        position: relative;
+        width: 100%;
+      }
+
+      /* li:nth-child(2n) { */
+      /*   background-color: @orange_colour; */
+      /*   color: @white_colour; */
+      /* } */
+
+      label {
+        clear: left;
+        display: inline-block;
+        overflow: hidden;
+        position: absolute;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 90%;
+      }
+
     }
 
-    input[type=checkbox] {
-      clear: right;
-      float: right;
-    }
+    input[type=checkbox] { float: right; }
 
     h4 {
       margin-top: 0;
@@ -1598,7 +1618,6 @@ form.edit_export {
     }
 
     &.margins {
-      border-left: 1px solid @orange_colour;
       padding-left: 1em;
 
       div {

@@ -9,24 +9,32 @@
 <%= form_for(@export_settings, url: settings_plan_path(plan), method: :put, as: :export) do |f| %>
   <fieldset class="check_select">
     <legend>Admin details</legend>
+    <ol>
     <% Settings::Dmptemplate::VALID_ADMIN_FIELDS.each do |field| %>
-      <%= label_tag("export[fields][admin][#{field}]", t("helpers.plan.export.#{field}")) %>
-      <%= check_box_tag("export[fields][admin][#{field}]", true, @export_settings.fields[:admin].member?(field)) %>
+      <li>
+        <%= label_tag("export[fields][admin][#{field}]", t("helpers.plan.export.#{field}")) %>
+        <%= check_box_tag("export[fields][admin][#{field}]", true, @export_settings.fields[:admin].member?(field)) %>
+      </li>
     <% end %>
+    </ol>
   </fieldset>
   <fieldset class="check_select">
     <legend>Sections</legend>
+    <ol>
     <% plan.sections.each do |section|
        section_settings = @export_settings.fields[:sections]
        selected = section_settings == :all || section_settings.member?(section.id)
     %>
-      <%= label_tag("export[fields][sections][#{section.id}]", section.title.truncate(50), title: section.title) %>
-      <%= check_box_tag("export[fields][sections][#{section.id}]", true, selected) %>
+      <li>
+        <%= label_tag("export[fields][sections][#{section.id}]", section.title, title: section.title) %>
+        <%= check_box_tag("export[fields][sections][#{section.id}]", true, selected) %>
       <!-- <% section.questions.each do |question| %> -->
       <!--   <label><%= question.text %></label> -->
       <!--   <%= check_box_tag('include[section][]', true, true) %> -->
       <!-- <% end %> -->
+      </li>
     <% end %>
+    </ol>
   </fieldset>
   <fieldset class="font">
     <legend><%= t('helpers.settings.plans.font') -%></legend>
