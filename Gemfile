@@ -83,3 +83,4 @@ group :production do
   gem 'libv8'
 end
 
+gem 'syslog-logger'

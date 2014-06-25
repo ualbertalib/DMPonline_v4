@@ -110,15 +110,18 @@ def edit_plan
     @driver.find_element(:id, "project_principal_investigator").send_keys "Dit Test"
     @driver.find_element(:name, "commit").click
     verify { (@driver.find_element(:css, "p.alert.alert-notice").text).should == "Project was successfully updated." }
+    puts("now editing answers")
 
     @driver.find_element(:link, "Answer questions").click
     verify {(@driver.find_element(:xpath, "//div[@class='progress']/span").text.should == "No questions have been answered")}
     tinymce_frame = @driver.find_elements(:xpath, "//div[@class='question-div']//iframe[starts-with(@id, 'answer-text-')]")
     tinymce_frame[0].find_element(:xpath, "../../../../../../../../../../../../div[@class='accordion-heading']//span[contains(@class, 'icon-plus')]").click
     tinymce_frame[0].find_element(:xpath, "../../../../../../../../../div[@class='question-guidance']//span[@class='plus-laranja']").click
+    puts("now switch to iframe")
 
     @driver.switch_to.frame(tinymce_frame[0])
-    @driver.find_element(:tag_name, 'body').send_keys ("<p>Sample Answer. </p>")
+    editor_body = @driver.find_element(:css => "body")
+    @driver.execute_script("arguments[0].innerHTML = '<h3>Sample Answer</h3>DIT Test'", editor_body)
     @driver.switch_to.default_content
     
     save_button = tinymce_frame[0].find_element(:xpath, "../../../../../../fieldset[@class='actions']//li[@id='answer_submit_action']")
