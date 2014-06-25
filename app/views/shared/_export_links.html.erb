@@ -9,7 +9,7 @@
 	<div class="accordion-group">
 		<div class="accordion-heading">
 			<a class="accordion-toggle" data-toggle="collapse" data-parent="#settings-accordion" href="#<%= plan.version.phase.id %>">
-				Settings <span class="plus-laranja"> </span>
+				Settings - <%= plan_settings_indicator(plan) -%> <span class="plus-laranja"> </span>
 			</a>
 		</div>
 		<div id="<%= plan.version.phase.id %>" class="accordion-project collapse">
