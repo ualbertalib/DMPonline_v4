@@ -221,6 +221,47 @@ class Plan < ActiveRecord::Base
 		return details
 	end
 
+	def as_csv
+		CSV.generate do |csv|
+			csv << ["Section","Question","Answer","Selected option(s)","Answered by","Answered at"]
+			self.sections.each do |section|
+				section.questions.each do |question|
+					answer = self.answer(question.id)
+					options_string = nil
+					answer.options.each do |option|
+						if options_string.nil?
+							options_string = option.text
+						else
+							options_string = options_string + "; #{option.text}"
+						end
+					end
+					csv << [section.title, question.text, ActionView::Base.full_sanitizer.sanitize(answer.text.gsub(/&nbsp;/i,"")), options_string, answer.try(:user).try(:name), answer.created_at]
+				end
+			end
+		end
+	end
+
+	def as_txt
+		output = "#{self.project.title}\n\n#{self.version.phase.title}\n"
+		self.sections.each do |section|
+			output = output + "\n#{section.title}\n"
+			section.title
+			section.questions.each do |question|
+				output = output + "\n#{question.text}\n"
+				answer = self.answer(question.id, false)
+				if answer.nil? || answer.text.nil? then
+					output = output + "Question not answered.\n"
+				else
+					answer.options.each do |option|
+						output = output + "#{option.text}\n"
+					end
+					output = output +"#{ActionView::Base.full_sanitizer.sanitize(answer.text.gsub(/&nbsp;/i,""))}\n"
+				end
+			end
+		end
+		return output
+	end
+
 	def locked(section_id, user_id)
 		plan_section = plan_sections.where("section_id = ? AND user_id != ? AND release_time > ?", section_id, user_id, Time.now).last
 		if plan_section.nil? then

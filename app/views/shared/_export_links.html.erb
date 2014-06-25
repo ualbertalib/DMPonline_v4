@@ -1,9 +1,10 @@
 <% javascript('export_configure') %>
 <ul class="export_list">
 	<li><%= link_to "View as a web page", [:export, plan.project, plan], :target => "_blank" %> (Best for getting an overview of your plan)</li>
-	<li><%= link_to "View as plain text", export_project_plan_path(plan.project, plan, :format => "text"), :target => "_blank" %> (Best for copying and pasting)</li>
-	
-	<li>View as PDF (Best for sharing e.g. by email): 
+	<li><%= link_to "Download as plain text", export_project_plan_path(plan.project, plan, :format => "text") %> (Best for copying and pasting)</li>
+	<li><%= link_to "Download as CSV", export_project_plan_path(plan.project, plan, :format => "csv") %> (Best for spreadsheet)</li>
+
+	<li>View as PDF (Best for sharing e.g. by email):
 		<a class="icon-cog btn-configure export_configure" href="<%= settings_plan_path(plan) -%>" title="<%= t('helpers.project.configure') -%>">
 			<span class="hide-text"><%= t('helpers.project.configure') -%></span>
 		</a>
