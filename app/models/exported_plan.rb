@@ -52,6 +52,8 @@ class ExportedPlan < ActiveRecord::Base
   def sections
     section_settings = self.settings(:export).fields[:sections]
 
+    return [] if section_settings.is_a?(Array) && section_settings.empty?
+
     sections = self.plan.sections
 
     if section_settings.present? && section_settings != :all
