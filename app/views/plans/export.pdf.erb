@@ -13,6 +13,7 @@
 			h1 { font-size: <%= @formatting[:font_size] + 2 -%>pt; font-face:bold; padding: 0;}
 			h2 { font-size: <%= @formatting[:font_size] + 1 -%>pt; font-face:bold; padding: 0; margin: 1em 0 0 0;}
 			h3 { font-size: <%= @formatting[:font_size] + 0 -%>pt; font-face:bold; padding: 0; margin: 1em 0 0 0;}
+			h2 + div.question > h3 { margin: 0; }
 			table, tr, td, th, tbody, thead, tfoot { page-break-inside: avoid !important; }
 			table { border-collapse: collapse; }
 			th, td { border: 1px solid black !important; padding: 2px; }
