@@ -28,8 +28,8 @@
 		  <p><strong><%= t("helpers.plan.export.#{field}") -%></strong> <%= value -%></p>
 		  <% end %>
 		<% end %>
-		<% sections = @plan.sections.sort_by(&:"number") %>
-		<% sections.each do |section| %>
+
+		<% @exported_plan.sections.each do |section| %>
 			<h2><%= section.title %></h2>
 			<% questions = section.questions.sort_by(&:"number") %>
 			<% questions.each do |question| %>

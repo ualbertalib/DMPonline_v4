@@ -48,4 +48,17 @@ class ExportedPlan < ActiveRecord::Base
     plan.project.organisation.try(:name)
   end
 
+  # sections taken from fields settings
+  def sections
+    section_settings = self.settings(:export).fields[:sections]
+
+    sections = self.plan.sections
+
+    if section_settings.present? && section_settings != :all
+      sections = sections.select {|section| section_settings.member?(section.id) }
+    end
+
+    sections.sort_by(&:number)
+  end
+
 end
