@@ -33,9 +33,9 @@
 		<% @exported_plan.sections.each do |section| %>
 			<h2><%= section.title %></h2>
 			<% questions = section.questions.sort_by(&:"number") %>
-			<% questions.each do |question| %>
+			<% questions.each_with_index do |question, idx| %>
 				<div class="question">
-					<% if question.text != section.title %>
+					<% unless idx == 0 && question.text == section.title %>
 						<h3><%= question.text %></h3>
 					<% end %>
 					<% answer = @plan.answer(question.id, false) %>
