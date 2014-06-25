@@ -214,6 +214,7 @@ GEM
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
+    syslog-logger (1.6.8)
     therubyracer (0.11.4)
       libv8 (~> 3.11.8.12)
       ref
@@ -276,6 +277,7 @@ DEPENDENCIES
   sass (= 3.2.10)
   sass-rails (~> 3.2.3)
   selenium-webdriver
+  syslog-logger
   therubyracer (= 0.11.4)
   thin
   tinymce-rails
