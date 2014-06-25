@@ -7,14 +7,14 @@
 <% end %>
 
 <%= form_for(@export_settings, url: settings_plan_path(plan), method: :put, as: :export) do |f| %>
-  <fieldset id="admin_details">
+  <fieldset class="check_select">
     <legend>Admin details</legend>
     <% Settings::Dmptemplate::VALID_ADMIN_FIELDS.each do |field| %>
       <%= label_tag("export[fields][admin][#{field}]", t("helpers.plan.export.#{field}")) %>
       <%= check_box_tag("export[fields][admin][#{field}]", true, @export_settings.fields[:admin].member?(field)) %>
     <% end %>
   </fieldset>
-  <fieldset>
+  <fieldset class="check_select">
     <legend>Sections</legend>
     <% plan.sections.each do |section|
        section_settings = @export_settings.fields[:sections]
