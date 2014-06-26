@@ -28,7 +28,7 @@ module Settings
       max_pages: 3,
       fields: {
         admin: VALID_ADMIN_FIELDS,
-        sections: :all
+        questions: :all
       }
     }
 
@@ -76,7 +76,7 @@ module Settings
 
       self.fields.each do |key, val|
         if val.is_a?(Hash)
-          val = key == :sections ? val.keys.map {|k| k.to_s.to_i } : val.keys
+          val = key == :questions ? val.keys.map {|k| k.to_s.to_i } : val.keys
         end
 
         self.fields[key] = val
@@ -84,7 +84,7 @@ module Settings
 
       # Save empty arrays if we don't have any fields for them
       self.fields[:admin] ||= []
-      self.fields[:sections] ||= []
+      self.fields[:questions] ||= []
     end
   end
 end

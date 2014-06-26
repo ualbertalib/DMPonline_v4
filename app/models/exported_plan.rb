@@ -50,17 +50,33 @@ class ExportedPlan < ActiveRecord::Base
 
   # sections taken from fields settings
   def sections
-    section_settings = self.settings(:export).fields[:sections]
-
-    return [] if section_settings.is_a?(Array) && section_settings.empty?
-
     sections = self.plan.sections
-
-    if section_settings.present? && section_settings != :all
-      sections = sections.select {|section| section_settings.member?(section.id) }
-    end
+    section_ids = questions.pluck(:section_id).uniq
+    sections = sections.select {|section| section_ids.member?(section.id) }
 
     sections.sort_by(&:number)
+  end
+
+  def questions_for_section(section_id)
+    questions.where(section_id: section_id)
+  end
+
+private
+
+  def questions
+    @questions ||= begin
+      question_settings = self.settings(:export).fields[:questions]  
+
+      return [] if question_settings.is_a?(Array) && question_settings.empty?
+
+      questions = if question_settings.present? && question_settings != :all
+        Question.where(id: question_settings)
+      else
+        Question.where(section_id: self.plan.sections.pluck(:id))
+      end
+
+      questions.order(:number)
+    end
   end
 
 end

@@ -32,7 +32,7 @@
 
 		<% @exported_plan.sections.each do |section| %>
 			<h2><%= section.title %></h2>
-			<% questions = section.questions.sort_by(&:"number") %>
+			<% questions = @exported_plan.questions_for_section(section.id) %>
 			<% questions.each_with_index do |question, idx| %>
 				<div class="question">
 					<% unless idx == 0 && question.text == section.title %>

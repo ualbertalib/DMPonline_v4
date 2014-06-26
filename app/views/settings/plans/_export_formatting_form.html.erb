@@ -1,6 +1,8 @@
 <%
    plan ||= @plan
    @export_settings ||= plan.settings(:export)
+   admin_settings = @export_settings.fields[:admin]
+   question_settings = @export_settings.fields[:questions] || :all
 %>
 <% @export_settings.errors.full_messages.each do |error| %>
   <div class="error"><%= error %></div>
@@ -10,28 +12,35 @@
   <fieldset class="check_select">
     <legend>Admin details</legend>
     <ol>
-    <% Settings::Dmptemplate::VALID_ADMIN_FIELDS.each do |field| %>
+    <% Settings::Dmptemplate::VALID_ADMIN_FIELDS.each do |field|
+         name = "export[fields][admin][#{field}]"
+    %>
       <li>
-        <%= label_tag("export[fields][admin][#{field}]", t("helpers.plan.export.#{field}")) %>
-        <%= check_box_tag("export[fields][admin][#{field}]", true, @export_settings.fields[:admin].member?(field)) %>
+        <%= label_tag(name, t("helpers.plan.export.#{field}")) %>
+        <%= check_box_tag(name, true, admin_settings.member?(field)) %>
       </li>
     <% end %>
     </ol>
   </fieldset>
-  <fieldset class="check_select">
+  <fieldset class="check_select sections">
     <legend>Sections</legend>
     <ol>
-    <% plan.sections.each do |section|
-       section_settings = @export_settings.fields[:sections]
-       selected = section_settings == :all || section_settings.member?(section.id)
-    %>
+    <% plan.sections.each do |section| %>
       <li>
-        <%= label_tag("export[fields][sections][#{section.id}]", section.title, title: section.title) %>
-        <%= check_box_tag("export[fields][sections][#{section.id}]", true, selected) %>
-      <!-- <% section.questions.each do |question| %> -->
-      <!--   <label><%= question.text %></label> -->
-      <!--   <%= check_box_tag('include[section][]', true, true) %> -->
-      <!-- <% end %> -->
+        <fieldset class="check_select">
+          <legend title="<%= section.title -%>"><%= section.title -%></legend>
+          <ol>
+          <% section.questions.each do |question|
+               selected = question_settings == :all || question_settings.member?(question.id)
+               name = "export[fields][questions][#{question.id}]"
+          %>
+            <li>
+              <%= label_tag(name, question.text, title: question.text) %>
+              <%= check_box_tag(name, true, selected) %>
+            </li>
+          <% end %>
+          </ol>
+        </fieldset>
       </li>
     <% end %>
     </ol>
