@@ -1585,24 +1585,23 @@ form.edit_export {
           display: block;
           width: 100%;
 
-          legend { font-size: 1em; }
+          legend {
+            border: none;
+            font-size: 1em;
+            font-weight: bold;
+            margin: 0;
+          }
 
           ol { margin-left: 1em; }
           li { height: auto; }
         }
       }
 
-      /* li:nth-child(2n) { */
-      /*   background-color: @orange_colour; */
-      /*   color: @white_colour; */
-      /* } */
-
       label {
         clear: left;
         display: inline-block;
         height: 1.2em;
         overflow: hidden;
-        /* position: absolute; */
         text-overflow: ellipsis;
         white-space: nowrap;
         width: 90%;
