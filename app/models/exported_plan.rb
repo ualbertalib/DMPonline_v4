@@ -51,6 +51,9 @@ class ExportedPlan < ActiveRecord::Base
   # sections taken from fields settings
   def sections
     sections = self.plan.sections
+
+    return [] if questions.empty?
+
     section_ids = questions.pluck(:section_id).uniq
     sections = sections.select {|section| section_ids.member?(section.id) }
 
