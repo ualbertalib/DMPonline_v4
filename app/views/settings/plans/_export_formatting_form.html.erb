@@ -10,7 +10,7 @@
 
 <%= form_for(@export_settings, url: settings_plan_path(plan), method: :put, as: :export) do |f| %>
   <fieldset class="check_select">
-    <legend>Admin details</legend>
+    <legend><label for="admin_details_toggle">Admin details</label></legend>
     <ol>
     <% Settings::Dmptemplate::VALID_ADMIN_FIELDS.each do |field|
          name = "export[fields][admin][#{field}]"
@@ -23,12 +23,14 @@
     </ol>
   </fieldset>
   <fieldset class="check_select sections">
-    <legend>Sections</legend>
+    <legend><label for="sections_toggle">Sections</label></legend>
     <ol>
     <% plan.sections.each do |section| %>
       <li>
         <fieldset class="check_select">
-          <legend title="<%= section.title -%>"><%= section.title -%></legend>
+          <legend title="<%= section.title -%>">
+            <label for="section_toggle_<%= section.id -%>"><%= section.title -%></label>
+          </legend>
           <ol>
           <% section.questions.each do |question|
                selected = question_settings == :all || question_settings.member?(question.id)

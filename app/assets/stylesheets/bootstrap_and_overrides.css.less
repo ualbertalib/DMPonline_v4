@@ -1552,6 +1552,15 @@ form.edit_export {
   border-radius: 5px;
   padding: 1em;
 
+  & > fieldset > legend > label {
+    display: inline-block;
+    width: 90%;
+    font-size: 21px;
+    line-height: 40px;
+    color: #333;
+  }
+
+
   fieldset {
     display: inline-block;
     width: 47.5%;
@@ -1573,7 +1582,7 @@ form.edit_export {
     }
 
     ol {
-      margin-left: 0;
+      margin: 0 5% 0 0;
 
       li {
         display: block;
@@ -1591,28 +1600,33 @@ form.edit_export {
           legend {
             border: none;
             font-size: 1em;
-            font-weight: bold;
+            line-height: 1.5em;
+            height: 1.5em;
             margin: 0;
+            padding: 0;
+
+            label { font-weight: bold; }
           }
 
-          ol { margin-left: 1em; }
+          ol { margin: 0 0 0 1em; }
           li { height: auto; }
         }
       }
 
       label {
-        clear: left;
         display: inline-block;
         margin: 0;
         overflow: hidden;
+        position: absolute;
         text-overflow: ellipsis;
         white-space: nowrap;
         width: 90%;
+        top: 0; left: 0;
       }
 
     }
 
-    input[type=checkbox] { float: right; }
+    input[type=checkbox] { margin-left: 95%; }
 
     h4 {
       margin-top: 0;

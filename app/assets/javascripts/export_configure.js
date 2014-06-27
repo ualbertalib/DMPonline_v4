@@ -18,6 +18,7 @@ $(document).ready(function() {
             return {'indeterminate': true}
           };
 
+    toggle.prop('id', container.find('> legend > label').prop('for'));
     toggle.prop(checked());
 
     checks.change(function() {
