@@ -1552,12 +1552,17 @@ form.edit_export {
   border-radius: 5px;
   padding: 1em;
 
-  & > fieldset > legend > label {
-    display: inline-block;
-    width: 90%;
-    font-size: 21px;
-    line-height: 40px;
-    color: #333;
+  & > fieldset > legend {
+
+    label {
+      display: inline-block;
+      width: 90%;
+      font-size: 21px;
+      line-height: 40px;
+      color: #333;
+    }
+
+    input[type=checkbox] { margin-left: 0 !important; }
   }
 
 
@@ -1608,7 +1613,7 @@ form.edit_export {
             label { font-weight: bold; }
           }
 
-          ol { margin: 0 0 0 1em; }
+          ol { margin: 0 0 0.5em 5%; }
           li { height: auto; }
         }
       }
