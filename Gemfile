@@ -17,8 +17,6 @@ end
 gem 'uglifier', '>= 1.0.3'
 gem 'less-rails'
 
-gem 'therubyracer', '0.11.4', platforms: :ruby
-gem 'libv8'
 gem 'twitter-bootstrap-rails'
 gem 'sass-rails',   '~> 3.2.3'
 gem 'sass', '3.2.10'
@@ -73,8 +71,16 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rspec'
   gem 'selenium-webdriver'
+  gem 'pdf-reader'
 end
 
-group :test do
+group :ci do
   gem 'ci_reporter'
 end
+
+group :production do
+  gem 'therubyracer', '0.11.4', platforms: :ruby
+  gem 'libv8'
+end
+
+gem 'syslog-logger'

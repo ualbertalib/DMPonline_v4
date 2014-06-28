@@ -32,3 +32,11 @@
   ensure
     @accept_next_alert = true
   end
+
+  def screen_capture
+      metadata = example.nil? ? {:file_path => 'before_after', :full_description => 'failure occurred in a before or after block'} : example.metadata
+      filename = File.basename(metadata[:file_path])
+      screenshot = "#{@screenshots_dir}#{filename}-#{Time.now.strftime('failshot__%d_%m_%Y__%H_%M_%S')}.png"
+      @driver.save_screenshot screenshot
+      puts metadata[:full_description] + "\n  Screenshot: #{screenshot}"
+  end
