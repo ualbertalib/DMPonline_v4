@@ -2,7 +2,7 @@
 <form method="get" action="<%= export_project_plan_path(plan.project, plan) -%>" target="_blank">
   <%= label_tag(:format, t('helpers.format')) %>
   <%= select_tag(:format, options_for_select(ExportedPlan::VALID_FORMATS, :pdf)) %>
-  <%= submit_tag(t('helpers.export'), class: 'btn btn-primary') %>
+  <input type="submit" value="<%= t('helpers.export') -%>" class="btn btn-primary" />
 </form>
 
 <div class="accordion settings-accordion" id="settings-accordion-<%= plan.id -%>">
