@@ -5,33 +5,41 @@ $(document).ready(function() {
   $('.check_select').each(function() {
     var container = $(this),
            toggle = container.find('> legend > .toggle'),
-           checks = container.find('li input[type=checkbox]'),
-          checked = function() {
-            var checked = checks.filter(':checked');
+           checks = container.find('> ol > li > input[type=checkbox], li > fieldset > legend > input[type=checkbox]');
 
-            if (checks.length == checked.length)
-              return {'checked': true};
 
-            if (checked.length == 0)
-              return {'checked': false};
+    function checked(toggle) {
+      var checks = toggle.prop('checks'),
+         checked = checks.filter(':checked').length;
 
-            return {'indeterminate': true}
-          };
+      return {
+        'indeterminate' : (checked > 0 && checked < checks.length),
+              'checked' : (checked == checks.length)
+      };
+    }
 
+    function toggleParent(toggle) {
+      var parent_toggle = toggle.prop('toggle');
+
+      if (parent_toggle)
+        parent_toggle.prop(checked(parent_toggle));
+    }
+
+    checks.prop('toggle', toggle);
+    toggle.prop('checks', checks);
     toggle.prop('id', container.find('> legend > label').prop('for'));
-    toggle.prop(checked());
+    toggle.prop(checked(toggle));
+    toggleParent(toggle);
 
     checks.change(function() {
-      toggle.prop('indeterminate', false);
-      toggle.prop(checked());
+      toggle.prop(checked(toggle));
+      toggleParent(toggle);
     });
 
     toggle.change(function() {
-      toggle.prop('indeterminate', false);
       checks.prop('checked', toggle.is(':checked'));
-      toggle.prop(checked());
+      toggle.prop(checked(toggle));
     });
 
   });
-
 });
