@@ -1,5 +1,9 @@
 $(document).ready(function() {
 
+  $.expr.filters.indeterminate = function(element) {
+    return $(element).prop('indeterminate');
+  };
+
   $('.check_select > legend').append('<input type="checkbox" class="toggle" />');
 
   $('.check_select').each(function() {
@@ -10,10 +14,11 @@ $(document).ready(function() {
 
     function checked(toggle) {
       var checks = toggle.prop('checks'),
-         checked = checks.filter(':checked').length;
+         checked = checks.filter(':checked').length,
+         indeterminate = checks.filter(':indeterminate').length;
 
       return {
-        'indeterminate' : (checked > 0 && checked < checks.length),
+        'indeterminate' : ((checked > 0 && checked < checks.length) || indeterminate > 0),
               'checked' : (checked == checks.length)
       };
     }
@@ -37,8 +42,15 @@ $(document).ready(function() {
     });
 
     toggle.change(function() {
-      checks.prop('checked', toggle.is(':checked'));
-      toggle.prop(checked(toggle));
+      checks.prop({ 'checked': toggle.is(':checked'), 'indeterminate': false});
+
+      checks.each(function() {
+        var child_checks = $(this).prop('checks');
+
+        if (child_checks)
+          child_checks.prop({ 'checked': toggle.is(':checked'), 'indeterminate': toggle.is(':indeterminate') });
+
+      });
     });
 
   });
