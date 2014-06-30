@@ -1608,7 +1608,7 @@ form.edit_export {
           legend {
             border: none;
             font-size: 1em;
-            line-height: 1.5em;
+            line-height: 1em;
             height: 1.5em;
             margin: 0;
             padding: 0;
@@ -1619,10 +1619,13 @@ form.edit_export {
           ol {
             border-bottom: 1px solid @grey_very_light_colour;
             margin: 0 0 0.5em 0;
-            padding: 0 0 0.5em 5%;
+            padding: 0 0 0.5em 0;
           }
 
-          li { height: auto; }
+          li {
+            height: auto;
+            label { text-indent: 5%; }
+          }
         }
 
         &:last-child fieldset ol { border-bottom: none; }
@@ -1673,4 +1676,5 @@ form.edit_export {
 .modal form.new_export fieldset,
 .modal form.edit_export fieldset { width: 100%; }
 
-.settings-accordion span.plus-laranja:before { line-height: inherit; }
+.settings-accordion span.plus-laranja:before,
+.settings-accordion span.minus-laranja:before { line-height: inherit; }
