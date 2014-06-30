@@ -1616,9 +1616,16 @@ form.edit_export {
             label { font-weight: bold; }
           }
 
-          ol { margin: 0 0 0.5em 5%; }
+          ol {
+            border-bottom: 1px solid @grey_very_light_colour;
+            margin: 0 0 0.5em 0;
+            padding: 0 0 0.5em 5%;
+          }
+
           li { height: auto; }
         }
+
+        &:last-child fieldset ol { border-bottom: none; }
       }
 
       label {
