@@ -2,6 +2,17 @@ xml.instruct!
 xml.plan("id" => @plan.id) do
 	xml.project(@plan.project.title, "id" => @plan.project.id)
 	xml.phase(@plan.version.phase.title, "id" => @plan.version.phase.id)
+
+	details = @exported_plan.settings(:export).fields[:admin]
+	if details.present?
+		xml.details do
+			details.each do |field|
+				value = @exported_plan.send(field)
+				xml.detail(value, title: t("helpers.plan.export.#{field}")) if value.present?
+			end
+		end
+	end
+
 	xml.sections do
 		@exported_plan.sections.each do |section|
 			xml.section("id" => section.id, "number" => section.number, "title" => section.title) do
