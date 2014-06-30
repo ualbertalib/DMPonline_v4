@@ -64,6 +64,10 @@ class ExportedPlan < ActiveRecord::Base
     questions.where(section_id: section_id)
   end
 
+  def admin_details
+    @admin_details ||= self.settings(:export).fields[:admin]
+  end
+
 private
 
   def questions

@@ -3,7 +3,7 @@ xml.plan("id" => @plan.id) do
 	xml.project(@plan.project.title, "id" => @plan.project.id)
 	xml.phase(@plan.version.phase.title, "id" => @plan.version.phase.id)
 
-	details = @exported_plan.settings(:export).fields[:admin]
+	details = @exported_plan.admin_details
 	if details.present?
 		xml.details do
 			details.each do |field|
