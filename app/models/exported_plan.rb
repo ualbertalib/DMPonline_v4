@@ -5,7 +5,9 @@ class ExportedPlan < ActiveRecord::Base
   belongs_to :plan
   belongs_to :user
 
-  validates :format, inclusion: { in: %i( html text xml json pdf ), message: '%{value} is not valid format' }
+  VALID_FORMATS = %i( html text xml json pdf csv )
+
+  validates :format, inclusion: { in: VALID_FORMATS, message: '%{value} is not a valid format' }
 
   # Store settings with the exported plan so it can be recreated later
   # if necessary (otherwise the settings associated with the plan at a
@@ -16,7 +18,9 @@ class ExportedPlan < ActiveRecord::Base
 
   # Getters to match Settings::Dmptemplate::VALID_ADMIN_FIELDS
   def project_name
-    self.plan.project.title
+    name = self.plan.project.title
+    name += " - #{self.plan.version.phase.title}" if self.plan.project.dmptemplate.phases.count > 1
+    name
   end
 
   def project_identifier
@@ -68,6 +72,44 @@ class ExportedPlan < ActiveRecord::Base
     @admin_details ||= self.settings(:export).fields[:admin]
   end
 
+  # Export formats
+
+  def as_csv
+    CSV.generate do |csv|
+      csv << ["Section","Question","Answer","Selected option(s)","Answered by","Answered at"]
+      self.sections.each do |section|
+        self.questions_for_section(section).each do |question|
+          answer = self.plan.answer(question.id)
+          options_string = answer.options.collect {|o| o.text}.join('; ')
+
+          csv << [section.title, question.text, answer.text, options_string, answer.try(:user).try(:name), answer.created_at]
+        end
+      end
+    end
+  end
+
+  def as_txt
+    output = "#{self.plan.project.title}\n\n#{self.plan.version.phase.title}\n"
+
+    self.sections.each do |section|
+      output += "\n#{section.title}\n"
+
+      self.questions_for_section(section).each do |question|
+        output += "\n#{question.text}\n"
+        answer = self.plan.answer(question.id, false)
+
+        if answer.nil? || answer.text.nil? then
+          output += "Question not answered.\n"
+        else
+          output += answer.options.collect {|o| o.text}.join("\n")
+          output += "#{sanitize_text(answer.text)}\n"
+        end
+      end
+    end
+
+    output
+  end
+
 private
 
   def questions
@@ -84,6 +126,10 @@ private
 
       questions.order(:number)
     end
+  end
+
+  def sanitize_text(text)
+    ActionView::Base.full_sanitizer.sanitize(text.gsub(/&nbsp;/i,""))
   end
 
 end

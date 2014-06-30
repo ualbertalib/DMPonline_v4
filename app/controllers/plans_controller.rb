@@ -175,16 +175,15 @@ class PlansController < ApplicationController
 			end
 
 			@exported_plan.save! # FIXME: handle invalid request types without erroring?
+			file_name = @exported_plan.project_name
 
 			respond_to do |format|
 			  format.html
 			  format.xml
-			  format.text
+			  format.csv  { send_data @exported_plan.as_csv, filename: "#{file_name}.csv" }
+			  format.text { send_data @exported_plan.as_txt, filename: "#{file_name}.txt" }
 			  format.json { render json: @plan.details }
 			  format.pdf do
-			  	file_name = @plan.project.title
-			  	file_name += " - #{@plan.version.phase.title}" if @plan.project.dmptemplate.phases.count > 1
-
 			  	@formatting = @plan.settings(:export).formatting
 			  	render pdf: file_name,
 			  	            margin: @formatting[:margin],
