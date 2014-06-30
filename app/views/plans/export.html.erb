@@ -3,8 +3,7 @@
 	<h2><%= @plan.version.phase.title %></h2>
 	<div class="dmp_details_body">
 		<div class="dmp_details">
-			<% sections = @plan.sections.sort_by(&:"number") %>
-			<% sections.each do |section| %>
+			<% @exported_plan.sections.each do |section| %>
 				<h3><%= section.title %></h3>
 				<table class="dmp_table">
 					<thead>
@@ -14,7 +13,7 @@
 	   					</tr>
    					</thead>
    					<tbody>
-						<% questions = section.questions.sort_by(&:"number") %>	
+						<% questions = @exported_plan.questions_for_section(section.id) %>
 						<% questions.each do |question| %>
 							<tr>
 								<th class="dmp_th_border" >

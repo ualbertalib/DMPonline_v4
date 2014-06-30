@@ -163,7 +163,7 @@ class PlansController < ApplicationController
 		@plan = Plan.find(params[:id])
 
 		if user_signed_in? && @plan.readable_by(current_user.id) then
-			exported_plan = ExportedPlan.new.tap do |ep|
+			@exported_plan = ExportedPlan.new.tap do |ep|
 				ep.plan = @plan
 				ep.user = current_user
 				ep.format = request.format.try(:symbol)
@@ -174,7 +174,7 @@ class PlansController < ApplicationController
 				end
 			end
 
-			exported_plan.save! # FIXME: handle invalid request types without erroring?
+			@exported_plan.save! # FIXME: handle invalid request types without erroring?
 
 			respond_to do |format|
 			  format.html
@@ -185,7 +185,6 @@ class PlansController < ApplicationController
 			  	file_name = @plan.project.title
 			  	file_name += " - #{@plan.version.phase.title}" if @plan.project.dmptemplate.phases.count > 1
 
-			  	@exported_plan = exported_plan
 			  	@formatting = @plan.settings(:export).formatting
 			  	render pdf: file_name,
 			  	            margin: @formatting[:margin],
