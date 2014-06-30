@@ -180,9 +180,9 @@ class PlansController < ApplicationController
 			respond_to do |format|
 			  format.html
 			  format.xml
+			  format.json
 			  format.csv  { send_data @exported_plan.as_csv, filename: "#{file_name}.csv" }
 			  format.text { send_data @exported_plan.as_txt, filename: "#{file_name}.txt" }
-			  format.json { render json: @plan.details }
 			  format.pdf do
 			  	@formatting = @plan.settings(:export).formatting
 			  	render pdf: file_name,
