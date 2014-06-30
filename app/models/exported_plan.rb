@@ -79,7 +79,7 @@ private
       questions = if question_settings.present? && question_settings != :all
         Question.where(id: question_settings)
       else
-        Question.where(section_id: self.plan.sections.pluck(:id))
+        Question.where(section_id: self.plan.sections.collect {|s| s.id })
       end
 
       questions.order(:number)
