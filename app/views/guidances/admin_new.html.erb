@@ -15,7 +15,7 @@
 <div class="white_background blue_border">
 	<!-- body -->
 	<div class="dmp_details">
-		<%= form_for :guidance, :url => {:action => 'admin_create'} do |f| %>
+		<%= form_for :guidance, :url => {:action => 'admin_create'}, :html => {:id => 'new_guidance_form'} do |f| %>
 			<table class="dmp_details_table guidance_table">
 					<tr>
 						<td class="first"><%= t('org_admin.guidance.text_label') %></td>
@@ -91,7 +91,8 @@
 			<!-- submit buttons -->
 			
 				<div class="move_2_right">
-					<%= f.submit t('helpers.submit.save'), :class => 'btn btn-primary' %>
+					<a id="new_guidance_submit" data-toggle="modal" href="#new_guidance_alert_dialog" class="btn btn-primary"><%= t('helpers.submit.save')%></a>
+	                
 					<%= link_to t('helpers.submit.cancel'), :back, :class => 'btn cancel' %>
 				</div>
 			
@@ -100,3 +101,17 @@
 		<%end%>
 	</div>
 </div>	
+
+
+<!-- alert for the default template-->
+<div id="new_guidance_alert_dialog" data-container="body" data-backdrop="static" class="modal hide fade">
+	<div class="modal-header">
+		<h3>Before submitting, please consider:</h3>
+	</div>
+	<div class="modal-body">
+		<ul id="missing_fields_new_guidance"></ul>
+  	</div>
+	<div class="modal-footer">
+    	<a href="#" id="return_to_new_guidance" class="btn">OK</a>
+    </div>
+</div>

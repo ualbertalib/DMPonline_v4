@@ -63,7 +63,23 @@ $( document ).ready(function() {
 	$("#new-project-confirmed").click(function (){
 		$("#new_project").submit();
 	});
+    
+    //for the default template alert
+	$("#default-template-confirmation-dialog").on("show", function(){
+		$('.select2-choice').hide();
+	});
 	
+	$("#default-template-cancelled").click(function (){
+		$("#default-template-confirmation-dialog").modal("hide");
+		$('.select2-choice').show();
+	});
+	
+	$("#default-template-confirmed").click(function (){
+		$("#default_tag").val('true');
+		$("#new_project").submit();
+	});
+    
+    	
 	function update_template_options() {
 		var options = {};
 		var funder = $("#project_funder_id").select2('val');

@@ -18,12 +18,38 @@ ActiveAdmin.register Theme do
   #show details of a theme
   show do
   	attributes_table do
-			row :title
-			row :description
-			row :created_at
-			row :updated_at
-		end	
+		row :title
+		row :description
+		row :created_at
+		row :updated_at
+	end	
+	
+	table_for( (Theme.find(params[:id]).questions).order('number')) do
+	 		column (:number){|question| question.number} 
+			column (I18n.t("admin.question")){|question| link_to question.text, [:admin, question]}
+			column (I18n.t("admin.template")){|question| 
+            if !question.section.nil? then
+                if !question.section.version.nil? then
+                    if !question.section.version.phase.nil? then 
+                        if !question.section.version.phase.dmptemplate.nil? then
+                            link_to question.section.version.phase.dmptemplate.title, [:admin, question.section.version.phase.dmptemplate]
+                        else
+                            'No template'
+                        end
+                    else
+                        'No phase'
+                    end
+                else
+                    'No version'
+                end
+            else
+                'No section'
+            end       
+            }
+	end	
   end
+  
+  
   
   #form
   form do |f|

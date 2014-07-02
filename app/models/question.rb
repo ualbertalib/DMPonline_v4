@@ -6,7 +6,7 @@ class Question < ActiveRecord::Base
   has_many :suggested_answers, :dependent => :destroy
   has_many :guidances
   
-  has_and_belongs_to_many :themes
+  has_and_belongs_to_many :themes, join_table: "questions_themes"  
   
   belongs_to :section
   belongs_to :question_format

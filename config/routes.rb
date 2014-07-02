@@ -125,10 +125,12 @@ DMPonline4::Application.routes.draw do
 			get 'section_answers'
 		end
 	end
+	
 	member do
 		get 'share'
 		get 'export'
 		post 'invite'
+		post 'create'
 	end
 	collection do
 		get 'possible_templates'

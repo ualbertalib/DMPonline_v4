@@ -53,7 +53,7 @@
 @red_colour: #e3000f;
 @white_colour: #ffffff;
  
-html {
+html.dmponline {
   /* fallback */
   background-repeat:repeat-y;
   min-height: 100%;
@@ -73,7 +73,7 @@ html {
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#d1d5d4', endColorstr='#f9f9f9') ;/*For IE7-8-9*/
   /*For IE7*/ 
   *height: 1%;
-   min-width: 800px;
+   min-width: 850px;
 }
 
 body.dmponline { 
@@ -1406,6 +1406,7 @@ ul.help_ul li{
 #tinymce,.mce-content-body {
 	background-color: @white_colour !important;
 	padding: 2px;
+    width: 100%;
 }
 
 .mce-item-table {
@@ -1413,6 +1414,7 @@ ul.help_ul li{
 	font-size: 10pt;
 	max-width: 500px;
 }
+
 
 .mce-item-table th, .mce-item-table td {
 	border: 1px solid black !important;

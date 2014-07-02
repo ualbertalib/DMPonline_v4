@@ -1,10 +1,12 @@
 <!-- Create a new project (3 dropdowns = 6 options) -->
 <%= semantic_form_for @project, :url => {:controller => :projects, :action => :create }, :html=>{:method=>:post} do |f| %>
 	<%= f.inputs do %>
+        <%= hidden_field_tag :default_tag, "false" ,:id => "default_tag" %>
 		<div class="createa-project">
 			<h1> <%= t('helpers.project.create_page.title')%> </h1>
 			<div class="info-new-project">
-				<p><%= raw t('helpers.project.create_page.desc')%></p>
+				<p><%= raw t('helpers.project.create_page.desc_html')%></p>
+                
 			</div>
 			<div class="dropdowns">
 				<div class="control-group" id="funder-control-group">
