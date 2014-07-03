@@ -185,10 +185,15 @@ class PlansController < ApplicationController
 			  	exported_plan.save
 			  	render json: @plan.details
 			  }
+				format.csv {
+					exported_plan.format = "csv"
+					exported_plan.save
+					send_data @plan.as_csv, :filename => "#{@plan.project.title} - #{@plan.version.phase.title}.csv"
+				}
 			  format.text {
 			  	exported_plan.format = "text"
 			  	exported_plan.save
-			  	render action: "export"
+			  	send_data @plan.as_txt, :filename => "#{@plan.project.title} - #{@plan.version.phase.title}.txt"
 			  }
 			  file_name = @plan.project.title
 			  if @plan.project.dmptemplate.phases.count > 1 then
