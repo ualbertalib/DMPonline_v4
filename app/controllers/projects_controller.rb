@@ -117,8 +117,8 @@ class ProjectsController < ApplicationController
 				if funder.dmptemplates.count == 1 then
 					@project.dmptemplate = funder.published_templates.first
 				end
-			elsif @project.dmptemplate.nil? then
-				if @project.organisation.nil? || @project.organisation.published_templates.first.nil? then
+			elsif @project.dmptemplate.nil? || params[:default_tag] == 'true' then
+				if @project.organisation.nil?  || params[:default_tag] == 'true'  || @project.organisation.published_templates.first.nil? then
 					@project.dmptemplate = Dmptemplate.find_by_is_default(true)
 				else
 					@project.dmptemplate = @project.organisation.published_templates.first

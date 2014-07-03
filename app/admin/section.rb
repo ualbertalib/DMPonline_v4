@@ -27,29 +27,29 @@ ActiveAdmin.register Section do
   
   #show details of a section
   show do 
-		attributes_table do
-			row :title
-	 		row	:number
-	 		row :description do |descr|
+	attributes_table do
+		row :title
+		row	:number
+		row :description do |descr|
 	  		if !descr.description.nil? then
 	  			descr.description.html_safe
 	  		end
-	  	end
+		end
 	  	row I18n.t('admin.version'), :sortable => :version_id do |version_title|
 	  		if !version_title.version_id.nil? then
-      		link_to version_title.version.title, [:admin, version_title.version]
-      	end		
+				link_to version_title.version.title, [:admin, version_title.version]
+			end		
      	end
      	row I18n.t('admin.org_title'), :sortable => :organisation_id do |org_title|
-        if !org_title.organisation_id.nil? then
-        	link_to org_title.organisation.name, [:admin, org_title.organisation]
-       end
+			if !org_title.organisation_id.nil? then
+				link_to org_title.organisation.name, [:admin, org_title.organisation]
+			end
    	 	end
      	row :created_at
      	row :updated_at
-		 end
+	end
 		 
-		end 
+  end 
   
   
   #questions sidebar(:default_value, :dependency_id, :dependency_text, :guidance, :number, :parent_id, :suggested_answer, :text, :question_type, :section_id)

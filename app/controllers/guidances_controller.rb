@@ -4,7 +4,7 @@ class GuidancesController < ApplicationController
   # GET /guidances.json
   def admin_index
     if user_signed_in? && current_user.is_org_admin? then
-	    @guidances = Guidance.all
+	    @guidances = Guidance.by_organisation(current_user.organisation_id)
 	    @guidance_groups = GuidanceGroup.where('organisation_id = ?', current_user.organisation_id )
 
 

@@ -35,7 +35,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<% version.sections.each do |section| %>
+				<% version.sections.order("number ASC").each do |section| %>
 					<%if (section.organisation_id == phase.dmptemplate.organisation_id ) || ( section.organisation_id == current_user.organisation_id) then%>
 						<tr >
 							<th class="dmp_th_border" >
@@ -43,7 +43,7 @@
 							</th>
 							<td class="dmp_td_border" >	
 								<% if section.questions.any? %>
-									<% questions = section.questions.sort_by(&:number) %>
+									<% questions = section.questions.order("number ASC") %>
 									<ul class="question_ul">
 										<% questions.each do |ques|%>
 											<li>

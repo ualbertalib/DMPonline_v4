@@ -269,7 +269,138 @@ $( document ).ready(function() {
 		 $('#show_suggested_answer_div_'+ q_id).hide();
 		 e.preventDefault();
 	 });
-});
+     
+     
+    //Add new guidance Alerts 
+    $("#return_to_new_guidance").click(function(){
+        $('#new_guidance_alert_dialog').modal("hide");
+    });
+    
+    
+    $('#new_guidance_submit').click( function(e){
+       // $('#new_guidance_alert_dialog').on("hide", function(){
+            
+        var alert_message = [];
+        //verify if text area is not nil
+        var editorContent = tinyMCE.get('guidance-text').getContent();
+        if (editorContent == ''){
+            alert_message.push("add guidance text");
+        }  
+        //verify dropdown with questions has a selected option if guidance for a question being used 
+        if ($('#g_options').val() == '2') {
+            if ($('#questions_select').val() == '' || isNaN($('#questions_select').val())){
+                alert_message.push("select a question");
+                
+            }
+        }
+        //verify dropdown with questions has a selected option if guidance for a question being used 
+        if ($('#g_options').val() == '1' ){
+            if(isNaN($('#guidance_theme_ids').val()) || $('#guidance_theme_ids').val() == null){
+                alert_message.push("select at least one theme");
+            }
+        }
+        //verify if guidance group is selected 
+        if ( ($('#guidance_guidance_group_ids').val() == '') || isNaN($('#guidance_guidance_group_ids').val()) ) {
+            alert_message.push("select a guidance group");
+            
+        }
+        
+        if(alert_message.length == 0){
+            //clear dropdowns before submission
+            $('#new_guidance_alert_dialog').modal("hide");
+           
+            if ($('#g_options').val() == '2'){
+                $('#guidance_theme_ids').val(null);
+            }
+            if($('#g_options').val() == '1'){
+                $('#questions_select').val(null);
+            }
+            $('#new_guidance_form').submit();
+           return false;
+         
+        }
+        else if (alert_message.length != 0){
+            var message = '';
+            $('#new_guidance_alert_dialog').on("show", function(){
+                
+                $("#missing_fields_new_guidance").empty();
+                $.each(alert_message, function(key, value){
+                    message += "<li> "+value+"</li>";
+                });
+                $("#missing_fields_new_guidance").append(message);
+            });
+            delete message;
+        }
+        delete alert_message;
+        e.preventDefault();
+    });
+   
+    //edit guidance alerts
+    $("#return_to_edit_guidance").click(function(){
+        $('#edit_guidance_alert_dialog').modal("hide");
+    });
+    
+    
+    $('#edit_guidance_submit').click( function(e){
+       // $('#new_guidance_alert_dialog').on("hide", function(){
+            
+        var alert_message = [];
+        //verify if text area is not nil
+        var editorContent = tinyMCE.get('guidance-text').getContent();
+        if (editorContent == ''){
+            alert_message.push("add guidance text");
+        }  
+        //verify dropdown with questions has a selected option if guidance for a question being used 
+        if ($('#g_options').val() == '2') {
+            if ($('#questions_select').val() == '' || isNaN($('#questions_select').val())){
+                alert_message.push("select a question");
+                
+            }
+        }
+        //verify dropdown with questions has a selected option if guidance for a question being used 
+        if ($('#g_options').val() == '1' ){
+            if(isNaN($('#guidance_theme_ids').val()) || $('#guidance_theme_ids').val() == null){
+                alert_message.push("select at least one theme");
+            }
+        }
+        //verify if guidance group is selected 
+        if ( ($('#guidance_guidance_group_ids').val() == '') || isNaN($('#guidance_guidance_group_ids').val()) ) {
+            alert_message.push("select a guidance group");
+            
+        }
+        
+        if(alert_message.length == 0){
+            //clear dropdowns before submission
+            $('#edit_guidance_alert_dialog').modal("hide");
+           
+            if ($('#g_options').val() == '2'){
+                $('#guidance_theme_ids').val(null);
+            }
+            if($('#g_options').val() == '1'){
+                $('#questions_select').val(null);
+            }
+            $('#edit_guidance_form').submit();
+           return false;
+         
+        }
+        else if (alert_message.length != 0){
+            var message = '';
+            $('#edit_guidance_alert_dialog').on("show", function(){
+                
+                $("#missing_fields_edit_guidance").empty();
+                $.each(alert_message, function(key, value){
+                    message += "<li> "+value+"</li>";
+                });
+                $("#missing_fields_edit_guidance").append(message);
+            });
+            delete message;
+        }
+        delete alert_message;
+        e.preventDefault();
+    });
+   
+     
+ });
 
 
 //remove option when question format is base on a choice
