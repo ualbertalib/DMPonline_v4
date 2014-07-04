@@ -289,10 +289,12 @@ $.fn.update_plan_progress = function(data) {
 	if (data.space_used >= 100) {
 		$('#export-progress').removeClass("space");
 		$('#export-progress').addClass("full");
+        $('#export-progress-title').addClass("bar-full-text");
 	}
 	else {
 		$('#export-progress').removeClass("full");
 		$('#export-progress').addClass("space");
+        $('#export-progress-title').removeClass("bar-full-text");
 	}
 };
 

@@ -18,7 +18,7 @@
       </div>
       <hr>
       <div class="bar-container">
-        <span id="export-progress-title"><%= space_title -%></span>
+        <span id="export-progress-title" <%= space_used >= 100 ? "class=bar-full-text" : '' -%>><%= space_title -%></span>
         <span id="export-progress" class="bar <%= space_used >= 100 ? 'full' : 'space' -%>" style="width: <%= space_used -%>%;" title="<%= space_title -%>"></span>
       </div>
 </div>
