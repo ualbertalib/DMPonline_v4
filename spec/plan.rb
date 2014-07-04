@@ -101,6 +101,12 @@ def visit_export_page
     @driver.find_element(:link, "Export").click
 end
 
+def get_plan_section_headings
+    @driver.get(@base_url + "/projects")
+    @driver.find_element(:link, "Edit").click
+    @driver.find_elements(:class, "dmp_th_border").map{|e| e.text }
+end
+
 def edit_plan
     @driver.find_element(:link, "My plans").click
     @driver.find_element(:link, "Edit").click

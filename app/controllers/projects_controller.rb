@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
 	def index
 		if user_signed_in? then
 			if current_user.shibboleth_id.nil? && !cookies[:show_shib_link].nil? && cookies[:show_shib_link] == "show_shib_link" then
-				flash.notice = "Would you like to #{view_context.link_to 'link your DMPonline account to your institutional credentials?', user_omniauth_shibboleth_path}".html_safe
+				flash.notice = "Would you like to #{view_context.link_to 'link your DMP Builder account to your institutional credentials?', user_omniauth_shibboleth_path}".html_safe
 			end
 			@projects = Project.projects_for_user(current_user.id)
 			respond_to do |format|
