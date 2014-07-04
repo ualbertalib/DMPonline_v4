@@ -1,26 +1,70 @@
+<%
+   plan ||= @plan
+   @export_settings ||= plan.settings(:export)
+   admin_settings = @export_settings.fields[:admin]
+   question_settings = @export_settings.fields[:questions] || :all
+%>
 <% @export_settings.errors.full_messages.each do |error| %>
   <div class="error"><%= error %></div>
 <% end %>
 
-<%= form_for(@export_settings, url: settings_plan_path(@plan), method: :put, as: :export) do |f| %>
+<%= form_for(@export_settings, url: settings_plan_path(plan), method: :put, as: :export) do |f| %>
+  <fieldset class="check_select">
+    <legend><label for="admin_details_toggle">Admin details</label></legend>
+    <ol>
+    <% Settings::Dmptemplate::VALID_ADMIN_FIELDS.each do |field|
+         name = "export[fields][admin][#{field}]"
+    %>
+      <li>
+        <%= label_tag(name, t("helpers.plan.export.#{field}")) %>
+        <%= check_box_tag(name, true, admin_settings.member?(field)) %>
+      </li>
+    <% end %>
+    </ol>
+  </fieldset>
+  <fieldset class="check_select sections">
+    <legend><label for="sections_toggle">Sections</label></legend>
+    <ol>
+    <% plan.sections.each do |section| %>
+      <li>
+        <fieldset class="check_select">
+          <legend title="<%= section.title -%>">
+            <label for="section_toggle_<%= section.id -%>"><%= section.title -%></label>
+          </legend>
+          <ol>
+          <% section.questions.each do |question|
+               selected = question_settings == :all || question_settings.member?(question.id)
+               name = "export[fields][questions][#{question.id}]"
+          %>
+            <li>
+              <%= label_tag(name, question.text, title: question.text) %>
+              <%= check_box_tag(name, true, selected) %>
+            </li>
+          <% end %>
+          </ol>
+        </fieldset>
+      </li>
+    <% end %>
+    </ol>
+  </fieldset>
   <fieldset class="font">
-    <h4><%= t('helpers.settings.plans.font') -%></h4>
+    <legend><%= t('helpers.settings.plans.font') -%></legend>
     <div>
-    <%= f.label(:font_face, t('helpers.settings.plans.font_face')) %>
-    <%= f.select(:font_face, options_for_select(Settings::Dmptemplate::VALID_FONT_FACES, @export_settings.formatting[:font_face])) %>
+    <%= label_tag('export[formatting][font_face]', t('helpers.settings.plans.font_face')) %>
+    <%= select_tag('export[formatting][font_face]', options_for_select(Settings::Dmptemplate::VALID_FONT_FACES, @export_settings.formatting[:font_face])) %>
     </div>
     <div>
-      <%= f.label(:font_face, t('helpers.settings.plans.font_size') + ' (pt)') %> 
-      <%= f.select(:font_size, options_for_select((1..36).to_a, @export_settings.formatting[:font_size])) %>
+      <%= label_tag('export[formatting][font_size]', t('helpers.settings.plans.font_size') + ' (pt)') %>
+      <%= select_tag('export[formatting][font_size]', options_for_select(Settings::Dmptemplate::VALID_FONT_SIZE_RANGE.to_a, @export_settings.formatting[:font_size])) %>
     </div>
   </fieldset>
   <fieldset class="margins">
-    <h4><%= t('helpers.settings.plans.margin') -%> (mm)</h4>
+    <legend><%= t('helpers.settings.plans.margin') -%> (mm)</legend>
 
     <% %i( top bottom left right ).each do |pos| %>
       <div>
-        <%= label_tag("export[margin][#{pos}]", t("helpers.settings.plans.margins.#{pos}")) %>
-        <%= select_tag("export[margin][#{pos}]", options_for_select((0..100).to_a, @export_settings.formatting[:margin][pos])) %>
+        <%= label_tag("export[formatting][margin][#{pos}]", t("helpers.settings.plans.margins.#{pos}")) %>
+        <%= select_tag("export[formatting][margin][#{pos}]", options_for_select(Settings::Dmptemplate::VALID_MARGIN_RANGE.to_a, @export_settings.formatting[:margin][pos])) %>
       </div>
     <% end %>
   </fieldset>

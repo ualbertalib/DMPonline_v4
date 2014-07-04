@@ -12,11 +12,16 @@ module Settings
     end
 
     def update
+
+      export_params = params[:export].try(:deep_symbolize_keys)
+
       settings = plan.super_settings(:export).tap do |s|
-        s.formatting = if params[:commit] != 'Reset'
-          params[:export].try(:deep_symbolize_keys)
+        if params[:commit] == 'Reset'
+          s.formatting = nil
+          s.fields = nil
         else
-          nil
+          s.formatting = export_params[:formatting]
+          s.fields = export_params[:fields]
         end
       end
 

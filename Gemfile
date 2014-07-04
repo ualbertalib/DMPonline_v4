@@ -78,3 +78,4 @@ gem 'feedzirra', '0.5.0'
 # gem 'debugger'
 
 gem 'ledermann-rails-settings'
+gem 'jbuilder'

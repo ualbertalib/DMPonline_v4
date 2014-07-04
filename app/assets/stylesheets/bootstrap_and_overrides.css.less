@@ -133,7 +133,7 @@ a.visited{
   color: @orange_colour;
 }
 
-a:hover, a.btn:hover, div.nav-project-tabs ul.nav-tabs li a:hover, div#sections-accordion a.accordion-toggle:hover{
+a:hover, a.btn:hover, div.nav-project-tabs ul.nav-tabs li a:hover, div#sections-accordion a.accordion-toggle:hover, div.settings-accordion a.accordion-toggle:hover{
    color: @white_colour !important;
    background-color: none !important;
 }
@@ -1063,44 +1063,47 @@ table.dmp_details_table .text_field{
   clear:both;
 }
 
-#project-accordion .accordion-group{
-  background-color:@white_colour;
-  border-color: @white_colour;
-  border:none !important;
-  box-shadow:none !important;
-  -moz-box-shadow: none !important;
-  -webkit-box-shadow:none !important;
-} 
+#project-accordion {
+  & > .accordion-group {
+    background-color:@white_colour;
+    border-color: @white_colour;
+    border:none !important;
+    box-shadow:none !important;
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow:none !important;
 
-#project-accordion .accordion-heading{
-  background-color:@white_colour;
-  border-bottom: 1px solid @orange_colour;
-  min-height: 50px;
-}
+    & > .accordion-heading {
+      background-color:@white_colour;
+      border-bottom: 1px solid @orange_colour;
+      min-height: 50px;
 
-#project-accordion .accordion-heading a{
+      a {
+        padding-left:0px;
+        padding-right:0px;
+      }
+
+      h3 {
+        float: left;
+        margin-top: 0px;
+        min-width:100%;
+      }
+
+      span {
+        margin: 7px;
+      }
+    }
+  }
+
+  .accordion-project {
+    clear: both;
+  }
+
+  .accordion-inner {
+    border:none !important;
+    padding-right: 0px;
     padding-left:0px;
-    padding-right:0px;
-}
+  }
 
- #project-accordion .accordion-heading h3{
-  float: left;
-  margin-top: 0px;
-  min-width:100%;
-}
-
-#project-accordion .accordion-heading span{
-  margin: 7px;
-}
-
-#project-accordion .accordion-project{
- clear:both;
-}
-
-#project-accordion .accordion-inner{
- border:none !important;
- padding-right: 0px;
- padding-left:0px;
 }
 
 .project-hide {
@@ -1552,6 +1555,20 @@ form.edit_export {
   border-radius: 5px;
   padding: 1em;
 
+  & > fieldset > legend {
+
+    label {
+      display: inline-block;
+      width: 90%;
+      font-size: 21px;
+      line-height: 40px;
+      color: #333;
+    }
+
+    input[type=checkbox] { margin-left: 0 !important; }
+  }
+
+
   fieldset {
     display: inline-block;
     width: 47.5%;
@@ -1572,6 +1589,63 @@ form.edit_export {
       }
     }
 
+    ol {
+      margin: 0 5% 0 0;
+
+      li {
+        display: block;
+        list-style-type: none;
+        line-height: 1em;
+        margin: 0;
+        padding: 0;
+        position: relative;
+        width: 100%;
+
+        & > fieldset {
+          display: block;
+          width: 100%;
+
+          legend {
+            border: none;
+            font-size: 1em;
+            line-height: 1em;
+            height: 1.5em;
+            margin: 0;
+            padding: 0;
+
+            label { font-weight: bold; }
+          }
+
+          ol {
+            border-bottom: 1px solid @grey_very_light_colour;
+            margin: 0 0 0.5em 0;
+            padding: 0 0 0.5em 0;
+          }
+
+          li {
+            height: auto;
+            label { text-indent: 5%; }
+          }
+        }
+
+        &:last-child fieldset ol { border-bottom: none; }
+      }
+
+      label {
+        display: inline-block;
+        margin: 0;
+        overflow: hidden;
+        position: absolute;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 90%;
+        top: 0; left: 0;
+      }
+
+    }
+
+    input[type=checkbox] { margin-left: 95%; }
+
     h4 {
       margin-top: 0;
       text-align: center;
@@ -1588,9 +1662,6 @@ form.edit_export {
     }
 
     &.margins {
-      border-left: 1px solid @orange_colour;
-      padding-left: 1em;
-
       div {
         width: 24%;
 
@@ -1601,3 +1672,9 @@ form.edit_export {
 
   input[type=submit] { margin-top: 1em; }
 }
+
+.modal form.new_export fieldset,
+.modal form.edit_export fieldset { width: 100%; }
+
+.settings-accordion span.plus-laranja:before,
+.settings-accordion span.minus-laranja:before { line-height: inherit; }

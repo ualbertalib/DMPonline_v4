@@ -13,6 +13,7 @@
 			h1 { font-size: <%= @formatting[:font_size] + 2 -%>pt; font-face:bold; padding: 0;}
 			h2 { font-size: <%= @formatting[:font_size] + 1 -%>pt; font-face:bold; padding: 0; margin: 1em 0 0 0;}
 			h3 { font-size: <%= @formatting[:font_size] + 0 -%>pt; font-face:bold; padding: 0; margin: 1em 0 0 0;}
+			h2 + div.question > h3 { margin: 0; }
 			table, tr, td, th, tbody, thead, tfoot { page-break-inside: avoid !important; }
 			table { border-collapse: collapse; }
 			th, td { border: 1px solid black !important; padding: 2px; }
@@ -21,37 +22,20 @@
 	</head>
 	<body>
 		<h1><%= @plan.version.phase.title %></h1>
-		<% if @include_admin then %>
-			<p><strong><%= t('helpers.project.project_name') %>:</strong> <%= @plan.project.title %></p>
-			<% if !@plan.project.identifier.nil? && @plan.project.identifier != "" then %>
-				<p><strong><%= t('helpers.project.project_identifier') %>:</strong> <%= @plan.project.identifier %></p>
-			<% end %>
-			<% if !@plan.project.grant_number.nil? && @plan.project.grant_number!= "" then %>
-				<p><strong><%= t('helpers.project.grant_title') %>:</strong> <%= @plan.project.grant_number %></p>
-			<% end %>
-			<% if !@plan.project.principal_investigator.nil? && @plan.project.principal_investigator != "" then%>
-				<p><strong><%= t('helpers.project.principal_investigator') %>:</strong> <%= @plan.project.principal_investigator %></p>
-			<% end %>
-			<% if !@plan.project.data_contact.nil? && @plan.project.data_contact != "" then %>
-			 <p><strong><%= t('helpers.project.project_data_contact') %>:</strong> <%= @plan.project.data_contact %></p>
-			<% end %>
-			<% if !@plan.project.description.nil? && @plan.project.description != "" then%>
-				<p><strong><%= t('helpers.desc') %>:</strong> <%= @plan.project.description %></p>
-			<% end %>
-			<%if @plan.project.dmptemplate.organisation.organisation_type.name == t('helpers.org_type.funder') %>
-				<p><strong><%= t('helpers.org_type.funder') %>:</strong> <%= @plan.project.dmptemplate.organisation.name %></p>
-			<% end %>
-			<%if !@plan.project.organisation_id.nil?	%>
-				<p><strong><%= t('helpers.org_type.institution') %>:</strong> <%= @plan.project.organisation.name %></p>
-			<% end %>
+		<% @exported_plan.admin_details.each do |field|
+		     value = @exported_plan.send(field)
+		     if value.present?
+		%>
+		  <p><strong><%= t("helpers.plan.export.#{field}") -%></strong> <%= value -%></p>
+		  <% end %>
 		<% end %>
-		<% sections = @plan.sections.sort_by(&:"number") %>
-		<% sections.each do |section| %>
+
+		<% @exported_plan.sections.each do |section| %>
 			<h2><%= section.title %></h2>
-			<% questions = section.questions.sort_by(&:"number") %>
-			<% questions.each do |question| %>
+			<% questions = @exported_plan.questions_for_section(section.id) %>
+			<% questions.each_with_index do |question, idx| %>
 				<div class="question">
-					<% if question.text != section.title %>
+					<% unless idx == 0 && question.text == section.title %>
 						<h3><%= question.text %></h3>
 					<% end %>
 					<% answer = @plan.answer(question.id, false) %>

@@ -14,11 +14,15 @@ class DmptemplateTest < ActiveSupport::TestCase
     }.merge(extras)
   end
 
+  def default_formatting
+    Settings::Dmptemplate::DEFAULT_SETTINGS[:formatting]
+  end
+
   # settings
 
   test "settings should use defaults if none defined" do
     assert(!@template.settings(:export).value?)
-    assert_equal(Settings::Dmptemplate::DEFAULT_FORMATTING, @template.settings(:export).formatting)
+    assert_equal(default_formatting, @template.settings(:export).formatting)
   end
 
   test "settings should use defined valid settings" do
@@ -27,7 +31,7 @@ class DmptemplateTest < ActiveSupport::TestCase
 
     assert(@template.settings(:export).value?)
     assert_equal(settings, @template.settings(:export).formatting)
-    assert_not_equal(Settings::Dmptemplate::DEFAULT_FORMATTING, @template.settings(:export).formatting)
+    assert_not_equal(default_formatting, @template.settings(:export).formatting)
   end
 
   test "setting negative margin should not be valid" do
@@ -42,7 +46,7 @@ class DmptemplateTest < ActiveSupport::TestCase
                  @template.errors.messages[:'setting_objects.formatting'].first)
 
     @template.reload
-    assert_equal(Settings::Dmptemplate::DEFAULT_FORMATTING, @template.settings(:export).formatting)
+    assert_equal(default_formatting, @template.settings(:export).formatting)
   end
 
   test "setting unknown margin should not be valid" do
@@ -57,7 +61,7 @@ class DmptemplateTest < ActiveSupport::TestCase
                  @template.errors.messages[:'setting_objects.formatting'].first)
 
     @template.reload
-    assert_equal(Settings::Dmptemplate::DEFAULT_FORMATTING, @template.settings(:export).formatting)
+    assert_equal(default_formatting, @template.settings(:export).formatting)
   end
 
   test "setting negative font-size should not be valid" do
@@ -73,7 +77,7 @@ class DmptemplateTest < ActiveSupport::TestCase
 
     @template.reload
 
-    assert_equal(Settings::Dmptemplate::DEFAULT_FORMATTING, @template.settings(:export).formatting)
+    assert_equal(default_formatting, @template.settings(:export).formatting)
   end
 
   test "setting unknown key should not be valid" do
@@ -87,7 +91,7 @@ class DmptemplateTest < ActiveSupport::TestCase
 
     @template.reload
 
-    assert_equal(Settings::Dmptemplate::DEFAULT_FORMATTING, @template.settings(:export).formatting)
+    assert_equal(default_formatting, @template.settings(:export).formatting)
   end
 
   test "not setting font_face should not be valid" do
@@ -101,7 +105,7 @@ class DmptemplateTest < ActiveSupport::TestCase
 
     @template.reload
 
-    assert_equal(Settings::Dmptemplate::DEFAULT_FORMATTING, @template.settings(:export).formatting)
+    assert_equal(default_formatting, @template.settings(:export).formatting)
   end
 
   test "not setting font_size should not be valid" do
@@ -115,7 +119,7 @@ class DmptemplateTest < ActiveSupport::TestCase
 
     @template.reload
 
-    assert_equal(Settings::Dmptemplate::DEFAULT_FORMATTING, @template.settings(:export).formatting)
+    assert_equal(default_formatting, @template.settings(:export).formatting)
   end
 
   test "not setting margin should not be valid" do
@@ -129,7 +133,7 @@ class DmptemplateTest < ActiveSupport::TestCase
 
     @template.reload
 
-    assert_equal(Settings::Dmptemplate::DEFAULT_FORMATTING, @template.settings(:export).formatting)
+    assert_equal(default_formatting, @template.settings(:export).formatting)
   end
 
   test "setting non-hash as margin should not be valid" do
@@ -145,7 +149,7 @@ class DmptemplateTest < ActiveSupport::TestCase
 
     @template.reload
 
-    assert_equal(Settings::Dmptemplate::DEFAULT_FORMATTING, @template.settings(:export).formatting)
+    assert_equal(default_formatting, @template.settings(:export).formatting)
   end
 
   test "setting non-integer as font_size should not be valid" do
@@ -161,7 +165,7 @@ class DmptemplateTest < ActiveSupport::TestCase
 
     @template.reload
 
-    assert_equal(Settings::Dmptemplate::DEFAULT_FORMATTING, @template.settings(:export).formatting)
+    assert_equal(default_formatting, @template.settings(:export).formatting)
   end
 
   test "setting non-string as font_face should not be valid" do
@@ -177,7 +181,7 @@ class DmptemplateTest < ActiveSupport::TestCase
 
     @template.reload
 
-    assert_equal(Settings::Dmptemplate::DEFAULT_FORMATTING, @template.settings(:export).formatting)
+    assert_equal(default_formatting, @template.settings(:export).formatting)
   end
 
   test "setting unknown string as font_face should not be valid" do
@@ -193,7 +197,7 @@ class DmptemplateTest < ActiveSupport::TestCase
 
     @template.reload
 
-    assert_equal(Settings::Dmptemplate::DEFAULT_FORMATTING, @template.settings(:export).formatting)
+    assert_equal(default_formatting, @template.settings(:export).formatting)
   end
 
 end

@@ -161,47 +161,29 @@ class PlansController < ApplicationController
 
 	def export
 		@plan = Plan.find(params[:id])
-		@include_admin = nil;
-		if params[:include_admin] == "true" then
-			@include_admin = true
-		end
-		if user_signed_in? && @plan.readable_by(current_user.id) then
-			exported_plan = ExportedPlan.new
-			exported_plan.plan = @plan
-			exported_plan.user = current_user
-			respond_to do |format|
-			  format.html {
-			  	exported_plan.format = "html"
-			  	exported_plan.save
-			  	render action: "export"
-			  }
-			  format.xml {
-			  	exported_plan.format = "xml"
-			  	exported_plan.save
-			  	render action: "export"
-			  }
-			  format.json {
-			  	exported_plan.format = "json"
-			  	exported_plan.save
-			  	render json: @plan.details
-			  }
-			  format.text {
-			  	exported_plan.format = "text"
-			  	exported_plan.save
-			  	render action: "export"
-			  }
-			  file_name = @plan.project.title
-			  if @plan.project.dmptemplate.phases.count > 1 then
-			  	file_name = "#{@plan.project.title} - #{@plan.version.phase.title}"
-			  end
-			  format.pdf do
-			  	if @include_admin then
-			  		exported_plan.format = "pdf (with admin)"
-			  	else
-			  		exported_plan.format = "pdf (without admin)"
-			  	end
-			  	exported_plan.save
 
+		if user_signed_in? && @plan.readable_by(current_user.id) then
+			@exported_plan = ExportedPlan.new.tap do |ep|
+				ep.plan = @plan
+				ep.user = current_user
+				ep.format = request.format.try(:symbol)
+				plan_settings = @plan.settings(:export)
+
+				Settings::Dmptemplate::DEFAULT_SETTINGS.each do |key, value|
+					ep.settings(:export).send("#{key}=", plan_settings.send(key))
+				end
+			end
+
+			@exported_plan.save! # FIXME: handle invalid request types without erroring?
+			file_name = @exported_plan.project_name
+
+			respond_to do |format|
+			  format.html
+			  format.xml
+			  format.json
+			  format.csv  { send_data @exported_plan.as_csv, filename: "#{file_name}.csv" }
+			  format.text { send_data @exported_plan.as_txt, filename: "#{file_name}.txt" }
+			  format.pdf do
 			  	@formatting = @plan.settings(:export).formatting
 			  	render pdf: file_name,
 			  	            margin: @formatting[:margin],
@@ -209,7 +191,7 @@ class PlansController < ApplicationController
 			  	              center:    t('helpers.plan.export.pdf.generated_by'),
 			  	              font_size: 8,
 			  	              spacing:   (@formatting[:margin][:bottom] / 2) - 4,
-			  	              right: '[page] of [topage]'
+			  	              right:     '[page] of [topage]'
 			  	            }
 			  end
 			end
