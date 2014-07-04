@@ -5,3 +5,4 @@
 # Mime::Type.register_alias "text/html", :iphone
 
 Mime::Type.register_alias "text/html", :partial
+Mime::Type.register "application/vnd.openxmlformats-officedocument.wordprocessingml.document", :docx

@@ -60,6 +60,7 @@ gem 'validate_url'
 
 gem 'thin'
 gem 'wicked_pdf'
+gem 'htmltoword'
 gem 'feedzirra', '0.5.0'
 
 # To use ActiveModel has_secure_password
