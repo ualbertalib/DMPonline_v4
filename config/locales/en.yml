@@ -110,6 +110,7 @@ en:
     parent_org: "Main organisation"
     last_updated: "Last updated"
     desc_help_text_html: "<div class='tooltip_box'>Please enter information describing your organisation.</div>"
+    template_desc_help_text_html: "<div class='tooltip_box'>Enter a description that helps you to differentiate between templates e.g. if you have ones for different audiences.</div>"
     abbre_help_text: "Please enter an abbreviation to your organisation's name."
     target_url_help_text: "Please enter a web address valid."
     name_help_text: "Please enter your organisation's name."
@@ -149,7 +150,7 @@ en:
       guidance_group_select_help_text_html: "Select which group this guidance relates to."
       guidance_text_html: "<p>You can write pieces of guidance to be displayed by theme (e.g. generic guidance on storage and backup that should present across the board) or you can write guidance for specific questions. Writing generic guidance by theme saves you time and effort as your advice will be automatically displayed across all templates rather than having to write guidance to accompany each.</p>
       <p>You will usually want your guidance to display on all templates, however there may be cases where you only want it to show for specific funders e.g. if you have specific instructions for applicants to BBSRC for example. This can be set too if needed.</p>"
-      delete_message: "You are about to delete '%{guidance_summary}'. Are you sure?"
+      delete_message_html: "You are about to delete '%{guidance_summary}'. Are you sure?"
     guidance_group:
       add_guidance_group: "Add guidance group"
       guidance_group_list: "Guidance group list"
@@ -198,7 +199,7 @@ en:
       add_section: "Add section"
       new_section: "New section title"
       section_title_placeholder: "New section title"
-      section_desc_help_text_html: "Enter a basic description. This could be a summary of what is covered in the section or instructions on how to answer. This text will be displayed in the coloured banner once a section is opened to edit."
+      section_desc_help_text_html: "<div class='tooltip_box'>Enter a basic description. This could be a summary of what is covered in the section or instructions on how to answer. This text will be displayed in the coloured banner once a section is opened to edit.</div>"
       section_number_help_text: "This allows you to order sections."
       add_question: "Add question"
       created: "Created at"
@@ -213,7 +214,6 @@ en:
       created_message: "Information was successfully created."
       updated_message: "Information was successfully updated."
       destroyed_message: "Information was successfully deleted."
-      section_desc_help_text_html: "<div class='tooltip_box'><p>Small description for this section.</p></div>"
       section_delete_message: "You are about to delete '%{section_title}'. This will affect questions linked to this section. Are you sure?"
     versions:
       clone_versions_label: "Make big changes"
@@ -371,8 +371,7 @@ en:
       child: "Unit"
       other_org_help_text: "Please enter the name of your organisation."
     
-      
-     
+          
     project:
       create: "Create plan"
       edit: "Edit plan details"
@@ -409,6 +408,9 @@ Select what format you wish to use and click to 'Export'.</p>"
       confirmation_text: "Confirm plan details"   
       confirmation_text_desc: "Where your funder or institution doesn't have specific requirements (or if you left these options blank), you will see the DCC Checklist. This offers a generic set of DMP questions and guidance. For more details see: <a href='http://www.dcc.ac.uk/sites/default/files/documents/resource/DMP_Checklist_2013.pdf' target='_blank'>DMP checklist 2013</a>."
       confirmation_button_text: "Yes, create plan"  
+      default_confirmation_text_desc: "You have selected the Default DMP, which is based on the DCC Checklist. This offers a generic set of DMP questions and guidance. For more details see: <a href='http://www.dcc.ac.uk/sites/default/files/documents/resource/DMP_Checklist_2013.pdf' target='_blank'>DMP checklist 2013</a>."
+      default_confirmation_button_text: "Create plan"  
+      alert_default_template_text_html: "Please note: %{org_name} has customised questions and guidance. If you wish to use it select 'Cancel', otherwise select 'Create plan'."
       share:
         tab_share: "Share"
         shared_label: "Shared?"
@@ -426,7 +428,9 @@ Select what format you wish to use and click to 'Export'.</p>"
         read_only: "Read only"
       create_page: 
         title: "Create a new plan"
-        desc: "Please select from the following drop-downs so we can determine what questions and guidance should be displayed in your plan."
+        desc_html: "<p>Please select from the following drop-downs so we can determine what questions and guidance should be displayed in your plan.</p>
+        <p><a id='create-default-plan-button' data-toggle='modal' href='#default-template-confirmation-dialog'>Default DMP</a></p>"
+        default_template: "Default DMP"
         funders_question: "If applying for funding, select your research funder."
         funders_question_description: "Otherwise leave blank."
         institution_question: "To see institutional questions and/or guidance, select your organisation."
