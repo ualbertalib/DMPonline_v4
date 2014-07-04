@@ -1,6 +1,6 @@
 class ExportedPlan < ActiveRecord::Base
   attr_accessible :plan_id, :user_id, :format
-  
+
   #associations between tables
   belongs_to :plan
   belongs_to :user
@@ -82,7 +82,7 @@ class ExportedPlan < ActiveRecord::Base
           answer = self.plan.answer(question.id)
           options_string = answer.options.collect {|o| o.text}.join('; ')
 
-          csv << [section.title, question.text, answer.text, options_string, answer.try(:user).try(:name), answer.created_at]
+          csv << [section.title, question.text, sanitize_text(answer.text), options_string, answer.try(:user).try(:name), answer.created_at]
         end
       end
     end
@@ -114,7 +114,7 @@ private
 
   def questions
     @questions ||= begin
-      question_settings = self.settings(:export).fields[:questions]  
+      question_settings = self.settings(:export).fields[:questions]
 
       return [] if question_settings.is_a?(Array) && question_settings.empty?
 
@@ -129,7 +129,7 @@ private
   end
 
   def sanitize_text(text)
-    ActionView::Base.full_sanitizer.sanitize(text.gsub(/&nbsp;/i,""))
+    if (!text.nil?) then ActionView::Base.full_sanitizer.sanitize(text.gsub(/&nbsp;/i,"")) end
   end
 
 end
