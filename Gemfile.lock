@@ -156,7 +156,7 @@ GEM
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
-    rails (3.2.13)
+    rails (3.2.18)
       actionmailer (= 3.2.13)
       actionpack (= 3.2.13)
       activerecord (= 3.2.13)
@@ -268,7 +268,7 @@ DEPENDENCIES
   omniauth
   omniauth-shibboleth
   pdf-reader
-  rails (= 3.2.13)
+  rails (= 3.2.18)
   recaptcha
   rolify
   rspec
