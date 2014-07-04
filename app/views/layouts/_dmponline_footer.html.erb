@@ -35,29 +35,29 @@
 	<%# unless params['nosplash'] == "true" || cookies[:dmp_splash_seen] == "splash_dialog_seen" then %>
 		<div id='3-or-4-splash' class='modal hide fade'>
 			<div class="modal-header">
-				<h3>Welcome to the new DMPonline!</h3>
+				<h3>Welcome to the new DMP Builder!</h3>
 			</div>
 			<div class="modal-body">
 				<div id="splash-intro">
 					<p>
-						DMPonline has undergone some changes. The new version brings a host of improvements, including:
+						DMP Builder has undergone some changes. The new version brings a host of improvements, including:
 						<ul>
 							<li>- The ability to answer funders' questions directly</li>
 							<li>- A simplified workflow</li>
 							<li>- Better collaboration</li>
 						</ul>
-						However, any plans created in older versions of DMPonline are not accessible in this version. Don't worry, we'll keep the old version running so that those plans can be accessed.
+						However, any plans created in older versions of DMP Builder are not accessible in this version. Don't worry, we'll keep the old version running so that those plans can be accessed.
 					</p>
 				</div>
 				<div id="splash-4">I want to create a new Data Management Plan 
 					<div class="move_2_right">
-						<%# = link_to "New DMPonline", splash_logs_path(:destination => "http://dmponline4.dcc.ac.uk"), :method => :post, :class => "btn btn-primary", :id => "continue-to-new" %>
+						<%# = link_to "New DMP Builder", splash_logs_path(:destination => "http://dmponline4.dcc.ac.uk"), :method => :post, :class => "btn btn-primary", :id => "continue-to-new" %>
 					</div>
 				</div>	
 				<div class="div_clear"></div>
 				<div id="splash-3">I need to work with an old Data Management Plan 
 					<div class="move_2_right">
-						<%# = link_to "Old DMPonline", splash_logs_path(:destination => "http://dmponline3.dcc.ac.uk"), :method => :post, :class => "btn btn-primary" %>
+						<%# = link_to "Old DMP Builder", splash_logs_path(:destination => "http://dmponline3.dcc.ac.uk"), :method => :post, :class => "btn btn-primary" %>
 					</div>
 				</div>	
 				<div class="two-column-clear"></div>

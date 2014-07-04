@@ -7,7 +7,7 @@ module User
 def create_a_new_user
 
     @driver.get(@base_url + "/")
-    (@driver.title).should == "DMP Tool - University of Alberta Libraries"
+    (@driver.title).should == "DMP Builder - University of Alberta Libraries"
     @driver.find_element(:link, "Sign up").click
     @driver.find_element(:xpath, "(//input[@id='user_email'])[2]").clear
     @driver.find_element(:xpath, "(//input[@id='user_email'])[2]").send_keys @properties['dmp_user']['name'] 
@@ -29,7 +29,7 @@ def get_invitation_url_from_email(date)
 end 
 
 def get_confirmation_url_from_email(date)
-    get_url_from_email(date,'Confirm your DMPonline account')
+    get_url_from_email(date,'Confirm your DMP Builder account')
 end
 
 def get_url_from_email(date, subject)
