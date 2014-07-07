@@ -284,6 +284,7 @@ en:
     user_details_text_html: "<p>Please note that your email address is used as your username. If you change this, remember to use your new email address on sign in.</p>"
     user_details_paragraph_html: "You can edit any of the details below."
     remember_me: "Remember me"
+    org_not_listed: "My organisation isn't listed."
 
     password: "Password"
     current_password: "Current password"
@@ -407,8 +408,11 @@ Select what format you wish to use and click to 'Export'.</p>"
       project_details_editing_text_html: "Please fill in the basic project details below and click 'Update' to save"
       confirm_delete_text: "Are you sure you wish to delete this plan? If the plan is being shared with other users, by deleting it from your list, the plan will be deleted from their plan list as well"
       confirmation_text: "Confirm plan details"
+<<<<<<< HEAD
       confirm_delete_text: "Are you sure you wish to delete this plan?"
       confirmation_text: "Confirm plan details"
+=======
+>>>>>>> Added "My organisation isn't listed" link for registration
       confirmation_text_desc: "Where your funder or institution doesn't have specific requirements (or if you left these options blank), you will see the DCC Checklist. This offers a generic set of DMP questions and guidance. For more details see: <a href='http://www.dcc.ac.uk/sites/default/files/documents/resource/DMP_Checklist_2013.pdf' target='_blank'>DMP checklist 2013</a>."
       confirmation_button_text: "Yes, create plan"
       default_confirmation_text_desc: "You have selected the Default DMP, which is based on the DCC Checklist. This offers a generic set of DMP questions and guidance. For more details see: <a href='http://www.dcc.ac.uk/sites/default/files/documents/resource/DMP_Checklist_2013.pdf' target='_blank'>DMP checklist 2013</a>."
