@@ -11,6 +11,21 @@ $(document).ready(function() {
     return $(element).prop('indeterminate');
   };
 
+  $("select#format").change(function(){
+    if ($(this).val() == 'pdf') {
+      $("#pdf-format-options").show();
+      $("#settings-toggle > small").show();
+    }
+    else {
+      $("#pdf-format-options").hide();
+      $("#settings-toggle > small").hide();
+    }
+  });
+
+  $("input:checkbox, select:not(#format)").change(function(){
+    $(".unsaved_changes_alert").show();
+  });
+
   $('.check_select > legend').append('<input type="checkbox" class="toggle" />');
 
   $('.check_select').each(function() {
@@ -49,6 +64,7 @@ $(document).ready(function() {
     });
 
     toggle.change(function() {
+      $(".unsaved_changes_alert").show();
       checks.prop({ 'checked': toggle.is(':checked'), 'indeterminate': false});
 
       checks.each(function() {
@@ -59,6 +75,5 @@ $(document).ready(function() {
 
       });
     });
-
   });
 });
