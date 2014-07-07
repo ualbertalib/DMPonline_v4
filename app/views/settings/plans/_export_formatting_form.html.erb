@@ -9,6 +9,13 @@
 <% end %>
 
 <%= form_for(@export_settings, url: settings_plan_path(plan), method: :put, as: :export) do |f| %>
+  <div class="div_right">
+    <%= submit_tag(t('helpers.settings.plans.reset'), class: 'btn btn-primary') %>
+    <%= submit_tag(t('helpers.save'), class: 'btn btn-primary') %>
+  </div>
+  <span class="label label-inverse unsaved_changes_alert" style="display:none;"><%= t('helpers.unsaved') %></span>
+  <h3><%= t('helpers.settings.plans.included_elements') %></h3>
+  <div class="div_clear"> </div>
   <fieldset class="check_select">
     <legend><label for="admin_details_toggle">Admin details</label></legend>
     <ol>
@@ -47,27 +54,34 @@
     <% end %>
     </ol>
   </fieldset>
-  <fieldset class="font">
-    <legend><%= t('helpers.settings.plans.font') -%></legend>
-    <div>
-    <%= label_tag('export[formatting][font_face]', t('helpers.settings.plans.font_face')) %>
-    <%= select_tag('export[formatting][font_face]', options_for_select(Settings::Dmptemplate::VALID_FONT_FACES, @export_settings.formatting[:font_face])) %>
-    </div>
-    <div>
-      <%= label_tag('export[formatting][font_size]', t('helpers.settings.plans.font_size') + ' (pt)') %>
-      <%= select_tag('export[formatting][font_size]', options_for_select(Settings::Dmptemplate::VALID_FONT_SIZE_RANGE.to_a, @export_settings.formatting[:font_size])) %>
-    </div>
-  </fieldset>
-  <fieldset class="margins">
-    <legend><%= t('helpers.settings.plans.margin') -%> (mm)</legend>
-
-    <% %i( top bottom left right ).each do |pos| %>
+  <div id="pdf-format-options">
+    <h3><%= t('helpers.settings.plans.pdf_formatting') %></h3>
+    <fieldset class="font">
+      <legend><%= t('helpers.settings.plans.font') -%></legend>
       <div>
-        <%= label_tag("export[formatting][margin][#{pos}]", t("helpers.settings.plans.margins.#{pos}")) %>
-        <%= select_tag("export[formatting][margin][#{pos}]", options_for_select(Settings::Dmptemplate::VALID_MARGIN_RANGE.to_a, @export_settings.formatting[:margin][pos])) %>
+      <%= label_tag('export[formatting][font_face]', t('helpers.settings.plans.font_face')) %>
+      <%= select_tag('export[formatting][font_face]', options_for_select(Settings::Dmptemplate::VALID_FONT_FACES, @export_settings.formatting[:font_face])) %>
       </div>
-    <% end %>
-  </fieldset>
-  <%= submit_tag(t('helpers.save'), class: 'btn btn-primary') %>
-  <%= submit_tag(t('helpers.settings.plans.reset'), class: 'btn btn-primary') %>
+      <div>
+        <%= label_tag('export[formatting][font_size]', t('helpers.settings.plans.font_size') + ' (pt)') %>
+        <%= select_tag('export[formatting][font_size]', options_for_select(Settings::Dmptemplate::VALID_FONT_SIZE_RANGE.to_a, @export_settings.formatting[:font_size])) %>
+      </div>
+    </fieldset>
+    <fieldset class="margins">
+      <legend><%= t('helpers.settings.plans.margin') -%> (mm)</legend>
+
+      <% %i( top bottom left right ).each do |pos| %>
+        <div>
+          <%= label_tag("export[formatting][margin][#{pos}]", t("helpers.settings.plans.margins.#{pos}")) %>
+          <%= select_tag("export[formatting][margin][#{pos}]", options_for_select(Settings::Dmptemplate::VALID_MARGIN_RANGE.to_a, @export_settings.formatting[:margin][pos])) %>
+        </div>
+      <% end %>
+    </fieldset>
+  </div>
+  <div class="div_right">
+    <%= submit_tag(t('helpers.settings.plans.reset'), class: 'btn btn-primary') %>
+    <%= submit_tag(t('helpers.save'), class: 'btn btn-primary') %>
+  </div>
+  <span class="label label-inverse unsaved_changes_alert" style="display:none;"><%= t('helpers.unsaved') %></span>
+  <div class="div_clear"> </div>
 <% end %>
