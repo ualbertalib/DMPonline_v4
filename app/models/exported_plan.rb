@@ -5,7 +5,7 @@ class ExportedPlan < ActiveRecord::Base
   belongs_to :plan
   belongs_to :user
 
-  VALID_FORMATS = %i( csv html json pdf text xml )
+  VALID_FORMATS = %i( csv html json pdf text xml docx)
 
   validates :format, inclusion: { in: VALID_FORMATS, message: '%{value} is not a valid format' }
 
@@ -108,6 +108,41 @@ class ExportedPlan < ActiveRecord::Base
     end
 
     output
+  end
+
+  def html_for_docx
+    docx_html_source = "<html><head></head><body><div><h1>#{self.plan.project.title}</h1><h2>#{self.plan.version.phase.title}</h2>"
+    if self.admin_details.present?
+      docx_html_source << "<div><h3>Admin Details</h3>"
+      self.admin_details.each do |field|
+        value = self.send(field)
+        label = "helpers.plan.export.#{field}"
+        if value.present?
+          docx_html_source << "<p><strong>#{I18n.t(label)}:</strong> #{value}</p>"
+        end
+      end
+      docx_html_source << "</div>"
+    end
+    self.sections.each do |section|
+      docx_html_source << "<div><h3>#{section.title}</h3>"
+      self.questions_for_section(section.id).each do |question|
+        docx_html_source << "<div><h4><#{question.text}</h4>"
+        answer = self.plan.answer(question.id, false)
+        if answer.nil?
+          docx_html_source << "<p>Question not answered.</p>"
+        else
+          if question.multiple_choice
+            answer.options.each do |option|
+              docx_html_source << "<p>- #{option.text}</p>"
+            end
+          end
+          docx_html_source << answer.text
+        end
+        docx_html_source << "</div>"
+      end
+      docx_html_source << "</div>"
+    end
+    docx_html_source << "</div><body></html>"
   end
 
 private
