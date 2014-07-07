@@ -7,13 +7,16 @@ $( document ).ready(function() {
 		$("#create-plan-button").show();
 		$("#confirm-funder").text($("#project_funder_id").select2('data').text);
 	});
-	
-	$("#no-funder").click(function() {
+
+	$("#no-funder").click(function(e) {
+		e.preventDefault();
 		$("#project_funder_id").select2("val", "");
 		update_template_options();
 		update_guidance_options();
 		$("#institution-control-group").show();
 		$("#create-plan-button").show();
+		$("#other-funder-clear").show();
+		$("#other-funder-name").show();
 		$("#confirm-funder").text("None");
 	});
 
@@ -22,19 +25,19 @@ $( document ).ready(function() {
 		update_guidance_options();
 		$("#confirm-institution").text($("#project_institution_id").select2('data').text);
 	});
-	
+
 	$("#no-institution").click(function() {
 		$("#project_institution_id").select2("val", "");
 		update_template_options();
 		update_guidance_options();
 		$("#confirm-institution").text("None");
 	});
-		
+
 	$("#project_dmptemplate_id").change(function (f) {
 		update_guidance_options();
 		$("#confirm-template").text($("#project_dmptemplate_id :selected").text());
 	});
-	
+
 	$("#project-confirmation-dialog").on("show", function(){
 		if ($("#confirm-institution").text() == "") {
 			$("#confirm-institution").text("None");
@@ -54,32 +57,32 @@ $( document ).ready(function() {
 		});
 		$('.select2-choice').hide();
 	});
-	
+
 	$("#new-project-cancelled").click(function (){
 		$("#project-confirmation-dialog").modal("hide");
 		$('.select2-choice').show();
 	});
-	
+
 	$("#new-project-confirmed").click(function (){
 		$("#new_project").submit();
 	});
-    
+
     //for the default template alert
 	$("#default-template-confirmation-dialog").on("show", function(){
 		$('.select2-choice').hide();
 	});
-	
+
 	$("#default-template-cancelled").click(function (){
 		$("#default-template-confirmation-dialog").modal("hide");
 		$('.select2-choice').show();
 	});
-	
+
 	$("#default-template-confirmed").click(function (){
 		$("#default_tag").val('true');
 		$("#new_project").submit();
 	});
-    
-    	
+
+
 	function update_template_options() {
 		var options = {};
 		var funder = $("#project_funder_id").select2('val');
@@ -89,7 +92,7 @@ $( document ).ready(function() {
 			url: "possible_templates.json?institution="+institution+"&funder="+funder,
 			dataType: 'json',
 			async: false, //Needs to be synchronous, otherwise end up mixing up answers
-			success: function(data) {	
+			success: function(data) {
 				options = data;
 			}
 		});
@@ -114,7 +117,7 @@ $( document ).ready(function() {
 		$("#confirm-template").text("");
 		$("#project_dmptemplate_id").change();
 	}
-	
+
 	function update_guidance_options() {
 		var institution = $("#project_institution_id").select2('val');
 		var template = $("#project_dmptemplate_id :selected").val();
@@ -123,7 +126,7 @@ $( document ).ready(function() {
 			url: "possible_guidance.json?institution="+institution+"&template="+template,
 			dataType: 'json',
 			async: false, //Needs to be synchronous, otherwise end up mixing up answers
-			success: function(data) {	
+			success: function(data) {
 				options = data;
 			}
 		});

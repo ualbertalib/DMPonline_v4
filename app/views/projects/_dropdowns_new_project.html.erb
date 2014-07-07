@@ -13,8 +13,12 @@
 					<div class="controls">
 						<%= f.input :funder_id, :as => :select, :collection => @funders, :label => t('helpers.project.create_page.funders_question'), :input_html => { :multiple => false, :class => "typeahead" }, :include_blank =>  t('helpers.org_type.funder') %>
 						<div class="div_clear"></div>
-						<div class="move_2_right">
+						<div id="other-funder-link" class="move_2_right">
 							<a href='#' id="no-funder"><%= t('helpers.project.not_applicable')%></a>
+						</div>
+						<div id="other-funder-clear" class="div_clear" style="display:none;"></div>
+						<div id="other-funder-name" class="move_2_right" style="display:none;">
+							<%= f.input :funder_name, :as => :string, :placeholder => t('helpers.project.funder_name') %>
 						</div>
 						<div class="create_project_question_descriptions">
 							<%= t('helpers.project.create_page.funders_question_description')%>

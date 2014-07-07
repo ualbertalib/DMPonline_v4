@@ -388,6 +388,7 @@ en:
       principal_investigator_id: "Principal Investigator/Researcher ID"
       principal_investigator_id_help_text: "E.g ORCID http://orcid.org/."
       funder_help_text: "Research funder if relevant"
+      funder_name: "Funder name"
       project_question_desc_label: "Summary about the questions"
       tab_plan: "Plan details"
       tab_export: "Export"
