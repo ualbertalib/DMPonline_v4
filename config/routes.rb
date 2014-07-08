@@ -8,7 +8,7 @@ DMPonline4::Application.routes.draw do
   
   # WAYFless access point - use query param idp
   get 'auth/shibboleth' => 'users/omniauth_shibboleth_request#redirect', :as => 'user_omniauth_shibboleth'
-	get 'auth/shibboleth/assoc' => 'users/omniauth_shibboleth_request#associate', :as => 'user_shibboleth_assoc'
+  get 'auth/shibboleth/assoc' => 'users/omniauth_shibboleth_request#associate', :as => 'user_shibboleth_assoc'
   
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
@@ -95,9 +95,7 @@ DMPonline4::Application.routes.draw do
 			put 'admin_updatesuggestedanswer'
   	end
   end
-  
-  
-  
+   
   resources :phases
   resources :versions
   resources :sections
@@ -105,7 +103,6 @@ DMPonline4::Application.routes.draw do
   resources :question_themes
   
   resources :themes
-  
   
   resources :answers
   resources :plan_sections
