@@ -19,7 +19,7 @@ class ExportedPlan < ActiveRecord::Base
   # Getters to match Settings::Dmptemplate::VALID_ADMIN_FIELDS
   def project_name
     name = self.plan.project.title
-    name += " - #{self.plan.version.phase.title}" if self.plan.project.dmptemplate.phases.count > 1
+    name += " - #{self.plan.title}" if self.plan.project.dmptemplate.phases.count > 1
     name
   end
 
@@ -111,7 +111,7 @@ class ExportedPlan < ActiveRecord::Base
   end
 
   def html_for_docx
-    docx_html_source = "<html><head></head><body><div><h1>#{self.plan.project.title}</h1><h2>#{self.plan.version.phase.title}</h2>"
+    docx_html_source = "<html><head></head><body><div><h1>#{self.plan.project.title}</h1><h2>#{self.plan.title}</h2>"
     if self.admin_details.present?
       docx_html_source << "<div><h3>Admin Details</h3>"
       self.admin_details.each do |field|

@@ -482,6 +482,7 @@ Select what format you wish to use and click to 'Export'.</p>"
           duplicate: "Duplicate column name. Please only include each column once."
           unknown: "Unknown column name."
       plans:
+        title: Plan title
         reset: "Reset"
         custom_formatting: "(Using custom PDF formatting values)"
         template_formatting: "(Using template PDF formatting values)"

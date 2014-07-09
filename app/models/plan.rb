@@ -31,6 +31,15 @@ class Plan < ActiveRecord::Base
 		self.project.try(:dmptemplate) || Dmptemplate.new
 	end
 
+	def title
+		logger.debug "Title in settings: #{self.settings(:export).title}"
+		if self.settings(:export).title == ""
+			return self.version.phase.title
+		else
+			return self.settings(:export).title
+		end
+	end
+
 	def answer(qid, create_if_missing = true)
   		answer = answers.where(:question_id => qid).order("created_at DESC").first
   		question = Question.find(qid)

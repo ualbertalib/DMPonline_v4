@@ -3,7 +3,7 @@
 	<head>
 		<title>
 			<% if @plan.project.dmptemplate.phases.count > 1 then %>
-				<%= "#{@plan.project.title} - #{@plan.version.phase.title}" %>
+				<%= "#{@plan.project.title} - #{@plan.title}" %>
 			<% else %>
 				<%= @plan.project.title %>
 			<% end %>
@@ -21,7 +21,7 @@
 		</style>
 	</head>
 	<body>
-		<h1><%= @plan.version.phase.title %></h1>
+		<h1><%= @plan.title %></h1>
 		<% @exported_plan.admin_details.each do |field|
 		     value = @exported_plan.send(field)
 		     if value.present?
