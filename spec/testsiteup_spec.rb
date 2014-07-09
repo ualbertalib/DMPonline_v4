@@ -24,7 +24,7 @@ describe "Simplest" do
   it "site is up" do
     @driver.get(@base_url + "/")
     (@driver.title).should == "DMP Builder - University of Alberta Libraries"
-    verify { (@driver.find_element(:css, "h3.subhead").text).should == "Tool for Data Management Plans" }
+    verify { (@driver.find_element(:css, "h3.subhead").text).should == "A Tool for Data Management Plans" }
   end
   
 end
