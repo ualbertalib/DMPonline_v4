@@ -3,6 +3,13 @@ $( document ).ready(function() {
 	$("#project_funder_id").change(function () {
 		update_template_options();
 		update_guidance_options();
+		if ($(this).val().length > 0) {
+			$("#other-funder-name").hide();
+			$("#project_funder_name").val("");
+		}
+		else {
+			$("#other-funder-name").show();
+		}
 		$("#institution-control-group").show();
 		$("#create-plan-button").show();
 		$("#confirm-funder").text($("#project_funder_id").select2('data').text);
@@ -15,9 +22,12 @@ $( document ).ready(function() {
 		update_guidance_options();
 		$("#institution-control-group").show();
 		$("#create-plan-button").show();
-		$("#other-funder-clear").show();
 		$("#other-funder-name").show();
 		$("#confirm-funder").text("None");
+	});
+
+	$("#project_funder_name").change(function(){
+		$("#confirm-funder").text($(this).val());
 	});
 
 	$("#project_institution_id").change(function () {
