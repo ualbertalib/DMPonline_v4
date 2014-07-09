@@ -1,0 +1,13 @@
+rvm:
+  - 1.9.3
+  - 2.0.0
+  - jruby-19mode
+before_install:
+  - gem install bundler
+  - bundle --version
+install:
+  - bundle install
+before_script:
+  - bundle exec rake appraisal:setup
+script:
+  - bundle exec rake appraisal test

@@ -1,0 +1,46 @@
+/usr/bin/ruby.exe extconf.rb 
+creating Makefile
+Compiling v8 for ia32
+Using python 2.7.3
+Using compiler: /usr/bin/g++
+cygwin warning:
+  MS-DOS style path detected: C:\Users\wshi/.gyp
+  Preferred POSIX equivalent is: /cygdrive/c/Users/wshi/.gyp
+  CYGWIN environment variable option "nodosfilewarning" turns off this warning.
+  Consult the user's guide for more details about POSIX paths:
+    http://cygwin.com/cygwin-ug-net/using.html#using-pathnames
+In file included from ../src/conversions-inl.h:42:0,
+                 from ../src/conversions.cc:32:
+../src/platform.h:77:12: error: new declaration ‘int random()’
+ int random();
+            ^
+In file included from /usr/include/stdlib.h:25:0,
+                 from ../src/utils.h:31,
+                 from ../src/conversions.h:31,
+                 from ../src/conversions-inl.h:40,
+                 from ../src/conversions.cc:32:
+/usr/include/cygwin/stdlib.h:38:6: error: ambiguates old declaration ‘long int random()’
+ long random (void);
+      ^
+make[1]: *** [/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/libv8-3.11.8.17/vendor/v8/out/ia32.release/obj.target/preparser_lib/src/conversions.o] Error 1
+make: *** [ia32.release] Error 2
+/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/libv8-3.11.8.17/ext/libv8/location.rb:36:in `block in verify_installation!': libv8 did not install properly, expected binary v8 archive '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/libv8-3.11.8.17/vendor/v8/out/ia32.release/obj.target/tools/gyp/libv8_base.a'to exist, but it was not found (Libv8::Location::Vendor::ArchiveNotFound)
+	from /cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/libv8-3.11.8.17/ext/libv8/location.rb:35:in `each'
+	from /cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/libv8-3.11.8.17/ext/libv8/location.rb:35:in `verify_installation!'
+	from /cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/libv8-3.11.8.17/ext/libv8/location.rb:26:in `install!'
+	from extconf.rb:7:in `<main>'
+GYP_GENERATORS=make \
+build/gyp/gyp --generator-output="out" build/all.gyp \
+              -Ibuild/standalone.gypi --depth=. \
+              -Dv8_target_arch=ia32 \
+              -S.ia32  -Dv8_can_use_vfp_instructions=true
+make[1]: Entering directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/libv8-3.11.8.17/vendor/v8/out'
+  CXX(target) /cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/libv8-3.11.8.17/vendor/v8/out/ia32.release/obj.target/preparser_lib/src/allocation.o
+  CXX(target) /cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/libv8-3.11.8.17/vendor/v8/out/ia32.release/obj.target/preparser_lib/src/atomicops_internals_x86_gcc.o
+  CXX(target) /cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/libv8-3.11.8.17/vendor/v8/out/ia32.release/obj.target/preparser_lib/src/bignum.o
+  CXX(target) /cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/libv8-3.11.8.17/vendor/v8/out/ia32.release/obj.target/preparser_lib/src/bignum-dtoa.o
+  CXX(target) /cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/libv8-3.11.8.17/vendor/v8/out/ia32.release/obj.target/preparser_lib/src/cached-powers.o
+  CXX(target) /cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/libv8-3.11.8.17/vendor/v8/out/ia32.release/obj.target/preparser_lib/src/conversions.o
+tools/gyp/preparser_lib.target.ia32.mk:79: recipe for target '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/libv8-3.11.8.17/vendor/v8/out/ia32.release/obj.target/preparser_lib/src/conversions.o' failed
+make[1]: Leaving directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/libv8-3.11.8.17/vendor/v8/out'
+Makefile:159: recipe for target 'ia32.release' failed

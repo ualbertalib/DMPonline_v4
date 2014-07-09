@@ -1,0 +1,281 @@
+make  all-recursive
+make[1]: Entering directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxml2/2.8.0/libxml2-2.8.0'
+Making all in include
+make[2]: Entering directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxml2/2.8.0/libxml2-2.8.0/include'
+Making all in libxml
+make[3]: Entering directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxml2/2.8.0/libxml2-2.8.0/include/libxml'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxml2/2.8.0/libxml2-2.8.0/include/libxml'
+make[3]: Entering directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxml2/2.8.0/libxml2-2.8.0/include'
+make[3]: Nothing to be done for 'all-am'.
+make[3]: Leaving directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxml2/2.8.0/libxml2-2.8.0/include'
+make[2]: Leaving directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxml2/2.8.0/libxml2-2.8.0/include'
+Making all in .
+make[2]: Entering directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxml2/2.8.0/libxml2-2.8.0'
+  CC     SAX.lo
+  CC     entities.lo
+  CC     encoding.lo
+encoding.c: In function 'xmlGetEncodingAlias':
+encoding.c:1017:9: warning: array subscript has type 'char' [-Wchar-subscripts]
+         upper[i] = toupper(alias[i]);
+         ^
+encoding.c: In function 'xmlAddEncodingAlias':
+encoding.c:1052:9: warning: array subscript has type 'char' [-Wchar-subscripts]
+         upper[i] = toupper(alias[i]);
+         ^
+encoding.c: In function 'xmlParseCharEncoding':
+encoding.c:1154:9: warning: array subscript has type 'char' [-Wchar-subscripts]
+         upper[i] = toupper(name[i]);
+         ^
+encoding.c: In function 'xmlNewCharEncodingHandler':
+encoding.c:1330:9: warning: array subscript has type 'char' [-Wchar-subscripts]
+         upper[i] = toupper(name[i]);
+         ^
+encoding.c: In function 'xmlFindCharEncodingHandler':
+encoding.c:1657:9: warning: array subscript has type 'char' [-Wchar-subscripts]
+         upper[i] = toupper(name[i]);
+         ^
+  CC     error.lo
+  CC     parserInternals.lo
+  CC     parser.lo
+parser.c: In function 'xmlParseInNodeContext':
+parser.c:13084:9: warning: pointer targets in passing argument 1 of 'xmlFindCharEncodingHandler' differ in signedness [-Wpointer-sign]
+         hdlr = xmlFindCharEncodingHandler(doc->encoding);
+         ^
+In file included from ./include/libxml/parser.h:809:0,
+                 from ./include/libxml/globals.h:18,
+                 from ./include/libxml/threads.h:35,
+                 from ./include/libxml/xmlmemory.h:218,
+                 from parser.c:45:
+./include/libxml/encoding.h:175:2: note: expected 'const char *' but argument is of type 'const xmlChar *'
+  xmlFindCharEncodingHandler (const char *name);
+  ^
+  CC     tree.lo
+  CC     hash.lo
+  CC     list.lo
+  CC     xmlIO.lo
+  CC     xmlmemory.lo
+  CC     uri.lo
+  CC     valid.lo
+  CC     xlink.lo
+  CC     HTMLparser.lo
+  CC     HTMLtree.lo
+  CC     debugXML.lo
+  CC     xpath.lo
+xpath.c: In function 'xmlXPathRegisterFuncNS':
+xpath.c:4800:5: warning: ISO C forbids passing argument 4 of 'xmlHashAddEntry2' between function pointer and 'void *' [-Wpedantic]
+     return(xmlHashAddEntry2(ctxt->funcHash, name, ns_uri, XML_CAST_FPTR(f)));
+     ^
+In file included from ./include/libxml/parser.h:18:0,
+                 from ./include/libxml/globals.h:18,
+                 from ./include/libxml/threads.h:35,
+                 from ./include/libxml/xmlmemory.h:218,
+                 from xpath.c:38:
+./include/libxml/hash.h:128:4: note: expected 'void *' but argument is of type 'xmlXPathFunction'
+    xmlHashAddEntry2(xmlHashTablePtr table,
+    ^
+xpath.c: In function 'xmlXPathFunctionLookupNS':
+xpath.c:4881:24: warning: ISO C forbids assignment between function pointer and 'void *' [-Wpedantic]
+     XML_CAST_FPTR(ret) = xmlHashLookup2(ctxt->funcHash, name, ns_uri);
+                        ^
+xpath.c: In function 'xmlXPathCompOpEval':
+xpath.c:13456:41: warning: ISO C forbids assignment between function pointer and 'void *' [-Wpedantic]
+                     XML_CAST_FPTR(func) = op->cache;
+                                         ^
+xpath.c:13483:31: warning: ISO C forbids assignment between function pointer and 'void *' [-Wpedantic]
+                     op->cache = XML_CAST_FPTR(func);
+                               ^
+In file included from xpath.c:110:0:
+xpath.c: At top level:
+trionan.c:218:1: warning: 'trio_is_negative' defined but not used [-Wunused-function]
+ trio_is_negative
+ ^
+  CC     xpointer.lo
+  CC     xinclude.lo
+  CC     nanohttp.lo
+nanohttp.c: In function 'xmlNanoHTTPConnectHost':
+nanohttp.c:1076:23: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   if (res->ai_addrlen > sizeof(sockin)) {
+                       ^
+nanohttp.c:1086:23: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   if (res->ai_addrlen > sizeof(sockin6)) {
+                       ^
+  CC     nanoftp.lo
+nanoftp.c: In function 'xmlNanoFTPConnect':
+nanoftp.c:910:22: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  if (tmp->ai_addrlen > sizeof(ctxt->ftpAddr)) {
+                      ^
+  CC     DOCBparser.lo
+  CC     catalog.lo
+  CC     globals.lo
+  CC     threads.lo
+  CC     c14n.lo
+  CC     xmlstring.lo
+  CC     xmlregexp.lo
+  CC     xmlschemas.lo
+  CC     xmlschemastypes.lo
+  CC     xmlunicode.lo
+  CC     xmlreader.lo
+  CC     relaxng.lo
+  CC     dict.lo
+  CC     SAX2.lo
+  CC     xmlwriter.lo
+  CC     legacy.lo
+  CC     chvalid.lo
+  CC     pattern.lo
+  CC     xmlsave.lo
+  CC     xmlmodule.lo
+  CC     schematron.lo
+  CC     xzlib.lo
+  CCLD   libxml2.la
+  CC     testdso.lo
+  CCLD   testdso.la
+  CC     xmllint.o
+  CCLD   xmllint.exe
+  CC     xmlcatalog.o
+  CCLD   xmlcatalog.exe
+  CC     testSchemas.o
+  CCLD   testSchemas.exe
+  CC     testRelax.o
+  CCLD   testRelax.exe
+  CC     testSAX.o
+  CCLD   testSAX.exe
+  CC     testHTML.o
+  CCLD   testHTML.exe
+  CC     testXPath.o
+  CCLD   testXPath.exe
+  CC     testURI.o
+  CCLD   testURI.exe
+  CC     testThreads.o
+  CCLD   testThreads.exe
+  CC     testC14N.o
+  CCLD   testC14N.exe
+  CC     testAutomata.o
+  CCLD   testAutomata.exe
+  CC     testRegexp.o
+  CCLD   testRegexp.exe
+  CC     testReader.o
+  CCLD   testReader.exe
+  CC     testapi.o
+testapi.c:18015:25: warning: ‘gen_xmlSchematronPtr’ defined but not used [-Wunused-function]
+ static xmlSchematronPtr gen_xmlSchematronPtr(int no ATTRIBUTE_UNUSED, int nr ATTRIBUTE_UNUSED) {
+                         ^
+testapi.c:18018:13: warning: ‘des_xmlSchematronPtr’ defined but not used [-Wunused-function]
+ static void des_xmlSchematronPtr(int no ATTRIBUTE_UNUSED, xmlSchematronPtr val ATTRIBUTE_UNUSED, int nr ATTRIBUTE_UNUSED) {
+             ^
+testapi.c:18035:35: warning: ‘gen_xmlSchematronParserCtxtPtr’ defined but not used [-Wunused-function]
+ static xmlSchematronParserCtxtPtr gen_xmlSchematronParserCtxtPtr(int no ATTRIBUTE_UNUSED, int nr ATTRIBUTE_UNUSED) {
+                                   ^
+testapi.c:18038:13: warning: ‘des_xmlSchematronParserCtxtPtr’ defined but not used [-Wunused-function]
+ static void des_xmlSchematronParserCtxtPtr(int no ATTRIBUTE_UNUSED, xmlSchematronParserCtxtPtr val ATTRIBUTE_UNUSED, int nr ATTRIBUTE_UNUSED) {
+             ^
+testapi.c:34265:27: warning: ‘gen_xmlSAXHandlerPtr_ptr’ defined but not used [-Wunused-function]
+ static xmlSAXHandlerPtr * gen_xmlSAXHandlerPtr_ptr(int no ATTRIBUTE_UNUSED, int nr ATTRIBUTE_UNUSED) {
+                           ^
+testapi.c:34268:13: warning: ‘des_xmlSAXHandlerPtr_ptr’ defined but not used [-Wunused-function]
+ static void des_xmlSAXHandlerPtr_ptr(int no ATTRIBUTE_UNUSED, xmlSAXHandlerPtr * val ATTRIBUTE_UNUSED, int nr ATTRIBUTE_UNUSED) {
+             ^
+  CCLD   testapi.exe
+  CC     testModule.o
+  CCLD   testModule.exe
+  CC     runtest.o
+runtest.c:3876:20: warning: ‘catalog’ defined but not used [-Wunused-variable]
+ static const char *catalog = "test/threads/complex.xml";
+                    ^
+runtest.c:3877:20: warning: ‘testfiles’ defined but not used [-Wunused-variable]
+ static const char *testfiles[] = {
+                    ^
+runtest.c:3898:1: warning: ‘thread_specific_data’ defined but not used [-Wunused-function]
+ thread_specific_data(void *private_data)
+ ^
+  CCLD   runtest.exe
+  CC     runsuite.o
+  CCLD   runsuite.exe
+  CC     testchar.o
+  CCLD   testchar.exe
+  CC     testdict.o
+testdict.c: In function ‘run_test2’:
+testdict.c:155:20: warning: variable ‘tmp’ set but not used [-Wunused-but-set-variable]
+     const xmlChar *tmp;
+                    ^
+testdict.c: In function ‘run_test1’:
+testdict.c:318:20: warning: variable ‘tmp’ set but not used [-Wunused-but-set-variable]
+     const xmlChar *tmp;
+                    ^
+  CCLD   testdict.exe
+  CC     runxmlconf.o
+  CCLD   runxmlconf.exe
+  CC     testrecurse.o
+testrecurse.c: In function ‘recursiveDetectTest’:
+testrecurse.c:690:9: warning: variable ‘mem’ set but not used [-Wunused-but-set-variable]
+     int mem;
+         ^
+testrecurse.c: In function ‘notRecursiveDetectTest’:
+testrecurse.c:731:9: warning: variable ‘mem’ set but not used [-Wunused-but-set-variable]
+     int mem;
+         ^
+  CCLD   testrecurse.exe
+sed -e 's?\@XML_LIBDIR\@?-L/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/lib?g' \
+    -e 's?\@XML_INCLUDEDIR\@?-I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2?g' \
+    -e 's?\@VERSION\@?2.8.0?g' \
+    -e 's?\@XML_LIBS\@?-lxml2 -lz   -liconv -lm ?g' \
+       < ./xml2Conf.sh.in > xml2Conf.tmp \
+&& mv xml2Conf.tmp xml2Conf.sh
+make[2]: Leaving directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxml2/2.8.0/libxml2-2.8.0'
+Making all in doc
+make[2]: Entering directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxml2/2.8.0/libxml2-2.8.0/doc'
+Making all in devhelp
+make[3]: Entering directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxml2/2.8.0/libxml2-2.8.0/doc/devhelp'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxml2/2.8.0/libxml2-2.8.0/doc/devhelp'
+Making all in examples
+make[3]: Entering directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxml2/2.8.0/libxml2-2.8.0/doc/examples'
+  CC     xpath2.o
+  CCLD   xpath2.exe
+  CC     reader1.o
+  CCLD   reader1.exe
+  CC     reader4.o
+  CCLD   reader4.exe
+  CC     parse2.o
+  CCLD   parse2.exe
+  CC     reader2.o
+  CCLD   reader2.exe
+  CC     parse3.o
+  CCLD   parse3.exe
+  CC     reader3.o
+  CCLD   reader3.exe
+  CC     tree2.o
+tree2.c: In function ‘main’:
+tree2.c:30:15: warning: variable ‘dtd’ set but not used [-Wunused-but-set-variable]
+     xmlDtdPtr dtd = NULL;       /* DTD pointer */
+               ^
+  CCLD   tree2.exe
+  CC     parse4.o
+  CCLD   parse4.exe
+  CC     io2.o
+  CCLD   io2.exe
+  CC     testWriter.o
+  CCLD   testWriter.exe
+  CC     io1.o
+  CCLD   io1.exe
+  CC     xpath1.o
+  CCLD   xpath1.exe
+  CC     parse1.o
+  CCLD   parse1.exe
+  CC     tree1.o
+  CCLD   tree1.exe
+make[3]: Leaving directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxml2/2.8.0/libxml2-2.8.0/doc/examples'
+make[3]: Entering directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxml2/2.8.0/libxml2-2.8.0/doc'
+make[3]: Nothing to be done for 'all-am'.
+make[3]: Leaving directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxml2/2.8.0/libxml2-2.8.0/doc'
+make[2]: Leaving directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxml2/2.8.0/libxml2-2.8.0/doc'
+Making all in example
+make[2]: Entering directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxml2/2.8.0/libxml2-2.8.0/example'
+  CC     gjobread.o
+  CCLD   gjobread.exe
+make[2]: Leaving directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxml2/2.8.0/libxml2-2.8.0/example'
+Making all in xstc
+make[2]: Entering directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxml2/2.8.0/libxml2-2.8.0/xstc'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxml2/2.8.0/libxml2-2.8.0/xstc'
+make[1]: Leaving directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxml2/2.8.0/libxml2-2.8.0'

@@ -1,0 +1,266 @@
+make  all-recursive
+make[1]: Entering directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26'
+Making all in libxslt
+make[2]: Entering directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/libxslt'
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2    -g -O2 -Wall -MT attrvt.lo -MD -MP -MF .deps/attrvt.Tpo -c -o attrvt.lo attrvt.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2 -g -O2 -Wall -MT attrvt.lo -MD -MP -MF .deps/attrvt.Tpo -c attrvt.c  -DDLL_EXPORT -DPIC -o .libs/attrvt.o
+mv -f .deps/attrvt.Tpo .deps/attrvt.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2    -g -O2 -Wall -MT xslt.lo -MD -MP -MF .deps/xslt.Tpo -c -o xslt.lo xslt.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2 -g -O2 -Wall -MT xslt.lo -MD -MP -MF .deps/xslt.Tpo -c xslt.c  -DDLL_EXPORT -DPIC -o .libs/xslt.o
+mv -f .deps/xslt.Tpo .deps/xslt.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2    -g -O2 -Wall -MT xsltlocale.lo -MD -MP -MF .deps/xsltlocale.Tpo -c -o xsltlocale.lo xsltlocale.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2 -g -O2 -Wall -MT xsltlocale.lo -MD -MP -MF .deps/xsltlocale.Tpo -c xsltlocale.c  -DDLL_EXPORT -DPIC -o .libs/xsltlocale.o
+xsltlocale.c:194:1: warning: ‘xsltDefaultRegion’ defined but not used [-Wunused-function]
+ xsltDefaultRegion(const xmlChar *localeName) {
+ ^
+mv -f .deps/xsltlocale.Tpo .deps/xsltlocale.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2    -g -O2 -Wall -MT xsltutils.lo -MD -MP -MF .deps/xsltutils.Tpo -c -o xsltutils.lo xsltutils.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2 -g -O2 -Wall -MT xsltutils.lo -MD -MP -MF .deps/xsltutils.Tpo -c xsltutils.c  -DDLL_EXPORT -DPIC -o .libs/xsltutils.o
+mv -f .deps/xsltutils.Tpo .deps/xsltutils.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2    -g -O2 -Wall -MT pattern.lo -MD -MP -MF .deps/pattern.Tpo -c -o pattern.lo pattern.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2 -g -O2 -Wall -MT pattern.lo -MD -MP -MF .deps/pattern.Tpo -c pattern.c  -DDLL_EXPORT -DPIC -o .libs/pattern.o
+mv -f .deps/pattern.Tpo .deps/pattern.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2    -g -O2 -Wall -MT templates.lo -MD -MP -MF .deps/templates.Tpo -c -o templates.lo templates.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2 -g -O2 -Wall -MT templates.lo -MD -MP -MF .deps/templates.Tpo -c templates.c  -DDLL_EXPORT -DPIC -o .libs/templates.o
+mv -f .deps/templates.Tpo .deps/templates.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2    -g -O2 -Wall -MT variables.lo -MD -MP -MF .deps/variables.Tpo -c -o variables.lo variables.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2 -g -O2 -Wall -MT variables.lo -MD -MP -MF .deps/variables.Tpo -c variables.c  -DDLL_EXPORT -DPIC -o .libs/variables.o
+mv -f .deps/variables.Tpo .deps/variables.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2    -g -O2 -Wall -MT keys.lo -MD -MP -MF .deps/keys.Tpo -c -o keys.lo keys.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2 -g -O2 -Wall -MT keys.lo -MD -MP -MF .deps/keys.Tpo -c keys.c  -DDLL_EXPORT -DPIC -o .libs/keys.o
+mv -f .deps/keys.Tpo .deps/keys.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2    -g -O2 -Wall -MT numbers.lo -MD -MP -MF .deps/numbers.Tpo -c -o numbers.lo numbers.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2 -g -O2 -Wall -MT numbers.lo -MD -MP -MF .deps/numbers.Tpo -c numbers.c  -DDLL_EXPORT -DPIC -o .libs/numbers.o
+mv -f .deps/numbers.Tpo .deps/numbers.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2    -g -O2 -Wall -MT extensions.lo -MD -MP -MF .deps/extensions.Tpo -c -o extensions.lo extensions.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2 -g -O2 -Wall -MT extensions.lo -MD -MP -MF .deps/extensions.Tpo -c extensions.c  -DDLL_EXPORT -DPIC -o .libs/extensions.o
+extensions.c: In function ‘xsltRegisterExtModuleElement’:
+extensions.c:1625:9: warning: variable ‘ret’ set but not used [-Wunused-but-set-variable]
+     int ret;
+         ^
+mv -f .deps/extensions.Tpo .deps/extensions.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2    -g -O2 -Wall -MT extra.lo -MD -MP -MF .deps/extra.Tpo -c -o extra.lo extra.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2 -g -O2 -Wall -MT extra.lo -MD -MP -MF .deps/extra.Tpo -c extra.c  -DDLL_EXPORT -DPIC -o .libs/extra.o
+mv -f .deps/extra.Tpo .deps/extra.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2    -g -O2 -Wall -MT functions.lo -MD -MP -MF .deps/functions.Tpo -c -o functions.lo functions.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2 -g -O2 -Wall -MT functions.lo -MD -MP -MF .deps/functions.Tpo -c functions.c  -DDLL_EXPORT -DPIC -o .libs/functions.o
+mv -f .deps/functions.Tpo .deps/functions.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2    -g -O2 -Wall -MT namespaces.lo -MD -MP -MF .deps/namespaces.Tpo -c -o namespaces.lo namespaces.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2 -g -O2 -Wall -MT namespaces.lo -MD -MP -MF .deps/namespaces.Tpo -c namespaces.c  -DDLL_EXPORT -DPIC -o .libs/namespaces.o
+namespaces.c: In function ‘xsltGetSpecialNamespace’:
+namespaces.c:588:15: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+      nsPrefix = "ns";
+               ^
+mv -f .deps/namespaces.Tpo .deps/namespaces.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2    -g -O2 -Wall -MT imports.lo -MD -MP -MF .deps/imports.Tpo -c -o imports.lo imports.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2 -g -O2 -Wall -MT imports.lo -MD -MP -MF .deps/imports.Tpo -c imports.c  -DDLL_EXPORT -DPIC -o .libs/imports.o
+mv -f .deps/imports.Tpo .deps/imports.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2    -g -O2 -Wall -MT attributes.lo -MD -MP -MF .deps/attributes.Tpo -c -o attributes.lo attributes.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2 -g -O2 -Wall -MT attributes.lo -MD -MP -MF .deps/attributes.Tpo -c attributes.c  -DDLL_EXPORT -DPIC -o .libs/attributes.o
+mv -f .deps/attributes.Tpo .deps/attributes.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2    -g -O2 -Wall -MT documents.lo -MD -MP -MF .deps/documents.Tpo -c -o documents.lo documents.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2 -g -O2 -Wall -MT documents.lo -MD -MP -MF .deps/documents.Tpo -c documents.c  -DDLL_EXPORT -DPIC -o .libs/documents.o
+mv -f .deps/documents.Tpo .deps/documents.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2    -g -O2 -Wall -MT preproc.lo -MD -MP -MF .deps/preproc.Tpo -c -o preproc.lo preproc.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2 -g -O2 -Wall -MT preproc.lo -MD -MP -MF .deps/preproc.Tpo -c preproc.c  -DDLL_EXPORT -DPIC -o .libs/preproc.o
+preproc.c: In function ‘xsltElementComp’:
+preproc.c:921:37: warning: variable ‘name’ set but not used [-Wunused-but-set-variable]
+      const xmlChar *prefix = NULL, *name;
+                                     ^
+preproc.c: In function ‘xsltAttributeComp’:
+preproc.c:1041:37: warning: variable ‘name’ set but not used [-Wunused-but-set-variable]
+      const xmlChar *prefix = NULL, *name;
+                                     ^
+mv -f .deps/preproc.Tpo .deps/preproc.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2    -g -O2 -Wall -MT transform.lo -MD -MP -MF .deps/transform.Tpo -c -o transform.lo transform.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2 -g -O2 -Wall -MT transform.lo -MD -MP -MF .deps/transform.Tpo -c transform.c  -DDLL_EXPORT -DPIC -o .libs/transform.o
+transform.c: In function ‘xsltValueOf’:
+transform.c:4367:16: warning: variable ‘copy’ set but not used [-Wunused-but-set-variable]
+     xmlNodePtr copy = NULL;
+                ^
+mv -f .deps/transform.Tpo .deps/transform.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2    -g -O2 -Wall -MT security.lo -MD -MP -MF .deps/security.Tpo -c -o security.lo security.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2 -g -O2 -Wall -MT security.lo -MD -MP -MF .deps/security.Tpo -c security.c  -DDLL_EXPORT -DPIC -o .libs/security.o
+mv -f .deps/security.Tpo .deps/security.Plo
+/bin/sh ../libtool --tag=CC   --mode=link gcc  -g -O2 -Wall -no-undefined -Wl,--version-script=./libxslt.syms -version-info 2:26:1  -o libxslt.la -rpath /cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxslt/1.1.26/lib attrvt.lo xslt.lo xsltlocale.lo xsltutils.lo pattern.lo templates.lo variables.lo keys.lo numbers.lo extensions.lo extra.lo functions.lo namespaces.lo imports.lo attributes.lo documents.lo preproc.lo transform.lo security.lo -L/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/lib -lxml2 -lz -liconv -lm  
+libtool: link: gcc -shared  .libs/attrvt.o .libs/xslt.o .libs/xsltlocale.o .libs/xsltutils.o .libs/pattern.o .libs/templates.o .libs/variables.o .libs/keys.o .libs/numbers.o .libs/extensions.o .libs/extra.o .libs/functions.o .libs/namespaces.o .libs/imports.o .libs/attributes.o .libs/documents.o .libs/preproc.o .libs/transform.o .libs/security.o   -L/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/lib /cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/lib/libxml2.dll.a -L/usr/lib /usr/lib/liblzma.dll.a -lz /usr/lib/libiconv.dll.a  -Wl,--version-script=./libxslt.syms   -o .libs/cygxslt-1.dll -Wl,--enable-auto-image-base -Xlinker --out-implib -Xlinker .libs/libxslt.dll.a
+libtool: link: ( cd ".libs" && rm -f "libxslt.la" && ln -s "../libxslt.la" "libxslt.la" )
+make[2]: Leaving directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/libxslt'
+Making all in libexslt
+make[2]: Entering directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/libexslt'
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I../libexslt -I.. -I../libxslt -I../libexslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2 -g -O2 -Wall    -g -O2 -Wall -MT exslt.lo -MD -MP -MF .deps/exslt.Tpo -c -o exslt.lo exslt.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I../libexslt -I.. -I../libxslt -I../libexslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2 -g -O2 -Wall -g -O2 -Wall -MT exslt.lo -MD -MP -MF .deps/exslt.Tpo -c exslt.c  -DDLL_EXPORT -DPIC -o .libs/exslt.o
+mv -f .deps/exslt.Tpo .deps/exslt.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I../libexslt -I.. -I../libxslt -I../libexslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2 -g -O2 -Wall    -g -O2 -Wall -MT common.lo -MD -MP -MF .deps/common.Tpo -c -o common.lo common.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I../libexslt -I.. -I../libxslt -I../libexslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2 -g -O2 -Wall -g -O2 -Wall -MT common.lo -MD -MP -MF .deps/common.Tpo -c common.c  -DDLL_EXPORT -DPIC -o .libs/common.o
+mv -f .deps/common.Tpo .deps/common.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I../libexslt -I.. -I../libxslt -I../libexslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2 -g -O2 -Wall    -g -O2 -Wall -MT crypto.lo -MD -MP -MF .deps/crypto.Tpo -c -o crypto.lo crypto.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I../libexslt -I.. -I../libxslt -I../libexslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2 -g -O2 -Wall -g -O2 -Wall -MT crypto.lo -MD -MP -MF .deps/crypto.Tpo -c crypto.c  -DDLL_EXPORT -DPIC -o .libs/crypto.o
+mv -f .deps/crypto.Tpo .deps/crypto.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I../libexslt -I.. -I../libxslt -I../libexslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2 -g -O2 -Wall    -g -O2 -Wall -MT math.lo -MD -MP -MF .deps/math.Tpo -c -o math.lo math.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I../libexslt -I.. -I../libxslt -I../libexslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2 -g -O2 -Wall -g -O2 -Wall -MT math.lo -MD -MP -MF .deps/math.Tpo -c math.c  -DDLL_EXPORT -DPIC -o .libs/math.o
+mv -f .deps/math.Tpo .deps/math.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I../libexslt -I.. -I../libxslt -I../libexslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2 -g -O2 -Wall    -g -O2 -Wall -MT sets.lo -MD -MP -MF .deps/sets.Tpo -c -o sets.lo sets.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I../libexslt -I.. -I../libxslt -I../libexslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2 -g -O2 -Wall -g -O2 -Wall -MT sets.lo -MD -MP -MF .deps/sets.Tpo -c sets.c  -DDLL_EXPORT -DPIC -o .libs/sets.o
+mv -f .deps/sets.Tpo .deps/sets.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I../libexslt -I.. -I../libxslt -I../libexslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2 -g -O2 -Wall    -g -O2 -Wall -MT functions.lo -MD -MP -MF .deps/functions.Tpo -c -o functions.lo functions.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I../libexslt -I.. -I../libxslt -I../libexslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2 -g -O2 -Wall -g -O2 -Wall -MT functions.lo -MD -MP -MF .deps/functions.Tpo -c functions.c  -DDLL_EXPORT -DPIC -o .libs/functions.o
+mv -f .deps/functions.Tpo .deps/functions.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I../libexslt -I.. -I../libxslt -I../libexslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2 -g -O2 -Wall    -g -O2 -Wall -MT strings.lo -MD -MP -MF .deps/strings.Tpo -c -o strings.lo strings.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I../libexslt -I.. -I../libxslt -I../libexslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2 -g -O2 -Wall -g -O2 -Wall -MT strings.lo -MD -MP -MF .deps/strings.Tpo -c strings.c  -DDLL_EXPORT -DPIC -o .libs/strings.o
+mv -f .deps/strings.Tpo .deps/strings.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I../libexslt -I.. -I../libxslt -I../libexslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2 -g -O2 -Wall    -g -O2 -Wall -MT date.lo -MD -MP -MF .deps/date.Tpo -c -o date.lo date.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I../libexslt -I.. -I../libxslt -I../libexslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2 -g -O2 -Wall -g -O2 -Wall -MT date.lo -MD -MP -MF .deps/date.Tpo -c date.c  -DDLL_EXPORT -DPIC -o .libs/date.o
+mv -f .deps/date.Tpo .deps/date.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I../libexslt -I.. -I../libxslt -I../libexslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2 -g -O2 -Wall    -g -O2 -Wall -MT saxon.lo -MD -MP -MF .deps/saxon.Tpo -c -o saxon.lo saxon.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I../libexslt -I.. -I../libxslt -I../libexslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2 -g -O2 -Wall -g -O2 -Wall -MT saxon.lo -MD -MP -MF .deps/saxon.Tpo -c saxon.c  -DDLL_EXPORT -DPIC -o .libs/saxon.o
+mv -f .deps/saxon.Tpo .deps/saxon.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I../libexslt -I.. -I../libxslt -I../libexslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2 -g -O2 -Wall    -g -O2 -Wall -MT dynamic.lo -MD -MP -MF .deps/dynamic.Tpo -c -o dynamic.lo dynamic.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I../libexslt -I.. -I../libxslt -I../libexslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2 -g -O2 -Wall -g -O2 -Wall -MT dynamic.lo -MD -MP -MF .deps/dynamic.Tpo -c dynamic.c  -DDLL_EXPORT -DPIC -o .libs/dynamic.o
+mv -f .deps/dynamic.Tpo .deps/dynamic.Plo
+/bin/sh ../libtool --tag=CC   --mode=link gcc  -g -O2 -Wall -no-undefined -version-info 8:15:8   -o libexslt.la -rpath /cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxslt/1.1.26/lib exslt.lo common.lo crypto.lo math.lo sets.lo functions.lo strings.lo date.lo saxon.lo dynamic.lo ../libxslt/libxslt.la -L/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/lib -lxml2 -lz -liconv -lm  
+libtool: link: gcc -shared  .libs/exslt.o .libs/common.o .libs/crypto.o .libs/math.o .libs/sets.o .libs/functions.o .libs/strings.o .libs/date.o .libs/saxon.o .libs/dynamic.o   ../libxslt/.libs/libxslt.dll.a -L/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/lib -L/usr/lib /cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/lib/libxml2.dll.a /usr/lib/liblzma.dll.a -lz /usr/lib/libiconv.dll.a    -o .libs/cygexslt-0.dll -Wl,--enable-auto-image-base -Xlinker --out-implib -Xlinker .libs/libexslt.dll.a
+libtool: link: ( cd ".libs" && rm -f "libexslt.la" && ln -s "../libexslt.la" "libexslt.la" )
+make[2]: Leaving directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/libexslt'
+Making all in xsltproc
+make[2]: Entering directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/xsltproc'
+gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I../libexslt -I.. -I../libxslt -I../libexslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2 -g -O2 -Wall    -g -O2 -Wall -MT xsltproc.o -MD -MP -MF .deps/xsltproc.Tpo -c -o xsltproc.o xsltproc.c
+xsltproc.c: In function ‘main’:
+xsltproc.c:577:6: warning: pointer targets in passing argument 1 of ‘xmlCanonicPath’ differ in signedness [-Wpointer-sign]
+      output = xmlCanonicPath(argv[i]);
+      ^
+In file included from xsltproc.c:45:0:
+/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2/libxml/uri.h:87:3: note: expected ‘const xmlChar *’ but argument is of type ‘char *’
+   xmlCanonicPath  (const xmlChar *path);
+   ^
+xsltproc.c:577:13: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+      output = xmlCanonicPath(argv[i]);
+             ^
+mv -f .deps/xsltproc.Tpo .deps/xsltproc.Po
+/bin/sh ../libtool --tag=CC   --mode=link gcc  -g -O2 -Wall   -o xsltproc.exe xsltproc.o  ../libxslt/libxslt.la ../libexslt/libexslt.la -L/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/lib -lxml2 -lz -liconv -lm -L/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/lib -lxml2 -lz -liconv -lm   
+libtool: link: gcc -g -O2 -Wall -o .libs/xsltproc.exe xsltproc.o  ../libxslt/.libs/libxslt.dll.a -L/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/lib ../libexslt/.libs/libexslt.dll.a /cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/libxslt/.libs/libxslt.dll.a /cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/lib/libxml2.dll.a /usr/lib/liblzma.dll.a -lz /usr/lib/libiconv.dll.a -L/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxslt/1.1.26/lib -L/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/lib
+gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../libxslt -I../libexslt -I.. -I../libxslt -I../libexslt -I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/include/libxml2 -g -O2 -Wall    -g -O2 -Wall -MT testThreads.o -MD -MP -MF .deps/testThreads.Tpo -c -o testThreads.o testThreads.c
+mv -f .deps/testThreads.Tpo .deps/testThreads.Po
+/bin/sh ../libtool --tag=CC   --mode=link gcc  -g -O2 -Wall   -o testThreads.exe testThreads.o -lpthread ../libxslt/libxslt.la ../libexslt/libexslt.la -L/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/lib -lxml2 -lz -liconv -lm -L/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/lib -lxml2 -lz -liconv -lm   
+libtool: link: gcc -g -O2 -Wall -o .libs/testThreads.exe testThreads.o  -lpthread ../libxslt/.libs/libxslt.dll.a -L/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/lib ../libexslt/.libs/libexslt.dll.a /cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/libxslt/.libs/libxslt.dll.a /cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/lib/libxml2.dll.a /usr/lib/liblzma.dll.a -lz /usr/lib/libiconv.dll.a -L/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxslt/1.1.26/lib -L/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/lib
+make[2]: Leaving directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/xsltproc'
+Making all in doc
+make[2]: Entering directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/doc'
+make[2]: Leaving directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/doc'
+Making all in tests
+make[2]: Entering directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests'
+Making all in docs
+make[3]: Entering directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests/docs'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests/docs'
+Making all in REC1
+make[3]: Entering directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests/REC1'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests/REC1'
+Making all in REC2
+make[3]: Entering directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests/REC2'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests/REC2'
+Making all in REC
+make[3]: Entering directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests/REC'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests/REC'
+Making all in general
+make[3]: Entering directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests/general'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests/general'
+Making all in namespaces
+make[3]: Entering directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests/namespaces'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests/namespaces'
+Making all in keys
+make[3]: Entering directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests/keys'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests/keys'
+Making all in numbers
+make[3]: Entering directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests/numbers'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests/numbers'
+Making all in documents
+make[3]: Entering directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests/documents'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests/documents'
+Making all in extensions
+make[3]: Entering directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests/extensions'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests/extensions'
+Making all in reports
+make[3]: Entering directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests/reports'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests/reports'
+Making all in xmlspec
+make[3]: Entering directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests/xmlspec'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests/xmlspec'
+Making all in multiple
+make[3]: Entering directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests/multiple'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests/multiple'
+Making all in xinclude
+make[3]: Entering directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests/xinclude'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests/xinclude'
+Making all in XSLTMark
+make[3]: Entering directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests/XSLTMark'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests/XSLTMark'
+Making all in docbook
+make[3]: Entering directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests/docbook'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests/docbook'
+Making all in exslt
+make[3]: Entering directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests/exslt'
+Making all in common
+make[4]: Entering directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests/exslt/common'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests/exslt/common'
+Making all in functions
+make[4]: Entering directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests/exslt/functions'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests/exslt/functions'
+Making all in math
+make[4]: Entering directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests/exslt/math'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests/exslt/math'
+Making all in sets
+make[4]: Entering directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests/exslt/sets'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests/exslt/sets'
+Making all in strings
+make[4]: Entering directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests/exslt/strings'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests/exslt/strings'
+Making all in dynamic
+make[4]: Entering directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests/exslt/dynamic'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests/exslt/dynamic'
+Making all in date
+make[4]: Entering directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests/exslt/date'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests/exslt/date'
+make[4]: Entering directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests/exslt'
+make[4]: Nothing to be done for 'all-am'.
+make[4]: Leaving directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests/exslt'
+make[3]: Leaving directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests/exslt'
+Making all in plugins
+make[3]: Entering directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests/plugins'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests/plugins'
+make[3]: Entering directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests'
+make[3]: Nothing to be done for 'all-am'.
+make[3]: Leaving directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests'
+make[2]: Leaving directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26/tests'
+make[2]: Entering directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26'
+sed -e 's?\@XSLT_LIBDIR\@?-L/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxslt/1.1.26/lib?g' \
+    -e 's?\@XSLT_INCLUDEDIR\@?-I/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxslt/1.1.26/include?g' \
+    -e 's?\@VERSION\@?1.1.26?g' \
+    -e 's?\@XSLT_LIBS\@?-lxslt  -L/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ports/i686-pc-cygwin/libxml2/2.8.0/lib -lxml2 -lz -liconv -lm ?g' \
+       < ./xsltConf.sh.in > xsltConf.tmp \
+&& mv xsltConf.tmp xsltConf.sh
+make[2]: Leaving directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26'
+make[1]: Leaving directory '/cygdrive/c/dmponline/DMPonline_v4/vendor/ruby/1.9.1/gems/nokogiri-1.6.1/ext/nokogiri/tmp/i686-pc-cygwin/ports/libxslt/1.1.26/libxslt-1.1.26'
