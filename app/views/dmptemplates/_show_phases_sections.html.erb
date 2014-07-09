@@ -5,27 +5,28 @@
 <div class="div_left admin_left_smaller">
 	<p><%= raw phase.description %></p>
 </div>	 
-<div class="div_right admin_right_bigger">
-	<!--delete a phase button. only displays when template not published-->
-	
-	<%if phase.has_sections == true then %>
-		<%= link_to t("helpers.preview"), admin_previewphase_dmptemplate_path(phase), :class => 'btn btn-primary'%>
-	<%end%>	
-	<% if phase.latest_published_version == nil then%>
-		<%= link_to t("helpers.submit.delete"), admin_destroyphase_dmptemplate_path(:phase_id => phase.id),
-		:confirm => t("org_admin.templates.phase_delete_message", :phase_title => phase.title ), :method => :delete, :class => "btn btn-primary"%>
-	<%end%>	
-	<%if phase.dmptemplate.org_type == t("helpers.org_type.funder") && current_user.org_type != t("helpers.org_type.funder") then%>
-		<% b_label = t('org_admin.templates.view_phase_label')%>
-	<%else %>
-		<% b_label = t('org_admin.templates.edit_phase_label')%>
-	<%end%> 
-	<%= link_to b_label, admin_phase_dmptemplate_path(phase), :class => "btn btn-primary" %>
-						
-</div>
 
 <% if phase.versions.any? then %>
 	<% version = phase.versions.order('updated_at DESC').first %>
+    <div class="div_right admin_right_bigger">
+        <!--delete a phase button. only displays when template not published-->
+        
+        <%if phase.has_sections == true then %>
+            <%= link_to t("helpers.preview"), admin_previewphase_dmptemplate_path(version), :class => 'btn btn-primary'%>
+        <%end%>	
+        <% if phase.latest_published_version == nil then%>
+            <%= link_to t("helpers.submit.delete"), admin_destroyphase_dmptemplate_path(:phase_id => phase.id),
+            :confirm => t("org_admin.templates.phase_delete_message", :phase_title => phase.title ), :method => :delete, :class => "btn btn-primary"%>
+        <%end%>	
+        <%if phase.dmptemplate.org_type == t("helpers.org_type.funder") && current_user.org_type != t("helpers.org_type.funder") then%>
+            <% b_label = t('org_admin.templates.view_phase_label')%>
+        <%else %>
+            <% b_label = t('org_admin.templates.edit_phase_label')%>
+        <%end%> 
+        <%= link_to b_label, admin_phase_dmptemplate_path(phase), :class => "btn btn-primary" %>
+                            
+    </div>
+
 	<% if version.sections.any? then %>
 		<table class="dmp_table">
 			<thead>

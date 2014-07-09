@@ -169,8 +169,8 @@ class DmptemplatesController < ApplicationController
 	def admin_previewphase
 		if user_signed_in? && current_user.is_org_admin? then
 			
-			@phase = Phase.find(params[:id])
-			
+			@version = Version.find(params[:id])
+			@phase 
 			#check for the most recent published version, if none is available then return the most recent one
 			versions = @phase.versions.where('published = ?', true).order('updated_at DESC')
 			if versions.any?() then

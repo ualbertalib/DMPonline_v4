@@ -33,6 +33,7 @@ $(document).ready(function() {
 
     table.before('<input name="_method" type="hidden" value="put" />'); // PUT not POST
     table.before('<input name="authenticity_token" type="hidden" value="' + $('meta[name="csrf-token"]').attr('content') + '" />'); // Auth token
+    table.before('<p>The items you select here will be displayed in the table below. You can sort the data by each of these headings or filter by entering a text string in the search box. </p>');
 
     // Default name column
     table.before('<input type="hidden" name="columns[name]" value="1" />');

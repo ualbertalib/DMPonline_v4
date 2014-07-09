@@ -1497,10 +1497,12 @@ ul.help_ul li{
   background-color: @orange_colour;
   height: 34px;
   margin-left: 2px;
+  margin-right:2px;
   padding: 4px 2px 4px 2px;
   text-align: right;
+  border-spacing: 2px;
   vertical-align: center;
-  width: 99%;
+  
 
   form#filter_form {
     background-color: @white_colour;
@@ -1529,9 +1531,13 @@ ul.help_ul li{
     height: 100%;
     line-height: 250%;
     margin-left: @font_size / 2;
+    margin-right: 4px;
+    width:15px;
+    text-decoration: none !important;
 
-    &:hover {
+    &:hover{
       color: @white_colour !important;
+      
     }
   }
 
@@ -1540,6 +1546,12 @@ ul.help_ul li{
   a:hover {
     text-decoration: none !important;
   }
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    .dmp_toolbar{
+        margin-right:3px;
+        }
 }
 
 /* tablesorter */
