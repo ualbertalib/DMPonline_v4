@@ -29,7 +29,8 @@ module Settings
       fields: {
         admin: VALID_ADMIN_FIELDS,
         questions: :all
-      }
+      },
+      title: ""
     }
 
     validate do

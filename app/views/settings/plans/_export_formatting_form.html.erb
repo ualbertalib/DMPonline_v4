@@ -14,6 +14,20 @@
     <%= submit_tag(t('helpers.save'), class: 'btn btn-primary', "data-toggle" => "collapse", "data-target" => "#settings-accordion-plan-#{plan.version.phase.id}") %>
   </div>
   <span class="label label-inverse unsaved_changes_alert" style="display:none;"><%= t('helpers.unsaved') %></span>
+  <div id="custom-export-title">
+    <h3><%= t("helpers.settings.plan.title") %></h3>
+    <fieldset>
+      <ol>
+        <li>
+          <%= label_tag("export[title]", t("helpers.settings.plan.title")) %>
+          <div class="move_2_right">
+            <%= text_field_tag("export[title]", plan.title) %>
+          </div>
+        </li>
+      </ol>
+    </fieldset>
+    <div class="div_clear"></div>
+  </div>
   <h3><%= t('helpers.settings.plans.included_elements') %></h3>
   <div class="div_clear"> </div>
   <fieldset class="check_select">
