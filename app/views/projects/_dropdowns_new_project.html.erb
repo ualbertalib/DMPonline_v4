@@ -16,13 +16,12 @@
 						<div id="other-funder-link" class="move_2_right">
 							<a href='#' id="no-funder"><%= t('helpers.project.not_applicable')%></a>
 						</div>
-						<div id="other-funder-clear" class="div_clear" style="display:none;"></div>
-						<div id="other-funder-name" class="move_2_right" style="display:none;">
-							<%= f.input :funder_name, :as => :string, :placeholder => t('helpers.project.funder_name') %>
-						</div>
 						<div class="create_project_question_descriptions">
 							<%= t('helpers.project.create_page.funders_question_description')%>
 						</div>
+					</div>
+					<div id="other-funder-name" class="controls" style="display:none;">
+						<%= f.input :funder_name, :as => :string, :placeholder => t('helpers.project.funder_name'), :label => t('helpers.project.create_page.other_funder_name_label') %>
 					</div>
 				</div>
 				<div class="control-group" id="institution-control-group">
