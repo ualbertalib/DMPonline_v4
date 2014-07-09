@@ -185,6 +185,7 @@ en:
       add_phase_label: "Add new phase +"
       view_phase_label: "View phase"
       edit_phase_label: "Edit phase"
+      back_to_edit_phase_label: "Back to edit view"
       edit_phase_details_label: "Edit phase details"
       phase_details_label: "Phase details"
       phase_order_label: "Order of display"

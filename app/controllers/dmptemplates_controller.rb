@@ -170,14 +170,7 @@ class DmptemplatesController < ApplicationController
 		if user_signed_in? && current_user.is_org_admin? then
 			
 			@version = Version.find(params[:id])
-			@phase 
-			#check for the most recent published version, if none is available then return the most recent one
-			versions = @phase.versions.where('published = ?', true).order('updated_at DESC')
-			if versions.any?() then
-				@version = versions.first
-			else
-				@version = @phase.versions.order('updated_at DESC').first
-			end
+			
 				
 			respond_to do |format|
 				format.html

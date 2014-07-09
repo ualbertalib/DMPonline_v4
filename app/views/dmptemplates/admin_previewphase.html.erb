@@ -2,9 +2,12 @@
 <%= stylesheet_link_tag "admin" %>
 
 <h1>
-	<%= @phase.dmptemplate.title %>
+	<%= @version.phase.dmptemplate.title %>
 	<!-- link button to add new guidance -->
 	<div class="move_2_right">
+        <%= link_to t("org_admin.templates.back_to_edit_phase_label"),
+		           admin_phase_dmptemplate_path(:id => @version.phase_id, :version_id => @version.id, :edit => "true"),
+		            :class => 'btn btn-primary' %>
 		<%= link_to t("org_admin.templates.view_all_templates"),
 		            admin_index_dmptemplate_path,
 		            :class => 'btn btn-primary' %>
@@ -14,7 +17,7 @@
 <div class="div_clear"></div>
 
 <!-- render navigation tabs for the template-->
-<%= render :partial => "admin_nav_tabs", locals: {dmptemplate: @phase.dmptemplate, active: @phase.id} %>
+<%= render :partial => "admin_nav_tabs", locals: {dmptemplate: @version.phase.dmptemplate, active: @version.phase_id} %>
 
 <!-- phase main container -->
 <div class="project-tabs-body">
