@@ -353,13 +353,13 @@ Select what format you wish to use and click to 'Export'.</p>"
     There is a growing call for researchers to prepare data management plans. The University of Alberta has adopted a <a href='https://policiesonline.ualberta.ca/PoliciesProcedures/Procedures/Research-Records-Stewardship-Guidance-Procedure.pdf' target='_blank'>research records stewardship policy</a>, which describes how research data and associated records should be managed and preserved. It is also becoming more common for funding agencies to ask for data management plans (DMP) as part of grant requirements.
     </p>
     <p>
-    The University of Alberta Libraries has provided this DMP building tool (DMP Builder) to help researchers with  data management planning process. This tool is powered by DMPOnline, which is produced by the <a href='http://www.dcc.ac.uk/' target='_blank'>Digital Curation Centre</a> in the UK.  All data is locally hosted here at the University of Alberta.  See our <a href='/terms'>terms of use</a> for more information. 
+    The University of Alberta Libraries has provided this tool for data management plans (DMP Builder) to help researchers with  data management planning process. This tool is powered by DMPOnline, which is produced by the <a href='http://www.dcc.ac.uk/' target='_blank'>Digital Curation Centre</a> in the UK.  All data is locally hosted here at the University of Alberta.  See our <a href='/terms'>terms of use</a> for more information. 
     </p>
     </div>
     <h3>How the tool works</h3>
     <div class='white_background'>
     <p>Currently, this tool includes a generic University of Alberta DMP template for researchers to use.  Guidance is provided to help you interpret and answer the questions.</p>
-    <p>We want your feedback! If you have suggestions on how to improve the existing template, or you would like to add additional templates based on funding agency requirements or disciplinary needs, please contact us at <a href='mailto:data@ualberta.ca?Subject=DMPTool%20feedback'>data@ualberta.ca</a>.
+    <p>We want your feedback! If you have suggestions on how to improve the existing template, or you would like to add additional templates based on funding agency requirements or disciplinary needs, please contact us at <a href='mailto:data@ualberta.ca?Subject=DMP%20Builder%20feedback'>data@ualberta.ca</a>.
     </p>
     </div>
     <h3>Getting Started</h3>
@@ -372,7 +372,7 @@ Select what format you wish to use and click to 'Export'.</p>"
     </div>
     <h3>Feedback</h3>
     <div class='white_background'>
-    <p>If you have any questions or comments about the DMP Tool, email us at <a href='mailto:data@ualberta.ca?Subject=DMPTool%20feedback'>data@ualberta.ca</a>.</p>
+    <p>If you have any questions or comments about the DMP Builder, email us at <a href='mailto:data@ualberta.ca?Subject=DMP%20Builder%20feedback'>data@ualberta.ca</a>.</p>
     </div>"
     
     
@@ -380,7 +380,7 @@ Select what format you wish to use and click to 'Export'.</p>"
     title: "Help"
     tab_1: "On DMPonline"
     tab_2: "On data management planning"
-    body_text_tab_2_html: "<p>The University of Alberta Libraries <a href='http://guides.library.ualberta.ca/researchdata'>research data management guide</a> can provide additional guidance on data management planning. If you require more guidance, email <a href='mailto:data@ualberta.ca?Subject=DMPTool%20help'>data@ualberta.ca</a>.</p>"
+    body_text_tab_2_html: "<p>The University of Alberta Libraries <a href='http://guides.library.ualberta.ca/researchdata'>research data management guide</a> can provide additional guidance on data management planning. If you require more guidance, email <a href='mailto:data@ualberta.ca?Subject=DMP%20Builder%20help'>data@ualberta.ca</a>.</p>"
 
 
     body_text_tab_1_html: "<p>When you login to DMPonline you will be directed to the 'My plans' page. From here you can edit, share, export or delete any of your plans. You will also see plans that have been shared with you by others.</p>
