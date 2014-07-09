@@ -26,7 +26,36 @@ $(document).ready(function() {
     $(".unsaved_changes_alert").show();
   });
 
+  $("select:not(#format)").change(function(){
+    $(".unsaved_changes_alert").show();
+  });
+
   $('.check_select > legend').append('<input type="checkbox" class="toggle" />');
+
+  $('.btn-primary[value="Reset"]').click(function(){
+    $('input:checkbox').prop('checked',true);
+    $("select:not(#format)").each(function(){
+      $(this).val($(this).data("default"));
+    });
+    $(".unsaved_changes_alert").hide();
+    $("#settings-toggle > small").text("(Using template PDF formatting values)");
+  });
+
+  $('.btn-primary[value="Save"]').click(function(){
+    var custom = false;
+    $("select:not(#format)").each(function(){
+      if ($(this).val() != $(this).data("default")) {
+        custom = true;
+      }
+    });
+    if (custom) {
+      $("#settings-toggle > small").text("(Using custom PDF formatting values)");
+    }
+    else {
+      $("#settings-toggle > small").text("(Using template PDF formatting values)");
+    }
+    $(".unsaved_changes_alert").hide();
+  });
 
   $('.check_select').each(function() {
     var container = $(this),
