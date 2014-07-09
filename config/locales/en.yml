@@ -359,31 +359,31 @@ Select what format you wish to use and click to 'Export'.</p>"
     <h3>How the tool works</h3>
     <div class='white_background'>
     <p>Currently, this tool includes a generic University of Alberta DMP template for researchers to use.  Guidance is provided to help you interpret and answer the questions.</p>
-    <p>We want your feedback! If you have suggestions on how to improve the existing template, or you would like to add additional templates based on funding agency requirements or disciplinary needs, please contact us at <a href='mailto:data@ualberta.ca?Subject=DMPTool%20feedback'>data@ualberta.ca</a>.
+    <p>We want your feedback! If you have suggestions on how to improve the existing template, or you would like to add additional templates based on funding agency requirements or disciplinary needs, please contact us at <a href='mailto:data@ualberta.ca?Subject=DMP%20Builde%20Builderr%20feedback'>data@ualberta.ca</a>.
     </p>
     </div>
     <h3>Getting Started</h3>
     <div class='white_background'>
     
     <p>If you have an account, please sign in and start creating or editing your DMP.</p>
-    <p>If you do not have a DMPonline account, click on <a href='/'>'Sign up'</a> on the homepage.</p>
+    <p>If you do not have a DMP Builder account, click on <a href='/'>'Sign up'</a> on the homepage.</p>
     <p>Please note that we are currently working on CCID authentication. You will have the option to link your existing account to your CCID when that feature becomes available.</p>
     <p>Please visit the <a href='/help'>'Help'</a> page for guidance.</p>
     </div>
     <h3>Feedback</h3>
     <div class='white_background'>
-    <p>If you have any questions or comments about the DMP Tool, email us at <a href='mailto:data@ualberta.ca?Subject=DMPTool%20feedback'>data@ualberta.ca</a>.</p>
+    <p>If you have any questions or comments about the DMP Builder, email us at <a href='mailto:data@ualberta.ca?Subject=DMP%20Builder%20feedback'>data@ualberta.ca</a>.</p>
     </div>"
     
     
   help_page:
     title: "Help"
-    tab_1: "On DMPonline"
+    tab_1: "On DMP Builder"
     tab_2: "On data management planning"
-    body_text_tab_2_html: "<p>The University of Alberta Libraries <a href='http://guides.library.ualberta.ca/researchdata'>research data management guide</a> can provide additional guidance on data management planning. If you require more guidance, email <a href='mailto:data@ualberta.ca?Subject=DMPTool%20help'>data@ualberta.ca</a>.</p>"
+    body_text_tab_2_html: "<p>The University of Alberta Libraries <a href='http://guides.library.ualberta.ca/researchdata'>research data management guide</a> can provide additional guidance on data management planning. If you require more guidance, email <a href='mailto:data@ualberta.ca?Subject=DMP%20Builder%20help'>data@ualberta.ca</a>.</p>"
 
 
-    body_text_tab_1_html: "<p>When you login to DMPonline you will be directed to the 'My plans' page. From here you can edit, share, export or delete any of your plans. You will also see plans that have been shared with you by others.</p>
+    body_text_tab_1_html: "<p>When you login to DMP Builder you will be directed to the 'My plans' page. From here you can edit, share, export or delete any of your plans. You will also see plans that have been shared with you by others.</p>
     <h3>Create a plan</h3>
     <p>To create a plan, click the 'Create plan' button from the 'My plans' page or  the top menu. Select options from the drop-down menus and tickboxes to determine what questions and guidance you should be presented with. Confirm your selection by clicking 'Yes, create plan'</p>
     <h3>Write your plan</h3>
@@ -401,21 +401,12 @@ Select what format you wish to use and click to 'Export'.</p>"
     <p>Insert the email address of any collaborators you would like to invite to read or edit your plan. Set the level of permissions you would like to grant them via the drop-down options and click to 'Add collaborator'</p>
     <p>If desired, you can leave a note to explain what you would like collaborators to look at. You can remove access or update the level of permissions granted at any time.</p>
     <h3>Export plans</h3>
-    <p>From here you can download your plan in various formats. This may be useful if you need to submit your plan as part of a grant application. Choose what format you would like to view/download your plan in and click to export. When you login to DMPonline you will be directed to the 'My plans' page. From here you can edit, share, export or delete any of your plans. You will also see plans that have been shared with you by others.</p>"
+    <p>From here you can download your plan in various formats. This may be useful if you need to submit your plan as part of a grant application. Choose what format you would like to view/download your plan in and click to export. When you login to DMP Builder you will be directed to the 'My plans' page. From here you can edit, share, export or delete any of your plans. You will also see plans that have been shared with you by others.</p>"
 
   contact_page:
     title: "Contact us"
-    intro_text_html: "<p>DMPonline is provided by the Digital Curation Centre. You can find out more about us on our <a href='http://www.dcc.ac.uk/' target='_blank'>website</a>. If you would like to contact us about DMPonline, please insert your query into the webform below or email <a href='mailto:dmponline@dcc.ac.uk?Subject=DMPonline%20inquiry' target='_top'>dmponline@dcc.ac.uk</a>.</p>"
-    address_text_html: "<ul>
-      <li>Digital Curation Centre</li>
-      <li>Level 7, Appleton Tower</li>
-      <li>Crichton Street</li>
-      <li>Edinburgh</li>
-      <li>EH8 9LE</li>
-      <li>UK</li>
-     </ul>
-     <p>Tel. +44 (0) 131 651 1239</p>
-     <p>Email <a href='mailto:dmponline@dcc.ac.uk?Subject=DMPonline%20inquiry' target='_top'>dmponline@dcc.ac.uk</a></p>"
+    intro_text_html: "<p>DMP Builder is provided by the University of Alberta Libraries. You can find out more about us on our <a href='http://library.ualberta.ca/researchdata/' target='_blank'>Research Data Management page</a>. If you would like to contact us about DMP Builder, please insert your query into the webform below or email <a href='mailto:data@ualberta.ca?Subject=DMP%20Builder%20inquiry' target='_top'>data@ualberta.ca</a>.</p>
+     <p><a href='http://library.ualberta.ca/askus/' target='_blank'>Contact Us</a></p>"
   
   terms_page:
     title: "Licensing and terms of use"
@@ -424,14 +415,14 @@ Select what format you wish to use and click to 'Export'.</p>"
     <div class='white_background'>
     <p>The University of Alberta Libraries' DMP Builder is powered by an open source application called <a href='https://dmponline.dcc.ac.uk'>DMPOnline</a>, which is developed by the Digital Curation Centre (DCC) and shared under an <a href='http://www.gnu.org/licenses/agpl-3.0.html'>AGPL license.</a></p>
 
-    <p>To the extent possible under law, University of Alberta Libraries has waived all copyright and related or neighboring rights to the DMPT website content and data management planning templates (but not the plans themselves) under a <a href='http://creativecommons.org/publicdomain/zero/1.0/'>Creative Commons Zero License.</a></p>
+    <p>To the extent possible under law, University of Alberta Libraries has waived all copyright and related or neighboring rights to the DMP Builder website content and data management planning templates (but not the plans themselves) under a <a href='http://creativecommons.org/publicdomain/zero/1.0/'>Creative Commons Zero License.</a></p>
 
     <p><a href='http://creativecommons.org/publicdomain/zero/1.0/'><img src='http://i.creativecommons.org/p/zero/1.0/88x31.png' alt='CC0' /></a></p>
     </div>
 
     <h3>Your personal information</h3>
     <div class='white_background'>
-      <p>The University of Alberta Libraries hosts the DMPT and stores your data management plans on your behalf, but the plans are your property and responsibility. Information stored by the DMPT is governed by the University of Alberta Libraries <a href='http://www.library.ualberta.ca/privacy/'>website privacy policy</a>.</p>
+      <p>The University of Alberta Libraries hosts the DMP Builder and stores your data management plans on your behalf, but the plans are your property and responsibility. Information stored by the DMP Builder is governed by the University of Alberta Libraries <a href='http://www.library.ualberta.ca/privacy/'>website privacy policy</a>.</p>
     </div>
 
     <h3>Passwords</h3>
