@@ -6,7 +6,6 @@ ActiveAdmin.register User do
 	filter :surname
 	filter :email
 	filter :organisations
-	filter :role_ids
 	filter :dmponline3
 	filter :created_at
 	filter :updated_at
@@ -98,6 +97,7 @@ ActiveAdmin.register User do
   			f.input :role_ids, :label => "User role",
   							:as => :select, 
   							:multiple => true,
+                            :include_blank => 'None',
   							:collection => Role.find(:all, :order => 'name ASC').map{|ro| [ro.name, ro.id]}
   									
     end
