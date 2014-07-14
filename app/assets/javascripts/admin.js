@@ -354,7 +354,6 @@ $( document ).ready(function() {
         if ($('#g_options').val() == '2') {
             if ($('#questions_select').val() == '' || isNaN($('#questions_select').val())){
                 alert_message.push("select a question");
-                
             }
         }
         //verify dropdown with questions has a selected option if guidance for a question being used 
@@ -366,22 +365,16 @@ $( document ).ready(function() {
         //verify if guidance group is selected 
         if ( ($('#guidance_guidance_group_ids').val() == '') || isNaN($('#guidance_guidance_group_ids').val()) ) {
             alert_message.push("select a guidance group");
-            
         }
         
         if(alert_message.length == 0){
             //clear dropdowns before submission
             $('#edit_guidance_alert_dialog').modal("hide");
            
-            if ($('#g_options').val() == '2'){
-                $('#guidance_theme_ids').val(null);
-            }
-            if($('#g_options').val() == '1'){
-                $('#questions_select').val(null);
-            }
+            if ($('#g_options').val() == '2'){ $('#guidance_theme_ids').val(null);}
+            if($('#g_options').val() == '1'){$('#questions_select').val(null);}
             $('#edit_guidance_form').submit();
            return false;
-         
         }
         else if (alert_message.length != 0){
             var message = '';

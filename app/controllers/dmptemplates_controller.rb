@@ -38,7 +38,7 @@ class DmptemplatesController < ApplicationController
   # PUT /dmptemplates/1
   # PUT /dmptemplates/1.json
   def admin_update
- 		if user_signed_in? && current_user.is_org_admin? then
+ 	if user_signed_in? && current_user.is_org_admin? then
    		@dmptemplate = Dmptemplate.find(params[:id])
    		@dmptemplate.description = params["template-desc"]
 
@@ -53,7 +53,7 @@ class DmptemplatesController < ApplicationController
 	  	end
   	else
 			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
-		end
+	end
   end
 
 
