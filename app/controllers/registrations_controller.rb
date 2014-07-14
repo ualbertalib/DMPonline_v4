@@ -35,12 +35,12 @@ class RegistrationsController < Devise::RegistrationsController
     end
   end
 
- 
+
  def update
  	if user_signed_in? then
 		@user = User.find(current_user.id)
-        
-        do_update  
+
+        do_update
     else
     	render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
     end
@@ -55,46 +55,42 @@ class RegistrationsController < Devise::RegistrationsController
     user.email != params[:user][:email] ||
       params[:user][:password].present?
   end
-  
+
   def do_update(require_password = true, confirm = false)
-  	
-	if require_password then
-		successfully_updated = if needs_password?(@user, params)
-        @user.update_with_password(params[:user])
-        else
-            # remove the virtual current_password attribute update_without_password
-            # doesn't know how to ignore it
-            params[:user].delete(:current_password)
-            @user.update_without_password(params[:user])
-        end
+
+	  if require_password then
+		  successfully_updated = if needs_password?(@user, params)
+      @user.update_with_password(params[:user])
+      else
+        # remove the virtual current_password attribute update_without_password
+        # doesn't know how to ignore it
+        params[:user].delete(:current_password)
+        @user.update_without_password(params[:user])
+      end
     else
     	@user.update_attributes(:password => params[:user][:password], :password_confirmation => params[:user][:password_confirmation])
     	successfully_updated = @user.update_without_password(params[:user])
     end
-    
+
     #unlink shibboleth from user's details
     if params[:unlink_flag] == 'true' then
-        @user.update_attributes(:shibboleth_id => "") 
+      @user.update_attributes(:shibboleth_id => "")
     end
 
     if successfully_updated
-		if confirm then
-			@user.skip_confirmation!
-			@user.save!
-		end
-        set_flash_message :notice, :updated
-        # Sign in the user bypassing validation in case his password changed
-        sign_in @user, :bypass => true
+  		if confirm then
+  			@user.skip_confirmation!
+  			@user.save!
+  		end
+      set_flash_message :notice, :updated
+      # Sign in the user bypassing validation in case his password changed
+      sign_in @user, :bypass => true
 
-        if params[:unlink_flag] == 'true' then
-            redirect_to edit_user_registration_path
-        else
-            redirect_to({:controller => "projects", :action => "index"}, {:notice => "Details successfully updated."})
-        end
-      
+      redirect_to({:controller => "registrations", :action => "edit"}, {:notice => "Details successfully updated."})
+
     else
       render "edit"
     end
   end
 
-end 
+end
