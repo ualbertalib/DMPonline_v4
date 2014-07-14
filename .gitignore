@@ -65,3 +65,6 @@ config/initializers/contact_us.rb
 config/environments/*.rb
 
 config/environments/development.rb
+config/environments/development.rb
+config/environments/development.rb
+db/schema.rb
