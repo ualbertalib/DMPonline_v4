@@ -140,7 +140,11 @@ class Plan < ActiveRecord::Base
 	end
 
 	def readable_by(user_id)
-		return project.readable_by(user_id)
+		if project.nil?
+			return false
+		else
+			return project.readable_by(user_id)
+		end
 	end
 
 	def administerable_by(user_id)
