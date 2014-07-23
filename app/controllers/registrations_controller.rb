@@ -82,11 +82,15 @@ class RegistrationsController < Devise::RegistrationsController
   			@user.skip_confirmation!
   			@user.save!
   		end
-      set_flash_message :notice, :updated
-      # Sign in the user bypassing validation in case his password changed
-      sign_in @user, :bypass => true
-
-      redirect_to({:controller => "registrations", :action => "edit"}, {:notice => "Details successfully updated."})
+        set_flash_message :notice, :updated
+        # Sign in the user bypassing validation in case his password changed
+        sign_in @user, :bypass => true
+        
+        if params[:unlink_flag] == 'true' then
+            redirect_to({:controller => "registrations", :action => "edit"}, {:notice => "Details successfully updated."})
+        else
+            redirect_to({:controller => "projects", :action => "index"}, {:notice => "Details successfully updated."})
+        end
 
     else
       render "edit"
