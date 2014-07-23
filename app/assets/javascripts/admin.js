@@ -405,9 +405,10 @@ function remove_object(link){
 
 
 function add_object(link, association, content) {
-	  var new_id = new Date().getTime();
-	  var regexp = new RegExp("new_" + association, "g")
-	  if (association == 'options') {
-		  $(link).parent().children('.options_table').children('.options_tbody').children('.new_option_before').before(content.replace(regexp, new_id));
-	  }
+    var new_id = new Date().getTime();
+    var regexp = new RegExp("new_" + association, "g")
+
+    if (association == 'options') {
+        $(link).parent().children('.options_table').children('.options_tbody').children('.new_option_before').before(content.replace(regexp, new_id));
+    }
 }
