@@ -293,14 +293,15 @@ $( document ).ready(function() {
                 
             }
         }
+
         //verify dropdown with questions has a selected option if guidance for a question being used 
         if ($('#g_options').val() == '1' ){
-            if(isNaN($('#guidance_theme_ids').val()) || $('#guidance_theme_ids').val() == null){
+            if($('#guidance_theme_ids').val() == undefined || $('#guidance_theme_ids').val() == ''){
                 alert_message.push("select at least one theme");
             }
         }
         //verify if guidance group is selected 
-        if ( ($('#guidance_guidance_group_ids').val() == '') || isNaN($('#guidance_guidance_group_ids').val()) ) {
+        if ( ($('#guidance_guidance_group_ids').val() == '') || $('#guidance_guidance_group_ids').val() == undefined ) {
             alert_message.push("select a guidance group");
             
         }
@@ -358,12 +359,12 @@ $( document ).ready(function() {
         }
         //verify dropdown with questions has a selected option if guidance for a question being used 
         if ($('#g_options').val() == '1' ){
-            if(isNaN($('#guidance_theme_ids').val()) || $('#guidance_theme_ids').val() == null){
+            if($('#guidance_theme_ids').val() == undefined || $('#guidance_theme_ids').val() == ''){
                 alert_message.push("select at least one theme");
             }
         }
         //verify if guidance group is selected 
-        if ( ($('#guidance_guidance_group_ids').val() == '') || isNaN($('#guidance_guidance_group_ids').val()) ) {
+        if ( ($('#guidance_guidance_group_ids').val() == '') || $('#guidance_guidance_group_ids').val() == undefined  ) {
             alert_message.push("select a guidance group");
         }
         
