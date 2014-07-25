@@ -178,18 +178,18 @@ class PlansController < ApplicationController
 			file_name = @exported_plan.project_name
 
 			respond_to do |format|
-			  format.html
-			  format.xml
-			  format.json
-			  format.csv  { send_data @exported_plan.as_csv, filename: "#{file_name}.csv" }
-			  format.text { send_data @exported_plan.as_txt, filename: "#{file_name}.txt" }
+                format.html
+                format.xml
+                format.json
+                format.csv  { send_data @exported_plan.as_csv, filename: "#{file_name}.csv" }
+                format.text { send_data @exported_plan.as_txt, filename: "#{file_name}.txt" }
 				format.docx do
 					file = Htmltoword::Document.create @exported_plan.html_for_docx, file_name
 					send_file file.path, :disposition => "attachment"
 				end
-			  format.pdf do
-			  	@formatting = @plan.settings(:export).formatting
-			  	render pdf: file_name,
+                format.pdf do
+                    @formatting = @plan.settings(:export).formatting
+                    render pdf: file_name,
 			  	            margin: @formatting[:margin],
 			  	            footer: {
 			  	              center:    t('helpers.plan.export.pdf.generated_by'),
