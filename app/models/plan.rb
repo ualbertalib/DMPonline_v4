@@ -2,6 +2,12 @@ class Plan < ActiveRecord::Base
 
 	attr_accessible :locked, :project_id, :version_id, :version, :plan_sections
 
+	A4_PAGE_HEIGHT = 297 #(in mm)
+	A4_PAGE_WIDTH = 210 #(in mm)
+	ROUNDING = 5 #round estimate up to nearest 5%
+	FONT_HEIGHT_CONVERSION_FACTOR = 0.35278 #convert font point size to mm
+	FONT_WIDTH_HEIGHT_RATIO = 0.4 #Assume glyph width averages 2/5 the height
+
 	#associations between tables
 	belongs_to :project
 	has_many :answers
@@ -188,6 +194,7 @@ class Plan < ActiveRecord::Base
 					}
 					status["num_answers"] += 1 if q.multiple_choice? || answer.text.present?
 					section_answers += 1
+					#TODO: include selected options in space estimate
 				else
 					status["questions"][q.id] = {
 						"answer_id" => nil,
@@ -352,11 +359,11 @@ private
 		return 0 unless @formatting[:font_size] > 0
 
 		margin_height    = @formatting[:margin][:top].to_i + @formatting[:margin][:bottom].to_i
-		page_height      = 297 - margin_height # 297mm for A4 portrait
+		page_height      = A4_PAGE_HEIGHT - margin_height # 297mm for A4 portrait
 		available_height = page_height * self.dmptemplate.settings(:export).max_pages
 
 		percentage = (used_height / available_height) * 100
-		(percentage / 5).ceil * 5 # round up to nearest five
+		(percentage / ROUNDING).ceil * ROUNDING # round up to nearest five
 	end
 
 	# Take a guess at the vertical height (in mm) of the given text based on the
@@ -373,11 +380,11 @@ private
 
 		return 0 unless @base_font_size > 0
 
-		font_height = 0.35278 * (@base_font_size + font_size_inc)
-		font_width  = font_height * (2 / 5.0) # Assume glyph width averages at 2/5s the height
+		font_height = FONT_HEIGHT_CONVERSION_FACTOR * (@base_font_size + font_size_inc)
+		font_width  = font_height * FONT_WIDTH_HEIGHT_RATIO # Assume glyph width averages at 2/5s the height
 		leading     = font_height / 2
 
-		chars_in_line = (210 - @margin_width) / font_width # 210mm for A4 portrait
+		chars_in_line = (A4_PAGE_WIDTH - @margin_width) / font_width # 210mm for A4 portrait
 		num_lines = (text.length / chars_in_line).ceil
 
 		(num_lines * font_height) + vertical_margin + leading
