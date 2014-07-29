@@ -7,4 +7,5 @@ plugins:
   - link
 target_list: false 
 autoresize_min_height: 130
-extended_valid_elements : "iframe[tooltip] , a[href|target=_blank]"
+extended_valid_elements: "iframe[tooltip] , a[href|target=_blank]"
+extended_valid_elements: "a[href|target=_blank]"
