@@ -14,7 +14,7 @@ DMPonline4::Application.routes.draw do
   # just remember to delete public/index.html.
   root :to => 'home#index'
 
-	ActiveAdmin.routes(self)
+  ActiveAdmin.routes(self)
   
   get "about_us" => 'static_pages#about_us', :as => "about_us"
   get "help" => 'static_pages#help', :as => "help"
@@ -101,6 +101,7 @@ DMPonline4::Application.routes.draw do
   resources :sections
   resources :questions
   resources :question_themes
+
   
   resources :themes
   
