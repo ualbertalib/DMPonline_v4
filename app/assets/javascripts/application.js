@@ -100,10 +100,19 @@ $( document ).ready(function() {
 		var index = $.inArray(selected_org, other_orgs);
 		if (index > -1) {
 			$("#other-organisation-name").show();
+			$("#user_other_organisation").focus();
 		}
 		else {
 			$("#other-organisation-name").hide();
 		}
+	});
+
+	$("#other-org-link > a").click(function(e){
+		e.preventDefault();
+		var other_org = $("#other-organisation-name").attr("data-orgs").split(",");
+		$("#user_organisation_id").select2("val", other_org);
+		$("#other-org-link").hide();
+		$("#user_organisation_id").change();
 	});
 	
 	/*$('#continue-to-new').click(function(e){
@@ -118,7 +127,7 @@ $( document ).ready(function() {
 });
 
 function validateEmail(sEmail) {
-  var filter = /^[a-zA-Z0-9]+[a-zA-Z0-9_.-]+[a-zA-Z0-9_-]+@[a-zA-Z0-9]+[a-zA-Z0-9.-]+[a-zA-Z0-9]+.[a-z]{2,4}$/;
+  var filter = /^[a-zA-Z0-9]+[a-zA-Z0-9_.-]+[a-zA-Z0-9_-]*@[a-zA-Z0-9]+[a-zA-Z0-9.-]+[a-zA-Z0-9]+.[a-z]{2,4}$/;
   if (filter.test(sEmail)) {
     return true;
   }

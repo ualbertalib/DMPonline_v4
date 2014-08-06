@@ -33,7 +33,7 @@ en:
   dmponline3_text: "DMP Builder previous version" 
   dcc_name: "Digital Curation Centre"
   welcome_title: "Welcome."
-  welcome_text: "<p>The DMP Builder is provided by the University of Alberta Libraries to help you write data management plans.</p>"
+  welcome_text: "<p>DMP Builder is provided by the University of Alberta Libraries to help you write data management plans.</p>"
   welcome_links: "<p><a href='http://guides.library.ualberta.ca/content.php?pid=524929&sid=4318282' target='_blank'>Learn about Data Management Plans</a><br/><a href='https://dataverse.library.ualberta.ca' target='_blank'>Looking to share your research data?</a><br/><a href='http://library.ualberta.ca/researchdata' target='_blank'>Find out more about the Libraries\' research data services</a></p>"
   ccid_message: "Please note that we are currently working on CCID authentication.  Please create a new DMP Builder account.  You will have the option to link your existing account to your CCID when that feature becomes available."
   
@@ -195,6 +195,7 @@ en:
         
     user_name: "Email address"
     email: "Email"
+    org_not_listed: "My organization is not listed."
     valid_email: "You must enter a valid email address."
     user_details_text_html: "<p>Please note that your email address is used as your username. If you change this, remember to use your new email address on sign in.</p>"
     user_details_paragraph_html: "You can edit any of the details below."

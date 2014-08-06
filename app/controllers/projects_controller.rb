@@ -49,7 +49,7 @@ class ProjectsController < ApplicationController
 			@project = Project.new
 			@project.organisation = current_user.organisation
 			@funders = orgs_of_type(t('helpers.org_type.funder'), true)
-			@institutions = orgs_of_type(t('helpers.org_type.institution'))
+			@institutions = orgs_of_type(t('helpers.org_type.institution')) + orgs_of_type(t('helpers.org_type.organisation'))
 			respond_to do |format|
 			  format.html # new.html.erb
 			  format.json { render json: @project }
