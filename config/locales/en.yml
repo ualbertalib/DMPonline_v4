@@ -345,7 +345,7 @@ en:
     sign_up_shibboleth_alert_text_html: "Note: If you have previously created an account in DMPonline, and you want to link this to your institutional credentials, you need to <a href='/' class='a_orange'>Sign in</a> to that existing DMPonline account first. If you have never created a DMPonline account, then please complete the form below."
     shibboleth_linked_text: "Your account is linked to your institutional credentials."
     shibboleth_to_link_text: "Link your DMPonline account to your institutional credentials"
-    shibboleth_unlink_lable: "Unlink your institutional credentials"
+    shibboleth_unlink_label: "Unlink your institutional credentials"
     shibboleth_unlink_alert: "Unlink institutional credentials alert"
     shibboleth_unlink_dialog_text: "<p>You are about to unlink DMPonline of your institutional credentials, would you like to continue?</p>"
 
@@ -364,6 +364,7 @@ en:
     notanswered: "Not answered yet"
     noquestionanswered: "No questions have been answered"
     guidance: "Guidance"
+    policy_expectations: "Policy Expectations"
     export: "Export"
 
 
@@ -571,7 +572,7 @@ Select what format you wish to use and click to 'Export'.</p>"
   A DMP submitted by a researcher from the University of Bristol, also including comments from the reviewers
       </li>
       <li>
-        <a target='_blank' href='/webfm_send/1392'>Two social science DMPs</a> [PDF, 7 pages]<br />
+        <a target='_blank' href='http://www.dcc.ac.uk/sites/default/files/documents/adocs/Leeds-RoaDMaP-DMPs.pdf'>Two social science DMPs</a> [PDF, 7 pages]<br />
   Example plans from researchers at the University of Leeds, shared as part of the Leeds RoaDMaP training materials
       </li>
       <li>
@@ -583,7 +584,7 @@ Select what format you wish to use and click to 'Export'.</p>"
   Example DMP produced by the DATUM for Health RDM training project
       </li>
       <li>
-        <a target='_blank' href='/webfm_send/1393'>Psychology DMP</a> [PDF, 11 pages]<br />
+        <a target='_blank' href='http://www.dcc.ac.uk/sites/default/files/documents/adocs/DMTpsych-example-DMP.pdf'>Psychology DMP</a> [PDF, 11 pages]<br />
   A very detailed, fictional psychology DMP produced by the DMTpsych RDM training project, based on a seminal psychology experiment
       </li>
       <li>

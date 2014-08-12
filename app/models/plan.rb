@@ -110,7 +110,7 @@ class Plan < ActiveRecord::Base
 	end
 
 	def add_guidance_to_array(guidance_array, guidance_group, theme, guidance)
-		logger.debug("Adding guidance to array: #{guidance_array}")
+		
 		if guidance_array[guidance_group].nil? then
 			guidance_array[guidance_group] = {}
 		end
@@ -129,8 +129,8 @@ class Plan < ActiveRecord::Base
 				guidance_array[guidance_group][theme].push(guidance)
 			end
 		end
-		logger.debug("Added guidance to array: #{guidance_array}")
-		return guidance_array
+		
+        return guidance_array
 	end
 
 	def warning(option_id)
