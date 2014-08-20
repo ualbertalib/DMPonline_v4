@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.18'
+gem 'rails', '3.2.19'
 
 gem 'mysql2'
 gem 'omniauth'
@@ -24,7 +24,7 @@ gem 'sass', '3.2.10'
 gem 'jquery-rails', "2.3.0"
 #gem 'jquery-ui-rails'
 
-gem 'tinymce-rails'
+gem 'tinymce-rails', "4.0.19"
 gem 'friendly_id'
 gem 'contact_us', '~> 0.4.0'
 
