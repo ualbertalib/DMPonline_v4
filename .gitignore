@@ -64,6 +64,6 @@ config/initializers/contact_us.rb
 
 config/environments/*.rb
 
-config/initializers/secret_token.rb
+.secret
 
-db/schema.rb
+properties.yml

@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.13'
+gem 'rails', '3.2.19'
 
 gem 'mysql2'
 gem 'omniauth'
@@ -17,8 +17,6 @@ end
 gem 'uglifier', '>= 1.0.3'
 gem 'less-rails'
 
-gem 'therubyracer', '0.11.4', platforms: :ruby
-gem 'libv8'
 gem 'twitter-bootstrap-rails'
 gem 'sass-rails',   '~> 3.2.3'
 gem 'sass', '3.2.10'
@@ -26,7 +24,7 @@ gem 'sass', '3.2.10'
 gem 'jquery-rails', "2.3.0"
 #gem 'jquery-ui-rails'
 
-gem 'tinymce-rails'
+gem 'tinymce-rails', "4.0.19"
 gem 'friendly_id'
 gem 'contact_us', '~> 0.4.0'
 
@@ -71,3 +69,21 @@ gem 'feedzirra', '0.5.0'
 
 # To use debugger
 # gem 'debugger'
+
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'rspec'
+  gem 'selenium-webdriver'
+  gem 'pdf-reader'
+end
+
+group :ci do
+  gem 'ci_reporter'
+end
+
+group :production do
+  gem 'therubyracer', '0.11.4', platforms: :ruby
+  gem 'libv8'
+end
+
+gem 'syslog-logger'
