@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140331162130) do
+ActiveRecord::Schema.define(:version => 20140429114226) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -124,6 +124,7 @@ ActiveRecord::Schema.define(:version => 20140331162130) do
     t.integer  "organisation_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.boolean  "optional_subset"
   end
 
   create_table "guidance_in_group", :id => false, :force => true do |t|
@@ -278,7 +279,6 @@ ActiveRecord::Schema.define(:version => 20140331162130) do
     t.text     "text"
     t.string   "question_type"
     t.text     "default_value"
-    t.text     "suggested_answer"
     t.text     "guidance"
     t.integer  "number"
     t.integer  "parent_id"
@@ -320,6 +320,7 @@ ActiveRecord::Schema.define(:version => 20140331162130) do
     t.integer  "organisation_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.boolean  "published"
   end
 
   create_table "splash_logs", :force => true do |t|
