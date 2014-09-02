@@ -1,0 +1,34 @@
+AllCops:
+  Exclude:
+    - .bundle/**
+    - bin/**
+    - vendor/**
+
+Style/CaseEquality:
+  Enabled: false
+
+Style/Documentation:
+  # don't require classes to be documented
+  Enabled: false
+
+Style/DoubleNegation:
+  Enabled: false
+
+Style/Encoding:
+  # no need to always specify encoding
+  Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Metrics/LineLength:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/PerceivedComplexity:
+  Max: 10
