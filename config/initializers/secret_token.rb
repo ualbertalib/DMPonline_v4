@@ -1,7 +1,7 @@
 require "securerandom"
 
 def secure_token
-  token_file = Rails.root.join(".secret")
+  token_file = Rails.root.join(".secretTokenUAL")
   if File.exist?(token_file)
     File.read(token_file).chomp
   else
