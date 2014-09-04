@@ -51,14 +51,14 @@ end
 def create_and_verify_user
     date = Time.now
     create_a_new_user
-    sleep 5
+    sleep 15
     confirmation_url = get_confirmation_url_from_email(date)
     @driver.get(confirmation_url)
     verify { (@driver.find_element(:css, "a.dropdown-toggle").text).should == "Signed in as " + @properties['dmp_user']['name'] }
 end
 
 def verify_invited_user(date)
-    sleep 5
+    sleep 15
     invitation_url = get_invitation_url_from_email(date)
     @driver.get(invitation_url)
     @driver.find_element(:id, "user_password").clear
