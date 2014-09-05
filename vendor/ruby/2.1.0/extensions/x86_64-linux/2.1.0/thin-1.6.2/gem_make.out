@@ -18,5 +18,5 @@ thin.c:338: warning: implicit declaration of function ‘thin_http_parser_has_er
 linking shared-object thin_parser.so
 
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 thin_parser.so ./.gem.20140905-32012-lazhgl
+/usr/bin/install -c -m 0755 thin_parser.so ./.gem.20140905-22268-zkgdv4
 installing default thin_parser libraries

@@ -9,5 +9,5 @@ compiling rubymain.cpp
 linking shared-object fastfilereaderext.so
 
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 fastfilereaderext.so ./.gem.20140905-32012-vnhcmq
+/usr/bin/install -c -m 0755 fastfilereaderext.so ./.gem.20140905-22268-1tg84lm
 installing default fastfilereaderext libraries

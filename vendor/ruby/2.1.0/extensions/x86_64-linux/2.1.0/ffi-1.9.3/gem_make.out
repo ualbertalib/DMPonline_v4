@@ -209,5 +209,5 @@ compiling Struct.c
 compiling MemoryPointer.c
 compiling Types.c
 linking shared-object ffi_c.so
-/usr/bin/install -c -m 0755 ffi_c.so ./.gem.20140905-32012-1h3t531
+/usr/bin/install -c -m 0755 ffi_c.so ./.gem.20140905-22268-1f21aue
 installing default ffi_c libraries
