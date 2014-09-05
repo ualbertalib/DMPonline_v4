@@ -71,14 +71,14 @@ gem 'feedzirra', '0.5.0'
 # gem 'debugger'
 
 group :development, :test do
-  gem 'rspec-rails'
-  gem 'rspec'
+  gem 'rspec-rails', '~> 2.14.0'
+  gem 'rspec', '~> 2.14.0'
   gem 'selenium-webdriver'
   gem 'pdf-reader'
 end
 
 group :ci do
-  gem 'ci_reporter'
+  gem 'ci_reporter', '1.9.2'
 end
 
 group :production do
