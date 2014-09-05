@@ -63,7 +63,7 @@ GEM
     coffee-script (2.3.0)
       coffee-script-source
       execjs
-    coffee-script-source (1.7.1)
+    coffee-script-source (1.8.0)
     commonjs (0.2.7)
     contact_us (0.4.0)
       rails (>= 3.0.0)
@@ -91,7 +91,7 @@ GEM
       loofah (~> 1.2.1)
       sax-machine (~> 0.2.1)
     ffi (1.9.3)
-    formtastic (2.2.1)
+    formtastic (2.3.1)
       actionpack (>= 3.0)
     friendly_id (4.0.10.1)
       activerecord (>= 3.0, < 4.0)
@@ -99,7 +99,7 @@ GEM
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
     hashery (2.1.1)
-    hashie (3.2.0)
+    hashie (3.3.1)
     hike (1.2.3)
     i18n (0.6.11)
     inherited_resources (1.5.0)
@@ -229,8 +229,74 @@ GEM
       railties (>= 3.1.1)
     treetop (1.4.15)
       polyglot
+      polyglot
+      polyglot
+      polyglot
+      polyglot
+      polyglot
+      polyglot
+      polyglot
+      polyglot
+      polyglot
+      polyglot
+      polyglot
+      polyglot
+      polyglot
+      polyglot
+      polyglot
+      polyglot
       polyglot (>= 0.3.1)
-    ttfunk (1.2.0)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
+    ttfunk (1.2.2)
     twitter-bootstrap-rails (2.2.8)
       actionpack (>= 3.1)
       execjs
@@ -255,7 +321,7 @@ PLATFORMS
 DEPENDENCIES
   activeadmin
   cancan
-  ci_reporter
+  ci_reporter (= 1.9.2)
   coffee-rails (~> 3.2.1)
   contact_us (~> 0.4.0)
   devise (= 3.0.0)
@@ -274,8 +340,8 @@ DEPENDENCIES
   rails (= 3.2.19)
   recaptcha
   rolify
-  rspec
-  rspec-rails
+  rspec (~> 2.14.0)
+  rspec-rails (~> 2.14.0)
   sass (= 3.2.10)
   sass-rails (~> 3.2.3)
   selenium-webdriver
