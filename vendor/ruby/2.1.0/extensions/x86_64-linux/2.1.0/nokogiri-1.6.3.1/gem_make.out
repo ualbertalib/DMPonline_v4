@@ -249,5 +249,5 @@ rmdir -p /var/www/sites/DMPonline_v4/vendor/ruby/2.1.0/gems/nokogiri-1.6.3.1/ext
 rm -rf /var/www/sites/DMPonline_v4/vendor/ruby/2.1.0/gems/nokogiri-1.6.3.1/ports
 
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 nokogiri.so ./.gem.20140829-23968-1e93j97/nokogiri
+/usr/bin/install -c -m 0755 nokogiri.so ./.gem.20140905-32012-ez4xvj/nokogiri
 installing default nokogiri libraries

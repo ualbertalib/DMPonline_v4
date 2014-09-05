@@ -26,5 +26,5 @@ compiling mysql2_ext.c
 linking shared-object mysql2/mysql2.so
 
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 mysql2.so ./.gem.20140829-23968-13tonvd/mysql2
+/usr/bin/install -c -m 0755 mysql2.so ./.gem.20140905-32012-rkznpm/mysql2
 installing default mysql2 libraries

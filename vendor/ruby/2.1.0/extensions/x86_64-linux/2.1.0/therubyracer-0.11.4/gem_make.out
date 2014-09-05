@@ -36,5 +36,5 @@ compiling object.cc
 linking shared-object v8/init.so
 
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 init.so ./.gem.20140829-23968-1wq2w6u/v8
+/usr/bin/install -c -m 0755 init.so ./.gem.20140905-32012-ubeg0/v8
 installing default init libraries

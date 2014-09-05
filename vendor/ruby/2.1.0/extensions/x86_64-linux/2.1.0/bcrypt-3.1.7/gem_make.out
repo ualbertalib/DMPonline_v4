@@ -13,5 +13,5 @@ compiling bcrypt_ext.c
 linking shared-object bcrypt_ext.so
 
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 bcrypt_ext.so ./.gem.20140829-23968-calv86
+/usr/bin/install -c -m 0755 bcrypt_ext.so ./.gem.20140905-32012-1rvee3v
 installing default bcrypt_ext libraries

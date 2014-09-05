@@ -296,5 +296,5 @@ compiling curb_multi.c
 linking shared-object curb_core.so
 
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 curb_core.so ./.gem.20140829-23968-1jkz16e
+/usr/bin/install -c -m 0755 curb_core.so ./.gem.20140905-32012-ydeu0c
 installing default curb_core libraries
