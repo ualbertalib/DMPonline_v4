@@ -67,7 +67,7 @@ $( document ).ready(function() {
 	// Periodically check locks on open section - every 50 seconds
 	setInterval(function(){
 		// Only lock/unlock if there are forms on the page (not read-only)
-		if ($('form').length > 0) {
+		if ($('.question-form').length > 0) {
 			section = $('.section-collapse.in');
 			if (section.length > 0) {
 				section.check_section_lock();
@@ -81,7 +81,7 @@ $( document ).ready(function() {
 		section.find(".loaded").hide();
 		section.find(".loading").show();
 		// Only lock if there are forms on the page (not read-only)
-		if ($('form').length > 0) {
+		if ($('.question-form').length > 0) {
 			section.check_section_lock();
     }
     // check for updated answers
@@ -106,7 +106,7 @@ $( document ).ready(function() {
    }).on('hide', function(){
   	var section = $(this);
   	// Only attempt unlock if there are forms on the page (not read-only)
-  	if ($('form').length > 0) {
+  	if ($('.question-form').length > 0) {
 			var section_id = section.attr("id").split('-')[1];
 			$.post('unlock_section', {section_id: section_id});
 			if ($.fn.is_dirty(section_id)) {

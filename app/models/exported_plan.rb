@@ -125,18 +125,24 @@ class ExportedPlan < ActiveRecord::Base
     end
     self.sections.each do |section|
       docx_html_source << "<div><h3>#{section.title}</h3>"
+      
       self.questions_for_section(section.id).each do |question|
-        docx_html_source << "<div><h4><#{question.text}</h4>"
+        
+        docx_html_source << "<div><h4>#{question.text}</h4>"
         answer = self.plan.answer(question.id, false)
         if answer.nil?
           docx_html_source << "<p>Question not answered.</p>"
         else
           if question.multiple_choice
             answer.options.each do |option|
-              docx_html_source << "<p>- #{option.text}</p>"
+                if !option.text.nil? 
+                    docx_html_source << "<p>- #{option.text}</p>"
+                end    
             end
           end
-          docx_html_source << answer.text
+          if !answer.text.nil?
+            docx_html_source << answer.text
+          end
         end
         docx_html_source << "</div>"
       end

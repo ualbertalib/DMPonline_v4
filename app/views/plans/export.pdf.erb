@@ -42,14 +42,19 @@
 						<% if answer.nil? then %>
 							<p><%= t('helpers.plan.export.pdf.question_not_answered') -%></p>
 						<% else %>
-						<% if question.multiple_choice then %>
-							<ul>
-								<% answer.options.each do |option| %>
-									<li><%= option.text %></li>
-								<% end %>
-							</ul>
-						<% end %>
-						<%= raw answer.text.gsub(/<tr>(\s|<td>|<\/td>|&nbsp;)*(<\/tr>|<tr>)/,"") %>
+                            <% if question.multiple_choice then %>
+                                <ul>
+                                    <% answer.options.each do |option| %>
+                                        <li><%= option.text %></li>
+                                    <% end %>
+                                </ul>
+                            <%else%>
+                                <% if !answer.text.nil? then %>
+                                    <%= raw answer.text.gsub(/<tr>(\s|<td>|<\/td>|&nbsp;)*(<\/tr>|<tr>)/,"") %>
+                                <%end%>    
+                            <% end %>
+                       
+						
 					<% end %>
 				</div>
 			<% end %>

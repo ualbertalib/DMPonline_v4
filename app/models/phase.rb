@@ -7,7 +7,7 @@ class Phase < ActiveRecord::Base
 	
 	has_many :versions, :dependent => :destroy
 	has_many :sections, :through => :versions, :dependent => :destroy
-  has_many :questions, :through => :sections, :dependent => :destroy
+    has_many :questions, :through => :sections, :dependent => :destroy
   
 	#Link the child's data
 	accepts_nested_attributes_for :versions, :allow_destroy => true 

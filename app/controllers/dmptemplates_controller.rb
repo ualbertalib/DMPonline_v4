@@ -199,7 +199,7 @@ class DmptemplatesController < ApplicationController
 	#create a phase
 	def admin_createphase
     if user_signed_in? && current_user.is_org_admin? then
-	 		@phase = Phase.new(params[:phase])
+	 	@phase = Phase.new(params[:phase])
 	    @phase.description = params["phase-desc"]
 	    @version = @phase.versions.build
 	    @version.title = "#{@phase.title} v.1"
@@ -280,7 +280,7 @@ class DmptemplatesController < ApplicationController
 		#clone a version of a template
 		def admin_cloneversion
 			if user_signed_in? && current_user.is_org_admin? then
-	   		@old_version = Version.find(params[:version_id])
+                @old_version = Version.find(params[:version_id])
 				@version = @old_version.amoeba_dup
 				@phase = @version.phase
 
@@ -315,7 +315,7 @@ class DmptemplatesController < ApplicationController
 	#create a section
 	def admin_createsection
     if user_signed_in? && current_user.is_org_admin? then
-	 		@section = Section.new(params[:section])
+	 	@section = Section.new(params[:section])
 	    @section.description = params["section-desc"]
 
 	    respond_to do |format|
@@ -373,7 +373,7 @@ class DmptemplatesController < ApplicationController
 	#create a question
 	def admin_createquestion
     if user_signed_in? && current_user.is_org_admin? then
-	 		@question = Question.new(params[:question])
+	 	@question = Question.new(params[:question])
 	    @question.guidance = params["new-question-guidance-#{params[:section_id]}"]
 	    @question.default_value = params["new-question-default-value-#{params[:section_id]}"]
 

@@ -40,7 +40,11 @@ class Plan < ActiveRecord::Base
 	def title
 		logger.debug "Title in settings: #{self.settings(:export).title}"
 		if self.settings(:export).title == ""
-			return self.version.phase.title
+            if !self.version.nil? && !self.version.phase.nil? && !self.version.phase.title? then
+                return self.version.phase.title
+            else
+                return "DMP title"
+			end
 		else
 			return self.settings(:export).title
 		end

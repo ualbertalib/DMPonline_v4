@@ -10,20 +10,24 @@ ActiveAdmin.register Section do
 	 
 
 	index do   # :organisation_id, :description, :number, :title, :version_id
-  	column :title , :sortable => :title do |section|
-  		if !section.title.nil? then
-        link_to section.title, [:admin, section]
-     end
+        column :title , :sortable => :title do |section|
+            if !section.title.nil? then
+            link_to section.title, [:admin, section]
+         end
+        end
+        column I18n.t('admin.version'), :sortable => :version_id do |version_title|
+            if !version_title.version_id.nil? then
+                link_to version_title.version.title, [:admin, version_title.version]
+            end
+        end
+        column I18n.t('admin.org_title'), :sortable => :organisation_id do |org_title|
+           if !org_title.organisation_id.nil? then
+                link_to org_title.organisation.name, [:admin, org_title.organisation]
+           end
+        end
+        
+        default_actions
     end
-    column I18n.t('admin.template'), :version_id 
-    column I18n.t('admin.org_title'), :sortable => :organisation_id do |org_title|
-       if !org_title.organisation_id.nil? then
-        	link_to org_title.organisation.name, [:admin, org_title.organisation]
-       end
-    end
-  	
-  	default_actions
-  end
   
   #show details of a section
   show do 
