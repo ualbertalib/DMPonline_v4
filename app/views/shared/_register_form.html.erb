@@ -5,9 +5,9 @@
 	</li>
 	<li>
 		<%= f.email_field :email, placeholder: (t('helpers.email') + ' *'), :required => true, :as => :email, :class => 'text_field has-tooltip reg-input', 'data-toggle' => "tooltip", 'data-container' => "body", 'title' => "This must be a valid email address - a message will be sent to it for confirmation." %>
-		<div class="alert alert-error" style="display:none">  
-			<strong><%= t('helpers.error')%></strong> <%= t('helpers.valid_email')%>  
-		</div> 
+		<div class="alert alert-error" style="display:none">
+			<strong><%= t('helpers.error')%></strong> <%= t('helpers.valid_email')%>
+		</div>
 	</li>
 	<% if extended then %>
 		<% unless session[:shibboleth_data].nil? %>
@@ -33,18 +33,18 @@
 	</li>
 	<li>
 		<%= f.password_field :password, placeholder: (t('helpers.password') + ' *'), :autocomplete => "off", :required => true, :as => :password, :class => 'text_field has-tooltip reg-input', 'data-toggle' => "tooltip", 'data-container' => "body", 'title' => "This must be at least 8 characters long." %>
-		<div class="alert alert-error" style="display:none">  
-			<strong><%= t('helpers.error')%></strong> <%= t('helpers.password_too_small')%> 
+		<div class="alert alert-error" style="display:none">
+			<strong><%= t('helpers.error')%></strong> <%= t('helpers.password_too_small')%>
 		</div>
 	</li>
 	<li>
 		<%= f.password_field :password_confirmation, placeholder: (t('helpers.password_conf') + ' *'), :required => true, :as => :password, :class => 'text_field has-tooltip reg-input', 'data-toggle' => "tooltip", 'data-container' => "body", 'title' => "This must match what you entered in the previous field." %>
-		<div class="alert alert-error" style="display:none">  
-			<strong><%= t('helpers.error')%></strong> <%= t('helpers.password_no_match')%>
-		</div>	
+		<div class="alert alert-error" style="display:none">
+			<strong><%= t('helpers.error')%></strong>&nbsp;<%= t('helpers.password_no_match')%>
+		</div>
 	</li>
 	<li class="remember_me_li">
-		<%= f.check_box :accept_terms, :required => true %><%= f.label :class => "remember_div" do %>
+		<%= f.check_box :accept_terms, :required => true %> <%= f.label :accept_terms, :class => "remember_div"  do %>
 		  <%= raw t('helpers.accept_terms_html')%>
 		<%end%>
 	</li>

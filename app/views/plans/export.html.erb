@@ -3,8 +3,34 @@
 	<h2><%= @plan.version.phase.title %></h2>
 	<div class="dmp_details_body">
 		<div class="dmp_details">
-			<% sections = @plan.sections.sort_by(&:"number") %>
-			<% sections.each do |section| %>
+			<%
+				details = @exported_plan.admin_details
+				if details.present?
+			%>
+				<h3>Admin Details</h3>
+				<table class="dmp_table">
+					<thead>
+						<tr>
+							<th class="dmp_th_medium"><%= t('helpers.title')%></th>
+							<th class="dmp_th_big"><%= t('helpers.desc')%></th>
+						</tr>
+					</thead>
+					<tbody>
+					<%
+						details.each do |field|
+							value = @exported_plan.send(field)
+							if value.present?
+					%>
+						<tr>
+							<th class="dmp_th_border"><p>- <%= t("helpers.plan.export.#{field}") -%></p></th>
+							<td class="dmp_td_border"><%= value -%></td>
+						</tr>
+							<% end %>
+						<% end %>
+					</tbody>
+				</table>
+      <% end %>
+			<% @exported_plan.sections.each do |section| %>
 				<h3><%= section.title %></h3>
 				<table class="dmp_table">
 					<thead>
@@ -14,7 +40,7 @@
 	   					</tr>
    					</thead>
    					<tbody>
-						<% questions = section.questions.sort_by(&:"number") %>	
+						<% questions = @exported_plan.questions_for_section(section.id) %>
 						<% questions.each do |question| %>
 							<tr>
 								<th class="dmp_th_border" >

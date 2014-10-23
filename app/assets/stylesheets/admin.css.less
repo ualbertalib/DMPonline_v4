@@ -53,32 +53,6 @@
 @red_colour: #e3000f;
 @white_colour: #ffffff;
   
-body.dmponline { 
-  font-family: @text_font;
-  color: @font_colour;
-  font-size: @font_size;
-  margin: 0 15% 0 15%;
-  line-height: 24px;
-  min-width: 540px;
-  padding:0 0 0 0; 
-  
-}
-
-.dmponline {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, @background_darker_colour), color-stop(1, background_lighter_colour));
-  background-image: linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
-  background-image: -moz-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
-  background-image: -webkit-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
-  background-image: -o-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
-  background-image: -ms-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
-  background-image: linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
-  background-repeat:repeat-y;
-  -ms-filter: 'progid:DXImageTransform.Microsoft.gradient(startColorstr='#d1d5d4', endColorstr='#f9f9f9', gradientType='0')';
-  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#d1d5d4', endColorstr='#f9f9f9') ;/*For IE7-8-9*/
-  *height: 1%;/*For IE7*/ 
-  
-   
-  }
 
 h1, h2, h3, h4 {
   font-family: @header_font;
@@ -86,32 +60,11 @@ h1, h2, h3, h4 {
   font-weight: lighter;
   font-style: normal;
 }
-h1{
-  font-size: 40px;  
-  line-height:53px;
-}
 
-h2{
-  font-size: 32px;  
-}
-
-h3{
-  font-size: 26px;  
-}
-
-h4{
-  font-size: @font_size;  
-}
-
-p{
+label.text_colour{
   font-size: @font_size; 
   font-family: @text_font;
-}
-
-div.popover-content div.tooltip_box p {
-  font-size: @font_size; 
-  font-family: @text_font;
-  margin-bottom: 0px;
+  color: @orange_colour;
 }
 
 p a:hover, a.a-orange:hover, div.signIn a:hover, td a:hover, .question-guidance .accordion-inner a:hover, div a:hover{
@@ -185,6 +138,7 @@ footer {
 
 .tooltip_box{
  text-align:left;
+ z-index: 1000;
  }
 
 .tooltip_box p{
@@ -619,15 +573,6 @@ input#user_remember_me, input#user_accept_terms{
 *******************************/
 /*** View projects table ***/
 
-table.dmp_table{
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 2px;  
-  border-bottom: 0px;
-  margin-bottom: 20px;
-  
-}
-
 table.dmp_table thead{
   margin: 0px 4px 0px 0px;
   background-color: @orange_colour;
@@ -645,17 +590,6 @@ table.dmp_table tbody td{
   color: @font_colour;
   padding: 4px 4px 4px 15px;  
 }
-table.dmp_table tbody td.dmp_td_big, table.dmp_table thead th.dmp_th_big{
-  width: 32%;
-}
-table.dmp_table tbody td.dmp_td_medium, table.dmp_table thead th.dmp_th_medium{
-  width: 24%;
-}
-table.dmp_table tbody td.dmp_td_small, table.dmp_table thead th.dmp_th_small{
-  padding-right: 20px;
-  width: 13%;
- 
-}
 
 table.dmp_table tbody th.dmp_th_border{
   font-weight: normal;
@@ -667,23 +601,20 @@ table.dmp_table tbody th.dmp_th_border{
 
 table.dmp_table tbody th.dmp_th_border p{
    padding: 0px 0px 0px 5px;
-  
 }
 
 table.dmp_table tbody td.dmp_td_border{
   border-bottom: 1px solid @grey_very_light_colour; 
   border-left: 1px solid @grey_very_light_colour;
-  
 }
 
 table.dmp_table tbody td.dmp_td_no_border{
   border-bottom: 1px solid @grey_very_light_colour;
-  
 }
 
 table.dmp_table a.dmp_table_link, table.dmp_table a.dmp_table_link:active, table.dmp_table a.dmp_table_link:visited{
   text-decoration: none !important;
-  padding: 0px 10px 0px 0px;
+  padding: 0px 5px 0px 0px;
 }
 table.dmp_table a.dmp_table_link:hover{
   text-decoration: underline !important;
@@ -763,7 +694,11 @@ table.dmp_details_table .phase .text_area{
 }
 
 .ques_format_option{
-  width: 300px;  
+  width: 99%;  
+}
+
+.ques_format div select{
+  width:89%;
 }
 
 .section_desc{
@@ -778,18 +713,28 @@ form.edit_section{
 
 table.options_table{
   width: 100%;
-  tr th{
-    font-weight:normal;
-    float:left;
-    padding: 2px;
-    text-align:left;
-    border-bottom: 1px solid @orange_colour;
-  } 
-  tr th.small{
-    width: 15%;
+  tr {
+    width: 100%;
+    th{
+      font-weight:normal;
+      
+      float:left;
+      padding: 2px;
+      text-align:left;
+      border-bottom: 1px solid @orange_colour;
+    } 
   }
+  tr th.small{
+    width: 15.5%;
+   
+    a{
+      float:right;
+       padding-left:2px;
+    }
+  }
+  
   tr th.medium{
-    width: 48%;
+    width: 46.5%;
   }
   tr td.small{
     width:15%;
@@ -798,8 +743,8 @@ table.options_table{
     padding: 2px;
   }
   tr td.medium{
-    width:48%;
-    min-width:48%;
+    width:47%;
+    min-width:47%;
     float:left;
     padding: 2px;
   }
@@ -1042,8 +987,13 @@ li.choice label input{
 
 .div_left{
   float:left;
-  width:74%;
+  width:70%;
   padding:0 2px 10px 0;
+}
+
+div.admin_left_smaller{
+  width:48%;
+  
 }
 
 .div_right{
@@ -1056,6 +1006,10 @@ li.choice label input{
     margin:0 0 0 4px;
   }
 }
+
+div.admin_right_bigger{
+  width:51%;
+  }
 
 .move_2_right{
   float:right;
@@ -1108,7 +1062,7 @@ table.dmp_details_table .text_field{
 
 #project-accordion .accordion-heading{
   background-color:@white_colour;
-  border-bottom: 1px solid @orange_colour;
+  border-bottom: 1px solid @orange_colour !important;
   min-height: 50px;
 }
 
@@ -1203,7 +1157,7 @@ ul.question_ul li{
 }
 
 div.accordion-heading span.icon-white{
-   color:@white_colour;
+  color:@white_colour;
 }
 div.accordion .make_div_longer{
   width:69%;
@@ -1211,8 +1165,8 @@ div.accordion .make_div_longer{
 }
 
 div.accordion .make_div_smaller{
-  width:28%;
- padding-left: 11px;
+  width:27%;
+  padding-left: 11px;
   padding-top: 8px;
   padding-bottom: 6px;
 }
@@ -1283,13 +1237,13 @@ div.accordion .make_div_smaller{
 
 .div_left_icon{
   float:left;
-  width:74%;
+  width:88%;
   padding:0 2px 10px 0;
 }
 
 .div_right_icon{
   float:right;
-  width:24%;
+  width:10%;
   padding:3px 2px 10px 0;
 }
 
@@ -1537,11 +1491,16 @@ div {
   margin-left: 0px;
 }
 
-.mce-container iframe{
+.mce-container iframe html{
   max-height:150px;
+  overflow-x:hidden !important; 
+  overflow-y:scroll !important;
 }
 
+
+
 /* css for sorting tables */
+
 
 table.tablesorter thead tr th{
   padding-right: 20px;
@@ -1550,6 +1509,7 @@ table.tablesorter thead tr .header {
   background-image: url(bg.gif);
   background-repeat: no-repeat;
   background-position: center right;
+  background-color: @orange_lighter_colour;
   cursor: pointer;
 }
 

@@ -3,17 +3,23 @@ ActiveAdmin.register Version do
 	menu :priority => 1, :label => proc{I18n.t('admin.version')}, :parent =>  "Templates management"
 
 	index do   # :description, :number, :published, :title, :phase_id
-  	column I18n.t('admin.title'), :sortable => :title  do |version_used|
-  		if !version_used.title.nil? then
-        	 link_to version_used.title, [:admin, version_used]
-       end
-    end
-   	column I18n.t('admin.version_numb'), :number
-		column :published
-		column :phase_id
-    	
-  	default_actions
-  end
+        column I18n.t('admin.title'), :sortable => :title  do |version_used|
+            if !version_used.title.nil? then
+                 link_to version_used.title, [:admin, version_used]
+           end
+        end
+        column I18n.t('admin.version_numb'), :number
+        column :published
+        column I18n.t('admin.phase'), :sortable => :phase_id do |phase_title|
+	  		if !phase_title.phase_id.nil? then
+                link_to phase_title.phase.title, [:admin, phase_title.phase]
+            else 
+                '-'
+	   		end
+     	end
+            
+        default_actions
+      end
   
   #show details of a version
   show do 
@@ -27,7 +33,7 @@ ActiveAdmin.register Version do
 	  	end
 	  	row I18n.t('admin.phase'), :sortable => :phase_id do |phase_title|
 	  		if !phase_title.phase_id.nil? then
-      		link_to phase_title.phase.title, [:admin, phase_title.phase]	  
+                link_to phase_title.phase.title, [:admin, phase_title.phase]	  
 	   		end
      	end
      	row :published

@@ -50,9 +50,11 @@
 								<a id="edit-version-button" data-toggle="modal" href="#version_edit_alert_<%= v.id%>" class="dmp_table_link " >
 									<%= t('org_admin.versions.edit_label')%>
 								</a>
+                                <%= link_to t("helpers.preview"), admin_previewphase_dmptemplate_path(v), :class => "dmp_table_link" %>
 							<%else%>
-								<%= link_to t('org_admin.versions.edit_label'), admin_phase_dmptemplate_path(phase, :version_id => v.id, :edit => 'true'), :class => "dmp_table_link" %>
-								<%= link_to t("helpers.submit.delete"), admin_destroyversion_dmptemplate_path(:version_id => v.id, :phase => phase , :edit => 'false'),
+								<%= link_to t("org_admin.versions.edit_label"), admin_phase_dmptemplate_path(phase, :version_id => v.id, :edit => 'true'), :class => "dmp_table_link" %>
+                                <%= link_to t("helpers.preview"), admin_previewphase_dmptemplate_path(v), :class => "dmp_table_link" %>
+								<%#= link_to t("helpers.submit.delete"), admin_destroyversion_dmptemplate_path(:version_id => v.id, :phase => phase , :edit => 'false'),
 								:confirm => t("org_admin.versions.delete_message", :version_title => v.title ), :method => :delete, :class => "dmp_table_link"%>
 							<%end%>		
 						</td>	

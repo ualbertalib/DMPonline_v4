@@ -1,25 +1,26 @@
 class Dmptemplate < ActiveRecord::Base
-  attr_accessible :organisation_id, :description, :published, :title, :user_id, :locale, :is_default
+    attr_accessible :organisation_id, :description, :published, :title, :user_id, :locale, :is_default, :guidance_group_ids 
   
-  #associations between tables
-  has_many :phases
-  has_many :versions, :through => :phases
-  has_many :sections, :through => :versions
-  has_many :questions, :through => :sections
-  
-  belongs_to :organisation
-  has_many :projects
-  has_many :guidances
-  
-  
+    #associations between tables
+    has_many :phases
+    has_many :versions, :through => :phases
+    has_many :sections, :through => :versions
+    has_many :questions, :through => :sections
+    has_many :projects
+    has_many :guidances
+    
+    belongs_to :organisation
+      
 	has_and_belongs_to_many :guidance_groups, join_table: "dmptemplates_guidance_groups"
 	
-	accepts_nested_attributes_for :guidance_groups
-  attr_accessible :guidance_group_ids  
-  
-  accepts_nested_attributes_for :phases
-  accepts_nested_attributes_for :organisation
-  accepts_nested_attributes_for :projects
+    accepts_nested_attributes_for :guidance_groups
+    accepts_nested_attributes_for :phases
+    accepts_nested_attributes_for :organisation
+    accepts_nested_attributes_for :projects
+
+  has_settings :export, class_name: 'Settings::Dmptemplate' do |s|
+    s.key :export, defaults: Settings::Dmptemplate::DEFAULT_SETTINGS
+  end
     
   def to_s
     "#{title}"

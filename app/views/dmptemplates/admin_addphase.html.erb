@@ -20,16 +20,18 @@
 <!-- phase main container -->
 <div class="project-tabs-body">
     <div class="accordion" id="sections-accordion">
-    	<%= raw t('org_admin.templates.phase_new_text_html')%>
-		<br/>
+    	
     	<!--phase details -->
     	<div class="phase_details">
     		<div class="phase_details_body">
+    			
     			<!-- add phase details -->
     			<%= form_for :phase, :url => { :action => 'admin_createphase'} do |f| %>
 					<h3>
 						<%= t('org_admin.templates.phase_details_label')%>
 					</h3>
+					<%= raw t('org_admin.templates.phase_new_text_html')%>
+					<br/>
 					<div class="div_clear"></div>
 					<%= f.hidden_field :dmptemplate_id, :value => @dmptemplate.id%>
 					<table class="dmp_details_table phase">

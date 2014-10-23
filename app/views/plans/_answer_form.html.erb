@@ -6,19 +6,16 @@
 	<!--question format-->
 	<% q_format = question.question_format%>
 
-	<% if readonly != 'always' then %>
+	<% if readonly != "always" then %>
 		<div id="question-form-<%= question.id %>" class="question-form" <%= if readonly == "conditional" then "style='display:none;'" end %>>
 		<%= semantic_form_for answer, :url => {:controller => :answers, :action => :create }, :html=>{:method=>:post}, :remote => true do |f| %>
 			<%= f.inputs do %>
 				<%= f.input :plan_id, :as => :hidden %>
 				<%= f.input :user_id, :as => :hidden, :input_html => { :value => current_user.id } %>
 				<%= f.input :question_id, :as => :hidden, :input_html => { :class => 'question_id' } %>
-
 				<!-- verify if the question has multiple choice -->
-
-				<% if q_format.title == t("helpers.checkbox") || q_format.title == t("helpers.multi_select_box") || q_format.title == t("helpers.radio_buttons") || q_format.title == t("helpers.dropdown") then%>
+                <% if q_format.title == t("helpers.checkbox") || q_format.title == t("helpers.multi_select_box") || q_format.title == t("helpers.radio_buttons") || q_format.title == t("helpers.dropdown") then%>
 					<% options = question.options.order("number") %>
-
 					<!--checkbox display-->
 					<% if q_format.title == t("helpers.checkbox") then %>
 						<% if readonly then %>
@@ -28,106 +25,109 @@
 						<% end %>
 					<!--multi select box display-->
 					<% elsif q_format.title == t("helpers.multi_select_box") then %>
-							<% if readonly then %>
-								<%= f.input :options, :as => :select, :collection => options, :label => question.text, :input_html => { :multiple => true, :disabled => true , :id => "options-#{question.id}" } %>
-							<% else %>
-								<%= f.input :options, :as => :select, :collection => options, :label => question.text, :input_html => { :multiple => true , :id => "options-#{question.id}" } %>
-							<% end %>
+						<% if readonly then %>
+							<%= f.input :options, :as => :select, :collection => options, :label => question.text, :input_html => { :multiple => true, :disabled => true , :id => "options-#{question.id}" } %>
+						<% else %>
+							<%= f.input :options, :as => :select, :collection => options, :label => question.text, :input_html => { :multiple => true , :id => "options-#{question.id}" } %>
+						<% end %>
 					<!--Radio buttons display-->
 					<% elsif q_format.title == t("helpers.radio_buttons") then%>
-							<% if readonly then %>
-								<%= f.input :options, :as => :radio, :collection => options, :label => question.text, :input_html => { :disabled => true , :id => "options-#{question.id}" } %>
-							<% else %>
-								<%= f.input :options, :as => :radio, :collection => options, :label => question.text, :input_html => { :id => "options-#{question.id}" }%>
-							<% end %>
+						<% if readonly then %>
+							<%= f.input :options, :as => :radio, :collection => options, :label => question.text, :input_html => { :disabled => true , :id => "options-#{question.id}" } %>
+						<% else %>
+							<%= f.input :options, :as => :radio, :collection => options, :label => question.text, :input_html => { :id => "options-#{question.id}" }%>
+						<% end %>
 					<!--dropdown display-->
 					<% elsif q_format.title == t("helpers.dropdown") then%>
-							<% if readonly then %>
-								<%= f.input :options, :as => :select, :collection => options, :label => question.text, :input_html => { :multiple => false, :disabled => true, :id => "options-#{question.id}" } %>
-							<% else %>
-								<%= f.input :options, :as => :select, :collection => options, :label => question.text, :input_html => { :multiple => false, :id => "options-#{question.id}" } %>
-							<% end %>
+						<% if readonly then %>
+							<%= f.input :options, :as => :select, :collection => options, :label => question.text, :input_html => { :multiple => false, :disabled => true, :id => "options-#{question.id}" } %>
+						<% else %>
+							<%= f.input :options, :as => :select, :collection => options, :label => question.text, :input_html => { :multiple => false, :id => "options-#{question.id}" } %>
+						<% end %>
 					<% end %>
 
 					<!--div id="option-warning-<%#= question.id %>" class="alert" style="display:none">
-						<%# question.options.order("number").each do |option| %>
-							<%# warning = @plan.warning(option.id) %>
-							<%# unless warning.nil? then %>
-								<p id="<%#= option.id %>-warning" data-option='<%#= option.id %>'><%#= warning %></p>
-							<%# end %>
+					<%# question.options.order("number").each do |option| %>
+						<%# warning = @plan.warning(option.id) %>
+						<%# unless warning.nil? then %>
+							<p id="<%#= option.id %>-warning" data-option='<%#= option.id %>'><%#= warning %></p>
 						<%# end %>
-					</div-->
-					<%#= label_tag("answer-text-#{question.id}".to_sym, "Comment") %>
-				<% else %>
-					<%= label_tag("answer-text-#{question.id}".to_sym, question.text) %>
-				<% end %>
+					<%# end %>
+                    <%= label_tag("answer-text-#{question.id}".to_sym, "Comment") %>
+                    <%= text_area_tag("answer-text-#{question.id}".to_sym, answer.text, class: "tinymce") %>
+                <% else %>
+                    <%= label_tag("answer-text-#{question.id}".to_sym, question.text) %>
+                <% end %>
+                <!--Suggested answer area-->
+                <% suggested_answer = question.suggested_answers.find_by_organisation_id(@plan.project.organisation_id) %>
+                <% if !suggested_answer.nil? && suggested_answer.text != "" then %>
+                    <div class="suggested-answer-div">
+                        <span class="suggested-answer-intro">
+                            <% if suggested_answer.is_example? then %>
+                                <%= t('org_admin.questions.example_answer_label')%>
+                            <%else%>
+                                <%= t('org_admin.questions.suggested_answer_label')%>
+                            <%end%>
+                        </span>
+                        <div class="suggested-answer-border">
+                            <p class="suggested-answer">
+                                <%= raw suggested_answer.text %>
+                            </p>
+                        </div>
+                    </div>
+                <% end %>
+                <!--text field display-->
+                <% if q_format.title == t("helpers.text_field") then %>
+                    <%= text_field_tag("answer-text-#{question.id}".to_sym, answer.text, class: "question_text_field") %>
 
-				<!--Suggested answer area-->
-				<% suggested_answer = question.suggested_answers.find_by_organisation_id(@plan.project.organisation_id) %>
-				<% if !suggested_answer.nil? && suggested_answer.text != "" then %>
-					<div class="suggested-answer-div">
-						<span class="suggested-answer-intro">
-							<% if suggested_answer.is_example? then %>
-								<%= t('org_admin.questions.example_answer_label')%>
-							<%else%>
-								<%= t('org_admin.questions.suggested_answer_label')%>
-							<%end%>
-						</span>
-						<div class="suggested-answer-border">
-							<p class="suggested-answer">
-								<%= raw suggested_answer.text %>
-							</p>
-						</div>
-					</div>
-				<% end %>
-				<!--text field display-->
-				<% if q_format.title == t("helpers.text_field") then %>
-					<%= text_field_tag("answer-text-#{question.id}".to_sym, answer.text, class: "question_text_field") %>
+                <!--text area display-->
+                <%elsif q_format.title == t("helpers.text_area") then%>
+                    <%= text_area_tag("answer-text-#{question.id}".to_sym, answer.text, class: "tinymce") %>
+                <%end%>
 
-				<!--text area display-->
-				<%elsif q_format.title == t("helpers.text_area") then%>
-					<%= text_area_tag("answer-text-#{question.id}".to_sym, answer.text, class: "tinymce") %>
-				<%end%>
+            <% end %>
 
-			<% end %>
-
-			<!--action buttons-->
-			<%= f.actions do %>
-				<% if readonly then %>
-					<%= f.action :submit, :label => t('helpers.save'), :button_html => { :class => 'btn btn-primary'}, :input_html => { :disabled => true } %>
-				<% else %>
-					<%= f.action :submit, :label => t('helpers.save'), :button_html => { :class => 'btn btn-primary'} %>
-				<% end %>
-					<li id='saving-<%= question.id %>' class='saving-message' style='display:none;'><%= t('helpers.saving')%></li>
-			<% end %>
-		<% end %>
-		</div>
-
-	<% end %>
-	<div id="question-readonly-<%= question.id %>" class="question-readonly" <%= if readonly == nil then "style='display:none;'" end %>>
-		<h4><%= question.text %></h4>
-		<div class="answer-readonly">
-			<% if q_format.title == t("helpers.checkbox") || q_format.title == t("helpers.multi_select_box") || q_format.title == t("helpers.radio_buttons") || q_format.title == t("helpers.dropdown") %>
-				<ul class='options'>
-				<% if answer.options.is_a? Option then %>
-					<li><%= answer.options.text %></li>
-				<% else %>
-					<% answer.options.each do |o| %>
-						<li><%= o.text %></li>
-					<% end %>
-				<% end %>
-				</ul>
-			<% end %>
-			<div class='answer-text-readonly'>
-				<%= raw answer.text %>
-			</div>
-		</div>
-	</div>
-	<% if answer.created_at.nil? then %>
-		<span id='<%= question.id %>-status' class="label label-warning answer-status"><%= t('helpers.notanswered') %></span>
-	<% else %>
-		<span id='<%= question.id %>-status' class="label label-info answer-status"><%= t('helpers.answered_by')%><abbr class="timeago" data-time="<%= answer.created_at.iso8601 %>" title="<%= answer.created_at.iso8601 %>"><%= answer.created_at %></abbr><%= t('helpers.answered_by_part2')%><%= answer.user.name %></span>
-	<% end %>
+            <!--action buttons-->
+            <%= f.actions do %>
+                <% if readonly then %>
+                    <%= f.action :submit, :label => t('helpers.save'), :button_html => { :class => 'btn btn-primary'}, :input_html => { :disabled => true } %>
+                <% else %>
+                    <%= f.action :submit, :label => t('helpers.save'), :button_html => { :class => 'btn btn-primary'} %>
+                <% end %>
+                <li id='saving-<%= question.id %>' class='saving-message' style='display:none;'><%= t('helpers.saving')%></li>
+            <% end %>
+        <% end %>
+        </div>
+    <% end %>    
+    
+    
+    <div id="question-readonly-<%= question.id %>" class="question-readonly" <%= if readonly == nil then "style='display:none;'" end %>>
+            <h4><%= question.text %></h4>
+            <div class="answer-readonly">
+                <% if q_format.title == t("helpers.checkbox") || q_format.title == t("helpers.multi_select_box") || q_format.title == t("helpers.radio_buttons") || q_format.title == t("helpers.dropdown") %>
+                    <ul class='options'>
+                    <% if answer.options.is_a? Option then %>
+                        <li><%= answer.options.text %></li>
+                    <% else %>
+                        <% answer.options.each do |o| %>
+                            <li><%= o.text %></li>
+                        <% end %>
+                    <% end %>
+                    </ul>
+                <% end %>
+                <div class='answer-text-readonly'>
+                    <%= raw answer.text %>
+                </div>
+            </div>
+        </div>
+      
+    <% if answer.created_at.nil? then %>
+        <span id='<%= question.id %>-status' class="label label-warning answer-status"><%= t('helpers.notanswered') %></span>
+    <% else %>
+        <span id='<%= question.id %>-status' class="label label-info answer-status"><%= t('helpers.answered_by')%><abbr class="timeago" data-time="<%= answer.created_at.iso8601 %>" title="<%= answer.created_at.iso8601 %>"><%= answer.created_at %></abbr><%= t('helpers.answered_by_part2')%><%= answer.user.name %></span>
+    <% end %>
+    <span id='<%= question.id %>-unsaved' class="label label-inverse answer-unsaved" style="display:none;"><%= t('helpers.unsaved') %></span>
+      
 </div>
 
 <!--guidance area -->
@@ -139,7 +139,12 @@
 				<div class="accordion-heading">
 					<a class="accordion-guidance-link" data-toggle="collapse" data-parent="#<%= question.id %>-guidance" href="#collapse-guidance-<%= question.id%>">
 						<div class="accordion_heading_text">
-						<%= question.section.organisation.abbreviation %> <%= t('helpers.guidance')%>
+                            <%= question.section.organisation.abbreviation %> 
+                            <%if question.section.organisation.abbreviation == "EPSRC" then %>
+                                <%= t('helpers.policy_expectations')%>
+                            <%else%>
+                                <%= t('helpers.guidance')%>
+                            <%end%>    
 						</div>
 						<span class="plus-laranja"> </span></a>
 				</div>
