@@ -2,6 +2,12 @@ class Plan < ActiveRecord::Base
 
 	attr_accessible :locked, :project_id, :version_id, :version, :plan_sections
 
+	A4_PAGE_HEIGHT = 297 #(in mm)
+	A4_PAGE_WIDTH = 210 #(in mm)
+	ROUNDING = 5 #round estimate up to nearest 5%
+	FONT_HEIGHT_CONVERSION_FACTOR = 0.35278 #convert font point size to mm
+	FONT_WIDTH_HEIGHT_RATIO = 0.4 #Assume glyph width averages 2/5 the height
+
 	#associations between tables
 	belongs_to :project
 	has_many :answers
@@ -10,6 +16,39 @@ class Plan < ActiveRecord::Base
 	accepts_nested_attributes_for :project
 	accepts_nested_attributes_for :answers
 	accepts_nested_attributes_for :version
+
+	has_settings :export, class_name: 'Settings::Dmptemplate' do |s|
+		s.key :export, defaults: Settings::Dmptemplate::DEFAULT_SETTINGS
+	end
+
+	alias_method :super_settings, :settings
+
+	# Proxy through to the template settings (or defaults if this plan doesn't have
+	# an associated template) if there are no settings stored for this plan.
+	# `key` is required by rails-settings, so it's required here, too.
+	def settings(key)
+		self_settings = self.super_settings(key)
+		return self_settings if self_settings.value?
+
+		self.dmptemplate.settings(key)
+	end
+
+	def dmptemplate
+		self.project.try(:dmptemplate) || Dmptemplate.new
+	end
+
+	def title
+		logger.debug "Title in settings: #{self.settings(:export).title}"
+		if self.settings(:export).title == ""
+            if !self.version.nil? && !self.version.phase.nil? && !self.version.phase.title? then
+                return self.version.phase.title
+            else
+                return "DMP title"
+			end
+		else
+			return self.settings(:export).title
+		end
+	end
 
 	def answer(qid, create_if_missing = true)
   		answer = answers.where(:question_id => qid).order("created_at DESC").first
@@ -75,7 +114,7 @@ class Plan < ActiveRecord::Base
 	end
 
 	def add_guidance_to_array(guidance_array, guidance_group, theme, guidance)
-		logger.debug("Adding guidance to array: #{guidance_array}")
+		
 		if guidance_array[guidance_group].nil? then
 			guidance_array[guidance_group] = {}
 		end
@@ -94,8 +133,8 @@ class Plan < ActiveRecord::Base
 				guidance_array[guidance_group][theme].push(guidance)
 			end
 		end
-		logger.debug("Added guidance to array: #{guidance_array}")
-		return guidance_array
+		
+        return guidance_array
 	end
 
 	def warning(option_id)
@@ -111,7 +150,11 @@ class Plan < ActiveRecord::Base
 	end
 
 	def readable_by(user_id)
-		return project.readable_by(user_id)
+		if project.nil?
+			return false
+		else
+			return project.readable_by(user_id)
+		end
 	end
 
 	def administerable_by(user_id)
@@ -123,9 +166,14 @@ class Plan < ActiveRecord::Base
 			"num_questions" => 0,
 			"num_answers" => 0,
 			"sections" => {},
-			"questions" => {}
+			"questions" => {},
+			"space_used" => 0 # percentage of available space in pdf used
 		}
+
+		space_used = height_of_text(self.project.title, 2, 2)
+
 		sections.each do |s|
+			space_used += height_of_text(s.title, 1, 1)
 			section_questions = 0
 			section_answers = 0
 			status["sections"][s.id] = {}
@@ -136,6 +184,10 @@ class Plan < ActiveRecord::Base
 				status["sections"][s.id]["questions"] << q.id
 				status["questions"][q.id] = {}
 				answer = answer(q.id, false)
+
+				space_used += height_of_text(q.text) unless q.text == s.title
+				space_used += height_of_text(answer.try(:text) || I18n.t('helpers.plan.export.pdf.question_not_answered'))
+
 				if ! answer.nil? then
 					status["questions"][q.id] = {
 						"answer_id" => answer.id,
@@ -144,8 +196,9 @@ class Plan < ActiveRecord::Base
 						"answer_option_ids" => answer.option_ids,
 						"answered_by" => answer.user.name
 					}
-					status["num_answers"] += 1
+					status["num_answers"] += 1 if q.multiple_choice? || answer.text.present?
 					section_answers += 1
+					#TODO: include selected options in space estimate
 				else
 					status["questions"][q.id] = {
 						"answer_id" => nil,
@@ -159,6 +212,8 @@ class Plan < ActiveRecord::Base
  				status["sections"][s.id]["num_answers"] = section_answers
 			end
 		end
+
+		status['space_used'] = estimate_space_used(space_used)
 		return status
 	end
 
@@ -227,7 +282,7 @@ class Plan < ActiveRecord::Base
 		end
 	end
 
-	def lock_section(section_id, user_id, release_time = 30)
+	def lock_section(section_id, user_id, release_time = 60)
 		status = locked(section_id, user_id)
 		if ! status["locked"] then
 			plan_section = PlanSection.new
@@ -292,4 +347,51 @@ class Plan < ActiveRecord::Base
  		end
  		return section_questions
 	end
+
+private
+
+	# Based on the height of the text gathered so far and the available vertical
+	# space of the pdf, estimate a percentage of how much space has been used.
+	# This is highly dependent on the layout in the pdf. A more accurate approach
+	# would be to render the pdf and check how much space had been used, but that
+	# could be very slow.
+	# NOTE: This is only an estimate, rounded up to the nearest 5%; it is intended
+	# for guidance when editing plan data, not to be 100% accurate.
+	def estimate_space_used(used_height)
+		@formatting ||= self.settings(:export).formatting
+
+		return 0 unless @formatting[:font_size] > 0
+
+		margin_height    = @formatting[:margin][:top].to_i + @formatting[:margin][:bottom].to_i
+		page_height      = A4_PAGE_HEIGHT - margin_height # 297mm for A4 portrait
+		available_height = page_height * self.dmptemplate.settings(:export).max_pages
+
+		percentage = (used_height / available_height) * 100
+		(percentage / ROUNDING).ceil * ROUNDING # round up to nearest five
+	end
+
+	# Take a guess at the vertical height (in mm) of the given text based on the
+	# font-size and left/right margins stored in the plan's settings.
+	# This assumes a fixed-width for each glyph, which is obviously
+	# incorrect for the font-face choices available; the idea is that
+	# they'll hopefully average out to that in the long-run.
+	# Allows for hinting different font sizes (offset from base via font_size_inc)
+	# and vertical margins (i.e. for heading text)
+	def height_of_text(text, font_size_inc = 0, vertical_margin = 0)
+		@formatting     ||= self.settings(:export).formatting
+		@margin_width   ||= @formatting[:margin][:left].to_i + @formatting[:margin][:right].to_i
+		@base_font_size ||= @formatting[:font_size]
+
+		return 0 unless @base_font_size > 0
+
+		font_height = FONT_HEIGHT_CONVERSION_FACTOR * (@base_font_size + font_size_inc)
+		font_width  = font_height * FONT_WIDTH_HEIGHT_RATIO # Assume glyph width averages at 2/5s the height
+		leading     = font_height / 2
+
+		chars_in_line = (A4_PAGE_WIDTH - @margin_width) / font_width # 210mm for A4 portrait
+		num_lines = (text.length / chars_in_line).ceil
+
+		(num_lines * font_height) + vertical_margin + leading
+	end
+
 end

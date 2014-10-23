@@ -7,7 +7,14 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     else
       auth = request.env['omniauth.auth'] || {}
       eppn = auth['extra']['raw_info']['eppn']
-      uid = eppn.blank? ? auth['uid'] : eppn
+      uid = nil
+      if !eppn.blank? then
+        uid = eppn
+      elsif !auth['uid'].blank? then
+        uid = auth['uid']
+      elsif !auth['extra']['raw_info']['targeted-id'].blank? then
+        uid = auth['extra']['raw_info']['targeted-id']
+      end
 
       if !uid.nil? && !uid.blank? then
 				s_user = User.where(shibboleth_id: uid).first

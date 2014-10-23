@@ -5,11 +5,11 @@ class PlansController < ApplicationController
 	# GET /plans/1/edit
 	def edit
 		@plan = Plan.find(params[:id])
-          if !user_signed_in? then
-               respond_to do |format|
+    if !user_signed_in? then
+      respond_to do |format|
 				format.html { redirect_to edit_user_registration_path }
 			end
-		elsif !@plan.editable_by(current_user.id) then
+		elsif !@plan.readable_by(current_user.id) then
 			respond_to do |format|
 				format.html { redirect_to projects_url, notice: "This account does not have access to that plan." }
 			end
@@ -34,7 +34,7 @@ class PlansController < ApplicationController
 			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
     	end
   	end
-  
+
   	# GET /status/1.json
 	def status
   		@plan = Plan.find(params[:id])
@@ -46,7 +46,7 @@ class PlansController < ApplicationController
 			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
 		end
 	end
-	
+
 	def section_answers
   		@plan = Plan.find(params[:id])
   		if user_signed_in? && @plan.readable_by(current_user.id) then
@@ -57,10 +57,10 @@ class PlansController < ApplicationController
 			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
 		end
 	end
-	
+
 	def locked
   		@plan = Plan.find(params[:id])
-  		if user_signed_in? && @plan.readable_by(current_user.id) then
+  		if !@plan.nil? && user_signed_in? && @plan.readable_by(current_user.id) then
 			respond_to do |format|
 				format.json { render json: @plan.locked(params[:section_id],current_user.id) }
 			end
@@ -68,7 +68,7 @@ class PlansController < ApplicationController
 			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
 		end
 	end
-	
+
 	def delete_recent_locks
 		@plan = Plan.find(params[:id])
 		if user_signed_in? && @plan.editable_by(current_user.id) then
@@ -85,7 +85,7 @@ class PlansController < ApplicationController
 			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
 		end
 	end
-	
+
 	def unlock_all_sections
 		@plan = Plan.find(params[:id])
 		if user_signed_in? && @plan.editable_by(current_user.id) then
@@ -102,7 +102,7 @@ class PlansController < ApplicationController
 			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
 		end
 	end
-	
+
 	def lock_section
 		@plan = Plan.find(params[:id])
 		if user_signed_in? && @plan.editable_by(current_user.id) then
@@ -119,7 +119,7 @@ class PlansController < ApplicationController
 			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
 		end
 	end
-	
+
 	def unlock_section
 		@plan = Plan.find(params[:id])
 		if user_signed_in? && @plan.editable_by(current_user.id) then
@@ -136,7 +136,7 @@ class PlansController < ApplicationController
 			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
 		end
 	end
-	
+
 	def answer
   		@plan = Plan.find(params[:id])
   		if user_signed_in? && @plan.readable_by(current_user.id) then
@@ -147,7 +147,7 @@ class PlansController < ApplicationController
 			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
 		end
 	end
-	
+
 	def warning
   		@plan = Plan.find(params[:id])
   		if user_signed_in? && @plan.readable_by(current_user.id) then
@@ -158,50 +158,45 @@ class PlansController < ApplicationController
 			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
 		end
 	end
-	
+
 	def export
 		@plan = Plan.find(params[:id])
-		@include_admin = nil;
-		if params[:include_admin] == "true" then
-			@include_admin = true
-		end
+
 		if user_signed_in? && @plan.readable_by(current_user.id) then
-			exported_plan = ExportedPlan.new
-			exported_plan.plan = @plan
-			exported_plan.user = current_user
+			@exported_plan = ExportedPlan.new.tap do |ep|
+				ep.plan = @plan
+				ep.user = current_user
+				ep.format = request.format.try(:symbol)
+				plan_settings = @plan.settings(:export)
+
+				Settings::Dmptemplate::DEFAULT_SETTINGS.each do |key, value|
+					ep.settings(:export).send("#{key}=", plan_settings.send(key))
+				end
+			end
+
+			@exported_plan.save! # FIXME: handle invalid request types without erroring?
+			file_name = @exported_plan.project_name
+
 			respond_to do |format|
-			  format.html {
-			  	exported_plan.format = "html"
-			  	exported_plan.save
-			  	render action: "export"
-			  }
-			  format.xml {
-			  	exported_plan.format = "xml"
-			  	exported_plan.save
-			  	render action: "export"
-			  }
-			  format.json {
-			  	exported_plan.format = "json"
-			  	exported_plan.save
-			  	render json: @plan.details
-			  }
-			  format.text {
-			  	exported_plan.format = "text"
-			  	exported_plan.save
-			  	render action: "export"
-			  }
-			  file_name = @plan.project.title
-			  if @plan.project.dmptemplate.phases.count > 1 then
-			  	file_name = "#{@plan.project.title} - #{@plan.version.phase.title}"
-			  end
-			  format.pdf do
-			  	if @include_admin then
-			  		exported_plan.format = "pdf (with admin)"
-			  	else
-			  		exported_plan.format = "pdf (without admin)"
-			  	end
-			  	exported_plan.save
-				render :pdf => file_name, :margin => {:top => 20, :bottom => 20, :left => 20, :right => 20}
+                format.html
+                format.xml
+                format.json
+                format.csv  { send_data @exported_plan.as_csv, filename: "#{file_name}.csv" }
+                format.text { send_data @exported_plan.as_txt, filename: "#{file_name}.txt" }
+				format.docx do
+					file = Htmltoword::Document.create @exported_plan.html_for_docx, file_name
+					send_file file.path, :disposition => "attachment"
+				end
+                format.pdf do
+                    @formatting = @plan.settings(:export).formatting
+                    render pdf: file_name,
+			  	            margin: @formatting[:margin],
+			  	            footer: {
+			  	              center:    t('helpers.plan.export.pdf.generated_by'),
+			  	              font_size: 8,
+			  	              spacing:   (@formatting[:margin][:bottom] / 2) - 4,
+			  	              right:     '[page] of [topage]'
+			  	            }
 			  end
 			end
 		elsif !user_signed_in? then

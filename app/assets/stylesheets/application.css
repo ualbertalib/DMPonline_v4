@@ -10,5 +10,7 @@
  *
  * require jquery.ui.all
  *= require_self
- *= require_tree .
+ *= require bootstrap.css
+ *= require bootstrap_and_overrides.css.less
+ *= require select2.css
  */

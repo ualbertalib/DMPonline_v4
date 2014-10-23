@@ -1,4 +1,6 @@
 class ProjectsController < ApplicationController
+	before_filter :get_plan_list_columns, only: %i( index )
+
 	# GET /projects
 	# GET /projects.json
 	def index
@@ -6,7 +8,10 @@ class ProjectsController < ApplicationController
 			if (current_user.shibboleth_id.nil? || current_user.shibboleth_id.length == 0) && !cookies[:show_shib_link].nil? && cookies[:show_shib_link] == "show_shib_link" then
 				flash.notice = "Would you like to #{view_context.link_to 'link your DMP Builder account to your institutional credentials?', user_omniauth_shibboleth_path}".html_safe
 			end
-			@projects = Project.projects_for_user(current_user.id)
+
+			@projects = current_user.projects.filter(params[:filter])
+			@has_projects = current_user.projects.any? # unfiltered count
+
 			respond_to do |format|
 				format.html # index.html.erb
 				format.json { render json: @projects }
@@ -112,8 +117,8 @@ class ProjectsController < ApplicationController
 				if funder.dmptemplates.count == 1 then
 					@project.dmptemplate = funder.published_templates.first
 				end
-			elsif @project.dmptemplate.nil? then
-				if @project.organisation.nil? || @project.organisation.published_templates.first.nil? then
+			elsif @project.dmptemplate.nil? || params[:default_tag] == 'true' then
+				if @project.organisation.nil?  || params[:default_tag] == 'true'  || @project.organisation.published_templates.first.nil? then
 					@project.dmptemplate = Dmptemplate.find_by_is_default(true)
 				else
 					@project.dmptemplate = @project.organisation.published_templates.first

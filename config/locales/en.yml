@@ -89,10 +89,10 @@ en:
     sug_answers: "Suggested answers"
     old_temp_field: "old template field"
     old_theme_field: "old theme field"
-    
+
 
   org_admin:
-    admin_area: "Admin area"  
+    admin_area: "Admin area"
     template_label: "Templates"
     user_list_label: "Users"
     org_details_label:  "Organisation details"
@@ -113,6 +113,7 @@ en:
     last_updated: "Last updated"
     desc_help_text_html: "<div class='tooltip_box'>Please enter information describing your organization.</div>"
     abbre_help_text: "Please enter an abbreviation to your organization's name."
+    template_desc_help_text_html: "<div class='tooltip_box'>Enter a description that helps you to differentiate between templates e.g. if you have ones for different audiences.</div>"
     target_url_help_text: "Please enter a web address valid."
     name_help_text: "Please enter your organization's name."
     guidance_label: "Guidance"
@@ -151,7 +152,7 @@ en:
       guidance_group_select_help_text_html: "Select which group this guidance relates to."
       guidance_text_html: "<p>You can write pieces of guidance to be displayed by theme (e.g. generic guidance on storage and backup that should present across the board) or you can write guidance for specific questions. Writing generic guidance by theme saves you time and effort as your advice will be automatically displayed across all templates rather than having to write guidance to accompany each.</p>
       <p>You will usually want your guidance to display on all templates, however there may be cases where you only want it to show for specific funders e.g. if you have specific instructions for applicants to BBSRC for example. This can be set too if needed.</p>"
-      delete_message: "You are about to delete '%{guidance_summary}'. Are you sure?"
+      delete_message_html: "You are about to delete '%{guidance_summary}'. Are you sure?"
     guidance_group:
       add_guidance_group: "Add guidance group"
       guidance_group_list: "Guidance group list"
@@ -181,11 +182,12 @@ en:
       create_own_template_text_html: "<p>If you wish to add an institutional template for a Data Management Plan, use the 'create template' button. You can create more than one template if desired e.g. one for researchers and one for PhD students.</p>
               <p>Your template will be presented to users within your institution when no funder templates apply. If you want to add questions to funder templates use the 'customise template' options below.</p>"
       create_new_template_text_html: "<p>To create a new template, first enter a title and description. Once you have saved this you will be presented with options to add one or more phases. </p>"
-      desc_help_text_html: "Enter a description that helps you to differentiate between templates e.g. if you have ones for different audiences"        
+      desc_help_text_html: "Enter a description that helps you to differentiate between templates e.g. if you have ones for different audiences"
       own_temp: "Own templates"
       add_phase_label: "Add new phase +"
       view_phase_label: "View phase"
       edit_phase_label: "Edit phase"
+      back_to_edit_phase_label: "Back to edit view"
       edit_phase_details_label: "Edit phase details"
       phase_details_label: "Phase details"
       phase_order_label: "Order of display"
@@ -200,7 +202,7 @@ en:
       add_section: "Add section"
       new_section: "New section title"
       section_title_placeholder: "New section title"
-      section_desc_help_text_html: "Enter a basic description. This could be a summary of what is covered in the section or instructions on how to answer. This text will be displayed in the coloured banner once a section is opened to edit."
+      section_desc_help_text_html: "<div class='tooltip_box'>Enter a basic description. This could be a summary of what is covered in the section or instructions on how to answer. This text will be displayed in the coloured banner once a section is opened to edit.</div>"
       section_number_help_text: "This allows you to order sections."
       add_question: "Add question"
       created: "Created at"
@@ -210,12 +212,11 @@ en:
       title_label: "Title"
       desc_label: "Description"
       actions: "Actions"
-      customise: "Customise" 
+      customise: "Customise"
       edit_customisation: "Edit customisation"
       created_message: "Information was successfully created."
       updated_message: "Information was successfully updated."
       destroyed_message: "Information was successfully deleted."
-      section_desc_help_text_html: "<div class='tooltip_box'><p>Small description for this section.</p></div>"
       section_delete_message: "You are about to delete '%{section_title}'. This will affect questions linked to this section. Are you sure?"
     versions:
       clone_versions_label: "Make big changes"
@@ -231,7 +232,7 @@ en:
       question_number_label: "Question number"
       question_edit_button: "Edit question"
       answer_format_label: "Answer format"
-      example_answer_label: "Example of answer" 
+      example_answer_label: "Example of answer"
       suggested_answer_label: "Suggested answer"
       suggested_answer_help_text_html: "You can add an example or suggested answer to help users respond. These will be presented above the answer box and can be copied/ pasted."
       suggested_or_example_answer_label: "Suggested answer/ Example"
@@ -247,7 +248,7 @@ en:
       <li>- multiple select box allows users to select several options from a scrollable list, using the CTRL key;</li></ul>"
       default_answer_help_text_html: "Anything you enter here will display in the answer box. If you want an answer in a certain format (e.g. tables), you can enter that style here."
       themes_label: "Themes"
-      question_themes_help_text_html: "<p>Select themes that are relevant to this question.</p> 
+      question_themes_help_text_html: "<p>Select themes that are relevant to this question.</p>
       <p>This allows your generic institution-level guidance to be drawn in, as well as that from other sources e.g. the DCC or any Schools/Departments that you provide guidance for. </p>
       <p>You can select multiple themes by using the CTRL button.</p>"
       default_answer_label: "Default answer"
@@ -255,10 +256,10 @@ en:
       question_guidance_help_text_html: "Enter specific guidance to accompany this question. If you have guidance by themes too, this will be pulled in based on your selections below so it's best not to duplicate too much text."
       delete_message: "You are about to delete '%{question_text}'. Are you sure?"
       question_options_help_text_html: "Enter any options that you wish to display. If you want to pre-set one option as selected, check the default box."
-          
-                 
-    
-  
+
+
+
+
   helpers:
     home: "Home"
     return_home: "Return to the home page"
@@ -271,7 +272,7 @@ en:
     help_label: "Help"
     contact_label: "Contact"
     jisc: "The DCC is funded by"
-    
+
     sign_in: "Sign in"
     sign_in_text: "If you have an existing account."
     sign_out: "Sign out"
@@ -281,6 +282,7 @@ en:
     institution_sing_in_link: ""
     institution_sing_in: "CCID authentication coming soon!"
         
+
     user_name: "Email address"
     email: "Email"
     org_not_listed: "My organization is not listed."
@@ -288,7 +290,8 @@ en:
     user_details_text_html: "<p>Please note that your email address is used as your username. If you change this, remember to use your new email address on sign in.</p>"
     user_details_paragraph_html: "You can edit any of the details below."
     remember_me: "Remember me"
-   
+    org_not_listed: "My organisation isn't listed."
+
     password: "Password"
     current_password: "Current password"
     new_password: "New password"
@@ -302,15 +305,16 @@ en:
     send_password_info: "Reset password instructions"
     edit_password_info: "If you would like to change your password please complete the following fields."
     accept_terms_html: " I accept the <a href='/terms'>terms and conditions</a> *"
-    
+
     text_area: "Text area"
     text_field: "Text field"
     radio_buttons: "Radio buttons"
     checkbox: "Check box"
     dropdown: "Dropdown"
     multi_select_box: "Multi select box"
-    
+
     error: "Error!"
+    comment: "Comment"
     send: "Send"
     yes: "Yes"
     no: "No"
@@ -321,8 +325,11 @@ en:
     view: "View"
     desc: "Description"
     save: "Save"
+    preview: "Preview"
     saving: "Saving..."
     loading: "Loading..."
+    unsaved: "Unsaved changes"
+    unlink_account: "Unlink account"
     submit:
       edit: "Edit"
       create: "Create"
@@ -331,7 +338,7 @@ en:
       save: "Save"
       delete: "Delete"
       back: "Back"
-   
+
     name: "Name"
     first_name: "First name"
     last_name: "Last name"
@@ -340,7 +347,14 @@ en:
     owner: "Owner"
     orcid_id: "ORCID number"
     orcid_html: "ORCID number is a persistent digital identifier that distinguishes each researcher, <a href='http://orcid.org/content/initiative' target='_blank' rel='external' class='a_orange'>more info</a>."
-    
+    sign_up_shibboleth_alert_text_html: "Note: If you have previously created an account in DMPonline, and you want to link this to your institutional credentials, you need to <a href='/' class='a_orange'>Sign in</a> to that existing DMPonline account first. If you have never created a DMPonline account, then please complete the form below."
+    shibboleth_linked_text: "Your account is linked to your institutional credentials."
+    shibboleth_to_link_text: "Link your DMPonline account to your institutional credentials"
+    shibboleth_unlink_label: "Unlink your institutional credentials"
+    shibboleth_unlink_alert: "Unlink institutional credentials alert"
+    shibboleth_unlink_dialog_text: "<p>You are about to unlink DMPonline of your institutional credentials, would you like to continue?</p>"
+
+
     section_label: "Section"
     sections_label: "Sections"
     questions_label: "Questions"
@@ -355,9 +369,10 @@ en:
     notanswered: "Not answered yet"
     noquestionanswered: "No questions have been answered"
     guidance: "Guidance"
+    policy_expectations: "Policy Expectations"
     export: "Export"
-    
-    
+
+
     org_type:
       funder: "Funder"
       institution: "Institution"
@@ -374,6 +389,8 @@ en:
     
       
      
+
+
     project:
       create: "Create plan"
       edit: "Edit plan details"
@@ -389,6 +406,7 @@ en:
       principal_investigator_id: "Principal Investigator/Researcher ID"
       principal_investigator_id_help_text: "E.g ORCID http://orcid.org/."
       funder_help_text: "Research funder if relevant"
+      funder_name: "Funder name"
       project_question_desc_label: "Summary about the questions"
       tab_plan: "Plan details"
       tab_export: "Export"
@@ -402,6 +420,7 @@ Select what format you wish to use and click to 'Export'.</p>"
       project_identifier_help_text: "A pertinent ID as determined by the funder and/or institution."
       project_static_info: "This plan is based on:"
       projects_title: "My plans"
+      project_settings_text: "The items you select here will be displayed in the table below. You can sort the data by each of these headings or filter by entering a text string in the search box."
       project_text_when_no_project: "<p><strong>Welcome.</strong></br> You are now ready to create your first DMP.</br>Click the 'Create plan' button below to begin.</p>"
       project_text_when_project: "<p>The table below lists the plans that you have created, and any that have been shared with you by others.</br>These can be edited, shared, exported or deleted at anytime.</p>"
       confirmation_text: "Confirm plan details"   
@@ -409,7 +428,13 @@ Select what format you wish to use and click to 'Export'.</p>"
       confirmation_button_text: "Yes, create plan"  
       project_details_text_html: "This page gives you an overview of your plan. It tells what your plan is based on and gives an overview of the questions that you will be asked."
       project_details_editing_text_html: "Please fill in the basic project details below and click 'Update' to save"
-      confirm_delete_text: "Are you sure you wish to delete this plan?"
+      confirm_delete_text: "Are you sure you wish to delete this plan? If the plan is being shared with other users, by deleting it from your list, the plan will be deleted from their plan list as well"
+      confirmation_text: "Confirm plan details"
+      confirmation_text_desc: "Where your funder or institution doesn't have specific requirements (or if you left these options blank), you will see the DCC Checklist. This offers a generic set of DMP questions and guidance. For more details see: <a href='http://www.dcc.ac.uk/sites/default/files/documents/resource/DMP_Checklist_2013.pdf' target='_blank'>DMP checklist 2013</a>."
+      confirmation_button_text: "Yes, create plan"
+      default_confirmation_text_desc: "You have selected the Default DMP, which is based on the DCC Checklist. This offers a generic set of DMP questions and guidance. For more details see: <a href='http://www.dcc.ac.uk/sites/default/files/documents/resource/DMP_Checklist_2013.pdf' target='_blank'>DMP checklist 2013</a>."
+      default_confirmation_button_text: "Create plan"
+      alert_default_template_text_html: "Please note: %{org_name} provides a DMP template. If you wish to use it select 'Cancel', otherwise select 'Create plan'"
       share:
         tab_share: "Share"
         shared_label: "Shared?"
@@ -429,13 +454,84 @@ Select what format you wish to use and click to 'Export'.</p>"
         generated_by: "This document was generated by DMP Builder (http://dmp.library.ualberta.ca)"
       create_page: 
         title: "Create a new plan"
-        desc: "Please select from the following drop-downs so we can determine what questions and guidance should be displayed in your plan."
+        desc_html: "<p>Please select from the following drop-downs so we can determine what questions and guidance should be displayed in your plan.</p>
+        <p>If you aren't responding to specific requirements from a funder or an institution, <a id='create-default-plan-button' data-toggle='modal' href='#default-template-confirmation-dialog'>select here to write a generic DMP</a> based on the most common themes.</p>"
+        default_template: "Default DMP"
         funders_question: "If applying for funding, select your research funder."
         funders_question_description: "Otherwise leave blank."
         institution_question: "To see institutional questions and/or guidance, select your organization."
         institution_question_description: "You may leave blank or select a different organization to your own."
         other_guidance_question: "Tick to select any other sources of guidance you wish to see."  
- 
+        other_funder_name_label: "Name of funder, if applicable."
+      configure: "Configure"
+      columns:
+        name: "Name"
+        owner: "Owner"
+        shared: "Shared?"
+        template_owner: "Template Owner"
+        last_edited: "Last edited"
+        identifier: "Identifier"
+        grant_number: "Grant number"
+        principal_investigator: "Principal Investigator / Researcher"
+        data_contact: "Plan data contact"
+        description: "Description"
+      filter:
+        placeholder: "Filter plans"
+        submit: "Filter"
+        cancel: "Cancel"
+        no_matches: "No plans match '%{filter}'"
+
+    plan:
+      export:
+        pdf:
+          question_not_answered: Question not answered.
+          generated_by: This document was generated by DMPonline (http://dmponline.dcc.ac.uk)
+        space_used: "approx. %{space_used}% of available space used (max %{num_pages} pages)"
+        project_name: "Project Name"
+        project_identifier: "Project Identifier"
+        grant_title: "Grant Title"
+        principal_investigator: "Principal Investigator / Researcher"
+        project_data_contact: "Project Data Contact"
+        project_description: "Description"
+        funder: "Funder"
+        institution: "Institution"
+
+    settings:
+      title: "Settings"
+      projects:
+        title: "Settings - My plans"
+        desc: "The table below lists the available columns that can be shown on the 'My plans' list. Choose which you would like to appear."
+        errors:
+          no_name: "'name' must be included in column list."
+          duplicate: "Duplicate column name. Please only include each column once."
+          unknown: "Unknown column name."
+      plans:
+        title: Plan title
+        reset: "Reset"
+        custom_formatting: "(Using custom PDF formatting values)"
+        template_formatting: "(Using template PDF formatting values)"
+        default_formatting: "(Using default PDF formatting values)"
+        included_elements: "Included Elements"
+        pdf_formatting: "PDF Formatting"
+        font_face: "Face"
+        font_size: "Size"
+        margin: "Margin"
+        margins:
+          top: "Top"
+          bottom: "Bottom"
+          left: "Left"
+          right: "Right"
+        max_pages: "Maximum number of pages"
+        errors:
+          missing_key: "A required setting has not been provided"
+          invalid_margin: "Margin value is invalid"
+          negative_margin: "Margin cannot be negative"
+          unknown_margin: "Unknown margin. Can only be 'top', 'bottom', 'left' or 'right'"
+          invalid_font_size: "Invalid font size"
+          invalid_font_face: "Invalid font face"
+          unknown_key: "Unknown formatting setting"
+          invalid_max_pages: "Invalid maximum pages"
+
   about_page:
     title: "About the DMP Builder"
     body_text_html: "<div class='white_background'>
@@ -449,7 +545,6 @@ Select what format you wish to use and click to 'Export'.</p>"
     <h3>How the tool works</h3>
     <div class='white_background'>
     <p>Currently, this tool includes a generic University of Alberta DMP template for researchers to use.  Guidance is provided to help you interpret and answer the questions.</p>
-<<<<<<< HEAD
     <p>We want your feedback! If you have suggestions on how to improve the existing template, or you would like to add additional templates based on funding agency requirements or disciplinary needs, please contact us at <a href='mailto:data@ualberta.ca?Subject=DMP%20Builder%20feedback'>data@ualberta.ca</a>.
     </p>
     </div>
@@ -467,6 +562,7 @@ Select what format you wish to use and click to 'Export'.</p>"
     </div>"
     
     
+
   help_page:
     title: "Help"
     tab_1: "On DMP Builder"
@@ -486,11 +582,10 @@ Select what format you wish to use and click to 'Export'.</p>"
       <li>- The 'Export' tab allows you to download your plan in various formats. This may be useful if you need to submit your plan as part of a grant application.</li>
     </ul>
     <p>When viewing any of the question tabs, you will see the different sections of your plan displayed. Click into these in turn to answer the questions. You can format your responses using the text editing buttons.</p>
-    <p>Guidance is displayed in the right-hand panel. Click the '+' symbol to view this.</p> 
+    <p>Guidance is displayed in the right-hand panel. Click the '+' symbol to view this.</p>
     <p>Remember to 'save' your responses before moving on.</p>
     <h3>Share plans</h3>
     <p>Insert the email address of any collaborators you would like to invite to read or edit your plan. Set the level of permissions you would like to grant them via the drop-down options and click to 'Add collaborator'</p>
-    <p>If desired, you can leave a note to explain what you would like collaborators to look at. You can remove access or update the level of permissions granted at any time.</p>
     <h3>Export plans</h3>
     <p>From here you can download your plan in various formats. This may be useful if you need to submit your plan as part of a grant application. Choose what format you would like to view/download your plan in and click to export. When you login to DMP Builder you will be directed to the 'My plans' page. From here you can edit, share, export or delete any of your plans. You will also see plans that have been shared with you by others.</p>"
 
@@ -524,4 +619,3 @@ Select what format you wish to use and click to 'Export'.</p>"
     <br />
     <div class='white_background'>
     <p>Use of the tool indicates that you understand and agree to these terms and conditions.</p></div>"
-  

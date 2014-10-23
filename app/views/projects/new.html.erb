@@ -21,3 +21,21 @@
     <a href="#" id="new-project-confirmed" class="btn btn-primary"><%= t('helpers.project.confirmation_button_text')%></a>
   </div>
 </div>
+
+<!-- alert for the default template-->
+<div id='default-template-confirmation-dialog' data-container="body" data-backdrop='static' class='modal hide fade'>
+	<div class="modal-header">
+		<h3><%= t('helpers.project.confirmation_text')%></h3>
+	</div>
+	<div class="modal-body">
+		<div><p><%= raw t('helpers.project.default_confirmation_text_desc')%></p></div>
+		<!-- verify if the current user organisation has or a template or guidance. if true display alert text-->
+		<%if !Dmptemplate.own_institutional_templates(current_user.organisation_id).empty? then %>
+			<div><p><strong><%= raw t('helpers.project.alert_default_template_text_html', :org_name => current_user.organisation.name )%></strong></p></div>
+		<%end%>	
+	</div>
+	<div class="modal-footer">
+    	<a href="#" id="default-template-cancelled" class="btn"><%= t('helpers.submit.cancel')%></a>
+    	<a href="#" id="default-template-confirmed" class="btn btn-primary"><%= t('helpers.project.default_confirmation_button_text')%></a>
+  	</div>
+</div>
