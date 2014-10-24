@@ -322,8 +322,7 @@ ActiveRecord::Schema.define(:version => 20140707143840) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.boolean  "published"
-<<<<<<< HEAD
-=======
+
   end
 
   create_table "settings", :force => true do |t|
@@ -333,7 +332,6 @@ ActiveRecord::Schema.define(:version => 20140707143840) do
     t.string   "target_type", :null => false
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
->>>>>>> 741624a1546094750a92de90f60add002e0f7928
   end
 
   add_index "settings", ["target_type", "target_id", "var"], :name => "index_settings_on_target_type_and_target_id_and_var", :unique => true
