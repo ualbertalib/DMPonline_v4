@@ -119,7 +119,7 @@ def edit_plan
     puts("now editing answers")
 
     @driver.find_element(:link, "Answer questions").click
-    verify {(@driver.find_element(:xpath, "//div[@class='progress']/span").text.should == "No questions have been answered")}
+    verify {(@driver.find_element(:xpath, "//div[@class='questions-process-title']").text.should == "No questions have been answered")}
     tinymce_frame = @driver.find_elements(:xpath, "//div[@class='question-div']//iframe[starts-with(@id, 'answer-text-')]")
     tinymce_frame[1].find_element(:xpath, "../../../../../../../../../../../../div[@class='accordion-heading']//span[contains(@class, 'icon-plus')]").click
     tinymce_frame[1].find_element(:xpath, "../../../../../../../../../div[@class='question-guidance']//span[@class='plus-laranja']").click
