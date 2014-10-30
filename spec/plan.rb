@@ -15,8 +15,11 @@ def destroy_plan
 end
 
 def create_and_verify_plan
+    
     verify_as_user('dmp_user')
+    puts "user verified"
     create_a_new_plan
+    puts "plan created"
     @driver.find_element(:id, "project_title").clear
     @driver.find_element(:id, "project_title").send_keys @properties['dmp_plan']['name']
     @driver.find_element(:name, "commit").click
@@ -119,20 +122,25 @@ def edit_plan
     puts("now editing answers")
 
     @driver.find_element(:link, "Answer questions").click
-    verify {(@driver.find_element(:xpath, "//div[@class='questions-process-title']").text.should == "No questions have been answered")}
     tinymce_frame = @driver.find_elements(:xpath, "//div[@class='question-div']//iframe[starts-with(@id, 'answer-text-')]")
-    tinymce_frame[1].find_element(:xpath, "../../../../../../../../../../../../div[@class='accordion-heading']//span[contains(@class, 'icon-plus')]").click
-    tinymce_frame[1].find_element(:xpath, "../../../../../../../../../div[@class='question-guidance']//span[@class='plus-laranja']").click
+    current_status = "0/" + tinymce_frame.size.to_s
+    verify { (@driver.find_element(:id, "questions-progress-title").text).should include current_status}
+    @driver.find_element(:xpath, "//a[contains(@href, '#collapse-1')]").click
+    iframe = @driver.find_element(:id, "answer-text-3_ifr")
+    @driver.find_element(:xpath, "//a[contains(@href, '#collapse-guidance-3')]").click
     puts("now switch to iframe")
 
-    @driver.switch_to.frame(tinymce_frame[1])
+    @driver.switch_to.frame(iframe)
     editor_body = @driver.find_element(:css => "body")
     @driver.execute_script("arguments[0].innerHTML = '<h3>Sample Answer</h3>DIT Test'", editor_body)
     @driver.switch_to.default_content
-    
-    save_button = tinymce_frame[1].find_element(:xpath, "../../../../../../fieldset[@class='actions']//li[@id='answer_submit_action']")
-    save_button.find_element(:name, "commit").click
+    verify { (@driver.find_element(:id, "3-status").text).should == "Not answered yet" }
+    save_button=@driver.find_element(:xpath, "//div[@id='question-form-3']//input[@value='Save']") 
+    save_button.click
+  
     sleep 30
+    save_button.click
+
 
     @driver.find_element(:link, "My plans").click
     verify { (@driver.find_element(:link, @properties['dmp_plan']['name']).text).should == @properties['dmp_plan']['name'] }
@@ -142,7 +150,7 @@ def edit_plan
     answer_status = @driver.find_element(:xpath, "//abbr[@class='timeago']").find_element(:xpath, "..")
     verify{answer_status.attribute("innerHTML").should include @properties['dmp_user']['name']}
     progress_status = "1/" + tinymce_frame.size.to_s
-    verify {@driver.find_element(:id, "questions-progress").text.should include progress_status}
+    verify {@driver.find_element(:id, "questions-progress-title").text.should include progress_status}
 
 end
 
@@ -153,7 +161,7 @@ def delete_plan
     verify { (@driver.find_element(:link, @properties['dmp_plan']['name']).text).should == @properties['dmp_plan']['name'] }
     verify { element_present?(:link, "Delete").should be_true }
     @driver.find_element(:link, "Delete").click
-    close_alert_and_get_its_text().should == "Are you sure you wish to delete this plan?"
+    close_alert_and_get_its_text().should == "Are you sure you wish to delete this plan? If the plan is being shared with other users, by deleting it from your list, the plan will be deleted from their plan list as well"
     expect { (@driver.find_element(:link, @properties['dmp_plan']['name'])).to raise_error (Selenium::WebDriver::Error::NoSuchElementError) }
 end
 
