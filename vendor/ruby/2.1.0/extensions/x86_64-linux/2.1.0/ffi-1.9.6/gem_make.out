@@ -199,5 +199,5 @@ AbstractMemory.c:291: warning: ‘memory_read_array_of_bool’ defined but not u
 AbstractMemory.c:407: warning: ‘memory_read_array_of_string’ defined but not used
 compiling StructByValue.c
 linking shared-object ffi_c.so
-/usr/bin/install -c -m 0755 ffi_c.so ./.gem.20141031-18572-132gnbs
+/usr/bin/install -c -m 0755 ffi_c.so ./.gem.20141104-19883-v226hu
 installing default ffi_c libraries

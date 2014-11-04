@@ -287,14 +287,14 @@ creating Makefile
 make "DESTDIR=" clean
 
 make "DESTDIR="
-compiling curb_postfield.c
+compiling curb_errors.c
+compiling curb_multi.c
+compiling curb_easy.c
 compiling curb.c
 compiling curb_upload.c
-compiling curb_easy.c
-compiling curb_multi.c
-compiling curb_errors.c
+compiling curb_postfield.c
 linking shared-object curb_core.so
 
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 curb_core.so ./.gem.20141023-24585-w0c8nz
+/usr/bin/install -c -m 0755 curb_core.so ./.gem.20141104-19883-9iy006
 installing default curb_core libraries

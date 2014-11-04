@@ -9,5 +9,5 @@ compiling mapper.cpp
 linking shared-object fastfilereaderext.so
 
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 fastfilereaderext.so ./.gem.20141023-24585-1ke27rz
+/usr/bin/install -c -m 0755 fastfilereaderext.so ./.gem.20141104-19883-1f9re5a
 installing default fastfilereaderext libraries
