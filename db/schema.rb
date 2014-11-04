@@ -322,7 +322,6 @@ ActiveRecord::Schema.define(:version => 20140707143840) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.boolean  "published"
-
   end
 
   create_table "settings", :force => true do |t|
