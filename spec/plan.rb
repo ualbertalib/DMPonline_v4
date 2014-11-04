@@ -102,7 +102,6 @@ def visit_export_page
     @driver.get(@base_url + "/projects")
     (@driver.find_element(:link, @properties['dmp_plan']['name']).text).should == @properties['dmp_plan']['name']
     @driver.find_element(:link, "Export").click
-    @driver.find_element(:xpath, '//h3[text()="University of Alberta Data Management Questions"]').click
  
 end
 
