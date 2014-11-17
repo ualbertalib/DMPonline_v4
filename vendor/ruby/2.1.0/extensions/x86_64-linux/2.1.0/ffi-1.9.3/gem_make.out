@@ -31,33 +31,6 @@ make[3]: Entering directory `/var/www/sites/DMPonline_v4/vendor/ruby/2.1.0/gems/
 make[3]: Nothing to be done for `all'.
 make[3]: Leaving directory `/var/www/sites/DMPonline_v4/vendor/ruby/2.1.0/gems/ffi-1.9.3/ext/ffi_c/libffi-x86_64-linux/man'
 make[3]: Entering directory `/var/www/sites/DMPonline_v4/vendor/ruby/2.1.0/gems/ffi-1.9.3/ext/ffi_c/libffi-x86_64-linux'
-restore=: && backupdir=".am$$" && \
-	am__cwd=`pwd` && CDPATH="${ZSH_VERSION+.}:" && cd /var/www/sites/DMPonline_v4/vendor/ruby/2.1.0/gems/ffi-1.9.3/ext/ffi_c/libffi && \
-	rm -rf $backupdir && mkdir $backupdir && \
-	if (/bin/sh /var/www/sites/DMPonline_v4/vendor/ruby/2.1.0/gems/ffi-1.9.3/ext/ffi_c/libffi/missing --run makeinfo   --version) >/dev/null 2>&1; then \
-	  for f in /var/www/sites/DMPonline_v4/vendor/ruby/2.1.0/gems/ffi-1.9.3/ext/ffi_c/libffi/doc/libffi.info /var/www/sites/DMPonline_v4/vendor/ruby/2.1.0/gems/ffi-1.9.3/ext/ffi_c/libffi/doc/libffi.info-[0-9] /var/www/sites/DMPonline_v4/vendor/ruby/2.1.0/gems/ffi-1.9.3/ext/ffi_c/libffi/doc/libffi.info-[0-9][0-9] /var/www/sites/DMPonline_v4/vendor/ruby/2.1.0/gems/ffi-1.9.3/ext/ffi_c/libffi/doc/libffi.i[0-9] /var/www/sites/DMPonline_v4/vendor/ruby/2.1.0/gems/ffi-1.9.3/ext/ffi_c/libffi/doc/libffi.i[0-9][0-9]; do \
-	    if test -f $f; then mv $f $backupdir; restore=mv; else :; fi; \
-	  done; \
-	else :; fi && \
-	cd "$am__cwd"; \
-	if /bin/sh /var/www/sites/DMPonline_v4/vendor/ruby/2.1.0/gems/ffi-1.9.3/ext/ffi_c/libffi/missing --run makeinfo     -I doc -I /var/www/sites/DMPonline_v4/vendor/ruby/2.1.0/gems/ffi-1.9.3/ext/ffi_c/libffi/doc \
-	 -o /var/www/sites/DMPonline_v4/vendor/ruby/2.1.0/gems/ffi-1.9.3/ext/ffi_c/libffi/doc/libffi.info /var/www/sites/DMPonline_v4/vendor/ruby/2.1.0/gems/ffi-1.9.3/ext/ffi_c/libffi/doc/libffi.texi; \
-	then \
-	  rc=0; \
-	  CDPATH="${ZSH_VERSION+.}:" && cd /var/www/sites/DMPonline_v4/vendor/ruby/2.1.0/gems/ffi-1.9.3/ext/ffi_c/libffi; \
-	else \
-	  rc=$?; \
-	  CDPATH="${ZSH_VERSION+.}:" && cd /var/www/sites/DMPonline_v4/vendor/ruby/2.1.0/gems/ffi-1.9.3/ext/ffi_c/libffi && \
-	  $restore $backupdir/* `echo ".//var/www/sites/DMPonline_v4/vendor/ruby/2.1.0/gems/ffi-1.9.3/ext/ffi_c/libffi/doc/libffi.info" | sed 's|[^/]*$||'`; \
-	fi; \
-	rm -rf $backupdir; exit $rc
-/var/www/sites/DMPonline_v4/vendor/ruby/2.1.0/gems/ffi-1.9.3/ext/ffi_c/libffi/missing: line 52: makeinfo: command not found
-WARNING: `makeinfo' is missing on your system.  You should only need it if
-         you modified a `.texi' or `.texinfo' file, or any other file
-         indirectly affecting the aspect of the manual.  The spurious
-         call might also be the consequence of using a buggy `make' (AIX,
-         DU, IRIX).  You might want to install the `Texinfo' package or
-         the `GNU make' package.  Grab either from any GNU archive site.
 /bin/sh ./libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I/var/www/sites/DMPonline_v4/vendor/ruby/2.1.0/gems/ffi-1.9.3/ext/ffi_c/libffi  -I. -I/var/www/sites/DMPonline_v4/vendor/ruby/2.1.0/gems/ffi-1.9.3/ext/ffi_c/libffi/include -Iinclude -I/var/www/sites/DMPonline_v4/vendor/ruby/2.1.0/gems/ffi-1.9.3/ext/ffi_c/libffi/src  -g  -Wall -fexceptions -c -o src/debug.lo /var/www/sites/DMPonline_v4/vendor/ruby/2.1.0/gems/ffi-1.9.3/ext/ffi_c/libffi/src/debug.c
 libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I/var/www/sites/DMPonline_v4/vendor/ruby/2.1.0/gems/ffi-1.9.3/ext/ffi_c/libffi -I. -I/var/www/sites/DMPonline_v4/vendor/ruby/2.1.0/gems/ffi-1.9.3/ext/ffi_c/libffi/include -Iinclude -I/var/www/sites/DMPonline_v4/vendor/ruby/2.1.0/gems/ffi-1.9.3/ext/ffi_c/libffi/src -g -Wall -fexceptions -c /var/www/sites/DMPonline_v4/vendor/ruby/2.1.0/gems/ffi-1.9.3/ext/ffi_c/libffi/src/debug.c  -fPIC -DPIC -o src/.libs/debug.o
 /bin/sh ./libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I/var/www/sites/DMPonline_v4/vendor/ruby/2.1.0/gems/ffi-1.9.3/ext/ffi_c/libffi  -I. -I/var/www/sites/DMPonline_v4/vendor/ruby/2.1.0/gems/ffi-1.9.3/ext/ffi_c/libffi/include -Iinclude -I/var/www/sites/DMPonline_v4/vendor/ruby/2.1.0/gems/ffi-1.9.3/ext/ffi_c/libffi/src  -g  -Wall -fexceptions -c -o src/prep_cif.lo /var/www/sites/DMPonline_v4/vendor/ruby/2.1.0/gems/ffi-1.9.3/ext/ffi_c/libffi/src/prep_cif.c
@@ -91,19 +64,10 @@ libtool: link: ( cd ".libs" && rm -f "libffi_convenience.la" && ln -s "../libffi
 make[3]: Leaving directory `/var/www/sites/DMPonline_v4/vendor/ruby/2.1.0/gems/ffi-1.9.3/ext/ffi_c/libffi-x86_64-linux'
 make[2]: Leaving directory `/var/www/sites/DMPonline_v4/vendor/ruby/2.1.0/gems/ffi-1.9.3/ext/ffi_c/libffi-x86_64-linux'
 make[1]: Leaving directory `/var/www/sites/DMPonline_v4/vendor/ruby/2.1.0/gems/ffi-1.9.3/ext/ffi_c/libffi-x86_64-linux'
-compiling Thread.c
-compiling ffi.c
-compiling Platform.c
-compiling DataConverter.c
-compiling ArrayType.c
-compiling ClosurePool.c
-compiling MethodHandle.c
-compiling LongDouble.c
-compiling Buffer.c
-compiling LastError.c
+compiling StructByReference.c
+compiling DynamicLibrary.c
 compiling Struct.c
-compiling MemoryPointer.c
-compiling Types.c
+compiling StructLayout.c
 compiling Function.c
 Function.c: In function ‘callback_invoke’:
 Function.c:479: warning: passing argument 1 of ‘rb_thread_call_with_gvl’ from incompatible pointer type
@@ -112,6 +76,11 @@ Function.c: In function ‘async_cb_event’:
 Function.c:563: warning: implicit declaration of function ‘rb_thread_call_without_gvl’
 Function.c: In function ‘callback_with_gvl’:
 Function.c:738: warning: no return statement in function returning non-void
+compiling ClosurePool.c
+compiling DataConverter.c
+compiling LongDouble.c
+compiling Type.c
+compiling LastError.c
 compiling AbstractMemory.c
 AbstractMemory.c:255: warning: ‘memory_put_longdouble’ defined but not used
 AbstractMemory.c:255: warning: ‘memory_write_longdouble’ defined but not used
@@ -126,18 +95,22 @@ AbstractMemory.c:291: warning: ‘memory_read_bool’ defined but not used
 AbstractMemory.c:291: warning: ‘memory_write_array_of_bool’ defined but not used
 AbstractMemory.c:291: warning: ‘memory_read_array_of_bool’ defined but not used
 AbstractMemory.c:407: warning: ‘memory_read_array_of_string’ defined but not used
-compiling Pointer.c
-compiling StructByReference.c
-compiling StructByValue.c
-compiling Type.c
-compiling StructLayout.c
-compiling FunctionInfo.c
-compiling DynamicLibrary.c
 compiling Variadic.c
-compiling MappedType.c
+compiling Buffer.c
+compiling Pointer.c
+compiling FunctionInfo.c
+compiling ffi.c
+compiling Types.c
 compiling Call.c
 Call.c: In function ‘do_blocking_call’:
 Call.c:303: warning: implicit declaration of function ‘rb_thread_call_without_gvl’
+compiling StructByValue.c
+compiling Platform.c
+compiling MappedType.c
+compiling MemoryPointer.c
+compiling MethodHandle.c
+compiling ArrayType.c
+compiling Thread.c
 linking shared-object ffi_c.so
 
 make "DESTDIR=" install
@@ -161,19 +134,10 @@ make[3]: Entering directory `/var/www/sites/DMPonline_v4/vendor/ruby/2.1.0/gems/
 make[3]: Leaving directory `/var/www/sites/DMPonline_v4/vendor/ruby/2.1.0/gems/ffi-1.9.3/ext/ffi_c/libffi-x86_64-linux'
 make[2]: Leaving directory `/var/www/sites/DMPonline_v4/vendor/ruby/2.1.0/gems/ffi-1.9.3/ext/ffi_c/libffi-x86_64-linux'
 make[1]: Leaving directory `/var/www/sites/DMPonline_v4/vendor/ruby/2.1.0/gems/ffi-1.9.3/ext/ffi_c/libffi-x86_64-linux'
-compiling Thread.c
-compiling ffi.c
-compiling Platform.c
-compiling DataConverter.c
-compiling ArrayType.c
-compiling ClosurePool.c
-compiling MethodHandle.c
-compiling LongDouble.c
-compiling Buffer.c
-compiling LastError.c
+compiling StructByReference.c
+compiling DynamicLibrary.c
 compiling Struct.c
-compiling MemoryPointer.c
-compiling Types.c
+compiling StructLayout.c
 compiling Function.c
 Function.c: In function ‘callback_invoke’:
 Function.c:479: warning: passing argument 1 of ‘rb_thread_call_with_gvl’ from incompatible pointer type
@@ -182,6 +146,11 @@ Function.c: In function ‘async_cb_event’:
 Function.c:563: warning: implicit declaration of function ‘rb_thread_call_without_gvl’
 Function.c: In function ‘callback_with_gvl’:
 Function.c:738: warning: no return statement in function returning non-void
+compiling ClosurePool.c
+compiling DataConverter.c
+compiling LongDouble.c
+compiling Type.c
+compiling LastError.c
 compiling AbstractMemory.c
 AbstractMemory.c:255: warning: ‘memory_put_longdouble’ defined but not used
 AbstractMemory.c:255: warning: ‘memory_write_longdouble’ defined but not used
@@ -196,18 +165,22 @@ AbstractMemory.c:291: warning: ‘memory_read_bool’ defined but not used
 AbstractMemory.c:291: warning: ‘memory_write_array_of_bool’ defined but not used
 AbstractMemory.c:291: warning: ‘memory_read_array_of_bool’ defined but not used
 AbstractMemory.c:407: warning: ‘memory_read_array_of_string’ defined but not used
-compiling Pointer.c
-compiling StructByReference.c
-compiling StructByValue.c
-compiling Type.c
-compiling StructLayout.c
-compiling FunctionInfo.c
-compiling DynamicLibrary.c
 compiling Variadic.c
-compiling MappedType.c
+compiling Buffer.c
+compiling Pointer.c
+compiling FunctionInfo.c
+compiling ffi.c
+compiling Types.c
 compiling Call.c
 Call.c: In function ‘do_blocking_call’:
 Call.c:303: warning: implicit declaration of function ‘rb_thread_call_without_gvl’
+compiling StructByValue.c
+compiling Platform.c
+compiling MappedType.c
+compiling MemoryPointer.c
+compiling MethodHandle.c
+compiling ArrayType.c
+compiling Thread.c
 linking shared-object ffi_c.so
-/usr/bin/install -c -m 0755 ffi_c.so ./.gem.20140521-3782-5u066d
+/usr/bin/install -c -m 0755 ffi_c.so ./.gem.20141117-25577-udcfau
 installing default ffi_c libraries
