@@ -20,9 +20,14 @@
 		    	}
 		  	</style>
 		<![endif]-->
-                
-		<%= stylesheet_link_tag   "application" %>
-		<%= javascript_include_tag "application"%>
+		 <% if (user_signed_in?) && (current_user.organisation_id == 2) then %>
+		
+	                	<%= stylesheet_link_tag "application_ubc" %>
+
+		<% else %>
+			<%= stylesheet_link_tag "application" %>
+		<% end %>
+	        <%= javascript_include_tag "application"%>
 		
 		<%= javascript_include_tag "jquery.tablesorter"%>
 		<script>
@@ -53,8 +58,14 @@
 	</head>
 	<body class="dmponline">
 		<div class="wrap">
-	    	<!-- header renedering -->
-	    	<%= render "layouts/dmponline_header" %>
+	    	<!-- header rendering -->
+	         <% if (user_signed_in?) && (current_user.organisation_id == 2) then %>
+			 <%= render "layouts/dmponline_header_ubc" %>
+
+                <% else %>
+               		 <%= render "layouts/dmponline_header" %>
+		<% end %>
+	
 	    
 			<div class="main_page_container">
 				<% if notice %>
@@ -71,6 +82,7 @@
 		</div>
 		<!-- footer rendering -->
 		<%= render "layouts/dmponline_footer" %>
+
 			
 	</body>
 </html>
