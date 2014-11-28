@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.19'
+gem 'rails', '3.2.21'
 
 gem 'mysql2'
 gem 'omniauth'
@@ -40,7 +40,7 @@ gem 'activeadmin'
 gem 'amoeba'
 
 # devise for user authentication
-gem 'devise', '3.0.0'
+gem 'devise', '3.0.1'
 gem 'devise_invitable', '>= 1.2.1'
 
 #cancan for usergroups
