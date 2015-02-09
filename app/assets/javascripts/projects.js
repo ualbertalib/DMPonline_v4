@@ -1,5 +1,6 @@
 $( document ).ready(function() {
-
+/* remove temporarily as we don't have funder templates 
+removed by wshi on Feb 9, 2015
 	$("#project_funder_id").change(function () {
 		update_template_options();
 		update_guidance_options();
@@ -29,8 +30,11 @@ $( document ).ready(function() {
 	$("#project_funder_name").change(function(){
 		$("#confirm-funder").text($(this).val());
 	});
-
+*/
 	$("#project_institution_id").change(function () {
+                $("#confirm-funder").text("None");
+                $("#project_funder_id").select2("val", "");
+                $("#create-plan-button").show();
 		update_template_options();
 		update_guidance_options();
 		$("#confirm-institution").text($("#project_institution_id").select2('data').text);
