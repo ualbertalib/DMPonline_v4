@@ -103,7 +103,10 @@ removed by wshi on Feb 9, 2015
 		var institution = $("#project_institution_id").select2('val');
 		$.ajax({
 			type: 'GET',
+                        url: "possible_templates.json?institution="+institution,
+/* temporarily change the url to disable funder dropdown menu
 			url: "possible_templates.json?institution="+institution+"&funder="+funder,
+*/
 			dataType: 'json',
 			async: false, //Needs to be synchronous, otherwise end up mixing up answers
 			success: function(data) {
