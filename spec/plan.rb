@@ -31,8 +31,8 @@ end
 def create_a_new_plan
     verify { element_present?(:link, "Create plan").should be_true }
     @driver.find_element(:link, "Create plan").click
-    verify { element_present?(:id, "no-funder").should be_true }
-    @driver.find_element(:id, "no-funder").click
+    # verify { element_present?(:id, "no-funder").should be_true }
+    # @driver.find_element(:id, "no-funder").click
     verify { element_present?(:id, "create-plan-button").should be_true }
     @driver.find_element(:id, "create-plan-button").click
     !60.times{ break if (@driver.find_element(:id, "confirm-template").text == "University of Alberta Template" rescue false); sleep 1 }
