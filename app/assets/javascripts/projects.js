@@ -47,6 +47,11 @@ removed by wshi on Feb 9, 2015
 		$("#confirm-institution").text("None");
 	});
 
+        $("#create-plan-button").click(function() {
+                update_template_options();
+                update_guidance_options();
+        });
+
 	$("#project_dmptemplate_id").change(function (f) {
 		update_guidance_options();
 		$("#confirm-template").text($("#project_dmptemplate_id :selected").text());
