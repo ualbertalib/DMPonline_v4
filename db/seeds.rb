@@ -466,6 +466,7 @@ versions.each do |v, details|
   version.title = details[:title]
   version.number = details[:number]
   version.phase = Phase.find_by_title(details[:phase])
+  version.published = Phase.find_by_title(details[:phase]).dmptemplate.published
   version.save!
 end
 
