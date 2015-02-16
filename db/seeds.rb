@@ -527,7 +527,7 @@ sections.each do |s, details|
   section.number = details[:number]
   section.description = details[:description]
   section.version = Version.find_by_title(details[:version])
-  section.organisation = Organisation.find_by_name(details[:organisation])
+  section.organisation = Organisation.find_by_abbreviation(details[:organisation])
   section.save!
 end
 
