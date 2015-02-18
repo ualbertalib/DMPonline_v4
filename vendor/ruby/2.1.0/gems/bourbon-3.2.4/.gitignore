@@ -1,0 +1,7 @@
+_site
+.DS_store
+.sass-cache
+*gem
+*swp
+Gemfile.lock
+tmp
