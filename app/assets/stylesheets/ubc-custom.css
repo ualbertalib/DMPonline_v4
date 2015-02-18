@@ -1,3 +1,4 @@
+@orange_colour: #2F5D7C;
 
 * {
   margin: 0;
@@ -15,6 +16,24 @@ html, body {
   content: "";
   display: block;
 }
+
+h1, h2, h3, h4 {
+  
+  color: #2F5D7C;
+  
+}
+
+a, a:active, a:focus {
+  color: #2F5D7C;
+}
+
+a.visited{
+  color: #2F5D7C;
+}
+
+.dmp_toolbar {
+  background-color: #2F5D7C;
+}
 footer, .wrap:after{
   /* .push must be the same height as footer */
   height: 80px; 
@@ -22,7 +41,7 @@ footer, .wrap:after{
 footer{
  background-color: #2F5D7C;
  padding: 0 10%;
-color: #999;
+ color: #999;
  font-size: 11px;
  margin-top: 0;
  width: auto;
@@ -140,3 +159,87 @@ background: -moz-linear-gradient(top, #FFFFFF 0%, #F4F4F4 100%);
 	box-shadow: none;
 	font-size:18px;
 }
+table.dmp_table thead{
+  background-color: #2F5D7C;
+}
+table.dmp_table a.dmp_table_link:hover{
+  color: #2F5D7C;
+}
+
+li.select label, li.check_boxes .label{
+  color: #2F5D7C;
+}
+#other-funder-name .label {
+  color: #2F5D7C;
+}
+
+#project-tabs li.active a, #project-tabs li.active a:active, #project-tabs li a:hover{
+  background-color: #2F5D7C;
+  border: 1px solid #2F5D7C;
+}
+
+.dmp_details_body{
+  border: 2px solid #2F5D7C;
+}
+
+table.dmp_details_table tr td.first{
+  border-right: 1px solid #2F5D7C;
+}
+
+ul.section_ul li{
+  color: #2F5D7C;
+ }
+
+
+.accordion-group{
+  background-color: #2F5D7C;
+  border-color:#2F5D7C;
+}
+
+.accordion-heading{
+  background-color: #2F5D7C;
+
+}
+.section-status{
+  background-color: #2F5D7C;
+}
+
+div.suggested-answer-border {
+  border: 1px solid #2F5D7C;
+
+}
+.question-guidance .guidance-accordion-body {
+  border: 1px solid #2F5D7C;
+}
+.question-guidance .accordion-heading a, .question-guidance .accordion-heading a:hover{
+    color:  #2F5D7C !important;
+}
+
+
+ul.export_list li{
+  ul.export_sub_list {
+
+    li:before {
+      color: #2F5D7C;
+    }
+
+  }
+}
+
+.column_left{
+ 
+  .white_background{
+ 
+    table.dmp_details_table tr td.first{
+      border-right: 1px solid #2F5D7C;
+   
+    }
+    
+  }
+}
+
+.mce-item-table th {
+       
+        background-color: #2F5D7C;
+}
+
