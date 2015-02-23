@@ -153,7 +153,7 @@ class DmptemplateTest < ActiveSupport::TestCase
   end
 
   test "setting non-integer as font_size should not be valid" do
-    @font_size = :foo
+    @font_size = "foo"
 
     @template.settings(:export).formatting = settings
 
