@@ -240,4 +240,17 @@ ul.export_list li{
        
         background-color: #2F5D7C;
 }
+.progress {
+  .bar {
+    .ProgressBar(#2F5D7C, #002145);
+  }
 
+  .bar.space {
+    .ProgressBar(#98B2C3, #2F5D7C);
+
+  }
+
+ .color-text{
+    color: #2F5D7C;
+  }
+}
