@@ -1,0 +1,10 @@
+<ul style="list-style: none">
+  <li>
+    <strong>session_id: </strong>
+    <span><%= @request.ssl? ? "[FILTERED]" : (raw (@request.session['session_id'] || (@request.env["rack.session.options"] and @request.env["rack.session.options"][:id])).inspect.html_safe) %></span>
+  </li>
+  <li>
+    <strong>data: </strong>
+    <span><%= raw PP.pp(@request.session, "") %></span>
+  </li>
+</ul>

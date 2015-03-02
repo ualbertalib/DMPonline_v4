@@ -1,0 +1,40 @@
+/usr/bin/ruby extconf.rb 
+checking for main() in -lpthread... yes
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling template.cc
+compiling signature.cc
+compiling constraints.cc
+compiling stack.cc
+compiling invocation.cc
+compiling primitive.cc
+compiling date.cc
+compiling message.cc
+compiling string.cc
+compiling init.cc
+compiling locker.cc
+compiling value.cc
+compiling constants.cc
+compiling function.cc
+compiling array.cc
+compiling heap.cc
+compiling handles.cc
+compiling external.cc
+compiling v8.cc
+compiling trycatch.cc
+compiling exception.cc
+compiling gc.cc
+compiling context.cc
+compiling script.cc
+compiling accessor.cc
+compiling rr.cc
+compiling backref.cc
+compiling object.cc
+linking shared-object v8/init.so
+
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 init.so ./.gem.20150218-11771-7ag5cq/v8
+installing default init libraries
