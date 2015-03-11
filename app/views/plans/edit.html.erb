@@ -10,11 +10,11 @@
     <%
       space_used = status["space_used"].to_i
       space_title = t('helpers.plan.export.space_used', space_used: space_used, num_pages: @plan.dmptemplate.settings(:export).max_pages)
-      answered = %(#{status["num_answers"]}/#{status["num_questions"]})
+      answered = %(#{status["num_answers"]}/#{status["num_questions"]})      
     %>
       <div class="bar-container">
         <span id="questions-progress-title"><%= answered -%> questions answered</span>
-        <span id="questions-progress" class="bar" style="width: <%= number_to_percentage(status["num_answers"].to_f/status["num_questions"].to_f*100) %>;" title="<%= answered -%> questions answered"></span>
+        <span id="questions-progress" class="bar" style="width: <%= number_to_percentage(status["num_answers"].to_f/status["num_questions"].to_f*100, locale: :en) %>;" title="<%= answered -%> questions answered"></span> 
       </div>
       <hr>
       <div class="bar-container">
