@@ -16,6 +16,9 @@ DMPonline4::Application.configure do
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = true
 
+  # Use syslog for logging
+  config.logger = Logger::Syslog.new('DMPonline_v4')
+  
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
 
@@ -36,7 +39,7 @@ DMPonline4::Application.configure do
   config.assets.debug = true
 
   #devise config
-  config.action_mailer.default_url_options = { :host => 'houston.library.ualberta.ca' }
+  config.action_mailer.default_url_options = { :host => 'localhost.localdomain' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = { :address => "localhost", :port => 25 }
   
@@ -55,8 +58,8 @@ DMPonline4::Application.configure do
 	 config.middleware.use ExceptionNotification::Rack,
 	  :email => {
 	    :email_prefix => "[DMPonline4 ERROR] ",
-	    :sender_address => %{"No-reply" <noreply@dcc.ac.uk>},
-	    :exception_recipients => %w{dmponline@dcc.ac.uk}
+	    :sender_address => %{"No-reply" <noreply@ualberta.ca>},
+	    :exception_recipients => %w{data@ualberta.ca}
 	  }
 	  
 	

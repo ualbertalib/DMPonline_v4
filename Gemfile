@@ -6,7 +6,9 @@ gem 'mysql2'
 gem 'omniauth'
 gem 'omniauth-shibboleth'
 gem 'recaptcha'
-
+# added the following two gems for multilingual support
+gem 'i18n'
+gem 'globalize', '~>3.1.0'
 
 # Gems used only for assets and not required
 # in production environments by default.

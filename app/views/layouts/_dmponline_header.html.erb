@@ -3,11 +3,15 @@
 <header class="uofa-header">
 	<div class='header_left'>
 		<div class="home_logo">
-			<%= link_to( image_tag('ua-lib-logo.png'), "https://dmp.library.ualberta.ca")%>
+			<%= link_to( image_tag('ua-lib-logo.png'), "https://192.168.33.11")%>
 		</div>
-<h3 class="subhead">A Tool for Data Management Plans</h3>
+<h3 class="subhead">A Tool for DMP</h3>
 	</div>
-	<div class="header_right">	
+	<div class="header_right">
+		<div class="locale">
+			<%= link_to_unless_current "English", locale: "en" %> |
+			<%= link_to_unless_current "French", locale: "fr" %>
+		</div>	
 		<div class="signIn">
 			<ul class="navbar">
 				<% if user_signed_in? %>
