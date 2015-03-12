@@ -6,7 +6,10 @@ module DMPonline4
     # tell the I18n library where to find your translations
     config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # set default locale
-    config.i18n.default_locale = :en
+    #config.i18n.default_locale = :en
+    config.i18n.locale = :fr 
+		config.i18n.default_locale = :fr
+    config.i18n.available_locales = [:fr, :en]
     
   end
 end
