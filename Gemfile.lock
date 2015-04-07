@@ -105,6 +105,9 @@ GEM
       actionpack (>= 3.0)
     friendly_id (4.0.10.1)
       activerecord (>= 3.0, < 4.0)
+    globalize (3.1.0)
+      activemodel (>= 3.1.0, < 4.0.0)
+      activerecord (>= 3.1.0, < 4.0.0)
     has_scope (0.6.0)
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
@@ -288,7 +291,9 @@ DEPENDENCIES
   exception_notification
   feedzirra (= 0.5.0)
   friendly_id
+  globalize (~> 3.1.0)
   htmltoword
+  i18n
   jbuilder
   jquery-rails (= 2.3.0)
   ledermann-rails-settings
