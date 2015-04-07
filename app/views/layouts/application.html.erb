@@ -20,7 +20,7 @@
 		    	}
 		  	</style>
 		<![endif]-->
-		 <% if (user_signed_in?) && (current_user.organisation_id == 2) then %>
+		 <% if (user_signed_in?) && (current_user.organisation_id == 7) then %>
 		
 	                	<%= stylesheet_link_tag "application_ubc" %>
 
@@ -59,7 +59,7 @@
 	<body class="dmponline">
 		<div class="wrap">
 	    	<!-- header rendering -->
-	         <% if (user_signed_in?) && (current_user.organisation_id == 2) then %>
+	         <% if (user_signed_in?) && (current_user.organisation_id == 7) then %>
 			 <%= render "layouts/dmponline_header_ubc" %>
 
                 <% else %>
