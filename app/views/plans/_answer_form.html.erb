@@ -77,11 +77,11 @@
                     </div>
                 <% end %>
                 <!--text field display-->
-                <% if q_format.title == t("helpers.text_field") then %>
+                <% if q_format.title == (I18n.t "helpers.text_field", :locale => :en) then %>
                     <%= text_field_tag("answer-text-#{question.id}".to_sym, answer.text, class: "question_text_field") %>
 
                 <!--text area display-->
-                <%elsif q_format.title == t("helpers.text_area") then%>
+                <%elsif q_format.title == (I18n.t "helpers.text_area", :locale => :en) then%>
                     <%= text_area_tag("answer-text-#{question.id}".to_sym, answer.text, class: "tinymce") %>
                 <%end%>
 

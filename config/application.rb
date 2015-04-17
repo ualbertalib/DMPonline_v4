@@ -1,7 +1,6 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
-require 'csv'
 
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
@@ -60,31 +59,28 @@ module DMPonline4
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
     config.assets.precompile += %w(plans.js)
-    config.assets.precompile += %w(projects.js)    
+    config.assets.precompile += %w(admin.js)
+    config.assets.precompile += %w(projects.js)
     config.assets.precompile += %w(jquery.placeholder.js)
     config.assets.precompile += %w(jquery.tablesorter.js)
-    config.assets.precompile += %w(export_configure.js)
-    config.assets.precompile += %w(toolbar.js)
-    config.assets.precompile += %w(admin.js)
     config.assets.precompile += %w(admin.css)
-    
     config.autoload_paths += %W(#{config.root}/lib)
-
+    
     # Set the default host for mailer URLs
     config.action_mailer.default_url_options = { :host => 'mail.srv.ualberta.ca' }
     config.active_record.whitelist_attributes = true
-
+    
      # Enable shibboleth as an alternative authentication method
     # Requires server configuration and omniauth shibboleth provider configuration
     # See config/initializers/omniauth.rb
     config.shibboleth_enabled = true
-
+    
     # Absolute path to Shibboleth SSO Login
     config.shibboleth_login = 'https://localhost/Shibboleth.sso/Login'
-
+    
     WickedPdf.config = {
 	  :exe_path => '/usr/local/bin/wkhtmltopdf'
 	}
-
+    
   end
 end
