@@ -53,8 +53,8 @@ class ProjectsController < ApplicationController
 		if user_signed_in? then
 			@project = Project.new
 			@project.organisation = current_user.organisation
-			@funders = orgs_of_type(t('helpers.org_type.funder'), true)
-			@institutions = orgs_of_type(t('helpers.org_type.institution')) + orgs_of_type(t('helpers.org_type.organisation'))
+			@funders = orgs_of_type((I18n.t 'helpers.org_type.funder',:locale => :en), true)
+			@institutions = orgs_of_type(I18n.t 'helpers.org_type.institution', :locale => :en) + orgs_of_type(I18n.t 'helpers.org_type.organisation', :locale => :en)
 			respond_to do |format|
 			  format.html # new.html.erb
 			  format.json { render json: @project }
@@ -220,7 +220,7 @@ class ProjectsController < ApplicationController
 		else
 			institution = nil
 		end
-		excluded_orgs = orgs_of_type(t('helpers.org_type.funder')) + orgs_of_type(t('helpers.org_type.institution')) + Organisation.orgs_with_parent_of_type(t('helpers.org_type.institution'))
+		excluded_orgs = orgs_of_type(I18n.t 'helpers.org_type.funder', :locale => :en) + orgs_of_type(I18n.t 'helpers.org_type.institution', :locale => :en) + Organisation.orgs_with_parent_of_type(I18n.t 'helpers.org_type.institution', :locale => :en)
 		guidance_groups = {}
 		ggs = GuidanceGroup.guidance_groups_excluding(excluded_orgs) 
 	
