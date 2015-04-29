@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
@@ -728,6 +729,19 @@ questions.each do |q, details|
   question.section = Section.find_by_title(details[:section])
   details[:themes].each do |theme|
     question.themes << Theme.find_by_title(theme)
+  end
+  if (details[:format].eql? 'Radio buttons') or (details[:format].eql? 'Check box')
+    i = 1
+    details[:options].each do |opt|
+      option = Option.new
+      option.text = opt
+      option.number = i
+      i += 1
+      option.save!
+      question.options << option
+    end
+    question.options[0].is_default = true
+    question.multiple_choice = true
   end
   question.save!
 end
