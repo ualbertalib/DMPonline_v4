@@ -9,6 +9,21 @@
 
 # Dmptemplate default formatting settings based on https://je-s.rcuk.ac.uk/Handbook/pages/GuidanceonCompletingaStandardG/CaseforSupportandAttachments/CaseforSupportandAttachments.htm
 
+roles = {
+  'admin' => {
+    name: "admin"
+  },
+  'org_admin' => {
+    name: "org_admin"
+  }
+}
+
+roles.each do |role, details|
+  role_type = Role.new
+  role_type.name = details[:name]
+  role_type.save!
+end
+
 organisation_types = {
   'Organisation' => {
     name: "Organisation"
