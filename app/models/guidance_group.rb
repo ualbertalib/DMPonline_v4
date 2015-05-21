@@ -1,14 +1,17 @@
 class GuidanceGroup < ActiveRecord::Base
-  	attr_accessible :organisation_id, :name, :optional_subset
+  	
+    #associations between tables
+    belongs_to :organisation
+    
+    has_and_belongs_to_many :guidances, join_table: "guidance_in_group"
+    
+    has_and_belongs_to_many :projects, join_table: "project_guidance"
+    has_and_belongs_to_many :dmptemplates, join_table: "dmptemplates_guidance_groups"
 
-		#associations between tables
-		belongs_to :organisation
-		has_and_belongs_to_many :guidances, join_table: "guidance_in_group"
-		has_and_belongs_to_many :projects, join_table: "project_guidance"
-		has_and_belongs_to_many :dmptemplates, join_table: "dmptemplates_guidance_groups"
-		
-		accepts_nested_attributes_for :dmptemplates
-  	attr_accessible :dmptemplate_ids
+    accepts_nested_attributes_for :dmptemplates
+    
+    attr_accessible :organisation_id, :name, :optional_subset, :published
+    attr_accessible :dmptemplate_ids
 		
 		def to_s
 			"#{display_name}"

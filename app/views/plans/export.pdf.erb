@@ -42,7 +42,10 @@
 						<% if answer.nil? then %>
 							<p><%= t('helpers.plan.export.pdf.question_not_answered') -%></p>
 						<% else %>
-                            <% if question.multiple_choice then %>
+                            <% q_format = question.question_format%>
+							<% if q_format.title == t("helpers.checkbox") || q_format.title == t("helpers.multi_select_box") ||
+                                        q_format.title == t("helpers.radio_buttons") || q_format.title == t("helpers.dropdown") then%>
+                            
                                 <ul>
                                     <% answer.options.each do |option| %>
                                         <li><%= option.text %></li>

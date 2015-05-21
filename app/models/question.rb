@@ -5,6 +5,7 @@ class Question < ActiveRecord::Base
   has_many :options, :dependent => :destroy
   has_many :suggested_answers, :dependent => :destroy
   has_many :guidances
+  has_many :comments
   
   has_and_belongs_to_many :themes, join_table: "questions_themes"  
   
@@ -22,33 +23,30 @@ class Question < ActiveRecord::Base
 
   attr_accessible :default_value, :dependency_id, :dependency_text, :guidance,
   								:number, :parent_id, :suggested_answer, :text, :section_id,
-  								:question_type, :multiple_choice,
-  								:multiple_permitted, :is_expanded, :is_text_field,
-  								:question_format_id,
-  								:options_attributes,
+  								:question_format_id,:options_attributes,
   								:suggested_answers_attributes
 
 	def to_s
-    "#{text}"
-  end
+        "#{text}"
+    end
 
-	amoeba do
-    include_field :options
-    include_field :suggested_answers
-    clone [:themes]
-  end
+    amoeba do
+        include_field :options
+        include_field :suggested_answers
+        clone [:themes]
+    end
 
-	def question_type?
-		type_label = {}
-		if self.is_text_field?
-		  type_label = 'Text field'
-		elsif self.multiple_choice?
-			type_label = 'Multiple choice'
-		else
-			type_label = 'Text area'
-		end
-		return type_label
-	end
+	#def question_type?
+	#	type_label = {}
+	#	if self.is_text_field?
+	#	  type_label = 'Text field'
+	#	elsif self.multiple_choice?
+	#		type_label = 'Multiple choice'
+	#	else
+	#		type_label = 'Text area'
+	#	end
+	#	return type_label
+	#end
 
 	def question_themes?
 		themes_label = {}
@@ -69,30 +67,31 @@ class Question < ActiveRecord::Base
 
 	# guidance for question in the org admin
 	def guidance_for_question(question, org_admin)
-	  # pulls together guidance from various sources for question
-	  guidances = {}
-	  theme_ids = question.theme_ids
+        # pulls together guidance from various sources for question
+        guidances = {}
+        theme_ids = question.theme_ids
 
-	  GuidanceGroup.where("organisation_id = ?", org_admin.id).each do |group|
-				group.guidances.each do |g|
-						g.themes.where("id IN (?)", theme_ids).each do |gg|
-		     			guidances["#{group.name} guidance on #{gg.title}"] = g
-		     		end
-		    	end
-		 	end
+        GuidanceGroup.where("organisation_id = ?", org_admin.id).each do |group|
+            group.guidances.each do |g|
+                g.themes.where("id IN (?)", theme_ids).each do |gg|
+                   guidances["#{group.name} guidance on #{gg.title}"] = g
+                end
+            end
+        end
 
 	  	# Guidance link to directly to a question
-			question.guidances.each do |g_by_q|
-				g_by_q.guidance_groups.each do |group|
-			  	if group.organisation == org_admin
-			    	guidances["#{group.name} guidance for this question"] = g_by_q
-			   	end
-				end
+        question.guidances.each do |g_by_q|
+            g_by_q.guidance_groups.each do |group|
+                if group.organisation == org_admin
+                    guidances["#{group.name} guidance for this question"] = g_by_q
+                end
+            end
 	  	end
 
 		return guidances
  	end
 
+    
  	#get suggested answer belonging to the currents user for this question
  	def get_suggested_answer(org_id)
  		suggested_answer = suggested_answers.find_by_organisation_id(org_id)

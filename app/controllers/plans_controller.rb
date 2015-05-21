@@ -5,6 +5,8 @@ class PlansController < ApplicationController
 	# GET /plans/1/edit
 	def edit
 		@plan = Plan.find(params[:id])
+        
+       
     if !user_signed_in? then
       respond_to do |format|
 				format.html { redirect_to edit_user_registration_path }

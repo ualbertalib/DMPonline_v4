@@ -24,7 +24,7 @@
  *  DMPonline v4 stylesheet
  * 
  * 
- *  strating date: June 2013
+ *  starting date: June 2013
  *******************************/
 
 /**** font configuration ****/
@@ -49,7 +49,7 @@
 @grey_darker_colour: #515151;
 @background_lighter_colour: #f9f9f9;
 @background_darker_colour: #d1d5d4;
-@green_colour: #114b8b; //#007e30;
+@green_colour: #114b8b;
 @red_colour: #e3000f;
 @white_colour: #ffffff;
   
@@ -1209,29 +1209,30 @@ div.accordion .make_div_smaller{
   background-color: @white_colour;
 }
 
+
 #sections-accordion {
-  .question-div {
-    float:left;
-    width:60%;
-  }
-  .question-guidance {
-    padding-left:5px;
-    float:right;
-    width:35%;
-  }
-  label {
-    font-size: 14px;  
-    font-weight:normal;
-  }
-  .guidance_header {
-    font-weight: bold;
-  }
-  .loading {
-    display:none;
-  }
-  #sections-accordion {
-    margin-bottom: 10px;
-  }
+    .question-div {
+        float:left;
+        width:55%;
+    }
+    .question-guidance {
+        padding-left:5px;
+        float:right;
+        width:40%;
+    }
+    label {
+        font-size: 14px;  
+        font-weight:normal;
+    }
+    .guidance_header {
+        font-weight: bold;
+    }
+    .loading {
+        display:none;
+    }
+    #sections-accordion {
+        margin-bottom: 10px;
+    }
   
 }
 
@@ -1287,6 +1288,12 @@ span.suggested-answer-intro{
 }
 
 /*** accordion guidance***/
+.question-guidance {
+  border:none !important;
+  float:right !important;
+  clear: none !important;
+}
+
 .question-guidance .accordion-group{
   background-color:@white_colour;
   border-color: @white_colour;
@@ -1295,6 +1302,7 @@ span.suggested-answer-intro{
   -moz-box-shadow: none !important;
   -webkit-box-shadow:none !important;
 } 
+
 
 .question-guidance .accordion-heading{
   background-color:@white_colour;

@@ -18,7 +18,7 @@ DMPonline4::Application.routes.draw do
   
   get "about_us" => 'static_pages#about_us', :as => "about_us"
   get "help" => 'static_pages#help', :as => "help"
-  get "news" => 'static_pages#news', :as => "news"
+  get "roadmap" => 'static_pages#roadmap', :as => "roadmap"
   get "terms" => 'static_pages#termsuse', :as => "terms"
   get "existing_users" => 'existing_users#index', :as => "existing_users"
   
@@ -107,6 +107,11 @@ DMPonline4::Application.routes.draw do
   
   resources :answers
   resources :plan_sections
+  resources :comments do
+    member do
+        put 'archive'
+    end
+  end
   
   resources :projects do
   	resources :plans do
@@ -114,6 +119,7 @@ DMPonline4::Application.routes.draw do
 			get 'status'
 			get 'locked'
 			get 'answer'
+            get 'edit'
 			post 'delete_recent_locks'
 			post 'lock_section'
 			post 'unlock_section'
@@ -135,6 +141,7 @@ DMPonline4::Application.routes.draw do
 		get 'possible_guidance'
 	end
   end
+  
     
   resources :project_partners
   resources :project_groups

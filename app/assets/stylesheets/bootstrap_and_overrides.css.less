@@ -24,7 +24,7 @@
  *  DMPonline v4 stylesheet
  *
  *
- *  strating date: June 2013
+ *  starting date: June 2013
  *******************************/
 
 /**** font configuration ****/
@@ -49,7 +49,7 @@
 @grey_darker_colour: #515151;
 @background_lighter_colour: #f9f9f9;
 @background_darker_colour: #d1d5d4;
-@green_colour: #114b8b; //#007e30;
+@green_colour: #114b8b; 
 @red_colour: #ec563c;
 @red_lighter_colour: #EE6B54;
 @white_colour: #ffffff;
@@ -89,7 +89,7 @@ body.dmponline {
 }
 
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, h5 {
   font-family: @header_font;
   color: @orange_colour;
   font-weight: lighter;
@@ -711,6 +711,11 @@ table.dmp_table tbody td.dmp_td_border{
   border-left: 1px solid @grey_very_light_colour;
 }
 
+table.dmp_table tbody td.dmp_border_bottom{
+  border-bottom: 1px solid @grey_very_light_colour;
+  padding: 0px 0px 0px 5px;
+  
+}
 table.dmp_table a.dmp_table_link, table.dmp_table a.dmp_table_link:active, table.dmp_table a.dmp_table_link:visited{
   text-decoration: none !important;
   padding: 0px 5px 0px 0px;
@@ -1217,12 +1222,12 @@ ul.question_ul li{
 #sections-accordion {
   .question-div {
     float:left;
-    width:60%;
+    width:55%;
   }
-  .question-guidance {
+  .question-area-right-column {
     padding-left:5px;
     float:right;
-    width:35%;
+    width:40%;
   }
   label {
     font-size: 14px;
@@ -1317,6 +1322,94 @@ span.suggested-answer-intro{
 	padding-bottom: 5px;
 	margin-bottom: 10px;
 }
+
+/*****  comment css  *******/
+.question_right_column_nav{
+    clear: both;
+}
+
+.question_right_column_nav ul {
+    clear: both;
+}
+
+ul.question_right_column_ul li {
+    float:left;
+}
+
+ul.question_right_column_ul li a {
+    background-color: @grey_very_light_colour;
+    color: @white_colour;
+    font_size: 23px;
+    font-weight: bold;
+    padding: 4px 6px 2px 6px;
+    text-decoration: none !important;
+    border_top: 1px solid @white_colour;
+    -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+              border-radius: 3px;
+    border-bottom: 1px solid @orange_colour;
+    border-bottom-left-radius:0px;
+    border-bottom-right-radius:0px;
+}
+
+ul.question_right_column_ul li a:hover {
+    background-color: @white_colour;
+    color: @grey_very_light_colour !important;
+    text-decoration: none !important;
+    font_size: 23px;
+    font-weight: bold;
+    padding: 4px 5px 2px 5px;
+    border: 1px solid @grey_very_light_colour;
+    -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+              border-radius: 3px;
+    border-bottom: 1px solid @orange_colour;
+    border-bottom-left-radius:0px;
+    border-bottom-right-radius:0px;
+}
+
+ul.question_right_column_ul li.active a,
+ul.question_right_column_ul li.active a:active,
+ul.question_right_column_ul li.active a:hover,
+ul.question_right_column_ul li.active a:focus {
+    background-color: @white_colour;
+    color: @orange_colour !important;
+    padding: 4px 5px 2px 5px;
+    text-decoration: none !important;
+    border: 1px solid @orange_colour;
+    -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+              border-radius: 3px;
+    border-bottom-color: transparent;
+    border-bottom-left-radius:0px;
+    border-bottom-right-radius:0px;
+   
+}
+
+/* being used in the accordion on the question right column */
+p.accordion_label{
+    font_size: 23px;
+    color: @orange_colour;
+    font-weight: normal;
+    padding-bottom: 8px;
+    margin-bottom:0px;
+}
+
+
+/* tabs content  */
+.comment-area, .question-guidance{
+    clear: both;
+    border: 1px solid @orange_colour;
+    -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+              border-radius: 3px;
+    border-top-left-radius:0px;      
+    padding: 10px 10px 5px 10px;
+    margin-top: 0px;
+}  
+
+
+
 
 
 /***  ***/

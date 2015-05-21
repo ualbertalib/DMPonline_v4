@@ -100,9 +100,10 @@ class ProjectsController < ApplicationController
                respond_to do |format|
 				format.html { redirect_to edit_user_registration_path }
 			end
-		elsif !@project.editable_by(current_user.id) then
+		else 
 			respond_to do |format|
-				format.html { redirect_to projects_url, notice: "This account does not have access to that plan." }
+				format.html { render action: "export" }
+                
 			end
 		end
 	end
