@@ -33,7 +33,7 @@ fr:
   dcc_name: "Digital Curation Centre"
   welcome_title: "Bienvenue"
   welcome_text: "<p>L’outil DMP Builder est offert par le service des bibliothèques de l’Université de l’Alberta afin de vous aider à rédiger vos plans de gestion des données.</p>"
-  welcome_links: "<p><a href='http://guides.library.ualberta.ca/content.php?pid=524929&sid=4318282' target='_blank'>En savoir plus sur les plans de gestion des données</a><br/><a href='https://dataverse.library.ualberta.ca' target='_blank'>Vous souhaitez partager vos données de recherche?</a><br/><a href='http://library.ualberta.ca/researchdata' target='_blank'>Pour en savoir plus sur les services de données de recherche du service des bibliothèques\'</a></p>"
+  welcome_links: "<p><a href='http://guides.library.ualberta.ca/content.php?pid=524929&sid=4318282' target='_blank'>En savoir plus sur les plans de gestion des données</a><br/><a href='https://dataverse.library.ualberta.ca' target='_blank'>Vous souhaitez partager vos données de recherche?</a><br/><a href='http://library.ualberta.ca/researchdata' target='_blank'>Pour en savoir plus sur les services de données de recherche du service des bibliothèques</a></p>"
   ccid_message: "Veuillez prendre note que nous travaillons actuellement à l’authentification de l’identifiant informatique (CCID). Vous devez créer un nouveau compte DMP Builder. Vous pourrez associer votre compte existant à votre CCID dès que la fonction sera disponible."
   
   screencast_error_text: "Votre navigateur ne permet pas la balise vidéo."
@@ -287,7 +287,7 @@ fr:
     email: "Courriel"
     org_not_listed: "Mon organisme n’est pas inscrit sur la liste."
     valid_email: "Vous devez entrer une adresse électronique valide."
-    user_details_text_html: "<p>Veuillez noter que votre adresse électronique sert de nom d’utilisateur. Si vous la modifier, n’oubliez pas d’utiliser votre nouvelle adresse électronique pour vous connecter.</p>"
+    user_details_text_html: "<p>Veuillez noter que votre adresse électronique sert de nom d’utilisateur. Si vous la modifiez, n’oubliez pas d’utiliser votre nouvelle adresse électronique pour vous connecter.</p>"
     user_details_paragraph_html: "Vous pouvez modifier les renseignements ci-dessous."
     remember_me: "Se souvenir de moi"
     org_not_listed: "Mon organisme n’est pas inscrit sur la liste."
@@ -347,7 +347,7 @@ fr:
     surname_help_text: "Veuillez indiquer votre nom ou nom de famille."
     owner: "Propriétaire"
     orcid_id: "Numéro ORCID"
-    orcid_html: "Le numéro ORCID est un identifiant numérique constant qui différencie chaque chercheur,<a href='http://orcid.org/content/initiative' target='_blank' rel='external' class='a_orange'>pour de plus amples renseignements</a>."
+    orcid_html: "Le numéro ORCID est un identifiant numérique constant qui différencie chaque chercheur, <a href='http://orcid.org/content/initiative' target='_blank' rel='external' class='a_orange'>pour de plus amples renseignements</a>."
     sign_up_shibboleth_alert_text_html: "Remarque : Si vous avez déjà créé un compte dans DMPonline et que vous désirez associer le compte à votre authentifiant de l’établissement, vous devez d’abord vous <a href='/' class='a_orange'>connecter</a> à un compte DMPonline existant. Si vous n’avez jamais créé de compte DMPonline, veuillez remplir le formulaire ci-dessous."
     shibboleth_linked_text: "Votre compte est associé à votre authentifiant de l’établissement."
     shibboleth_to_link_text: "Associez votre compte DMPonline à votre authentifiant de l’établissement."
@@ -363,7 +363,7 @@ fr:
     answer_questions: "Répondre aux questions"
     last_edit: "Dernière modification"
     select_action: "Sélectionnez une action"
-    answered_by: "Réponse"
+    answered_by: "Réponse faite par "
     answered_by_part2: " de "
     suggested_answer: "Suggestion de réponse"
     suggested_example: "Exemple de réponse"
@@ -397,7 +397,7 @@ fr:
       edit: "Modifier les renseignements sur le plan"
       grant_title: "Numéro de la subvention"
       grant_help_text: "Le numéro de référence de la subvention, le cas échéant [PLANS DE GESTION DES DONNÉES SUIVANT L’OCTROI SEULEMENT]"
-      not_applicable: "Sans objet / pas inscrit dans la liste"
+      not_applicable: "Sans objet / non inscrit dans la liste"
       multi_templates: "Il existe un certain nombre de modèles que vous pouvez utiliser. Veuillez en choisir un."
       project_name: "Nom du plan"
       my_project_name: "Mon plan"
@@ -450,7 +450,7 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
         confirmation_question: "Êtes-vous sûr?"
         owner: "Propriétaire"
         co_owner: "Copropriétaire"
-        edit: "Modifier"
+        edit: "Éditer"
         read_only: "Lecture seule"
       export:
         generated_by: "Ce document a été généré par DMP Builder (http://dmp.library.ualberta.ca)"
@@ -486,7 +486,7 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
     plan:
       export:
         pdf:
-          question_not_answered: Question sans réponse
+          question_not_answered: Question sans réponse.
           generated_by: Ce document a été généré par DMPonline (http://dmponline.dcc.ac.uk)
         space_used: "Environ %{space_used}% de l’espace disponible utilisé (%{num_pages} pages maximum)"
         project_name: "Nom du projet"
@@ -515,6 +515,7 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
         default_formatting: "(À l’aide des valeurs de mise en forme de PDF par défaut)"
         included_elements: "Éléments inclus"
         pdf_formatting: "Mise en forme du PDF"
+        font: "Police"
         font_face: "Caractère"
         font_size: "Taille"
         margin: "Marge"
@@ -601,7 +602,7 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
     body_text_html: "
     <div class='white_background'>
     <p>L’outil DMP Builder du service des bibliothèques de l’Université de l’Alberta est fourni grâce à une application à code source libre appelée <a href='https://dmponline.dcc.ac.uk'>DMPOnline</a> qui a été mise au point par le Digital Curation Centre (DCC) et partagée en vertu de la <a href='http://www.gnu.org/licenses/agpl-3.0.html'>AGPL license (licence publique générale Affero).</a></p>
-    <p>Dans la mesure du possible en vertu de la loi, le service des bibliothèques de l’Université de l’Alberta a renoncé à tous les droits d’auteur et les droits connexes ou voisins sur le contenu du site Web DMP Builder et les modèles de planification de la gestion des données (mais pas sur les plans mêmes) en vertu d’une <a href='http://creativecommons.org/publicdomain/zero/1.0/'>Creative Commons Zero License (licence Creative Commons Zéro).</a></p>
+    <p>Dans la mesure du possible en vertu de la loi, le service des bibliothèques de l’Université de l’Alberta a renoncé à tous les droits d’auteur et les droits connexes ou voisins sur le contenu du site Web DMP Builder et les modèles de planification de la gestion des données (mais pas sur les plans mêmes) en vertu d’une <a href='http://creativecommons.org/publicdomain/zero/1.0/deed.fr'>Creative Commons Zero License (licence Creative Commons Zéro).</a></p>
     <p><a href='http://creativecommons.org/publicdomain/zero/1.0/'><img src='http://i.creativecommons.org/p/zero/1.0/88x31.png' alt='CC0' /></a></p>
     </div>
     <h3>Vos renseignements personnels</h3>
