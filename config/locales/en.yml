@@ -273,6 +273,7 @@ en:
     contact_label: "Contact"
     jisc: "The DCC is funded by"
 
+    greeting: "Hello"
     sign_in: "Sign in"
     sign_in_text: "If you have an existing account."
     sign_out: "Sign out"
@@ -548,7 +549,7 @@ Select what format you wish to use and click to 'Export'.</p>"
     There is a growing call for researchers to prepare data management plans. The University of Alberta has adopted a <a href='https://policiesonline.ualberta.ca/PoliciesProcedures/Procedures/Research-Records-Stewardship-Guidance-Procedure.pdf' target='_blank'>research records stewardship policy</a>, which describes how research data and associated records should be managed and preserved. It is also becoming more common for funding agencies to ask for data management plans (DMP) as part of grant requirements.
     </p>
     <p>
-    The University of Alberta Libraries has provided this tool for data management plans (DMP Builder) to help researchers with  data management planning process. This tool is powered by DMPOnline, which is produced by the <a href='http://www.dcc.ac.uk/' target='_blank'>Digital Curation Centre</a> in the UK.  All data is locally hosted here at the University of Alberta.  See our <a href='/terms'>terms of use</a> for more information. 
+    The University of Alberta Libraries has provided this tool for data management plans (DMP Builder) to help researchers with  data management planning process. This tool is powered by DMPOnline, which is produced by the <a href='http://www.dcc.ac.uk/' target='_blank'>Digital Curation Centre</a> in the UK.  All data is locally hosted here at the University of Alberta.  See our <a href='/terms?locale=en'>terms of use</a> for more information. 
     </p>
     </div>
     <h3>How the tool works</h3>
