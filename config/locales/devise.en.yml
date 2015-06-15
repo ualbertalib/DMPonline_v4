@@ -5,6 +5,7 @@ en:
     confirmations:
       confirmed: "Your account was successfully confirmed. Please sign in."
       send_instructions: "You will receive an email with instructions about how to confirm your account in a few minutes."
+      resend_instructions: "Resend confirmation instructions" 
       send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions about how to confirm your account in a few minutes."
     failure:
       already_authenticated: "You are already signed in."
@@ -19,10 +20,22 @@ en:
     mailer:
       confirmation_instructions:
         subject: "Confirm your DMP Builder account"
+        email: "<p>Welcome to DMP Builder, %{email}</p>
+        <p>Thank you for registering at %{app_link}. Please confirm your email address:</p>
+        <p>%{confirmation_link} (or copy %{confirmation_direct_url} into your browser).</p>"
       reset_password_instructions:
         subject: "Reset password instructions"
+        email: "<p>Hello %{resource_email}!</p>
+        <p>Someone has requested a link to change your %{app_link} password. You can do this through the link below.</p>
+        <p>%{reset_password_link}</p>
+        <p>If you didn't request this, please ignore this email.</p>
+        <p>Your password won't change until you access the link above and create a new one.</p>"
       unlock_instructions:
         subject: "Unlock Instructions"
+        email: "<p>Hello %{resource_email}!</p>
+        <p>Your %{app_link} account has been locked due to an excessive number of unsuccessful sign in attempts.</p>
+        <p>Click the link below to unlock your account:</p>
+        <p>%{unlock_link}</p>"
     omniauth_callbacks:
       failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
       success: "Successfully authenticated from %{kind} account."
@@ -46,6 +59,7 @@ en:
     unlocks:
       send_instructions: "You will receive an email with instructions about how to unlock your account in a few minutes."
       send_paranoid_instructions: "If your account exists, you will receive an email with instructions about how to unlock it in a few minutes."
+      resend_unlock_instructions: "Resend unlock instructions." 
       unlocked: "Your account has been unlocked successfully. Please sign in to continue."
   errors:
     messages:
