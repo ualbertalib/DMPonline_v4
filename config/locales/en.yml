@@ -373,6 +373,10 @@ en:
     policy_expectations: "Policy Expectations"
     export: "Export"
 
+    progress_bar:
+      answered: "answered"
+      question: "question"
+      questions: "questions"
 
     org_type:
       funder: "Funder"
