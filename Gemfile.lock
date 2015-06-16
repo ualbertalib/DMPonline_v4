@@ -114,10 +114,10 @@ GEM
     hashery (2.1.1)
     hashie (3.4.0)
     hike (1.2.3)
-    htmltoword (0.2.0)
+    htmltoword (0.4.2)
       actionpack
       nokogiri
-      rubyzip
+      rubyzip (>= 1.0)
     i18n (0.7.0)
     inherited_resources (1.6.0)
       actionpack (>= 3.2, < 5)
@@ -292,7 +292,7 @@ DEPENDENCIES
   feedzirra (= 0.5.0)
   friendly_id
   globalize (~> 3.1.0)
-  htmltoword
+  htmltoword (>= 0.4)
   i18n
   jbuilder
   jquery-rails (= 2.3.0)
