@@ -13,8 +13,8 @@
       answered = %(#{status["num_answers"]}/#{status["num_questions"]})
     %>
       <div class="bar-container">
-        <span id="questions-progress-title"><%= answered -%> <%= t('helpers.progress_bar.questions')%> <%= t('helpers.progress_bar.answered')%></span>
-        <span id="questions-progress" class="bar" style="width: <%= number_to_percentage(status["num_answers"].to_f/status["num_questions"].to_f*100, :locale => :en) %>;" title="<%= answered -%> questions answered"></span>
+        <span id="questions-progress-title"><%= answered -%> <%= t('helpers.project.questions_answered')%></span>
+        <span id="questions-progress" class="bar" style="width: <%= number_to_percentage(status["num_answers"].to_f/status["num_questions"].to_f*100, :locale => :en) %>;" title="<%= answered -%> <%= t('helpers.project.questions_answered')%></span>
       </div>
  <!-- removed the space usage as it's confusing to the user and doesn't provide useful information
       <hr>
@@ -81,7 +81,7 @@
 							<div class="loaded">
 								<div id="section-lock-message-<%= section.id %>" class="alert section-lock-notice"<% if !locked['locked'] then %> style="display:none"<% end %>>
 									<% if locked['locked'] then %>
-										<p>This section is locked for editing by <%= locked['locked_by'] %>.</p>
+										<p><% t("helpers.project.share.locked_section_text")%><%= locked['locked_by'] %>.</p>
 									<% end %>
 								</div>
 								<% section.questions.order("number").each do |question| %>
@@ -94,19 +94,19 @@
     		<div id='section-<%= section.id %>-collapse-alert' data-container="body" class='modal hide fade'>
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						<h3>Unsaved answers</h3>
+						<h3><% t("helpers.project.not_saved_answers_header") %></h3>
 					</div>
 					<div class="modal-body">
 						<div id='section-<%= section.id %>-collapse-alert-plural'>
-							<p>You have altered answers but have not saved them:</p>
+							<p><% t("helpers.project.not_saved_answers_text_alert")%></p>
               <ul id='unsaved-answers-<%= section.id %>'></ul>
-							<p>Would you like to save them now?</p>
+							<p><% t("helpers.project.not_saved_answers_confirmation_alert")%></p>
 						</div>
 					</div>
 					<div class="modal-footer">
 						<a href="#" id="section-<%= section.id %>-collapse-cancel" data-section="<%= section.id %>" class="cancel-section-collapse btn"><%= t('helpers.submit.cancel')%></a>
-						<a href="#" id="section-<%= section.id %>-collapse-discard" data-section="<%= section.id %>" class="discard-section-collapse btn">Discard</a>
-						<a href="#" id="section-<%= section.id %>-collapse-save" data-section="<%= section.id %>" class="save-section-collapse btn btn-primary">Save</a>
+						<a href="#" id="section-<%= section.id %>-collapse-discard" data-section="<%= section.id %>" class="discard-section-collapse btn"><%= t("helpers.submit.cancel")%></a>
+						<a href="#" id="section-<%= section.id %>-collapse-save" data-section="<%= section.id %>" class="save-section-collapse btn btn-primary"><%= t("helpers.submit.save")%></a>
 					</div>
 				</div>
     	<% end %>
