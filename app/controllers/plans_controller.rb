@@ -191,7 +191,7 @@ class PlansController < ApplicationController
                     @formatting = @plan.settings(:export).formatting
                     render pdf: file_name,
 			  	            margin: @formatting[:margin],
-                                            layout: 'layouts/plan.pdf.html.erb',
+                                            template: 'plans/export.pdf.erb',
 			  	            footer: {
 			  	              center:    t('helpers.plan.export.pdf.generated_by'),
 			  	              font_size: 8,
@@ -206,7 +206,7 @@ class PlansController < ApplicationController
 			end
 		elsif !@plan.editable_by(current_user.id) then
 			respond_to do |format|
-				format.html { redirect_to projects_url, notice: "This account does not have access to that plan." }
+				format.html { redirect_to projects_url, notice: t('helpers.notices.account_no_access') }
 			end
 		end
 	end
