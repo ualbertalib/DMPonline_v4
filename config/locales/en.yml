@@ -422,7 +422,7 @@ en:
       funder: "Funder"
       institution: "Institution"
       project: "Project"
-      organisation: "Organization"
+      organisation: "Please select an organization"
       org_name: "Organization name"
       school: "School"
       publisher: "Publisher"
