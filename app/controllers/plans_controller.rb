@@ -191,6 +191,7 @@ class PlansController < ApplicationController
                     @formatting = @plan.settings(:export).formatting
                     render pdf: file_name,
 			  	            margin: @formatting[:margin],
+                                            layout: 'layouts/plan.pdf.html.erb',
 			  	            footer: {
 			  	              center:    t('helpers.plan.export.pdf.generated_by'),
 			  	              font_size: 8,
