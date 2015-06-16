@@ -23,7 +23,7 @@ ActiveAdmin.register Dmptemplate do
         end
 
         if settings.save
-            redirect_to(action: :show, flash: { notice: 'Settings updated successfully' })
+            redirect_to(action: :show, flash: { notice: t('helpers.notices.settings_updated') })
         else
             settings.formatting = nil
             @template = resource

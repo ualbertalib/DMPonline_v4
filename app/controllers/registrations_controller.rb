@@ -13,7 +13,7 @@ class RegistrationsController < Devise::RegistrationsController
   				@user = existing_user
   				do_update(false, true)
   			else
-  			    redirect_to after_sign_up_error_path_for(resource), alert: 'That email address is already registered.'
+  			    redirect_to after_sign_up_error_path_for(resource), alert: t('helpers.failures.email_exists')
   			end
   		else
 			build_resource(sign_up_params)
@@ -29,7 +29,7 @@ class RegistrationsController < Devise::RegistrationsController
 			  end
 			else
 			  clean_up_passwords resource
-			  redirect_to after_sign_up_error_path_for(resource), alert: 'Error processing registration. Please check that you have entered a valid email address and that your chosen password is at least 8 characters long.'
+			  redirect_to after_sign_up_error_path_for(resource), alert: t('helpers.failures.registration_error')
 			end
 		end
     end
@@ -87,9 +87,9 @@ class RegistrationsController < Devise::RegistrationsController
         sign_in @user, :bypass => true
         
         if params[:unlink_flag] == 'true' then
-            redirect_to({:controller => "registrations", :action => "edit"}, {:notice => "Details successfully updated."})
+            redirect_to({:controller => "registrations", :action => "edit"}, {:notice => t('helpers.notices.successfully_updated')})
         else
-            redirect_to({:controller => "projects", :action => "index"}, {:notice => "Details successfully updated."})
+            redirect_to({:controller => "projects", :action => "index"}, {:notice => t('helpers.notices.successfully_updated'})
         end
 
     else

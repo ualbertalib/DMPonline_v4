@@ -11,7 +11,7 @@ class PlansController < ApplicationController
 			end
 		elsif !@plan.readable_by(current_user.id) then
 			respond_to do |format|
-				format.html { redirect_to projects_url, notice: "This account does not have access to that plan." }
+				format.html { redirect_to projects_url, notice: t('helpers.notices.account_no_access') }
 			end
 		end
 	end
@@ -23,7 +23,7 @@ class PlansController < ApplicationController
 		if user_signed_in? && @plan.editable_by(current_user.id) then
 			respond_to do |format|
 			if @plan.update_attributes(params[:plan])
-				format.html { redirect_to @plan, notice: 'Plan was successfully updated.' }
+				format.html { redirect_to @plan, notice: t('helpers.notices.plan_updated') }
 				format.json { head :no_content }
 			else
 				format.html { render action: "edit" }

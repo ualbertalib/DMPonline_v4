@@ -5,4 +5,4 @@ invitation_link = link_to 'Click here to accept the invitation', accept_invitati
 invitation_direct_url = accept_invitation_url(@resource, :invitation_token => @resource.invitation_token)
 %>
 
-<%= raw t('devise.mailer.invitation_instructions.email', :resource_email => resource_email, :app_link => app_link, :invitation_link => invitation_link, :invitation_direct_url = invitation_direct_url) %>
+<%= raw t('devise.mailer.invitation_instructions.email', :resource_email => resource_email, :app_link => app_link, :invitation_link => invitation_link, :invitation_direct_url => invitation_direct_url) %>
