@@ -70,7 +70,7 @@ class User < ActiveRecord::Base
   		else
   			user_org_role = self.user_org_roles.first
   			user_org_role.organisation_id = new_organisation_id
-        user_org_role.save
+            user_org_role.save
   			org_admin_role = roles.find_by_name("org_admin")
   			unless org_admin_role.nil? then
   				roles.delete(org_admin_role)

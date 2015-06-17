@@ -1,3 +1,9 @@
+# [+Project:+] DMPonline v4
+# [+Description:+] 
+#   
+# [+Created:+] 03/09/2014
+# [+Copyright:+] Digital Curation Centre 
+
 ActiveAdmin.register Role do
 	menu :priority => 5, :label => proc{I18n.t('admin.role')}, :parent => "User management"
 
@@ -13,6 +19,7 @@ ActiveAdmin.register Role do
     show do
 		attributes_table do
 			row :name
+            row :role_in_plans
 			row :created_at
 			row :updated_at
 		end
@@ -39,6 +46,7 @@ ActiveAdmin.register Role do
 	form do |f|
         f.inputs "Details" do
             f.input :name
+            f.input :role_in_plans
         end    
 	  
         f.actions    

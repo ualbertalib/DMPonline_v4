@@ -19,12 +19,15 @@ xml.plan("id" => @plan.id) do
 				xml.answers do
 					questions =  @exported_plan.questions_for_section(section.id)
 					questions.each do |question|
-						xml.question("id" => question.id, "number" => question.number, "multiple_choice" => question.multiple_choice) do
+                        					
+                        xml.question("id" => question.id, "number" => question.number, "question_format" => question.question_format  ) do
+                            q_format = question.question_format
 							xml.question_text question.text
 							answer = @plan.answer(question.id, false)
 							if ! answer.nil? then
 								xml.answer("id" => answer.id) do #should add user and date info here
-									if question.multiple_choice then
+									if (q_format.title == t("helpers.checkbox") || q_format.title == t("helpers.multi_select_box") ||
+                                        q_format.title == t("helpers.radio_buttons") || q_format.title == t("helpers.dropdown")) then
 										xml.selections do
 											answer.options.each do |option|
 												xml.selection(option.text, "id" => option.id, "number" => option.number)

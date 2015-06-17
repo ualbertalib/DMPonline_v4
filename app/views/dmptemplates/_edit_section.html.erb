@@ -1,4 +1,10 @@
-<!-- edit a section and its questions and guidance. Section is passed as an argument-->
+<!-- 
+**Project: DMPonline v4
+**Description: This block edits a section and its questions.
+**Arguments transferred: 'section'  
+**Copyright: Digital Curation Centre
+-->
+
 
 <%= form_for(section, :url => admin_updatesection_dmptemplate_path(section, :phase => phase, :edit => edit), :html => { :method => :put}) do |s| %>
 	<%if @open && @section_id == section.id then%>
@@ -57,23 +63,25 @@
 				<%if @questions.count > 0 %>
 					<% question_left = @questions.count %>
 					<% @questions.each do |question| %>
-						<div id="show_question_div_<%= question.id%>" class="<%= if question.id == @question_id then "current_question" end %>">
-							<!-- render the show question block-->
-							<%= render :partial => 'show_question', locals: {question: question} %>
-						</div>
+                        <div class="question_guidance_block">
+                            <div id="show_question_div_<%= question.id%>" class="<%= if question.id == @question_id then "current_question" end %>">
+                                <!-- render the show question block-->
+                                <%= render :partial => 'show_question', locals: {question: question} %>
+                            </div>
 
-						<div id="edit_question_div_<%= question.id%>"  style="display: none">
-							<!-- render the edit question block-->
-							<%= render :partial => 'edit_question', locals: {question: question} %>
-						</div>
-
-						<!--verify how many questions are left -->
-						<%if question_left.to_i > 1 then %>
-							<div class="two-column-clear question-divider"></div>
-						<%else%>
-							<div class="two-column-clear"></div>
-						<%end%>
-						<% question_left = question_left - 1 %>
+                            <div id="edit_question_div_<%= question.id%>"  style="display: none">
+                                <!-- render the edit question block-->
+                                <%= render :partial => 'edit_question', locals: {question: question} %>
+                            </div>
+                        </div>
+                        <!--verify how many questions are left -->
+                        <%if question_left.to_i > 1 then %>
+                            <div class="two-column-clear question-divider"></div>
+                        <%else%>
+                            <div class="two-column-clear"></div>
+                        <%end%>
+                        <% question_left = question_left - 1 %>
+                        
 					<%end%>
 				<%end%>
 
@@ -91,7 +99,7 @@
 					<div id="add_question_button_div_<%= section.id%>">
 						<div class="div_left">
 							<%= hidden_field_tag :section_id, section.id, :class => "section_id" %>
-							<%= link_to t('org_admin.add_question_label'), '#', :class => 'btn btn-primary add_question_button' %>
+							<%= link_to t("org_admin.add_question_label"), '#', :class => "btn btn-primary add_question_button" %>
 						</div>
 					</div>
 				<%end%>

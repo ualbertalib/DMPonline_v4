@@ -15,9 +15,10 @@ class ApplicationController < ActionController::Base
 		if (request.fullpath != "/users/sign_in" && \
 			request.fullpath != "/users/sign_up" && \
 			request.fullpath != "/users/password" && \
+            request.fullpath != "/users/sign_up?nosplash=true" && \
 			!request.xhr?) # don't store ajax calls
 		  session[:previous_url] = request.fullpath 
-		end
+   		end
 	end
 
 	def after_sign_in_path_for(resource)

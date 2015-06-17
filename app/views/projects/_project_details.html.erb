@@ -154,12 +154,16 @@
 	<h3><%= t('helpers.project.project_static_info')%></h3>
 	<table class="dmp_details_table">
 		<!-- get the funder name if there is one -->
-		<%if @project.dmptemplate.organisation.organisation_type.name == t('helpers.org_type.funder') %>
+                <!-- removed by wshi Jun 17, 2015 -->
+                
+		<% if false %> 
+                <%if @project.dmptemplate.organisation.organisation_type.name == t('helpers.org_type.funder') %>
 			<tr>
 				<td class="first"><%= t('helpers.org_type.funder') %></td>
 				<td><%= @project.dmptemplate.organisation.name %></td>
 			</tr>
 		<%end%>
+                <% end %>
 		<%if !@project.organisation_id.nil?	%>
 			<tr>
 				<td class="first"><%= t('helpers.org_type.institution') %></td>

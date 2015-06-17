@@ -1,3 +1,9 @@
+# [+Project:+] DMPonline v4
+# [+Description:+] 
+#   
+# [+Created:+] 03/09/2014
+# [+Copyright:+] Digital Curation Centre 
+
 ActiveAdmin.register Question do
 
 	menu :priority => 1, :label => proc{I18n.t('admin.question')}, :parent =>  "Templates management"
@@ -93,10 +99,7 @@ ActiveAdmin.register Question do
   					:as => :select, 
   					:collection => Question.find(:all, :order => 'text ASC').map{|que|[que.text, que.id]}
             f.input :dependency_text
-            f.input :multiple_choice
-            f.input :multiple_permitted
-            f.input :is_text_field
-            f.input :is_expanded  	
+            
         end
         f.inputs "Question Format" do
   			f.input :question_format_id, :label => "Select question format",
