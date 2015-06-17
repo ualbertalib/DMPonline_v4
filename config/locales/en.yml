@@ -1,6 +1,3 @@
-# [+Project:+] DMP Builder
-# [+Description:+] This file contains all the text present on DMP Builder that is not being retrieve from the database.
-
 en:
   date:
     formats:
@@ -9,6 +6,7 @@ en:
       # You can provide other formats here if you like!
       default: "%d-%m-%Y"
       short: "%d/%m/%Y"
+      custom: "%d/%m/%Y %H:%M"
       long: "%d %B, %Y"
 
     day_names: [Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday]
@@ -27,7 +25,6 @@ en:
     formats:
       default: "%a, %d %b %Y %H:%M:%S %z"
       short: "%d %b %H:%M"
-      custom: "%d/%m/%Y %H:%M"
       long: "%B %d, %Y %H:%M"
     am: "am"
     pm: "pm"
@@ -273,24 +270,29 @@ en:
     view_plans_label: "My plans"
     create_plan_label: "Create plan"
     about_us_label: "About"
-    roadmap_label: "Roadmap"
+    news_label: "News"
     help_label: "Help"
     contact_label: "Contact"
     jisc: "The DCC is funded by"
 
+    greeting: "Hello"
     sign_in: "Sign in"
     sign_in_text: "If you have an existing account."
     sign_out: "Sign out"
     sign_up: "Sign up"
     sign_up_text: "New to DMP Builder? Sign up today."
     signed_in: "Signed in as "
-    institution_sing_in_link: ""
-    institution_sing_in: "CCID authentication coming soon!"
+    institution_sign_in_link: "Or, sign in with your institutional credentials"
+    institution_sign_in: "CCID authentication coming soon!"
         
 
     user_name: "Email address"
     email: "Email"
     org_not_listed: "My organization is not listed."
+    email_tip: "This must be a valid email address - a message will be sent to it for confirmation."
+    organisation_name_tip: "Please enter the name of your organisation."
+    password_tip: "This must be at least 8 characters long."
+    password_reentry_tip: "This must match what you entered in the previous field."
     valid_email: "You must enter a valid email address."
     user_details_text_html: "<p>Please note that your email address is used as your username. If you change this, remember to use your new email address on sign in.</p>"
     user_details_paragraph_html: "You can edit any of the details below."
@@ -354,16 +356,14 @@ en:
     owner: "Owner"
     orcid_id: "ORCID number"
     orcid_html: "ORCID number is a persistent digital identifier that distinguishes each researcher, <a href='http://orcid.org/content/initiative' target='_blank' rel='external' class='a_orange'>more info</a>."
-    sign_up_shibboleth_alert_text_html: "DMPonline doesn't recognise your institutional credentials - either you haven't created an account with us or you haven't linked these details to your existing account. </br>
-     --> If you <strong>do not have</strong> an account with DMPonline, please complete the form below.</br>
-     --> If you <strong>have</strong> an account with DMPonline, please <a href='#header-login-form' data-toggle='modal' class='a_orange'>Sign in</a> so we can link your account to your institutional credentials.</br>
-    Once you have created and/or linked your account, you'll be able to sign in with your institutional credentials directly."
+    sign_up_shibboleth_alert_text_html: "Note: If you have previously created an account in DMPonline, and you want to link this to your institutional credentials, you need to <a href='/' class='a_orange'>Sign in</a> to that existing DMPonline account first. If you have never created a DMPonline account, then please complete the form below."
     shibboleth_linked_text: "Your account is linked to your institutional credentials."
-    shibboleth_to_link_text: "Link your DMPonline account to your institutional credentials"
+    shibboleth_to_link_text: "Link your DMP Builder account to your institutional credentials"
+    shibboleth_to_link_question: "link your DMP Builder account to your institutional credentials?"
     shibboleth_unlink_label: "Unlink your institutional credentials"
     shibboleth_unlink_alert: "Unlink institutional credentials alert"
-    shibboleth_unlink_dialog_text: "<p>You are about to unlink DMPonline of your institutional credentials, would you like to continue?</p>"
-
+    shibboleth_unlink_dialog_text: "<p>You are about to unlink DMP Builder of your institutional credentials, would you like to continue?</p>"
+    shibboleth_wait_confirmation: "Currently waiting confirmation for:"
 
     section_label: "Section"
     sections_label: "Sections"
@@ -401,13 +401,51 @@ en:
       archive_comment_button_label: "Remove"
       clear_by: "Comment removed by"
       retracted: "Comment removed by you"
-      
     
+    failures:
+      email_exists: "That email address is already registered."
+      registration_error: "Error processing registration. Please check that you have entered a valid email address and that your chosen password is at least 8 characters long."
+    notices:
+      successfully_updated: "Details successfully updated. "
+      sharing_updated: "Sharing details successfully updated."
+      invitation_issued: "Invitation issued successfully."
+      enter_email: "Please enter an email address."
+      access_removed: "Access removed."
+      user_added: "User added to project."
+      answer_recorded: "Answer was successfully recorded."
+      answer_saving_error: "There was an error saving the answer."
+      answer_not_changed: "No change in answer content - not saved."
+      comment_created: "Comment was successfully created."
+      comment_updated: "Comment was successfully updated."
+      theme_created: "Theme was successfully created."
+      theme_updated: "Theme was successfully updated."
+      page_created: "Page was successfully created."
+      page_updated: "Page was successfully updated."
+      user_created: "User was successfully created."
+      project_created: "Project was successfully created."
+      user_org_role_created: "User org role was successfully created."
+      user_org_role_updated: "User org role was successfully updated."
+      user_role_created: "User role type was successfully created."
+      user_role_updated: "User role type was successfully updated."
+      user_status_created: "User status was successfully created."
+      user_status_updated: "User status was successfully updated."
+      user_type_created: "User type was successfully created."
+      user_type_updated: "User type was successfully updated."
+      link_account_question: "Would you like to"
+      account_no_access: "This account does not have access to that plan."
+      plan_updated: "Plan was successfully updated."
+      settings_updated: "Settings updated successfully."
+      
+    progress_bar:
+      answered: "answered"
+      question: "question"
+      questions: "questions"
+
     org_type:
       funder: "Funder"
       institution: "Institution"
       project: "Project"
-      organisation: "Organization"
+      organisation: "Please select an organization"
       org_name: "Organization name"
       school: "School"
       publisher: "Publisher"
@@ -467,7 +505,7 @@ Select what format you wish to use and click to 'Export'.</p>"
       confirmation_text_desc: "You are using the generic University of Alberta data management template. If you have suggestions on how to improve the existing template, or if you would like to add additional templates based on funding agency requirements or disciplinary needs, please contact us at <a href='mailto:data@ualberta.ca?Subject=DMP%20Builder%20inquiry'>data@ualberta.ca</a>."
       
       confirmation_button_text: "Yes, create plan"
-      default_confirmation_text_desc: "You have selected the Default DMP, This offers a generic set of DMP questions and guidance.</a>."
+      default_confirmation_text_desc: "You have selected the Default DMP, which is based on the DCC Checklist. This offers a generic set of DMP questions and guidance. For more details see: <a href='http://www.dcc.ac.uk/sites/default/files/documents/resource/DMP_Checklist_2013.pdf' target='_blank'>DMP checklist 2013</a>."
       default_confirmation_button_text: "Create plan"
       alert_default_template_text_html: "Please note: %{org_name} provides a DMP template. If you wish to use it select 'Cancel', otherwise select 'Create plan'"
       share:
@@ -486,6 +524,9 @@ Select what format you wish to use and click to 'Export'.</p>"
         edit: "Edit"
         read_only: "Read only"
         locked_section_text: "This section is locked for editing by "
+        email_text: "<p>You have been given '%{access_level}' access to the DMP %{project_link}.</p>"
+        permission_email_text: "<p>Your permissions relating to the DMP '%{project_link}' have changed. You now have %{access_level} access.</p>"
+        access_removed_email_text: "<p>Your access to the DMP '%{project_title}' has been removed.</p>"
       export:
         generated_by: "This document was generated by DMP Builder (http://dmp.library.ualberta.ca)"
       create_page: 
@@ -549,6 +590,7 @@ Select what format you wish to use and click to 'Export'.</p>"
         default_formatting: "(Using default PDF formatting values)"
         included_elements: "Included Elements"
         pdf_formatting: "PDF Formatting"
+        font: "Font"
         font_face: "Face"
         font_size: "Size"
         margin: "Margin"
@@ -567,15 +609,21 @@ Select what format you wish to use and click to 'Export'.</p>"
           invalid_font_face: "Invalid font face"
           unknown_key: "Unknown formatting setting"
           invalid_max_pages: "Invalid maximum pages"
+    mailer:
+      sharing_notification: "You have been given access to a Data Management Plan"
+      permissions_change: "DMP permissions changed"
+      access_removed: "DMP access removed"
 
   about_page:
     title: "About the DMP Builder"
-    body_text_html: "<div class='white_background'>
+    tab_1: "Background"
+    tab_2: "Latest news"
+    body_text_tab_1_html: "<div class='white_background'>
     <p>
     There is a growing call for researchers to prepare data management plans. The University of Alberta has adopted a <a href='https://policiesonline.ualberta.ca/PoliciesProcedures/Procedures/Research-Records-Stewardship-Guidance-Procedure.pdf' target='_blank'>research records stewardship policy</a>, which describes how research data and associated records should be managed and preserved. It is also becoming more common for funding agencies to ask for data management plans (DMP) as part of grant requirements.
     </p>
     <p>
-    The University of Alberta Libraries has provided this tool for data management plans (DMP Builder) to help researchers with  data management planning process. This tool is powered by DMPOnline, which is produced by the <a href='http://www.dcc.ac.uk/' target='_blank'>Digital Curation Centre</a> in the UK.  All data is locally hosted here at the University of Alberta.  See our <a href='/terms'>terms of use</a> for more information. 
+    The University of Alberta Libraries has provided this tool for data management plans (DMP Builder) to help researchers with  data management planning process. This tool is powered by DMPOnline, which is produced by the <a href='http://www.dcc.ac.uk/' target='_blank'>Digital Curation Centre</a> in the UK.  All data is locally hosted here at the University of Alberta.  See our <a href='/terms?locale=en'>terms of use</a> for more information. 
     </p>
     </div>
     <h3>How the tool works</h3>
@@ -596,8 +644,9 @@ Select what format you wish to use and click to 'Export'.</p>"
     <div class='white_background'>
     <p>If you have any questions or comments about the DMP Builder, email us at <a href='mailto:data@ualberta.ca?Subject=DMP%20Builder%20feedback'>data@ualberta.ca</a>.</p>
     </div>"
+    body_text_tab_2_html: "<p>DMPonline stories from the DCC website</p></br>" 
     
-    
+
   help_page:
     title: "Help"
     tab_1: "On DMP Builder"
