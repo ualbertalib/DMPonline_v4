@@ -14,15 +14,15 @@
 	<%= render(partial: 'toolbar') %>
 	<table id="dmp_table" class="dmp_table tablesorter">
 	  <thead>
-	    <%= render(partial: 'project_list_head') %>
+	    <%= render(partial: "project_list_head") %>
 	  </thead>
 	  <tbody>
 	    <% if @projects.any? %>
 	      <% @projects.each do |project| %>
-	        <%= render(partial: 'project_list_item', locals: { project: project } ) %>
+	        <%= render(partial: "project_list_item", locals: { project: project } ) %>
 	      <% end %>
 	    <% else %>
-	      <tr><td colspan="<%= @selected_columns.length -%>"><%= t('helpers.project.filter.no_matches', filter: params[:filter]) %><td></tr>
+	      <tr><td colspan="<%= @selected_columns.length -%>"><%= t("helpers.project.filter.no_matches", filter: params[:filter]) %><td></tr>
 	    <% end %>
 	  </tbody>
 	</table>
@@ -32,7 +32,7 @@
 <!-- if the user does not have projects -->
 <% else %>
 	<p>
-		<%= raw t('helpers.project.project_text_when_no_project')%>
+		<%= raw t("helpers.project.project_text_when_no_project")%>
 	</p>
 
 <% end %>

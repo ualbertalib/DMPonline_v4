@@ -100,9 +100,10 @@ class ProjectsController < ApplicationController
                respond_to do |format|
 				format.html { redirect_to edit_user_registration_path }
 			end
-		elsif !@project.editable_by(current_user.id) then
+		else 
 			respond_to do |format|
-				format.html { redirect_to projects_url, notice: "This account does not have access to that plan." }
+				format.html { render action: "export" }
+                
 			end
 		end
 	end
@@ -112,12 +113,14 @@ class ProjectsController < ApplicationController
 	def create
     	if user_signed_in? then
 			@project = Project.new(params[:project])
-			if @project.dmptemplate.nil? && params[:project][:funder_id] != "" then # this shouldn't be necessary - see setter for funder_id in project.rb
-				funder = Organisation.find(params[:project][:funder_id])
-				if funder.dmptemplates.count == 1 then
-					@project.dmptemplate = funder.published_templates.first
-				end
-			elsif @project.dmptemplate.nil? || params[:default_tag] == 'true' then
+                        # modified by wshi Jun 17, 2015 to remove checking funders when we don't have any funder in the system yet 
+			#if @project.dmptemplate.nil? && params[:project][:funder_id] != "" then # this shouldn't be necessary - see setter for funder_id in project.rb
+			#	funder = Organisation.find(params[:project][:funder_id])
+			#	if funder.dmptemplates.count == 1 then
+			#		@project.dmptemplate = funder.published_templates.first
+			#	end
+			#elsif @project.dmptemplate.nil? || params[:default_tag] == 'true' then
+                        if @project.dmptemplate.nil? || params[:default_tag] == 'true' then
 				if @project.organisation.nil?  || params[:default_tag] == 'true'  || @project.organisation.published_templates.first.nil? then
 					@project.dmptemplate = Dmptemplate.find_by_is_default(true)
 				else

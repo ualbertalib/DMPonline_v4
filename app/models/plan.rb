@@ -10,9 +10,9 @@ class Plan < ActiveRecord::Base
 
 	#associations between tables
 	belongs_to :project
+	belongs_to :version
 	has_many :answers
 	has_many :plan_sections
-	belongs_to :version
 	accepts_nested_attributes_for :project
 	accepts_nested_attributes_for :answers
 	accepts_nested_attributes_for :version
@@ -196,7 +196,9 @@ class Plan < ActiveRecord::Base
 						"answer_option_ids" => answer.option_ids,
 						"answered_by" => answer.user.name
 					}
-					status["num_answers"] += 1 if q.multiple_choice? || answer.text.present?
+                    q_format = q.question_format
+					status["num_answers"] += 1 if (q_format.title == I18n.t("helpers.checkbox") || q_format.title == I18n.t("helpers.multi_select_box") ||
+                                        q_format.title == I18n.t("helpers.radio_buttons") || q_format.title == I18n.t("helpers.dropdown")) || answer.text.present?
 					section_answers += 1
 					#TODO: include selected options in space estimate
 				else
@@ -232,7 +234,9 @@ class Plan < ActiveRecord::Base
 				details["sections"][s.number]["questions"][q.number]["question_text"] = q.text
 				answer = answer(q.id, false)
 				if ! answer.nil? then
-					if q.multiple_choice then
+                    q_format = q.question_format
+					if (q_format.title == t("helpers.checkbox") || q_format.title == t("helpers.multi_select_box") ||
+                                        q_format.title == t("helpers.radio_buttons") || q_format.title == t("helpers.dropdown")) then
 						details["sections"][s.number]["questions"][q.number]["selections"] = {}
 						answer.options.each do |o|
 							details["sections"][s.number]["questions"][q.number]["selections"][o.number] = o.text
@@ -326,7 +330,7 @@ class Plan < ActiveRecord::Base
  		section.questions.each do |q|
  			section_questions[counter] = {}
  			section_questions[counter]["id"] = q.id
- 			section_questions[counter]["multiple_choice"] = q.multiple_choice
+ 			#section_questions[counter]["multiple_choice"] = q.multiple_choice
  			q_answer = answer(q.id, false)
  			if q_answer.nil? then
  				section_questions[counter]["answer_id"] = nil

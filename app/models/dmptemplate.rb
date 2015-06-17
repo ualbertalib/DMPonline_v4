@@ -1,4 +1,5 @@
 class Dmptemplate < ActiveRecord::Base
+    
     attr_accessible :organisation_id, :description, :published, :title, :user_id, :locale, :is_default, :guidance_group_ids 
   
     #associations between tables
@@ -7,7 +8,8 @@ class Dmptemplate < ActiveRecord::Base
     has_many :sections, :through => :versions
     has_many :questions, :through => :sections
     has_many :projects
-    has_many :guidances
+    
+    #has_many :guidances                needs to be removed and checked
     
     belongs_to :organisation
       
@@ -18,6 +20,7 @@ class Dmptemplate < ActiveRecord::Base
     accepts_nested_attributes_for :organisation
     accepts_nested_attributes_for :projects
 
+    
   has_settings :export, class_name: 'Settings::Dmptemplate' do |s|
     s.key :export, defaults: Settings::Dmptemplate::DEFAULT_SETTINGS
   end

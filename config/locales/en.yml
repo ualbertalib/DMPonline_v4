@@ -1,3 +1,6 @@
+# [+Project:+] DMP Builder
+# [+Description:+] This file contains all the text present on DMP Builder that is not being retrieve from the database.
+
 en:
   date:
     formats:
@@ -24,6 +27,7 @@ en:
     formats:
       default: "%a, %d %b %Y %H:%M:%S %z"
       short: "%d %b %H:%M"
+      custom: "%d/%m/%Y %H:%M"
       long: "%B %d, %Y %H:%M"
     am: "am"
     pm: "pm"
@@ -231,6 +235,7 @@ en:
       question_text_label: "Question text"
       question_number_label: "Question number"
       question_edit_button: "Edit question"
+      question_delete_button: "Delete question"
       answer_format_label: "Answer format"
       example_answer_label: "Example of answer"
       suggested_answer_label: "Suggested answer"
@@ -268,7 +273,7 @@ en:
     view_plans_label: "My plans"
     create_plan_label: "Create plan"
     about_us_label: "About"
-    news_label: "News"
+    roadmap_label: "Roadmap"
     help_label: "Help"
     contact_label: "Contact"
     jisc: "The DCC is funded by"
@@ -328,6 +333,7 @@ en:
     preview: "Preview"
     saving: "Saving..."
     loading: "Loading..."
+    removing: "Removing..."
     unsaved: "Unsaved changes"
     unlink_account: "Unlink account"
     submit:
@@ -338,6 +344,7 @@ en:
       save: "Save"
       delete: "Delete"
       back: "Back"
+      discard: "Discard"
 
     name: "Name"
     first_name: "First name"
@@ -347,7 +354,10 @@ en:
     owner: "Owner"
     orcid_id: "ORCID number"
     orcid_html: "ORCID number is a persistent digital identifier that distinguishes each researcher, <a href='http://orcid.org/content/initiative' target='_blank' rel='external' class='a_orange'>more info</a>."
-    sign_up_shibboleth_alert_text_html: "Note: If you have previously created an account in DMPonline, and you want to link this to your institutional credentials, you need to <a href='/' class='a_orange'>Sign in</a> to that existing DMPonline account first. If you have never created a DMPonline account, then please complete the form below."
+    sign_up_shibboleth_alert_text_html: "DMPonline doesn't recognise your institutional credentials - either you haven't created an account with us or you haven't linked these details to your existing account. </br>
+     --> If you <strong>do not have</strong> an account with DMPonline, please complete the form below.</br>
+     --> If you <strong>have</strong> an account with DMPonline, please <a href='#header-login-form' data-toggle='modal' class='a_orange'>Sign in</a> so we can link your account to your institutional credentials.</br>
+    Once you have created and/or linked your account, you'll be able to sign in with your institutional credentials directly."
     shibboleth_linked_text: "Your account is linked to your institutional credentials."
     shibboleth_to_link_text: "Link your DMPonline account to your institutional credentials"
     shibboleth_unlink_label: "Unlink your institutional credentials"
@@ -371,8 +381,28 @@ en:
     guidance: "Guidance"
     policy_expectations: "Policy Expectations"
     export: "Export"
+    guidance_accordion_label: "Guidance"
+    add_comment_accordion_label: "Add comment"
+    comment_accordion_label: "Comments"
 
-
+    comments:
+      add_comment_label: "Add comment"
+      add_comment_text: "Please add a comment"
+      comment_label: "Comment"
+      comments_label: "Comments"
+      view_label: "View"
+      edit_label: "Edit"
+      retract_label: "Remove"
+      clear_label: "Remove"
+      commented_by: "Comment by:"
+      archive_own_comment_question: "Are you sure you would like to remove this comment?"
+      archive_own_comment_button_label: "Remove"
+      archive_comment_question: "Are you sure you would like to remove this comment?"
+      archive_comment_button_label: "Remove"
+      clear_by: "Comment removed by"
+      retracted: "Comment removed by you"
+      
+    
     org_type:
       funder: "Funder"
       institution: "Institution"
@@ -412,6 +442,10 @@ en:
       tab_export: "Export"
       export_text_html: "<p>From here you can  download your plan in various formats. This may be useful if you need to submit your plan as part of a grant application.</br>
 Select what format you wish to use and click to 'Export'.</p>"
+      questions_answered: "questions answered"
+      not_saved_answers_text_alert: "You have altered answers but have not saved them:"
+      not_saved_answers_confirmation_alert: "Would you like to save them now?"
+      not_saved_answers_header: "Unsaved answers"
       project_data_contact: "Plan data contact"
       project_data_contact_help_text: "Name (if different to above), telephone and email contact details"
       project_name_help_text: "If applying for funding, state the name exactly as in the grant proposal."
@@ -433,7 +467,7 @@ Select what format you wish to use and click to 'Export'.</p>"
       confirmation_text_desc: "You are using the generic University of Alberta data management template. If you have suggestions on how to improve the existing template, or if you would like to add additional templates based on funding agency requirements or disciplinary needs, please contact us at <a href='mailto:data@ualberta.ca?Subject=DMP%20Builder%20inquiry'>data@ualberta.ca</a>."
       
       confirmation_button_text: "Yes, create plan"
-      default_confirmation_text_desc: "You have selected the Default DMP, which is based on the DCC Checklist. This offers a generic set of DMP questions and guidance. For more details see: <a href='http://www.dcc.ac.uk/sites/default/files/documents/resource/DMP_Checklist_2013.pdf' target='_blank'>DMP checklist 2013</a>."
+      default_confirmation_text_desc: "You have selected the Default DMP, This offers a generic set of DMP questions and guidance.</a>."
       default_confirmation_button_text: "Create plan"
       alert_default_template_text_html: "Please note: %{org_name} provides a DMP template. If you wish to use it select 'Cancel', otherwise select 'Create plan'"
       share:
@@ -451,6 +485,7 @@ Select what format you wish to use and click to 'Export'.</p>"
         co_owner: "Co-owner"
         edit: "Edit"
         read_only: "Read only"
+        locked_section_text: "This section is locked for editing by "
       export:
         generated_by: "This document was generated by DMP Builder (http://dmp.library.ualberta.ca)"
       create_page: 
@@ -563,7 +598,6 @@ Select what format you wish to use and click to 'Export'.</p>"
     </div>"
     
     
-
   help_page:
     title: "Help"
     tab_1: "On DMP Builder"

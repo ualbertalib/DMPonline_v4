@@ -1,3 +1,9 @@
+# [+Project:+] DMPonline v4
+# [+Description:+] 
+#   
+# [+Created:+] 03/09/2014
+# [+Copyright:+] Digital Curation Centre 
+
 ActiveAdmin.register UserStatus do
 	
 	 menu :priority => 5, :label => proc{I18n.t('admin.user_status')}, :parent => "User management"
