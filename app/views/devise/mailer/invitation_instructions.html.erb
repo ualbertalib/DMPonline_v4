@@ -2,7 +2,7 @@
 resource_email = @resource.email
 app_link = link_to 'DMP Builder', root_url
 invitation_link = link_to 'Click here to accept the invitation', accept_invitation_url(@resource, :invitation_token => @resource.invitation_token)
-invitation_direct_url = accept_invitation_url(@resource, :invitation_token => @resource.invitation_token)
+invitation_direct_url = accept_invitation_url(@resource, :invitation_token => @token)
 %>
 
 <%= raw t('devise.mailer.invitation_instructions.email', :resource_email => resource_email, :app_link => app_link, :invitation_link => invitation_link, :invitation_direct_url => invitation_direct_url) %>
