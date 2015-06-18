@@ -49,9 +49,7 @@ describe "Share Plan" do
   end
   
   after(:each) do
-    if !example.instance_variable_get(:@exception).nil? 
-      screen_capture
-    end
+    screen_capture
     begin
       destroy_plan
       remove_previously_added_user('dmp_share_user')

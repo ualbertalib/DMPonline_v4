@@ -29,9 +29,7 @@ describe "Create User" do
   end
   
   after(:each) do
-    if !example.instance_variable_get(:@exception).nil? 
-      screen_capture
-    end
+    screen_capture
   end
     
   it "create user" do
