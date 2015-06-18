@@ -18,13 +18,16 @@ en:
       unauthenticated: "You need to sign in or sign up before continuing."
       unconfirmed: "You have to confirm your account before continuing."
     mailer:
+      app_name: "DMP Builder"
       confirmation_instructions:
         subject: "Confirm your DMP Builder account"
+        link: "Click here to confirm your account"
         email: "<p>Welcome to DMP Builder, %{email}</p>
         <p>Thank you for registering at %{app_link}. Please confirm your email address:</p>
         <p>%{confirmation_link} (or copy %{confirmation_direct_url} into your browser).</p>"
       reset_password_instructions:
         subject: "Reset password instructions"
+        link: "Change my password"
         email: "<p>Hello %{resource_email}!</p>
         <p>Someone has requested a link to change your %{app_link} password. You can do this through the link below.</p>
         <p>%{reset_password_link}</p>
@@ -32,6 +35,7 @@ en:
         <p>Your password won't change until you access the link above and create a new one.</p>"
       unlock_instructions:
         subject: "Unlock Instructions"
+        link: "Unlock my account"
         email: "<p>Hello %{resource_email}!</p>
         <p>Your %{app_link} account has been locked due to an excessive number of unsuccessful sign in attempts.</p>
         <p>Click the link below to unlock your account:</p>

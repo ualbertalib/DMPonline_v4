@@ -89,7 +89,7 @@ class RegistrationsController < Devise::RegistrationsController
         if params[:unlink_flag] == 'true' then
             redirect_to({:controller => "registrations", :action => "edit"}, {:notice => t('helpers.notices.successfully_updated')})
         else
-            redirect_to({:controller => "projects", :action => "index"}, {:notice => t('helpers.notices.successfully_updated'})
+            redirect_to({:controller => "projects", :action => "index"}, {:notice => t('helpers.notices.successfully_updated')})
         end
 
     else
