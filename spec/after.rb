@@ -7,7 +7,7 @@ module After
     after(:all) do
     
       @driver.quit
-      @verification_errors.should == []
+      expect(@verification_errors).to be_empty
 
     end
   end

@@ -7,7 +7,7 @@ module User
 def create_a_new_user
 
     @driver.get(@base_url + "/")
-    (@driver.title).should == "DMP Builder - University of Alberta Libraries"
+    expect(@driver.title).to_eq "DMP Builder - University of Alberta Libraries"
     @driver.find_element(:link, "Sign up").click
     @driver.find_element(:xpath, "(//input[@id='user_email'])[2]").clear
     @driver.find_element(:xpath, "(//input[@id='user_email'])[2]").send_keys @properties['dmp_user']['name'] 
@@ -17,10 +17,10 @@ def create_a_new_user
     @driver.find_element(:id, "user_password_confirmation").clear
     @driver.find_element(:id, "user_password_confirmation").send_keys @properties['dmp_user']['password'] 
     @driver.find_element(:id, "user_accept_terms").click
-    verify { element_present?(:xpath, "(//input[@name='commit'])[2]").should be_true }
+    expect(element_present?(:xpath, "(//input[@name='commit'])[2]")).to be true
     @driver.find_element(:xpath, "(//input[@name='commit'])[2]").click
     !60.times{ break if (element_present?(:css, "p.alert.alert-notice") || element_present?(:css, "p.alert.alert-error") rescue false); sleep 1 }
-    verify { (@driver.find_element(:css, "p.alert.alert-notice").text).should == "A message with a confirmation link has been sent to your email address. Please open the link to activate your account." }
+    expect(@driver.find_element(:css, "p.alert.alert-notice").text).to eq "A message with a confirmation link has been sent to your email address. Please open the link to activate your account." 
 
 end
 
@@ -54,7 +54,7 @@ def create_and_verify_user
     sleep 15
     confirmation_url = get_confirmation_url_from_email(date)
     @driver.get(confirmation_url)
-    verify { (@driver.find_element(:css, "a.dropdown-toggle").text).should == "Signed in as " + @properties['dmp_user']['name'] }
+    expect(@driver.find_element(:css, "a.dropdown-toggle").text).to eq "Signed in as " + @properties['dmp_user']['name'] 
 end
 
 def verify_invited_user(date)
@@ -66,9 +66,9 @@ def verify_invited_user(date)
     @driver.find_element(:id, "user_password_confirmation").clear
     @driver.find_element(:id, "user_password_confirmation").send_keys "password"
     @driver.find_element(:name, "commit").click
-    verify { (@driver.find_element(:css, "a.dropdown-toggle").text).should == "Signed in as "+@properties['dmp_share_user']['name'] }
+    expect(@driver.find_element(:css, "a.dropdown-toggle").text).to eq "Signed in as "+@properties['dmp_share_user']['name'] 
     @driver.find_element(:name, "commit").click
-    verify { (@driver.find_element(:css, "p.alert.alert-notice").text).should == "Details successfully updated." }
+    expect(@driver.find_element(:css, "p.alert.alert-notice").text).to eq "Details successfully updated." 
 
 end
 
@@ -81,11 +81,11 @@ end
 def remove_previously_added_user(user)
     login_as_admin
     @driver.get(@base_url + "/admin/users")
-    verify { element_present?(:link, @properties[user]['name']).should be_true }
+    expect(element_present?(:link, @properties[user]['name'])).to be true 
     user = @driver.find_element(:link, @properties[user]['name']).find_element(:xpath, '../..')
     user.find_element(:link, "Delete").click
-    close_alert_and_get_its_text().should =~ /^Are you sure you want to delete this[\s\S]$/
-    verify { (@driver.find_element(:css, "div.flash.flash_notice").text).should == "User was successfully destroyed." }
+    expect(close_alert_and_get_its_text()).to begin_with "Are you sure you want to delete this"
+    expect(@driver.find_element(:css, "div.flash.flash_notice").text).to eq "User was successfully destroyed." 
     sign_out_user
 end
 
@@ -105,7 +105,7 @@ end
 def verify_as_user(user)
 
     @driver.get(@base_url + "users/edit")
-    verify { (@driver.find_element(:css, "a.dropdown-toggle").text).should == "Signed in as " + @properties[user]['name']  }
+    expect(@driver.find_element(:css, "a.dropdown-toggle").text).to eq "Signed in as " + @properties[user]['name'] 
 
 end
 
