@@ -1,6 +1,5 @@
 DMPonline4::Application.routes.draw do
-  
-    
+
   devise_for :users, :controllers => {:registrations => "registrations", :confirmations => 'confirmations', :passwords => 'passwords', :sessions => 'sessions', :omniauth_callbacks => 'users/omniauth_callbacks'} do
   	get "/users/sign_out", :to => "devise/sessions#destroy"
   end 
@@ -12,6 +11,7 @@ DMPonline4::Application.routes.draw do
   
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
+
   root :to => 'home#index'
 
   ActiveAdmin.routes(self)
@@ -25,6 +25,7 @@ DMPonline4::Application.routes.draw do
   #organisation admin area
   get "org/admin/users" => 'organisation_users#admin_index', :as => "org/admin/users"
  
+#  scope '(:locale)', :locale => /en|fr/ do 
  	resources :organisations, :path => 'org/admin' do
   	member do
 			get 'children'
@@ -164,7 +165,7 @@ DMPonline4::Application.routes.draw do
     resource :projects
     resources :plans
   end
-  
+# end  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
