@@ -1,0 +1,59 @@
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+
+fr:
+  devise:
+    confirmations:
+      confirmed: "Votre compte a bien été validé. Veuillez vous connecter."
+      send_instructions: "Vous recevrez dans quelques minutes un courriel contenant les directives pour valider votre compte."
+      send_paranoid_instructions: "Si votre adresse électronique existe dans notre base de données, vous recevrez dans quelques minutes un courriel contenant les directives pour valider votre compte."
+    failure:
+      already_authenticated: "Vous êtes déjà connecté."
+      inactive: "Votre compte n'a pas encore été activé."
+      invalid: "Courriel ou mot de passe invalide"
+      invalid_token: "Jeton d'authentification invalide"
+      locked: "Votre compte est verrouillé."
+      not_found_in_database: "Courriel ou mot de passe invalide"
+      timeout: "Votre session est expirée. Veuillez vous reconnecter pour continuer."
+      unauthenticated: "Vous devez vous connecter ou vous inscrire pour continuer."
+      unconfirmed: "Vous devez valider votre compte pour continuer."
+    mailer:
+      confirmation_instructions:
+        subject: "Valider votre compte DMP Builder"
+      reset_password_instructions:
+        subject: "Directives pour réinitialiser le mot de passe"
+      unlock_instructions:
+        subject: "Directives de déverrouillage"
+    omniauth_callbacks:
+      failure: "Nous n'avons pas pu vous authentifier à partir de %{kind} parce que '%{reason}'."
+      success: "Authentification réussie à partir du compte %{kind}."
+    passwords:
+      no_token: "Vous ne pouvez pas accéder à cette page sans y avoir été dirigé par un courriel de réinitialisation du mot de passe. Si vous avez été dirigé vers cette page à partir d’un courriel de réinitialisation, assurez-vous d'utiliser l'adresse URL complète fournie."
+      send_instructions: "Vous recevrez dans quelques minutes un courriel contenant les directives pour réinitialiser le mot de passe."
+      send_paranoid_instructions: "Si votre adresse électronique existe dans notre base de données, vous recevrez dans quelques minutes un lien de récupération du mot de passe par courriel."
+      updated: "Votre mot de passe a bien été modifié. Vous êtes maintenant connecté."
+      updated_not_active: "Votre mot de passe a bien été modifié."
+    registrations:
+      destroyed: "Votre compte a bien été supprimé. Nous espérons vous revoir bientôt."
+      signed_up: "Bienvenue! Vous êtes bien inscrit."
+      signed_up_but_inactive: "Vous êtes bien inscrit. Cependant, vous ne pouvez pas vous connecter, car votre compte n'est pas encore activé."
+      signed_up_but_locked: "Vous êtes bien inscrit. Cependant, vous ne pouvez pas vous connecter, car votre compte est verrouillé."
+      signed_up_but_unconfirmed: "Un message contenant un lien de confirmation a été envoyé à votre adresse électronique. Ouvrez ce lien pour activer votre compte. Si vous n’avez pas reçu le courriel de confirmation, vérifiez votre filtre antipourriel."
+      update_needs_confirmation: "Votre compte a bien été mis à jour, mais nous devons vérifier votre nouvelle adresse électronique. Vérifiez vos courriels et cliquez sur le lien de confirmation pour finaliser la validation de votre nouvelle adresse électronique."
+      updated: "Votre compte a bien été modifié."
+    sessions:
+      signed_in: "Connecté"
+      signed_out: "Déconnecté"
+    unlocks:
+      send_instructions: "Vous recevrez dans quelques minutes un courriel contenant les directives pour déverrouiller votre compte."
+      send_paranoid_instructions: "Si votre compte existe, vous recevrez dans quelques minutes un courriel contenant les directives pour le déverrouiller."
+      unlocked: "Votre compte a bien été déverrouillé. Veuillez vous connecter pour continuer."
+  errors:
+    messages:
+      already_confirmed: "a déjà été validé, essayez de vous connecter."
+      confirmation_period_expired: "à confirmer dans les %{period}. Veuillez faire une nouvelle demande."
+      expired: "a expiré, veuillez faire une nouvelle demande."
+      not_found: "n'a pas été trouvé"
+      not_locked: "n'était pas verrouillé"
+      not_saved:
+        one: "Une erreur a empêché d’enregistrer ce(tte) %{resource} :"
+        other: "%{count} erreurs ont empêché d’enregistrer ce(tte) %{resource} :"

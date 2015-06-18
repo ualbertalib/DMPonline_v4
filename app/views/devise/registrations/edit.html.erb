@@ -60,7 +60,6 @@
 			</tr>
 		</table>
 		<br />
-<!--
 		<p>
 			<% if resource.shibboleth_id.nil? || resource.shibboleth_id.length == 0 then %>
 				<%= link_to t("helpers.shibboleth_to_link_text"), user_omniauth_shibboleth_path, :class => "a-orange" %>
@@ -71,7 +70,6 @@
                 </a>
 			<% end %>
 		</p>
--->
 		<br />
 		<div class="div_clear">
 		</div>
@@ -80,7 +78,7 @@
 		</p>
 		<table class="dmp_details_table">
 			<% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-					    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+					    <div><%= t("helpers.shibboleth_wait_confirmation") %> <%= resource.unconfirmed_email %></div>
 			<% end %>
 			<tr>
 				<td class="first"><%= t('helpers.current_password') %></td>

@@ -1,4 +1,6 @@
 class Question < ActiveRecord::Base
+# adding this to support globalize gem
+#translates :text, :guidance
 
   #associations between tables
   has_many :answers, :dependent => :destroy
