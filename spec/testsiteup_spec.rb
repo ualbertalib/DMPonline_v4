@@ -16,9 +16,7 @@ describe "Simplest" do
   teardown
   
   after(:each) do
-    if !example.instance_variable_get(:@exception).nil? 
-      screen_capture
-    end
+    screen_capture
   end
   
   it "site is up" do
