@@ -292,7 +292,7 @@ templates = {
    template.published = details[:published]
    template.locale = details[:locale]
    template.is_default = details[:is_default]
-   template.organisation = Organisation.find_by_abbreviation(details[:organisation])
+   template.organisation = Organisation.find_by_name(details[:organisation])
    template.save!
  end
 

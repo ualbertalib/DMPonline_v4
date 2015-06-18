@@ -52,7 +52,7 @@ ActiveAdmin.register Dmptemplate do
             end
         end
         column I18n.t('admin.org_title'), :sortable => :organisation_id do |org_title|
-            link_to org_title.organisation.name, [:admin, org_title.organisation]
+            link_to org_title.title, [:admin, org_title.organisation]
         end
         column :published
         column :is_default
