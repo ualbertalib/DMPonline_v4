@@ -1,6 +1,6 @@
 <%
   app_link = link_to 'DMP Builder', root_url
   confirmation_link = link_to 'Click here to confirm your account', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token)
-  confirmation_direct_url = confirmation_url(@resource, :confirmation_token => @resource.confirmation_token)
+  confirmation_direct_url = confirmation_url(@resource, :confirmation_token => @token)
 %>
 <%= raw t('devise.mailer.confirmation_instructions.email', :email => @email, :app_link => app_link, :confirmation_link => confirmation_link, :confirmation_direct_url => confirmation_direct_url) %>
