@@ -445,7 +445,7 @@ en:
       funder: "Funder"
       institution: "Institution"
       project: "Project"
-      organisation: "Please select an organization"
+      organisation: "Organization"
       org_name: "Organization name"
       school: "School"
       publisher: "Publisher"
@@ -454,6 +454,7 @@ en:
       templates: "Templates"
       child: "Unit"
       other_org_help_text: "Please enter the name of your organization."
+      org_select_text: "Please select an organization: "
     
       
      

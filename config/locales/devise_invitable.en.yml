@@ -15,6 +15,7 @@ en:
     mailer:
       invitation_instructions:
         subject: 'Invitation instructions'
+        link: "Click here to accept the invitation"
         email: "<p>Hello %{resource_email}!</p>
         <p>A colleague has invited you to contribute to their data management plan (DMP) at %{app_link}</p>
         <p>%{invitation_link} (or copy %{invitation_direct_url} into your browser).</p>
