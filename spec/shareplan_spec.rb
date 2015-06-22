@@ -27,7 +27,6 @@ describe "Share Plan" do
       create_and_verify_user
       sign_out_user
     rescue
-      screen_capture
     end
   end
   
@@ -36,7 +35,6 @@ describe "Share Plan" do
       login_as_user(@properties['dmp_user']['name'], @properties['dmp_user']['password'])
       create_and_verify_plan  
     rescue
-      screen_capture
     end
   end
   
@@ -44,17 +42,14 @@ describe "Share Plan" do
     begin
       remove_previously_added_user('dmp_user')  
     rescue
-      screen_capture
     end
   end
   
   after(:each) do
-    screen_capture
     begin
       destroy_plan
       remove_previously_added_user('dmp_share_user')
     rescue
-      screen_capture
     end
   end
   

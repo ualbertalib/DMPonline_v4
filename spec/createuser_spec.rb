@@ -24,13 +24,9 @@ describe "Create User" do
     begin
       remove_previously_added_user('dmp_user')
     rescue
-      screen_capture
     end
   end
   
-  after(:each) do
-    screen_capture
-  end
     
   it "create user" do
     create_and_verify_user

@@ -1,4 +1,4 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
 gem 'rails', '3.2.21'
 
@@ -81,16 +81,18 @@ group :development, :test do
   gem 'rspec-rails' 
   gem 'rspec'
   gem 'selenium-webdriver'
+  gem 'mail'
   gem 'pdf-reader'
-end
-
-group :ci do
-  gem 'ci_reporter', '1.9.2'
+  gem 'nokogiri'
 end
 
 group :production do
   gem 'therubyracer', '0.11.4', platforms: :ruby
   gem 'libv8'
+end
+
+group :ci do
+  gem 'ci_reporter', '1.9.2'
 end
 
 gem 'syslog-logger'
