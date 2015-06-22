@@ -276,7 +276,7 @@ end
 
 templates = {
   "University of Alberta" => {
-    title: "University of Alberta Data Management Questions", 
+    title: "University of Alberta Template", 
     description: "This is the generic DMP template for University of Alberta.",
     published: true, 
     organisation: "University of Alberta",

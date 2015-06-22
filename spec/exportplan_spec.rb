@@ -28,12 +28,10 @@ describe "Export Plan" do
       create_and_verify_plan
       @section_headings = get_plan_section_headings
     rescue
-      screen_capture
     end
   end
   
   after(:each) do
-    screen_capture
     file = @download_dir + @properties['dmp_plan']['name'] + '.pdf' 
     FileUtils.remove file unless not File.exists?(file)
   end
@@ -44,7 +42,6 @@ describe "Export Plan" do
       destroy_plan
       remove_previously_added_user('dmp_user')
     rescue
-      screen_capture
     end
   end
 

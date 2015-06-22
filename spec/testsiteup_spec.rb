@@ -15,10 +15,6 @@ describe "Simplest" do
 
   teardown
   
-  after(:each) do
-    screen_capture
-  end
-  
   it "site is up" do
     @driver.get(@base_url + "/")
     expect(@driver.title).to eq "DMP Builder - University of Alberta Libraries"
