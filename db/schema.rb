@@ -11,40 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141124224438) do
-
-  create_table "active_admin_comments", :force => true do |t|
-    t.string   "resource_id",   :null => false
-    t.string   "resource_type", :null => false
-    t.integer  "author_id"
-    t.string   "author_type"
-    t.text     "body"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-    t.string   "namespace"
-  end
-
-  add_index "active_admin_comments", ["author_type", "author_id"], :name => "index_active_admin_comments_on_author_type_and_author_id"
-  add_index "active_admin_comments", ["namespace"], :name => "index_active_admin_comments_on_namespace"
-  add_index "active_admin_comments", ["resource_type", "resource_id"], :name => "index_admin_notes_on_resource_type_and_resource_id"
-
-  create_table "admin_users", :force => true do |t|
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          :default => 0
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
-  end
-
-  add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
-  add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
+ActiveRecord::Schema.define(:version => 20150623194240) do
 
   create_table "answers", :force => true do |t|
     t.text     "text"
@@ -61,6 +28,29 @@ ActiveRecord::Schema.define(:version => 20141124224438) do
   end
 
   add_index "answers_options", ["answer_id", "option_id"], :name => "index_answers_options_on_answer_id_and_option_id"
+
+  create_table "comments", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "question_id"
+    t.text     "text"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.boolean  "archived"
+    t.integer  "plan_id"
+    t.integer  "archived_by"
+  end
+
+  create_table "dmptemplate_translations", :force => true do |t|
+    t.integer  "dmptemplate_id"
+    t.string   "locale",         :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.string   "title"
+    t.text     "description"
+  end
+
+  add_index "dmptemplate_translations", ["dmptemplate_id"], :name => "index_dmptemplate_translations_on_dmptemplate_id"
+  add_index "dmptemplate_translations", ["locale"], :name => "index_dmptemplate_translations_on_locale"
 
   create_table "dmptemplates", :force => true do |t|
     t.string   "title"
@@ -125,6 +115,7 @@ ActiveRecord::Schema.define(:version => 20141124224438) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.boolean  "optional_subset"
+    t.boolean  "published"
   end
 
   create_table "guidance_in_group", :id => false, :force => true do |t|
@@ -134,14 +125,22 @@ ActiveRecord::Schema.define(:version => 20141124224438) do
 
   add_index "guidance_in_group", ["guidance_id", "guidance_group_id"], :name => "index_guidance_in_group_on_guidance_id_and_guidance_group_id"
 
+  create_table "guidance_translations", :force => true do |t|
+    t.integer  "guidance_id"
+    t.string   "locale",      :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.text     "text"
+  end
+
+  add_index "guidance_translations", ["guidance_id"], :name => "index_guidance_translations_on_guidance_id"
+  add_index "guidance_translations", ["locale"], :name => "index_guidance_translations_on_locale"
+
   create_table "guidances", :force => true do |t|
     t.text     "text"
-    t.integer  "file_id"
     t.integer  "guidance_group_id"
-    t.integer  "theme_id"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
-    t.integer  "dmptemplate_id"
     t.integer  "question_id"
   end
 
@@ -187,29 +186,26 @@ ActiveRecord::Schema.define(:version => 20141124224438) do
     t.string   "sort_name"
   end
 
-  create_table "pages", :force => true do |t|
+  create_table "phase_translations", :force => true do |t|
+    t.integer  "phase_id"
+    t.string   "locale",      :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.string   "title"
-    t.text     "body_text"
-    t.string   "slug"
-    t.integer  "menu"
-    t.integer  "menu_position"
-    t.string   "target_url"
-    t.string   "location"
-    t.boolean  "public"
-    t.integer  "organisation_id"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.text     "description"
   end
+
+  add_index "phase_translations", ["locale"], :name => "index_phase_translations_on_locale"
+  add_index "phase_translations", ["phase_id"], :name => "index_phase_translations_on_phase_id"
 
   create_table "phases", :force => true do |t|
     t.string   "title"
     t.text     "description"
     t.integer  "number"
     t.integer  "dmptemplate_id"
-    t.datetime "created_at",            :null => false
-    t.datetime "updated_at",            :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.string   "slug"
-    t.string   "external_guidance_url"
   end
 
   add_index "phases", ["dmptemplate_id"], :name => "index_phases_on_dmptemplate_id"
@@ -249,10 +245,20 @@ ActiveRecord::Schema.define(:version => 20141124224438) do
 
   add_index "project_guidance", ["project_id", "guidance_group_id"], :name => "index_project_guidance_on_project_id_and_guidance_group_id"
 
+  create_table "project_translations", :force => true do |t|
+    t.integer  "project_id"
+    t.string   "locale",      :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "title"
+    t.text     "description"
+  end
+
+  add_index "project_translations", ["locale"], :name => "index_project_translations_on_locale"
+  add_index "project_translations", ["project_id"], :name => "index_project_translations_on_project_id"
+
   create_table "projects", :force => true do |t|
     t.string   "title"
-    t.text     "note"
-    t.boolean  "locked"
     t.integer  "dmptemplate_id"
     t.datetime "created_at",                        :null => false
     t.datetime "updated_at",                        :null => false
@@ -260,7 +266,7 @@ ActiveRecord::Schema.define(:version => 20141124224438) do
     t.integer  "organisation_id"
     t.string   "grant_number"
     t.string   "identifier"
-    t.string   "description"
+    t.text     "description"
     t.string   "principal_investigator"
     t.string   "principal_investigator_identifier"
     t.string   "data_contact"
@@ -269,6 +275,18 @@ ActiveRecord::Schema.define(:version => 20141124224438) do
 
   add_index "projects", ["slug"], :name => "index_projects_on_slug", :unique => true
 
+  create_table "question_format_translations", :force => true do |t|
+    t.integer  "question_format_id"
+    t.string   "locale",             :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "title"
+    t.text     "description"
+  end
+
+  add_index "question_format_translations", ["locale"], :name => "index_question_format_translations_on_locale"
+  add_index "question_format_translations", ["question_format_id"], :name => "index_question_format_translations_on_question_format_id"
+
   create_table "question_formats", :force => true do |t|
     t.string   "title"
     t.text     "description"
@@ -276,9 +294,20 @@ ActiveRecord::Schema.define(:version => 20141124224438) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "question_translations", :force => true do |t|
+    t.integer  "question_id"
+    t.string   "locale",      :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "text"
+    t.text     "guidance"
+  end
+
+  add_index "question_translations", ["locale"], :name => "index_question_translations_on_locale"
+  add_index "question_translations", ["question_id"], :name => "index_question_translations_on_question_id"
+
   create_table "questions", :force => true do |t|
     t.text     "text"
-    t.string   "question_type"
     t.text     "default_value"
     t.text     "guidance"
     t.integer  "number"
@@ -288,10 +317,6 @@ ActiveRecord::Schema.define(:version => 20141124224438) do
     t.integer  "section_id"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
-    t.boolean  "multiple_choice"
-    t.boolean  "multiple_permitted"
-    t.boolean  "is_expanded"
-    t.boolean  "is_text_field"
     t.integer  "question_format_id"
   end
 
@@ -304,14 +329,27 @@ ActiveRecord::Schema.define(:version => 20141124224438) do
 
   create_table "roles", :force => true do |t|
     t.string   "name"
-    t.integer  "resource_id"
-    t.string   "resource_type"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.boolean  "role_in_plans"
+    t.integer  "resource_id"
+    t.string   "resource_type"
   end
 
-  add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+  add_index "roles", ["name"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
+
+  create_table "section_translations", :force => true do |t|
+    t.integer  "section_id"
+    t.string   "locale",      :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "title"
+    t.text     "description"
+  end
+
+  add_index "section_translations", ["locale"], :name => "index_section_translations_on_locale"
+  add_index "section_translations", ["section_id"], :name => "index_section_translations_on_section_id"
 
   create_table "sections", :force => true do |t|
     t.string   "title"
@@ -406,13 +444,10 @@ ActiveRecord::Schema.define(:version => 20141124224438) do
     t.string   "firstname"
     t.string   "surname"
     t.string   "email",                  :default => "", :null => false
-    t.string   "password"
     t.string   "orcid_id"
     t.string   "shibboleth_id"
     t.integer  "user_type_id"
     t.integer  "user_status_id"
-    t.integer  "login_count"
-    t.datetime "last_login"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "encrypted_password",     :default => ""
@@ -431,18 +466,15 @@ ActiveRecord::Schema.define(:version => 20141124224438) do
     t.datetime "invitation_created_at"
     t.datetime "invitation_sent_at"
     t.datetime "invitation_accepted_at"
-    t.integer  "invitation_limit"
-    t.integer  "invited_by_id"
-    t.string   "invited_by_type"
     t.string   "other_organisation"
     t.boolean  "dmponline3"
     t.boolean  "accept_terms"
+    t.integer  "organisation_id"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["invitation_token"], :name => "index_users_on_invitation_token", :unique => true
-  add_index "users", ["invited_by_id"], :name => "index_users_on_invited_by_id"
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
   create_table "users_roles", :id => false, :force => true do |t|
@@ -451,6 +483,18 @@ ActiveRecord::Schema.define(:version => 20141124224438) do
   end
 
   add_index "users_roles", ["user_id", "role_id"], :name => "index_users_roles_on_user_id_and_role_id"
+
+  create_table "version_translations", :force => true do |t|
+    t.integer  "version_id"
+    t.string   "locale",      :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "title"
+    t.text     "description"
+  end
+
+  add_index "version_translations", ["locale"], :name => "index_version_translations_on_locale"
+  add_index "version_translations", ["version_id"], :name => "index_version_translations_on_version_id"
 
   create_table "versions", :force => true do |t|
     t.string   "title"

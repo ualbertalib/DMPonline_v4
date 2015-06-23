@@ -1,8 +1,14 @@
+# [+Project:+] DMPonline v4
+# [+Description:+] 
+#   
+# [+Created:+] 03/09/2014
+# [+Copyright:+] Digital Curation Centre 
+
 ActiveAdmin.register Phase do	
 
 	menu :priority => 1, :label => proc{I18n.t('admin.phase')}, :parent => "Templates management"
 	
-	# :description, :number, :title, :dmptemplate_id, :external_guidance_url
+	# :description, :number, :title, :dmptemplate_id
 	index do   
         column :title, :sortable => :title do |ph|
             if !ph.title.nil? then
@@ -16,7 +22,7 @@ ActiveAdmin.register Phase do
             end	
         end
         
-        default_actions
+        actions
     end
   
     #show details of a phase
@@ -32,7 +38,6 @@ ActiveAdmin.register Phase do
             row I18n.t('admin.template'), :sortable => :dmptemplate_id do |temp_title|
                 link_to temp_title.dmptemplate.title, [:admin, temp_title.dmptemplate]
             end
-            row :external_guidance_url
             row :created_at
             row :updated_at
 		end

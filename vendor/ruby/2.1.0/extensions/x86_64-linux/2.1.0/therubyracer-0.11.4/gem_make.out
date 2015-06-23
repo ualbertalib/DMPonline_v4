@@ -5,36 +5,36 @@ creating Makefile
 make "DESTDIR=" clean
 
 make "DESTDIR="
-compiling template.cc
-compiling signature.cc
-compiling constraints.cc
-compiling stack.cc
-compiling invocation.cc
-compiling primitive.cc
-compiling date.cc
-compiling message.cc
-compiling string.cc
-compiling init.cc
-compiling locker.cc
-compiling value.cc
-compiling constants.cc
-compiling function.cc
-compiling array.cc
-compiling heap.cc
-compiling handles.cc
-compiling external.cc
-compiling v8.cc
-compiling trycatch.cc
-compiling exception.cc
 compiling gc.cc
+compiling invocation.cc
+compiling object.cc
 compiling context.cc
 compiling script.cc
+compiling function.cc
+compiling string.cc
+compiling primitive.cc
+compiling stack.cc
+compiling init.cc
+compiling constraints.cc
+compiling external.cc
+compiling array.cc
+compiling signature.cc
 compiling accessor.cc
 compiling rr.cc
 compiling backref.cc
-compiling object.cc
+compiling locker.cc
+compiling v8.cc
+compiling trycatch.cc
+compiling heap.cc
+compiling template.cc
+compiling message.cc
+compiling constants.cc
+compiling handles.cc
+compiling exception.cc
+compiling date.cc
+compiling value.cc
 linking shared-object v8/init.so
 
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 init.so ./.gem.20150218-11771-7ag5cq/v8
+/usr/bin/install -c -m 0755 init.so ./.gem.20150623-17276-1hh4cya/v8
 installing default init libraries

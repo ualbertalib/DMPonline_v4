@@ -1,5 +1,10 @@
-//This file is for all javascript regarding org admin
 //= require tinymce
+/* 
+**Project: DMPonline v4
+**Description: This file include all javascript regarding admin interface
+**Copyright: Digital Curation Centre
+*/
+
 
 $( document ).ready(function() {
 
@@ -186,12 +191,10 @@ $( document ).ready(function() {
 		 $('#show_phase_div').hide();
 	 });
 
-
 	 //action to hide the alert to edit a version
 	 $("#edit-version-confirmed").click(function (){
 		$("#version_edit_alert").modal("hide");
 	 });
-
 
 	 //action to clone/add a version
 	 $("#clone-version-confirmed").click(function (){
@@ -216,17 +219,28 @@ $( document ).ready(function() {
 
 	 //action for adding a new question
 	 $('.add_question_button').click(function(e){
-		 var s_id = $(this).prev(".section_id").val();
-		 $('#add_question_block_div_'+ s_id).show();
-		 $('#add_question_button_div_'+ s_id).hide();
-		 e.preventDefault();
+         var s_id = $(this).prev(".section_id").val();
+         $('#add_question_block_div_'+ s_id).show();
+         $('#add_question_button_div_'+ s_id).hide();
+         e.preventDefault();
+            
 	 });
-
+     
+    //if question text area is empty send alert 
+    $('.new_question_save_button').click(function(e){   
+        var s_id = $(this).prev(".section_id").val();
+        if ($('#new_question_text_'+ s_id).val() == ''){
+            alert('Question text is empty, please enter your question.');
+            return false;
+        }
+    });
+   
 	 //action for cancelling a new question
-	 $('#cancel_add_question').click(function(e){
-		 $('#add_question_block_div').hide();
-		 $('#add_question_button_div').show();
-		 e.preventDefault();
+	 $('.cancel_add_new_question').click(function(e){
+        var s_id_new = $(this).prev(".section_id_new").val();
+        $('#add_question_block_div_'+ s_id_new).hide();
+        $('#add_question_button_div_'+ s_id_new).show();
+        e.preventDefault();
 	 });
 
 	 //action for adding a new section

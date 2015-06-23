@@ -18,5 +18,5 @@ compiling parser.c
 linking shared-object thin_parser.so
 
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 thin_parser.so ./.gem.20150218-11771-indmuq
+/usr/bin/install -c -m 0755 thin_parser.so ./.gem.20150623-17276-1aqwy5
 installing default thin_parser libraries

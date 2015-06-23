@@ -1,0 +1,11 @@
+Override valid_password? and unauthenticated_message instead of active_for_authentication? and inactive_message, active_for_authentication? doesn't work for default behavior of invited users without password
+
+= 1.4.0
+Override active_for_authentication? and inactive_message instead of valid_password?
+To use counter_cache, invited_by_counter_cache must be set, no more checking of invitations_count to enable counter cache
+
+= 1.3.0
+Now devise 3.1 compatible, @token must be used instead of @resource.invitation_token in mail views
+
+= 1.2.0
+Add invitation_created_at column which is set when invitation is created even when sending is skipped. This new field is used to check invitation period valid

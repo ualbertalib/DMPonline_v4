@@ -1,4 +1,10 @@
-<!-- edit a question and its questions and guidance. Question is passed as an argument-->
+<!-- 
+**Project: DMPonline v4
+**Description: This block displays editing a question, its guidance, and options when multiple choice is selected
+in the admin interface.
+**Arguments transferred: an instance of 'question'  
+**Copyright: Digital Curation Centre
+-->
 
 <%= form_for(question, :url => admin_updatequestion_dmptemplate_path(question), :html => { :method => :put}) do |f| %>
 <div class="question-div">
@@ -50,9 +56,13 @@
 							<tbody class="options_tbody">
 								<% if question.options.count == 0 then %>
 									<% 2.times {question.options.build } %>
+
 								<%end%>
+                                 <% i = 0 %>
 								<% question.options.to_a.sort_by{|op| op['number']}.each do |options_q|%>
 									<%= f.fields_for :options, options_q do |op|%>
+                                        <% i = i + 1%>
+                                        <% options_q.number = i %>
 										<%= render 'option_fields', :f => op %>
 									<%end%>
 									
@@ -63,7 +73,7 @@
 								
 							</tbody>
 						</table>
-						<%= link_to_add_object t("org_admin.add_option_label"), f, :options , ''%>
+						<%= link_to_add_object t("org_admin.add_option_label"), f, :options , "", i %>
 					</div>
 					<div class="clearfix"></div>	
 					<!--display for default value for text field label-->

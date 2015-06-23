@@ -1,6 +1,5 @@
 DMPonline4::Application.routes.draw do
-  
-    
+
   devise_for :users, :controllers => {:registrations => "registrations", :confirmations => 'confirmations', :passwords => 'passwords', :sessions => 'sessions', :omniauth_callbacks => 'users/omniauth_callbacks'} do
   	get "/users/sign_out", :to => "devise/sessions#destroy"
   end 
@@ -12,19 +11,21 @@ DMPonline4::Application.routes.draw do
   
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
+
   root :to => 'home#index'
 
   ActiveAdmin.routes(self)
   
   get "about_us" => 'static_pages#about_us', :as => "about_us"
   get "help" => 'static_pages#help', :as => "help"
-  get "news" => 'static_pages#news', :as => "news"
+  get "roadmap" => 'static_pages#roadmap', :as => "roadmap"
   get "terms" => 'static_pages#termsuse', :as => "terms"
   get "existing_users" => 'existing_users#index', :as => "existing_users"
   
   #organisation admin area
   get "org/admin/users" => 'organisation_users#admin_index', :as => "org/admin/users"
  
+  scope '(:locale)', :locale => /en|fr/ do 
  	resources :organisations, :path => 'org/admin' do
   	member do
 			get 'children'
@@ -107,6 +108,11 @@ DMPonline4::Application.routes.draw do
   
   resources :answers
   resources :plan_sections
+  resources :comments do
+    member do
+        put 'archive'
+    end
+  end
   
   resources :projects do
   	resources :plans do
@@ -114,6 +120,7 @@ DMPonline4::Application.routes.draw do
 			get 'status'
 			get 'locked'
 			get 'answer'
+            get 'edit'
 			post 'delete_recent_locks'
 			post 'lock_section'
 			post 'unlock_section'
@@ -135,6 +142,7 @@ DMPonline4::Application.routes.draw do
 		get 'possible_guidance'
 	end
   end
+  
     
   resources :project_partners
   resources :project_groups
@@ -157,7 +165,7 @@ DMPonline4::Application.routes.draw do
     resource :projects
     resources :plans
   end
-  
+end  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,3 +1,2 @@
-<p>Hello <%= @user.name %></p>
-
-<p>Your access to the DMP "<%= @project.title %>" has been removed.</p>
+<p><%= t('helpers.greeting') %> <%= @user.name %></p>
+<%= raw t('helpers.project.share.access_removed_email_text', :project_title => @project.title) %>

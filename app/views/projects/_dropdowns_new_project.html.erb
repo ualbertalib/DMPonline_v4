@@ -30,7 +30,7 @@
 -->
 				<div class="control-group" id="institution-control-group">
 					<div class="controls">
-						<%= f.input :institution_id, :as => :select, :collection => @institutions, :label => t('helpers.project.create_page.institution_question'), :input_html => { :multiple => false, :class => "typeahead" }, :include_blank =>  t('helpers.org_type.organisation')  %>
+						<%= f.input :institution_id, :as => :select, :collection => @institutions, :label => t('helpers.project.create_page.institution_question'), :input_html => { :multiple => false, :class => "typeahead" }, :include_blank =>  t('helpers.org_type.org_select_text')  %>
 						<div class="div_clear"></div>
 						<div class="move_2_right">
 							<a href='#' id="no-institution"><%= t('helpers.project.not_applicable')%></a>

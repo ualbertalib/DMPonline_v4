@@ -1,3 +1,9 @@
+# [+Project:+] DMPonline v4
+# [+Description:+] 
+#   
+# [+Created:+] 03/09/2014
+# [+Copyright:+] Digital Curation Centre  
+
 ActiveAdmin.register Organisation do
 	
 	 menu :priority => 14, :label => proc{I18n.t('admin.org')}, :parent => "Organisations management"
@@ -20,7 +26,7 @@ ActiveAdmin.register Organisation do
             end  
         end
         
-        default_actions
+        actions
     end
   
   

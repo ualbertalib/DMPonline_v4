@@ -1,3 +1,9 @@
+# [+Project:+] DMPonline v4
+# [+Description:+] 
+#   
+# [+Created:+] 03/09/2014
+# [+Copyright:+] Digital Curation Centre 
+
 ActiveAdmin.register UserType do
 	
 	 menu :priority => 5, :label => proc{I18n.t('admin.user_type')}, :parent => "User management"
@@ -7,7 +13,7 @@ ActiveAdmin.register UserType do
             link_to user_n.name, [:admin, user_n]
         end
      	
-        default_actions
+        actions
     end
   
   # show Template details
