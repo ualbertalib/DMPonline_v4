@@ -6,6 +6,7 @@
 class Phase < ActiveRecord::Base
 
 	extend FriendlyId
+        translates :title, :description
 
 	#associations between tables
 	belongs_to :dmptemplate

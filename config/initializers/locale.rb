@@ -4,10 +4,11 @@ module DMPonline4
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # Set the list of locales that we will support here (ie those for which we have translations for the DMPOnline application)
     # tell the I18n library where to find your translations
-    #config.supported_locales = ['en', 'fr']
-    #config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
+    config.supported_locales = ['en', 'fr']
+    config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # set default locale
     config.i18n.default_locale = :en
-    
+    # set fallback locale
+    config.i18n.fallbacks = true    
   end
 end
