@@ -6,8 +6,8 @@ gem 'mysql2'
 gem 'omniauth'
 gem 'omniauth-shibboleth'
 gem 'recaptcha'
-#gem 'i18n'
-#gem 'globalize', '~>3.1.0'
+gem 'i18n'
+gem 'globalize', '~>3.1.0'
 
 
 # Gems used only for assets and not required
