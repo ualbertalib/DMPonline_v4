@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150518153927) do
+ActiveRecord::Schema.define(:version => 20150623194240) do
 
   create_table "answers", :force => true do |t|
     t.text     "text"
@@ -39,6 +39,18 @@ ActiveRecord::Schema.define(:version => 20150518153927) do
     t.integer  "plan_id"
     t.integer  "archived_by"
   end
+
+  create_table "dmptemplate_translations", :force => true do |t|
+    t.integer  "dmptemplate_id"
+    t.string   "locale",         :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.string   "title"
+    t.text     "description"
+  end
+
+  add_index "dmptemplate_translations", ["dmptemplate_id"], :name => "index_dmptemplate_translations_on_dmptemplate_id"
+  add_index "dmptemplate_translations", ["locale"], :name => "index_dmptemplate_translations_on_locale"
 
   create_table "dmptemplates", :force => true do |t|
     t.string   "title"
@@ -113,6 +125,17 @@ ActiveRecord::Schema.define(:version => 20150518153927) do
 
   add_index "guidance_in_group", ["guidance_id", "guidance_group_id"], :name => "index_guidance_in_group_on_guidance_id_and_guidance_group_id"
 
+  create_table "guidance_translations", :force => true do |t|
+    t.integer  "guidance_id"
+    t.string   "locale",      :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.text     "text"
+  end
+
+  add_index "guidance_translations", ["guidance_id"], :name => "index_guidance_translations_on_guidance_id"
+  add_index "guidance_translations", ["locale"], :name => "index_guidance_translations_on_locale"
+
   create_table "guidances", :force => true do |t|
     t.text     "text"
     t.integer  "guidance_group_id"
@@ -163,6 +186,18 @@ ActiveRecord::Schema.define(:version => 20150518153927) do
     t.string   "sort_name"
   end
 
+  create_table "phase_translations", :force => true do |t|
+    t.integer  "phase_id"
+    t.string   "locale",      :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "title"
+    t.text     "description"
+  end
+
+  add_index "phase_translations", ["locale"], :name => "index_phase_translations_on_locale"
+  add_index "phase_translations", ["phase_id"], :name => "index_phase_translations_on_phase_id"
+
   create_table "phases", :force => true do |t|
     t.string   "title"
     t.text     "description"
@@ -210,6 +245,18 @@ ActiveRecord::Schema.define(:version => 20150518153927) do
 
   add_index "project_guidance", ["project_id", "guidance_group_id"], :name => "index_project_guidance_on_project_id_and_guidance_group_id"
 
+  create_table "project_translations", :force => true do |t|
+    t.integer  "project_id"
+    t.string   "locale",      :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "title"
+    t.text     "description"
+  end
+
+  add_index "project_translations", ["locale"], :name => "index_project_translations_on_locale"
+  add_index "project_translations", ["project_id"], :name => "index_project_translations_on_project_id"
+
   create_table "projects", :force => true do |t|
     t.string   "title"
     t.integer  "dmptemplate_id"
@@ -227,6 +274,18 @@ ActiveRecord::Schema.define(:version => 20150518153927) do
   end
 
   add_index "projects", ["slug"], :name => "index_projects_on_slug", :unique => true
+
+  create_table "question_format_translations", :force => true do |t|
+    t.integer  "question_format_id"
+    t.string   "locale",             :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "title"
+    t.text     "description"
+  end
+
+  add_index "question_format_translations", ["locale"], :name => "index_question_format_translations_on_locale"
+  add_index "question_format_translations", ["question_format_id"], :name => "index_question_format_translations_on_question_format_id"
 
   create_table "question_formats", :force => true do |t|
     t.string   "title"
@@ -279,6 +338,18 @@ ActiveRecord::Schema.define(:version => 20150518153927) do
 
   add_index "roles", ["name"], :name => "index_roles_on_name"
   add_index "roles", ["name"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
+
+  create_table "section_translations", :force => true do |t|
+    t.integer  "section_id"
+    t.string   "locale",      :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "title"
+    t.text     "description"
+  end
+
+  add_index "section_translations", ["locale"], :name => "index_section_translations_on_locale"
+  add_index "section_translations", ["section_id"], :name => "index_section_translations_on_section_id"
 
   create_table "sections", :force => true do |t|
     t.string   "title"
@@ -412,6 +483,18 @@ ActiveRecord::Schema.define(:version => 20150518153927) do
   end
 
   add_index "users_roles", ["user_id", "role_id"], :name => "index_users_roles_on_user_id_and_role_id"
+
+  create_table "version_translations", :force => true do |t|
+    t.integer  "version_id"
+    t.string   "locale",      :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "title"
+    t.text     "description"
+  end
+
+  add_index "version_translations", ["locale"], :name => "index_version_translations_on_locale"
+  add_index "version_translations", ["version_id"], :name => "index_version_translations_on_version_id"
 
   create_table "versions", :force => true do |t|
     t.string   "title"

@@ -25,7 +25,7 @@ DMPonline4::Application.routes.draw do
   #organisation admin area
   get "org/admin/users" => 'organisation_users#admin_index', :as => "org/admin/users"
  
-#  scope '(:locale)', :locale => /en|fr/ do 
+  scope '(:locale)', :locale => /en|fr/ do 
  	resources :organisations, :path => 'org/admin' do
   	member do
 			get 'children'
@@ -165,7 +165,7 @@ DMPonline4::Application.routes.draw do
     resource :projects
     resources :plans
   end
-# end  
+end  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
