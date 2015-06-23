@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
 	def index
 		if user_signed_in? then
 			if (current_user.shibboleth_id.nil? || current_user.shibboleth_id.length == 0) && !cookies[:show_shib_link].nil? && cookies[:show_shib_link] == "show_shib_link" then
-				flash.notice = "Would you like to #{view_context.link_to 'link your DMP Builder account to your institutional credentials?', user_omniauth_shibboleth_path}".html_safe
+				flash.notice = "#{t('helpers.notices.link_account_question')} #{view_context.link_to t('helpers.shibboleth_to_link_question'), user_omniauth_shibboleth_path}".html_safe
 			end
 
 			@projects = current_user.projects.filter(params[:filter])
@@ -38,7 +38,7 @@ class ProjectsController < ApplicationController
 			end
 		elsif user_signed_in? then
 			respond_to do |format|
-				format.html { redirect_to projects_url, notice: "This account does not have access to that plan." }
+				format.html { redirect_to projects_url, notice: t('helpers.notices.account_no_access') }
 			end
 		else
 			respond_to do |format|
@@ -100,9 +100,10 @@ class ProjectsController < ApplicationController
                respond_to do |format|
 				format.html { redirect_to edit_user_registration_path }
 			end
-		elsif !@project.editable_by(current_user.id) then
+		else 
 			respond_to do |format|
-				format.html { redirect_to projects_url, notice: "This account does not have access to that plan." }
+				format.html { render action: "export" }
+                
 			end
 		end
 	end
@@ -112,12 +113,14 @@ class ProjectsController < ApplicationController
 	def create
     	if user_signed_in? then
 			@project = Project.new(params[:project])
-			if @project.dmptemplate.nil? && params[:project][:funder_id] != "" then # this shouldn't be necessary - see setter for funder_id in project.rb
-				funder = Organisation.find(params[:project][:funder_id])
-				if funder.dmptemplates.count == 1 then
-					@project.dmptemplate = funder.published_templates.first
-				end
-			elsif @project.dmptemplate.nil? || params[:default_tag] == 'true' then
+                        # modified by wshi Jun 17, 2015 to remove checking funders when we don't have any funder in the system yet 
+			#if @project.dmptemplate.nil? && params[:project][:funder_id] != "" then # this shouldn't be necessary - see setter for funder_id in project.rb
+			#	funder = Organisation.find(params[:project][:funder_id])
+			#	if funder.dmptemplates.count == 1 then
+			#		@project.dmptemplate = funder.published_templates.first
+			#	end
+			#elsif @project.dmptemplate.nil? || params[:default_tag] == 'true' then
+                        if @project.dmptemplate.nil? || params[:default_tag] == 'true' then
 				if @project.organisation.nil?  || params[:default_tag] == 'true'  || @project.organisation.published_templates.first.nil? then
 					@project.dmptemplate = Dmptemplate.find_by_is_default(true)
 				else

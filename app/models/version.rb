@@ -1,5 +1,6 @@
 class Version < ActiveRecord::Base
   
+  translates :title, :description 
   #associations between tables
   belongs_to :phase
   

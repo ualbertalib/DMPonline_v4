@@ -1,3 +1,9 @@
+# [+Project:+] DMPonline v4
+# [+Description:+] 
+#   
+# [+Created:+] 03/09/2014
+# [+Copyright:+] Digital Curation Centre 
+
 ActiveAdmin.register QuestionFormat do
 	
 	menu :priority => 1, :label => proc{I18n.t('admin.question_format')}, :parent =>  "Templates management"
@@ -7,7 +13,7 @@ ActiveAdmin.register QuestionFormat do
             link_to n.title, [:admin, n]
         end
             
-        default_actions
+        actions
     end
   
     # show Template details

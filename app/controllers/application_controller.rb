@@ -3,12 +3,12 @@ protect_from_forgery
 # Added settings for locales
  before_filter :set_locale
  def set_locale
- 	I18n.locale = params[:locale] || I18n.default_locale
+   I18n.locale = params[:locale] || I18n.default_locale
  end 
 
 # Added setting for passing local params accross pages
  def default_url_options(options = {})
-	{locale: I18n.locale }.merge options
+   {locale: I18n.locale }.merge options
  end
   
  # Override build_footer method in ActiveAdmin::Views::Pages
@@ -25,9 +25,10 @@ protect_from_forgery
 		if (request.fullpath != "/users/sign_in" && \
 			request.fullpath != "/users/sign_up" && \
 			request.fullpath != "/users/password" && \
+            request.fullpath != "/users/sign_up?nosplash=true" && \
 			!request.xhr?) # don't store ajax calls
 		  session[:previous_url] = request.fullpath 
-		end
+   		end
 	end
 
 	def after_sign_in_path_for(resource)

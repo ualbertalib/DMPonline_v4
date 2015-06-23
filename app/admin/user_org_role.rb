@@ -1,3 +1,9 @@
+# [+Project:+] DMPonline v4
+# [+Description:+] 
+#   
+# [+Created:+] 03/09/2014
+# [+Copyright:+] Digital Curation Centre 
+
 ActiveAdmin.register UserOrgRole do
 	menu :priority => 5, :label => proc{I18n.t('admin.user_org_role')}, :parent => "User management"
 
@@ -18,7 +24,7 @@ ActiveAdmin.register UserOrgRole do
             end
         end
         
-        default_actions
+        actions
     end
   
     show do

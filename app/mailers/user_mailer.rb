@@ -1,18 +1,18 @@
 class UserMailer < ActionMailer::Base
-	
-	def sharing_notification(project_group)
-		@project_group = project_group
-		mail(to: @project_group.user.email, subject: "You have been given access to a Data Management Plan")
-	end
-	
-	def permissions_change_notification(project_group)
-		@project_group = project_group
-		mail(to: @project_group.user.email, subject: "DMP permissions changed")
-	end
-	
-	def project_access_removed_notification(user, project)
-		@user = user
-		@project = project
-		mail(to: @user.email, subject: "DMP access removed")
-	end
+
+        def sharing_notification(project_group)
+                @project_group = project_group
+                mail(to: @project_group.user.email, subject: t('helpers.mailer.sharing_notification'))
+        end
+
+        def permissions_change_notification(project_group)
+                @project_group = project_group
+                mail(to: @project_group.user.email, subject: t('helpers.mailer.permissions_change'))
+        end
+
+        def project_access_removed_notification(user, project)
+                @user = user
+                @project = project
+                mail(to: @user.email, subject: t('helpers.mailer.access_removed'))
+        end
 end
