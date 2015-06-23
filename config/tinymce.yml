@@ -1,11 +1,12 @@
 statusbar: false
 menubar: false
-toolbar: bold italic | bullist numlist | link | table
+toolbar: bold italic | forecolor backcolor | bullist numlist | link | table 
 plugins:
   - table
   - link
   #- autoresize
   - paste
+  - textcolor
 target_list: false 
 autoresize_min_height: 130
 extended_valid_elements: "iframe[tooltip] , a[href|target=_blank]"
@@ -17,4 +18,3 @@ paste_convert_middot_lists: true
 paste_remove_styles_if_webkit: true
 paste_remove_spans: true
 paste_strip_class_attributes: "all"
-language: 'fr'
