@@ -1,3 +1,9 @@
+# [+Project:+] DMPonline v4
+# [+Description:+] 
+#   
+# [+Created:+] 03/09/2014
+# [+Copyright:+] Digital Curation Centre 
+
 ActiveAdmin.register Section do 
 
 	menu :priority => 1, :label => proc{I18n.t('admin.section')}, :parent =>  "Templates management"
@@ -26,7 +32,7 @@ ActiveAdmin.register Section do
            end
         end
         
-        default_actions
+        actions
     end
   
   #show details of a section

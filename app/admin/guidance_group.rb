@@ -1,8 +1,14 @@
+# [+Project:+] DMPonline v4
+# [+Description:+] 
+#   
+# [+Created:+] 03/09/2014
+# [+Copyright:+] Digital Curation Centre 
+
 ActiveAdmin.register GuidanceGroup do
 
 	menu :priority => 2, :label => proc{I18n.t('admin.guidance_group')}, :parent => "Guidance list"
 	
-	index do   #:organisation_id, :name
+	index do   #:organisation_id, :name, :published, :optional_subset 
         column I18n.t('admin.name'), :sortable => :name do |ggn|
             link_to ggn.name, [:admin, ggn]
         end
@@ -13,7 +19,7 @@ ActiveAdmin.register GuidanceGroup do
             (t.dmptemplates.map{|t_q| link_to t_q.title, [:admin, t_q]}).join(', ').html_safe
         end	
         
-        default_actions
+        actions
     end
   
     #show details of guidance group
@@ -50,6 +56,8 @@ ActiveAdmin.register GuidanceGroup do
             f.input :organisation_id, :label => I18n.t('admin.org_title'), 
                     :as => :select, 
                     :collection => Organisation.find(:all, :order => 'name ASC').map{|orgp|[orgp.name, orgp.id]}
+            f.input :published    
+            f.input :optional_subset 
 		end
 		
         f.inputs "Templates" do

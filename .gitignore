@@ -67,3 +67,5 @@ config/environments/*.rb
 .secret
 
 properties.yml
+
+html

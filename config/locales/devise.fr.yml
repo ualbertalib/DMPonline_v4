@@ -55,5 +55,5 @@ fr:
       not_found: "n'a pas été trouvé"
       not_locked: "n'était pas verrouillé"
       not_saved:
-        one: "Une erreur a empêché d’enregistrer ce(tte) %{resource} :"
-        other: "%{count} erreurs ont empêché d’enregistrer ce(tte) %{resource} :"
+        one: "Une erreur a empêché d’enregistrer ce(tte) %{resource} :"
+        other: "%{count} erreurs ont empêché d’enregistrer ce(tte) %{resource} :"

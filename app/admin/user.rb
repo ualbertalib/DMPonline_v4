@@ -1,3 +1,9 @@
+# [+Project:+] DMPonline v4
+# [+Description:+] 
+#   
+# [+Created:+] 03/09/2014
+# [+Copyright:+] Digital Curation Centre 
+
 ActiveAdmin.register User do 
 	
 	 menu :priority => 15, :label => proc{ I18n.t('admin.user')}, :parent => "User management"
@@ -13,7 +19,7 @@ ActiveAdmin.register User do
 	 
 	
 	index do   # :password_confirmation, :encrypted_password, :remember_me, :id, :email,
-		# :firstname, :last_login, :login_count, :orcid_id, :password, :shibboleth_id, 
+		# :firstname, :orcid_id, :shibboleth_id, 
 		#:user_status_id, :surname, :user_type_id, :organisation_id, :skip_invitation,
 		# :other_organisation, :accept_terms, :role_ids, :dmponline3
 
@@ -38,7 +44,7 @@ ActiveAdmin.register User do
       end
    	end
       	
-  	default_actions
+  	actions
   end
   
   show do
