@@ -1,5 +1,7 @@
 class Section < ActiveRecord::Base
 
+  translates :title, :description
+
   #associations between tables
   belongs_to :version
   belongs_to :organisation

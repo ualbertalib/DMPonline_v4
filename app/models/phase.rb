@@ -1,6 +1,12 @@
+# [+Project:+] DMPonline v4
+# [+Description:+] This model describes informmation about the phase of a plan, it's title, order of display and which template it belongs to.
+#   
+# [+Created:+] 03/09/2014
+# [+Copyright:+] Digital Curation Centre 
 class Phase < ActiveRecord::Base
 
 	extend FriendlyId
+        translates :title, :description
 
 	#associations between tables
 	belongs_to :dmptemplate
@@ -13,7 +19,7 @@ class Phase < ActiveRecord::Base
 	accepts_nested_attributes_for :versions, :allow_destroy => true 
 	accepts_nested_attributes_for :dmptemplate
  
-	attr_accessible :description, :number, :title, :dmptemplate_id, :external_guidance_url
+	attr_accessible :description, :number, :title, :dmptemplate_id
 	
 	friendly_id :title, use: :slugged, :use => :history
   

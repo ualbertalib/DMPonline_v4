@@ -1,3 +1,9 @@
+# [+Project:+] DMPonline v4
+# [+Description:+] 
+#   
+# [+Created:+] 03/09/2014
+# [+Copyright:+] Digital Curation Centre 
+
 ActiveAdmin.register Dmptemplate do
 	
 	menu :priority => 11, :label => proc{ I18n.t('admin.template')}, :parent => "Templates management"
@@ -23,7 +29,7 @@ ActiveAdmin.register Dmptemplate do
         end
 
         if settings.save
-            redirect_to(action: :show, flash: { notice: 'Settings updated successfully' })
+            redirect_to(action: :show, flash: { notice: t('helpers.notices.settings_updated') })
         else
             settings.formatting = nil
             @template = resource
@@ -46,7 +52,7 @@ ActiveAdmin.register Dmptemplate do
             end
         end
         column I18n.t('admin.org_title'), :sortable => :organisation_id do |org_title|
-            link_to org_title.organisation.name, [:admin, org_title.organisation]
+            link_to org_title.title, [:admin, org_title.organisation]
         end
         column :published
         column :is_default

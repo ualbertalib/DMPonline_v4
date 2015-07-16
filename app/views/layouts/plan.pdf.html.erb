@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta charset="utf-8" />
+
+    <%= wicked_pdf_stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= wicked_pdf_javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <style>
+      body {font-size: 11px !important;}
+      h3 {font-size: 12px !important;}
+      table, tr, td, th, tbody, thead, tfoot {
+        page-break-inside: avoid !important;
+      }
+      h2 {font-size: 14px !important;}
+    </style>
+  </head>
+  <title>Project Plan Export</title>
+  <body>
+    <%= yield %>
+  </body>
+</html>

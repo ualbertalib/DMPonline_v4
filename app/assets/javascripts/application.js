@@ -18,6 +18,7 @@
 //= require jquery.placeholder.js
 
 
+
 $( document ).ready(function() {
 
 	$(function(){

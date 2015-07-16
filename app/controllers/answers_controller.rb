@@ -11,7 +11,11 @@ class AnswersController < ApplicationController
 			if (old_answer.nil? && @answer.text != "") || ((!old_answer.nil?) && (old_answer.text != @answer.text)) then
 				proceed = true
 			end
-			if @answer.question.multiple_choice then
+            
+			if (@answer.question.question_format.title == I18n.t("helpers.checkbox") || 
+                @answer.question.question_format.title == I18n.t("helpers.multi_select_box") ||
+                @answer.question.question_format.title == I18n.t("helpers.radio_buttons") || 
+                @answer.question.question_format.title == I18n.t("helpers.dropdown")) then
 				if (old_answer.nil? && @answer.option_ids.count > 0) || ((!old_answer.nil?) && (old_answer.option_ids - @answer.option_ids).count != 0 && (@answer.option_ids - old_answer.option_ids).count != 0) then
 					proceed = true
 				end
@@ -19,16 +23,16 @@ class AnswersController < ApplicationController
 			if proceed
 				respond_to do |format|
 					if @answer.save
-						format.html { redirect_to :back, status: :found, notice: 'Answer was successfully recorded.' }
+						format.html { redirect_to :back, status: :found, notice: t('helpers.notices.answer_recorded') }
 						format.json { render json: @answer, status: :created, location: @answer }
 					else
-						format.html { redirect_to :back, notice: 'There was an error saving the answer.' }
+						format.html { redirect_to :back, notice: t('helpers.notices.answer_saving_error') }
 						format.json { render json: @answer.errors, status: :unprocessable_entity }
 					end
 				end
 			else
 				respond_to do |format|
-					format.html { redirect_to :back, notice: 'No change in answer content - not saved.' }
+					format.html { redirect_to :back, notice: t('helpers.notices.answer_not_changed') }
 					format.json { render json: @answer.errors, status: :unprocessable_entity }
 				end
 			end

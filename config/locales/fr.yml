@@ -33,8 +33,9 @@ fr:
   dcc_name: "Digital Curation Centre"
   welcome_title: "Bienvenue"
   welcome_text: "<p>L’outil DMP Builder est offert par le service des bibliothèques de l’Université de l’Alberta afin de vous aider à rédiger vos plans de gestion des données.</p>"
-  welcome_links: "<p><a href='http://guides.library.ualberta.ca/content.php?pid=524929&sid=4318282' target='_blank'>En savoir plus sur les plans de gestion des données</a><br/><a href='https://dataverse.library.ualberta.ca' target='_blank'>Vous souhaitez partager vos données de recherche?</a><br/><a href='http://library.ualberta.ca/researchdata' target='_blank'>Pour en savoir plus sur les services de données de recherche du service des bibliothèques\'</a></p>"
-  ccid_message: "Veuillez prendre note que nous travaillons actuellement à l’authentification de l’identifiant informatique (CCID). Vous devez créer un nouveau compte DMP Builder. Vous pourrez associer votre compte existant à votre CCID dès que la fonction sera disponible."
+  welcome_links: "<p><a href='http://guides.library.ualberta.ca/content.php?pid=524929&sid=4318282' target='_blank'>En savoir plus sur les plans de gestion des données</a><br/><a href='https://dataverse.library.ualberta.ca' target='_blank'>Vous souhaitez partager vos données de recherche?</a><br/><a href='http://library.ualberta.ca/researchdata' target='_blank'>Pour en savoir plus sur les services de données de recherche du service des bibliothèques</a></p>"
+  ccid_message: "Veuillez prendre note que nous travaillons actuellement à l’authentification de l’identifiant informatique (CCID). Vous devez créer un nouveau compte DMP Builder. Vous pourrez associer votre compte existant à votre CCID dès que la fonction sera disponible."
+
   
   screencast_error_text: "Votre navigateur ne permet pas la balise vidéo."
 
@@ -97,7 +98,7 @@ fr:
     user_list_label: "Utilisateurs"
     org_details_label:  "Renseignements sur l’organisme"
     org_text: "Il s’agit des renseignements de base concernant votre organisme."
-    org_abbr_help_text_html: "Ce sont les éléments affichés comme étiquette sur vos directives, p. ex. « Directives sur les métadonnées de Glasgow ». Il vaut mieux utiliser une abréviation ou un nom abrégé."
+    org_abbr_help_text_html: "Ce sont les éléments affichés comme étiquette sur vos directives, p. ex. « Directives sur les métadonnées de Glasgow ». Il vaut mieux utiliser une abréviation ou un nom abrégé."
     users_list: "Liste des utilisateurs"
     user_full_name: "Nom"
     user_name: "Adresse électronique"
@@ -130,7 +131,7 @@ fr:
       text_label: "Texte"
       themes_label: "Thèmes"
       question_label: "Question"
-      by_theme_or_by_question: "Ces directives devraient-elles s’appliquer :"
+      by_theme_or_by_question: "Ces directives devraient-elles s’appliquer :"
       by_themes_label: "par thème"
       by_question_label: "par question"
       template: "Modèle"
@@ -150,20 +151,20 @@ fr:
       by_themes_help_text_html: "Sélectionnez le ou les thèmes auxquels ces directives se rapportent."
       by_question_help_text_html: "Sélectionnez le modèle, la phase, la version, la section et la question appropriés dans les options de la liste déroulante suivante pour déterminer la question précise pour laquelle ces directives devraient être affichées."
       guidance_group_select_help_text_html: "Sélectionnez le groupe auquel ces directives se rapportent."
-      guidance_text_html: "<p>Vous pouvez rédiger des directives à afficher par thème (p. ex. des directives générales sur l’entreposage et la sauvegarde qui devraient être présentées à tous les échelons) ou vous pouvez rédiger des directives pour des questions précises. La rédaction de directives générales par thème vous permet d’économiser du temps et des efforts, car vos conseils seront automatiquement affichés dans tous les modèles au lieu d’avoir à rédiger des directives qui accompagneraient chaque modèle.</p>
-      <p>De manière générale, vous voudrez que vos directives soient affichées dans tous les modèles. Vous voudrez toutefois, dans certains cas, que les directives soient seulement affichées pour des bailleurs de fonds précis, par exemple, si vous avez des consignes précises pour les candidats qui présentent une demande au Biotechnology and Biological Sciences Research Council (BBSRC). Vous pouvez également le préciser, au besoin.</p>"
+      guidance_text_html: "<p>Vous pouvez rédiger des directives à afficher par thème (p. ex. des directives générales sur l’entreposage et la sauvegarde qui devraient être présentées à tous les échelons) ou vous pouvez rédiger des directives pour des questions précises. La rédaction de directives générales par thème vous permet d’économiser du temps et des efforts, car vos conseils seront automatiquement affichés dans tous les modèles au lieu d’avoir à rédiger des directives qui accompagneraient chaque modèle.</p>
+      <p>De manière générale, vous voudrez que vos directives soient affichées dans tous les modèles. Vous voudrez toutefois, dans certains cas, que les directives soient seulement affichées pour des bailleurs de fonds précis, par exemple, si vous avez des consignes précises pour les candidats qui présentent une demande au Biotechnology and Biological Sciences Research Council (BBSRC). Vous pouvez également le préciser, au besoin.</p>"
       delete_message_html: "Vous êtes sur le point de supprimer '%{guidance_summary}'. Êtes-vous sûr de vouloir le supprimer?"
     guidance_group:
       add_guidance_group: "Ajouter un groupe de directives"
       guidance_group_list: "Liste des groupes de directives"
       name_label: "Nom"
       subset: "Sous-ensemble facultatif"
-      subset_eg: "p. ex. école/département"
+      subset_eg: "p. ex. école/département"
       all_temp: "Tous les modèles"
       help_text_add: "Veuillez indiquer le titre du groupe."
-      subset_option_help_text: "Si les directives s’adressent uniquement à un sous-ensemble d’utilisateurs, par exemple ceux d’un collège ou d’un institut précis, cochez cette case. Les utilisateurs pourront choisir d’afficher les directives destinées à ce sous-ensemble en répondant aux questions dans l’assistant « créer un plan »."
+      subset_option_help_text: "Si les directives s’adressent uniquement à un sous-ensemble d’utilisateurs, par exemple ceux d’un collège ou d’un institut précis, cochez cette case. Les utilisateurs pourront choisir d’afficher les directives destinées à ce sous-ensemble en répondant aux questions dans l’assistant « créer un plan »."
       template_help_text_html: "Sélectionnez les modèles pour lesquels vous voulez que les directives soient affichées. Ce sera généralement pour tous les modèles."
-      title_help_text_html: "Donnez un nom approprié à votre groupe de directives, p. ex. directives de Glasgow. Ce nom sera utilisé pour indiquer à l’utilisateur final la provenance des directives, par exemple « Les directives sur les métadonnées de Glasgow »."
+      title_help_text_html: "Donnez un nom approprié à votre groupe de directives, p. ex. directives de Glasgow. Ce nom sera utilisé pour indiquer à l’utilisateur final la provenance des directives, par exemple « Les directives sur les métadonnées de Glasgow »."
       guidance_group_text_html: "<p>Vous devez d’abord créer un groupe de directives. Ces directives peuvent s’adresser à l’ensemble d’un établissement ou à un sous-ensemble, par exemple un collège ou une école, un institut ou un département précis. Lorsque vous créez des directives, on vous demandera de les assigner à un groupe de directives.</p>"
       delete_message: "Vous êtes sur le point de supprimer '%{guidance_group_name}', ce qui modifiera les directives. Êtes-vous sûr de vouloir le supprimer?"
       created_message: "Le groupe de directives a été créé avec succès."
@@ -179,8 +180,8 @@ fr:
       title_help_text: "Veuillez indiquer un titre pour votre modèle."
       section_title_help_text: "Veuillez indiquer le titre de la section."
       help_text_html: "<div class='tooltip_box'>Veuillez fournir une description du modèle pour ce thème.</div>"
-      create_own_template_text_html: "<p>Si vous souhaitez ajouter un modèle institutionnel pour un plan de gestion des données, utilisez le bouton « créer un modèle ». Vous pouvez créer plus d’un modèle, au besoin, par exemple un modèle pour les chercheurs et un modèle pour les étudiants au doctorat.</p>
-              <p>Votre modèle sera présenté aux utilisateurs de votre établissement lorsqu’aucun modèle de bailleur de fonds ne s’applique. Si vous souhaitez ajouter des questions aux modèles de bailleur de fonds, utilisez les options « personnaliser le modèle » ci-dessous.</p>"
+      create_own_template_text_html: "<p>Si vous souhaitez ajouter un modèle institutionnel pour un plan de gestion des données, utilisez le bouton « créer un modèle ». Vous pouvez créer plus d’un modèle, au besoin, par exemple un modèle pour les chercheurs et un modèle pour les étudiants au doctorat.</p>
+              <p>Votre modèle sera présenté aux utilisateurs de votre établissement lorsqu’aucun modèle de bailleur de fonds ne s’applique. Si vous souhaitez ajouter des questions aux modèles de bailleur de fonds, utilisez les options « personnaliser le modèle » ci-dessous.</p>"
       create_new_template_text_html: "<p>Pour créer un nouveau modèle, vous devez d’abord indiquer un titre et une description. Une fois que vous les avez enregistrés, des options vous seront présentées pour ajouter une ou plusieurs phases.</p>"
       desc_help_text_html: "Entrez une description qui vous aide à faire la différence entre les autres modèles, par exemple si vous en avez pour différents publics."
       own_temp: "Vos modèles"
@@ -222,7 +223,7 @@ fr:
       clone_versions_label: "Effectuer d’importantes modifications"
       edit_versions_label: "Effectuer de petites modifications"
       edit_label: "Modifier"
-      versions_text_html: "Une première version est automatiquement créée. Si vous désirez plus tard effectuer d’importantes modifications à des versions publiées (p. ex. ajouter une section ou des questions), vous devez créer une nouvelle version. Si vous désirez seulement corriger des erreurs typographiques ou apporter de petites modifications sans en changer le sens, modifiez la version actuelle."
+      versions_text_html: "Une première version est automatiquement créée. Si vous désirez plus tard effectuer d’importantes modifications à des versions publiées (p. ex. ajouter une section ou des questions), vous devez créer une nouvelle version. Si vous désirez seulement corriger des erreurs typographiques ou apporter de petites modifications sans en changer le sens, modifiez la version actuelle."
       desc_help_text_html: "Indiquez une description de base."
       delete_message: "Vous êtes sur le point de supprimer '%{version_title}', ce qui modifiera les sections et les questions en lien avec cette version. Êtes-vous sûr de vouloir le supprimer?"
       edit_alert_label: "Modifier l’alerte"
@@ -241,12 +242,12 @@ fr:
       delete_suggested_answer_message: "Vous êtes sur le point de supprimer une suggestion de réponse ou un exemple pour '%{question_text}'. Êtes-vous sûr de vouloir le supprimer?"
       default_value_label: "Valeur par défaut"
       number_help_text: "Cela vous permet de mettre les questions en ordre dans une section."
-      question_format_help_text_html: "Vous pouvez choisir parmi ce qui suit :<ul><li>- zone de texte (grande case pour les paragraphes);</li> <li>- champ de texte (pour les réponses courtes);</li>
+      question_format_help_text_html: "Vous pouvez choisir parmi ce qui suit :<ul><li>- zone de texte (grande case pour les paragraphes);</li> <li>- champ de texte (pour les réponses courtes);</li>
       <li>- cases à cocher lorsque des options sont présentées dans une liste et plusieurs valeurs peuvent être sélectionnées;</li>
       <li>- boutons d’options lorsque des options sont présentées dans une liste et qu’une seule option peut être sélectionnée;</li>
       <li>- liste déroulante comme cette case – une seule option peut être sélectionnée;</li>
       <li>- la case à choix multiples permet aux utilisateurs de sélectionner plusieurs options dans une liste déroulante à l’aide de la touche CTRL;</li></ul>"
-      default_answer_help_text_html: "Tout ce que vous inscrivez dans cette section apparaîtra dans la case de réponse. Si vous désirez qu’une réponse apparaisse dans un certain format (p. ex. tableaux), vous pouvez indiquer le style ici."
+      default_answer_help_text_html: "Tout ce que vous inscrivez dans cette section apparaîtra dans la case de réponse. Si vous désirez qu’une réponse apparaisse dans un certain format (p. ex. tableaux), vous pouvez indiquer le style ici."
       themes_label: "Thèmes"
       question_themes_help_text_html: "<p>Sélectionnez les thèmes applicables à cette question.</p>
       <p>Cela permet ainsi d’intégrer vos directives générales destinées à l’établissement ainsi que celles provenant d’autres sources, par exemple de DCC ou de tous les départements ou les écoles pour lesquels vous fournissez des directives. </p>
@@ -287,7 +288,7 @@ fr:
     email: "Courriel"
     org_not_listed: "Mon organisme n’est pas inscrit sur la liste."
     valid_email: "Vous devez entrer une adresse électronique valide."
-    user_details_text_html: "<p>Veuillez noter que votre adresse électronique sert de nom d’utilisateur. Si vous la modifier, n’oubliez pas d’utiliser votre nouvelle adresse électronique pour vous connecter.</p>"
+    user_details_text_html: "<p>Veuillez noter que votre adresse électronique sert de nom d’utilisateur. Si vous la modifiez, n’oubliez pas d’utiliser votre nouvelle adresse électronique pour vous connecter.</p>"
     user_details_paragraph_html: "Vous pouvez modifier les renseignements ci-dessous."
     remember_me: "Se souvenir de moi"
     org_not_listed: "Mon organisme n’est pas inscrit sur la liste."
@@ -298,14 +299,14 @@ fr:
     password_conf: "Confirmation du mot de passe"
     change_password: "Modifier votre mot de passe"
     forgot_password: "Vous avez oublié votre mot de passe?"
-    password_too_small: "Votre mot de passe doit comprendre au moins huit caractères."
+    password_too_small: "Votre mot de passe doit comprendre au moins huit caractères."
     password_no_match: "La saisie doit correspondre à ce que vous avez indiqué dans le champ précédent."
 
     no_pass_instructions: "Vous n’avez pas reçu les directives de confirmation?"
     no_unlock_instructions: "Vous n’avez pas reçu les directives de déverrouillage?"
     send_password_info: "Directives pour réinitialiser le mot de passe"
     edit_password_info: "Si vous souhaitez modifier votre mot de passe, veuillez remplir les champs suivants."
-    accept_terms_html: "J’accepte les <a href='/terms'>conditions</a> *"
+    accept_terms_html: "J’accepte les <a href='/terms?locale=fr'>conditions</a> *"
 
     text_area: "Zone de texte"
     text_field: "Case de saisie simple"
@@ -347,8 +348,8 @@ fr:
     surname_help_text: "Veuillez indiquer votre nom ou nom de famille."
     owner: "Propriétaire"
     orcid_id: "Numéro ORCID"
-    orcid_html: "Le numéro ORCID est un identifiant numérique constant qui différencie chaque chercheur,<a href='http://orcid.org/content/initiative' target='_blank' rel='external' class='a_orange'>pour de plus amples renseignements</a>."
-    sign_up_shibboleth_alert_text_html: "Remarque : Si vous avez déjà créé un compte dans DMPonline et que vous désirez associer le compte à votre authentifiant de l’établissement, vous devez d’abord vous <a href='/' class='a_orange'>connecter</a> à un compte DMPonline existant. Si vous n’avez jamais créé de compte DMPonline, veuillez remplir le formulaire ci-dessous."
+    orcid_html: "Le numéro ORCID est un identifiant numérique constant qui différencie chaque chercheur, <a href='http://orcid.org/content/initiative' target='_blank' rel='external' class='a_orange'>pour de plus amples renseignements</a>."
+    sign_up_shibboleth_alert_text_html: "Remarque : Si vous avez déjà créé un compte dans DMPonline et que vous désirez associer le compte à votre authentifiant de l’établissement, vous devez d’abord vous <a href='/' class='a_orange'>connecter</a> à un compte DMPonline existant. Si vous n’avez jamais créé de compte DMPonline, veuillez remplir le formulaire ci-dessous."
     shibboleth_linked_text: "Votre compte est associé à votre authentifiant de l’établissement."
     shibboleth_to_link_text: "Associez votre compte DMPonline à votre authentifiant de l’établissement."
     shibboleth_unlink_label: "Dissociez votre authentifiant de l’établissement."
@@ -363,7 +364,7 @@ fr:
     answer_questions: "Répondre aux questions"
     last_edit: "Dernière modification"
     select_action: "Sélectionnez une action"
-    answered_by: "Réponse"
+    answered_by: "Réponse faite par "
     answered_by_part2: " de "
     suggested_answer: "Suggestion de réponse"
     suggested_example: "Exemple de réponse"
@@ -397,7 +398,7 @@ fr:
       edit: "Modifier les renseignements sur le plan"
       grant_title: "Numéro de la subvention"
       grant_help_text: "Le numéro de référence de la subvention, le cas échéant [PLANS DE GESTION DES DONNÉES SUIVANT L’OCTROI SEULEMENT]"
-      not_applicable: "Sans objet / pas inscrit dans la liste"
+      not_applicable: "Sans objet / non inscrit dans la liste"
       multi_templates: "Il existe un certain nombre de modèles que vous pouvez utiliser. Veuillez en choisir un."
       project_name: "Nom du plan"
       my_project_name: "Mon plan"
@@ -405,42 +406,42 @@ fr:
       principal_investigator: "Chercheur principal/Chercheur"
       principal_investigator_help_text: "Nom du ou des chercheurs principaux participant au projet"
       principal_investigator_id: "Identification du chercheur principal/chercheur"
-      principal_investigator_id_help_text: "p. ex. ORCID http://orcid.org/."
+      principal_investigator_id_help_text: "p. ex. ORCID http://orcid.org/."
       funder_help_text: "Bailleur de fonds pour la recherche, s’il y a lieu"
       funder_name: "Nom du bailleur de fonds"
       project_question_desc_label: "Résumé au sujet des questions"
       tab_plan: "Renseignements sur le plan"
       tab_export: "Exporter"
       export_text_html: "<p>Vous pouvez maintenant télécharger votre plan en divers formats, ce qui peut être utile si vous devez joindre votre plan à une demande de subvention.</br>
-Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter ».</p>"
+Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter ».</p>"
       project_data_contact: "Personne-ressource pour les données du plan"
       project_data_contact_help_text: "Nom (si différent de celui susmentionné), numéro de téléphone et adresse électronique"
       project_name_help_text: "Si vous présentez une demande de financement, inscrivez le nom de la même façon que dans la demande de subvention."
-      project_desc_help_text_html: "<div class='tooltip_box'><h4> Questions à prendre en considération :</h4><ul><li>- Quelle est la nature de votre projet de recherche?</li><li>- Quelles questions de recherche abordez-vous? </li><li>- À quelle fin les données sont-elles recueillies ou créées? </li></ul><h4>Directives :</h4><p>Résumez brièvement le type d’étude (ou les études) afin d’aider les autres à comprendre les raisons pour lesquelles les données sont recueillies ou créées.</p></div>"
+      project_desc_help_text_html: "<div class='tooltip_box'><h4> Questions à prendre en considération :</h4><ul><li>- Quelle est la nature de votre projet de recherche?</li><li>- Quelles questions de recherche abordez-vous? </li><li>- À quelle fin les données sont-elles recueillies ou créées? </li></ul><h4>Directives :</h4><p>Résumez brièvement le type d’étude (ou les études) afin d’aider les autres à comprendre les raisons pour lesquelles les données sont recueillies ou créées.</p></div>"
       project_identifier: "Identification"
       project_identifier_help_text: "Une identification pertinente déterminée par le bailleur de fond ou l’établissement"
-      project_static_info: "Ce plan s’appuie sur :"
+      project_static_info: "Ce plan s’appuie sur :"
       projects_title: "Mes plans"
       project_settings_text: "Les points que vous sélectionnez seront affichés dans le tableau ci-dessous. Vous pouvez trier les données par en-tête ou les filtrer en indiquant une chaîne de texte dans la case de recherche."
-      project_text_when_no_project: "<p><strong>Bienvenue</strong></br> Vous êtes maintenant prêt à créer votre premier plan de gestion des données.</br>Cliquez sur le bouton « Créer un plan » ci-dessous pour commencer.</p>"
+      project_text_when_no_project: "<p><strong>Bienvenue</strong></br> Vous êtes maintenant prêt à créer votre premier plan de gestion des données.</br>Cliquez sur le bouton « Créer un plan » ci-dessous pour commencer.</p>"
       project_text_when_project: "<p>Le tableau ci-dessous contient une liste des plans que vous avez créés et de ceux que d’autres personnes partagent avec vous.</br>Ces plans peuvent être modifiés, partagés, exportés ou supprimés en tout temps.</p>"
       confirmation_text: "Confirmer les renseignements sur le plan"   
       confirmation_text_desc: "Vous utilisez le modèle générique de gestion des données de l’Université de l’Alberta. Si vous avez des suggestions sur la façon d’améliorer le modèle existant, ou si vous aimeriez ajouter d’autres modèles fondés sur les exigences d’organismes de financement ou les besoins des disciplines, communiquez avec nous à <a href='mailto:data@ualberta.ca?Subject=DMP%20Builder%20inquiry'>data@ualberta.ca</a>."
       confirmation_button_text: "Oui, créer un plan"  
       project_details_text_html: "Cette page vous donne un aperçu de votre plan. Elle indique les éléments sur lesquels votre plan s’appuie et donne un aperçu des questions qui vous seront posées."
-      project_details_editing_text_html: "Indiquez ci-dessous les renseignements de base sur le projet et cliquez sur « Mettre à jour » pour les enregistrer."
+      project_details_editing_text_html: "Indiquez ci-dessous les renseignements de base sur le projet et cliquez sur « Mettre à jour » pour les enregistrer."
       confirm_delete_text: "Êtes-vous sûr de vouloir supprimer ce plan? En supprimant le plan de votre liste, il sera également supprimé de la liste de plans des personnes avec lesquelles le plan est partagé, le cas échéant."
       confirmation_text: "Confirmer les renseignements sur le plan"
       confirmation_text_desc: "Vous utilisez le modèle générique de gestion des données de l’Université de l’Alberta. Si vous avez des suggestions sur la façon d’améliorer le modèle existant, ou si vous aimeriez ajouter d’autres modèles fondés sur les exigences d’organismes de financement ou les besoins des disciplines, communiquez avec nous à <a href='mailto:data@ualberta.ca?Subject=DMP%20Builder%20inquiry'>data@ualberta.ca</a>."
       
       confirmation_button_text: "Oui, créer un plan"
-      default_confirmation_text_desc: "Vous avez sélectionné le plan de gestion des données par défaut, qui est établi en fonction de la liste de vérification du DCC. Vous avez ainsi accès à une série générale de questions et de directives sur le plan de gestion des données. Pour de plus amples renseignements, consultez la : <a href='http://www.dcc.ac.uk/sites/default/files/documents/resource/DMP_Checklist_2013.pdf' target='_blank'>DMP checklist 2013 (Liste de vérification 2013 pour un plan de gestion des données)</a>."
+      default_confirmation_text_desc: "Vous avez sélectionné le plan de gestion des données par défaut, qui est établi en fonction de la liste de vérification du DCC. Vous avez ainsi accès à une série générale de questions et de directives sur le plan de gestion des données. Pour de plus amples renseignements, consultez la : <a href='http://www.dcc.ac.uk/sites/default/files/documents/resource/DMP_Checklist_2013.pdf' target='_blank'>DMP checklist 2013 (Liste de vérification 2013 pour un plan de gestion des données)</a>."
       default_confirmation_button_text: "Créer un plan"
-      alert_default_template_text_html: " Veuillez noter que %{org_name} fournit un modèle de plan de gestion des données. Si vous désirez l’utiliser, sélectionnez « Annuler », autrement cliquez sur « Créer un plan »."
+      alert_default_template_text_html: " Veuillez noter que %{org_name} fournit un modèle de plan de gestion des données. Si vous désirez l’utiliser, sélectionnez « Annuler », autrement cliquez sur « Créer un plan »."
       share:
         tab_share: "Partager"
         shared_label: "Partagé?"
-        share_text_html: "<p>Vous pouvez permettre aux autres d’avoir accès à votre plan. Il y a trois niveaux d’autorisation.<ul><li>Les utilisateurs ayant un accès en \"lecture seule\" peuvent seulement lire le plan.</li><li>Les éditeurs peuvent collaborer au plan.</li><li>Les copropriétaires peuvent également collaborer au plan, en plus de pouvoir modifier les renseignements sur le plan et contrôler l’accès au plan.</li></ul></p><p>Ajoutez chaque collaborateur à tour de rôle en indiquant son adresse électronique ci-dessous, en choisissant un niveau d’autorisation et en cliquant sur \"Ajouter un collaborateur\".</p><p> Les personnes invitées recevront un avis par courriel pour les informer qu’elles ont accès à ce plan et pour les inviter à s’inscrire à DMP Builder si elles n’ont pas déjà un compte. Un avis est également émis lorsque le niveau d’autorisation d’un utilisateur est modifié.</p>"
+        share_text_html: "<p>Vous pouvez permettre aux autres d’avoir accès à votre plan. Il y a trois niveaux d’autorisation.<ul><li>Les utilisateurs ayant un accès en \"lecture seule\" peuvent seulement lire le plan.</li><li>Les éditeurs peuvent collaborer au plan.</li><li>Les copropriétaires peuvent également collaborer au plan, en plus de pouvoir modifier les renseignements sur le plan et contrôler l’accès au plan.</li></ul></p><p>Ajoutez chaque collaborateur à tour de rôle en indiquant son adresse électronique ci-dessous, en choisissant un niveau d’autorisation et en cliquant sur \"Ajouter un collaborateur\".</p><p> Les personnes invitées recevront un avis par courriel pour les informer qu’elles ont accès à ce plan et pour les inviter à s’inscrire à DMP Builder si elles n’ont pas déjà un compte. Un avis est également émis lorsque le niveau d’autorisation d’un utilisateur est modifié.</p>"
         collaborators: "Collaborateurs"
         add_collaborator: "Ajouter un collaborateur"
         add: "Ajouter"
@@ -450,7 +451,7 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter�
         confirmation_question: "Êtes-vous sûr?"
         owner: "Propriétaire"
         co_owner: "Copropriétaire"
-        edit: "Modifier"
+        edit: "Éditer"
         read_only: "Lecture seule"
       export:
         generated_by: "Ce document a été généré par DMP Builder (http://dmp.library.ualberta.ca)"
@@ -486,7 +487,7 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter�
     plan:
       export:
         pdf:
-          question_not_answered: Question sans réponse
+          question_not_answered: Question sans réponse.
           generated_by: Ce document a été généré par DMPonline (http://dmponline.dcc.ac.uk)
         space_used: "Environ %{space_used}% de l’espace disponible utilisé (%{num_pages} pages maximum)"
         project_name: "Nom du projet"
@@ -502,9 +503,9 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter�
       title: "Paramètres"
       projects:
         title: "Paramètres - Mes plans"
-        desc: "Le tableau ci-dessous indique les colonnes disponibles qui peuvent être affichées dans la liste « Mes plans ». Choisissez celles que vous souhaitez voir apparaître."
+        desc: "Le tableau ci-dessous indique les colonnes disponibles qui peuvent être affichées dans la liste « Mes plans ». Choisissez celles que vous souhaitez voir apparaître."
         errors:
-          no_name: "La colonne « nom » doit faire partie de la liste de colonnes."
+          no_name: "La colonne « nom » doit faire partie de la liste de colonnes."
           duplicate: "Copiez le nom de la colonne. Sélectionnez chaque colonne une seule fois."
           unknown: "Nom de colonne inconnu"
       plans:
@@ -515,6 +516,7 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter�
         default_formatting: "(À l’aide des valeurs de mise en forme de PDF par défaut)"
         included_elements: "Éléments inclus"
         pdf_formatting: "Mise en forme du PDF"
+        font: "Police"
         font_face: "Caractère"
         font_size: "Taille"
         margin: "Marge"
@@ -528,7 +530,7 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter�
           missing_key: "Un paramètre demandé n’a pas été fourni."
           invalid_margin: "La valeur de la marge est invalide."
           negative_margin: "La valeur de la marge ne peut pas être négative."
-          unknown_margin: "Marge inconnue. On peut seulement choisir « haut », « bas », « gauche » ou « droite »."
+          unknown_margin: "Marge inconnue. On peut seulement choisir « haut », « bas », « gauche » ou « droite »."
           invalid_font_size: "Taille de la police invalide"
           invalid_font_face: "Caractère de la police invalide"
           unknown_key: "Paramètre de mise en forme inconnu"
@@ -538,7 +540,7 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter�
     title: "À propos de DMP Builder"
     body_text_html: "<div class='white_background'>
     <p>
-    On demande de plus en plus aux chercheurs de rédiger des plans de gestion des données. L’Université de l’Alberta a adopté une <a href='https://policiesonline.ualberta.ca/PoliciesProcedures/Procedures/Research-Records-Stewardship-Guidance-Procedure.pdf' target='_blank'>research records stewardship policy (politique de gestion des documents de recherche)</a> qui décrit la façon de gérer et de préserver les données de recherche et les documents connexes. La présentation de plans de gestion des données (PGD) fait de plus en plus souvent partie des exigences liées à la subvention des organismes de financement. 
+    On demande de plus en plus aux chercheurs de rédiger des plans de gestion des données. L’Université de l’Alberta a adopté une <a href='https://policiesonline.ualberta.ca/PoliciesProcedures/Procedures/Research-Records-Stewardship-Guidance-Procedure.pdf' target='_blank'>research records stewardship policy (politique de gestion des documents de recherche)</a> qui décrit la façon de gérer et de préserver les données de recherche et les documents connexes. La présentation de plans de gestion des données (PGD) fait de plus en plus souvent partie des exigences liées à la subvention des organismes de financement. 
     </p>
     <p>
     Le service des bibliothèques de l’Université de l’Alberta met cet outil pour les plans de gestion des données (DMP Builder) à la disposition des chercheurs afin de les aider dans le cadre du processus de planification de la gestion des données. Cet outil est fourni par l’entremise de DMPOnline, qui est conçu par le <a href='http://www.dcc.ac.uk/' target='_blank'>Digital Curation Centre</a> au Royaume-Uni. Toutes les données sont hébergées localement à l’Université de l’Alberta. Consultez nos <a href='/terms'>conditions d’utilisation</a> pour de plus amples renseignements. 
@@ -554,9 +556,9 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter�
     <div class='white_background'>
     
     <p>Si vous avez un compte, connectez-vous et commencez par créer ou modifier votre plan de gestion des données.</p>
-    <p> Si vous ne possédez pas de compte DMP Builder, cliquez sur <a href='/'>« S’inscrire »</a> dans la page d’accueil.</p>
-    <p>Veuillez prendre note que nous travaillons actuellement à l’authentification de l’identifiant informatique (CCID). Vous pourrez associer votre compte existant à votre CCID dès que la fonction sera disponible.</p>
-    <p>Visitez la page <a href='/help'>« Aide »</a> pour obtenir des directives.</p>
+    <p> Si vous ne possédez pas de compte DMP Builder, cliquez sur <a href='/'>« S’inscrire »</a> dans la page d’accueil.</p>
+    <p>Veuillez prendre note que nous travaillons actuellement à l’authentification de l’identifiant informatique (CCID). Vous pourrez associer votre compte existant à votre CCID dès que la fonction sera disponible.</p>
+    <p>Visitez la page <a href='/help'>« Aide »</a> pour obtenir des directives.</p>
     </div>
     <h3>Commentaires</h3>
     <div class='white_background'>
@@ -572,24 +574,24 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter�
     body_text_tab_2_html: "<p>Le service des bibliothèques de l’Université de l’Alberta a mis au point un<a href='http://guides.library.ualberta.ca/researchdata'>research data management guide (guide sur la gestion des données de recherche)</a> qui peut fournir d’autres directives sur la planification de la gestion des données. Si vous avez besoin de plus de directives, communiquez avec nous par courriel à <a href='mailto:data@ualberta.ca?Subject=DMP%20Builder%20help'>data@ualberta.ca</a>.</p>"
 
 
-    body_text_tab_1_html: "<p>Lorsque vous vous connectez à DMP Builder, vous serez dirigé vers la page « Mes plans ». À partir de cette page, vous pouvez modifier, partager, exporter ou supprimer l’un ou l’autre de vos plans. Vous verrez également les plans qui ont été partagés avec vous par d’autres personnes.</p>
+    body_text_tab_1_html: "<p>Lorsque vous vous connectez à DMP Builder, vous serez dirigé vers la page « Mes plans ». À partir de cette page, vous pouvez modifier, partager, exporter ou supprimer l’un ou l’autre de vos plans. Vous verrez également les plans qui ont été partagés avec vous par d’autres personnes.</p>
     <h3>Créer un plan</h3>
-    <p>Pour créer un plan, cliquez sur le bouton « Créer un plan » à la page « Mes plans » ou dans le menu du haut. Faites des choix dans les listes déroulantes et les cases à cocher afin de déterminer les questions et les directives qui seront affichées. Confirmez votre choix en cliquant sur « Oui, créer un plan ».</p>
+    <p>Pour créer un plan, cliquez sur le bouton « Créer un plan » à la page « Mes plans » ou dans le menu du haut. Faites des choix dans les listes déroulantes et les cases à cocher afin de déterminer les questions et les directives qui seront affichées. Confirmez votre choix en cliquant sur « Oui, créer un plan ».</p>
     <h3>Rédiger votre plan</h3>
     <p>L’interface à onglets vous permet de naviguer dans diverses fonctions lorsque vous mettez au point votre plan.</p>
     <ul>
-      <li>- L’option « renseignements sur le plan » comprend des renseignements administratifs de base, indique la série de questions et de directives sur laquelle votre plan s’appuie et vous donne un aperçu des questions auxquelles vous devez répondre.</li>
+      <li>- L’option « renseignements sur le plan » comprend des renseignements administratifs de base, indique la série de questions et de directives sur laquelle votre plan s’appuie et vous donne un aperçu des questions auxquelles vous devez répondre.</li>
       <li>- Les onglets suivants contiennent les questions auxquelles il faut répondre. Il peut y avoir plus d’un onglet si votre bailleur de fonds ou votre université pose différentes séries de questions à diverses étapes, par exemple lors d’une demande de subvention et après l’octroi d’une subvention.</li>
-      <li>- L’onglet « Partager » vous permet d’inviter d’autres personnes à lire votre plan ou à y collaborer.</li>
-      <li>- L’onglet « Exporter » vous permet de télécharger votre plan en divers formats, ce qui peut être utile si vous devez joindre votre plan à une demande de subvention.</li>
+      <li>- L’onglet « Partager » vous permet d’inviter d’autres personnes à lire votre plan ou à y collaborer.</li>
+      <li>- L’onglet « Exporter » vous permet de télécharger votre plan en divers formats, ce qui peut être utile si vous devez joindre votre plan à une demande de subvention.</li>
     </ul>
     <p>Lorsque vous consultez l’un ou l’autre des onglets de questions, vous verrez les différentes sections de votre plan affichées. Cliquez sur ces onglets à tour de rôle pour répondre aux questions. Vous pouvez choisir le format de vos réponses à l’aide des boutons de mise en forme.</p>
-    <p>Les directives sont affichées dans la partie de droite. Cliquez sur le symbole « + » pour les consulter.</p>
+    <p>Les directives sont affichées dans la partie de droite. Cliquez sur le symbole « + » pour les consulter.</p>
     <p>N’oubliez pas d’enregistrer vos réponses avant de poursuivre.</p>
     <h3>Partager les plans</h3>
-    <p>Inscrivez l’adresse électronique de tout collaborateur que vous aimeriez inviter à lire ou à modifier votre plan. Choisissez le niveau d’autorisation que vous souhaitez lui accorder dans les options de la liste déroulante et cliquez sur « Ajouter un collaborateur ».</p>
+    <p>Inscrivez l’adresse électronique de tout collaborateur que vous aimeriez inviter à lire ou à modifier votre plan. Choisissez le niveau d’autorisation que vous souhaitez lui accorder dans les options de la liste déroulante et cliquez sur « Ajouter un collaborateur ».</p>
     <h3>Exporter les plans</h3>
-    <p>En choisissant cette option, vous pouvez télécharger votre plan en divers formats, ce qui peut être utile si vous devez joindre votre plan à une demande de subvention. Choisissez le format dans lequel vous aimeriez voir ou télécharger votre plan et cliquez pour l’exporter. Lorsque vous vous connectez à DMP Builder, vous êtes dirigé vers la page « Mes plans ». À partir de cette page, vous pouvez modifier, partager, exporter ou supprimer l’un ou l’autre de vos plans. Vous voyez également les plans qui ont été partagés avec vous par d’autres personnes.</p>"
+    <p>En choisissant cette option, vous pouvez télécharger votre plan en divers formats, ce qui peut être utile si vous devez joindre votre plan à une demande de subvention. Choisissez le format dans lequel vous aimeriez voir ou télécharger votre plan et cliquez pour l’exporter. Lorsque vous vous connectez à DMP Builder, vous êtes dirigé vers la page « Mes plans ». À partir de cette page, vous pouvez modifier, partager, exporter ou supprimer l’un ou l’autre de vos plans. Vous voyez également les plans qui ont été partagés avec vous par d’autres personnes.</p>"
 
   contact_page:
     title: "Communiquez avec nous"
@@ -599,15 +601,11 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter�
   terms_page:
     title: "Exploitation sous licence et conditions d’utilisation"
     body_text_html: "
-
     <div class='white_background'>
-    <p>L’outil DMP Builder du service des bibliothèques de l’Université de l’Alberta est fourni grâce à une application à code source libre appelée <a href='https://dmponline.dcc.ac.uk'>DMPOnline</a> qui a été mise au point par le Digital Curation Centre (DCC) et partagée en vertu de la <a href='http://www.gnu.org/licenses/agpl-3.0.html'>AGPL license (licence publique générale Affero).</a></p>
-
-    <p>Dans la mesure du possible en vertu de la loi, le service des bibliothèques de l’Université de l’Alberta a renoncé à tous les droits d’auteur et les droits connexes ou voisins sur le contenu du site Web DMP Builder et les modèles de planification de la gestion des données (mais pas sur les plans mêmes) en vertu d’une <a href='http://creativecommons.org/publicdomain/zero/1.0/'>Creative Commons Zero License (licence Creative Commons Zéro).</a></p>
-
+    <p>L’outil DMP Builder du service des bibliothèques de l’Université de l’Alberta est fourni grâce à une application à code source libre appelée <a href='https://dmponline.dcc.ac.uk'>DMPOnline</a> qui a été mise au point par le Digital Curation Centre (DCC) et partagée en vertu de la <a href='http://www.gnu.org/licenses/agpl-3.0.html'>AGPL license (licence publique générale Affero).</a></p>
+    <p>Dans la mesure du possible en vertu de la loi, le service des bibliothèques de l’Université de l’Alberta a renoncé à tous les droits d’auteur et les droits connexes ou voisins sur le contenu du site Web DMP Builder et les modèles de planification de la gestion des données (mais pas sur les plans mêmes) en vertu d’une <a href='http://creativecommons.org/publicdomain/zero/1.0/deed.fr'>Creative Commons Zero License (licence Creative Commons Zéro).</a></p>
     <p><a href='http://creativecommons.org/publicdomain/zero/1.0/'><img src='http://i.creativecommons.org/p/zero/1.0/88x31.png' alt='CC0' /></a></p>
     </div>
-
     <h3>Vos renseignements personnels</h3>
     <div class='white_background'>
       <p>Le service des bibliothèques de l’Université de l’Alberta héberge DMP Builder et conserve vos plans de gestion des données en votre nom, mais les plans vous appartiennent et sont sous votre responsabilité. Les renseignements conservés par DMP Builder sont régis par la <a href='http://www.library.ualberta.ca/privacy/'>politique de confidentialité du Site Web</a> du service des bibliothèques de l’Université de l’Alberta.</p>

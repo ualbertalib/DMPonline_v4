@@ -1,3 +1,7 @@
+# [+Project:+] DMPonline v4
+# [+Description:+] This controller is responsible for all the actions in the admin interface under templates (e.g. phases, versions, sections, questions, suggested answer) (index; show; create; edit; delete)
+# [+Copyright:+] Digital Curation Centre 
+
 class DmptemplatesController < ApplicationController
 
   # GET /dmptemplates
@@ -57,7 +61,7 @@ class DmptemplatesController < ApplicationController
   end
 
 
-	# GET /dmptemplates/new
+    # GET /dmptemplates/new
   # GET /dmptemplates/new.json
   def admin_new
     if user_signed_in? && current_user.is_org_admin? then
@@ -191,8 +195,8 @@ class DmptemplatesController < ApplicationController
 			end
 
 			respond_to do |format|
-	      format.html
-	    end
+              format.html
+            end
 		end
 	end
 
@@ -224,7 +228,7 @@ class DmptemplatesController < ApplicationController
 	def admin_updatephase
 		if user_signed_in? && current_user.is_org_admin? then
    		@phase = Phase.find(params[:id])
-			@phase.description = params["phase-desc"]
+		@phase.description = params["phase-desc"]
 
 	    respond_to do |format|
 	      if @phase.update_attributes(params[:phase])
@@ -374,8 +378,9 @@ class DmptemplatesController < ApplicationController
 	def admin_createquestion
     if user_signed_in? && current_user.is_org_admin? then
 	 	@question = Question.new(params[:question])
-	    @question.guidance = params["new-question-guidance-#{params[:section_id]}"]
-	    @question.default_value = params["new-question-default-value-#{params[:section_id]}"]
+	    @question.guidance = params["new-question-guidance"]
+	    @question.default_value = params["new-question-default-value"]
+
 
 	    respond_to do |format|
 	      if @question.save
@@ -431,29 +436,29 @@ class DmptemplatesController < ApplicationController
 	#SUGGESTED ANSWERS
 	#create suggested answers
 	def admin_createsuggestedanswer
-    if user_signed_in? && current_user.is_org_admin? then
-	 		@suggested_answer = SuggestedAnswer.new(params[:suggested_answer])
+        if user_signed_in? && current_user.is_org_admin? then
+                @suggested_answer = SuggestedAnswer.new(params[:suggested_answer])
 
-	    respond_to do |format|
-	      if @suggested_answer.save
-	        format.html { redirect_to admin_phase_dmptemplate_path(:id => @suggested_answer.question.section.version.phase_id, :version_id => @suggested_answer.question.section.version_id, :section_id => @suggested_answer.question.section_id, :question_id => @suggested_answer.question.id, :edit => 'true'), notice: I18n.t('org_admin.templates.created_message') }
-         	format.json { head :no_content }
-	      else
-	        format.html { render action: "admin_phase" }
-	        format.json { render json: @suggested_answer.errors, status: :unprocessable_entity }
-	      end
-			end
-		end
-  end
+            respond_to do |format|
+              if @suggested_answer.save
+                format.html { redirect_to admin_phase_dmptemplate_path(:id => @suggested_answer.question.section.version.phase_id, :version_id => @suggested_answer.question.section.version_id, :section_id => @suggested_answer.question.section_id, :question_id => @suggested_answer.question.id, :edit => 'true'), notice: I18n.t('org_admin.templates.created_message') }
+                format.json { head :no_content }
+              else
+                format.html { render action: "admin_phase" }
+                format.json { render json: @suggested_answer.errors, status: :unprocessable_entity }
+              end
+                end
+         end
+     end
 
 	#update a suggested answer of a template
 	def admin_updatesuggestedanswer
 		if user_signed_in? && current_user.is_org_admin? then
 	   		@suggested_answer = SuggestedAnswer.find(params[:id])
-				@question = @suggested_answer.question
-				@section = @question.section
-				@version = @section.version
-				@phase = @version.phase
+            @question = @suggested_answer.question
+            @section = @question.section
+            @version = @section.version
+            @phase = @version.phase
 
 				respond_to do |format|
 		      if @suggested_answer.update_attributes(params[:suggested_answer])

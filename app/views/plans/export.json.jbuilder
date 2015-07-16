@@ -22,8 +22,10 @@ json.sections do
             json.question_text question.text
 
             answer = @exported_plan.plan.answer(question.id, false)
-
-            if answer.present? && question.multiple_choice
+            q_format = question.question_format
+										
+            if answer.present? && ( q_format.title == "Check box" || q_format.title == "Multi select box" ||
+                                        q_format.title == "Radio buttons" || q_format.title == "Dropdown")
               json.selections do
                 answer.options.each do |o|
                   json.set! o.number, o.text
