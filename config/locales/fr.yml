@@ -6,6 +6,7 @@ fr:
       # You can provide other formats here if you like!
       default: "%d-%m-%Y"
       short: "%d/%m/%Y"
+      custom: "%d/%m/%Y %H:%M"
       long: "%d %B, %Y"
 
     day_names: [Dimanche, Lundi, Mardi, Mercredi, Jeudi, Vendredi, Samedi]
@@ -36,7 +37,6 @@ fr:
   welcome_links: "<p><a href='http://guides.library.ualberta.ca/content.php?pid=524929&sid=4318282' target='_blank'>En savoir plus sur les plans de gestion des données</a><br/><a href='https://dataverse.library.ualberta.ca' target='_blank'>Vous souhaitez partager vos données de recherche?</a><br/><a href='http://library.ualberta.ca/researchdata' target='_blank'>Pour en savoir plus sur les services de données de recherche du service des bibliothèques</a></p>"
   ccid_message: "Veuillez prendre note que nous travaillons actuellement à l’authentification de l’identifiant informatique (CCID). Vous devez créer un nouveau compte DMP Builder. Vous pourrez associer votre compte existant à votre CCID dès que la fonction sera disponible."
 
-  
   screencast_error_text: "Votre navigateur ne permet pas la balise vidéo."
 
   admin:
@@ -232,6 +232,7 @@ fr:
       question_text_label: "Texte de la question"
       question_number_label: "Numéro de la question"
       question_edit_button: "Modifier la question"
+      question_delete_button: "Supprimer la question"
       answer_format_label: "Format de la réponse"
       example_answer_label: "Exemple de réponse"
       suggested_answer_label: "Suggestion de réponse"
@@ -274,19 +275,24 @@ fr:
     contact_label: "Contact"
     jisc: "Le DCC est financé par"
 
+    greeting: "Bonjour"
     sign_in: "Se connecter"
     sign_in_text: "Si vous avez déjà un compte."
     sign_out: "Se déconnecter"
     sign_up: "S’inscrire"
     sign_up_text: "Vous êtes un nouveau utilisateur de DMP Builder? Inscrivez-vous dès maintenant."
     signed_in: "Connecté en tant que "
-    institution_sing_in_link: ""
-    institution_sing_in: "Authentification du CCID à venir!"
+    institution_sign_in_link: "Ou encore, connectez-vous avec l'authentifiant de votre établissement"
+    institution_sign_in: "Authentification du CCID à venir!"
         
 
     user_name: "Adresse électronique"
     email: "Courriel"
     org_not_listed: "Mon organisme n’est pas inscrit sur la liste."
+    email_tip: "Ceci doit être une adresse courriel valide - un message y sera envoyé pour le confirmer."
+    organisation_name_tip: "Veuillez saisir le nom de votre organisme."
+    password_tip: "Le mot de passe doit comprendre au moins huit caractères."
+    password_reentry_tip: "Celui-ci doit concorder avec ce que vous avez indiqué dans le champ précédent."
     valid_email: "Vous devez entrer une adresse électronique valide."
     user_details_text_html: "<p>Veuillez noter que votre adresse électronique sert de nom d’utilisateur. Si vous la modifiez, n’oubliez pas d’utiliser votre nouvelle adresse électronique pour vous connecter.</p>"
     user_details_paragraph_html: "Vous pouvez modifier les renseignements ci-dessous."
@@ -301,7 +307,6 @@ fr:
     forgot_password: "Vous avez oublié votre mot de passe?"
     password_too_small: "Votre mot de passe doit comprendre au moins huit caractères."
     password_no_match: "La saisie doit correspondre à ce que vous avez indiqué dans le champ précédent."
-
     no_pass_instructions: "Vous n’avez pas reçu les directives de confirmation?"
     no_unlock_instructions: "Vous n’avez pas reçu les directives de déverrouillage?"
     send_password_info: "Directives pour réinitialiser le mot de passe"
@@ -330,6 +335,7 @@ fr:
     preview: "Aperçu"
     saving: "Enregistrement..."
     loading: "Téléchargement..."
+    removing: "Suppression..."
     unsaved: "Modifications non enregistrées"
     unlink_account: "Dissocier le compte"
     submit:
@@ -340,6 +346,7 @@ fr:
       save: "Enregistrer"
       delete: "Supprimer"
       back: "Retour"
+      discard: "Rejeter"
 
     name: "Nom"
     first_name: "Prénom"
@@ -349,13 +356,14 @@ fr:
     owner: "Propriétaire"
     orcid_id: "Numéro ORCID"
     orcid_html: "Le numéro ORCID est un identifiant numérique constant qui différencie chaque chercheur, <a href='http://orcid.org/content/initiative' target='_blank' rel='external' class='a_orange'>pour de plus amples renseignements</a>."
-    sign_up_shibboleth_alert_text_html: "Remarque : Si vous avez déjà créé un compte dans DMPonline et que vous désirez associer le compte à votre authentifiant de l’établissement, vous devez d’abord vous <a href='/' class='a_orange'>connecter</a> à un compte DMPonline existant. Si vous n’avez jamais créé de compte DMPonline, veuillez remplir le formulaire ci-dessous."
+    sign_up_shibboleth_alert_text_html: "Remarque : Si vous avez déjà créé un compte dans DMP Builder et que vous désirez associer le compte à votre authentifiant de l’établissement, vous devez d’abord vous <a href='/?locale=fr' class='a_orange'>connecter</a> à un compte DMP Builder existant. Si vous n’avez jamais créé de compte DMPonline, veuillez remplir le formulaire ci-dessous."
     shibboleth_linked_text: "Votre compte est associé à votre authentifiant de l’établissement."
-    shibboleth_to_link_text: "Associez votre compte DMPonline à votre authentifiant de l’établissement."
+    shibboleth_to_link_text: "Associez votre compte DMP Builder à votre authentifiant de l’établissement."
+    shibboleth_to_link_question: "Voulez-vous associer votre compte DMP Builder à votre authentifiant de l’établissement?"
     shibboleth_unlink_label: "Dissociez votre authentifiant de l’établissement."
     shibboleth_unlink_alert: "Alerte concernant la dissociation de votre authentifiant de l’établissement"
-    shibboleth_unlink_dialog_text: "<p>Vous êtes sur le point de dissocier DMPonline de votre authentifiant de l’établissement, voulez-vous continuer?</p>"
-
+    shibboleth_unlink_dialog_text: "<p>Vous êtes sur le point de dissocier DMP Builder de votre authentifiant de l’établissement, voulez-vous continuer?</p>"
+    shibboleth_wait_confirmation: "En attente d'une confirmation pour :"
 
     section_label: "Section"
     sections_label: "Sections"
@@ -373,8 +381,66 @@ fr:
     guidance: "Directives"
     policy_expectations: "Attentes de la politique"
     export: "Exporter"
+    guidance_accordion_label: "Directives"
+    add_comment_accordion_label: "Ajouter un commentaire"
+    comment_accordion_label: "Commentaires"
 
-
+    comments:
+      add_comment_label: "Ajouter un commentaire"
+      add_comment_text: "Veuillez ajouter un commentaire"
+      comment_label: "Commentaire"
+      comments_label: "Commentaires"
+      view_label: "Voir"
+      edit_label: "Modifier"
+      retract_label: "Supprimer"
+      clear_label: "Supprimer"
+      commented_by: "Commentaire par :"
+      archive_own_comment_question: "Êtes-vous certain de vouloir supprimer ce commentaire?"
+      archive_own_comment_button_label: "Supprimer"
+      archive_comment_question: "Êtes-vous certain de vouloir supprimer ce commentaire?"
+      archive_comment_button_label: "Supprimer"
+      clear_by: "Commentaire supprimé par"
+      retracted: "Commentaire supprimé par vous"
+    
+    failures:
+      email_exists: "Cette adresse électronique est déjà inscrite."
+      registration_error: "Une erreur est survenue lors de l'inscription. Veuillez vérifier que l'adresse électronique saisie soit valide et que le mot de passe choisi soit d'au moins huit caractères."
+    notices:
+      successfully_updated: "Les renseignements ont bien été mis à jour. "
+      sharing_updated: "Les renseignements partagés ont bien été mis à jour."
+      invitation_issued: "L'invitation a bien été lancée."
+      enter_email: "Veuillez saisir votre adresse électronique."
+      access_removed: "Accès révoqué."
+      user_added: "L'utilisateur a été ajouté au projet."
+      answer_recorded: "La réponse a bien été sauvegardée."
+      answer_saving_error: "Une erreur est survenue lors de la sauvegarde de la réponse."
+      answer_not_changed: "Il n'y a aucun changement au contenu de la réponse - aucune sauvegarde."
+      comment_created: "Le commentaire a bien été créé."
+      comment_updated: "Le commentaire a bien été mis à jour."
+      theme_created: "Le thème a bien été créé."
+      theme_updated: "Le thème a bien été mis à jour."
+      page_created: "La page a bien été créée."
+      page_updated: "La page a bien été mise à jour."
+      user_created: "L'utilisateur a bien été créé."
+      project_created: "Le projet a bien été créé."
+      user_org_role_created: "Le rôle de l’utilisateur a bien été créé."
+      user_org_role_updated: "Le rôle de l’utilisateur a bien été mis à jour."
+      user_role_created: "Le type de rôle d’utilisateur a bien été créé."
+      user_role_updated: "Le type de rôle d’utilisateur a bien été mis à jour."
+      user_status_created: "Le statut de l'utilisateur a bien été créé."
+      user_status_updated: "Le statut de l'utilisateur a bien été mis à jour."
+      user_type_created: "Le type d’utilisateur a bien été créé."
+      user_type_updated: "Le type d’utilisateur a bien été mis à jour."
+      link_account_question: "Désirez-vous"
+      account_no_access: "Ce compte ne permet pas l'accès à ce plan."
+      plan_updated: "Le plan a bien été mis à jour."
+      settings_updated: "Les paramètres ont bien été mis à jour."
+      
+    progress_bar:
+      answered: "complétée(s)"
+      question: "question"
+      questions: "questions"
+      
     org_type:
       funder: "Bailleur de fonds"
       institution: "Établissement"
@@ -388,7 +454,7 @@ fr:
       templates: "Modèles"
       child: "Unité"
       other_org_help_text: "Veuillez indiquer le nom de votre organisme."
-    
+      org_select_text: "Veuillez sélectionner un organisme: "
       
      
 
@@ -414,6 +480,10 @@ fr:
       tab_export: "Exporter"
       export_text_html: "<p>Vous pouvez maintenant télécharger votre plan en divers formats, ce qui peut être utile si vous devez joindre votre plan à une demande de subvention.</br>
 Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter ».</p>"
+      questions_answered: "questions complétées"
+      not_saved_answers_text_alert: "Vous avez modifié des réponses mais ne les avez pas sauvegardés :"
+      not_saved_answers_confirmation_alert: "Voulez-vous les sauvegarder maintenant?"
+      not_saved_answers_header: "Réponses non sauvegardées"
       project_data_contact: "Personne-ressource pour les données du plan"
       project_data_contact_help_text: "Nom (si différent de celui susmentionné), numéro de téléphone et adresse électronique"
       project_name_help_text: "Si vous présentez une demande de financement, inscrivez le nom de la même façon que dans la demande de subvention."
@@ -422,7 +492,7 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
       project_identifier_help_text: "Une identification pertinente déterminée par le bailleur de fond ou l’établissement"
       project_static_info: "Ce plan s’appuie sur :"
       projects_title: "Mes plans"
-      project_settings_text: "Les points que vous sélectionnez seront affichés dans le tableau ci-dessous. Vous pouvez trier les données par en-tête ou les filtrer en indiquant une chaîne de texte dans la case de recherche."
+      project_settings_text: "Les paramètres que vous sélectionnez seront affichés dans le tableau ci-dessous. Vous pouvez trier les données par en-tête ou les filtrer en indiquant une chaîne de texte dans la case de recherche."
       project_text_when_no_project: "<p><strong>Bienvenue</strong></br> Vous êtes maintenant prêt à créer votre premier plan de gestion des données.</br>Cliquez sur le bouton « Créer un plan » ci-dessous pour commencer.</p>"
       project_text_when_project: "<p>Le tableau ci-dessous contient une liste des plans que vous avez créés et de ceux que d’autres personnes partagent avec vous.</br>Ces plans peuvent être modifiés, partagés, exportés ou supprimés en tout temps.</p>"
       confirmation_text: "Confirmer les renseignements sur le plan"   
@@ -453,6 +523,10 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
         co_owner: "Copropriétaire"
         edit: "Éditer"
         read_only: "Lecture seule"
+        locked_section_text: "Cette section est verouillée pour permettre sa modification par "
+        email_text: "<p>Des droits d'accès '%{access_level}' au projet DMP %{project_link} vous ont été octroyés.</p>"
+        permission_email_text: "<p>Les droits d'accès au projet DMP '%{project_link}' ont été changés. Vous avez maintenant un accès %{access_level}.</p>"
+        access_removed_email_text: "<p>Votre droit d'accès au projet DMP '%{project_title}' a été révoqué.</p>"
       export:
         generated_by: "Ce document a été généré par DMP Builder (http://dmp.library.ualberta.ca)"
       create_page: 
@@ -509,7 +583,7 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
           duplicate: "Copiez le nom de la colonne. Sélectionnez chaque colonne une seule fois."
           unknown: "Nom de colonne inconnu"
       plans:
-        title: Titre du plan
+        title: "Titre du plan"
         reset: "Réinitialiser"
         custom_formatting: "(À l’aide des valeurs de mise en forme de PDF personnalisées)"
         template_formatting: "(À l’aide des valeurs de mise en forme de PDF modèles)"
@@ -535,15 +609,21 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
           invalid_font_face: "Caractère de la police invalide"
           unknown_key: "Paramètre de mise en forme inconnu"
           invalid_max_pages: "Nombre maximal de pages invalide"
-
+    mailer:
+      sharing_notification: "Des droits d'accès à un plan de gestion de données vous ont été octroyés"
+      permissions_change: "Plan de gestion de données : droits d'accès modifiés"
+      access_removed: "Plan de gestion de données : accès révoqué"
+      
   about_page:
     title: "À propos de DMP Builder"
-    body_text_html: "<div class='white_background'>
+    tab_1: "Historique"
+    tab_2: "Actualités"
+    body_text_tab_1_html: "<div class='white_background'>
     <p>
     On demande de plus en plus aux chercheurs de rédiger des plans de gestion des données. L’Université de l’Alberta a adopté une <a href='https://policiesonline.ualberta.ca/PoliciesProcedures/Procedures/Research-Records-Stewardship-Guidance-Procedure.pdf' target='_blank'>research records stewardship policy (politique de gestion des documents de recherche)</a> qui décrit la façon de gérer et de préserver les données de recherche et les documents connexes. La présentation de plans de gestion des données (PGD) fait de plus en plus souvent partie des exigences liées à la subvention des organismes de financement. 
     </p>
     <p>
-    Le service des bibliothèques de l’Université de l’Alberta met cet outil pour les plans de gestion des données (DMP Builder) à la disposition des chercheurs afin de les aider dans le cadre du processus de planification de la gestion des données. Cet outil est fourni par l’entremise de DMPOnline, qui est conçu par le <a href='http://www.dcc.ac.uk/' target='_blank'>Digital Curation Centre</a> au Royaume-Uni. Toutes les données sont hébergées localement à l’Université de l’Alberta. Consultez nos <a href='/terms'>conditions d’utilisation</a> pour de plus amples renseignements. 
+    Le service des bibliothèques de l’Université de l’Alberta met cet outil pour les plans de gestion des données (DMP Builder) à la disposition des chercheurs afin de les aider dans le cadre du processus de planification de la gestion des données. Cet outil est fourni par l’entremise de DMPOnline, qui est conçu par le <a href='http://www.dcc.ac.uk/' target='_blank'>Digital Curation Centre</a> au Royaume-Uni. Toutes les données sont hébergées localement à l’Université de l’Alberta. Consultez nos <a href='/terms?locale=fr'>conditions d’utilisation</a> pour de plus amples renseignements. 
     </p>
     </div>
     <h3>Fonctionnement de l’outil</h3>
@@ -556,15 +636,15 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
     <div class='white_background'>
     
     <p>Si vous avez un compte, connectez-vous et commencez par créer ou modifier votre plan de gestion des données.</p>
-    <p> Si vous ne possédez pas de compte DMP Builder, cliquez sur <a href='/'>« S’inscrire »</a> dans la page d’accueil.</p>
+    <p> Si vous ne possédez pas de compte DMP Builder, cliquez sur <a href='/?locale=fr'>« S’inscrire »</a> dans la page d’accueil.</p>
     <p>Veuillez prendre note que nous travaillons actuellement à l’authentification de l’identifiant informatique (CCID). Vous pourrez associer votre compte existant à votre CCID dès que la fonction sera disponible.</p>
-    <p>Visitez la page <a href='/help'>« Aide »</a> pour obtenir des directives.</p>
+    <p>Visitez la page <a href='/help?locale=fr'>« Aide »</a> pour obtenir des directives.</p>
     </div>
     <h3>Commentaires</h3>
     <div class='white_background'>
     <p>Si vous avez des questions ou des commentaires au sujet de DMP Builder, communiquez avec nous par courriel à <a href='mailto:data@ualberta.ca?Subject=DMP%20Builder%20feedback'>data@ualberta.ca</a>.</p>
     </div>"
-    
+    body_text_tab_2_html: "<p>Actualités provenant du site web DCC</p></br>"     
     
 
   help_page:
@@ -601,11 +681,15 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
   terms_page:
     title: "Exploitation sous licence et conditions d’utilisation"
     body_text_html: "
+    
     <div class='white_background'>
     <p>L’outil DMP Builder du service des bibliothèques de l’Université de l’Alberta est fourni grâce à une application à code source libre appelée <a href='https://dmponline.dcc.ac.uk'>DMPOnline</a> qui a été mise au point par le Digital Curation Centre (DCC) et partagée en vertu de la <a href='http://www.gnu.org/licenses/agpl-3.0.html'>AGPL license (licence publique générale Affero).</a></p>
+
     <p>Dans la mesure du possible en vertu de la loi, le service des bibliothèques de l’Université de l’Alberta a renoncé à tous les droits d’auteur et les droits connexes ou voisins sur le contenu du site Web DMP Builder et les modèles de planification de la gestion des données (mais pas sur les plans mêmes) en vertu d’une <a href='http://creativecommons.org/publicdomain/zero/1.0/deed.fr'>Creative Commons Zero License (licence Creative Commons Zéro).</a></p>
+
     <p><a href='http://creativecommons.org/publicdomain/zero/1.0/'><img src='http://i.creativecommons.org/p/zero/1.0/88x31.png' alt='CC0' /></a></p>
     </div>
+
     <h3>Vos renseignements personnels</h3>
     <div class='white_background'>
       <p>Le service des bibliothèques de l’Université de l’Alberta héberge DMP Builder et conserve vos plans de gestion des données en votre nom, mais les plans vous appartiennent et sont sous votre responsabilité. Les renseignements conservés par DMP Builder sont régis par la <a href='http://www.library.ualberta.ca/privacy/'>politique de confidentialité du Site Web</a> du service des bibliothèques de l’Université de l’Alberta.</p>
