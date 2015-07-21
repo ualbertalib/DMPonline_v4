@@ -583,7 +583,7 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
           duplicate: "Copiez le nom de la colonne. Sélectionnez chaque colonne une seule fois."
           unknown: "Nom de colonne inconnu"
       plans:
-        title: Titre du plan
+        title: "Titre du plan"
         reset: "Réinitialiser"
         custom_formatting: "(À l’aide des valeurs de mise en forme de PDF personnalisées)"
         template_formatting: "(À l’aide des valeurs de mise en forme de PDF modèles)"
