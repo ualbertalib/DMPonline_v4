@@ -39,7 +39,7 @@ DMPonline4::Application.configure do
   config.assets.debug = true
 
   #devise config
-  config.action_mailer.default_url_options = { :host => 'houston.library.ualberta.ca' }
+  config.action_mailer.default_url_options = { :host => 'dmpdev.library.ualberta.ca' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = { :address => "localhost", :port => 25 }
   
@@ -57,9 +57,9 @@ DMPonline4::Application.configure do
 	# Error notifications by email
 	 config.middleware.use ExceptionNotification::Rack,
 	  :email => {
-	    :email_prefix => "[DMP Builder ERROR] ",
-	    :sender_address => %{"No-reply" <noreply@library.ualberta.ca>},
-	    :exception_recipients => %w{dittest@ualberta.ca}
+	    :email_prefix => "[DMPonline4 ERROR] ",
+	    :sender_address => %{"No-reply" <noreply@ualberta.ca>},
+	    :exception_recipients => %w{data@ualberta.ca}
 	  }
 	  
 	
