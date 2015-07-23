@@ -311,7 +311,7 @@ en:
     no_unlock_instructions: "Didn't receive unlock instructions?"
     send_password_info: "Reset password instructions"
     edit_password_info: "If you would like to change your password please complete the following fields."
-    accept_terms_html: " I accept the <a href='/terms'>terms and conditions</a> *"
+    accept_terms_html: " I accept the <a href='/terms?locale=en'>terms and conditions</a> *"
 
     text_area: "Text area"
     text_field: "Text field"
@@ -356,7 +356,7 @@ en:
     owner: "Owner"
     orcid_id: "ORCID number"
     orcid_html: "ORCID number is a persistent digital identifier that distinguishes each researcher, <a href='http://orcid.org/content/initiative' target='_blank' rel='external' class='a_orange'>more info</a>."
-    sign_up_shibboleth_alert_text_html: "Note: If you have previously created an account in DMPonline, and you want to link this to your institutional credentials, you need to <a href='/' class='a_orange'>Sign in</a> to that existing DMPonline account first. If you have never created a DMPonline account, then please complete the form below."
+    sign_up_shibboleth_alert_text_html: "Note: If you have previously created an account in DMP Builder, and you want to link this to your institutional credentials, you need to <a href='/?locale=en' class='a_orange'>Sign in</a> to that existing DMP Builder account first. If you have never created a DMPonline account, then please complete the form below."
     shibboleth_linked_text: "Your account is linked to your institutional credentials."
     shibboleth_to_link_text: "Link your DMP Builder account to your institutional credentials"
     shibboleth_to_link_question: "link your DMP Builder account to your institutional credentials?"
@@ -455,7 +455,6 @@ en:
       child: "Unit"
       other_org_help_text: "Please enter the name of your organization."
       org_select_text: "Please select an organization: "
-    
       
      
 
@@ -584,7 +583,7 @@ Select what format you wish to use and click to 'Export'.</p>"
           duplicate: "Duplicate column name. Please only include each column once."
           unknown: "Unknown column name."
       plans:
-        title: Plan title
+        title: "Plan title"
         reset: "Reset"
         custom_formatting: "(Using custom PDF formatting values)"
         template_formatting: "(Using template PDF formatting values)"
@@ -637,9 +636,9 @@ Select what format you wish to use and click to 'Export'.</p>"
     <div class='white_background'>
     
     <p>If you have an account, please sign in and start creating or editing your DMP.</p>
-    <p>If you do not have a DMP Builder account, click on <a href='/'>'Sign up'</a> on the homepage.</p>
+    <p>If you do not have a DMP Builder account, click on <a href='/?locale=en'>'Sign up'</a> on the homepage.</p>
     <p>Please note that we are currently working on CCID authentication. You will have the option to link your existing account to your CCID when that feature becomes available.</p>
-    <p>Please visit the <a href='/help'>'Help'</a> page for guidance.</p>
+    <p>Please visit the <a href='/help?locale=en'>'Help'</a> page for guidance.</p>
     </div>
     <h3>Feedback</h3>
     <div class='white_background'>
