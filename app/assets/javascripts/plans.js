@@ -131,7 +131,11 @@ $( document ).ready(function() {
   	// Only attempt unlock if there are forms on the page (not read-only)
   	if ($('.question-form').length > 0) {
 			var section_id = section.attr("id").split('-')[1];
-			$.post('unlock_section', {section_id: section_id});
+			
+			// LIBDMP-137
+			// Changed post request 'unlock_section' to  'unlock_section.json'. 'unlock_section' unnecessary returns a huge html response and takes a quite lot of time to process(3sec) lowering server 
+			// performance when there are large number of concurrent users.
+			$.post('unlock_section.json', {section_id: section_id});
 			if ($.fn.is_dirty(section_id)) {
 				$('#unsaved-answers-'+section_id).text("");
 				$.each($.fn.get_unsaved_questions(section_id), function(index, question_text){
@@ -493,7 +497,10 @@ $.fn.check_section_lock = function() {
 			section.find(".question-readonly").show();
 		}
 		else {
-			$.post('lock_section', {section_id: section_id} );
+			// LIBDMP-137
+			// Changed post request 'lock_section' to  'lock_section.json'. 'lock_section' unnecessary returns a huge html response and takes a quite lot of time to process(3sec) lowering server 
+			// performance when there are large number of concurrent users.
+			$.post('lock_section.json', {section_id: section_id} ); 
 			section.find(".section-lock-notice").html("");
 			section.find(".section-lock-notice").hide();
 			section.find("input").removeAttr('disabled');
