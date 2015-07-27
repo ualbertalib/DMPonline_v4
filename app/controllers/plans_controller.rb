@@ -187,7 +187,7 @@ class PlansController < ApplicationController
                 format.text { send_data @exported_plan.as_txt, filename: "#{file_name}.txt" }
 				format.docx do
 					file = Htmltoword::Document.create @exported_plan.html_for_docx, file_name
-					send_file file.path, :disposition => "attachment"
+					send_data file, filename: "#{file_name}.docx", :disposition => "attachment"
 				end
                 format.pdf do
                     @formatting = @plan.settings(:export).formatting
