@@ -20,15 +20,17 @@
 	<li>
 		<%= f.submit t('helpers.sign_in'), :class => "btn btn-primary" %>
 	</li>
-    <% if request.fullpath != "/users/sign_up?nosplash=true" && session[:shibboleth_data].nil? then%>
-        <li>
-            <div class="institution_login_link">
-                <%= link_to t('helpers.institution_sign_in_link'), user_omniauth_shibboleth_path, :class => "a-orange" %>
-                <%= t('helpers.institution_sign_in')%>
-            </div>
-        </li>
-    <%else%>
-        <%= f.hidden_field :shibboleth_id, :value => session[:shibboleth_data][:uid] %>
-    <%end%> 
+    <% if Rails.application.config.shibboleth_enabled %>
+        <% if request.fullpath != "/users/sign_up?nosplash=true" && session[:shibboleth_data].nil? then%>
+            <li>
+                <div class="institution_login_link">
+                    <%= link_to t('helpers.institution_sign_in_link'), user_omniauth_shibboleth_path, :class => "a-orange" %>
+                    <%= t('helpers.institution_sign_in')%>
+                </div>
+            </li>
+        <%else%>
+            <%= f.hidden_field :shibboleth_id, :value => session[:shibboleth_data][:uid] %>
+        <%end%> 
+    <% end %>
 </ul>
 <% end %>
