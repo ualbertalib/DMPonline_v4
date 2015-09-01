@@ -473,7 +473,7 @@ sections = {
 
  sections.each do |s, details|
    s = Section.find_by_title(details[:title])
-   exists = s && s.version.to_s == details[:version]
+   exists = s && s.organisation == details[:organisation]
    if !exists
      section = Section.new
      section.title = details[:title]
@@ -1245,12 +1245,15 @@ questions_locales = {
 }
 
  templates_locales.each do |t, details|
-   template = Dmptemplate::Translation.new
-   template.title = details[:title]
-   template.description = details[:description]
-   template.locale = details[:locale]
-   template.dmptemplate_id = Dmptemplate.find_by_title(details[:template_en]).id
-   template.save!
+   exists = Dmptemplate::Translation.find_by_title(details[:title])
+   if !exists
+     template = Dmptemplate::Translation.new
+     template.title = details[:title]
+     template.description = details[:description]
+     template.locale = details[:locale]
+     template.dmptemplate_id = Dmptemplate.find_by_title(details[:template_en]).id
+     template.save!
+   end
  end
 
 phases_locales = {
@@ -1269,11 +1272,14 @@ phases_locales = {
 }
 
 phases_locales.each do |p, details|
-   phase = Phase::Translation.new
-   phase.title = details[:title]
-   phase.phase_id = (Phase.find_by_sql "Select id from phases where dmptemplate_id = #{Dmptemplate.find_by_title(details[:template]).id} and number = #{details[:number]}").first.attributes["id"]
-   phase.locale = details[:locale]
-   phase.save!
+   exists = Phase::Translation.find_by_title(details[:title])
+   if !exists
+     phase = Phase::Translation.new
+     phase.title = details[:title]
+     phase.phase_id = (Phase.find_by_sql "Select id from phases where dmptemplate_id = #{Dmptemplate.find_by_title(details[:template]).id} and number = #{details[:number]}").first.attributes["id"]
+     phase.locale = details[:locale]
+     phase.save!
+   end
  end
 
 versions_locales = {
@@ -1292,11 +1298,14 @@ versions_locales = {
 }
 
  versions_locales.each do |v, details|
-   version = Version::Translation.new
-   version.title = details[:title]
-   version.version_id = (Version.find_by_sql "Select id from versions where phase_id = #{Phase.find_by_title(details[:phase]).id} and number = #{details[:number]}").first.attributes["id"]
-   version.locale = details[:locale]
-   version.save!
+   exists = Version::Translation.find_by_title(details[:title])
+   if !exists
+     version = Version::Translation.new
+     version.title = details[:title]
+     version.version_id = (Version.find_by_sql "Select id from versions where phase_id = #{Phase.find_by_title(details[:phase]).id} and number = #{details[:number]}").first.attributes["id"]
+     version.locale = details[:locale]
+     version.save!
+   end
  end
 
 sections_locales = {
@@ -1388,12 +1397,16 @@ sections_locales = {
 }
 
  sections_locales.each do |s, details|
-   section = Section::Translation.new
-   section.title = details[:title]
-   section.section_id = (Section.find_by_sql "Select id from sections where version_id = #{Version.find_by_title(details[:version]).id} and number = #{details[:number]}").first.attributes["id"]
-   section.locale = details[:locale]
-   section.description = details[:description]
-   section.save!
+   s = Section::Translation.find_by_title(details[:title])
+   exists = s && Section.find(s.section_id).organisation == details[:organisation]
+   if !exists
+     section = Section::Translation.new
+     section.title = details[:title]
+     section.section_id = (Section.find_by_sql "Select id from sections where version_id = #{Version.find_by_title(details[:version]).id} and number = #{details[:number]}").first.attributes["id"]
+     section.locale = details[:locale]
+     section.description = details[:description]
+     section.save!
+   end
  end
 
   question_formats_locales = {
@@ -1430,9 +1443,12 @@ sections_locales = {
  }
 
  question_formats_locales.each do |qf, details|
-   question_format = QuestionFormat::Translation.new
-   question_format.title = details[:title]
-   question_format.question_format_id = QuestionFormat.find_by_title(details[:title_en]).id
-   question_format.locale = details[:locale]
-   question_format.save!
+   exists = QuestionFormat::Translation.find_by_title(details[:title])
+   if !exists
+     question_format = QuestionFormat::Translation.new
+     question_format.title = details[:title]
+     question_format.question_format_id = QuestionFormat.find_by_title(details[:title_en]).id
+     question_format.locale = details[:locale]
+     question_format.save!
+   end
  end
