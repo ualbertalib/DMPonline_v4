@@ -245,18 +245,6 @@ ActiveRecord::Schema.define(:version => 20150623194240) do
 
   add_index "project_guidance", ["project_id", "guidance_group_id"], :name => "index_project_guidance_on_project_id_and_guidance_group_id"
 
-  create_table "project_translations", :force => true do |t|
-    t.integer  "project_id"
-    t.string   "locale",      :null => false
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.string   "title"
-    t.text     "description"
-  end
-
-  add_index "project_translations", ["locale"], :name => "index_project_translations_on_locale"
-  add_index "project_translations", ["project_id"], :name => "index_project_translations_on_project_id"
-
   create_table "projects", :force => true do |t|
     t.string   "title"
     t.integer  "dmptemplate_id"
