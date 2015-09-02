@@ -194,11 +194,9 @@ class PlansController < ApplicationController
                     render pdf: file_name,
 			  	            margin: @formatting[:margin],
                                             template: 'plans/export.pdf.erb',
-			  	            footer: {
-			  	              center:    t('helpers.plan.export.pdf.generated_by'),
-			  	              font_size: 8,
-			  	              spacing:   (@formatting[:margin][:bottom] / 2) - 4,
-			  	              right:     '[page] of [topage]'
+                                            footer: {
+                                                 content: render_to_string(template: 'plans/export.pdf.footer.erb'),
+                                                 spacing: (@formatting[:margin][:bottom] / 2) - 4,
 			  	            }
 			  end
 			end
