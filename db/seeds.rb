@@ -1237,8 +1237,8 @@ questions_locales = {
     locale: "fr"
   },
   "Portage" => {
-    title: "French - Portage Template", 
-    description: "This is the generic DMP template for Portage (Should be in French). ",
+    title: "Modèle Portage", 
+    description: "Generic Portage Template in French",
     template_en: "Portage Template", 
     locale: "fr"
   }
@@ -1264,7 +1264,7 @@ phases_locales = {
     template: "University of Alberta Template"
    }, 
   "Portage" => {
-    title: "French - Portage Data Management Questions",
+    title: "Questions du modèle Portage",
     locale: "fr",
     number: 1,
     template: "Portage Template"
@@ -1290,7 +1290,7 @@ versions_locales = {
     locale: "fr",
   }, 
   "Portage" => {
-    title: "French - Portage Version 1",
+    title: "Portage, version 1",
     number: 1,
     phase: "Portage Data Management Questions",
     locale: "fr",
