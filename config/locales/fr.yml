@@ -563,7 +563,7 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
       export:
         pdf:
           question_not_answered: Question sans réponse.
-          generated_by: Ce document a été généré par DMPonline (http://dmponline.dcc.ac.uk)
+          generated_by: Ce document a été généré par DMP Builder (http://dmp.library.ualberta.ca)
         space_used: "Environ %{space_used}% de l’espace disponible utilisé (%{num_pages} pages maximum)"
         project_name: "Nom du projet"
         project_identifier: "Identifiant du projet"
