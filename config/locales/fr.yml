@@ -490,7 +490,7 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
       project_name_help_text: "Si vous présentez une demande de financement, inscrivez le nom de la même façon que dans la demande de subvention."
       project_desc_help_text_html: "<div class='tooltip_box'><h4> Questions à prendre en considération :</h4><ul><li>- Quelle est la nature de votre projet de recherche?</li><li>- Quelles questions de recherche abordez-vous? </li><li>- À quelle fin les données sont-elles recueillies ou créées? </li></ul><h4>Directives :</h4><p>Résumez brièvement le type d’étude (ou les études) afin d’aider les autres à comprendre les raisons pour lesquelles les données sont recueillies ou créées.</p></div>"
       project_identifier: "Identification"
-      project_identifier_help_text: "Une identification pertinente déterminée par le bailleur de fond ou l’établissement"
+      project_identifier_help_text: "Une identification pertinente déterminée par le bailleur de fonds ou l’établissement"
       project_static_info: "Ce plan s’appuie sur :"
       projects_title: "Mes plans"
       project_settings_text: "Les paramètres que vous sélectionnez seront affichés dans le tableau ci-dessous. Vous pouvez trier les données par en-tête ou les filtrer en indiquant une chaîne de texte dans la case de recherche."
@@ -652,7 +652,7 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
     title: "Aide"
     tab_1: "Concernant DMP Builder"
     tab_2: "Concernant la planification de la gestion des données"
-    body_text_tab_2_html: "<p>Le service des bibliothèques de l’Université de l’Alberta a mis au point un<a href='http://guides.library.ualberta.ca/researchdata'>research data management guide (guide sur la gestion des données de recherche)</a> qui peut fournir d’autres directives sur la planification de la gestion des données. Si vous avez besoin de plus de directives, communiquez avec nous par courriel à <a href='mailto:data@ualberta.ca?Subject=DMP%20Builder%20help'>data@ualberta.ca</a>.</p>"
+    body_text_tab_2_html: "<p>Le service des bibliothèques de l’Université de l’Alberta a mis au point un <a href='http://guides.library.ualberta.ca/researchdata'>research data management guide (guide sur la gestion des données de recherche)</a> qui peut fournir d’autres directives sur la planification de la gestion des données. Si vous avez besoin de plus de directives, communiquez avec nous par courriel à <a href='mailto:data@ualberta.ca?Subject=DMP%20Builder%20help'>data@ualberta.ca</a>.</p>"
 
 
     body_text_tab_1_html: "<p>Lorsque vous vous connectez à DMP Builder, vous serez dirigé vers la page « Mes plans ». À partir de cette page, vous pouvez modifier, partager, exporter ou supprimer l’un ou l’autre de vos plans. Vous verrez également les plans qui ont été partagés avec vous par d’autres personnes.</p>
