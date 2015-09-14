@@ -22,8 +22,8 @@ fr:
       confirmation_instructions:
         subject: "Valider votre compte DMP Builder"
         link: "Cliquer ici pour activer votre compte"
-        email: "<p>Bienvenu(e) dans DMP Builder, %{email}</p>
-        <p>Merci de vous êtes inscrit(e) à %{app_link}. Veuillez confirmer votre adresse électronique : </p>
+        email: "<p>Bienvenue dans DMP Builder, %{email}</p>
+        <p>Merci de vous être inscrit(e) à %{app_link}. Veuillez confirmer votre adresse électronique : </p>
         <p>%{confirmation_link} (ou copier %{confirmation_direct_url} dans votre navigateur).</p>"
       reset_password_instructions:
         subject: "Directives pour réinitialiser le mot de passe"
