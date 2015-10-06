@@ -43,7 +43,8 @@
 							<p><%= t('helpers.plan.export.pdf.question_not_answered') -%></p>
 						<% else %>
                             <% q_format = question.question_format%>
-							<% if q_format.title == t("helpers.checkbox") || q_format.title == t("helpers.multi_select_box") ||
+                            <!-- display an answer for questions type 'checkbox','radio_buttons', 'multi_select_box' and 'dropdown'-->
+                            <% if q_format.title == t("helpers.checkbox") || q_format.title == t("helpers.multi_select_box") ||
                                         q_format.title == t("helpers.radio_buttons") || q_format.title == t("helpers.dropdown") then%>
                             
                                 <ul>
@@ -51,7 +52,14 @@
                                         <li><%= option.text %></li>
                                     <% end %>
                                 </ul>
+                                <!-- Validates if this question has comments-->
+                                <% if question.option_comment_display == true then%>
+                                    <% if !answer.text.nil? then %>
+                                        <%= raw answer.text.gsub(/<tr>(\s|<td>|<\/td>|&nbsp;)*(<\/tr>|<tr>)/,"") %>
+                                    <%end%>    
+                                <%end%>
                             <%else%>
+                                <!-- display an answer for questions type 'text area' and 'text field'-->
                                 <% if !answer.text.nil? then %>
                                     <%= raw answer.text.gsub(/<tr>(\s|<td>|<\/td>|&nbsp;)*(<\/tr>|<tr>)/,"") %>
                                 <%end%>    

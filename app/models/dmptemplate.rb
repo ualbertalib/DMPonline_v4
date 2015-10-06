@@ -63,8 +63,14 @@ class Dmptemplate < ActiveRecord::Base
 	def self.funders_and_own_templates(org_id)
 		funders_templates = self.funders_templates
 	
-		own_institutional_templates = self.own_institutional_templates(org_id)
-			
+        #verify if org type is not a funder
+        current_org = Organisation.find(org_id)
+        if current_org.organisation_type.name != I18n.t("helpers.org_type.funder") then 
+            own_institutional_templates = self.own_institutional_templates(org_id)
+		else
+            own_institutional_templates = []
+        end    
+            
 		templates_list = Array.new
 		templates_list += own_institutional_templates
 		templates_list += funders_templates
@@ -78,7 +84,7 @@ class Dmptemplate < ActiveRecord::Base
 		return org_type
 	end
 	
-	#verify if a then has customisation by current user's org
+	#verify if a template has customisation by current user's org
 	def has_customisations?(org_id, temp)
 		if temp.organisation_id != org_id then
 			temp.phases.each do |phase|

@@ -103,7 +103,7 @@
 					<tr>
 						<td class="first"><%= t('org_admin.guidance.guidance_group_label') %></td>
 						<td><div class="div_left_icon_g">
-								<%= f.collection_select(:guidance_group_ids,
+                                <%= f.collection_select(:guidance_group_ids,
 								GuidanceGroup.where("organisation_id = ?", current_user.organisation_id).order('name ASC'),
 								:id, :name, {:prompt => false, :include_blank => 'None'}, {:multiple => false})%>
 							</div>

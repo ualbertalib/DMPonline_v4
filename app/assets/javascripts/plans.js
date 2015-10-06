@@ -131,11 +131,11 @@ $( document ).ready(function() {
   	// Only attempt unlock if there are forms on the page (not read-only)
   	if ($('.question-form').length > 0) {
 			var section_id = section.attr("id").split('-')[1];
-			
 			// LIBDMP-137
 			// Changed post request 'unlock_section' to  'unlock_section.json'. 'unlock_section' unnecessary returns a huge html response and takes a quite lot of time to process(3sec) lowering server 
 			// performance when there are large number of concurrent users.
 			$.post('unlock_section.json', {section_id: section_id});
+            
 			if ($.fn.is_dirty(section_id)) {
 				$('#unsaved-answers-'+section_id).text("");
 				$.each($.fn.get_unsaved_questions(section_id), function(index, question_text){

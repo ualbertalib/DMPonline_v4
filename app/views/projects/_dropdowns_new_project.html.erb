@@ -48,7 +48,7 @@
 				<div class="control-group" id="guidance-control-group">
 					<div class="controls">
 						<% other_guidance = GuidanceGroup.all %>
-						<%= f.input :guidance_groups, :as => :check_boxes, :collection => other_guidance, :label => t('helpers.project.create_page.other_guidance_question'), :member_label => :display_name %>
+						<%= f.input :guidance_groups, :as => :check_boxes, :collection => other_guidance, :label => t("helpers.project.create_page.other_guidance_question"), :member_label => :display_name %>
 					</div>
 				</div>
 			</div>

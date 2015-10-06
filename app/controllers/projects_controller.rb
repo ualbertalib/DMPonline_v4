@@ -228,6 +228,8 @@ class ProjectsController < ApplicationController
 		ggs.each do |gg|
 			guidance_groups[gg.id] = gg.name
 		end
+        
+        #subset guidance that belong to the institution
 		unless institution.nil? then
 			optional_gg = GuidanceGroup.where("optional_subset =  ? && organisation_id = ?", true, institution.id)
 			optional_gg.each do|optional|
@@ -249,6 +251,16 @@ class ProjectsController < ApplicationController
 				end
 			end
 		end
+        
+        #If template belongs to a funder and that funder has subset guidance display then.
+        if !template.nil? && template.organisation.organisation_type.name == t('helpers.org_type.funder') then
+            optional_gg = GuidanceGroup.where("optional_subset =  ? && organisation_id = ?", true, template.organisation_id)
+			optional_gg.each do|optional|
+				guidance_groups[optional.id] = optional.name
+			end
+        end
+        
+        
 		respond_to do |format|
 			format.json { render json: guidance_groups.to_json }
 		end

@@ -24,7 +24,7 @@ class Question < ActiveRecord::Base
   attr_accessible :default_value, :dependency_id, :dependency_text, :guidance,
   								:number, :parent_id, :suggested_answer, :text, :section_id,
   								:question_format_id,:options_attributes,
-  								:suggested_answers_attributes
+  								:suggested_answers_attributes, :option_comment_display
 
 	def to_s
         "#{text}"
@@ -91,6 +91,9 @@ class Question < ActiveRecord::Base
 		return guidances
  	end
 
+    
+    
+    
     
  	#get suggested answer belonging to the currents user for this question
  	def get_suggested_answer(org_id)

@@ -59,11 +59,25 @@
 						<% end %>
 					<!--Radio buttons display-->
 					<% elsif q_format.title == t("helpers.radio_buttons") then%>
-						<% if readonly then %>
-							<%= f.input :options, :as => :radio, :collection => options, :label => false, :input_html => { :disabled => true , :id => "options-#{question.id}" } %>
-						<% else %>
-							<%= f.input :options, :as => :radio, :collection => options, :label => false, :input_html => { :id => "options-#{question.id}" }%>
-						<% end %>
+						<ol class="choices-group">
+                        <% options.each do |op| %>
+                            <li class= "choices-group">
+                            <% if answer.option_ids[0] == op.id then%>
+                               <% if readonly then %>
+                                    <%= f.radio_button :option_ids, op.id, :checked => true, disabled: true, id: "answer_option_ids_#{op.id}"%>
+                                <% else %>
+                                    <%= f.radio_button :option_ids, op.id, :checked => true, id: "answer_option_ids_#{op.id}"%> 
+                                <% end %>
+                            <%else%>
+                                <% if readonly then %>
+                                    <%= f.radio_button :option_ids,  op.id, :checked => false, disabled: true, id: "answer_option_ids_#{op.id}"%> 
+                                <% else %>
+                                    <%= f.radio_button :option_ids, op.id, :checked => false, id: "answer_option_ids_#{op.id}"%> 
+                                <% end %>
+                            <%end%>
+                            <%= op.text %> </li>
+                        <%end%>
+                        </ol>
                     <!--dropdown display-->
 					<% elsif q_format.title == t("helpers.dropdown") then%>
 						<% if readonly then %>
@@ -82,9 +96,11 @@
 					<%# end %> -->
                     
                     <!-- Comment text area for the multiple choice answers-->
-                    <%= label_tag("answer-text-#{question.id}".to_sym, t("helpers.comment")) %>
-                    <%= text_area_tag("answer-text-#{question.id}".to_sym, answer.text, class: "tinymce") %>
-               
+                    <% if question.option_comment_display == true then%>
+                        <%= label_tag("answer-text-#{question.id}".to_sym, t("helpers.comment")) %>
+                        <%= text_area_tag("answer-text-#{question.id}".to_sym, answer.text, class: "tinymce") %>
+                    <%end%>
+                    
                 <!--text field display-->
                 <% elsif q_format.title == t("helpers.text_field") then %>
                     <%= text_field_tag("answer-text-#{question.id}".to_sym, strip_tags(answer.text), class: "question_text_field") %>
@@ -146,7 +162,7 @@
         <% @comments = Comment.where("question_id = ? && plan_id = ?", question.id, answer.plan_id ) %>
         <%= hidden_field_tag :question_id, question.id, :class => "question_id" %>
         <ul class="question_right_column_ul">
-            <% if !question.guidance.nil? && question.guidance != "" then %>
+            <% if (!question.guidance.nil? && question.guidance != "") || @plan.guidance_for_question(question).count > 0  then %>
                 <!-- add css to comment div-->
                 <% css_style_comment_div = "display: none;"%>
                 <% css_style_guidance_div = ""%>
@@ -210,7 +226,7 @@
                                 <a class="accordion-guidance-link" data-toggle="collapse" data-parent="#<%= question.id %>-guidance" href="#collapse-guidance-<%= group.id%>-<%= guidance.id%>-<%= question.id %>">
                                     <div class="accordion_heading_text">
                                     <% if theme == "no_theme" then %>
-                                        <%= group.name.chomp(" guidance") %> guidance for this question
+                                        <%= group.name.chomp(" guidance") %> guidance
                                     <% else %>
                                         <%= group.name.chomp(" guidance") %> guidance on <%= theme.title %>
                                     <% end %>
@@ -224,6 +240,8 @@
                     <% end %>
                 <% end %>
             <% end %>
+            
+           
         </div>
     </div>
     

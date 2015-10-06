@@ -102,7 +102,11 @@ class ExportedPlan < ActiveRecord::Base
           output += "Question not answered.\n"
         else
           output += answer.options.collect {|o| o.text}.join("\n")
-          output += "#{sanitize_text(answer.text)}\n"
+          if question.option_comment_display == true then
+            output += "\n#{sanitize_text(answer.text)}\n"
+          else
+            output += "\n"
+          end  
         end
       end
     end
@@ -143,13 +147,14 @@ class ExportedPlan < ActiveRecord::Base
                     end
                 end
           
-            if !answer.text.nil?
-                docx_html_source << answer.text
+                if !answer.text.nil? && question.option_comment_display == true then
+                    answer_text = answer.text.gsub(/<tr>(\s|<td>|<\/td>|&nbsp;)*(<\/tr>|<tr>)/,"")
+                    docx_html_source << answer_text
+                end
             end
+            docx_html_source << "</div>"
         end
         docx_html_source << "</div>"
-      end
-      docx_html_source << "</div>"
     end
     docx_html_source << "</div><body></html>"
   end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150518153927) do
+ActiveRecord::Schema.define(:version => 20150809210811) do
 
   create_table "answers", :force => true do |t|
     t.text     "text"
@@ -150,8 +150,6 @@ ActiveRecord::Schema.define(:version => 20150518153927) do
     t.string   "abbreviation"
     t.text     "description"
     t.string   "target_url"
-    t.integer  "logo_file_id"
-    t.integer  "banner_file_id"
     t.integer  "organisation_type_id"
     t.string   "domain"
     t.integer  "wayfless_entity"
@@ -161,6 +159,8 @@ ActiveRecord::Schema.define(:version => 20150518153927) do
     t.integer  "parent_id"
     t.boolean  "is_other"
     t.string   "sort_name"
+    t.text     "banner_text"
+    t.string   "logo_file_name"
   end
 
   create_table "phases", :force => true do |t|
@@ -244,9 +244,10 @@ ActiveRecord::Schema.define(:version => 20150518153927) do
     t.integer  "dependency_id"
     t.text     "dependency_text"
     t.integer  "section_id"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
     t.integer  "question_format_id"
+    t.boolean  "option_comment_display", :default => true
   end
 
   create_table "questions_themes", :id => false, :force => true do |t|

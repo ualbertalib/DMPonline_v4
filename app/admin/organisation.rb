@@ -26,7 +26,7 @@ ActiveAdmin.register Organisation do
             end  
         end
         
-        default_actions
+         actions
     end
   
   
@@ -56,7 +56,13 @@ ActiveAdmin.register Organisation do
                     descr.description.html_safe
                 end
             end
+            row :banner_text do |banner|
+                if !banner.banner_text.nil? then
+                    banner.banner_text.html_safe
+                end
+            end
             row :target_url
+            row :logo_file_name
             row :domain
             row :wayfless_entity
             row I18n.t('admin.org_parent'), :parent_id do |org_parent|
@@ -65,8 +71,6 @@ ActiveAdmin.register Organisation do
                     link_to parent_org.name, [:admin, parent_org]
                 end	
             end
-            row :logo_file_id
-            row :banner_file_id
             row :stylesheet_file_id
             row :created_at
             row :updated_at
@@ -92,11 +96,11 @@ ActiveAdmin.register Organisation do
             f.input :description
             f.input :organisation_type_id, :label => I18n.t('admin.org_type'), :as => :select, :collection => OrganisationType.find(:all, :order => 'name ASC').map{|orgt|[orgt.name, orgt.id]}
             f.input :target_url
+            f.input :banner_text
+            f.input :logo_file_name
             f.input :domain
             f.input :wayfless_entity
             f.input :parent_id, :label => I18n.t('admin.org_parent'), :as => :select, :collection => Organisation.find(:all, :order => 'name ASC').map{|orgp|[orgp.name, orgp.id]}
-            f.input :logo_file_id
-            f.input :banner_file_id
             f.input :stylesheet_file_id
         end
         f.actions  

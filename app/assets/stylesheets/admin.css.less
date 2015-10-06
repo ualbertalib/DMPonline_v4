@@ -50,15 +50,355 @@
 @background_lighter_colour: #f9f9f9;
 @background_darker_colour: #d1d5d4;
 @green_colour: #114b8b;
-@red_colour: #e3000f;
+@red_colour: #ec563c; /*#e3000f*/
+@red_lighter_colour: #EE6B54;
 @white_colour: #ffffff;
-  
 
+/************************************************************/
+/*              main structure of the t                     */
+/************************************************************/
+html.dmponline {
+  /* fallback */
+  background-repeat:repeat-y;
+  min-height: 100%;
+  /* Safari 4-5, Chrome 1-9 */
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, @background_darker_colour), color-stop(1, @background_lighter_colour));
+  /* Firefox 3.6+ */
+  background-image: -moz-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
+  /* Safari 5.1, Chrome 10+ */
+  background-image: -webkit-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
+  /* Opera 11.10+ */
+  background-image: -o-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
+  /* IE 10 */
+  background-image: -ms-linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
+  background-image: linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
+  background-image: linear-gradient(top ,@background_darker_colour , @background_lighter_colour 100% );
+  -ms-filter: 'progid:DXImageTransform.Microsoft.gradient(startColorstr='#d1d5d4', endColorstr='#f9f9f9', gradientType='0')';
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#d1d5d4', endColorstr='#f9f9f9') ;/*For IE7-8-9*/
+  /*For IE7*/
+  *height: 1%;
+   min-width: 850px;
+}
+ 
+body.dmponline {
+  font-family: @text_font;
+  color: @font_colour;
+  font-size: @font_size;
+  margin: 0 11% 0 11%;
+  line-height: 24px;
+  min-width: 540px;
+  padding:0 0 0 0;
+  background:none;
+}
+
+.main_header{
+    height: 145px;
+    margin: 0 0 40px 0;
+    width:99%;
+    clear:both;
+    float:left;
+}
+ 
+.main_page_container{
+  clear: both;
+  float: left;
+  width: 99%;
+  margin:0 0 30px 0;
+}
+ 
+footer {
+  clear:both;
+  padding: 30px 0 100px 0;
+  margin-top: 70px;
+  font-size: @font_size;
+}
+   
+/*********************************************/
+/****              header                 ****/
+/*********************************************/
+/* left side*/
+div.header_left{
+    float: left;
+    clear:both;
+    width: 145px;
+    }
+    .home_logo{
+      margin-right:0px;
+    }
+
+
+/* right side*/
+div.header_right{
+    margin-left: 146px;
+    height:145px;
+    position:relative;
+}
+
+/*****************************/
+/****** Main Navigation ******/
+/*****************************/
+.navbar{
+    border: none !important;
+    border-color: none !important;
+    box-shadow: 0 !important;
+    -webkit-box-shadow: none !important;
+    position: static;
+    filter:none !important; 
+    overflow: visible;
+}
+
+.main_nav_tabs{
+    width: 500px;
+    float:left;
+    position:absolute; 
+    bottom:0;
+}
+
+#main-nav-tabs ul{
+    margin-right :0px;
+    margin-bottom:0px;
+    float:left;
+    border-bottom: 2px solid @orange_colour;
+}
+
+#main-nav-tabs li a{
+    background-color: @grey_lighter_colour;
+    color: @white_colour;
+    font-weight: bold;
+    padding: 4px 15px 4px 15px;
+    margin-bottom: 1px;
+    text-decoration: none !important;
+}
+
+#main-nav-tabs li a.main_nav_last_li{
+    margin-right: 0px;
+}
+
+#main-nav-tabs li.active a, #main-nav-tabs li.active a:active, #main-nav-tabs li a:hover{
+    background-color: @orange_colour;
+    color: @white_colour !important;
+    font-weight: bold;
+    border: 1px solid @orange_colour;
+    padding: 4px 15px 4px 15px;
+    text-decoration: none !important;
+}
+
+/********************/
+/** top right menu **/
+/********************/
+.signIn {
+    float:right;
+    position:absolute; 
+    top:0;
+    right:0;
+}
+
+.signIn ul{
+    list-style-type: none;
+    color: @orange_colour;
+    font-size: 100%;
+}
+
+.signIn ul li a, .signIn ul li a.active, .signIn ul li a:visited {
+    color: @orange_colour;
+    text-decoration:underline;
+    background-color: none;
+}
+
+.caret {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    vertical-align: top;
+    border-top: 4px solid @orange_colour;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+    content: "";
+}
+
+.dropdown .caret {
+    margin-top: 8px;
+    margin-left: 2px;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left:45%;
+    z-index: 99;
+    display: none;
+    float: right;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    list-style: none;
+    border: 1px solid @grey_very_light_colour;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    *border-right-width: 2px;
+    *border-bottom-width: 2px;
+    -webkit-border-radius: 6px;
+     -moz-border-radius: 6px;
+          border-radius: 6px;
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+     -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    -webkit-background-clip: padding-box;
+     -moz-background-clip: padding;
+          background-clip: padding-box;
+}
+
+ul#signIn_dropdown{
+    background: @grey_colour !important;
+}
+
+ul#signIn_dropdown li , ul#signIn_dropdown li a.signIn_dropdown_link,
+ ul#signIn_dropdown li a.signIn_dropdown_link:link,
+ ul#signIn_dropdown li a.signIn_dropdown_link:active, 
+ ul#signIn_dropdown li a.signIn_dropdown_link:visited{
+    font-size:17px;
+    text-decoration:none;
+    font-weight:normal;
+    background: @grey_colour !important;
+    filter:none;
+    color: @white_colour;
+}
+
+ul#signIn_dropdown li a.signIn_dropdown_link:hover, 
+ul#signIn_dropdown li a.signIn_dropdown_link:focus{
+    text-decoration:underline;
+    background-color: @grey_colour !important;
+    background-image: none;
+    filter: none;
+    color: @white_colour !important;
+}
+ 
+/********************/
+/*** Org Branding ***/
+/********************/ 
+.branding_container{
+    width: 99%;
+}
+
+.header_org_logo{
+    padding:0 0 0 5px;
+    float:left;
+} 
+
+.header_org_logo_img{
+    height: 110px;
+}
+
+.header_org_banner_text{
+    position:relative;
+    height:110px;
+    
+} 
+
+.header_org_banner_text_vertical_align{
+    position:absolute;
+    text-align: center;
+    top:28%;     
+}
+
+/*********************************************/
+/****              footer                 ****/
+/*********************************************/
+footer .left_side_footer{
+    float: left;
+    clear:both;
+    width: 45%;
+  } 
+  footer .first_row{
+    float:left;
+
+  }
+  footer .second_row{
+    clear:both;
+    float:left;
+  }
+   
+footer .right_side_footer{
+  float: right;
+  width: 45%;
+  
+  }
+  
+footer .right_side_footer p{
+  text-decoration: none;
+  text-align:center;
+  color: #999999;
+  float: right;
+  
+}
+  
+ul.footer-links {
+  margin-left:0px;
+}
+
+ul.footer-links li {
+  display: inline;
+  padding: 0 2px;
+  line-height: 20px;
+}
+
+ul.footer-links li:first-child {
+  padding-left: 0;
+}
+
+ul.footer-links li a, ul.footer-links li a:active, ul.footer-links li a:visited {
+  color: @grey_colour;
+  text-decoration: none;
+}
+
+ul.footer-links li a:hover,  ul.footer-links li a:focus{
+   color: @grey_darker_colour !important;
+   text-decoration:underline;
+}
+
+#dcc_link{
+  color: @grey_colour;
+}
+
+#dcc_link a, #dcc_link a:active, #dcc_link a:visited{
+    text-decoration: none;
+    color: @grey_colour;
+}
+#dcc_link a:hover,  #dcc_link a:focus{
+   color: @grey_darker_colour !important;
+   text-decoration:underline;
+  }
+
+    
+/*********************************************/
+/****              html tags              ****/
+/*********************************************/
 h1, h2, h3, h4 {
   font-family: @header_font;
   color: @orange_colour;
   font-weight: lighter;
   font-style: normal;
+}
+
+h1{
+  font-size: 40px;
+  line-height:53px;
+}
+ 
+h2{
+  font-size: 32px;
+}
+ 
+h3{
+  font-size: 26px;
+}
+ 
+h4{
+  font-size: @font_size;
+}
+ 
+p{
+  font-size: @font_size;
+  font-family: @text_font;
 }
 
 label.text_colour{
@@ -79,8 +419,8 @@ a, a:active, a:focus {
 }
 
 a.visited{
-  background-color: none !important;
-  color: @orange_colour;
+    background-color: none !important;
+    color: @orange_colour;
 }
 
 a:hover, a.btn:hover, div.nav-project-tabs ul.nav-tabs li a:hover, div#sections-accordion a.accordion-toggle:hover{
@@ -98,48 +438,25 @@ hr.orange_break_line{
   margin-top: 40px;
   border-top-color: @orange_lighter_colour;
 }
-/*** ***/
-header{
-  height: 161px;
-  margin-bottom: 40px;
-  position: relative;
-  float:left;
-  width: 99%;
-  }
-  
-.main_page_container{
-  clear: both;
-  float: left;
-  width: 99%;
-  margin:0 0 30px 0;
-}
 
+
+/*************************/
 .formtastic{
   width:99%;
 }
-
+ 
 .inputs ol{
   margin-left:0px;
 }
-
-
-footer {
-  clear:both;
-  padding: 30px 0 100px 0;
-  margin-top: 70px;
-  font-size: @font_size; 
-}
-
 
 #send_btn {
   width:100% !important;
 }
 
-
 .tooltip_box{
  text-align:left;
  z-index: 1000;
- }
+}
 
 .tooltip_box p{
   font-size: @font_size_small;
@@ -148,136 +465,21 @@ footer {
   list-style-type: none;
   margin-left:0px;
 }
-/**** header ****/
-.header_left{
-  clear:both;
-  float: left;
-  width: 25%;
-}
-
-.header_right{
-  float: left;
-  width: 75%;
- }
-
-.home_logo{
-  width: 161px;
-  height: 99%;
-  margin-right:0px;
-  
-}
-
-/** sign in menu**/
-.signIn {
-  float: right;
-  top: 40px;
-  margin-top: 40px;
-}
-
-.signIn ul{
-  list-style-type: none;
-  color: @orange_colour;
-  font-size: 130%;
-  
-}
-
-.signIn ul li a, .signIn ul li a.active, .signIn ul li a:visited {
-  color: @orange_colour;
-  text-decoration:underline;
-  background-color: none;
-  
-}
-.caret {
-  display: inline-block;
-  width: 0;
-  height: 0;
-  vertical-align: top;
-  border-top: 4px solid @orange_colour;
-  border-right: 4px solid transparent;
-  border-left: 4px solid transparent;
-  content: "";
-
-}
-
-.dropdown .caret {
-  margin-top: 8px;
-  margin-left: 2px;
-}
-
-.dropdown-menu {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  left:45%;
-  z-index: 99;
-  display: none;
-  float: right;
-  padding: 5px 0;
-  margin: 2px 0 0;
-  list-style: none;
-  border: 1px solid @grey_very_light_colour;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  *border-right-width: 2px;
-  *border-bottom-width: 2px;
-  -webkit-border-radius: 6px;
-     -moz-border-radius: 6px;
-          border-radius: 6px;
-  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-     -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  -webkit-background-clip: padding-box;
-     -moz-background-clip: padding;
-          background-clip: padding-box;
-  
-
-}
 
 
-ul#signIn_dropdown{
-  background: @grey_colour !important;
-}
+/**********************/
+/* Organisation admin */
+/**********************/
+.org_logo_admin_area{
+    height: 120px;
+    float:right;
+} 
 
-ul#signIn_dropdown li , ul#signIn_dropdown li a.signIn_dropdown_link,
- ul#signIn_dropdown li a.signIn_dropdown_link:link,
- ul#signIn_dropdown li a.signIn_dropdown_link:active, 
- ul#signIn_dropdown li a.signIn_dropdown_link:visited{
-  font-size:17px;
-  text-decoration:none;
-  font-weight:normal;
-  background: @grey_colour !important;
-  filter:none;
-  color: @white_colour;
-}
 
-ul#signIn_dropdown li a.signIn_dropdown_link:hover, 
-ul#signIn_dropdown li a.signIn_dropdown_link:focus{
-  text-decoration:underline;
-  background-color: @grey_colour !important;
-  background-image: none;
-  filter: none;
-  color: @white_colour !important;
-}
-  
 div.institution_login_link{
   padding-top: 15px;
   font-size: @font_size_medium;
 }
-
-.main_nav{
-  clear: both;
-  float: right;
-  margin:63px 0 0 0;
-}
-
-.navbar{
-  border: none !important;
-  border-color: none !important;
-  box-shadow: 0 !important;
-  -webkit-box-shadow: none !important;
-  position: static;
-   filter:none !important; 
-   overflow: visible;
- }
 
 
 /**  button colour **/
@@ -300,6 +502,10 @@ ul.nav-pills li a.header_button{
 ul.nav-pills li.last_li a.header_button{
   margin-right:0px;
 }
+
+/*********************************************/
+/****              body                   ****/
+/*********************************************/
 
 body.dmponline .btn-primary, body.dmponline .btn-primary:active, body.dmponline .btn-primary:visited, body.dmponline .btn-primary:focus    {
   background: @orange_colour;
@@ -351,77 +557,6 @@ body.dmponline .btn-primary:hover{
      -moz-border-radius: 3px;
 }
 
-/******   Footer  ******/
-footer{
-  clear:both;
-  margin-top: 180px;  
-  width: 99%;
-}
-
-footer .left_side_footer{
-    float: left;
-    clear:both;
-    width: 45%;
-  } 
-  footer .first_row{
-    float:left;
-
-  }
-  footer .second_row{
-    clear:both;
-    float:left;
-  }
-   
-footer .right_side_footer{
-  float: right;
-  width: 45%;
-  
-  }
-  
-footer .right_side_footer p{
-  text-decoration: none;
-  text-align:center;
-  color: #999999;
-  float: right;
-  
-}
-  
-ul.footer-links {
-  margin-left:0px;
-}
-
-ul.footer-links li {
-  display: inline;
-  padding: 0 2px;
-  line-height: 20px;
-}
-
-.footer-links li:first-child {
-  padding-left: 0;
-}
-
-ul.footer-links li a, ul.footer-links li a:active, ul.footer-links li a:visited {
-  color: @grey_colour;
-  text-decoration: none;
-}
-
-ul.footer-links li a:hover,  ul.footer-links li a:focus{
-   color: @grey_darker_colour !important;
-   text-decoration:underline;
-}
-
-#dcc_link{
-  color: @grey_colour;
-}
-
-#dcc_link a, #dcc_link a:active, #dcc_link a:visited{
-    text-decoration: none;
-    color: @grey_colour;
-}
-#dcc_link a:hover,  #dcc_link a:focus{
-   color: @grey_darker_colour !important;
-   text-decoration:underline;
-  }
 
 
 /***********************************
@@ -1276,7 +1411,8 @@ div.suggested-answer-border {
           border-radius: 3px;
   padding: 10px 10px 5px 10px;
   margin-bottom:10px;
-
+  overflow-y: auto;
+  max-height: 200px; 
 }
 
 span.suggested-answer-intro{
@@ -1557,6 +1693,11 @@ div#add_guidance_group_form_div{
     margin-left: 1px;
   }
 
+  
+
+  
+  
+  
 }
 
 
