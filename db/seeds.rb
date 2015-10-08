@@ -118,12 +118,12 @@ end
    },
    "Theme 3" => {
      title: "Theme 3",
-     locale: "en"
+     locale: "en",
      description: "Theme 3 description."
    },
    "Theme 4" => {
      title: "Theme 4",
-     locale: "en"
+     locale: "en",
      description: "Theme 4 description."
    }
  }
