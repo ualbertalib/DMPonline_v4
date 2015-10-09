@@ -81,7 +81,7 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.update_attributes(params[:comment])
         session[:question_id_comments] = @comment.question_id
-        format.html { redirect_to edit_project_plan_path(@project, @plan), status: :found, notice: 'Comment has been removed.' }     
+        format.html { redirect_to edit_project_plan_path(@project, @plan), status: :found, notice: I18n.t('helpers.notices.comment_removed') }     
       end   
     end
   end
