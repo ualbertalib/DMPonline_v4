@@ -83,27 +83,30 @@ end
         password: "password1",
         password_confirmation: "password1",
         roles: ['admin','org_admin'],
-        accept_terms: true
+        accept_terms: true,
+        confirmed_at: Time.zone.now
     },
     'Org admin' => {
         email: "org_admin@example.com",
         password: "password2",
         password_confirmation: "password2",
         roles: ['org_admin'],
-        accept_terms: true
+        accept_terms: true,
+        confirmed_at: Time.zone.now
     }
  }
  
  users.each do |user, details|
-    user = User.create!
+    user = User.new
     user.email = details[:email]
     user.password = details[:password]
     user.password_confirmation = details[:password_confirmation]
+    user.confirmed_at = details[:confirmed_at]
     details[:roles].each do |role|
      user.roles << Role.find_by_title(role)
     end
     user.accept_terms = details[:accept_terms]
-    user.confirm!
+    user.save!
     
  end
 
