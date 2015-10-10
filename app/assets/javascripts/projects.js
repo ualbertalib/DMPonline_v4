@@ -24,7 +24,7 @@ removed by wshi on Feb 9, 2015
 		$("#institution-control-group").show();
 		$("#create-plan-button").show();
 		$("#other-funder-name").show();
-		$("#confirm-funder").text("None");
+		$("#confirm-funder").text(get_locale_string())
 	});
 
 	$("#project_funder_name").change(function(){
@@ -32,7 +32,8 @@ removed by wshi on Feb 9, 2015
 	});
 */
 	$("#project_institution_id").change(function () {
-                $("#confirm-funder").text("None");
+                
+                $("#confirm-funder").text(get_locale_string());
                 $("#project_funder_id").select2("val", "");
                 $("#create-plan-button").show();
 		update_template_options();
@@ -44,7 +45,7 @@ removed by wshi on Feb 9, 2015
 		$("#project_institution_id").select2("val", "");
 		update_template_options();
 		update_guidance_options();
-		$("#confirm-institution").text("None");
+		$("#confirm-institution").text(get_locale_string());
 	});
 
         $("#create-plan-button").click(function() {
@@ -59,10 +60,10 @@ removed by wshi on Feb 9, 2015
 
 	$("#project-confirmation-dialog").on("show", function(){
 		if ($("#confirm-institution").text() == "") {
-			$("#confirm-institution").text("None");
+			$("#confirm-institution").text(get_locale_string());
 		}
 		if ($("#confirm-funder").text() == "") {
-			$("#confirm-funder").text("None");
+			$("#confirm-funder").text(get_locale_string());
 		}
 		if ($("#confirm-template").text() == "") {
 			$("#confirm-template").closest("div").hide();
@@ -139,6 +140,18 @@ removed by wshi on Feb 9, 2015
 		$("#confirm-template").text("");
 		$("#project_dmptemplate_id").change();
 	}
+
+        function get_locale_string() {
+                  var current_path = window.location.pathname;
+                  var current_locale = current_path.split("/")[1];
+                  var none;
+                  if(current_locale == "fr"){
+                       none = "Aucun";}
+                  else{
+                       none = "None";}
+                  return none;
+
+        }
 
 	function update_guidance_options() {
 		var institution = $("#project_institution_id").select2('val');
