@@ -7,7 +7,7 @@ class ContactsController < ContactUs::ContactsController
 				if user_signed_in? then
 			  		redirect_to :controller => 'projects', :action => 'index'
 			  	else
-			  		redirect_to(root_path)
+			  		redirect_to(locale_root_path)
 			  	end
 			else
 			  	flash[:error] = t('contact_us.notices.error')
@@ -19,7 +19,7 @@ class ContactsController < ContactUs::ContactsController
 				if user_signed_in? then
 			  		redirect_to :controller => 'projects', :action => 'index'
 			  	else
-			  		redirect_to(root_path)
+			  		redirect_to(locale_root_path)
 			  	end
 			else
 			  	flash[:error] = t('contact_us.notices.error')
