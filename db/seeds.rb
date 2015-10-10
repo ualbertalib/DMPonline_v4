@@ -982,7 +982,7 @@ questions_locales = {
     guidance: "<p>Votre plan de gestion des données a identifié les activités importantes relatives à la gestion des données dans le cadre de votre projet. Indiquez les responsables  -- des personnes ou des organisations -- de l'exécution de ces parties de votre plan de gestion des données. Cela pourrait également comprendre le calendrier associé à ces responsabilités et toute formation nécessaire afin de préparer le personnel à assumer ces fonctions. </p>"
   },
   "Portage6-2" => {
-    text: "De quelle façon les responsabilités relatives à de gestion des données seront-elles gérées si des changements importants surviennent au sein du personnel qui supervise les données du projet, y compris un changement de chercheur principal?",
+    text: "De quelle façon les responsabilités relatives à la gestion des données seront-elles gérées si des changements importants surviennent au sein du personnel qui supervise les données du projet, y compris un changement de chercheur principal?",
     section: "Responsibilities and Resources",
     organisation: "Portage",
     number: 2,
