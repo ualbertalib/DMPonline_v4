@@ -8,9 +8,8 @@ elsif @project_group.access_level == 3 then
         access_level = t('helpers.project.share.co_owner')
 end
 %>
-
 <%
-project_link = link_to @project_group.project.title, project_path(@project_group.project, :only_path => false)
+project_link = link_to @project_group.project.title, project_path(@project_group.project, :only_path => false, :locale=>I18n.locale)
 %>
 
 <%= raw t('helpers.project.share.permission_email_text', :access_level => access_level, :project_link => project_link) %>
