@@ -43,7 +43,7 @@
 								<div class="div_left_icon_g">
 									<%= f.collection_select(:theme_ids,
 									Theme.find(:all, :order => 'title ASC'),
-									:id, :title, {:prompt => false, :include_blank => 'None'}, {:multiple => true})%>
+									:id, :title, {:prompt => false, :include_blank => t('helpers.none')}, {:multiple => true})%>
 								</div>
 								<div class="div_right_icon_g">
 									<%= link_to( image_tag('help_button.png'), '#', :class => 'guidance_by_themes_popover', :rel => "popover", 'data-html' => "true", 'data-content' => t('org_admin.guidance.by_themes_help_text_html'))%>
@@ -77,7 +77,7 @@
 						<td><div class="div_left_icon_g">
 								<%= f.collection_select(:guidance_group_ids,
 								GuidanceGroup.where("organisation_id = ?", current_user.organisation_id).order('name ASC'),
-								:id, :name, {:prompt => false, :include_blank => 'None'}, {:multiple => false})%>
+								:id, :name, {:prompt => false, :include_blank => t('helpers.none')}, {:multiple => false})%>
 							</div>
 							<div class="div_right_icon_g">
 								<%= link_to( image_tag('help_button.png'), '#', :class => 'guidance_group_select_popover', :rel => "popover", 'data-html' => "true", 'data-content' => t('org_admin.guidance.guidance_group_select_help_text_html'))%>

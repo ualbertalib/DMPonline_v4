@@ -39,7 +39,7 @@ fr:
   ccid_message: "Veuillez prendre note que nous travaillons actuellement à l’authentification de l’identifiant informatique (CCID). Vous devez créer un nouveau compte DMP Builder. Vous pourrez associer votre compte existant à votre CCID dès que la fonction sera disponible."
 
   screencast_error_text: "Votre navigateur ne permet pas la balise vidéo."
-
+  none: "Aucun"
   admin:
     org_title: "Nom de l’organisme"
     org: "Organisme"
