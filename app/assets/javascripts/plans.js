@@ -1,6 +1,7 @@
 //= require jquery.timeago.js
 //= require tinymce
-
+//= require locales/jquery.timeago.en.js
+//= require locales/jquery.timeago.fr.js
 var dirty = {};
 
 
