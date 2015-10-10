@@ -39,7 +39,7 @@ en:
   ccid_message: "Please note that we are currently working on CCID authentication.  Please create a new DMP Builder account.  You will have the option to link your existing account to your CCID when that feature becomes available."
   
   screencast_error_text: "Your browser does not support the video tag."
-
+  none: "None"
   admin:
     org_title: "Organization name"
     org: "Organization"
