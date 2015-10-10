@@ -9,9 +9,9 @@
   </div>
                   <div class="header_center">
                    <% if I18n.locale == :en %>
-                      <%= link_to "Version française", locale: "fr", :class => "btn header_button btn-primary" %>
+                      <%= link_to "Version française", locale = "fr", :class => "btn header_button btn-primary" %>
                    <% elsif I18n.locale == :fr %>
-                       <%= link_to "English Version", locale: "en",  :class => "btn header_button btn-primary" %>
+                       <%= link_to "English Version", locale = "en",  :class => "btn header_button btn-primary" %>
                    <% end %>
                 </div>
 

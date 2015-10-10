@@ -2,10 +2,14 @@ class ApplicationController < ActionController::Base
 protect_from_forgery
 # Added settings for locales
  before_filter :set_locale
+
  def set_locale
    I18n.locale = params[:locale] || I18n.default_locale
  end 
 
+ def self.default_url_options(options={})
+   options.merge({ :locale => I18n.locale })
+ end
 # Added setting for passing local params accross pages
  def default_url_options(options = {})
    {locale: I18n.locale }.merge options
@@ -15,7 +19,7 @@ protect_from_forgery
   require 'active_admin_views_pages_base.rb'
   
  rescue_from CanCan::AccessDenied do |exception|
-     redirect_to root_url, :alert => exception.message
+     redirect_to locale_root_path, :alert => exception.message
  end
  
  	after_filter :store_location
@@ -32,23 +36,23 @@ protect_from_forgery
 	end
 
 	def after_sign_in_path_for(resource)
-	  session[:previous_url] || root_path
+	  session[:previous_url] || locale_root_path
 	end
 
 	def after_sign_up_path_for(resource)
-	  session[:previous_url] || root_path
+	  session[:previous_url] || locale_root_path
 	end
 	
 	def after_sign_in_error_path_for(resource)
-	  session[:previous_url] || root_path
+	  session[:previous_url] || locale_root_path
 	end
 	
 	def after_sign_up_error_path_for(resource)
-	  session[:previous_url] || root_path
+	  session[:previous_url] || locale_root_path
 	end
 	
 	def authenticate_admin!
-		redirect_to root_path unless user_signed_in? && current_user.is_admin?
+		redirect_to locale_root_path unless user_signed_in? && current_user.is_admin?
 	end
 
 	def get_plan_list_columns
