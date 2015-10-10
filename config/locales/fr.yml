@@ -532,6 +532,7 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
         access_removed_email_text: "<p>Votre droit d'accès au projet DMP '%{project_title}' a été révoqué.</p>"
       export:
         generated_by: "Ce document a été généré par DMP Builder (http://dmp.library.ualberta.ca)"
+        admin_details: "Renseignements administratifs"
       create_page: 
         title: "Créer un nouveau plan"
         desc_html: "<p>Choisissez parmi les listes déroulantes suivantes pour que nous puissions déterminer les questions et les directives à afficher dans votre plan.</p>
@@ -586,6 +587,8 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
           duplicate: "Copiez le nom de la colonne. Sélectionnez chaque colonne une seule fois."
           unknown: "Nom de colonne inconnu"
       plans:
+        admin_details: "Renseignements administratifs"
+        sections: "Sections"
         title: "Titre du plan"
         reset: "Réinitialiser"
         custom_formatting: "(À l’aide des valeurs de mise en forme de PDF personnalisées)"
