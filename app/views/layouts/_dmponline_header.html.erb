@@ -9,9 +9,9 @@
   </div>
                   <div class="header_center">
                    <% if I18n.locale == :en %>
-                      <%= link_to "Version française", locale = "fr" %>
+                      <%= link_to "Version française", locale: "fr" %>
                    <% elsif I18n.locale == :fr %>
-                       <%= link_to "English Version", locale = "en" %>
+                       <%= link_to "English Version", locale: "en" %>
                    <% end %>
                 </div>
 
