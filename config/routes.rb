@@ -20,7 +20,7 @@ DMPonline4::Application.routes.draw do
  
   scope '(:locale)', :locale => /en|fr/ do 
     resources :contacts, :controllers => {:contacts => 'contacts'}
-    devise_for :users, skip: :omniauth_callbacks, controllers: { passwords: 'passwords', registrations: 'registrations' } do
+    devise_for :users, skip: :omniauth_callbacks, controllers: { passwords: 'passwords', registrations: 'registrations', sessions: 'sessions', confirmations: 'confirmations' } do
       get "/users/sign_out", :to => "devise/sessions#destroy"
     end
     get "about_us" => 'static_pages#about_us', :as => "about_us"
