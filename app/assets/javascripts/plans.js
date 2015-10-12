@@ -464,7 +464,18 @@ $.fn.update_timestamp = function(question_id, data) {
 		timestamp = new Date(Number(timestamp) * 1000);
 		if (timestamp.getTime() != current_timestamp.getTime()) {
 			q_status.text("");
-			q_status.append("Answered <abbr class='timeago'></abbr> by "+data.questions[question_id]["answered_by"]);
+                        var current_path = window.location.pathname;
+                        var current_locale = current_path.split("/")[1];
+                        var time_ago_string;
+
+                        if (current_locale == "fr") {
+                            time_ago_string = data.questions[question_id]["answered_by"]+"a répondu à cette question <abbr class='timeago'></abbr>";
+                        }
+                        else {
+                            time_ago_string = "Answered <abbr class='timeago'></abbr> by "+data.questions[question_id]["answered_by"];
+                        }
+
+			q_status.append(time_ago_string);
 			t = q_status.children("abbr:first");
 			// Update label to indicate successful submission
 			q_status.removeClass("label-info label-warning");
