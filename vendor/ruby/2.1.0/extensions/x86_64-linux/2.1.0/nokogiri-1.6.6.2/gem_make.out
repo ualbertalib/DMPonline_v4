@@ -114,39 +114,44 @@ creating Makefile
 make "DESTDIR=" clean
 
 make "DESTDIR="
-compiling xml_syntax_error.c
+compiling html_document.c
+compiling xml_element_content.c
+compiling xml_xpath_context.c
+compiling xml_schema.c
+compiling xml_libxml2_hacks.c
+compiling xml_entity_reference.c
+compiling xml_cdata.c
+compiling xml_node_set.c
+xml_node_set.c: In function ‘dealloc_namespace’:
+xml_node_set.c:9: warning: cast discards qualifiers from pointer target type
+xml_node_set.c:11: warning: cast discards qualifiers from pointer target type
+compiling xml_attribute_decl.c
+compiling xml_comment.c
+compiling html_element_description.c
+html_element_description.c: In function ‘get_description’:
+html_element_description.c:252: warning: cast discards qualifiers from pointer target type
+compiling xml_attr.c
+compiling xml_sax_parser.c
+compiling xml_document_fragment.c
+compiling xml_relax_ng.c
+compiling html_entity_lookup.c
 compiling xml_document.c
 xml_document.c: In function ‘set_encoding’:
 xml_document.c:182: warning: cast discards qualifiers from pointer target type
 xml_document.c: In function ‘canonicalize’:
 xml_document.c:537: warning: cast discards qualifiers from pointer target type
+compiling xml_syntax_error.c
 compiling xml_reader.c
-compiling xml_sax_parser.c
-compiling xml_attr.c
-compiling nokogiri.c
-compiling html_document.c
-compiling xml_entity_reference.c
-compiling xml_encoding_handler.c
-compiling xml_namespace.c
-compiling xml_sax_parser_context.c
-compiling html_element_description.c
-html_element_description.c: In function ‘get_description’:
-html_element_description.c:252: warning: cast discards qualifiers from pointer target type
-compiling xml_document_fragment.c
-compiling xml_xpath_context.c
-compiling xml_sax_push_parser.c
 compiling xml_entity_decl.c
-compiling xml_relax_ng.c
-compiling xml_schema.c
-compiling xml_element_content.c
-compiling xml_cdata.c
-compiling xml_libxml2_hacks.c
+compiling xml_text.c
+compiling xml_sax_push_parser.c
+compiling xml_element_decl.c
 compiling html_sax_push_parser.c
-compiling xml_node_set.c
-xml_node_set.c: In function ‘dealloc_namespace’:
-xml_node_set.c:9: warning: cast discards qualifiers from pointer target type
-xml_node_set.c:11: warning: cast discards qualifiers from pointer target type
 compiling xml_io.c
+compiling xml_namespace.c
+compiling xml_encoding_handler.c
+compiling xml_sax_parser_context.c
+compiling xml_dtd.c
 compiling xml_node.c
 xml_node.c: In function ‘reparent_node_with’:
 xml_node.c:168: warning: enumeration value ‘XML_ATTRIBUTE_NODE’ not handled in switch
@@ -211,15 +216,10 @@ xml_node.c:165: warning: enumeration value ‘XML_NAMESPACE_DECL’ not handled 
 xml_node.c:165: warning: enumeration value ‘XML_XINCLUDE_START’ not handled in switch
 xml_node.c:165: warning: enumeration value ‘XML_XINCLUDE_END’ not handled in switch
 xml_node.c:165: warning: enumeration value ‘XML_DOCB_DOCUMENT_NODE’ not handled in switch
+compiling nokogiri.c
 compiling xml_processing_instruction.c
-compiling xml_text.c
-compiling xml_element_decl.c
-compiling xml_attribute_decl.c
 compiling html_sax_parser_context.c
-compiling html_entity_lookup.c
-compiling xml_comment.c
 compiling xslt_stylesheet.c
-compiling xml_dtd.c
 linking shared-object nokogiri/nokogiri.so
 Cleaning files only used during build.
 rm -rf /var/www/sites/DMPonline_v4/vendor/ruby/2.1.0/gems/nokogiri-1.6.6.2/ext/nokogiri/tmp/x86_64-redhat-linux-gnu/ports
@@ -227,5 +227,5 @@ rmdir -p /var/www/sites/DMPonline_v4/vendor/ruby/2.1.0/gems/nokogiri-1.6.6.2/ext
 rm -rf /var/www/sites/DMPonline_v4/vendor/ruby/2.1.0/gems/nokogiri-1.6.6.2/ports
 
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 nokogiri.so ./.gem.20150623-17276-12y5n1k/nokogiri
+/usr/bin/install -c -m 0755 nokogiri.so ./.gem.20151011-27277-k9lz5p/nokogiri
 installing default nokogiri libraries

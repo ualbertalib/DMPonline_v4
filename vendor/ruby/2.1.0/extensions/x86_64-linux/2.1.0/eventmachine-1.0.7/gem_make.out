@@ -4,10 +4,10 @@ creating Makefile
 make "DESTDIR=" clean
 
 make "DESTDIR="
-compiling mapper.cpp
 compiling rubymain.cpp
+compiling mapper.cpp
 linking shared-object fastfilereaderext.so
 
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 fastfilereaderext.so ./.gem.20150623-17276-z936o7
+/usr/bin/install -c -m 0755 fastfilereaderext.so ./.gem.20151011-27277-d3n2ej
 installing default fastfilereaderext libraries

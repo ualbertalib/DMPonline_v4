@@ -5,6 +5,7 @@ creating Makefile
 make "DESTDIR=" clean
 
 make "DESTDIR="
+compiling parser.c
 compiling thin.c
 thin.c: In function ‘Thin_HttpParser_alloc’:
 thin.c:242: warning: implicit declaration of function ‘thin_http_parser_init’
@@ -14,9 +15,8 @@ thin.c:296: warning: implicit declaration of function ‘thin_http_parser_is_fin
 thin.c: In function ‘Thin_HttpParser_execute’:
 thin.c:334: warning: implicit declaration of function ‘thin_http_parser_execute’
 thin.c:338: warning: implicit declaration of function ‘thin_http_parser_has_error’
-compiling parser.c
 linking shared-object thin_parser.so
 
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 thin_parser.so ./.gem.20150623-17276-1aqwy5
+/usr/bin/install -c -m 0755 thin_parser.so ./.gem.20151011-27277-sh2fjg
 installing default thin_parser libraries

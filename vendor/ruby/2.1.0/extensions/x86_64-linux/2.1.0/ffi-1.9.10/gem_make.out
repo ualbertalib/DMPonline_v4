@@ -64,18 +64,19 @@ libtool: link: ( cd ".libs" && rm -f "libffi_convenience.la" && ln -s "../libffi
 make[3]: Leaving directory `/var/www/sites/DMPonline_v4/vendor/ruby/2.1.0/gems/ffi-1.9.10/ext/ffi_c/libffi-x86_64-linux'
 make[2]: Leaving directory `/var/www/sites/DMPonline_v4/vendor/ruby/2.1.0/gems/ffi-1.9.10/ext/ffi_c/libffi-x86_64-linux'
 make[1]: Leaving directory `/var/www/sites/DMPonline_v4/vendor/ruby/2.1.0/gems/ffi-1.9.10/ext/ffi_c/libffi-x86_64-linux'
-compiling StructByReference.c
-compiling DynamicLibrary.c
-compiling Struct.c
-compiling StructLayout.c
+compiling Buffer.c
 compiling Function.c
 Function.c: In function ‘async_cb_event’:
 Function.c:563: warning: implicit declaration of function ‘rb_thread_call_without_gvl’
-compiling ClosurePool.c
-compiling DataConverter.c
+compiling DynamicLibrary.c
+compiling StructByReference.c
+compiling MethodHandle.c
+compiling FunctionInfo.c
 compiling LongDouble.c
-compiling Type.c
-compiling LastError.c
+compiling StructLayout.c
+compiling StructByValue.c
+compiling ClosurePool.c
+compiling Platform.c
 compiling AbstractMemory.c
 AbstractMemory.c:255: warning: ‘memory_put_longdouble’ defined but not used
 AbstractMemory.c:255: warning: ‘memory_write_longdouble’ defined but not used
@@ -91,21 +92,20 @@ AbstractMemory.c:291: warning: ‘memory_write_array_of_bool’ defined but not 
 AbstractMemory.c:291: warning: ‘memory_read_array_of_bool’ defined but not used
 AbstractMemory.c:407: warning: ‘memory_read_array_of_string’ defined but not used
 compiling Variadic.c
-compiling Buffer.c
-compiling Pointer.c
-compiling FunctionInfo.c
+compiling Type.c
 compiling ffi.c
-compiling Types.c
 compiling Call.c
 Call.c: In function ‘do_blocking_call’:
 Call.c:368: warning: implicit declaration of function ‘rb_thread_call_without_gvl’
-compiling StructByValue.c
-compiling Platform.c
-compiling MappedType.c
 compiling MemoryPointer.c
-compiling MethodHandle.c
+compiling Struct.c
+compiling DataConverter.c
 compiling ArrayType.c
+compiling Types.c
 compiling Thread.c
+compiling LastError.c
+compiling Pointer.c
+compiling MappedType.c
 linking shared-object ffi_c.so
 
 make "DESTDIR=" install
@@ -129,18 +129,19 @@ make[3]: Entering directory `/var/www/sites/DMPonline_v4/vendor/ruby/2.1.0/gems/
 make[3]: Leaving directory `/var/www/sites/DMPonline_v4/vendor/ruby/2.1.0/gems/ffi-1.9.10/ext/ffi_c/libffi-x86_64-linux'
 make[2]: Leaving directory `/var/www/sites/DMPonline_v4/vendor/ruby/2.1.0/gems/ffi-1.9.10/ext/ffi_c/libffi-x86_64-linux'
 make[1]: Leaving directory `/var/www/sites/DMPonline_v4/vendor/ruby/2.1.0/gems/ffi-1.9.10/ext/ffi_c/libffi-x86_64-linux'
-compiling StructByReference.c
-compiling DynamicLibrary.c
-compiling Struct.c
-compiling StructLayout.c
+compiling Buffer.c
 compiling Function.c
 Function.c: In function ‘async_cb_event’:
 Function.c:563: warning: implicit declaration of function ‘rb_thread_call_without_gvl’
-compiling ClosurePool.c
-compiling DataConverter.c
+compiling DynamicLibrary.c
+compiling StructByReference.c
+compiling MethodHandle.c
+compiling FunctionInfo.c
 compiling LongDouble.c
-compiling Type.c
-compiling LastError.c
+compiling StructLayout.c
+compiling StructByValue.c
+compiling ClosurePool.c
+compiling Platform.c
 compiling AbstractMemory.c
 AbstractMemory.c:255: warning: ‘memory_put_longdouble’ defined but not used
 AbstractMemory.c:255: warning: ‘memory_write_longdouble’ defined but not used
@@ -156,21 +157,20 @@ AbstractMemory.c:291: warning: ‘memory_write_array_of_bool’ defined but not 
 AbstractMemory.c:291: warning: ‘memory_read_array_of_bool’ defined but not used
 AbstractMemory.c:407: warning: ‘memory_read_array_of_string’ defined but not used
 compiling Variadic.c
-compiling Buffer.c
-compiling Pointer.c
-compiling FunctionInfo.c
+compiling Type.c
 compiling ffi.c
-compiling Types.c
 compiling Call.c
 Call.c: In function ‘do_blocking_call’:
 Call.c:368: warning: implicit declaration of function ‘rb_thread_call_without_gvl’
-compiling StructByValue.c
-compiling Platform.c
-compiling MappedType.c
 compiling MemoryPointer.c
-compiling MethodHandle.c
+compiling Struct.c
+compiling DataConverter.c
 compiling ArrayType.c
+compiling Types.c
 compiling Thread.c
+compiling LastError.c
+compiling Pointer.c
+compiling MappedType.c
 linking shared-object ffi_c.so
-/usr/bin/install -c -m 0755 ffi_c.so ./.gem.20150723-14864-1c2f7ka
+/usr/bin/install -c -m 0755 ffi_c.so ./.gem.20151011-27277-1kh5jp3
 installing default ffi_c libraries

@@ -19,12 +19,12 @@ creating Makefile
 make "DESTDIR=" clean
 
 make "DESTDIR="
+compiling mysql2_ext.c
 compiling client.c
 compiling infile.c
 compiling result.c
-compiling mysql2_ext.c
 linking shared-object mysql2/mysql2.so
 
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 mysql2.so ./.gem.20150623-17276-12kcbdm/mysql2
+/usr/bin/install -c -m 0755 mysql2.so ./.gem.20151011-27277-2fvrni/mysql2
 installing default mysql2 libraries
