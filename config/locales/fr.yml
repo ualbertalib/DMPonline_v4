@@ -576,7 +576,12 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
         project_description: "Description"
         funder: "Bailleur de fonds"
         institution: "Établissement"
-
+        section: "Section-french"
+        question: "Question-french"
+        answer: "Answer"
+        selected_options: "Selected option(s)"
+        answered_by: "Answered by"
+        answered_at: "Answered at"
     settings:
       title: "Paramètres"
       projects:
