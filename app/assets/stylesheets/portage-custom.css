@@ -1,3 +1,4 @@
+
 * {
   margin: 0;
 }
@@ -14,41 +15,23 @@ html, body {
   content: "";
   display: block;
 }
-
-h1, h2, h3, h4 {
-  
-  color: #1a4824;
-  
-}
-
-a, a:active, a:focus {
-  color: #1a4824;
-}
-
-a.visited{
-  color: #1a4824;
-}
-
-.dmp_toolbar {
-  background-color: #1a4824;
-}
 footer, .wrap:after{
   /* .push must be the same height as footer */
   height: 80px; 
 }
 footer{
- background-color: #1a4824;
+ background-color: #1f3d7d;
  padding: 0 10%;
-color: #999;
+ color: #999;
  font-size: 11px;
  margin-top: 0;
  width: auto;
 }
 footer .right_side_footer p{
-	 margin-top: 15px;
-	 color: #fff;
- font-size: 12px;
+ font-size: 11px;
  text-align: right;
+ font-size: 12px;
+ margin-top: 15px;
 }
 footer .right_side_footer a{
 	color: #efefef;
@@ -58,72 +41,91 @@ footer .right_side_footer a{
 .left_side_footer{
 	margin-top: 20px;
 }
+
 .left_side_footer img{
 	margin-top: -10px;
 }
 .left_side_footer img{
-	width: 100px;
+	width: 80px;
 }
 .right_side_footer{
-	color: #fff;
+}
+.right_side_footer img{
+        width: 150px;
+        margin-top: -10px;
 }
 body.dmponline{
 	margin: 0;
 }
 .header_right{
-	width: 60%
+	width: 50%;
+        float: left
+        padding-top: 10px;
+}
+.header_center{
+        font-size: 17px;
+        margin-right: 20px;
+        padding-right: 10px;
+        padding-left: 10px;
+        margin-left: 20px;
+        margin-top: 25px;
+        margin-bottom: 12px;
+        text-align: center;
+        float: left;
+        font-weight: bold;
+        border-right: 2px solid #FB9C26;
+        border-left: 2px solid #FB9C26
 }
 .header_left{
 	width: 40%;
-}
-.header_center a{
-        color: #fff;
+        float: left
 }
 .dmponline{
 	background-image: none;
-	background: url('https://www.library.ualberta.ca/2012assets/top_back.png') top center repeat-x;
 }
 .welcome-message p{
 	color: #000;
 }
 .uofa-header{
-	padding-top: 25px;
-	height: 60px;
+	padding-top: 15px;
+	height: 120px;
+        width: 100%
 }
 .home_logo {
-	width: 280px;
+	width: 380px;
 	margin-right: 0px;
 	margin-top: -8px;
 }
 h3.subhead{
-	color: #fff;
+	color: #FB9C26;
 	font-size: 17px;
 	margin-top: -3px;
 	margin-left: 45px;
 	letter-spacing: 1px;
+        font-weight: bold;
 
 }
-.header_right{
-	padding-top: 10px;
 	
-}
 .signIn {
 	margin:5px 20px;
 	top: 0;
 }
+
 ul#signIn_dropdown {
-background: #fff !important;
+background: #929694 !important;
 }
 .signIn ul li a, .signIn ul li a.active, .signIn ul li a:visited {
-	color: #fff;
+	color: #1F3D7D;
 }
 .signIn ul {
-color: #fff;
+color: #1F3D7D;
 }
+
 .screencast_home_page, .accordion-group{
 	box-shadow: none;
 }
 .main_nav {
+        float: left
 	clear: none;
 	margin: 0px 0 0 0;
 }
@@ -131,10 +133,10 @@ color: #fff;
 	padding-top: 15px;
 }
 body.dmponline .btn-primary, body.dmponline .btn-primary:active, body.dmponline .btn-primary:visited, body.dmponline .btn-primary:focus {
-background: #1a4824;
+background: #1F3D7D;
 }
 body.dmponline .btn-primary:hover {
-	background: #2e9463;
+	background: #5f7dbf;
 }
 div.white_background, #homepage-accordion .accordion-group {
 	padding: 10px 20px;
@@ -155,100 +157,3 @@ background: -moz-linear-gradient(top, #FFFFFF 0%, #F4F4F4 100%);
 	box-shadow: none;
 	font-size:18px;
 }
-
-table.dmp_table thead{
-  background-color: #1a4824;
-}
-table.dmp_table a.dmp_table_link:hover{
-  color: #1a4824;
-}
-
-li.select label, li.check_boxes .label{
-  color: #1a4824;
-}
-#other-funder-name .label {
-  color: #1a4824;
-}
-
-#project-tabs li.active a, #project-tabs li.active a:active, #project-tabs li a:hover{
-  background-color: #1a4824;
-  border: 1px solid #1a4824;
-}
-
-.dmp_details_body{
-  border: 2px solid #1a4824;
-}
-
-table.dmp_details_table tr td.first{
-  border-right: 1px solid #1a4824;
-}
-
-ul.section_ul li{
-  color: #1a4824;
- }
-
-
-.accordion-group{
-  background-color: #1a4824;
-  border-color:#1a4824;
-}
-
-.accordion-heading{
-  background-color: #1a4824;
-
-}
-.section-status{
-  background-color: #1a4824;
-}
-
-div.suggested-answer-border {
-  border: 1px solid #1a4824;
-
-}
-.question-guidance .guidance-accordion-body {
-  border: 1px solid #1a4824;
-}
-.question-guidance .accordion-heading a, .question-guidance .accordion-heading a:hover{
-    color:  #1a4824 !important;
-}
-
-
-ul.export_list li{
-  ul.export_sub_list {
-
-    li:before {
-      color: #1a4824;
-    }
-
-  }
-}
-
-.column_left{
- 
-  .white_background{
- 
-    table.dmp_details_table tr td.first{
-      border-right: 1px solid #1a4824;
-   
-    }
-    
-  }
-}
-
-.mce-item-table th {
-       
-        background-color: #1a4824;
-}
-.progress {
-  .bar {
-    .ProgressBar(#1a4824, #002145);
-  }
-
-  .bar.space {
-    .ProgressBar(#98B2C3, #1a4824);
-
-  }
-
- .color-text{
-    color: #1a4824;
-  }

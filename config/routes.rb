@@ -1,10 +1,8 @@
 DMPonline4::Application.routes.draw do
 
-  devise_for :users, :controllers => {:registrations => "registrations", :confirmations => 'confirmations', :passwords => 'passwords', :sessions => 'sessions', :omniauth_callbacks => 'users/omniauth_callbacks'} do
-  	get "/users/sign_out", :to => "devise/sessions#destroy"
-  end 
-  resources :contacts, :controllers => {:contacts => 'contacts'}
-  
+ devise_for :users, skip: [:session, :password, :registration, :confirmation], :controllers => { :omniauth_callbacks => 'users/omniauth_callbacks'} do
+   	get "/users/sign_out", :to => "devise/sessions#destroy"
+   end  
   # WAYFless access point - use query param idp
   get 'auth/shibboleth' => 'users/omniauth_shibboleth_request#redirect', :as => 'user_omniauth_shibboleth'
   get 'auth/shibboleth/assoc' => 'users/omniauth_shibboleth_request#associate', :as => 'user_shibboleth_assoc'
@@ -12,20 +10,25 @@ DMPonline4::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
 
-  root :to => 'home#index'
-
   ActiveAdmin.routes(self)
-  
-  get "about_us" => 'static_pages#about_us', :as => "about_us"
-  get "help" => 'static_pages#help', :as => "help"
-  get "roadmap" => 'static_pages#roadmap', :as => "roadmap"
-  get "terms" => 'static_pages#termsuse', :as => "terms"
-  get "existing_users" => 'existing_users#index', :as => "existing_users"
   
   #organisation admin area
   get "org/admin/users" => 'organisation_users#admin_index', :as => "org/admin/users"
+
+  root :to => 'home#index'
+  match '/:locale' => 'home#index', :as => 'locale_root'
  
   scope '(:locale)', :locale => /en|fr/ do 
+    resources :contacts, :controllers => {:contacts => 'contacts'}
+    devise_for :users, skip: :omniauth_callbacks, controllers: { passwords: 'passwords', registrations: 'registrations', sessions: 'sessions', confirmations: 'confirmations' } do
+      get "/users/sign_out", :to => "devise/sessions#destroy"
+    end
+    get "about_us" => 'static_pages#about_us', :as => "about_us"
+    get "help" => 'static_pages#help', :as => "help"
+    get "roadmap" => 'static_pages#roadmap', :as => "roadmap"
+    get "terms" => 'static_pages#termsuse', :as => "terms"
+    get "existing_users" => 'existing_users#index', :as => "existing_users"
+
  	resources :organisations, :path => 'org/admin' do
   	member do
 			get 'children'

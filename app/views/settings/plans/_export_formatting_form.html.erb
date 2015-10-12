@@ -31,7 +31,7 @@
   <h3><%= t('helpers.settings.plans.included_elements') %></h3>
   <div class="div_clear"> </div>
   <fieldset class="check_select">
-    <legend><label for="admin_details_toggle">Admin details</label></legend>
+    <legend><label for="admin_details_toggle"><%= t('helpers.settings.plans.admin_details') %></label></legend>
     <ol>
     <% Settings::Dmptemplate::VALID_ADMIN_FIELDS.each do |field|
          name = "export[fields][admin][#{field}]"
@@ -44,7 +44,7 @@
     </ol>
   </fieldset>
   <fieldset class="check_select sections">
-    <legend><label for="sections_toggle">Sections</label></legend>
+    <legend><label for="sections_toggle"><%= t('helpers.settings.plans.sections') %></label></legend>
     <ol>
     <% plan.sections.each do |section| %>
       <li>

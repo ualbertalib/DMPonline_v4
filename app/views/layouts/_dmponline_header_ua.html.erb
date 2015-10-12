@@ -3,15 +3,15 @@
 <header class="uofa-header">
   <div class='header_left'>
     <div class="home_logo">
-      <%= link_to( image_tag('Portage-Logo.png'), "https://dmp.library.ualberta.ca")%>
+      <%= link_to( image_tag('ua-lib-logo.png'), "https://dmp.library.ualberta.ca")%>
     </div>
     <h3 class="subhead">A Tool for Data Management Plans</h3>
   </div>
                   <div class="header_center">
                    <% if I18n.locale == :en %>
-                      <%= link_to "Version française", locale: "fr" %>
+                      <%= link_to "Version française", locale:"fr", :class => "btn header_button btn-primary" %>
                    <% elsif I18n.locale == :fr %>
-                       <%= link_to "English Version", locale: "en" %>
+                       <%= link_to "English Version", locale: "en",  :class => "btn header_button btn-primary" %>
                    <% end %>
                 </div>
 
@@ -78,7 +78,7 @@
 			                 
 	                <% else %>
 	                	<li>
-	                    	<%= link_to t("helpers.home"), root_path , :class => "btn header_button btn-primary"%>            
+	                    	<%= link_to t("helpers.home"), locale_root_path , :class => "btn header_button btn-primary"%>            
 	                	</li>
 	                <% end %>
 	           		<li>

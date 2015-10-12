@@ -39,7 +39,7 @@ fr:
   ccid_message: "Veuillez prendre note que nous travaillons actuellement à l’authentification de l’identifiant informatique (CCID). Vous devez créer un nouveau compte DMP Builder. Vous pourrez associer votre compte existant à votre CCID dès que la fonction sera disponible."
 
   screencast_error_text: "Votre navigateur ne permet pas la balise vidéo."
-
+  none: "Aucun"
   admin:
     org_title: "Nom de l’organisme"
     org: "Organisme"
@@ -373,8 +373,8 @@ fr:
     answer_questions: "Répondre aux questions"
     last_edit: "Dernière modification"
     select_action: "Sélectionnez une action"
-    answered_by: "Réponse faite par "
-    answered_by_part2: " de "
+    answered_by: "a répondu à cette question "
+    answered_by_part2: ""
     suggested_answer: "Suggestion de réponse"
     suggested_example: "Exemple de réponse"
     notanswered: "Pas encore répondue"
@@ -418,12 +418,14 @@ fr:
       answer_not_changed: "Il n'y a aucun changement au contenu de la réponse - aucune sauvegarde."
       comment_created: "Le commentaire a bien été créé."
       comment_updated: "Le commentaire a bien été mis à jour."
+      comment_removed: "Commentaire a été supprimé."
       theme_created: "Le thème a bien été créé."
       theme_updated: "Le thème a bien été mis à jour."
       page_created: "La page a bien été créée."
       page_updated: "La page a bien été mise à jour."
       user_created: "L'utilisateur a bien été créé."
       project_created: "Le projet a bien été créé."
+      project_updated: "Le projet a été mis à jour avec succès." 
       user_org_role_created: "Le rôle de l’utilisateur a bien été créé."
       user_org_role_updated: "Le rôle de l’utilisateur a bien été mis à jour."
       user_role_created: "Le type de rôle d’utilisateur a bien été créé."
@@ -490,7 +492,7 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
       project_name_help_text: "Si vous présentez une demande de financement, inscrivez le nom de la même façon que dans la demande de subvention."
       project_desc_help_text_html: "<div class='tooltip_box'><h4> Questions à prendre en considération :</h4><ul><li>- Quelle est la nature de votre projet de recherche?</li><li>- Quelles questions de recherche abordez-vous? </li><li>- À quelle fin les données sont-elles recueillies ou créées? </li></ul><h4>Directives :</h4><p>Résumez brièvement le type d’étude (ou les études) afin d’aider les autres à comprendre les raisons pour lesquelles les données sont recueillies ou créées.</p></div>"
       project_identifier: "Identification"
-      project_identifier_help_text: "Une identification pertinente déterminée par le bailleur de fond ou l’établissement"
+      project_identifier_help_text: "Une identification pertinente déterminée par le bailleur de fonds ou l’établissement"
       project_static_info: "Ce plan s’appuie sur :"
       projects_title: "Mes plans"
       project_settings_text: "Les paramètres que vous sélectionnez seront affichés dans le tableau ci-dessous. Vous pouvez trier les données par en-tête ou les filtrer en indiquant une chaîne de texte dans la case de recherche."
@@ -500,7 +502,7 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
       confirmation_text_desc: "Vous utilisez le modèle générique de gestion des données de l’Université de l’Alberta. Si vous avez des suggestions sur la façon d’améliorer le modèle existant, ou si vous aimeriez ajouter d’autres modèles fondés sur les exigences d’organismes de financement ou les besoins des disciplines, communiquez avec nous à <a href='mailto:data@ualberta.ca?Subject=DMP%20Builder%20inquiry'>data@ualberta.ca</a>."
       confirmation_button_text: "Oui, créer un plan"  
       project_details_text_html: "Cette page vous donne un aperçu de votre plan. Elle indique les éléments sur lesquels votre plan s’appuie et donne un aperçu des questions qui vous seront posées."
-      project_details_editing_text_html: "Indiquez ci-dessous les renseignements de base sur le projet et cliquez sur « Mettre à jour » pour les enregistrer."
+      project_details_editing_text_html: "Indiquez ci-dessous les renseignements de base sur le projet et cliquez sur « Enregistrer » pour les enregistrer."
       confirm_delete_text: "Êtes-vous sûr de vouloir supprimer ce plan? En supprimant le plan de votre liste, il sera également supprimé de la liste de plans des personnes avec lesquelles le plan est partagé, le cas échéant."
       confirmation_text: "Confirmer les renseignements sur le plan"
       confirmation_text_desc: "Vous utilisez le modèle générique de gestion des données de l’Université de l’Alberta. Si vous avez des suggestions sur la façon d’améliorer le modèle existant, ou si vous aimeriez ajouter d’autres modèles fondés sur les exigences d’organismes de financement ou les besoins des disciplines, communiquez avec nous à <a href='mailto:data@ualberta.ca?Subject=DMP%20Builder%20inquiry'>data@ualberta.ca</a>."
@@ -530,6 +532,7 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
         access_removed_email_text: "<p>Votre droit d'accès au projet DMP '%{project_title}' a été révoqué.</p>"
       export:
         generated_by: "Ce document a été généré par DMP Builder (http://dmp.library.ualberta.ca)"
+        admin_details: "Renseignements administratifs"
       create_page: 
         title: "Créer un nouveau plan"
         desc_html: "<p>Choisissez parmi les listes déroulantes suivantes pour que nous puissions déterminer les questions et les directives à afficher dans votre plan.</p>
@@ -584,6 +587,8 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
           duplicate: "Copiez le nom de la colonne. Sélectionnez chaque colonne une seule fois."
           unknown: "Nom de colonne inconnu"
       plans:
+        admin_details: "Renseignements administratifs"
+        sections: "Sections"
         title: "Titre du plan"
         reset: "Réinitialiser"
         custom_formatting: "(À l’aide des valeurs de mise en forme de PDF personnalisées)"
@@ -652,7 +657,7 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
     title: "Aide"
     tab_1: "Concernant DMP Builder"
     tab_2: "Concernant la planification de la gestion des données"
-    body_text_tab_2_html: "<p>Le service des bibliothèques de l’Université de l’Alberta a mis au point un<a href='http://guides.library.ualberta.ca/researchdata'>research data management guide (guide sur la gestion des données de recherche)</a> qui peut fournir d’autres directives sur la planification de la gestion des données. Si vous avez besoin de plus de directives, communiquez avec nous par courriel à <a href='mailto:data@ualberta.ca?Subject=DMP%20Builder%20help'>data@ualberta.ca</a>.</p>"
+    body_text_tab_2_html: "<p>Le service des bibliothèques de l’Université de l’Alberta a mis au point un <a href='http://guides.library.ualberta.ca/researchdata'>research data management guide (guide sur la gestion des données de recherche)</a> qui peut fournir d’autres directives sur la planification de la gestion des données. Si vous avez besoin de plus de directives, communiquez avec nous par courriel à <a href='mailto:data@ualberta.ca?Subject=DMP%20Builder%20help'>data@ualberta.ca</a>.</p>"
 
 
     body_text_tab_1_html: "<p>Lorsque vous vous connectez à DMP Builder, vous serez dirigé vers la page « Mes plans ». À partir de cette page, vous pouvez modifier, partager, exporter ou supprimer l’un ou l’autre de vos plans. Vous verrez également les plans qui ont été partagés avec vous par d’autres personnes.</p>
