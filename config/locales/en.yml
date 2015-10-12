@@ -576,7 +576,12 @@ Select what format you wish to use and click to 'Export'.</p>"
         project_description: "Description"
         funder: "Funder"
         institution: "Institution"
-
+        section: "Section"
+        question: "Question"
+        answer: "Answer"
+        selected_options: "Selected option(s)"
+        answered_by: "Answered by"
+        answered_at: Answered at"
     settings:
       title: "Settings"
       projects:
