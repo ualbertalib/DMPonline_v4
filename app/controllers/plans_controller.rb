@@ -183,7 +183,7 @@ class PlansController < ApplicationController
                 format.html
                 format.xml
                 format.json
-                format.csv  { send_data @exported_plan.as_csv, filename: "#{file_name}.csv" }
+                format.csv  { send_data @exported_plan.as_csv.encode("WINDOWS-1252"), filename: "#{file_name}.csv" }
                 format.text { send_data @exported_plan.as_txt, filename: "#{file_name}.txt" }
 		format.docx do
                    file = Htmltoword::Document.create @exported_plan.html_for_docx, file_name
