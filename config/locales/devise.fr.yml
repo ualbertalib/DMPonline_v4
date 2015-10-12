@@ -75,3 +75,8 @@ fr:
       not_saved:
         one: "Une erreur a empêché d’enregistrer ce(tte) %{resource} :"
         other: "%{count} erreurs ont empêché d’enregistrer ce(tte) %{resource} :"
+      blank: "Ce champ ne peut être vide"
+  activerecord:
+    attributes:
+      user:
+        email: "Courriel: "
