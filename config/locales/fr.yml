@@ -30,13 +30,13 @@ fr:
     am: "a.m."
     pm: "p.m."
 
-  tool_title: "DMP Builder – Service des bibliothèques de l’Université de l’Alberta"
-  dmponline3_text: "Version antérieure de DMP Builder" 
+  tool_title: "Assistant PGD – Service des bibliothèques de l’Université de l’Alberta"
+  dmponline3_text: "Version antérieure de Assistant PGD" 
   dcc_name: "Digital Curation Centre"
   welcome_title: "Bienvenue"
-  welcome_text: "<p>L’outil DMP Builder est offert par le service des bibliothèques de l’Université de l’Alberta afin de vous aider à rédiger vos plans de gestion des données.</p>"
+  welcome_text: "<p>L’outil Assistant PGD est offert par le service des bibliothèques de l’Université de l’Alberta afin de vous aider à rédiger vos plans de gestion des données.</p>"
   welcome_links: "<p><a href='http://guides.library.ualberta.ca/content.php?pid=524929&sid=4318282' target='_blank'>En savoir plus sur les plans de gestion des données</a><br/><a href='https://dataverse.library.ualberta.ca' target='_blank'>Vous souhaitez partager vos données de recherche?</a><br/><a href='http://library.ualberta.ca/researchdata' target='_blank'>Pour en savoir plus sur les services de données de recherche du service des bibliothèques</a></p>"
-  ccid_message: "Veuillez prendre note que nous travaillons actuellement à l’authentification de l’identifiant informatique (CCID). Vous devez créer un nouveau compte DMP Builder. Vous pourrez associer votre compte existant à votre CCID dès que la fonction sera disponible."
+  ccid_message: "Veuillez prendre note que nous travaillons actuellement à l’authentification de l’identifiant informatique (CCID). Vous devez créer un nouveau compte Assistant PGD. Vous pourrez associer votre compte existant à votre CCID dès que la fonction sera disponible."
 
   screencast_error_text: "Votre navigateur ne permet pas la balise vidéo."
   none: "Aucun"
@@ -281,7 +281,7 @@ fr:
     sign_in_text: "Si vous avez déjà un compte."
     sign_out: "Se déconnecter"
     sign_up: "S’inscrire"
-    sign_up_text: "Vous êtes un nouveau utilisateur de DMP Builder? Inscrivez-vous dès maintenant."
+    sign_up_text: "Vous êtes un nouveau utilisateur de Assistant PGD? Inscrivez-vous dès maintenant."
     signed_in: "Connecté en tant que "
     institution_sign_in_link: "Ou encore, connectez-vous avec l'authentifiant de votre établissement"
     institution_sign_in: "Authentification du CCID à venir!"
@@ -357,13 +357,13 @@ fr:
     owner: "Propriétaire"
     orcid_id: "Numéro ORCID"
     orcid_html: "Le numéro ORCID est un identifiant numérique constant qui différencie chaque chercheur, <a href='http://orcid.org/content/initiative' target='_blank' rel='external' class='a_orange'>pour de plus amples renseignements</a>."
-    sign_up_shibboleth_alert_text_html: "Remarque : Si vous avez déjà créé un compte dans DMP Builder et que vous désirez associer le compte à votre authentifiant de l’établissement, vous devez d’abord vous <a href='/?locale=fr' class='a_orange'>connecter</a> à un compte DMP Builder existant. Si vous n’avez jamais créé de compte DMPonline, veuillez remplir le formulaire ci-dessous."
+    sign_up_shibboleth_alert_text_html: "Remarque : Si vous avez déjà créé un compte dans Assistant PGD et que vous désirez associer le compte à votre authentifiant de l’établissement, vous devez d’abord vous <a href='/?locale=fr' class='a_orange'>connecter</a> à un compte Assistant PGD existant. Si vous n’avez jamais créé de compte DMPonline, veuillez remplir le formulaire ci-dessous."
     shibboleth_linked_text: "Votre compte est associé à votre authentifiant de l’établissement."
-    shibboleth_to_link_text: "Associez votre compte DMP Builder à votre authentifiant de l’établissement."
-    shibboleth_to_link_question: "Voulez-vous associer votre compte DMP Builder à votre authentifiant de l’établissement?"
+    shibboleth_to_link_text: "Associez votre compte Assistant PGD à votre authentifiant de l’établissement."
+    shibboleth_to_link_question: "Voulez-vous associer votre compte Assistant PGD à votre authentifiant de l’établissement?"
     shibboleth_unlink_label: "Dissociez votre authentifiant de l’établissement."
     shibboleth_unlink_alert: "Alerte concernant la dissociation de votre authentifiant de l’établissement"
-    shibboleth_unlink_dialog_text: "<p>Vous êtes sur le point de dissocier DMP Builder de votre authentifiant de l’établissement, voulez-vous continuer?</p>"
+    shibboleth_unlink_dialog_text: "<p>Vous êtes sur le point de dissocier Assistant PGD de votre authentifiant de l’établissement, voulez-vous continuer?</p>"
     shibboleth_wait_confirmation: "En attente d'une confirmation pour :"
 
     section_label: "Section"
@@ -499,13 +499,13 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
       project_text_when_no_project: "<p><strong>Bienvenue</strong></br> Vous êtes maintenant prêt à créer votre premier plan de gestion des données.</br>Cliquez sur le bouton « Créer un plan » ci-dessous pour commencer.</p>"
       project_text_when_project: "<p>Le tableau ci-dessous contient une liste des plans que vous avez créés et de ceux que d’autres personnes partagent avec vous.</br>Ces plans peuvent être modifiés, partagés, exportés ou supprimés en tout temps.</p>"
       confirmation_text: "Confirmer les renseignements sur le plan"   
-      confirmation_text_desc: "Vous utilisez le modèle générique de gestion des données de l’Université de l’Alberta. Si vous avez des suggestions sur la façon d’améliorer le modèle existant, ou si vous aimeriez ajouter d’autres modèles fondés sur les exigences d’organismes de financement ou les besoins des disciplines, communiquez avec nous à <a href='mailto:data@ualberta.ca?Subject=DMP%20Builder%20inquiry'>data@ualberta.ca</a>."
+      confirmation_text_desc: "Vous utilisez le modèle générique de gestion des données de l’Université de l’Alberta. Si vous avez des suggestions sur la façon d’améliorer le modèle existant, ou si vous aimeriez ajouter d’autres modèles fondés sur les exigences d’organismes de financement ou les besoins des disciplines, communiquez avec nous à <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Builder%20inquiry'>portage@carl-abrc.ca</a>."
       confirmation_button_text: "Oui, créer un plan"  
       project_details_text_html: "Cette page vous donne un aperçu de votre plan. Elle indique les éléments sur lesquels votre plan s’appuie et donne un aperçu des questions qui vous seront posées."
       project_details_editing_text_html: "Indiquez ci-dessous les renseignements de base sur le projet et cliquez sur « Enregistrer » pour les enregistrer."
       confirm_delete_text: "Êtes-vous sûr de vouloir supprimer ce plan? En supprimant le plan de votre liste, il sera également supprimé de la liste de plans des personnes avec lesquelles le plan est partagé, le cas échéant."
       confirmation_text: "Confirmer les renseignements sur le plan"
-      confirmation_text_desc: "Vous utilisez le modèle générique de gestion des données de l’Université de l’Alberta. Si vous avez des suggestions sur la façon d’améliorer le modèle existant, ou si vous aimeriez ajouter d’autres modèles fondés sur les exigences d’organismes de financement ou les besoins des disciplines, communiquez avec nous à <a href='mailto:data@ualberta.ca?Subject=DMP%20Builder%20inquiry'>data@ualberta.ca</a>."
+      confirmation_text_desc: "Vous utilisez le modèle générique de gestion des données de l’Université de l’Alberta. Si vous avez des suggestions sur la façon d’améliorer le modèle existant, ou si vous aimeriez ajouter d’autres modèles fondés sur les exigences d’organismes de financement ou les besoins des disciplines, communiquez avec nous à <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Builder%20inquiry'>portage@carl-abrc.ca</a>."
       
       confirmation_button_text: "Oui, créer un plan"
       default_confirmation_text_desc: "Vous avez sélectionné le plan de gestion des données par défaut, qui est établi en fonction de la liste de vérification du DCC. Vous avez ainsi accès à une série générale de questions et de directives sur le plan de gestion des données. Pour de plus amples renseignements, consultez la : <a href='http://www.dcc.ac.uk/sites/default/files/documents/resource/DMP_Checklist_2013.pdf' target='_blank'>DMP checklist 2013 (Liste de vérification 2013 pour un plan de gestion des données)</a>."
@@ -514,7 +514,7 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
       share:
         tab_share: "Partager"
         shared_label: "Partagé?"
-        share_text_html: "<p>Vous pouvez permettre aux autres d’avoir accès à votre plan. Il y a trois niveaux d’autorisation.<ul><li>Les utilisateurs ayant un accès en \"lecture seule\" peuvent seulement lire le plan.</li><li>Les éditeurs peuvent collaborer au plan.</li><li>Les copropriétaires peuvent également collaborer au plan, en plus de pouvoir modifier les renseignements sur le plan et contrôler l’accès au plan.</li></ul></p><p>Ajoutez chaque collaborateur à tour de rôle en indiquant son adresse électronique ci-dessous, en choisissant un niveau d’autorisation et en cliquant sur \"Ajouter un collaborateur\".</p><p> Les personnes invitées recevront un avis par courriel pour les informer qu’elles ont accès à ce plan et pour les inviter à s’inscrire à DMP Builder si elles n’ont pas déjà un compte. Un avis est également émis lorsque le niveau d’autorisation d’un utilisateur est modifié.</p>"
+        share_text_html: "<p>Vous pouvez permettre aux autres d’avoir accès à votre plan. Il y a trois niveaux d’autorisation.<ul><li>Les utilisateurs ayant un accès en \"lecture seule\" peuvent seulement lire le plan.</li><li>Les éditeurs peuvent collaborer au plan.</li><li>Les copropriétaires peuvent également collaborer au plan, en plus de pouvoir modifier les renseignements sur le plan et contrôler l’accès au plan.</li></ul></p><p>Ajoutez chaque collaborateur à tour de rôle en indiquant son adresse électronique ci-dessous, en choisissant un niveau d’autorisation et en cliquant sur \"Ajouter un collaborateur\".</p><p> Les personnes invitées recevront un avis par courriel pour les informer qu’elles ont accès à ce plan et pour les inviter à s’inscrire à Assistant PGD si elles n’ont pas déjà un compte. Un avis est également émis lorsque le niveau d’autorisation d’un utilisateur est modifié.</p>"
         collaborators: "Collaborateurs"
         add_collaborator: "Ajouter un collaborateur"
         add: "Ajouter"
@@ -531,7 +531,7 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
         permission_email_text: "<p>Les droits d'accès au projet DMP '%{project_link}' ont été changés. Vous avez maintenant un accès %{access_level}.</p>"
         access_removed_email_text: "<p>Votre droit d'accès au projet DMP '%{project_title}' a été révoqué.</p>"
       export:
-        generated_by: "Ce document a été généré par DMP Builder (http://dmp.library.ualberta.ca)"
+        generated_by: "Ce document a été généré par Assistant PGD (http://dmp.library.ualberta.ca)"
         admin_details: "Renseignements administratifs"
       create_page: 
         title: "Créer un nouveau plan"
@@ -566,7 +566,7 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
       export:
         pdf:
           question_not_answered: Question sans réponse.
-          generated_by: Ce document a été généré par DMP Builder (http://dmp.library.ualberta.ca)
+          generated_by: Ce document a été généré par Assistant PGD (http://dmp.library.ualberta.ca)
         space_used: "Environ %{space_used}% de l’espace disponible utilisé (%{num_pages} pages maximum)"
         project_name: "Nom du projet"
         project_identifier: "Identifiant du projet"
@@ -626,7 +626,7 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
       access_removed: "Plan de gestion de données : accès révoqué"
       
   about_page:
-    title: "À propos de DMP Builder"
+    title: "À propos de Assistant PGD"
     tab_1: "Historique"
     tab_2: "Actualités"
     body_text_tab_1_html: "<div class='white_background'>
@@ -634,38 +634,38 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
     On demande de plus en plus aux chercheurs de rédiger des plans de gestion des données. L’Université de l’Alberta a adopté une <a href='https://policiesonline.ualberta.ca/PoliciesProcedures/Procedures/Research-Records-Stewardship-Guidance-Procedure.pdf' target='_blank'>research records stewardship policy (politique de gestion des documents de recherche)</a> qui décrit la façon de gérer et de préserver les données de recherche et les documents connexes. La présentation de plans de gestion des données (PGD) fait de plus en plus souvent partie des exigences liées à la subvention des organismes de financement. 
     </p>
     <p>
-    Le service des bibliothèques de l’Université de l’Alberta met cet outil pour les plans de gestion des données (DMP Builder) à la disposition des chercheurs afin de les aider dans le cadre du processus de planification de la gestion des données. Cet outil est fourni par l’entremise de DMPOnline, qui est conçu par le <a href='http://www.dcc.ac.uk/' target='_blank'>Digital Curation Centre</a> au Royaume-Uni. Toutes les données sont hébergées localement à l’Université de l’Alberta. Consultez nos <a href='/terms?locale=fr'>conditions d’utilisation</a> pour de plus amples renseignements. 
+    Le service des bibliothèques de l’Université de l’Alberta met cet outil pour les plans de gestion des données (Assistant PGD) à la disposition des chercheurs afin de les aider dans le cadre du processus de planification de la gestion des données. Cet outil est fourni par l’entremise de DMPOnline, qui est conçu par le <a href='http://www.dcc.ac.uk/' target='_blank'>Digital Curation Centre</a> au Royaume-Uni. Toutes les données sont hébergées localement à l’Université de l’Alberta. Consultez nos <a href='/terms?locale=fr'>conditions d’utilisation</a> pour de plus amples renseignements. 
     </p>
     </div>
     <h3>Fonctionnement de l’outil</h3>
     <div class='white_background'>
     <p>À l’heure actuelle, cet outil comprend un modèle générique de plan de gestion des données de l’Université de l’Alberta que les chercheurs peuvent utiliser. Des directives sont fournies afin de vous aider à interpréter les questions et à y répondre.</p>
-    <p>Nous souhaitons obtenir vos commentaires! Si vous avez des suggestions sur la façon d’améliorer le modèle existant, ou si vous aimeriez ajouter d’autres modèles fondés sur les exigences d’organismes de financement ou les besoins des disciplines, communiquez avec nous à <a href='mailto:data@ualberta.ca?Subject=DMP%20Builder%20feedback'>data@ualberta.ca</a>.
+    <p>Nous souhaitons obtenir vos commentaires! Si vous avez des suggestions sur la façon d’améliorer le modèle existant, ou si vous aimeriez ajouter d’autres modèles fondés sur les exigences d’organismes de financement ou les besoins des disciplines, communiquez avec nous à <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Builder%20feedback'>portage@carl-abrc.ca</a>.
     </p>
     </div>
     <h3>Démarrer</h3>
     <div class='white_background'>
     
     <p>Si vous avez un compte, connectez-vous et commencez par créer ou modifier votre plan de gestion des données.</p>
-    <p> Si vous ne possédez pas de compte DMP Builder, cliquez sur <a href='/?locale=fr'>« S’inscrire »</a> dans la page d’accueil.</p>
+    <p> Si vous ne possédez pas de compte Assistant PGD, cliquez sur <a href='/?locale=fr'>« S’inscrire »</a> dans la page d’accueil.</p>
     <p>Veuillez prendre note que nous travaillons actuellement à l’authentification de l’identifiant informatique (CCID). Vous pourrez associer votre compte existant à votre CCID dès que la fonction sera disponible.</p>
     <p>Visitez la page <a href='/help?locale=fr'>« Aide »</a> pour obtenir des directives.</p>
     </div>
     <h3>Commentaires</h3>
     <div class='white_background'>
-    <p>Si vous avez des questions ou des commentaires au sujet de DMP Builder, communiquez avec nous par courriel à <a href='mailto:data@ualberta.ca?Subject=DMP%20Builder%20feedback'>data@ualberta.ca</a>.</p>
+    <p>Si vous avez des questions ou des commentaires au sujet de Assistant PGD, communiquez avec nous par courriel à <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Builder%20feedback'>portage@carl-abrc.ca</a>.</p>
     </div>"
     body_text_tab_2_html: "<p>Actualités provenant du site web DCC</p></br>"     
     
 
   help_page:
     title: "Aide"
-    tab_1: "Concernant DMP Builder"
+    tab_1: "Concernant Assistant PGD"
     tab_2: "Concernant la planification de la gestion des données"
-    body_text_tab_2_html: "<p>Le service des bibliothèques de l’Université de l’Alberta a mis au point un <a href='http://guides.library.ualberta.ca/researchdata'>research data management guide (guide sur la gestion des données de recherche)</a> qui peut fournir d’autres directives sur la planification de la gestion des données. Si vous avez besoin de plus de directives, communiquez avec nous par courriel à <a href='mailto:data@ualberta.ca?Subject=DMP%20Builder%20help'>data@ualberta.ca</a>.</p>"
+    body_text_tab_2_html: "<p>Le service des bibliothèques de l’Université de l’Alberta a mis au point un <a href='http://guides.library.ualberta.ca/researchdata'>research data management guide (guide sur la gestion des données de recherche)</a> qui peut fournir d’autres directives sur la planification de la gestion des données. Si vous avez besoin de plus de directives, communiquez avec nous par courriel à <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Builder%20help'>portage@carl-abrc.ca</a>.</p>"
 
 
-    body_text_tab_1_html: "<p>Lorsque vous vous connectez à DMP Builder, vous serez dirigé vers la page « Mes plans ». À partir de cette page, vous pouvez modifier, partager, exporter ou supprimer l’un ou l’autre de vos plans. Vous verrez également les plans qui ont été partagés avec vous par d’autres personnes.</p>
+    body_text_tab_1_html: "<p>Lorsque vous vous connectez à Assistant PGD, vous serez dirigé vers la page « Mes plans ». À partir de cette page, vous pouvez modifier, partager, exporter ou supprimer l’un ou l’autre de vos plans. Vous verrez également les plans qui ont été partagés avec vous par d’autres personnes.</p>
     <h3>Créer un plan</h3>
     <p>Pour créer un plan, cliquez sur le bouton « Créer un plan » à la page « Mes plans » ou dans le menu du haut. Faites des choix dans les listes déroulantes et les cases à cocher afin de déterminer les questions et les directives qui seront affichées. Confirmez votre choix en cliquant sur « Oui, créer un plan ».</p>
     <h3>Rédiger votre plan</h3>
@@ -682,11 +682,11 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
     <h3>Partager les plans</h3>
     <p>Inscrivez l’adresse électronique de tout collaborateur que vous aimeriez inviter à lire ou à modifier votre plan. Choisissez le niveau d’autorisation que vous souhaitez lui accorder dans les options de la liste déroulante et cliquez sur « Ajouter un collaborateur ».</p>
     <h3>Exporter les plans</h3>
-    <p>En choisissant cette option, vous pouvez télécharger votre plan en divers formats, ce qui peut être utile si vous devez joindre votre plan à une demande de subvention. Choisissez le format dans lequel vous aimeriez voir ou télécharger votre plan et cliquez pour l’exporter. Lorsque vous vous connectez à DMP Builder, vous êtes dirigé vers la page « Mes plans ». À partir de cette page, vous pouvez modifier, partager, exporter ou supprimer l’un ou l’autre de vos plans. Vous voyez également les plans qui ont été partagés avec vous par d’autres personnes.</p>"
+    <p>En choisissant cette option, vous pouvez télécharger votre plan en divers formats, ce qui peut être utile si vous devez joindre votre plan à une demande de subvention. Choisissez le format dans lequel vous aimeriez voir ou télécharger votre plan et cliquez pour l’exporter. Lorsque vous vous connectez à Assistant PGD, vous êtes dirigé vers la page « Mes plans ». À partir de cette page, vous pouvez modifier, partager, exporter ou supprimer l’un ou l’autre de vos plans. Vous voyez également les plans qui ont été partagés avec vous par d’autres personnes.</p>"
 
   contact_page:
     title: "Communiquez avec nous"
-    intro_text_html: "<p>L’outil DMP Builder est offert par le service des bibliothèques de l’Université de l’Alberta. Vous trouverez de plus amples renseignements à notre sujet sur la <a href='http://library.ualberta.ca/researchdata/' target='_blank'>Research Data Management page (page de gestion des données de recherche)</a>. Si vous souhaitez communiquer avec nous au sujet de DMP Builder, inscrivez votre demande dans le formulaire Web ci-dessous ou communiquez avec nous par courriel <a href='mailto:data@ualberta.ca?Subject=DMP%20Builder%20inquiry' target='_top'>data@ualberta.ca</a>.</p>
+    intro_text_html: "<p>L’outil Assistant PGD est offert par le service des bibliothèques de l’Université de l’Alberta. Vous trouverez de plus amples renseignements à notre sujet sur la <a href='http://library.ualberta.ca/researchdata/' target='_blank'>Research Data Management page (page de gestion des données de recherche)</a>. Si vous souhaitez communiquer avec nous au sujet de Assistant PGD, inscrivez votre demande dans le formulaire Web ci-dessous ou communiquez avec nous par courriel <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Builder%20inquiry' target='_top'>portage@carl-abrc.ca</a>.</p>
      <p><a href='http://library.ualberta.ca/askus/' target='_blank'>Communiquez avec nous</a></p>"
   
   terms_page:
@@ -694,16 +694,16 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
     body_text_html: "
     
     <div class='white_background'>
-    <p>L’outil DMP Builder du service des bibliothèques de l’Université de l’Alberta est fourni grâce à une application à code source libre appelée <a href='https://dmponline.dcc.ac.uk'>DMPOnline</a> qui a été mise au point par le Digital Curation Centre (DCC) et partagée en vertu de la <a href='http://www.gnu.org/licenses/agpl-3.0.html'>AGPL license (licence publique générale Affero).</a></p>
+    <p>L’outil Assistant PGD du service des bibliothèques de l’Université de l’Alberta est fourni grâce à une application à code source libre appelée <a href='https://dmponline.dcc.ac.uk'>DMPOnline</a> qui a été mise au point par le Digital Curation Centre (DCC) et partagée en vertu de la <a href='http://www.gnu.org/licenses/agpl-3.0.html'>AGPL license (licence publique générale Affero).</a></p>
 
-    <p>Dans la mesure du possible en vertu de la loi, le service des bibliothèques de l’Université de l’Alberta a renoncé à tous les droits d’auteur et les droits connexes ou voisins sur le contenu du site Web DMP Builder et les modèles de planification de la gestion des données (mais pas sur les plans mêmes) en vertu d’une <a href='http://creativecommons.org/publicdomain/zero/1.0/deed.fr'>Creative Commons Zero License (licence Creative Commons Zéro).</a></p>
+    <p>Dans la mesure du possible en vertu de la loi, le service des bibliothèques de l’Université de l’Alberta a renoncé à tous les droits d’auteur et les droits connexes ou voisins sur le contenu du site Web Assistant PGD et les modèles de planification de la gestion des données (mais pas sur les plans mêmes) en vertu d’une <a href='http://creativecommons.org/publicdomain/zero/1.0/deed.fr'>Creative Commons Zero License (licence Creative Commons Zéro).</a></p>
 
     <p><a href='http://creativecommons.org/publicdomain/zero/1.0/'><img src='http://i.creativecommons.org/p/zero/1.0/88x31.png' alt='CC0' /></a></p>
     </div>
 
     <h3>Vos renseignements personnels</h3>
     <div class='white_background'>
-      <p>Le service des bibliothèques de l’Université de l’Alberta héberge DMP Builder et conserve vos plans de gestion des données en votre nom, mais les plans vous appartiennent et sont sous votre responsabilité. Les renseignements conservés par DMP Builder sont régis par la <a href='http://www.library.ualberta.ca/privacy/'>politique de confidentialité du Site Web</a> du service des bibliothèques de l’Université de l’Alberta.</p>
+      <p>Le service des bibliothèques de l’Université de l’Alberta héberge Assistant PGD et conserve vos plans de gestion des données en votre nom, mais les plans vous appartiennent et sont sous votre responsabilité. Les renseignements conservés par Assistant PGD sont régis par la <a href='http://www.library.ualberta.ca/privacy/'>politique de confidentialité du Site Web</a> du service des bibliothèques de l’Université de l’Alberta.</p>
     </div>
 
     <h3>Mots de passe</h3>
