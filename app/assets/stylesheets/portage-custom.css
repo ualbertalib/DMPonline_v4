@@ -15,6 +15,30 @@ html, body {
   content: "";
   display: block;
 }
+
+p.step{
+  font-size: 15px;
+  line-height: 25px;
+  font-weight: bold;
+}
+
+p.home-description{
+  line-height: 25px;
+  font-weight: normal
+  font-size: 18px;
+}
+
+ul.list{
+  list-style:disc;
+  line-height: 24px;
+}
+
+li.list{
+  line-height: 24px;
+  list-style-position: inside;
+}
+
+
 footer, .wrap:after{
   /* .push must be the same height as footer */
   height: 80px; 
@@ -156,4 +180,20 @@ background: -moz-linear-gradient(top, #FFFFFF 0%, #F4F4F4 100%);
 .screencast_home_page a {
 	box-shadow: none;
 	font-size:18px;
+}
+#project-tabs li.tips a{
+  background-color: #FB9C26;
+  border: 1px solid #FB9C26;
+  padding: 4px 20px 4px 20px;
+  text-decoration: none !important;
+}
+.tips_body {
+  background-color: #ffffff;
+  border: 2px solid #FB9C26;
+  border-radius: 1px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+  min-width: 300px;
 }

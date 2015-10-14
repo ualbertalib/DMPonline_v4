@@ -2,12 +2,15 @@
 	<div class="home_left_column">	
 		<div class="welcome-message">
 			
-			<h2><%= raw t('welcome_title')%></h2>
+<!--			<h2><%= raw t('welcome_title')%></h2> -->
 			<%= raw t('welcome_text')%>
-			<div class="screencast_home_page">
-			<%= raw t('welcome_links')%>
-			</div>
-			
+                        <p class="step"><%= image_tag('/assets/step_1.jpg', width:'50', height:'50', :alt => "step 1") %><%= raw t('step_1')%></br>
+                        <%= image_tag('/assets/step_2.jpg', width:'50', height:'50', :alt => "step 2") %><%= raw t('step_2')%></br>
+                        <%= image_tag('/assets/step_3.jpg', width:'50', height:'50', :alt => "step 3") %><%= raw t('step_3')%></br>
+                        <%= image_tag('/assets/step_4.jpg', width:'50', height:'50', :alt => "step 4") %><%= raw t('step_4')%></p>
+
+<!--			<p class="home-description"><%= raw t('welcome_links')%></p>
+-->			
 		</div>
 	</div>
 	<div class="home_right_column">	
