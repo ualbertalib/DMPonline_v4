@@ -300,14 +300,6 @@ user_org_roles.each do |r, details|
 end 
 
 templates = {
-  "University of Alberta" => {
-    title: "University of Alberta Template", 
-    description: "This is the generic DMP template for University of Alberta.",
-    published: true, 
-    organisation: "University of Alberta",
-    locale: "en", 
-    is_default: true
-  },
   "Portage" => {
     title: "Portage Template",
     description: "This is the generic DMP template for Portage.",
@@ -315,7 +307,16 @@ templates = {
     organisation: "Portage",
     locale: "en",
     is_default: true
-  }
+  },
+  "University of Alberta" => {
+    title: "University of Alberta Template",
+    description: "This is the generic DMP template for University of Alberta.",
+    published: true,
+    organisation: "University of Alberta",
+    locale: "en",
+    is_default: true
+  },
+
 }
 
  templates.each do |t, details|

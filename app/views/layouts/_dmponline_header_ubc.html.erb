@@ -5,8 +5,16 @@
 		<div class="home_logo">
 			<%= link_to( image_tag('UBC_logo.png'), "http://www.ubc.ca")%>
 		</div>
-<h3 class="subhead"><a href="http://dmp.library.ualberta.ca">A Tool for Data Management Plans</a></h3>
+<h3 class="subhead"><a href="http://www.portagenetwork.ca"><%= t("subhead") %></a></h3>
 	</div>
+                  <div class="header_center">
+                   <% if I18n.locale == :en %>
+                      <%= link_to "Version française", locale:"fr", :class => "btn header_button btn-primary" %>
+                   <% elsif I18n.locale == :fr %>
+                       <%= link_to "English Version", locale: "en",  :class => "btn header_button btn-primary" %>
+                   <% end %>
+                </div>
+
 	<div class="header_right">	
 		<div class="signIn">
 			<ul class="navbar">

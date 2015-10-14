@@ -21,6 +21,7 @@
 	<ul class="nav nav-tabs" data-tabs="tabs">
 		<li class="active"><%= link_to t('help_page.tab_1'), "#DMPonlinehelp", :data => { :toggle => "tab"} %></li>
         <li><%= link_to t('help_page.tab_2'), "#DMPhelp", :data => { :toggle => "tab"} %></li>
+        <li><%= link_to t('help_page.tab_3'), "#contact_info", :data => { :toggle => "tab"} %></li>
 	</ul>
 </div>
 <div class="dmp_details_body">
@@ -30,6 +31,10 @@
 		</div>	
 		<div class="tab-pane" id="DMPhelp">
 			<%= raw t('help_page.body_text_tab_2_html')%>
-		</div>		
+		</div>
+                <div class="tab-pane" id="contact_info">
+                        <%= raw t('help_page.body_text_tab_3_html')%>
+                </div>
+		
 	</div>
 </div>	

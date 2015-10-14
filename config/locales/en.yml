@@ -30,13 +30,19 @@ en:
     am: "am"
     pm: "pm"
 
-  tool_title: "DMP Builder - University of Alberta Libraries"
-  dmponline3_text: "DMP Builder previous version" 
+  tool_title: "DMP Assistant - Portage Network"
+  dmponline3_text: "DMP Assistant" 
+  subhead: "Shared expertise in and stewardship of research data"
   dcc_name: "Digital Curation Centre"
   welcome_title: "Welcome."
-  welcome_text: "<p>DMP Builder is provided by the University of Alberta Libraries to help you write data management plans.</p>"
-  welcome_links: "<p><a href='http://guides.library.ualberta.ca/content.php?pid=524929&sid=4318282' target='_blank'>Learn about Data Management Plans</a><br/><a href='https://dataverse.library.ualberta.ca' target='_blank'>Looking to share your research data?</a><br/><a href='http://library.ualberta.ca/researchdata' target='_blank'>Find out more about the Libraries\' research data services</a></p>"
-  ccid_message: "Please note that we are currently working on CCID authentication.  Please create a new DMP Builder account.  You will have the option to link your existing account to your CCID when that feature becomes available."
+  welcome_text: "<p><b>DMP Assistant</b> is a bilingual tool for preparing data management plans (DMPs). The tool follows best practices in data stewardship and walks researchers step-by-step through key questions about data management. </p>"
+  #welcome_links: "<p><a href='http://guides.library.ualberta.ca/content.php?pid=524929&sid=4318282' target='_blank'>Learn about Data Management Plans</a><br/><a href='https://dataverse.library.ualberta.ca' target='_blank'>Looking to share your research data?</a><br/><a href='http://library.ualberta.ca/researchdata' target='_blank'>Find out more about the Libraries\' research data services</a></p>"
+  step_1: "  Sign up with DMP Assistant"
+  step_2: "  Sign in and select a template under Organizations. The Portage template is the default."
+  step_3: "  Answer the questions that are relevant to your work. Guidance and examples are provided. "
+  step_4: "  Revisit the tool throughout your research to review or revise your answers."
+  welcome_links: "The Portage Data Stewardship template is based on internationally accepted standards and best practices. It has been prepared and is maintained by a group of research data management experts from research libraries across Canada."
+  ccid_message: "Please note that we are currently working on single sign-in authentication. For now, please create a new DMP Assistant account. You will have the option to link your DMP Assistant account to your campus ID when that feature becomes available."
   
   screencast_error_text: "Your browser does not support the video tag."
   none: "None"
@@ -278,13 +284,13 @@ en:
 
     greeting: "Hello"
     sign_in: "Sign in"
-    sign_in_text: "If you have an existing account."
+    sign_in_text: "If you have an existing account with DMP Assistant or previous version of DMP Builder."
     sign_out: "Sign out"
     sign_up: "Sign up"
-    sign_up_text: "New to DMP Builder? Sign up today."
+    sign_up_text: "New to DMP Assistant? Sign up today."
     signed_in: "Signed in as "
     institution_sign_in_link: "Or, sign in with your institutional credentials"
-    institution_sign_in: "CCID authentication coming soon!"
+    institution_sign_in: "Campus ID single sign-in authentication coming soon!"
         
 
     user_name: "Email address"
@@ -357,13 +363,13 @@ en:
     owner: "Owner"
     orcid_id: "ORCID number"
     orcid_html: "ORCID number is a persistent digital identifier that distinguishes each researcher, <a href='http://orcid.org/content/initiative' target='_blank' rel='external' class='a_orange'>more info</a>."
-    sign_up_shibboleth_alert_text_html: "Note: If you have previously created an account in DMP Builder, and you want to link this to your institutional credentials, you need to <a href='/?locale=en' class='a_orange'>Sign in</a> to that existing DMP Builder account first. If you have never created a DMPonline account, then please complete the form below."
+    sign_up_shibboleth_alert_text_html: "Note: If you have previously created an account in DMP Assistant, and you want to link this to your institutional credentials, you need to <a href='/?locale=en' class='a_orange'>Sign in</a> to that existing DMP Assistant account first. If you have never created a DMPonline account, then please complete the form below."
     shibboleth_linked_text: "Your account is linked to your institutional credentials."
-    shibboleth_to_link_text: "Link your DMP Builder account to your institutional credentials"
-    shibboleth_to_link_question: "link your DMP Builder account to your institutional credentials?"
+    shibboleth_to_link_text: "Link your DMP Assistant account to your institutional credentials"
+    shibboleth_to_link_question: "link your DMP Assistant account to your institutional credentials?"
     shibboleth_unlink_label: "Unlink your institutional credentials"
     shibboleth_unlink_alert: "Unlink institutional credentials alert"
-    shibboleth_unlink_dialog_text: "<p>You are about to unlink DMP Builder of your institutional credentials, would you like to continue?</p>"
+    shibboleth_unlink_dialog_text: "<p>You are about to unlink DMP Assistant of your institutional credentials, would you like to continue?</p>"
     shibboleth_wait_confirmation: "Currently waiting confirmation for:"
 
     section_label: "Section"
@@ -471,6 +477,8 @@ en:
       multi_templates: "There are a number of possible templates you could use. Please choose one."
       project_name: "Plan name"
       my_project_name: "My plan"
+      tips_label: "Tips"
+      tips_text: "<p>Not all questions will apply to all research projects. Researchers are encouraged to answer the questions relevant to their work. </p><p>Researchers should revisit the tool throughout their research to review or complete their responses.</p>"
       success: "Plan was successfully created."
       principal_investigator: "Principal Investigator/Researcher"
       principal_investigator_help_text: "Name of Principal Investigator(s) or main researcher(s) on the project."
@@ -499,13 +507,13 @@ Select what format you wish to use and click to 'Export'.</p>"
       project_text_when_no_project: "<p><strong>Welcome.</strong></br> You are now ready to create your first DMP.</br>Click the 'Create plan' button below to begin.</p>"
       project_text_when_project: "<p>The table below lists the plans that you have created, and any that have been shared with you by others.</br>These can be edited, shared, exported or deleted at anytime.</p>"
       confirmation_text: "Confirm plan details"   
-      confirmation_text_desc: "You are using the generic University of Alberta data management template. If you have suggestions on how to improve the existing template, or if you would like to add additional templates based on funding agency requirements or disciplinary needs, please contact us at <a href='mailto:data@ualberta.ca?Subject=DMP%20Builder%20inquiry'>data@ualberta.ca</a>."
+      confirmation_text_desc: "You are using the generic Portage Data Stewardship template. If you have suggestions on how to improve the existing template, or if you would like to add additional templates based on funding agency requirements or disciplinary needs, please contact us at <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Assistant%20inquiry'>portage@carl-abrc.ca</a>."
       confirmation_button_text: "Yes, create plan"  
       project_details_text_html: "This page gives you an overview of your plan. It tells what your plan is based on and gives an overview of the questions that you will be asked."
       project_details_editing_text_html: "<b>Please fill in the basic project details below and click 'Save' to save</b>"
       confirm_delete_text: "Are you sure you wish to delete this plan? If the plan is being shared with other users, by deleting it from your list, the plan will be deleted from their plan list as well"
       confirmation_text: "Confirm plan details"
-      confirmation_text_desc: "You are using the generic University of Alberta data management template. If you have suggestions on how to improve the existing template, or if you would like to add additional templates based on funding agency requirements or disciplinary needs, please contact us at <a href='mailto:data@ualberta.ca?Subject=DMP%20Builder%20inquiry'>data@ualberta.ca</a>."
+      confirmation_text_desc: "You are using the generic Portage Data Stewardship template. If you have suggestions on how to improve the existing template, or if you would like to add additional templates based on funding agency requirements or disciplinary needs, please contact us at <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Assistant%20inquiry'>portage@carl-abrc.ca</a>."
       
       confirmation_button_text: "Yes, create plan"
       default_confirmation_text_desc: "You have selected the Default DMP, which is based on the DCC Checklist. This offers a generic set of DMP questions and guidance. For more details see: <a href='http://www.dcc.ac.uk/sites/default/files/documents/resource/DMP_Checklist_2013.pdf' target='_blank'>DMP checklist 2013</a>."
@@ -514,7 +522,7 @@ Select what format you wish to use and click to 'Export'.</p>"
       share:
         tab_share: "Share"
         shared_label: "Shared?"
-        share_text_html: "<p>You can give other people access to your plan here. There are three permission levels.<ul><li>Users with \"read only\" access can only read the plan.</li><li>Editors can contribute to the plan.</li><li>Co-owners can also contribute to the plan, but additionally can edit the plan details and control access to the plan.</li></ul></p><p>Add each collaborator in turn by entering their email address below, choosing a permission level and clicking \"Add collaborator\".</p><p>Those you invite will receive an email notification that they have access to this plan, inviting them to register with DMP Builder if they don't already have an account. A notification is also issued when a user's permission level is changed.</p>"
+        share_text_html: "<p>You can give other people access to your plan here. There are three permission levels.<ul><li>Users with \"read only\" access can only read the plan.</li><li>Editors can contribute to the plan.</li><li>Co-owners can also contribute to the plan, but additionally can edit the plan details and control access to the plan.</li></ul></p><p>Add each collaborator in turn by entering their email address below, choosing a permission level and clicking \"Add collaborator\".</p><p>Those you invite will receive an email notification that they have access to this plan, inviting them to register with DMP Assistant if they don't already have an account. A notification is also issued when a user's permission level is changed.</p>"
         collaborators: "Collaborators"
         add_collaborator: "Add collaborator"
         add: "Add"
@@ -531,17 +539,17 @@ Select what format you wish to use and click to 'Export'.</p>"
         permission_email_text: "<p>Your permissions relating to the DMP '%{project_link}' have changed. You now have %{access_level} access.</p>"
         access_removed_email_text: "<p>Your access to the DMP '%{project_title}' has been removed.</p>"
       export:
-        generated_by: "This document was generated by DMP Builder (http://dmp.library.ualberta.ca)"
+        generated_by: "This document was generated by DMP Assistant (http://www.portagenetwork.ca)"
         admin_details: "Admin Details"
       create_page: 
         title: "Create a new plan"
         desc_html: "<p>Please select from the following drop-downs so we can determine what questions and guidance should be displayed in your plan.</p>
-        <p>If you aren't responding to specific requirements from a funder or an institution, <a id='create-default-plan-button' data-toggle='modal' href='#default-template-confirmation-dialog'>select here to write a generic DMP</a> based on the most common themes.</p>"
+        <p>If you aren't responding to specific requirements from a funder or an institution, you can choose the <b>Portage Data Stewardship Template</b>. The Portage Data Stewardship Template is based on internationally accepted standards and best practices. It has been prepared and is maintained by a group of research data management experts from research libraries across Canada. </p>"
         default_template: "Default DMP"
         funders_question: "If applying for funding, select your research funder."
         funders_question_description: "Otherwise leave blank."
         institution_question: "To see institutional questions and/or guidance, select your organization."
-        institution_question_description: "You may leave blank or select a different organization to your own."
+        institution_question_description: "You may leave blank or select a different organization to your own. If you leave blank, default Portage DMP template will be used"
         other_guidance_question: "Tick to select any other sources of guidance you wish to see."  
         other_funder_name_label: "Name of funder, if applicable."
       configure: "Configure"
@@ -626,46 +634,54 @@ Select what format you wish to use and click to 'Export'.</p>"
       access_removed: "DMP access removed"
 
   about_page:
-    title: "About the DMP Builder"
-    tab_1: "Background"
-    tab_2: "Latest news"
+    title: "About the DMP Assistant"
+    tab_1: "DMP Assistant"
+    tab_2: "Portage Data Stewardship Template"
     body_text_tab_1_html: "<div class='white_background'>
     <p>
-    There is a growing call for researchers to prepare data management plans. The University of Alberta has adopted a <a href='https://policiesonline.ualberta.ca/PoliciesProcedures/Procedures/Research-Records-Stewardship-Guidance-Procedure.pdf' target='_blank'>research records stewardship policy</a>, which describes how research data and associated records should be managed and preserved. It is also becoming more common for funding agencies to ask for data management plans (DMP) as part of grant requirements.
+      DMP Assistant is an all-purpose tool for preparing data management plans (DMPs).
     </p>
-    <p>
-    The University of Alberta Libraries has provided this tool for data management plans (DMP Builder) to help researchers with  data management planning process. This tool is powered by DMPOnline, which is produced by the <a href='http://www.dcc.ac.uk/' target='_blank'>Digital Curation Centre</a> in the UK.  All data is locally hosted here at the University of Alberta.  See our <a href='/terms?locale=en'>terms of use</a> for more information. 
-    </p>
+    <p>Researchers will be guided through best practices in data stewardship. </p>
+    <ul class='list'>
+    <li class='list'>The tool walks researchers step-by-step through a number of key questions about data management.
+    <li class='list'>Guidance and examples are provided.  
+    <li class='list'>Not all questions will apply to all research projects. Researchers are encouraged to answer the questions relevant to their work.
+    <li class='list'>Researchers should revisit the tool throughout their research to review or complete their responses.
+    </ul>
     </div>
     <h3>How the tool works</h3>
     <div class='white_background'>
-    <p>Currently, this tool includes a generic University of Alberta DMP template for researchers to use.  Guidance is provided to help you interpret and answer the questions.</p>
-    <p>We want your feedback! If you have suggestions on how to improve the existing template, or you would like to add additional templates based on funding agency requirements or disciplinary needs, please contact us at <a href='mailto:data@ualberta.ca?Subject=DMP%20Builder%20feedback'>data@ualberta.ca</a>.
+    <p>Currently, this tool includes a generic Portage Data Stewardship template for researchers to use.  Guidance is provided to help you interpret and answer the questions.</p>
+    <p>We want your feedback! If you have suggestions on how to improve the existing template, or you would like to add additional templates based on funding agency requirements or disciplinary needs, please <a href="help#contact_info?locale=en">contact your local institution</a> or contact us at <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Assistant%20feedback'>portage@carl-abrc.ca</a>.
     </p>
     </div>
     <h3>Getting Started</h3>
     <div class='white_background'>
     
     <p>If you have an account, please sign in and start creating or editing your DMP.</p>
-    <p>If you do not have a DMP Builder account, click on <a href='/?locale=en'>'Sign up'</a> on the homepage.</p>
-    <p>Please note that we are currently working on CCID authentication. You will have the option to link your existing account to your CCID when that feature becomes available.</p>
+    <p>If you do not have a DMP Assistant account, click on <a href='/?locale=en'>'Sign up'</a> on the homepage.</p>
+    <p>Please note that we are currently working on single sign-in authentication with your campus ID. You will have the option to link your existing account to your campus ID when that feature becomes available.</p>
     <p>Please visit the <a href='/help?locale=en'>'Help'</a> page for guidance.</p>
     </div>
     <h3>Feedback</h3>
     <div class='white_background'>
-    <p>If you have any questions or comments about the DMP Builder, email us at <a href='mailto:data@ualberta.ca?Subject=DMP%20Builder%20feedback'>data@ualberta.ca</a>.</p>
+    <p>If you have any questions or comments about the DMP Assistant, <a href="help#contact_info?locale=en">contact your local institution</a> or email us at <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Assistant%20feedback'>portage@carl-abrc.ca</a>.</p>
     </div>"
-    body_text_tab_2_html: "<p>DMPonline stories from the DCC website</p></br>" 
+    body_text_tab_2_html: "<p>The Portage Data Stewardship template is based on internationally accepted standards and best practices. It has been prepared and is maintained by a group of research data management experts from research libraries across Canada.
+</p><p>
+Organizations may provide their own DMP templates. The Portage template is the default DMP. Select templates from other organizations from the drop-down Organization list.</p>
+<p>For funding agencies, research institutions, and other organizations, please contact <a href='mailto:portage@carl-abrc.ca'>portage@carl-abrc.ca</a> if you would like to add your organization templates to DMP Assistant.</p>" 
     
 
   help_page:
     title: "Help"
-    tab_1: "On DMP Builder"
+    tab_1: "On DMP Assistant"
     tab_2: "On data management planning"
-    body_text_tab_2_html: "<p>The University of Alberta Libraries <a href='http://guides.library.ualberta.ca/researchdata'>research data management guide</a> can provide additional guidance on data management planning. If you require more guidance, email <a href='mailto:data@ualberta.ca?Subject=DMP%20Builder%20help'>data@ualberta.ca</a>.</p>"
+    tab_3: "Contact info at your organization"
+    body_text_tab_2_html: "<p>The University of Alberta Libraries <a href='http://guides.library.ualberta.ca/researchdata'>research data management guide</a> can provide additional guidance on data management planning. If you require more guidance, email <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Assistant%20help'>portage@carl-abrc.ca</a>.</p>"
 
 
-    body_text_tab_1_html: "<p>When you login to DMP Builder you will be directed to the 'My plans' page. From here you can edit, share, export or delete any of your plans. You will also see plans that have been shared with you by others.</p>
+    body_text_tab_1_html: "<p>When you login to DMP Assistant you will be directed to the 'My plans' page. From here you can edit, share, export or delete any of your plans. You will also see plans that have been shared with you by others.</p>
     <h3>Create a plan</h3>
     <p>To create a plan, click the 'Create plan' button from the 'My plans' page or  the top menu. Select options from the drop-down menus and tickboxes to determine what questions and guidance you should be presented with. Confirm your selection by clicking 'Yes, create plan'</p>
     <h3>Write your plan</h3>
@@ -682,11 +698,37 @@ Select what format you wish to use and click to 'Export'.</p>"
     <h3>Share plans</h3>
     <p>Insert the email address of any collaborators you would like to invite to read or edit your plan. Set the level of permissions you would like to grant them via the drop-down options and click to 'Add collaborator'</p>
     <h3>Export plans</h3>
-    <p>From here you can download your plan in various formats. This may be useful if you need to submit your plan as part of a grant application. Choose what format you would like to view/download your plan in and click to export. When you login to DMP Builder you will be directed to the 'My plans' page. From here you can edit, share, export or delete any of your plans. You will also see plans that have been shared with you by others.</p>"
+    <p>From here you can download your plan in various formats. This may be useful if you need to submit your plan as part of a grant application. Choose what format you would like to view/download your plan in and click to export. When you login to DMP Assistant you will be directed to the 'My plans' page. From here you can edit, share, export or delete any of your plans. You will also see plans that have been shared with you by others.</p>"
+    body_text_tab_3_html: "<p>Your university library might already provide support for developing a data management plan. Contact your liaison librarian at your university for further assistance. You will find below contact information for university libraries that have dedicated data management services or librarians.</p>
+  <p>If your local organization is not listed below, you could contact Portage Network at <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>portage@carl-abrc.ca</a>
+  <h3>Contact Info</h3>
+  <p><b>Acadia University</b>: <a href='mailto:maggiejean.neilson@acadiau.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Maggie Neilson</a></p>
+  <p><b>Brandon University</b>: <a href='mailto:kazakoff@brandonu.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Carmen Kazakoff-Lane</a>, Betty Braaksma</p>
+  <p><b>Carleton University</b>: <a href='mailto:rdm@library.carleton.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Jane Fry</a>, <a href='mailto:sylvie.lafortune@carleton.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Sylvie Lafortune</a></p>
+  <p><b>Concordia University</b>: <a href='mailto:alex.guindon@concordia.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Alex Guindon</a>, <a href='mailto:danielle.dennie@concordia.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Danielle Dennie</a></p> 
+    <p><b>Kwantlen Polytechnic University</b>: <a href='mailto:chris.burns@kpu.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Chris Burns</a>, <a href='mailto:todd.mundle@kpu.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Todd Mundle</a></p>
+  <p><b>Lakehead University</b>: <a href='mailto:dgold@lakeheadu.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Debra Gold</a></p>
+  <p><b>MacEwan University</b>: <a href='mailto:tieglitzt@macewan.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Tara Stieglitz</a></p>
+  <p><b>McGill University </b>: <a href='mailto:jane.burpee@mcgill.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>K. Jane Burpee</a>, <a href='mailto:jenn.riley@mcgill.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Jenn Riley</a></p>
+  <p><b>McMaster University</b>: <a href='mailto:rdmgmt@mcmaster.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>RDM@McMaster</a>, <a href='mailto:brodeujj@mcmaster.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Jay Brodeur</a></p>
+  <p><b>Mount Allison University</b>: <a href='mailto:rcollings@mta.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Ruth Collings</a></p>
+  <p><b>Queen's University</b>: <a href='mailto:moonj@queensu.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Jeff Moon</a>, <a href='mailto:coopera@queensu.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Alexandra Cooper</a></p>
+  <p><b>Simon Fraser University</b>: <a href='mailto:data-services@sfu.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Carla Graebner</a></p>
+  <p><b>Université de Moncton</b>: <a href='mailto:victoria.volkanova@umoncton.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Victoria Volkanova</a></p>
+  <p><b>University of British Columbia</b>: <a href='mailto:eugene.barsky@ubc.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Eugene Barsky</a>, <a href='mailto:research.data@ubc.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Research Data Team</a></p>
+  <p><b>University of Alberta</b>: <a href='mailto:data@ualberta.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Research Data Management Group</a>, <a href='mailto:larry.laliberte@ualberta.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Larry Laliberte</a></p>
+  <p><b>University of Calgary</b>: <a href='mailto:jdlbrosz@ucalgary.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>John Brosz</a>, <a href='mailto:spowelso@ucalgary.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Susan Powelson</a></p>
+  <p><b>University of Guelph</b>: <a href='mailto:lib.research@uoguelph.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Research Enterprise & Scholarly Communication Team</a></p>
+  <p><b>University of Lethbridge</b>: <a href='mailto:library-research-l@uleth.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Research Services Group [U. of Lethbridge Library]</a></p>
+  <p><b>University of Manitoba</b>: <a href='mailto:mayu.ishida@umanitoba.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Mayu Ishida</a>, <a href='mailto:gary.strike@umanitoba.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Gary Strike</a></p>
+  <p><b>University of Ontario Institute of Technology</b>: <a href='mailto:katie.harding@uoit.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Katie Harding</a></p>
+  <p><b>University of Waterloo</b>: <a href='mailto:libRDM@library.uwaterloo.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Research Data Management Services</a></p>
+  <p><b>Western University</b>: <a href='mailto:rdm@uwo.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Western RDM Group</a>, <a href='mailto:wlrdmsc@uwo.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Western Libraries RDM Subcommittee</a></p>
+  <p><b>Wilfrid Laurier University</b>: <a href='mailto:msteeleworthy@wlu.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Michael Steeleworthy</a></p>"
 
   contact_page:
     title: "Contact us"
-    intro_text_html: "<p>DMP Builder is provided by the University of Alberta Libraries. You can find out more about us on our <a href='http://library.ualberta.ca/researchdata/' target='_blank'>Research Data Management page</a>. If you would like to contact us about DMP Builder, please insert your query into the webform below or email <a href='mailto:data@ualberta.ca?Subject=DMP%20Builder%20inquiry' target='_top'>data@ualberta.ca</a>.</p>
+    intro_text_html: "<p>DMP Assistant is provided by the University of Alberta Libraries. You can find out more about us on our <a href='http://library.ualberta.ca/researchdata/' target='_blank'>Research Data Management page</a>. If you would like to contact us about DMP Assistant, please insert your query into the webform below or email <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Assistant%20inquiry' target='_top'>portage@carl-abrc.ca</a>.</p>
      <p><a href='http://library.ualberta.ca/askus/' target='_blank'>Contact Us</a></p>"
   
   terms_page:
@@ -694,16 +736,22 @@ Select what format you wish to use and click to 'Export'.</p>"
     body_text_html: "
 
     <div class='white_background'>
-    <p>The University of Alberta Libraries' DMP Builder is powered by an open source application called <a href='https://dmponline.dcc.ac.uk'>DMPOnline</a>, which is developed by the Digital Curation Centre (DCC) and shared under an <a href='http://www.gnu.org/licenses/agpl-3.0.html'>AGPL license.</a></p>
-
-    <p>To the extent possible under law, University of Alberta Libraries has waived all copyright and related or neighboring rights to the DMP Builder website content and data management planning templates (but not the plans themselves) under a <a href='http://creativecommons.org/publicdomain/zero/1.0/'>Creative Commons Zero License.</a></p>
+    <p>Portage Network is a library-based research data management network in Canada. </p>
+    <h3>DMP Assistant</h3>
+    <p>DMP Assistant ('the tool', 'the system') is powered by an open source application called <a href='https://dmponline.dcc.ac.uk'>DMPOnline</a>, which is developed by the Digital Curation Centre (DCC) and shared under an <a href='http://www.gnu.org/licenses/agpl-3.0.html'>AGPL license.</a></p>
+    <h3>Data management planning templates and resources</h3>
+    <p>The Portage Data Stewardship Template and associated guidance on <a href='http://www.portagenetwork.ca'>Portage DMP Assistant</a> (but not the plans themselves) are under a <a href='http://creativecommons.org/publicdomain/zero/1.0/'>Creative Commons Zero License.</a></p>
 
     <p><a href='http://creativecommons.org/publicdomain/zero/1.0/'><img src='http://i.creativecommons.org/p/zero/1.0/88x31.png' alt='CC0' /></a></p>
+
+    <p>Institutional data management planning templates and their associated guidance are under their own Creative Commons License terms. <a href='help#contact_info?locale=en'>Contact individual institution</a> for more details.  
     </div>
+
+   
 
     <h3>Your personal information</h3>
     <div class='white_background'>
-      <p>The University of Alberta Libraries hosts the DMP Builder and stores your data management plans on your behalf, but the plans are your property and responsibility. Information stored by the DMP Builder is governed by the University of Alberta Libraries <a href='http://www.library.ualberta.ca/privacy/'>website privacy policy</a>.</p>
+      <p>The University of Alberta Libraries hosts the DMP Assistant and stores your data management plans on your behalf, but the plans are your property and responsibility. Information stored by the DMP Assistant is governed by the University of Alberta Libraries <a href='http://www.library.ualberta.ca/privacy/'>website privacy policy</a>.</p>
     </div>
 
     <h3>Passwords</h3>

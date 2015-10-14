@@ -2,7 +2,7 @@
 <% javascript "plans.js" %>
 
 
-
+<div class="plan-title-wrapper">
 <!-- render the project title -->
 <%= render :partial => "/projects/project_title", locals: {project: @plan.project} %>
 
@@ -18,14 +18,14 @@
       </div>
  <!-- removed the space usage as it's confusing to the user and doesn't provide useful information -->
  
-      #<hr>
-      #<div class="bar-container">
-      #  <span id="export-progress-title" <%= space_used >= 100 ? "class=bar-full-text" : '' -%>><%= space_title -%></span>
-      #  <span id="export-progress" class="bar <%= space_used >= 100 ? 'full' : 'space' -%>" style="width: <%= space_used -%>%;" title="<%= space_title -%>"></span>
-      #</div>
-
+      <div class="bar-container">
+      </div> 
 </div>
 
+<%= render :partial => "/projects/project_tips" %>
+</div>
+
+<p></p>
 <% readonly = nil %>
 <% if ! @plan.editable_by(current_user.id) then %>
 	<% readonly = "always" %>
