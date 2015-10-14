@@ -652,7 +652,7 @@ Select what format you wish to use and click to 'Export'.</p>"
     <h3>How the tool works</h3>
     <div class='white_background'>
     <p>Currently, this tool includes a generic Portage Data Stewardship template for researchers to use.  Guidance is provided to help you interpret and answer the questions.</p>
-    <p>We want your feedback! If you have suggestions on how to improve the existing template, or you would like to add additional templates based on funding agency requirements or disciplinary needs, please <a href="help#contact_info?locale=en">contact your local institution</a> or contact us at <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Assistant%20feedback'>portage@carl-abrc.ca</a>.
+    <p>We want your feedback! If you have suggestions on how to improve the existing template, or you would like to add additional templates based on funding agency requirements or disciplinary needs, please <a href='help#contact_info?locale=en'>contact your local institution</a> or contact us at <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Assistant%20feedback'>portage@carl-abrc.ca</a>.
     </p>
     </div>
     <h3>Getting Started</h3>
@@ -665,7 +665,7 @@ Select what format you wish to use and click to 'Export'.</p>"
     </div>
     <h3>Feedback</h3>
     <div class='white_background'>
-    <p>If you have any questions or comments about the DMP Assistant, <a href="help#contact_info?locale=en">contact your local institution</a> or email us at <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Assistant%20feedback'>portage@carl-abrc.ca</a>.</p>
+    <p>If you have any questions or comments about the DMP Assistant, <a href='help#contact_info?locale=en'>contact your local institution</a> or email us at <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Assistant%20feedback'>portage@carl-abrc.ca</a>.</p>
     </div>"
     body_text_tab_2_html: "<p>The Portage Data Stewardship template is based on internationally accepted standards and best practices. It has been prepared and is maintained by a group of research data management experts from research libraries across Canada.
 </p><p>
