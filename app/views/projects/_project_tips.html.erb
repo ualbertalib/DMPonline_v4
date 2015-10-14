@@ -1,0 +1,16 @@
+<!-- Project tip -->
+
+<div id="project-tabs" class="nav-project-tabs">
+        <ul class="nav nav-tabs" data-tabs="tabs">
+                <li class="tips">
+        <%= link_to t('helpers.project.tips_label'), "tips", :data => { :toggle => "tab"} %></li>
+        </ul>
+</div>
+<div class="tips_body">
+        <div id="my-tab-content" class="tab-content">
+                <div class="tab-pane active" id="tips">
+                  <%= raw t('helpers.project.tips_text')%>
+                </div>
+        </div>
+</div>
+
