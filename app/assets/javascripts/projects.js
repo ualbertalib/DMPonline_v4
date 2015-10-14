@@ -107,6 +107,15 @@ removed by wshi on Feb 9, 2015
 		var options = {};
 		var funder = $("#project_funder_id").select2('val');
 		var institution = $("#project_institution_id").select2('val');
+                var portage;
+                $("#project_institution_id option").each(function(){
+                   if($(this).text() == "Portage"){
+                     portage = ($(this).val());
+                   }
+               }); 
+                if (institution == "") {
+                  institution = portage;
+                }
 		$.ajax({
 			type: 'GET',
                         url: "possible_templates.json?institution="+institution,
