@@ -254,4 +254,20 @@ ul.export_list li{
     color: #2F5D7C;
   }
 }
+#project-tabs li.tips a{
+  background-color: #FB9C26;
+  border: 1px solid #FB9C26;
+  padding: 4px 20px 4px 20px;
+  text-decoration: none !important;
+}
+.tips_body {
+  background-color: #ffffff;
+  border: 2px solid #FB9C26;
+  border-radius: 1px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+  min-width: 300px;
+}
 
