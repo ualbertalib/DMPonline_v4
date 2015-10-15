@@ -30,24 +30,30 @@ fr:
     am: "a.m."
     pm: "p.m."
 
-  tool_title: "Assistant PGD – Service des bibliothèques de l’Université de l’Alberta"
+  tool_title: "Assistant PGD – Réseau Portage"
   dmponline3_text: "Version antérieure de Assistant PGD" 
+  subhead: "Services partagés pour les données de recherche"
   dcc_name: "Digital Curation Centre"
   welcome_title: "Bienvenue"
-  welcome_text: "<p>L’outil Assistant PGD est offert par le service des bibliothèques de l’Université de l’Alberta afin de vous aider à rédiger vos plans de gestion des données.</p>"
-  welcome_links: "<p><a href='http://guides.library.ualberta.ca/content.php?pid=524929&sid=4318282' target='_blank'>En savoir plus sur les plans de gestion des données</a><br/><a href='https://dataverse.library.ualberta.ca' target='_blank'>Vous souhaitez partager vos données de recherche?</a><br/><a href='http://library.ualberta.ca/researchdata' target='_blank'>Pour en savoir plus sur les services de données de recherche du service des bibliothèques</a></p>"
-  ccid_message: "Veuillez prendre note que nous travaillons actuellement à l’authentification de l’identifiant informatique (CCID). Vous devez créer un nouveau compte Assistant PGD. Vous pourrez associer votre compte existant à votre CCID dès que la fonction sera disponible."
-
+  welcome_text: "<p>L'Assistant PGD est un outil bilingue d'aide à la préparation d'un plan de gestion des données (PGD). Cet outil, qui s'appuie sur des normes internationales et sur les meilleures pratiques en matière de gestion des données, guide le chercheur pas à pas à travers les questions clés pour développer son plan.</p>"
+#  welcome_links: "<p><a href='http://guides.library.ualberta.ca/content.php?pid=524929&sid=4318282' target='_blank'>En savoir plus sur les plans de gestion des données</a><br/><a href='https://dataverse.library.ualberta.ca' target='_blank'>Vous souhaitez partager vos données de recherche?</a><br/><a href='http://library.ualberta.ca/researchdata' target='_blank'>Pour en savoir plus sur les services de données de recherche du service des bibliothèques</a></p>"
+  step_1: "  Se créer un compte dans l’Assistant PGD"
+  step_2: "  Se connecter et sélectionner un modèle dans le menu des organismes. Le modèle par défaut est le modèle Portage."
+  step_3: "  Répondre aux questions pertinentes au projet de recherche; de l’aide et des exemples sont fournis en contexte. "
+  step_4: "  Revenir tout au long du projet pour réviser ou compléter des réponses."
+  welcome_links: "Le modèle de plan de gestion des données Portage s’appuie sur des normes internationales et sur les meilleures pratiques. Il a été préparé et est gardé à jour par un groupe d’experts en gestion des données de recherche travaillant au sein de bibliothèques de recherche à travers le Canada. "
+  ccid_message: "Veuillez noter que nous travaillons actuellement à un système d’authentification unique. Pour le moment, veuillez créer un nouveau compte Assistant PGD. Vous pourrez associer votre compte existant à votre identifiant campus dès que la fonction sera disponible."
+  
   screencast_error_text: "Votre navigateur ne permet pas la balise vidéo."
   none: "Aucun"
   admin:
-    org_title: "Nom de l’organisme"
+    org_title: "Nom de l'organisme"
     org: "Organisme"
     orgs: "Organismes"
-    org_type: "Type d’organisme"
-    org_parent: "Organisme d’attache"
-    org_created_message: " L’organisme a été créé avec succès."
-    org_updated_message: " L’organisme a bien été mis à jour."
+    org_type: "Type d'organisme"
+    org_parent: "Organisme d'attache"
+    org_created_message: " L'organisme a été créé avec succès."
+    org_updated_message: " L'organisme a bien été mis à jour."
     plans: "Plans"
     title: "Titre"
     desc: "Description"
@@ -63,16 +69,16 @@ fr:
     section_title: "Titre de la section"
     phase_title: "Titre de la phase"
     version_title: "Titre de la version"
-    user_name: "Nom d’utilisateur"
+    user_name: "Nom d'utilisateur"
     firstname: "Prénom"
     surname: "Nom"
     user: "Utilisateur"
-    user_org_role: "Rôle de l’utilisateur au sein d’un organisme"
-    user_role_type: "Type de rôle de l’utilisateur"
-    user_role: "Rôle de l’utilisateur"
+    user_org_role: "Rôle de l'utilisateur au sein d'un organisme"
+    user_role_type: "Type de rôle de l'utilisateur"
+    user_role: "Rôle de l'utilisateur"
     role: "Rôle"
-    user_status: "Statut de l’utilisateur"
-    user_type: "Type d’utilisateur"
+    user_status: "Statut de l'utilisateur"
+    user_type: "Type d'utilisateur"
     last_logged_in: "Dernière connexion"
     version_numb: "Numéro de la version"
     details: "Renseignements"
@@ -94,11 +100,11 @@ fr:
 
 
   org_admin:
-    admin_area: "Section de l’administration"
+    admin_area: "Section de l'administration"
     template_label: "Modèles"
     user_list_label: "Utilisateurs"
-    org_details_label:  "Renseignements sur l’organisme"
-    org_text: "Il s’agit des renseignements de base concernant votre organisme."
+    org_details_label:  "Renseignements sur l'organisme"
+    org_text: "Il s'agit des renseignements de base concernant votre organisme."
     org_abbr_help_text_html: "Ce sont les éléments affichés comme étiquette sur vos directives, p. ex. « Directives sur les métadonnées de Glasgow ». Il vaut mieux utiliser une abréviation ou un nom abrégé."
     users_list: "Liste des utilisateurs"
     user_full_name: "Nom"
@@ -110,10 +116,10 @@ fr:
     org_abbr: "Abréviation"
     org_desc: "Description"
     org_target_url: "Site Web"
-    org_type: "Type d’organisme"
+    org_type: "Type d'organisme"
     parent_org: "Organisme principal"
     last_updated: "Dernière mise à jour"
-    desc_help_text_html: "<div class='tooltip_box'>Veuillez décrire votre organisme en fournissant de l’information.</div>"
+    desc_help_text_html: "<div class='tooltip_box'>Veuillez décrire votre organisme en fournissant de l'information.</div>"
     abbre_help_text: "Veuillez fournir une abréviation pour le nom de votre organisme."
     template_desc_help_text_html: "<div class='tooltip_box'>Entrez une description qui vous permettra de faire la différence entre les modèles, par exemple si vous en avez pour différents publics.</div>"
     target_url_help_text: "Veuillez indiquer une adresse Web valide."
@@ -132,7 +138,7 @@ fr:
       text_label: "Texte"
       themes_label: "Thèmes"
       question_label: "Question"
-      by_theme_or_by_question: "Ces directives devraient-elles s’appliquer :"
+      by_theme_or_by_question: "Ces directives devraient-elles s'appliquer :"
       by_themes_label: "par thème"
       by_question_label: "par question"
       template: "Modèle"
@@ -148,11 +154,11 @@ fr:
       new_label: "Nouvelles directives"
       view_all_guidance: "Voir toutes les directives"
       text_help_text_html: "Insérez vos directives ici. Vous pouvez inclure des liens, au besoin."
-      apply_to_help_text_html: "Déterminez si vos directives doivent être affichées par thème (par défaut) ou si elles concernent uniquement une question précise dans l’un des modèles de bailleur de fonds."
+      apply_to_help_text_html: "Déterminez si vos directives doivent être affichées par thème (par défaut) ou si elles concernent uniquement une question précise dans l'un des modèles de bailleur de fonds."
       by_themes_help_text_html: "Sélectionnez le ou les thèmes auxquels ces directives se rapportent."
       by_question_help_text_html: "Sélectionnez le modèle, la phase, la version, la section et la question appropriés dans les options de la liste déroulante suivante pour déterminer la question précise pour laquelle ces directives devraient être affichées."
       guidance_group_select_help_text_html: "Sélectionnez le groupe auquel ces directives se rapportent."
-      guidance_text_html: "<p>Vous pouvez rédiger des directives à afficher par thème (p. ex. des directives générales sur l’entreposage et la sauvegarde qui devraient être présentées à tous les échelons) ou vous pouvez rédiger des directives pour des questions précises. La rédaction de directives générales par thème vous permet d’économiser du temps et des efforts, car vos conseils seront automatiquement affichés dans tous les modèles au lieu d’avoir à rédiger des directives qui accompagneraient chaque modèle.</p>
+      guidance_text_html: "<p>Vous pouvez rédiger des directives à afficher par thème (p. ex. des directives générales sur l'entreposage et la sauvegarde qui devraient être présentées à tous les échelons) ou vous pouvez rédiger des directives pour des questions précises. La rédaction de directives générales par thème vous permet d'économiser du temps et des efforts, car vos conseils seront automatiquement affichés dans tous les modèles au lieu d'avoir à rédiger des directives qui accompagneraient chaque modèle.</p>
       <p>De manière générale, vous voudrez que vos directives soient affichées dans tous les modèles. Vous voudrez toutefois, dans certains cas, que les directives soient seulement affichées pour des bailleurs de fonds précis, par exemple, si vous avez des consignes précises pour les candidats qui présentent une demande au Biotechnology and Biological Sciences Research Council (BBSRC). Vous pouvez également le préciser, au besoin.</p>"
       delete_message_html: "Vous êtes sur le point de supprimer '%{guidance_summary}'. Êtes-vous sûr de vouloir le supprimer?"
     guidance_group:
@@ -163,10 +169,10 @@ fr:
       subset_eg: "p. ex. école/département"
       all_temp: "Tous les modèles"
       help_text_add: "Veuillez indiquer le titre du groupe."
-      subset_option_help_text: "Si les directives s’adressent uniquement à un sous-ensemble d’utilisateurs, par exemple ceux d’un collège ou d’un institut précis, cochez cette case. Les utilisateurs pourront choisir d’afficher les directives destinées à ce sous-ensemble en répondant aux questions dans l’assistant « créer un plan »."
+      subset_option_help_text: "Si les directives s'adressent uniquement à un sous-ensemble d'utilisateurs, par exemple ceux d'un collège ou d'un institut précis, cochez cette case. Les utilisateurs pourront choisir d'afficher les directives destinées à ce sous-ensemble en répondant aux questions dans l'assistant « créer un plan »."
       template_help_text_html: "Sélectionnez les modèles pour lesquels vous voulez que les directives soient affichées. Ce sera généralement pour tous les modèles."
-      title_help_text_html: "Donnez un nom approprié à votre groupe de directives, p. ex. directives de Glasgow. Ce nom sera utilisé pour indiquer à l’utilisateur final la provenance des directives, par exemple « Les directives sur les métadonnées de Glasgow »."
-      guidance_group_text_html: "<p>Vous devez d’abord créer un groupe de directives. Ces directives peuvent s’adresser à l’ensemble d’un établissement ou à un sous-ensemble, par exemple un collège ou une école, un institut ou un département précis. Lorsque vous créez des directives, on vous demandera de les assigner à un groupe de directives.</p>"
+      title_help_text_html: "Donnez un nom approprié à votre groupe de directives, p. ex. directives de Glasgow. Ce nom sera utilisé pour indiquer à l'utilisateur final la provenance des directives, par exemple « Les directives sur les métadonnées de Glasgow »."
+      guidance_group_text_html: "<p>Vous devez d'abord créer un groupe de directives. Ces directives peuvent s'adresser à l'ensemble d'un établissement ou à un sous-ensemble, par exemple un collège ou une école, un institut ou un département précis. Lorsque vous créez des directives, on vous demandera de les assigner à un groupe de directives.</p>"
       delete_message: "Vous êtes sur le point de supprimer '%{guidance_group_name}', ce qui modifiera les directives. Êtes-vous sûr de vouloir le supprimer?"
       created_message: "Le groupe de directives a été créé avec succès."
       updated_message: "Le groupe de directives a bien été mis à jour."
@@ -181,9 +187,9 @@ fr:
       title_help_text: "Veuillez indiquer un titre pour votre modèle."
       section_title_help_text: "Veuillez indiquer le titre de la section."
       help_text_html: "<div class='tooltip_box'>Veuillez fournir une description du modèle pour ce thème.</div>"
-      create_own_template_text_html: "<p>Si vous souhaitez ajouter un modèle institutionnel pour un plan de gestion des données, utilisez le bouton « créer un modèle ». Vous pouvez créer plus d’un modèle, au besoin, par exemple un modèle pour les chercheurs et un modèle pour les étudiants au doctorat.</p>
-              <p>Votre modèle sera présenté aux utilisateurs de votre établissement lorsqu’aucun modèle de bailleur de fonds ne s’applique. Si vous souhaitez ajouter des questions aux modèles de bailleur de fonds, utilisez les options « personnaliser le modèle » ci-dessous.</p>"
-      create_new_template_text_html: "<p>Pour créer un nouveau modèle, vous devez d’abord indiquer un titre et une description. Une fois que vous les avez enregistrés, des options vous seront présentées pour ajouter une ou plusieurs phases.</p>"
+      create_own_template_text_html: "<p>Si vous souhaitez ajouter un modèle institutionnel pour un plan de gestion des données, utilisez le bouton « créer un modèle ». Vous pouvez créer plus d'un modèle, au besoin, par exemple un modèle pour les chercheurs et un modèle pour les étudiants au doctorat.</p>
+              <p>Votre modèle sera présenté aux utilisateurs de votre établissement lorsqu'aucun modèle de bailleur de fonds ne s'applique. Si vous souhaitez ajouter des questions aux modèles de bailleur de fonds, utilisez les options « personnaliser le modèle » ci-dessous.</p>"
+      create_new_template_text_html: "<p>Pour créer un nouveau modèle, vous devez d'abord indiquer un titre et une description. Une fois que vous les avez enregistrés, des options vous seront présentées pour ajouter une ou plusieurs phases.</p>"
       desc_help_text_html: "Entrez une description qui vous aide à faire la différence entre les autres modèles, par exemple si vous en avez pour différents publics."
       own_temp: "Vos modèles"
       add_phase_label: "Ajouter une nouvelle phase +"
@@ -192,9 +198,9 @@ fr:
       back_to_edit_phase_label: "Retour au mode de modification"
       edit_phase_details_label: "Modifier les renseignements sur la phase"
       phase_details_label: "Renseignements sur la phase"
-      phase_order_label: "Ordre d’affichage"
-      phase_details_text_html: "<p>Vous indiquez ici le titre que les utilisateurs verront. Si vous prévoyez que votre plan de gestion des données comptera plusieurs phases, vous devez l’indiquer clairement dans le titre et la description.<p/>"
-      phase_title_help_text: "Indiquez un titre pour la phase, par exemple plan de gestion des données initial, plan de gestion des données complet… Il s’agit du titre que les utilisateurs verront dans les onglets lorsqu’ils établiront un plan. Si votre plan compte une seule phase, choisissez un nom général, par exemple plan de gestion des données de Glasgow."
+      phase_order_label: "Ordre d'affichage"
+      phase_details_text_html: "<p>Vous indiquez ici le titre que les utilisateurs verront. Si vous prévoyez que votre plan de gestion des données comptera plusieurs phases, vous devez l'indiquer clairement dans le titre et la description.<p/>"
+      phase_title_help_text: "Indiquez un titre pour la phase, par exemple plan de gestion des données initial, plan de gestion des données complet… Il s'agit du titre que les utilisateurs verront dans les onglets lorsqu'ils établiront un plan. Si votre plan compte une seule phase, choisissez un nom général, par exemple plan de gestion des données de Glasgow."
       phase_number_help_text: "Cela vous permet de mettre les phases de votre modèle en ordre."
       phase_desc_help_text_html: "Indiquez une description de base qui sera présentée aux utilisateurs et qui sera affichée au-dessus du résumé des sections et des questions auxquelles ils devront répondre."
       phase_delete_message: "Vous êtes sur le point de supprimer '%{phase_title}', ce qui modifiera les versions, les sections et les questions en lien avec cette phase. Êtes-vous sûr de vouloir le supprimer?"
@@ -204,7 +210,7 @@ fr:
       add_section: "Ajouter une section"
       new_section: "Titre de la nouvelle section"
       section_title_placeholder: "Titre de la nouvelle section"
-      section_desc_help_text_html: "<div class='tooltip_box'>Indiquez une description de base. Il pourrait s’agir d’un résumé des points traités dans la section ou des directives sur la façon de répondre. Ce texte sera affiché dans la bannière de couleur une fois que la section pourra être modifiée.</div>"
+      section_desc_help_text_html: "<div class='tooltip_box'>Indiquez une description de base. Il pourrait s'agir d'un résumé des points traités dans la section ou des directives sur la façon de répondre. Ce texte sera affiché dans la bannière de couleur une fois que la section pourra être modifiée.</div>"
       section_number_help_text: "Cela vous permet de mettre les sections en ordre."
       add_question: "Ajouter une question"
       created: "Créé(e) à"
@@ -221,14 +227,14 @@ fr:
       destroyed_message: "Les renseignements ont bien été supprimés."
       section_delete_message: "Vous êtes sur le point de supprimer '%{section_title}', ce qui modifiera les questions en lien avec cette section. Êtes-vous sûr de vouloir le supprimer?"
     versions:
-      clone_versions_label: "Effectuer d’importantes modifications"
+      clone_versions_label: "Effectuer d'importantes modifications"
       edit_versions_label: "Effectuer de petites modifications"
       edit_label: "Modifier"
-      versions_text_html: "Une première version est automatiquement créée. Si vous désirez plus tard effectuer d’importantes modifications à des versions publiées (p. ex. ajouter une section ou des questions), vous devez créer une nouvelle version. Si vous désirez seulement corriger des erreurs typographiques ou apporter de petites modifications sans en changer le sens, modifiez la version actuelle."
+      versions_text_html: "Une première version est automatiquement créée. Si vous désirez plus tard effectuer d'importantes modifications à des versions publiées (p. ex. ajouter une section ou des questions), vous devez créer une nouvelle version. Si vous désirez seulement corriger des erreurs typographiques ou apporter de petites modifications sans en changer le sens, modifiez la version actuelle."
       desc_help_text_html: "Indiquez une description de base."
       delete_message: "Vous êtes sur le point de supprimer '%{version_title}', ce qui modifiera les sections et les questions en lien avec cette version. Êtes-vous sûr de vouloir le supprimer?"
-      edit_alert_label: "Modifier l’alerte"
-      edit_alert_text: "Veuillez examiner les types de modifications que vous êtes sur le point d’effectuer, car ce plan est déjà publié et peut être en cours d’utilisation."
+      edit_alert_label: "Modifier l'alerte"
+      edit_alert_text: "Veuillez examiner les types de modifications que vous êtes sur le point d'effectuer, car ce plan est déjà publié et peut être en cours d'utilisation."
     questions:
       question_text_label: "Texte de la question"
       question_number_label: "Numéro de la question"
@@ -240,32 +246,32 @@ fr:
       suggested_answer_help_text_html: "Vous pouvez ajouter un exemple ou une suggestion de réponse pour aider les utilisateurs à répondre à la question. Ceux-ci seront affichés au-dessus de la case de réponse et peuvent être copiés et collés."
       suggested_or_example_answer_label: "Suggestion de réponse / exemple"
       suggested_or_example_answer_button: "Ajouter une suggestion de réponse ou un exemple"
-      edit_suggested_answer_button: "Modifier la suggestion de réponse ou l’exemple"
+      edit_suggested_answer_button: "Modifier la suggestion de réponse ou l'exemple"
       delete_suggested_answer_message: "Vous êtes sur le point de supprimer une suggestion de réponse ou un exemple pour '%{question_text}'. Êtes-vous sûr de vouloir le supprimer?"
       default_value_label: "Valeur par défaut"
       number_help_text: "Cela vous permet de mettre les questions en ordre dans une section."
       question_format_help_text_html: "Vous pouvez choisir parmi ce qui suit :<ul><li>- zone de texte (grande case pour les paragraphes);</li> <li>- champ de texte (pour les réponses courtes);</li>
       <li>- cases à cocher lorsque des options sont présentées dans une liste et plusieurs valeurs peuvent être sélectionnées;</li>
-      <li>- boutons d’options lorsque des options sont présentées dans une liste et qu’une seule option peut être sélectionnée;</li>
+      <li>- boutons d'options lorsque des options sont présentées dans une liste et qu'une seule option peut être sélectionnée;</li>
       <li>- liste déroulante comme cette case – une seule option peut être sélectionnée;</li>
-      <li>- la case à choix multiples permet aux utilisateurs de sélectionner plusieurs options dans une liste déroulante à l’aide de la touche CTRL;</li></ul>"
-      default_answer_help_text_html: "Tout ce que vous inscrivez dans cette section apparaîtra dans la case de réponse. Si vous désirez qu’une réponse apparaisse dans un certain format (p. ex. tableaux), vous pouvez indiquer le style ici."
+      <li>- la case à choix multiples permet aux utilisateurs de sélectionner plusieurs options dans une liste déroulante à l'aide de la touche CTRL;</li></ul>"
+      default_answer_help_text_html: "Tout ce que vous inscrivez dans cette section apparaîtra dans la case de réponse. Si vous désirez qu'une réponse apparaisse dans un certain format (p. ex. tableaux), vous pouvez indiquer le style ici."
       themes_label: "Thèmes"
       question_themes_help_text_html: "<p>Sélectionnez les thèmes applicables à cette question.</p>
-      <p>Cela permet ainsi d’intégrer vos directives générales destinées à l’établissement ainsi que celles provenant d’autres sources, par exemple de DCC ou de tous les départements ou les écoles pour lesquels vous fournissez des directives. </p>
-      <p>Vous pouvez sélectionner plusieurs thèmes à l’aide de la touche CTRL.</p>"
+      <p>Cela permet ainsi d'intégrer vos directives générales destinées à l'établissement ainsi que celles provenant d'autres sources, par exemple de DCC ou de tous les départements ou les écoles pour lesquels vous fournissez des directives. </p>
+      <p>Vous pouvez sélectionner plusieurs thèmes à l'aide de la touche CTRL.</p>"
       default_answer_label: "Réponse par défaut"
       guidance_label: "Directives"
       question_guidance_help_text_html: "Indiquez des directives précises pour accompagner cette question. Si vous possédez également des directives par thème, elles seront ajoutées en fonction de vos choix ci-dessous, il vaut mieux donc ne pas reproduire en double une trop grande quantité de texte."
       delete_message: "Vous êtes sur le point de supprimer '%{question_text}'. Êtes-vous sûr de vouloir le supprimer?"
-      question_options_help_text_html: "Indiquez toute option que vous souhaitez afficher. Si vous désirez qu’une option soit sélectionnée au préalable, cochez la case par défaut."
+      question_options_help_text_html: "Indiquez toute option que vous souhaitez afficher. Si vous désirez qu'une option soit sélectionnée au préalable, cochez la case par défaut."
 
 
 
 
   helpers:
     home: "Accueil"
-    return_home: "Revenir à la page d’accueil"
+    return_home: "Revenir à la page d'accueil"
     admin_area: "Section du super administrateur"
     edit_profile: "Modifier le profil"
     view_plans_label: "Mes plans"
@@ -278,27 +284,27 @@ fr:
 
     greeting: "Bonjour"
     sign_in: "Se connecter"
-    sign_in_text: "Si vous avez déjà un compte."
+    sign_in_text: "Si vous avez déjà un compte avec l’Assistant PGD  ou avec une version antérieure de DMP Builder."
     sign_out: "Se déconnecter"
-    sign_up: "S’inscrire"
-    sign_up_text: "Vous êtes un nouveau utilisateur de Assistant PGD? Inscrivez-vous dès maintenant."
+    sign_up: "S'inscrire"
+    sign_up_text: "Nouvel utilisateur de l’Assistant PGD? Inscrivez-vous aujourd’hui."
     signed_in: "Connecté en tant que "
     institution_sign_in_link: "Ou encore, connectez-vous avec l'authentifiant de votre établissement"
-    institution_sign_in: "Authentification du CCID à venir!"
+    institution_sign_in: "Authentification à l’aide du compte institutionnel bientôt disponible!"
         
 
     user_name: "Adresse électronique"
     email: "Courriel"
-    org_not_listed: "Mon organisme n’est pas inscrit sur la liste."
+    org_not_listed: "Mon organisme n'est pas inscrit sur la liste."
     email_tip: "Ceci doit être une adresse courriel valide - un message y sera envoyé pour le confirmer."
     organisation_name_tip: "Veuillez saisir le nom de votre organisme."
     password_tip: "Le mot de passe doit comprendre au moins huit caractères."
     password_reentry_tip: "Celui-ci doit concorder avec ce que vous avez indiqué dans le champ précédent."
     valid_email: "Vous devez entrer une adresse électronique valide."
-    user_details_text_html: "<p>Veuillez noter que votre adresse électronique sert de nom d’utilisateur. Si vous la modifiez, n’oubliez pas d’utiliser votre nouvelle adresse électronique pour vous connecter.</p>"
+    user_details_text_html: "<p>Veuillez noter que votre adresse électronique sert de nom d'utilisateur. Si vous la modifiez, n'oubliez pas d'utiliser votre nouvelle adresse électronique pour vous connecter.</p>"
     user_details_paragraph_html: "Vous pouvez modifier les renseignements ci-dessous."
     remember_me: "Se souvenir de moi"
-    org_not_listed: "Mon organisme n’est pas inscrit sur la liste."
+    org_not_listed: "Mon organisme n'est pas inscrit sur la liste."
 
     password: "Mot de passe"
     current_password: "Mot de passe actuel"
@@ -308,15 +314,15 @@ fr:
     forgot_password: "Vous avez oublié votre mot de passe?"
     password_too_small: "Votre mot de passe doit comprendre au moins huit caractères."
     password_no_match: "La saisie doit correspondre à ce que vous avez indiqué dans le champ précédent."
-    no_pass_instructions: "Vous n’avez pas reçu les directives de confirmation?"
-    no_unlock_instructions: "Vous n’avez pas reçu les directives de déverrouillage?"
+    no_pass_instructions: "Vous n'avez pas reçu les directives de confirmation?"
+    no_unlock_instructions: "Vous n'avez pas reçu les directives de déverrouillage?"
     send_password_info: "Directives pour réinitialiser le mot de passe"
     edit_password_info: "Si vous souhaitez modifier votre mot de passe, veuillez remplir les champs suivants."
-    accept_terms_html: "J’accepte les <a href='/terms?locale=fr'>conditions</a> *"
+    accept_terms_html: "J'accepte les <a href='/terms?locale=fr'>conditions</a> *"
 
     text_area: "Zone de texte"
     text_field: "Case de saisie simple"
-    radio_buttons: "Boutons d’option"
+    radio_buttons: "Boutons d'option"
     checkbox: "Case à cocher"
     dropdown: "Liste déroulante"
     multi_select_box: "Case à options multiples"
@@ -357,13 +363,13 @@ fr:
     owner: "Propriétaire"
     orcid_id: "Numéro ORCID"
     orcid_html: "Le numéro ORCID est un identifiant numérique constant qui différencie chaque chercheur, <a href='http://orcid.org/content/initiative' target='_blank' rel='external' class='a_orange'>pour de plus amples renseignements</a>."
-    sign_up_shibboleth_alert_text_html: "Remarque : Si vous avez déjà créé un compte dans Assistant PGD et que vous désirez associer le compte à votre authentifiant de l’établissement, vous devez d’abord vous <a href='/?locale=fr' class='a_orange'>connecter</a> à un compte Assistant PGD existant. Si vous n’avez jamais créé de compte DMPonline, veuillez remplir le formulaire ci-dessous."
-    shibboleth_linked_text: "Votre compte est associé à votre authentifiant de l’établissement."
-    shibboleth_to_link_text: "Associez votre compte Assistant PGD à votre authentifiant de l’établissement."
-    shibboleth_to_link_question: "Voulez-vous associer votre compte Assistant PGD à votre authentifiant de l’établissement?"
-    shibboleth_unlink_label: "Dissociez votre authentifiant de l’établissement."
-    shibboleth_unlink_alert: "Alerte concernant la dissociation de votre authentifiant de l’établissement"
-    shibboleth_unlink_dialog_text: "<p>Vous êtes sur le point de dissocier Assistant PGD de votre authentifiant de l’établissement, voulez-vous continuer?</p>"
+    sign_up_shibboleth_alert_text_html: "Remarque : Si vous avez déjà créé un compte dans Assistant PGD et que vous désirez associer le compte à votre authentifiant de l'établissement, vous devez d'abord vous <a href='/?locale=fr' class='a_orange'>connecter</a> à un compte Assistant PGD existant. Si vous n'avez jamais créé de compte DMPonline, veuillez remplir le formulaire ci-dessous."
+    shibboleth_linked_text: "Votre compte est associé à votre authentifiant de l'établissement."
+    shibboleth_to_link_text: "Associez votre compte Assistant PGD à votre authentifiant de l'établissement."
+    shibboleth_to_link_question: "Voulez-vous associer votre compte Assistant PGD à votre authentifiant de l'établissement?"
+    shibboleth_unlink_label: "Dissociez votre authentifiant de l'établissement."
+    shibboleth_unlink_alert: "Alerte concernant la dissociation de votre authentifiant de l'établissement"
+    shibboleth_unlink_dialog_text: "<p>Vous êtes sur le point de dissocier Assistant PGD de votre authentifiant de l'établissement, voulez-vous continuer?</p>"
     shibboleth_wait_confirmation: "En attente d'une confirmation pour :"
 
     section_label: "Section"
@@ -372,7 +378,7 @@ fr:
     answers_label: "Réponses"
     answer_questions: "Répondre aux questions"
     last_edit: "Dernière modification"
-    select_action: "Sélectionnez une action"
+    select_action: "Choisir une action"
     answered_by: "a répondu à cette question "
     answered_by_part2: ""
     suggested_answer: "Suggestion de réponse"
@@ -426,14 +432,14 @@ fr:
       user_created: "L'utilisateur a bien été créé."
       project_created: "Le projet a bien été créé."
       project_updated: "Le projet a bien été mis à jour." 
-      user_org_role_created: "Le rôle de l’utilisateur a bien été créé."
-      user_org_role_updated: "Le rôle de l’utilisateur a bien été mis à jour."
-      user_role_created: "Le type de rôle d’utilisateur a bien été créé."
-      user_role_updated: "Le type de rôle d’utilisateur a bien été mis à jour."
+      user_org_role_created: "Le rôle de l'utilisateur a bien été créé."
+      user_org_role_updated: "Le rôle de l'utilisateur a bien été mis à jour."
+      user_role_created: "Le type de rôle d'utilisateur a bien été créé."
+      user_role_updated: "Le type de rôle d'utilisateur a bien été mis à jour."
       user_status_created: "Le statut de l'utilisateur a bien été créé."
       user_status_updated: "Le statut de l'utilisateur a bien été mis à jour."
-      user_type_created: "Le type d’utilisateur a bien été créé."
-      user_type_updated: "Le type d’utilisateur a bien été mis à jour."
+      user_type_created: "Le type d'utilisateur a bien été créé."
+      user_type_updated: "Le type d'utilisateur a bien été mis à jour."
       link_account_question: "Désirez-vous"
       account_no_access: "Ce compte ne permet pas l'accès à ce plan."
       plan_updated: "Le plan a bien été mis à jour."
@@ -449,7 +455,7 @@ fr:
       institution: "Établissement"
       project: "Projet"
       organisation: "Organisme"
-      org_name: "Nom de l’organisme"
+      org_name: "Nom de l'organisme"
       school: "École"
       publisher: "Éditeur"
       other_guidance: "Autres directives"
@@ -466,17 +472,19 @@ fr:
       create: "Créer un plan"
       edit: "Modifier les renseignements sur le plan"
       grant_title: "Numéro de la subvention"
-      grant_help_text: "Le numéro de référence de la subvention, le cas échéant [PLANS DE GESTION DES DONNÉES SUIVANT L’OCTROI SEULEMENT]"
+      grant_help_text: "Le numéro de référence de la subvention, le cas échéant [PLANS DE GESTION DES DONNÉES SUIVANT L'OCTROI SEULEMENT]"
       not_applicable: "Sans objet / non inscrit dans la liste"
       multi_templates: "Il existe un certain nombre de modèles que vous pouvez utiliser. Veuillez en choisir un."
       project_name: "Nom du plan"
       my_project_name: "Mon plan"
+      tips_label: "Conseils"
+      tips_text: "<p><p>Toutes les questions ne s’appliquent pas à tous les types de projets de recherche; les chercheurs sont invités à répondre aux questions pertinentes à leur projet. </p><p> Les chercheurs devraient revenir tout au long du projet pour réviser ou compléter des réponses.</p>"
       success: "Le plan a été créé avec succès."
       principal_investigator: "Chercheur principal/Chercheur"
       principal_investigator_help_text: "Nom du ou des chercheurs principaux participant au projet"
       principal_investigator_id: "Identification du chercheur principal/chercheur"
       principal_investigator_id_help_text: "p. ex. ORCID http://orcid.org/."
-      funder_help_text: "Bailleur de fonds pour la recherche, s’il y a lieu"
+      funder_help_text: "Bailleur de fonds pour la recherche, s'il y a lieu"
       funder_name: "Nom du bailleur de fonds"
       project_question_desc_label: "Résumé au sujet des questions"
       tab_plan: "Renseignements sur le plan"
@@ -490,37 +498,37 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
       project_data_contact: "Personne-ressource pour les données du plan"
       project_data_contact_help_text: "Nom (si différent de celui susmentionné), numéro de téléphone et adresse électronique"
       project_name_help_text: "Si vous présentez une demande de financement, inscrivez le nom de la même façon que dans la demande de subvention."
-      project_desc_help_text_html: "<div class='tooltip_box'><h4> Questions à prendre en considération :</h4><ul><li>- Quelle est la nature de votre projet de recherche?</li><li>- Quelles questions de recherche abordez-vous? </li><li>- À quelle fin les données sont-elles recueillies ou créées? </li></ul><h4>Directives :</h4><p>Résumez brièvement le type d’étude (ou les études) afin d’aider les autres à comprendre les raisons pour lesquelles les données sont recueillies ou créées.</p></div>"
+      project_desc_help_text_html: "<div class='tooltip_box'><h4> Questions à prendre en considération :</h4><ul><li>- Quelle est la nature de votre projet de recherche?</li><li>- Quelles questions de recherche abordez-vous? </li><li>- À quelle fin les données sont-elles recueillies ou créées? </li></ul><h4>Directives :</h4><p>Résumez brièvement le type d'étude (ou les études) afin d'aider les autres à comprendre les raisons pour lesquelles les données sont recueillies ou créées.</p></div>"
       project_identifier: "Identification"
-      project_identifier_help_text: "Une identification pertinente déterminée par le bailleur de fonds ou l’établissement"
-      project_static_info: "Ce plan s’appuie sur :"
+      project_identifier_help_text: "Une identification pertinente déterminée par le bailleur de fonds ou l'établissement"
+      project_static_info: "Ce plan s'appuie sur :"
       projects_title: "Mes plans"
       project_settings_text: "Les paramètres que vous sélectionnez seront affichés dans le tableau ci-dessous. Vous pouvez trier les données par en-tête ou les filtrer en indiquant une chaîne de texte dans la case de recherche."
       project_text_when_no_project: "<p><strong>Bienvenue</strong></br> Vous êtes maintenant prêt à créer votre premier plan de gestion des données.</br>Cliquez sur le bouton « Créer un plan » ci-dessous pour commencer.</p>"
-      project_text_when_project: "<p>Le tableau ci-dessous contient une liste des plans que vous avez créés et de ceux que d’autres personnes partagent avec vous.</br>Ces plans peuvent être modifiés, partagés, exportés ou supprimés en tout temps.</p>"
+      project_text_when_project: "<p>Le tableau ci-dessous contient une liste des plans que vous avez créés et de ceux que d'autres personnes partagent avec vous.</br>Ces plans peuvent être modifiés, partagés, exportés ou supprimés en tout temps.</p>"
       confirmation_text: "Confirmer les renseignements sur le plan"   
-      confirmation_text_desc: "Vous utilisez le modèle générique de gestion des données de l’Université de l’Alberta. Si vous avez des suggestions sur la façon d’améliorer le modèle existant, ou si vous aimeriez ajouter d’autres modèles fondés sur les exigences d’organismes de financement ou les besoins des disciplines, communiquez avec nous à <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Builder%20inquiry'>portage@carl-abrc.ca</a>."
+      confirmation_text_desc: "Vous utilisez le modèle générique de plan de gestion des données Portage. Si vous avez des suggestions pour améliorer ce modèle, ou si vous souhaiteriez ajouter de nouveaux modèles basés sur les exigences d’un organisme subventionnaire ou sur les besoins d’une discipline, communiquez avec nous à l’adresse suivante : <a href='mailto:portage@carl-abrc.ca?Subject=requete%20%20Assistant%20PGD'>portage@carl-abrc.ca</a>."
       confirmation_button_text: "Oui, créer un plan"  
-      project_details_text_html: "Cette page vous donne un aperçu de votre plan. Elle indique les éléments sur lesquels votre plan s’appuie et donne un aperçu des questions qui vous seront posées."
-      project_details_editing_text_html: "Indiquez ci-dessous les renseignements de base sur le projet et cliquez sur « Enregistrer » pour les enregistrer."
+      project_details_text_html: "Cette page vous donne un aperçu de votre plan. Elle indique les éléments sur lesquels votre plan s'appuie et donne un aperçu des questions qui vous seront posées."
+      project_details_editing_text_html: "<b>Répondre aux questions de base ci-dessous sur votre projet et cliquer sur 'Enregistrer' pour sauvegarder.</b>"
       confirm_delete_text: "Êtes-vous sûr de vouloir supprimer ce plan? En supprimant le plan de votre liste, il sera également supprimé de la liste de plans des personnes avec lesquelles le plan est partagé, le cas échéant."
       confirmation_text: "Confirmer les renseignements sur le plan"
-      confirmation_text_desc: "Vous utilisez le modèle générique de gestion des données de l’Université de l’Alberta. Si vous avez des suggestions sur la façon d’améliorer le modèle existant, ou si vous aimeriez ajouter d’autres modèles fondés sur les exigences d’organismes de financement ou les besoins des disciplines, communiquez avec nous à <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Builder%20inquiry'>portage@carl-abrc.ca</a>."
+      confirmation_text_desc: "Vous utilisez le modèle générique de gestion des données de l'Université de l'Alberta. Si vous avez des suggestions sur la façon d'améliorer le modèle existant, ou si vous aimeriez ajouter d'autres modèles fondés sur les exigences d'organismes de financement ou les besoins des disciplines, communiquez avec nous à <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Builder%20inquiry'>portage@carl-abrc.ca</a>."
       
       confirmation_button_text: "Oui, créer un plan"
-      default_confirmation_text_desc: "Vous avez sélectionné le plan de gestion des données par défaut, qui est établi en fonction de la liste de vérification du DCC. Vous avez ainsi accès à une série générale de questions et de directives sur le plan de gestion des données. Pour de plus amples renseignements, consultez la : <a href='http://www.dcc.ac.uk/sites/default/files/documents/resource/DMP_Checklist_2013.pdf' target='_blank'>DMP checklist 2013 (Liste de vérification 2013 pour un plan de gestion des données)</a>."
+      default_confirmation_text_desc: "Vous avez sélectionné le plan de gestion des données par défaut, qui est établi en fonction de la liste de vérification du Digital Curation Center (UK). Vous avez ainsi accès à une série générale de questions et de directives sur le plan de gestion des données. Pour de plus amples renseignements, consultez la : <a href='http://www.dcc.ac.uk/sites/default/files/documents/resource/DMP_Checklist_2013.pdf' target='_blank'>DMP checklist 2013 (Liste de vérification 2013 pour un plan de gestion des données)</a>."
       default_confirmation_button_text: "Créer un plan"
-      alert_default_template_text_html: " Veuillez noter que %{org_name} fournit un modèle de plan de gestion des données. Si vous désirez l’utiliser, sélectionnez « Annuler », autrement cliquez sur « Créer un plan »."
+      alert_default_template_text_html: " Veuillez noter que %{org_name} fournit un modèle de plan de gestion des données. Si vous désirez l'utiliser, sélectionnez « Annuler », autrement cliquez sur « Créer un plan »."
       share:
         tab_share: "Partager"
         shared_label: "Partagé?"
-        share_text_html: "<p>Vous pouvez permettre aux autres d’avoir accès à votre plan. Il y a trois niveaux d’autorisation.<ul><li>Les utilisateurs ayant un accès en \"lecture seule\" peuvent seulement lire le plan.</li><li>Les éditeurs peuvent collaborer au plan.</li><li>Les copropriétaires peuvent également collaborer au plan, en plus de pouvoir modifier les renseignements sur le plan et contrôler l’accès au plan.</li></ul></p><p>Ajoutez chaque collaborateur à tour de rôle en indiquant son adresse électronique ci-dessous, en choisissant un niveau d’autorisation et en cliquant sur \"Ajouter un collaborateur\".</p><p> Les personnes invitées recevront un avis par courriel pour les informer qu’elles ont accès à ce plan et pour les inviter à s’inscrire à Assistant PGD si elles n’ont pas déjà un compte. Un avis est également émis lorsque le niveau d’autorisation d’un utilisateur est modifié.</p>"
+        share_text_html: "<p>Vous pouvez permettre aux autres d'avoir accès à votre plan. Il y a trois niveaux d'autorisation.<ul><li>Les utilisateurs ayant un accès en \"lecture seule\" peuvent seulement lire le plan.</li><li>Les éditeurs peuvent collaborer au plan.</li><li>Les copropriétaires peuvent également collaborer au plan, en plus de pouvoir modifier les renseignements sur le plan et contrôler l'accès au plan.</li></ul></p><p>Ajoutez chaque collaborateur à tour de rôle en indiquant son adresse électronique ci-dessous, en choisissant un niveau d'autorisation et en cliquant sur \"Ajouter un collaborateur\".</p><p> Les personnes invitées recevront un avis par courriel pour les informer qu'elles ont accès à ce plan et pour les inviter à s'inscrire à Assistant PGD si elles n'ont pas déjà un compte. Un avis est également émis lorsque le niveau d'autorisation d'un utilisateur est modifié.</p>"
         collaborators: "Collaborateurs"
         add_collaborator: "Ajouter un collaborateur"
         add: "Ajouter"
         permissions: "Autorisations"
-        permissions_desc: "Les éditeurs peuvent collaborer aux plans. Les copropriétaires ont des droits supplémentaires et peuvent modifier les renseignements sur le plan et contrôler l’accès."
-        remove: "Supprimer l’accès d’un utilisateur"
+        permissions_desc: "Les éditeurs peuvent collaborer aux plans. Les copropriétaires ont des droits supplémentaires et peuvent modifier les renseignements sur le plan et contrôler l'accès."
+        remove: "Supprimer l'accès d'un utilisateur"
         confirmation_question: "Êtes-vous sûr?"
         owner: "Propriétaire"
         co_owner: "Copropriétaire"
@@ -536,13 +544,13 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
       create_page: 
         title: "Créer un nouveau plan"
         desc_html: "<p>Choisissez parmi les listes déroulantes suivantes pour que nous puissions déterminer les questions et les directives à afficher dans votre plan.</p>
-        <p>Si vous ne satisfaites pas aux exigences précises d’un bailleur de fonds ou d’un établissement, <a id='create-default-plan-button' data-toggle='modal' href='#default-template-confirmation-dialog'> cliquez ici pour rédiger un plan de gestion des données générique</a> qui s’appuie sur les thèmes les plus courants.</p>"
+        <p>Si vous n’avez pas à répondre aux exigences spécifiques d’un organisme subventionnaire ou d’un établissement, vous pouvez choisir le <b>modèle de plan de gestion Portage</b> qui s’appuie sur des normes internationales et sur les meilleures pratiques. Il a été préparé et est gardé à jour par un groupe d’experts en gestion des données de recherche travaillant au sein de bibliothèques de recherche à travers le Canada. </p>"
         default_template: "Plan de gestion des données par défaut"
         funders_question: "Si vous présentez une demande de financement, sélectionnez votre bailleur de fonds pour la recherche."
-        funders_question_description: "Autrement, laissez l’espace vide."
-        institution_question: "Pour voir les questions ou les directives pour l’établissement, sélectionnez votre organisme."
-        institution_question_description: "Vous pouvez laisser l’espace vide ou sélectionner un autre organisme."
-        other_guidance_question: "Cochez les cases correspondantes pour sélectionner d’autres directives que vous aimeriez consulter."  
+        funders_question_description: "Autrement, laissez l'espace vide."
+        institution_question: "Pour voir les questions ou les directives pour l'établissement, sélectionnez votre organisme."
+        institution_question_description: "Vous pouvez ne faire aucune sélection ou choisir un établissement ou organisme autre que le vôtre. Le modèle Portage sera utilisé par défaut s’il n’y a aucune sélection."
+        other_guidance_question: "Cochez les cases correspondantes pour sélectionner d'autres directives que vous aimeriez consulter."  
         other_funder_name_label: "Nom du bailleur de fonds, le cas échéant"
       configure: "Configurer"
       columns:
@@ -567,7 +575,7 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
         pdf:
           question_not_answered: Question sans réponse.
           generated_by: Ce document a été généré par Assistant PGD (http://dmp.library.ualberta.ca)
-        space_used: "Environ %{space_used}% de l’espace disponible utilisé (%{num_pages} pages maximum)"
+        space_used: "Environ %{space_used}% de l'espace disponible utilisé (%{num_pages} pages maximum)"
         project_name: "Nom du projet"
         project_identifier: "Identifiant du projet"
         grant_title: "Titre de la subvention"
@@ -596,9 +604,9 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
         sections: "Sections"
         title: "Titre du plan"
         reset: "Réinitialiser"
-        custom_formatting: "(À l’aide des valeurs de mise en forme de PDF personnalisées)"
-        template_formatting: "(À l’aide des valeurs de mise en forme de PDF modèles)"
-        default_formatting: "(À l’aide des valeurs de mise en forme de PDF par défaut)"
+        custom_formatting: "(À l'aide des valeurs de mise en forme de PDF personnalisées)"
+        template_formatting: "(À l'aide des valeurs de mise en forme de PDF modèles)"
+        default_formatting: "(À l'aide des valeurs de mise en forme de PDF par défaut)"
         included_elements: "Éléments inclus"
         pdf_formatting: "Mise en forme du PDF"
         font: "Police"
@@ -612,7 +620,7 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
           right: "Droite"
         max_pages: "Nombre maximal de pages"
         errors:
-          missing_key: "Un paramètre demandé n’a pas été fourni."
+          missing_key: "Un paramètre demandé n'a pas été fourni."
           invalid_margin: "La valeur de la marge est invalide."
           negative_margin: "La valeur de la marge ne peut pas être négative."
           unknown_margin: "Marge inconnue. On peut seulement choisir « haut », « bas », « gauche » ou « droite »."
@@ -626,29 +634,29 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
       access_removed: "Plan de gestion de données : accès révoqué"
       
   about_page:
-    title: "À propos de Assistant PGD"
-    tab_1: "Historique"
-    tab_2: "Actualités"
+    title: "À propos de l'Assistant PGD"
+    tab_1: "Assistant PGD"
+    tab_2: "Modèle de plan de gestion des données Portage"
     body_text_tab_1_html: "<div class='white_background'>
     <p>
-    On demande de plus en plus aux chercheurs de rédiger des plans de gestion des données. L’Université de l’Alberta a adopté une <a href='https://policiesonline.ualberta.ca/PoliciesProcedures/Procedures/Research-Records-Stewardship-Guidance-Procedure.pdf' target='_blank'>research records stewardship policy (politique de gestion des documents de recherche)</a> qui décrit la façon de gérer et de préserver les données de recherche et les documents connexes. La présentation de plans de gestion des données (PGD) fait de plus en plus souvent partie des exigences liées à la subvention des organismes de financement. 
+    On demande de plus en plus aux chercheurs de rédiger des plans de gestion des données. L'Université de l'Alberta a adopté une <a href='https://policiesonline.ualberta.ca/PoliciesProcedures/Procedures/Research-Records-Stewardship-Guidance-Procedure.pdf' target='_blank'>research records stewardship policy (politique de gestion des documents de recherche)</a> qui décrit la façon de gérer et de préserver les données de recherche et les documents connexes. La présentation de plans de gestion des données (PGD) fait de plus en plus souvent partie des exigences liées à la subvention des organismes de financement. 
     </p>
     <p>
-    Le service des bibliothèques de l’Université de l’Alberta met cet outil pour les plans de gestion des données (Assistant PGD) à la disposition des chercheurs afin de les aider dans le cadre du processus de planification de la gestion des données. Cet outil est fourni par l’entremise de DMPOnline, qui est conçu par le <a href='http://www.dcc.ac.uk/' target='_blank'>Digital Curation Centre</a> au Royaume-Uni. Toutes les données sont hébergées localement à l’Université de l’Alberta. Consultez nos <a href='/terms?locale=fr'>conditions d’utilisation</a> pour de plus amples renseignements. 
+    Le service des bibliothèques de l'Université de l'Alberta met cet outil pour les plans de gestion des données (Assistant PGD) à la disposition des chercheurs afin de les aider dans le cadre du processus de planification de la gestion des données. Cet outil est fourni par l'entremise de DMPOnline, qui est conçu par le <a href='http://www.dcc.ac.uk/' target='_blank'>Digital Curation Centre</a> au Royaume-Uni. Toutes les données sont hébergées localement à l'Université de l'Alberta. Consultez nos <a href='/terms?locale=fr'>conditions d'utilisation</a> pour de plus amples renseignements. 
     </p>
     </div>
-    <h3>Fonctionnement de l’outil</h3>
+    <h3>Fonctionnement de l'outil</h3>
     <div class='white_background'>
-    <p>À l’heure actuelle, cet outil comprend un modèle générique de plan de gestion des données de l’Université de l’Alberta que les chercheurs peuvent utiliser. Des directives sont fournies afin de vous aider à interpréter les questions et à y répondre.</p>
-    <p>Nous souhaitons obtenir vos commentaires! Si vous avez des suggestions sur la façon d’améliorer le modèle existant, ou si vous aimeriez ajouter d’autres modèles fondés sur les exigences d’organismes de financement ou les besoins des disciplines, communiquez avec nous à <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Builder%20feedback'>portage@carl-abrc.ca</a>.
+    <p>À l'heure actuelle, cet outil comprend un modèle générique de plan de gestion des données de l'Université de l'Alberta que les chercheurs peuvent utiliser. Des directives sont fournies afin de vous aider à interpréter les questions et à y répondre.</p>
+    <p>Nous souhaitons obtenir vos commentaires! Si vous avez des suggestions sur la façon d'améliorer le modèle existant, ou si vous aimeriez ajouter d'autres modèles fondés sur les exigences d'organismes de financement ou les besoins des disciplines, communiquez avec nous à <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Builder%20feedback'>portage@carl-abrc.ca</a>.
     </p>
     </div>
     <h3>Démarrer</h3>
     <div class='white_background'>
     
     <p>Si vous avez un compte, connectez-vous et commencez par créer ou modifier votre plan de gestion des données.</p>
-    <p> Si vous ne possédez pas de compte Assistant PGD, cliquez sur <a href='/?locale=fr'>« S’inscrire »</a> dans la page d’accueil.</p>
-    <p>Veuillez prendre note que nous travaillons actuellement à l’authentification de l’identifiant informatique (CCID). Vous pourrez associer votre compte existant à votre CCID dès que la fonction sera disponible.</p>
+    <p> Si vous ne possédez pas de compte Assistant PGD, cliquez sur <a href='/?locale=fr'>« S'inscrire »</a> dans la page d'accueil.</p>
+    <p>Veuillez prendre note que nous travaillons actuellement à l'authentification de l'identifiant informatique (CCID). Vous pourrez associer votre compte existant à votre CCID dès que la fonction sera disponible.</p>
     <p>Visitez la page <a href='/help?locale=fr'>« Aide »</a> pour obtenir des directives.</p>
     </div>
     <h3>Commentaires</h3>
@@ -662,48 +670,49 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
     title: "Aide"
     tab_1: "Concernant Assistant PGD"
     tab_2: "Concernant la planification de la gestion des données"
-    body_text_tab_2_html: "<p>Le service des bibliothèques de l’Université de l’Alberta a mis au point un <a href='http://guides.library.ualberta.ca/researchdata'>research data management guide (guide sur la gestion des données de recherche)</a> qui peut fournir d’autres directives sur la planification de la gestion des données. Si vous avez besoin de plus de directives, communiquez avec nous par courriel à <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Builder%20help'>portage@carl-abrc.ca</a>.</p>"
+    tab_3: "Personne contact dans votre institution"
+    body_text_tab_2_html: "<p>Le service des bibliothèques de l'Université de l'Alberta a mis au point un <a href='http://guides.library.ualberta.ca/researchdata'>research data management guide (guide sur la gestion des données de recherche)</a> qui peut fournir d'autres directives sur la planification de la gestion des données. Si vous avez besoin de plus de directives, communiquez avec nous par courriel à <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Builder%20help'>portage@carl-abrc.ca</a>.</p>"
 
 
-    body_text_tab_1_html: "<p>Lorsque vous vous connectez à Assistant PGD, vous serez dirigé vers la page « Mes plans ». À partir de cette page, vous pouvez modifier, partager, exporter ou supprimer l’un ou l’autre de vos plans. Vous verrez également les plans qui ont été partagés avec vous par d’autres personnes.</p>
+    body_text_tab_1_html: "<p>Lorsque vous vous connectez à Assistant PGD, vous serez dirigé vers la page « Mes plans ». À partir de cette page, vous pouvez modifier, partager, exporter ou supprimer l'un ou l'autre de vos plans. Vous verrez également les plans qui ont été partagés avec vous par d'autres personnes.</p>
     <h3>Créer un plan</h3>
     <p>Pour créer un plan, cliquez sur le bouton « Créer un plan » à la page « Mes plans » ou dans le menu du haut. Faites des choix dans les listes déroulantes et les cases à cocher afin de déterminer les questions et les directives qui seront affichées. Confirmez votre choix en cliquant sur « Oui, créer un plan ».</p>
     <h3>Rédiger votre plan</h3>
-    <p>L’interface à onglets vous permet de naviguer dans diverses fonctions lorsque vous mettez au point votre plan.</p>
+    <p>L'interface à onglets vous permet de naviguer dans diverses fonctions lorsque vous mettez au point votre plan.</p>
     <ul>
-      <li>- L’option « renseignements sur le plan » comprend des renseignements administratifs de base, indique la série de questions et de directives sur laquelle votre plan s’appuie et vous donne un aperçu des questions auxquelles vous devez répondre.</li>
-      <li>- Les onglets suivants contiennent les questions auxquelles il faut répondre. Il peut y avoir plus d’un onglet si votre bailleur de fonds ou votre université pose différentes séries de questions à diverses étapes, par exemple lors d’une demande de subvention et après l’octroi d’une subvention.</li>
-      <li>- L’onglet « Partager » vous permet d’inviter d’autres personnes à lire votre plan ou à y collaborer.</li>
-      <li>- L’onglet « Exporter » vous permet de télécharger votre plan en divers formats, ce qui peut être utile si vous devez joindre votre plan à une demande de subvention.</li>
+      <li>- L'option « renseignements sur le plan » comprend des renseignements administratifs de base, indique la série de questions et de directives sur laquelle votre plan s'appuie et vous donne un aperçu des questions auxquelles vous devez répondre.</li>
+      <li>- Les onglets suivants contiennent les questions auxquelles il faut répondre. Il peut y avoir plus d'un onglet si votre bailleur de fonds ou votre université pose différentes séries de questions à diverses étapes, par exemple lors d'une demande de subvention et après l'octroi d'une subvention.</li>
+      <li>- L'onglet « Partager » vous permet d'inviter d'autres personnes à lire votre plan ou à y collaborer.</li>
+      <li>- L'onglet « Exporter » vous permet de télécharger votre plan en divers formats, ce qui peut être utile si vous devez joindre votre plan à une demande de subvention.</li>
     </ul>
-    <p>Lorsque vous consultez l’un ou l’autre des onglets de questions, vous verrez les différentes sections de votre plan affichées. Cliquez sur ces onglets à tour de rôle pour répondre aux questions. Vous pouvez choisir le format de vos réponses à l’aide des boutons de mise en forme.</p>
+    <p>Lorsque vous consultez l'un ou l'autre des onglets de questions, vous verrez les différentes sections de votre plan affichées. Cliquez sur ces onglets à tour de rôle pour répondre aux questions. Vous pouvez choisir le format de vos réponses à l'aide des boutons de mise en forme.</p>
     <p>Les directives sont affichées dans la partie de droite. Cliquez sur le symbole « + » pour les consulter.</p>
-    <p>N’oubliez pas d’enregistrer vos réponses avant de poursuivre.</p>
+    <p>N'oubliez pas d'enregistrer vos réponses avant de poursuivre.</p>
     <h3>Partager les plans</h3>
-    <p>Inscrivez l’adresse électronique de tout collaborateur que vous aimeriez inviter à lire ou à modifier votre plan. Choisissez le niveau d’autorisation que vous souhaitez lui accorder dans les options de la liste déroulante et cliquez sur « Ajouter un collaborateur ».</p>
+    <p>Inscrivez l'adresse électronique de tout collaborateur que vous aimeriez inviter à lire ou à modifier votre plan. Choisissez le niveau d'autorisation que vous souhaitez lui accorder dans les options de la liste déroulante et cliquez sur « Ajouter un collaborateur ».</p>
     <h3>Exporter les plans</h3>
-    <p>En choisissant cette option, vous pouvez télécharger votre plan en divers formats, ce qui peut être utile si vous devez joindre votre plan à une demande de subvention. Choisissez le format dans lequel vous aimeriez voir ou télécharger votre plan et cliquez pour l’exporter. Lorsque vous vous connectez à Assistant PGD, vous êtes dirigé vers la page « Mes plans ». À partir de cette page, vous pouvez modifier, partager, exporter ou supprimer l’un ou l’autre de vos plans. Vous voyez également les plans qui ont été partagés avec vous par d’autres personnes.</p>"
+    <p>En choisissant cette option, vous pouvez télécharger votre plan en divers formats, ce qui peut être utile si vous devez joindre votre plan à une demande de subvention. Choisissez le format dans lequel vous aimeriez voir ou télécharger votre plan et cliquez pour l'exporter. Lorsque vous vous connectez à Assistant PGD, vous êtes dirigé vers la page « Mes plans ». À partir de cette page, vous pouvez modifier, partager, exporter ou supprimer l'un ou l'autre de vos plans. Vous voyez également les plans qui ont été partagés avec vous par d'autres personnes.</p>"
 
   contact_page:
     title: "Communiquez avec nous"
-    intro_text_html: "<p>L’outil Assistant PGD est offert par le service des bibliothèques de l’Université de l’Alberta. Vous trouverez de plus amples renseignements à notre sujet sur la <a href='http://library.ualberta.ca/researchdata/' target='_blank'>Research Data Management page (page de gestion des données de recherche)</a>. Si vous souhaitez communiquer avec nous au sujet de Assistant PGD, inscrivez votre demande dans le formulaire Web ci-dessous ou communiquez avec nous par courriel <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Builder%20inquiry' target='_top'>portage@carl-abrc.ca</a>.</p>
-     <p><a href='http://library.ualberta.ca/askus/' target='_blank'>Communiquez avec nous</a></p>"
+    intro_text_html: "<p>L’Assistant PGD est rendu disponible par les Bibliothèques de l’Université d’Alberta. Pour en savoir plus sur les services offerts par ces bibliothèques, consulter la page suivante : <a href='http://library.ualberta.ca/researchdata/' target='_blank'>Research Data Management page</a>.  Si vous désirez communiquer avec nous concernant l’Assistant PGD, merci de saisir votre message dans le formulaire Web ci-dessous ou nous écrire à <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Assistant%20inquiry' target='_top'>portage@carl-abrc.ca</a>.</p>
+<p><a href='http://library.ualberta.ca/askus/' target='_blank'>Nous joindre </a></p>"
   
   terms_page:
-    title: "Exploitation sous licence et conditions d’utilisation"
+    title: "Exploitation sous licence et conditions d'utilisation"
     body_text_html: "
     
     <div class='white_background'>
-    <p>L’outil Assistant PGD du service des bibliothèques de l’Université de l’Alberta est fourni grâce à une application à code source libre appelée <a href='https://dmponline.dcc.ac.uk'>DMPOnline</a> qui a été mise au point par le Digital Curation Centre (DCC) et partagée en vertu de la <a href='http://www.gnu.org/licenses/agpl-3.0.html'>AGPL license (licence publique générale Affero).</a></p>
+    <p>L'outil Assistant PGD du service des bibliothèques de l'Université de l'Alberta est fourni grâce à une application à code source libre appelée <a href='https://dmponline.dcc.ac.uk'>DMPOnline</a> qui a été mise au point par le Digital Curation Centre (DCC) et partagée en vertu de la <a href='http://www.gnu.org/licenses/agpl-3.0.html'>AGPL license (licence publique générale Affero).</a></p>
 
-    <p>Dans la mesure du possible en vertu de la loi, le service des bibliothèques de l’Université de l’Alberta a renoncé à tous les droits d’auteur et les droits connexes ou voisins sur le contenu du site Web Assistant PGD et les modèles de planification de la gestion des données (mais pas sur les plans mêmes) en vertu d’une <a href='http://creativecommons.org/publicdomain/zero/1.0/deed.fr'>Creative Commons Zero License (licence Creative Commons Zéro).</a></p>
+    <p>Dans la mesure du possible en vertu de la loi, le service des bibliothèques de l'Université de l'Alberta a renoncé à tous les droits d'auteur et les droits connexes ou voisins sur le contenu du site Web Assistant PGD et les modèles de planification de la gestion des données (mais pas sur les plans mêmes) en vertu d'une <a href='http://creativecommons.org/publicdomain/zero/1.0/deed.fr'>Creative Commons Zero License (licence Creative Commons Zéro).</a></p>
 
     <p><a href='http://creativecommons.org/publicdomain/zero/1.0/'><img src='http://i.creativecommons.org/p/zero/1.0/88x31.png' alt='CC0' /></a></p>
     </div>
 
     <h3>Vos renseignements personnels</h3>
     <div class='white_background'>
-      <p>Le service des bibliothèques de l’Université de l’Alberta héberge Assistant PGD et conserve vos plans de gestion des données en votre nom, mais les plans vous appartiennent et sont sous votre responsabilité. Les renseignements conservés par Assistant PGD sont régis par la <a href='http://www.library.ualberta.ca/privacy/'>politique de confidentialité du Site Web</a> du service des bibliothèques de l’Université de l’Alberta.</p>
+      <p>Le service des bibliothèques de l'Université de l'Alberta héberge Assistant PGD et conserve vos plans de gestion des données en votre nom, mais les plans vous appartiennent et sont sous votre responsabilité. Les renseignements conservés par Assistant PGD sont régis par la <a href='http://www.library.ualberta.ca/privacy/'>politique de confidentialité du Site Web</a> du service des bibliothèques de l'Université de l'Alberta.</p>
     </div>
 
     <h3>Mots de passe</h3>
@@ -713,4 +722,4 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
     
     <br />
     <div class='white_background'>
-    <p>En utilisant l’outil, vous comprenez et acceptez ces conditions.</p></div>"
+    <p>En utilisant l'outil, vous comprenez et acceptez ces conditions.</p></div>"
