@@ -14,6 +14,48 @@
  * Copyright (c) 2008-2013, Ryan McGeary (ryan -[at]- mcgeary [*dot*] org)
  */
 
+var current_path = window.location.pathname;
+var current_locale = current_path.split("/")[1];
+var setting_strings
+if (current_locale == "fr") {
+  setting_strings = {
+   prefixAgo: "il y a",
+   prefixFromNow: "d'ici",
+   seconds: "moins d'une minute",
+   minute: "environ une minute",
+   minutes: "environ %d minutes",
+   hour: "environ une heure",
+   hours: "environ %d heures",
+   day: "environ un jour",
+   days: "environ %d jours",
+   month: "environ un mois",
+   months: "environ %d mois",
+   year: "un an",
+   years: "%d ans"
+  };                         
+}
+else {
+  setting_strings = {
+  prefixAgo: null,
+  prefixFromNow: null,
+  suffixAgo: "ago",
+  suffixFromNow: "from now",
+  seconds: "less than a minute",
+  minute: "about a minute",
+  minutes: "%d minutes",
+  hour: "about an hour",
+  hours: "about %d hours",
+  day: "a day",
+  days: "%d days",
+  month: "about a month",
+  months: "%d months",
+  year: "about a year",
+  years: "%d years",
+  wordSeparator: " ",
+  numbers: []
+};
+}
+
 (function (factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
@@ -42,25 +84,7 @@
       allowFuture: false,
       localeTitle: false,
       cutoff: 0,
-      strings: {
-        prefixAgo: null,
-        prefixFromNow: null,
-        suffixAgo: "ago",
-        suffixFromNow: "from now",
-        seconds: "less than a minute",
-        minute: "about a minute",
-        minutes: "%d minutes",
-        hour: "about an hour",
-        hours: "about %d hours",
-        day: "a day",
-        days: "%d days",
-        month: "about a month",
-        months: "%d months",
-        year: "about a year",
-        years: "%d years",
-        wordSeparator: " ",
-        numbers: []
-      }
+      strings: setting_strings
     },
     inWords: function(distanceMillis) {
       var $l = this.settings.strings;
