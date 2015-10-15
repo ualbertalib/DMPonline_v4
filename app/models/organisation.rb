@@ -1,5 +1,5 @@
 class Organisation < ActiveRecord::Base
-
+        default_scope :order => 'organisations.sort_name ASC'
 	#associations between tables
 	belongs_to :organisation_type
 	has_many :guidance_groups
