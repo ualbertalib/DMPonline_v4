@@ -24,7 +24,7 @@ p.step{
 
 p.home-description{
   line-height: 25px;
-  font-weight: normal
+  font-weight: normal;
   font-size: 18px;
 }
 
@@ -83,7 +83,7 @@ body.dmponline{
 }
 .header_right{
 	width: 50%;
-        float: left
+        float: left;
         padding-top: 10px;
 }
 .header_center{
@@ -98,11 +98,11 @@ body.dmponline{
         float: left;
         font-weight: bold;
         border-right: 2px solid #FB9C26;
-        border-left: 2px solid #FB9C26
+        border-left: 2px solid #FB9C26;
 }
 .header_left{
 	width: 40%;
-        float: left
+        float: left;
 }
 .dmponline{
 	background-image: none;
@@ -149,7 +149,7 @@ color: #1F3D7D;
 	box-shadow: none;
 }
 .main_nav {
-        float: left
+        float: left;
 	clear: none;
 	margin: 0px 0 0 0;
 }
