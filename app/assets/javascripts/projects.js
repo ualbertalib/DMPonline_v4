@@ -116,6 +116,9 @@ removed by wshi on Feb 9, 2015
                 if (institution == "") {
                   institution = portage;
                 }
+                if (institution == "") {
+                  institution = '8';
+                }
 		$.ajax({
 			type: 'GET',
                         url: "possible_templates.json?institution="+institution,
