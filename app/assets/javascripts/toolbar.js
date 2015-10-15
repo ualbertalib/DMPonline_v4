@@ -22,8 +22,8 @@ $(document).ready(function() {
                   var current_locale = current_path.split("/")[1];
                   var strings = {};
                   if(current_locale == "fr"){
-                      strings['instruction']  = "<p>Les points que vous sélectionnez seront affichés dans le tableau ci-dessous. Vous pouvez trier les données par en-tête ou les filtrer en indiquant une chaîne de texte dans la case de recherche.</p>";
-                      strings['select_action'] = 'Sélectionnez une action'
+                      strings['instruction']  = "<p>Les paramètres que vous sélectionnez seront affichés dans le tableau ci-dessous. Vous pouvez trier les données par en-tête ou les filtrer en indiquant une chaîne de texte dans la case de recherche.</p>";
+                      strings['select_action'] = 'Choisir une action'
 		      strings['save'] = "Enregistrer"
                       strings['cancel'] = "Annuler"
                       }
