@@ -1,7 +1,5 @@
 //= require jquery.timeago.js
 //= require tinymce
-//= require locales/jquery.timeago.en.js
-//= require locales/jquery.timeago.fr.js
 var dirty = {};
 
 
@@ -469,7 +467,7 @@ $.fn.update_timestamp = function(question_id, data) {
                         var time_ago_string;
 
                         if (current_locale == "fr") {
-                            time_ago_string = data.questions[question_id]["answered_by"]+"a répondu à cette question <abbr class='timeago'></abbr>";
+                            time_ago_string = data.questions[question_id]["answered_by"]+" a répondu à cette question <abbr class='timeago'></abbr>";
                         }
                         else {
                             time_ago_string = "Answered <abbr class='timeago'></abbr> by "+data.questions[question_id]["answered_by"];
