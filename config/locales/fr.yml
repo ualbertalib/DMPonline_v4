@@ -31,18 +31,18 @@ fr:
     pm: "p.m."
 
   tool_title: "Assistant PGD – Réseau Portage"
-  dmponline3_text: "Version antérieure de Assistant PGD" 
+  dmponline3_text: "Version antérieure de l'Assistant PGD" 
   subhead: "Services partagés pour les données de recherche"
   dcc_name: "Digital Curation Centre"
   welcome_title: "Bienvenue"
   welcome_text: "<p>L'Assistant PGD est un outil bilingue d'aide à la préparation d'un plan de gestion des données (PGD). Cet outil, qui s'appuie sur des normes internationales et sur les meilleures pratiques en matière de gestion des données, guide le chercheur pas à pas à travers les questions clés pour développer son plan.</p>"
 #  welcome_links: "<p><a href='http://guides.library.ualberta.ca/content.php?pid=524929&sid=4318282' target='_blank'>En savoir plus sur les plans de gestion des données</a><br/><a href='https://dataverse.library.ualberta.ca' target='_blank'>Vous souhaitez partager vos données de recherche?</a><br/><a href='http://library.ualberta.ca/researchdata' target='_blank'>Pour en savoir plus sur les services de données de recherche du service des bibliothèques</a></p>"
-  step_1: "  Se créer un compte dans l’Assistant PGD"
+  step_1: "  Se créer un compte dans l'Assistant PGD"
   step_2: "  Se connecter et sélectionner un modèle dans le menu des organismes. Le modèle par défaut est le modèle Portage."
-  step_3: "  Répondre aux questions pertinentes au projet de recherche; de l’aide et des exemples sont fournis en contexte. "
+  step_3: "  Répondre aux questions pertinentes au projet de recherche; de l'aide et des exemples sont fournis en contexte. "
   step_4: "  Revenir tout au long du projet pour réviser ou compléter des réponses."
-  welcome_links: "Le modèle de plan de gestion des données Portage s’appuie sur des normes internationales et sur les meilleures pratiques. Il a été préparé et est gardé à jour par un groupe d’experts en gestion des données de recherche travaillant au sein de bibliothèques de recherche à travers le Canada. "
-  ccid_message: "Veuillez noter que nous travaillons actuellement à un système d’authentification unique. Pour le moment, veuillez créer un nouveau compte Assistant PGD. Vous pourrez associer votre compte existant à votre identifiant campus dès que la fonction sera disponible."
+  welcome_links: "Le modèle de plan de gestion des données Portage s'appuie sur des normes internationales et sur les meilleures pratiques. Il a été préparé et est gardé à jour par un groupe d'experts en gestion des données de recherche travaillant au sein de bibliothèques de recherche à travers le Canada. "
+  ccid_message: "Veuillez noter que nous travaillons actuellement à un système d'authentification unique. Pour le moment, veuillez créer un nouveau compte dans l'Assistant PGD. Vous pourrez associer votre compte existant à votre identifiant campus dès que la fonction sera disponible."
   
   screencast_error_text: "Votre navigateur ne permet pas la balise vidéo."
   none: "Aucun"
@@ -284,13 +284,13 @@ fr:
 
     greeting: "Bonjour"
     sign_in: "Se connecter"
-    sign_in_text: "Si vous avez déjà un compte avec l’Assistant PGD  ou avec une version antérieure de DMP Builder."
+    sign_in_text: "Si vous avez déjà un compte avec l'Assistant PGD ou avec une version antérieure de l'Assistant PGD."
     sign_out: "Se déconnecter"
     sign_up: "S'inscrire"
-    sign_up_text: "Nouvel utilisateur de l’Assistant PGD? Inscrivez-vous aujourd’hui."
+    sign_up_text: "Nouvel utilisateur de l'Assistant PGD? Inscrivez-vous aujourd'hui."
     signed_in: "Connecté en tant que "
     institution_sign_in_link: "Ou encore, connectez-vous avec l'authentifiant de votre établissement"
-    institution_sign_in: "Authentification à l’aide du compte institutionnel bientôt disponible!"
+    institution_sign_in: "Authentification à l'aide du compte institutionnel bientôt disponible!"
         
 
     user_name: "Adresse électronique"
@@ -363,13 +363,13 @@ fr:
     owner: "Propriétaire"
     orcid_id: "Numéro ORCID"
     orcid_html: "Le numéro ORCID est un identifiant numérique constant qui différencie chaque chercheur, <a href='http://orcid.org/content/initiative' target='_blank' rel='external' class='a_orange'>pour de plus amples renseignements</a>."
-    sign_up_shibboleth_alert_text_html: "Remarque : Si vous avez déjà créé un compte dans Assistant PGD et que vous désirez associer le compte à votre authentifiant de l'établissement, vous devez d'abord vous <a href='/?locale=fr' class='a_orange'>connecter</a> à un compte Assistant PGD existant. Si vous n'avez jamais créé de compte DMPonline, veuillez remplir le formulaire ci-dessous."
+    sign_up_shibboleth_alert_text_html: "Remarque : Si vous avez déjà créé un compte de l'Assistant PGD et que vous désirez associer le compte à votre authentifiant de l'établissement, vous devez d'abord vous <a href='/?locale=fr' class='a_orange'>connecter</a> à un compte existant de l'Assistant PGD. Si vous n'avez jamais créé de compte dans l'Assistant PDG, veuillez remplir le formulaire ci-dessous."
     shibboleth_linked_text: "Votre compte est associé à votre authentifiant de l'établissement."
-    shibboleth_to_link_text: "Associez votre compte Assistant PGD à votre authentifiant de l'établissement."
-    shibboleth_to_link_question: "Voulez-vous associer votre compte Assistant PGD à votre authentifiant de l'établissement?"
+    shibboleth_to_link_text: "Associez votre compte de l'Assistant PGD à votre authentifiant de l'établissement."
+    shibboleth_to_link_question: "Voulez-vous associer votre compte de l'Assistant PGD à votre authentifiant de l'établissement?"
     shibboleth_unlink_label: "Dissociez votre authentifiant de l'établissement."
     shibboleth_unlink_alert: "Alerte concernant la dissociation de votre authentifiant de l'établissement"
-    shibboleth_unlink_dialog_text: "<p>Vous êtes sur le point de dissocier Assistant PGD de votre authentifiant de l'établissement, voulez-vous continuer?</p>"
+    shibboleth_unlink_dialog_text: "<p>Vous êtes sur le point de dissocier l'Assistant PGD de votre authentifiant de l'établissement, voulez-vous continuer?</p>"
     shibboleth_wait_confirmation: "En attente d'une confirmation pour :"
 
     section_label: "Section"
@@ -478,7 +478,7 @@ fr:
       project_name: "Nom du plan"
       my_project_name: "Mon plan"
       tips_label: "Conseils"
-      tips_text: "<p><p>Toutes les questions ne s’appliquent pas à tous les types de projets de recherche; les chercheurs sont invités à répondre aux questions pertinentes à leur projet. </p><p> Les chercheurs devraient revenir tout au long du projet pour réviser ou compléter des réponses.</p>"
+      tips_text: "<p><p>Toutes les questions ne s'appliquent pas à tous les types de projets de recherche; les chercheurs sont invités à répondre aux questions pertinentes à leur projet. </p><p> Les chercheurs devraient revenir tout au long du projet pour réviser ou compléter des réponses.</p>"
       success: "Le plan a été créé avec succès."
       principal_investigator: "Chercheur principal/Chercheur"
       principal_investigator_help_text: "Nom du ou des chercheurs principaux participant au projet"
@@ -507,13 +507,13 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
       project_text_when_no_project: "<p><strong>Bienvenue</strong></br> Vous êtes maintenant prêt à créer votre premier plan de gestion des données.</br>Cliquez sur le bouton « Créer un plan » ci-dessous pour commencer.</p>"
       project_text_when_project: "<p>Le tableau ci-dessous contient une liste des plans que vous avez créés et de ceux que d'autres personnes partagent avec vous.</br>Ces plans peuvent être modifiés, partagés, exportés ou supprimés en tout temps.</p>"
       confirmation_text: "Confirmer les renseignements sur le plan"   
-      confirmation_text_desc: "Vous utilisez le modèle générique de plan de gestion des données Portage. Si vous avez des suggestions pour améliorer ce modèle, ou si vous souhaiteriez ajouter de nouveaux modèles basés sur les exigences d’un organisme subventionnaire ou sur les besoins d’une discipline, communiquez avec nous à l’adresse suivante : <a href='mailto:portage@carl-abrc.ca?Subject=requete%20%20Assistant%20PGD'>portage@carl-abrc.ca</a>."
+      confirmation_text_desc: "Vous utilisez le modèle générique de plan de gestion des données Portage. Si vous avez des suggestions pour améliorer ce modèle, ou si vous souhaiteriez ajouter de nouveaux modèles basés sur les exigences d'un organisme subventionnaire ou sur les besoins d'une discipline, communiquez avec nous à l'adresse suivante : <a href='mailto:portage@carl-abrc.ca?Subject=requete%20%20Assistant%20PGD'>portage@carl-abrc.ca</a>."
       confirmation_button_text: "Oui, créer un plan"  
       project_details_text_html: "Cette page vous donne un aperçu de votre plan. Elle indique les éléments sur lesquels votre plan s'appuie et donne un aperçu des questions qui vous seront posées."
       project_details_editing_text_html: "<b>Répondre aux questions de base ci-dessous sur votre projet et cliquer sur 'Enregistrer' pour sauvegarder.</b>"
       confirm_delete_text: "Êtes-vous sûr de vouloir supprimer ce plan? En supprimant le plan de votre liste, il sera également supprimé de la liste de plans des personnes avec lesquelles le plan est partagé, le cas échéant."
       confirmation_text: "Confirmer les renseignements sur le plan"
-      confirmation_text_desc: "Vous utilisez le modèle générique de gestion des données de l'Université de l'Alberta. Si vous avez des suggestions sur la façon d'améliorer le modèle existant, ou si vous aimeriez ajouter d'autres modèles fondés sur les exigences d'organismes de financement ou les besoins des disciplines, communiquez avec nous à <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Builder%20inquiry'>portage@carl-abrc.ca</a>."
+      confirmation_text_desc: "Vous utilisez le modèle générique de gestion des données de l'Université de l'Alberta. Si vous avez des suggestions sur la façon d'améliorer le modèle existant, ou si vous aimeriez ajouter d'autres modèles fondés sur les exigences d'organismes de financement ou les besoins des disciplines, communiquez avec nous à <a href='mailto:portage@carl-abrc.ca?Subject=Requete%20Assistant%20PGD'>portage@carl-abrc.ca</a>."
       
       confirmation_button_text: "Oui, créer un plan"
       default_confirmation_text_desc: "Vous avez sélectionné le plan de gestion des données par défaut, qui est établi en fonction de la liste de vérification du Digital Curation Center (UK). Vous avez ainsi accès à une série générale de questions et de directives sur le plan de gestion des données. Pour de plus amples renseignements, consultez la : <a href='http://www.dcc.ac.uk/sites/default/files/documents/resource/DMP_Checklist_2013.pdf' target='_blank'>DMP checklist 2013 (Liste de vérification 2013 pour un plan de gestion des données)</a>."
@@ -522,7 +522,7 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
       share:
         tab_share: "Partager"
         shared_label: "Partagé?"
-        share_text_html: "<p>Vous pouvez permettre aux autres d'avoir accès à votre plan. Il y a trois niveaux d'autorisation.<ul><li>Les utilisateurs ayant un accès en \"lecture seule\" peuvent seulement lire le plan.</li><li>Les éditeurs peuvent collaborer au plan.</li><li>Les copropriétaires peuvent également collaborer au plan, en plus de pouvoir modifier les renseignements sur le plan et contrôler l'accès au plan.</li></ul></p><p>Ajoutez chaque collaborateur à tour de rôle en indiquant son adresse électronique ci-dessous, en choisissant un niveau d'autorisation et en cliquant sur \"Ajouter un collaborateur\".</p><p> Les personnes invitées recevront un avis par courriel pour les informer qu'elles ont accès à ce plan et pour les inviter à s'inscrire à Assistant PGD si elles n'ont pas déjà un compte. Un avis est également émis lorsque le niveau d'autorisation d'un utilisateur est modifié.</p>"
+        share_text_html: "<p>Vous pouvez permettre aux autres d'avoir accès à votre plan. Il y a trois niveaux d'autorisation.<ul><li>Les utilisateurs ayant un accès en \"lecture seule\" peuvent seulement lire le plan.</li><li>Les éditeurs peuvent collaborer au plan.</li><li>Les copropriétaires peuvent également collaborer au plan, en plus de pouvoir modifier les renseignements sur le plan et contrôler l'accès au plan.</li></ul></p><p>Ajoutez chaque collaborateur à tour de rôle en indiquant son adresse électronique ci-dessous, en choisissant un niveau d'autorisation et en cliquant sur \"Ajouter un collaborateur\".</p><p> Les personnes invitées recevront un avis par courriel pour les informer qu'elles ont accès à ce plan et pour les inviter à s'inscrire à l'Assistant PGD si elles n'ont pas déjà un compte. Un avis est également émis lorsque le niveau d'autorisation d'un utilisateur est modifié.</p>"
         collaborators: "Collaborateurs"
         add_collaborator: "Ajouter un collaborateur"
         add: "Ajouter"
@@ -535,21 +535,21 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
         edit: "Éditer"
         read_only: "Lecture seule"
         locked_section_text: "Cette section est verouillée pour permettre sa modification par "
-        email_text: "<p>Des droits d'accès '%{access_level}' au projet DMP %{project_link} vous ont été octroyés.</p>"
-        permission_email_text: "<p>Les droits d'accès au projet DMP '%{project_link}' ont été changés. Vous avez maintenant un accès %{access_level}.</p>"
-        access_removed_email_text: "<p>Votre droit d'accès au projet DMP '%{project_title}' a été révoqué.</p>"
+        email_text: "<p>Des droits d'accès '%{access_level}' au projet PGD %{project_link} vous ont été octroyés.</p>"
+        permission_email_text: "<p>Les droits d'accès au projet PGD '%{project_link}' ont été changés. Vous avez maintenant un accès %{access_level}.</p>"
+        access_removed_email_text: "<p>Votre droit d'accès au projet PGD '%{project_title}' a été révoqué.</p>"
       export:
-        generated_by: "Ce document a été généré par Assistant PGD (http://dmp.library.ualberta.ca)"
+        generated_by: "Ce document a été généré par l'Assistant PGD (http://www.portagenetwork.ca)"
         admin_details: "Renseignements administratifs"
       create_page: 
         title: "Créer un nouveau plan"
         desc_html: "<p>Choisissez parmi les listes déroulantes suivantes pour que nous puissions déterminer les questions et les directives à afficher dans votre plan.</p>
-        <p>Si vous n’avez pas à répondre aux exigences spécifiques d’un organisme subventionnaire ou d’un établissement, vous pouvez choisir le <b>modèle de plan de gestion Portage</b> qui s’appuie sur des normes internationales et sur les meilleures pratiques. Il a été préparé et est gardé à jour par un groupe d’experts en gestion des données de recherche travaillant au sein de bibliothèques de recherche à travers le Canada. </p>"
+        <p>Si vous n'avez pas à répondre aux exigences spécifiques d'un organisme subventionnaire ou d'un établissement, vous pouvez choisir le <b>modèle de plan de gestion Portage</b> qui s'appuie sur des normes internationales et sur les meilleures pratiques. Il a été préparé et est gardé à jour par un groupe d'experts en gestion des données de recherche travaillant au sein de bibliothèques de recherche à travers le Canada. </p>"
         default_template: "Plan de gestion des données par défaut"
         funders_question: "Si vous présentez une demande de financement, sélectionnez votre bailleur de fonds pour la recherche."
         funders_question_description: "Autrement, laissez l'espace vide."
-        institution_question: "Pour voir les questions ou les directives pour l'établissement, sélectionnez votre organisme."
-        institution_question_description: "Vous pouvez ne faire aucune sélection ou choisir un établissement ou organisme autre que le vôtre. Le modèle Portage sera utilisé par défaut s’il n’y a aucune sélection."
+        institution_question: "Choisir l'option appropriée dans le menu déroulant pour que les questions et conseils appropriés s'affichent dans votre plan."
+        institution_question_description: "Vous pouvez ne faire aucune sélection ou choisir un établissement ou organisme autre que le vôtre. Le modèle Portage sera utilisé par défaut s'il n'y a aucune sélection."
         other_guidance_question: "Cochez les cases correspondantes pour sélectionner d'autres directives que vous aimeriez consulter."  
         other_funder_name_label: "Nom du bailleur de fonds, le cas échéant"
       configure: "Configurer"
@@ -574,7 +574,7 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
       export:
         pdf:
           question_not_answered: Question sans réponse.
-          generated_by: Ce document a été généré par Assistant PGD (http://dmp.library.ualberta.ca)
+          generated_by: Ce document a été généré par l'Assistant PGD (http://www.portagenetwork.ca)
         space_used: "Environ %{space_used}% de l'espace disponible utilisé (%{num_pages} pages maximum)"
         project_name: "Nom du projet"
         project_identifier: "Identifiant du projet"
@@ -639,42 +639,57 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
     tab_2: "Modèle de plan de gestion des données Portage"
     body_text_tab_1_html: "<div class='white_background'>
     <p>
-    On demande de plus en plus aux chercheurs de rédiger des plans de gestion des données. L'Université de l'Alberta a adopté une <a href='https://policiesonline.ualberta.ca/PoliciesProcedures/Procedures/Research-Records-Stewardship-Guidance-Procedure.pdf' target='_blank'>research records stewardship policy (politique de gestion des documents de recherche)</a> qui décrit la façon de gérer et de préserver les données de recherche et les documents connexes. La présentation de plans de gestion des données (PGD) fait de plus en plus souvent partie des exigences liées à la subvention des organismes de financement. 
+L'Assistant PGD est un outil d'aide à la préparation d'un plan de gestion des données (PGD). 
     </p>
-    <p>
-    Le service des bibliothèques de l'Université de l'Alberta met cet outil pour les plans de gestion des données (Assistant PGD) à la disposition des chercheurs afin de les aider dans le cadre du processus de planification de la gestion des données. Cet outil est fourni par l'entremise de DMPOnline, qui est conçu par le <a href='http://www.dcc.ac.uk/' target='_blank'>Digital Curation Centre</a> au Royaume-Uni. Toutes les données sont hébergées localement à l'Université de l'Alberta. Consultez nos <a href='/terms?locale=fr'>conditions d'utilisation</a> pour de plus amples renseignements. 
-    </p>
+    <p>Les meilleures pratiques en matière de gestion des données sont utilisées pour conseiller le chercheur. </p>
+    <ul class='list'>
+
+<li class='list'> L'outil guide celui-ci pas à pas à travers les questions clés pour le développement d'un plan. 
+<li class='list'> De l'aide et des exemples sont fournis en contexte. 
+<li class='list'> Toutes les questions ne s'appliquent pas à tous les types de projets de recherche; les chercheurs sont invités à répondre aux questions pertinentes à leur projet. 
+<li class='list'> Les chercheurs peuvent revenir tout au long de leur projet pour réviser ou compléter des réponses.</ul>
     </div>
-    <h3>Fonctionnement de l'outil</h3>
+
+    <h3>Comment fonctionne l'outil </h3>
     <div class='white_background'>
-    <p>À l'heure actuelle, cet outil comprend un modèle générique de plan de gestion des données de l'Université de l'Alberta que les chercheurs peuvent utiliser. Des directives sont fournies afin de vous aider à interpréter les questions et à y répondre.</p>
-    <p>Nous souhaitons obtenir vos commentaires! Si vous avez des suggestions sur la façon d'améliorer le modèle existant, ou si vous aimeriez ajouter d'autres modèles fondés sur les exigences d'organismes de financement ou les besoins des disciplines, communiquez avec nous à <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Builder%20feedback'>portage@carl-abrc.ca</a>.
+    <p> L'Assistant PGD comprend un modèle générique de plan de gestion des données, Portage, que les chercheurs peuvent utiliser. Des directives sont fournies afin de les aider à interpréter les questions et à y répondre.</p>
+
+p>Nous souhaitons obtenir vos commentaires! Si vous avez des suggestions sur la façon d'améliorer le modèle existant, ou si vous aimeriez ajouter d'autres modèles basés sur les exigences d'organismes de financement ou sur les besoins des disciplines, <a href='help#contact_info?locale=en'>communiquez avec votre établissement universitaire</a> ou communiquez avec nous à <a href='mailto:portage@carl-abrc.ca?Subject=Commentaires%20%Assistant%20PGD'>portage@carl-abrc.ca</a>.
+
     </p>
     </div>
-    <h3>Démarrer</h3>
+    <h3>Par où commencer</h3>
     <div class='white_background'>
     
-    <p>Si vous avez un compte, connectez-vous et commencez par créer ou modifier votre plan de gestion des données.</p>
-    <p> Si vous ne possédez pas de compte Assistant PGD, cliquez sur <a href='/?locale=fr'>« S'inscrire »</a> dans la page d'accueil.</p>
-    <p>Veuillez prendre note que nous travaillons actuellement à l'authentification de l'identifiant informatique (CCID). Vous pourrez associer votre compte existant à votre CCID dès que la fonction sera disponible.</p>
-    <p>Visitez la page <a href='/help?locale=fr'>« Aide »</a> pour obtenir des directives.</p>
+    <p>Si vous avez un compte, connectez-vous et commencez à créer ou modifier votre plan de gestion des données.</p>
+    <p> Si vous ne possédez pas de compte dans l'Assistant PGD, cliquez sur <a href='/?locale=fr'>« S'inscrire »</a> dans la page d'accueil.</p>
+    <p>Veuillez noter que nous travaillons actuellement à un système d'authentification unique. Vous pourrez éventuellement associer votre compte existant à votre identifiant campus dès que la fonction sera disponible.
+
+    <p>Visitez la page <a href='/help?locale=fr'>« Aide »</a> pour consulter l'aide disponible.</p>
     </div>
     <h3>Commentaires</h3>
     <div class='white_background'>
-    <p>Si vous avez des questions ou des commentaires au sujet de Assistant PGD, communiquez avec nous par courriel à <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Builder%20feedback'>portage@carl-abrc.ca</a>.</p>
+    <p>Si vous avez des questions ou des commentaires au sujet de l'Assistant PGD, <a href='help#contact_info?locale=en'>communiquez avec votre établissement universitaire</a> ou communiquez avec nous par courriel à <a href='mailto:portage@carl-abrc.ca?Subject=Commentaires%20%Assistant%20PGD'>portage@carl-abrc.ca</a>.</p>
     </div>"
-    body_text_tab_2_html: "<p>Actualités provenant du site web DCC</p></br>"     
+
+
+    body_text_tab_2_html: <p>Le modèle de plan de gestion des données Portage s'appuie sur des normes internationales et sur les meilleures pratiques. Il a été préparé et est gardé à jour par un groupe d'experts en gestion des données de recherche travaillant au sein de bibliothèques de recherche à travers le Canada. </p>
+
+<p>Les organismes peuvent rendre disponible leur propre modèle de plan dans l'Assistant PGD. Le modèle Portage est le modèle par défaut. On peut sélectionner le modèle d'un autre organisme à l'aide du menu déroulant. </p>
+
+<p> Les organismes subventionnaires, universités et autres organismes qui souhaiteraient faire intégrer leur modèle de plan peuvent communiquer leur demande à l'adresse suivante : <a href='mailto:portage@carl-abrc.ca?Subject=commentaires%20Assistant%20PGD'>portage@carl-abrc.ca</a>.</p>
+
     
 
   help_page:
     title: "Aide"
-    tab_1: "Concernant Assistant PGD"
+    tab_1: "Concernant l'Assistant PGD"
     tab_2: "Concernant la planification de la gestion des données"
-    tab_3: "Personne contact dans votre institution"
-    body_text_tab_2_html: "<p>Le service des bibliothèques de l'Université de l'Alberta a mis au point un <a href='http://guides.library.ualberta.ca/researchdata'>research data management guide (guide sur la gestion des données de recherche)</a> qui peut fournir d'autres directives sur la planification de la gestion des données. Si vous avez besoin de plus de directives, communiquez avec nous par courriel à <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Builder%20help'>portage@carl-abrc.ca</a>.</p>"
+    tab_3: "Personne-ressource dans votre institution"
+    body_text_tab_2_html: "<p>Le service des bibliothèques de l'Université de l'Alberta a mis au point un <a href='http://guides.library.ualberta.ca/researchdata'>research data management guide (guide sur la gestion des données de recherche)</a> qui peut fournir d'autres directives sur la planification de la gestion des données. Si vous avez besoin de plus de directives, communiquez avec nous par courriel à <a href='mailto:portage@carl-abrc.ca?Subject=Aide%20Assistant%20PGD'>portage@carl-abrc.ca</a>.</p>"
 
 
-    body_text_tab_1_html: "<p>Lorsque vous vous connectez à Assistant PGD, vous serez dirigé vers la page « Mes plans ». À partir de cette page, vous pouvez modifier, partager, exporter ou supprimer l'un ou l'autre de vos plans. Vous verrez également les plans qui ont été partagés avec vous par d'autres personnes.</p>
+    body_text_tab_1_html: "<p>Lorsque vous vous connectez à l'Assistant PGD, vous serez dirigé vers la page « Mes plans ». À partir de cette page, vous pouvez modifier, partager, exporter ou supprimer l'un ou l'autre de vos plans. Vous verrez également les plans qui ont été partagés avec vous par d'autres personnes.</p>
     <h3>Créer un plan</h3>
     <p>Pour créer un plan, cliquez sur le bouton « Créer un plan » à la page « Mes plans » ou dans le menu du haut. Faites des choix dans les listes déroulantes et les cases à cocher afin de déterminer les questions et les directives qui seront affichées. Confirmez votre choix en cliquant sur « Oui, créer un plan ».</p>
     <h3>Rédiger votre plan</h3>
@@ -691,11 +706,41 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
     <h3>Partager les plans</h3>
     <p>Inscrivez l'adresse électronique de tout collaborateur que vous aimeriez inviter à lire ou à modifier votre plan. Choisissez le niveau d'autorisation que vous souhaitez lui accorder dans les options de la liste déroulante et cliquez sur « Ajouter un collaborateur ».</p>
     <h3>Exporter les plans</h3>
-    <p>En choisissant cette option, vous pouvez télécharger votre plan en divers formats, ce qui peut être utile si vous devez joindre votre plan à une demande de subvention. Choisissez le format dans lequel vous aimeriez voir ou télécharger votre plan et cliquez pour l'exporter. Lorsque vous vous connectez à Assistant PGD, vous êtes dirigé vers la page « Mes plans ». À partir de cette page, vous pouvez modifier, partager, exporter ou supprimer l'un ou l'autre de vos plans. Vous voyez également les plans qui ont été partagés avec vous par d'autres personnes.</p>"
+    <p>En choisissant cette option, vous pouvez télécharger votre plan en divers formats, ce qui peut être utile si vous devez joindre votre plan à une demande de subvention. Choisissez le format dans lequel vous aimeriez voir ou télécharger votre plan et cliquez pour l'exporter. Lorsque vous vous connectez à l'Assistant PGD, vous êtes dirigé vers la page « Mes plans ». À partir de cette page, vous pouvez modifier, partager, exporter ou supprimer l'un ou l'autre de vos plans. Vous voyez également les plans qui ont été partagés avec vous par d'autres personnes.</p>"
+
+
+    body_text_tab_3_html: "<p>Votre bibliothèque universitaire offre peut-être déjà du soutien dans le développement de plans de gestion de données. Communiquez avec le bibliothécaire responsable de votre discipline au sein de votre établissement pour en en savoir davantage. Vous trouverez ci-dessous les coordonnées dans le cas des bibliothèques universitaires qui ont une personne-ressource désignée ou un service spécialisé dans la gestion des données de recherche.</p>
+  <p>Si votre établissement n'est pas listé, vous pourriez aussi communiquer avec le Réseau Portage à l'adresse suivante : <a href='mailto:portage@carl-abrc.ca?Subject=Requete%20Assistant%20PGD' target='_top'>portage@carl-abrc.ca</a>. On pourra vous rediriger vers la ressource la plus appropriée à votre demande.</p>
+<h3>Personne-ressource</h3>
+  <p><b>Acadia University</b>: <a href='mailto:maggiejean.neilson@acadiau.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Maggie Neilson</a></p>
+  <p><b>Brandon University</b>: <a href='mailto:kazakoff@brandonu.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Carmen Kazakoff-Lane</a>, Betty Braaksma</p>
+  <p><b>Carleton University</b>: <a href='mailto:rdm@library.carleton.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Jane Fry</a>, <a href='mailto:sylvie.lafortune@carleton.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Sylvie Lafortune</a></p>
+  <p><b>Concordia University</b>: <a href='mailto:alex.guindon@concordia.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Alex Guindon</a>, <a href='mailto:danielle.dennie@concordia.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Danielle Dennie</a></p> 
+    <p><b>Kwantlen Polytechnic University</b>: <a href='mailto:chris.burns@kpu.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Chris Burns</a>, <a href='mailto:todd.mundle@kpu.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Todd Mundle</a></p>
+  <p><b>Lakehead University</b>: <a href='mailto:dgold@lakeheadu.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Debra Gold</a></p>
+  <p><b>MacEwan University</b>: <a href='mailto:tieglitzt@macewan.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Tara Stieglitz</a></p>
+  <p><b>McGill University </b>: <a href='mailto:jane.burpee@mcgill.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>K. Jane Burpee</a>, <a href='mailto:jenn.riley@mcgill.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Jenn Riley</a></p>
+  <p><b>McMaster University</b>: <a href='mailto:rdmgmt@mcmaster.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>RDM@McMaster</a>, <a href='mailto:brodeujj@mcmaster.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Jay Brodeur</a></p>
+  <p><b>Mount Allison University</b>: <a href='mailto:rcollings@mta.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Ruth Collings</a></p>
+  <p><b>Queen's University</b>: <a href='mailto:moonj@queensu.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Jeff Moon</a>, <a href='mailto:coopera@queensu.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Alexandra Cooper</a></p>
+  <p><b>Simon Fraser University</b>: <a href='mailto:data-services@sfu.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Carla Graebner</a></p>
+  <p><b>Université de Moncton</b>: <a href='mailto:victoria.volkanova@umoncton.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Victoria Volkanova</a></p>
+  <p><b>University of British Columbia</b>: <a href='mailto:eugene.barsky@ubc.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Eugene Barsky</a>, <a href='mailto:research.data@ubc.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Research Data Team</a></p>
+  <p><b>University of Alberta</b>: <a href='mailto:data@ualberta.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Research Data Management Group</a>, <a href='mailto:larry.laliberte@ualberta.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Larry Laliberte</a></p>
+  <p><b>University of Calgary</b>: <a href='mailto:jdlbrosz@ucalgary.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>John Brosz</a>, <a href='mailto:spowelso@ucalgary.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Susan Powelson</a></p>
+  <p><b>University of Guelph</b>: <a href='mailto:lib.research@uoguelph.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Research Enterprise & Scholarly Communication Team</a></p>
+  <p><b>University of Lethbridge</b>: <a href='mailto:library-research-l@uleth.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Research Services Group [U. of Lethbridge Library]</a></p>
+  <p><b>University of Manitoba</b>: <a href='mailto:mayu.ishida@umanitoba.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Mayu Ishida</a>, <a href='mailto:gary.strike@umanitoba.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Gary Strike</a></p>
+  <p><b>University of Ontario Institute of Technology</b>: <a href='mailto:katie.harding@uoit.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Katie Harding</a></p>
+  <p><b>University of Waterloo</b>: <a href='mailto:libRDM@library.uwaterloo.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Research Data Management Services</a></p>
+  <p><b>Western University</b>: <a href='mailto:rdm@uwo.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Western RDM Group</a>, <a href='mailto:wlrdmsc@uwo.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Western Libraries RDM Subcommittee</a></p>
+  <p><b>Wilfrid Laurier University</b>: <a href='mailto:msteeleworthy@wlu.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Michael Steeleworthy</a></p>"
+
+
 
   contact_page:
     title: "Communiquez avec nous"
-    intro_text_html: "<p>L’Assistant PGD est rendu disponible par les Bibliothèques de l’Université d’Alberta. Pour en savoir plus sur les services offerts par ces bibliothèques, consulter la page suivante : <a href='http://library.ualberta.ca/researchdata/' target='_blank'>Research Data Management page</a>.  Si vous désirez communiquer avec nous concernant l’Assistant PGD, merci de saisir votre message dans le formulaire Web ci-dessous ou nous écrire à <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Assistant%20inquiry' target='_top'>portage@carl-abrc.ca</a>.</p>
+    intro_text_html: "<p>L'Assistant PGD est rendu disponible par les Bibliothèques de l'Université d'Alberta. Pour en savoir plus sur les services offerts par ces bibliothèques, consulter la page suivante : <a href='http://library.ualberta.ca/researchdata/' target='_blank'>Research Data Management page</a>.  Si vous désirez communiquer avec nous concernant l'Assistant PGD, merci de saisir votre message dans le formulaire Web ci-dessous ou nous écrire à <a href='mailto:portage@carl-abrc.ca?Subject=Requete%200Assistant%20PGD' target='_top'>portage@carl-abrc.ca</a>.</p>
 <p><a href='http://library.ualberta.ca/askus/' target='_blank'>Nous joindre </a></p>"
   
   terms_page:
@@ -712,7 +757,7 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
 
     <h3>Vos renseignements personnels</h3>
     <div class='white_background'>
-      <p>Le service des bibliothèques de l'Université de l'Alberta héberge Assistant PGD et conserve vos plans de gestion des données en votre nom, mais les plans vous appartiennent et sont sous votre responsabilité. Les renseignements conservés par Assistant PGD sont régis par la <a href='http://www.library.ualberta.ca/privacy/'>politique de confidentialité du Site Web</a> du service des bibliothèques de l'Université de l'Alberta.</p>
+      <p>Le service des bibliothèques de l'Université de l'Alberta héberge l'Assistant PGD et conserve vos plans de gestion des données en votre nom, mais les plans vous appartiennent et sont sous votre responsabilité. Les renseignements conservés par Assistant PGD sont régis par la <a href='http://www.library.ualberta.ca/privacy/'>politique de confidentialité du Site Web</a> du service des bibliothèques de l'Université de l'Alberta.</p>
     </div>
 
     <h3>Mots de passe</h3>
