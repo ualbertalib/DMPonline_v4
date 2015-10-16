@@ -197,3 +197,11 @@ background: -moz-linear-gradient(top, #FFFFFF 0%, #F4F4F4 100%);
   padding-top: 10px;
   min-width: 300px;
 }
+
+.center_left_footer img {
+    width: 160px;
+}
+.right_left_footer img {
+    width: 160px;
+}
+
