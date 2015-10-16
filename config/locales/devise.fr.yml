@@ -18,11 +18,11 @@ fr:
       unauthenticated: "Vous devez vous connecter ou vous inscrire pour continuer."
       unconfirmed: "Vous devez confirmer votre compte pour continuer."
     mailer:
-      app_name: "DMP Builder"
+      app_name: "Assistant PGD"
       confirmation_instructions:
-        subject: "Valider votre compte DMP Builder"
+        subject: "Valider votre compte Assistant PGD"
         link: "Cliquer ici pour activer votre compte"
-        email: "<p>Bienvenue dans DMP Builder, %{email}</p>
+        email: "<p>Bienvenue dans l'Assistant PGD, %{email}</p>
         <p>Merci de vous être inscrit(e) à %{app_link}. Veuillez confirmer votre adresse électronique : </p>
         <p>%{confirmation_link} (ou copier %{confirmation_direct_url} dans votre navigateur).</p>"
       reset_password_instructions:
