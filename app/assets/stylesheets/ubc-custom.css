@@ -270,4 +270,10 @@ ul.export_list li{
   padding-top: 10px;
   min-width: 300px;
 }
+.center_left_footer img {
+    width: 160px;
+}
+.right_left_footer img {
+    width: 160px;
+}
 
