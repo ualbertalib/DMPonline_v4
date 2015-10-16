@@ -363,7 +363,7 @@ en:
     owner: "Owner"
     orcid_id: "ORCID number"
     orcid_html: "ORCID number is a persistent digital identifier that distinguishes each researcher, <a href='http://orcid.org/content/initiative' target='_blank' rel='external' class='a_orange'>more info</a>."
-    sign_up_shibboleth_alert_text_html: "Note: If you have previously created an account in DMP Assistant, and you want to link this to your institutional credentials, you need to <a href='/?locale=en' class='a_orange'>Sign in</a> to that existing DMP Assistant account first. If you have never created a DMPonline account, then please complete the form below."
+    sign_up_shibboleth_alert_text_html: "Note: If you have previously created an account in DMP Assistant, and you want to link this to your institutional credentials, you need to <a href='/?locale=en' class='a_orange'>Sign in</a> to that existing DMP Assistant account first. If you have never created a DMP Assistant account, then please complete the form below."
     shibboleth_linked_text: "Your account is linked to your institutional credentials."
     shibboleth_to_link_text: "Link your DMP Assistant account to your institutional credentials"
     shibboleth_to_link_question: "link your DMP Assistant account to your institutional credentials?"
