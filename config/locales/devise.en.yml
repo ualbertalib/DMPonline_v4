@@ -18,11 +18,11 @@ en:
       unauthenticated: "You need to sign in or sign up before continuing."
       unconfirmed: "You have to confirm your account before continuing."
     mailer:
-      app_name: "DMP Builder"
+      app_name: "DMP Assistant"
       confirmation_instructions:
-        subject: "Confirm your DMP Builder account"
+        subject: "Confirm your DMP Assistant account"
         link: "Click here to confirm your account"
-        email: "<p>Welcome to DMP Builder, %{email}</p>
+        email: "<p>Welcome to DMP Assistant, %{email}</p>
         <p>Thank you for registering at %{app_link}. Please confirm your email address:</p>
         <p>%{confirmation_link} (or copy %{confirmation_direct_url} into your browser).</p>"
       reset_password_instructions:
