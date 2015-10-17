@@ -198,6 +198,10 @@ ul.section_ul li{
   background-color: #2F5D7C;
 
 }
+
+.accordion-heading a{
+  color: #fff;
+}
 .section-status{
   background-color: #2F5D7C;
 }
@@ -276,4 +280,10 @@ ul.export_list li{
 .right_left_footer img {
     width: 160px;
 }
+div#sections-accordion a.accordion-toggle {
+  color: #fff;
+}
 
+.accordion-heading a:hover {
+  text-decoration:none;
+}
