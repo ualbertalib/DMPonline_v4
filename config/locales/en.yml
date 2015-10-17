@@ -318,7 +318,7 @@ en:
     no_unlock_instructions: "Didn't receive unlock instructions?"
     send_password_info: "Reset password instructions"
     edit_password_info: "If you would like to change your password please complete the following fields."
-    accept_terms_html: " I accept the <a href='/terms?locale=en'>terms and conditions</a> *"
+    accept_terms_html: " I accept the <a href='en/terms'>terms and conditions</a> *"
 
     text_area: "Text area"
     text_field: "Text field"
@@ -659,9 +659,9 @@ Select what format you wish to use and click to 'Export'.</p>"
     <div class='white_background'>
     
     <p>If you have an account, please sign in and start creating or editing your DMP.</p>
-    <p>If you do not have a DMP Assistant account, click on <a href='/?locale=en'>'Sign up'</a> on the homepage.</p>
+    <p>If you do not have a DMP Assistant account, click on <a href='/en'>'Sign up'</a> on the homepage.</p>
     <p>Please note that we are currently working on single sign-in authentication with your campus ID. You will have the option to link your existing account to your campus ID when that feature becomes available.</p>
-    <p>Please visit the <a href='/help?locale=en'>'Help'</a> page for guidance.</p>
+    <p>Please visit the <a href='en/help'>'Help'</a> page for guidance.</p>
     </div>
     <h3>Feedback</h3>
     <div class='white_background'>
@@ -678,8 +678,9 @@ Organizations may provide their own DMP templates. The Portage template is the d
     tab_1: "On DMP Assistant"
     tab_2: "On data management planning"
     tab_3: "Contact info at your organization"
-    body_text_tab_2_html: "<p>The University of Alberta Libraries <a href='http://guides.library.ualberta.ca/researchdata'>research data management guide</a> can provide additional guidance on data management planning. If you require more guidance, email <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Assistant%20help'>portage@carl-abrc.ca</a>.</p>"
+    #body_text_tab_2_html: "<p>The University of Alberta Libraries <a href='http://guides.library.ualberta.ca/researchdata'>research data management guide</a> can provide additional guidance on data management planning. If you require more guidance, email <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Assistant%20help'>portage@carl-abrc.ca</a>.</p>"
 
+    body_text_tab_2_html: "If you require more guidance, email <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Assistant%20help'>portage@carl-abrc.ca</a>.</p>"
 
     body_text_tab_1_html: "<p>When you login to DMP Assistant you will be directed to the 'My plans' page. From here you can edit, share, export or delete any of your plans. You will also see plans that have been shared with you by others.</p>
     <h3>Create a plan</h3>
