@@ -1,3 +1,6 @@
+##Any changes make here will be overwritten by the Ansible Playbook during deployment##
+##please communicate any of the changes required to the system administrator##
+
 DMPonline4::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
