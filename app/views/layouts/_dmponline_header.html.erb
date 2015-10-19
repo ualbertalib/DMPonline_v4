@@ -7,13 +7,13 @@
     </div>
     <h3 class="subhead"><%= t("subhead") %></h3>
   </div>
-                  <div class="header_center">
-                   <% if I18n.locale == :en %>
-                      <%= link_to "Version française", locale: "fr" %>
-                   <% elsif I18n.locale == :fr %>
-                       <%= link_to "English Version", locale: "en" %>
-                   <% end %>
-                </div>
+  <div class="header_center">
+     <% if I18n.locale == :en %>
+       <%= link_to "Version française", locale: "fr" %>
+     <% elsif I18n.locale == :fr %>
+        <%= link_to "English Version", locale: "en" %>
+     <% end %>
+ </div>
 
   <div class="header_right">	
     <div class="signIn">

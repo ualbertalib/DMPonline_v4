@@ -1,4 +1,8 @@
 
+* {
+  margin: 0;
+}
+
 h1, h2, h3, h4 {
   
   color: #2F5D7C;
@@ -19,15 +23,6 @@ a.visited{
 footer{
  background-color: #2F5D7C;
  color: #999;
-}
-footer .right_side_footer p{
-	 color: #fff;
-}
-footer .right_side_footer a{
-	color: #efefef;
-}
-.right_side_footer{
-	color: #fff;
 }
 .dmponline{
 	background: url('UBC_background.png') top center repeat-x;
@@ -50,6 +45,15 @@ background: #fff !important;
 .signIn ul li a, .signIn ul li a.active, .signIn ul li a:visited {
 	color: #fff;
 }
+
+.home_logo {
+  margin-top: 10px;
+}
+
+.header_center a{
+  color: #fff;
+}
+
 .subhead a {
 	color: #fff;
 	text-decoration:none;

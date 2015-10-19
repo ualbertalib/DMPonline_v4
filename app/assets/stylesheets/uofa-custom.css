@@ -21,13 +21,9 @@ a.visited{
 }
 footer{
  background-color: #1a4824;
-color: #999;
 }
 footer .right_side_footer p{
 	 color: #fff;
-}
-footer .right_side_footer a{
-	color: #efefef;
 }
 .right_side_footer{
 	color: #fff;
@@ -38,30 +34,21 @@ footer .right_side_footer a{
 .dmponline{
 	background: url('https://www.library.ualberta.ca/2012assets/top_back.png') top center repeat-x;
 }
-.welcome-message p{
-	color: #000;
-}
 h3.subhead{
 	color: #fff;
 
 }
-ul#signIn_dropdown {
-background: #fff !important;
+
+body.dmponline .btn-primary, body.dmponline .btn-primary:active, body.dmponline .btn-primary:visited, body.dmponline .btn-primary:focus {
+  background: #1a4824;
 }
+
 .signIn ul li a, .signIn ul li a.active, .signIn ul li a:visited {
 	color: #fff;
 }
-.signIn ul {
-color: #fff;
-}
-body.dmponline .btn-primary, body.dmponline .btn-primary:active, body.dmponline .btn-primary:visited, body.dmponline .btn-primary:focus {
-background: #1a4824;
-}
+
 body.dmponline .btn-primary:hover {
 	background: #2e9463;
-}
-.caret {
-	border-top: 4px solid #fff;
 }
 
 table.dmp_table thead{
