@@ -147,17 +147,7 @@ ul.export_list li{
        
         background-color: #1a4824;
 }
-.progress {
-  .bar {
-    .ProgressBar(#1a4824, #002145);
-  }
-
-  .bar.space {
-    .ProgressBar(#98B2C3, #1a4824);
-
-  }
-
- .color-text{
-    color: #1a4824;
-  }
+div#sections-accordion a.accordion-toggle {
+  color: #fff;
+}
 
