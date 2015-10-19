@@ -199,9 +199,12 @@ background: -moz-linear-gradient(top, #FFFFFF 0%, #F4F4F4 100%);
 }
 
 .center_left_footer img {
-    width: 160px;
+    width: 80px;
 }
 .right_left_footer img {
+    width: 160px;
+}
+.far_right_left_footer img {
     width: 160px;
 }
 

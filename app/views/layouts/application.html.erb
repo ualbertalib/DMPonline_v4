@@ -24,6 +24,10 @@
 		
 	                	<%= stylesheet_link_tag "application_ubc" %>
 
+                 <% elsif (user_signed_in?) && (current_user.organisation_id == 1) then %>
+
+                                <%= stylesheet_link_tag "application_ua" %>
+
 		<% else %>
 			<%= stylesheet_link_tag "application" %>
 		<% end %>
@@ -62,6 +66,9 @@
 	    	<!-- header rendering -->
 	         <% if (user_signed_in?) && (current_user.organisation_id == 7) then %>
 			 <%= render "layouts/dmponline_header_ubc" %>
+                 <% elsif (user_signed_in?) && (current_user.organisation_id == 1) then %>
+                         <%= render "layouts/dmponline_header_uofa" %>
+
 
                 <% else %>
                		 <%= render "layouts/dmponline_header" %>
