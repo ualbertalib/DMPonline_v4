@@ -3,17 +3,17 @@
 <header class="uofa-header">
   <div class='header_left'>
     <div class="home_logo">
-      <%= link_to( image_tag('Portage-Logo.png'), "https://www.portagenetwork.ca")%>
+      <%= link_to( image_tag('Portage-Logo.png'), "https://portagenetwork.ca")%>
     </div>
     <h3 class="subhead"><%= t("subhead") %></h3>
   </div>
-                  <div class="header_center">
-                   <% if I18n.locale == :en %>
-                      <%= link_to "Version française", locale: "fr" %>
-                   <% elsif I18n.locale == :fr %>
-                       <%= link_to "English Version", locale: "en" %>
-                   <% end %>
-                </div>
+  <div class="header_center">
+     <% if I18n.locale == :en %>
+       <%= link_to "Version française", locale: "fr" %>
+     <% elsif I18n.locale == :fr %>
+        <%= link_to "English Version", locale: "en" %>
+     <% end %>
+ </div>
 
   <div class="header_right">	
     <div class="signIn">

@@ -13,5 +13,6 @@
  *= require bootstrap.css
  *= require bootstrap_and_overrides.css.less
  *= require select2.css
+ *= require portage-custom.css
  *= require ubc-custom.css
  */

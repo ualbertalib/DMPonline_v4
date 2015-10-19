@@ -82,16 +82,15 @@ body.dmponline{
 	margin: 0;
 }
 .header_right{
-	width: 50%;
+	width: 35%;
         float: left;
-        padding-top: 10px;
+        padding-top: 20px;
 }
 .header_center{
+        width: 20%;
         font-size: 17px;
-        margin-right: 20px;
         padding-right: 10px;
         padding-left: 10px;
-        margin-left: 20px;
         margin-top: 25px;
         margin-bottom: 12px;
         text-align: center;
@@ -121,7 +120,7 @@ body.dmponline{
 	margin-top: -8px;
 }
 h3.subhead{
-	color: #FB9C26;
+	color: #1F3D7D;
 	font-size: 17px;
 	margin-top: -3px;
 	margin-left: 45px;
@@ -133,6 +132,7 @@ h3.subhead{
 .signIn {
 	margin:5px 20px;
 	top: 0;
+        float: right;
 }
 
 ul#signIn_dropdown {
@@ -149,7 +149,7 @@ color: #1F3D7D;
 	box-shadow: none;
 }
 .main_nav {
-        float: left;
+        float: right;
 	clear: none;
 	margin: 0px 0 0 0;
 }
@@ -199,9 +199,12 @@ background: -moz-linear-gradient(top, #FFFFFF 0%, #F4F4F4 100%);
 }
 
 .center_left_footer img {
-    width: 160px;
+    width: 80px;
 }
 .right_left_footer img {
+    width: 160px;
+}
+.far_right_left_footer img {
     width: 160px;
 }
 
