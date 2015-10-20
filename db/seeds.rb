@@ -103,7 +103,7 @@ end
     user.password_confirmation = details[:password_confirmation]
     user.confirmed_at = details[:confirmed_at]
     details[:roles].each do |role|
-     user.roles << Role.find_by_title(role)
+     user.roles << Role.find_by_name(role)
     end
     user.accept_terms = details[:accept_terms]
     user.save!
@@ -190,22 +190,22 @@ end
  guidances = {
    "Guidance 1" => {
      text: "Guidance text",
-     guidance_group: "Default Guidance group",
+     guidance_group: "Default Guidance group name",
      themes: ["Theme 4"]
    },
    "Guidance 2" => {
      text: "Guidance text",
-     guidance_group: "Optional Guidance group",
+     guidance_group: "Optional Guidance group name",
      themes: ["Theme 2"]
    },
    "Guidance 3" => {
      text: "Guidance text",
-     guidance_group: "Default Guidance group",
+     guidance_group: "Default Guidance group name",
      themes: ["Theme 3"]
    },
    "Guidance 4" => {
      text: "Guidance text",
-     guidance_group: "Optional Guidance group",
+     guidance_group: "Optional Guidance group name",
      themes: ["Theme 1"]
    }
  }
@@ -420,7 +420,7 @@ end
     font_size: 11,
     margin: { top: 20, bottom: 20, left: 20, right: 20 }
   },  
-  'DMP' => {
+  'DCC' => {
      font_face: "Arial, Helvetica, Sans-Serif",
      font_size: 12,
      margin: { top: 20, bottom: 20, left: 20, right: 20 }
@@ -428,7 +428,7 @@ end
 }
 
  formatting.each do |org, settings|
-  template = Dmptemplate.find_by_title("{org} Template")
+  template = Dmptemplate.find_by_title("#{org} Template")
   template.settings(:export).formatting = settings
   template.save!
 end
