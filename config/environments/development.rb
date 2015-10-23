@@ -19,9 +19,6 @@ DMPonline4::Application.configure do
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = true
 
-  # Use syslog for logging
-  config.logger = Logger::Syslog.new('DMPonline_v4')
-  
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
 

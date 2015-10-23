@@ -89,12 +89,12 @@ end
 group :production do
   gem 'therubyracer', '0.11.4', platforms: :ruby
   gem 'libv8'
+  gem 'syslog-logger'
 end
 
 group :ci do
   gem 'ci_reporter', '1.9.2'
 end
 
-gem 'syslog-logger'
 gem 'ledermann-rails-settings'
 gem 'jbuilder'
