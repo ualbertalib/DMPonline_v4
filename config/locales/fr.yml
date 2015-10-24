@@ -383,7 +383,7 @@ fr:
     answered_by_part2: ""
     suggested_answer: "Suggestion de réponse"
     suggested_example: "Exemple de réponse"
-    notanswered: "Pas encore répondue"
+    notanswered: "Aucune réponse consignée"
     noquestionanswered: "Aucune réponse aux questions"
     guidance: "Directives"
     policy_expectations: "Attentes de la politique"
