@@ -73,8 +73,10 @@ module Settings
 
     before_validation do
       self.formatting[:font_size] = self.formatting[:font_size].to_i if self.formatting[:font_size].present?
-      self.formatting[:margin].each do |key, val|
-        self.formatting[:margin][key] = val.to_i
+      unless self.formatting[:margin].nil? or (not self.formatting[:margin].is_a?(Hash))
+        self.formatting[:margin].each do |key, val|
+          self.formatting[:margin][key] = val.to_i
+        end
       end
 
       self.fields.each do |key, val|

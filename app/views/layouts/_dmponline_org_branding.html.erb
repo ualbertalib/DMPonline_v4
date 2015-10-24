@@ -1,0 +1,21 @@
+<!-- Org branding info -->
+<div class="branding_container">
+    <% if user_signed_in? then%>
+        <% if current_user.organisation.present? then%>
+            <!-- Logo -->
+            <% if current_user.organisation.logo_file_name.present? then%>
+                <div class="header_org_logo">
+                    <%= image_tag("#{current_user.organisation.logo_file_name}", class: "header_org_logo_img" )%>
+                </div>
+            <%end%>
+            <!-- Banner text -->
+            <% if current_user.organisation.banner_text.present? then%>
+                <div class="header_org_banner_text">
+                    <span class="header_org_banner_text_vertical_align">
+                        <%= raw current_user.organisation.banner_text %>
+                    </span>
+                </div>
+            <%end%>
+        <%end%>    
+	<%end%>
+</div>

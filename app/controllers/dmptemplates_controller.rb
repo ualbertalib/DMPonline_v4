@@ -262,12 +262,20 @@ class DmptemplatesController < ApplicationController
 	def admin_updateversion
 		if user_signed_in? && current_user.is_org_admin? then
 	   		@version = Version.find(params[:id])
-				@version.description = params["version-desc"]
-				@phase = @version.phase
+            @version.description = params["version-desc"]
+            @phase = @version.phase
 
-				if @version.published && !@phase.dmptemplate.published then
-					@phase.dmptemplate.published = true
-				end
+            if @version.published && !@phase.dmptemplate.published then
+                @phase.dmptemplate.published = true
+            end
+            
+            @all_versions = @phase.versions.where('published = ?', true)
+            @all_versions.each do |v|
+                if v.id != @version.id && v.published == true then
+                    v.published = false
+                    v.save
+                end
+            end
 
 		    respond_to do |format|
 		      if @version.update_attributes(params[:version])

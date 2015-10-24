@@ -24,16 +24,21 @@ json.sections do
             answer = @exported_plan.plan.answer(question.id, false)
             q_format = question.question_format
 										
-            if answer.present? && ( q_format.title == "Check box" || q_format.title == "Multi select box" ||
+            if answer.present? 
+                if (q_format.title == "Check box" || q_format.title == "Multi select box" ||
                                         q_format.title == "Radio buttons" || q_format.title == "Dropdown")
-              json.selections do
-                answer.options.each do |o|
-                  json.set! o.number, o.text
+                  json.selections do
+                    answer.options.each do |o|
+                      json.set! o.number, o.text
+                    end
+                  end
+                  if question.option_comment_display == true
+                    json.comment_text (answer.try(:text) || 'No comment')
+                  end
+                else
+                    json.answer_text (answer.try(:text) || 'Question not answered')
                 end
-              end
             end
-
-            json.answer_text (answer.try(:text) || 'Question not answered')
           end
         end
       end
