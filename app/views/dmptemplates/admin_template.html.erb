@@ -36,7 +36,7 @@
 				<%= render :partial => 'show_phases_sections', locals: {phase: phase}%>
 			<%end%>
 		<%else%>	
-			<% @dmptemplate.phases.each do |phase| %>
+			<% @dmptemplate.phases.order(:number).each do |phase| %>
 				<div class="accordion" id="project-accordion">
 					<div class="accordion-group">
 						<div class="accordion-heading">

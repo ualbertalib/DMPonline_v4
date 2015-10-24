@@ -10,7 +10,7 @@ class ContactsController < ContactUs::ContactsController
 			  		redirect_to(locale_root_path)
 			  	end
 			else
-			  	flash[:error] = t('contact_us.notices.error')
+			  	flash[:alert]  = t('contact_us.notices.error')
 			  	render_new_page
 			end
 		else
@@ -22,7 +22,7 @@ class ContactsController < ContactUs::ContactsController
 			  		redirect_to(locale_root_path)
 			  	end
 			else
-			  	flash[:error] = t('contact_us.notices.error')
+			  	flash[:alert] = t('contact_us.notices.error')
 			  	render_new_page
 			end
 		end		

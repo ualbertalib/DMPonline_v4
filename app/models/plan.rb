@@ -92,6 +92,7 @@ class Plan < ActiveRecord::Base
 				end
 			end
 		end
+        
 		# Get guidance by theme from any guidance groups selected on creation
 		project.guidance_groups.each do |group|
 			if group.dmptemplates.pluck(:id).include?(project.dmptemplate_id) || group.dmptemplates.count == 0 then
@@ -100,16 +101,18 @@ class Plan < ActiveRecord::Base
 						guidances = self.add_guidance_to_array(guidances, group, theme, guidance)
 					end
 				end
-			end
-		end
+			end 
+       	end
+                
 		# Get guidance by question where guidance group was selected on creation or if group is organisation default
 		question.guidances.each do |guidance|
 			guidance.guidance_groups.each do |group|
 				if (group.organisation == project.organisation && !group.optional_subset) || project.guidance_groups.include?(group) then
 					guidances = self.add_guidance_to_array(guidances, group, nil, guidance)
 				end
-			end
+            end
 		end
+        
 		return guidances
 	end
 
@@ -136,7 +139,12 @@ class Plan < ActiveRecord::Base
 		
         return guidance_array
 	end
-
+    
+    
+    
+   
+    
+    
 	def warning(option_id)
 		if project.organisation.nil?
 			return nil

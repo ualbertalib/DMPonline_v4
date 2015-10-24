@@ -23,39 +23,42 @@
 <div class="project-tabs-body">
     <div class="accordion" id="sections-accordion">
     	<% sections = @version.sections %>
-    	<% sections.each do |section| %>
-    		<div class="accordion-group">
-	    		<div class="accordion-heading">
-	    			<a class="accordion-toggle" data-toggle="collapse" data-parent="#sections-accordion" href="#collapse-<%= section.id%>">
-	    				<div class="accordion_heading_text">
-							<%= section.title %>
-						</div>	
-						<!-- + or - icon-->
-	                	<span class="icon-plus icon-white accordion-icon"> </span>
-	                	
-					</a>
-	    		</div>
-	    		<div id="collapse-<%= section.id%>" class="accordion-body collapse section-collapse">
-	    			<div class="section_desc">
-						<%= raw section.description %>
-					</div>
-	    			<div class="accordion-inner">	
-	    				<% section.questions.order("number").each do |question| %>
-							<% last_question_id = section.questions.order("number DESC").first.id%>
-			
-							<!--question block-->
-							<%= render :partial => 'preview_question', locals: {question: question}%>
-			
-							<% if last_question_id == question.id then %>
-								<div class="two-column-clear"></div>
-							<% else %>
-								<div class="two-column-clear question-divider"></div>
-							<% end %>
-			
-						<%end%>
-	       			</div>
-	    		</div>
-	    	</div>		
+    	<% sections.order(:number).each do |section| %>
+            <%if (section.organisation_id == @version.phase.dmptemplate.organisation_id ) || ( section.organisation_id == current_user.organisation_id) then%>
+						
+                <div class="accordion-group">
+                    <div class="accordion-heading">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#sections-accordion" href="#collapse-<%= section.id%>">
+                            <div class="accordion_heading_text">
+                                <%= section.title %>
+                            </div>	
+                            <!-- + or - icon-->
+                            <span class="icon-plus icon-white accordion-icon"> </span>
+                            
+                        </a>
+                    </div>
+                    <div id="collapse-<%= section.id%>" class="accordion-body collapse section-collapse">
+                        <div class="section_desc">
+                            <%= raw section.description %>
+                        </div>
+                        <div class="accordion-inner">	
+                            <% section.questions.order("number").each do |question| %>
+                                <% last_question_id = section.questions.order("number DESC").first.id%>
+                
+                                <!--question block-->
+                                <%= render :partial => 'preview_question', locals: {question: question}%>
+                
+                                <% if last_question_id == question.id then %>
+                                    <div class="two-column-clear"></div>
+                                <% else %>
+                                    <div class="two-column-clear question-divider"></div>
+                                <% end %>
+                
+                            <%end%>
+                        </div>
+                    </div>
+                </div>		
+            <%end%>
     	<%end%>
 	</div>
 </div>	

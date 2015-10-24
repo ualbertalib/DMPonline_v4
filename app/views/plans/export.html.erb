@@ -59,8 +59,12 @@
 													<li><%= option.text %></li>
 												<% end %>
 											</ul>
-										<% end %>
-										<%= raw answer.text %>
+                                            <% if question.option_comment_display == true then%>
+                                                <%= raw answer.text %>
+                                            <% end %>
+										<%else%>
+                                            <%= raw answer.text %>
+                                        <%end%>
 									<% end %>	
 								</td>
 							</tr>

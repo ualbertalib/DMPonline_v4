@@ -55,6 +55,7 @@ You'll need to install the gems, build the database and start the server:
     $ bundle update  
     $ rake db:setup
     $ rake db:populate  
+You may also find the following resources handy:
 
 The second rake task creates a sample admin user.  See lib/tasks/user_data.rake for more details.
 

@@ -1,8 +1,11 @@
-Role.create!([
-  {name: "admin"},
-  {name: "user"},
-  {name: "org_admin"}
-])
+# -*- coding: utf-8 -*-
+# This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
+
+# Dmptemplate default formatting settings based on https://je-s.rcuk.ac.uk/Handbook/pages/GuidanceonCompletingaStandardG/CaseforSupportandAttachments/CaseforSupportandAttachments.htm
+
+d1 = DateTime.new(2015, 6, 22)
+
 organisation_types = {
  'Organization' => {
      name: "Organization"
@@ -53,6 +56,21 @@ organisations.each do |org, details|
      organisation.save!
    end
 end
+ 
+roles = {
+  'admin' => {
+    name: "admin"
+  },
+  'org_admin' => {
+    name: "org_admin"
+  }
+}
+
+roles.each do |role, details|
+  role = Role.new
+  role.name = details[:name]
+  role.save!
+end
 
 # uses encrypted password.  See passwrod safe!
 exists = User.find_by_email('dittest@ualberta.ca')
@@ -97,7 +115,6 @@ end
      question_format.save!
    end
  end
-
 
 user_statuses = {
   "Active" => {
