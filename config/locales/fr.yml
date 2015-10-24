@@ -318,7 +318,7 @@ fr:
     no_unlock_instructions: "Vous n'avez pas reçu les directives de déverrouillage?"
     send_password_info: "Directives pour réinitialiser le mot de passe"
     edit_password_info: "Si vous souhaitez modifier votre mot de passe, veuillez remplir les champs suivants."
-    accept_terms_html: "J'accepte les <a href='/terms?locale=fr'>conditions</a> *"
+    accept_terms_html: "J'accepte les <a href='fr/terms?locale=fr'>conditions</a> *"
 
     text_area: "Zone de texte"
     text_field: "Case de saisie simple"
@@ -665,7 +665,7 @@ p>Nous souhaitons obtenir vos commentaires! Si vous avez des suggestions sur la 
     <p> Si vous ne possédez pas de compte dans l'Assistant PGD, cliquez sur <a href='/?locale=fr'>« S'inscrire »</a> dans la page d'accueil.</p>
     <p>Veuillez noter que nous travaillons actuellement à un système d'authentification unique. Vous pourrez éventuellement associer votre compte existant à votre identifiant campus dès que la fonction sera disponible.
 
-    <p>Visitez la page <a href='/help?locale=fr'>« Aide »</a> pour consulter l'aide disponible.</p>
+    <p>Visitez la page <a href='fr/help?locale=fr'>« Aide »</a> pour consulter l'aide disponible.</p>
     </div>
     <h3>Commentaires</h3>
     <div class='white_background'>
@@ -686,7 +686,8 @@ p>Nous souhaitons obtenir vos commentaires! Si vous avez des suggestions sur la 
     tab_1: "Concernant l'Assistant PGD"
     tab_2: "Concernant la planification de la gestion des données"
     tab_3: "Personne-ressource dans votre institution"
-    body_text_tab_2_html: "<p>Le service des bibliothèques de l'Université de l'Alberta a mis au point un <a href='http://guides.library.ualberta.ca/researchdata'>research data management guide (guide sur la gestion des données de recherche)</a> qui peut fournir d'autres directives sur la planification de la gestion des données. Si vous avez besoin de plus de directives, communiquez avec nous par courriel à <a href='mailto:portage@carl-abrc.ca?Subject=Aide%20Assistant%20PGD'>portage@carl-abrc.ca</a>.</p>"
+    #body_text_tab_2_html: "<p>Le service des bibliothèques de l'Université de l'Alberta a mis au point un <a href='http://guides.library.ualberta.ca/researchdata'>research data management guide (guide sur la gestion des données de recherche)</a> qui peut fournir d'autres directives sur la planification de la gestion des données. Si vous avez besoin de plus de directives, communiquez avec nous par courriel à <a href='mailto:portage@carl-abrc.ca?Subject=Aide%20Assistant%20PGD'>portage@carl-abrc.ca</a>.</p>"
+    body_text_tab_2_html: "Si vous avez besoin de plus de directives, communiquez avec nous par courriel à <a href='mailto:portage@carl-abrc.ca?Subject=Aide%20Assistant%20PGD'>portage@carl-abrc.ca</a>.</p>"
 
 
     body_text_tab_1_html: "<p>Lorsque vous vous connectez à l'Assistant PGD, vous serez dirigé vers la page « Mes plans ». À partir de cette page, vous pouvez modifier, partager, exporter ou supprimer l'un ou l'autre de vos plans. Vous verrez également les plans qui ont été partagés avec vous par d'autres personnes.</p>
