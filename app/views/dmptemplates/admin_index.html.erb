@@ -70,7 +70,7 @@
 <!-- display this only if the organisation is not a funder-->
 <% if current_user.org_type != t("helpers.org_type.funder") then %>
     <h2 class="float-left">
-        <%= t('org_admin.templates.funders_temp') %>
+        <%= t("org_admin.templates.funders_temp") %>
     </h2>	
 
     <!-- List of funders templates -->
@@ -87,37 +87,44 @@
                 </tr>
             </thead>
             <tbody>
+               
                 <% @dmptemplates_funders.each do |org_template| %>	
-                    <tr>
-                        <td class="dmp_td_small">
-                            <%= org_template.title%>
-                        </td>
-                        <td class="dmp_td_medium">
-                            <%= raw org_template.description.truncate(90, omission: '... (continued)') %>
-                        </td>
-                        <td class="dmp_td_small">
-                            <%= org_template.published %>
-                        </td>
-                        <td class="dmp_td_small">
-                            <%= l org_template.updated_at.to_date, :formats => :short %>
-                        </td>
-                        <td class="dmp_td_small">
-                            <%if current_user.is_org_admin? then%>
-                                <% if org_template.org_type == t("helpers.org_type.funder") then %>
-                                    <%if org_template.has_customisations?(current_user.organisation_id, org_template) then%>
-                                        <% b_label = t('org_admin.templates.edit_customisation')%>
-                                    <%else%>	
-                                        <% b_label = t('org_admin.templates.customise')%>
+                    <% if org_template.published? ||org_template.has_customisations?(current_user.organisation_id, org_template) then %>
+                       <tr>
+                            <td class="dmp_td_small">
+                                <%= org_template.title%>
+                            </td>
+                            <td class="dmp_td_medium">
+                                <%= raw org_template.description.truncate(90, omission: '... (continued)') %>
+                            </td>
+                            <td class="dmp_td_small">
+                                <%if org_template.published? then %>
+                                    <%= org_template.published%>
+                                <%else%>
+                                    <%= t("helpers.false_lowercase")%>
+                                <%end%>
+                            </td>
+                            <td class="dmp_td_small">
+                                <%= l org_template.updated_at.to_date, :formats => :short %>
+                            </td>
+                            <td class="dmp_td_small">
+                                <%if current_user.is_org_admin? then%>
+                                    <% if org_template.org_type == t("helpers.org_type.funder") then %>
+                                        <%if org_template.has_customisations?(current_user.organisation_id, org_template) then%>
+                                            <% b_label = t("org_admin.templates.edit_customisation")%>
+                                        <%else%>	
+                                            <% b_label = t("org_admin.templates.customise")%>
+                                        <%end%>	
+                                    <%else%>
+                                        <% b_label = t("helpers.submit.edit")%>
                                     <%end%>	
                                 <%else%>
-                                    <% b_label = t('helpers.submit.edit')%>
-                                <%end%>	
-                            <%else%>
-                                <% b_label = t('helpers.view')%>
-                            <%end%> 
-                            <%= link_to b_label, admin_template_dmptemplate_path(org_template), :class => "dmp_table_link"%>
-                        </td>
-                    </tr>
+                                    <% b_label = t("helpers.view")%>
+                                <%end%> 
+                                <%= link_to b_label, admin_template_dmptemplate_path(org_template), :class => "dmp_table_link"%>
+                            </td>
+                        </tr>
+                    <%end%>
                 <%end%>	
             </tbody>
         </table>

@@ -33,8 +33,13 @@ xml.plan("id" => @plan.id) do
 												xml.selection(option.text, "id" => option.id, "number" => option.number)
 											end
 										end
+                                        if question.option_comment_display == true then
+                                            xml.comment_text answer.text
+                                        end
+                                    else
+                                        xml.answer_text answer.text
 									end
-									xml.answer_text answer.text
+									
 								end
 							end
 						end
