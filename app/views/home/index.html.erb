@@ -4,11 +4,18 @@
 			
 <!--			<h2><%= raw t('welcome_title')%></h2> -->
 			<%= raw t('welcome_text')%>
+                        <% if I18n.locale == :fr %>
+                        <p class="step"><%= image_tag('/assets/step1_fr.jpg', width:'50', height:'50', :alt => "step 1") %><%= raw t('step_1')%></br>
+                        <%= image_tag('/assets/step2_fr.jpg', width:'50', height:'50', :alt => "step 2") %><%= raw t('step_2')%></br>
+                        <%= image_tag('/assets/step3_fr.jpg', width:'50', height:'50', :alt => "step 3") %><%= raw t('step_3')%></br>
+                        <%= image_tag('/assets/step4_fr.jpg', width:'50', height:'50', :alt => "step 4") %><%= raw t('step_4')%></p>
+                        <% else %>
                         <p class="step"><%= image_tag('/assets/step_1.jpg', width:'50', height:'50', :alt => "step 1") %><%= raw t('step_1')%></br>
                         <%= image_tag('/assets/step_2.jpg', width:'50', height:'50', :alt => "step 2") %><%= raw t('step_2')%></br>
                         <%= image_tag('/assets/step_3.jpg', width:'50', height:'50', :alt => "step 3") %><%= raw t('step_3')%></br>
                         <%= image_tag('/assets/step_4.jpg', width:'50', height:'50', :alt => "step 4") %><%= raw t('step_4')%></p>
 
+			<% end %>
 <!--			<p class="home-description"><%= raw t('welcome_links')%></p>
 -->			
 		</div>
