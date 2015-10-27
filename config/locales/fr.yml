@@ -318,7 +318,7 @@ fr:
     no_unlock_instructions: "Vous n'avez pas reçu les directives de déverrouillage?"
     send_password_info: "Directives pour réinitialiser le mot de passe"
     edit_password_info: "Si vous souhaitez modifier votre mot de passe, veuillez remplir les champs suivants."
-    accept_terms_html: "J'accepte les <a href='fr/terms?locale=fr'>conditions</a> *"
+    accept_terms_html: "J'accepte les <a href='terms'>conditions</a> *"
 
     text_area: "Zone de texte"
     text_field: "Case de saisie simple"
@@ -363,7 +363,7 @@ fr:
     owner: "Propriétaire"
     orcid_id: "Numéro ORCID"
     orcid_html: "Le numéro ORCID est un identifiant numérique constant qui différencie chaque chercheur, <a href='http://orcid.org/content/initiative' target='_blank' rel='external' class='a_orange'>pour de plus amples renseignements</a>."
-    sign_up_shibboleth_alert_text_html: "Remarque : Si vous avez déjà créé un compte de l'Assistant PGD et que vous désirez associer le compte à votre authentifiant de l'établissement, vous devez d'abord vous <a href='/?locale=fr' class='a_orange'>connecter</a> à un compte existant de l'Assistant PGD. Si vous n'avez jamais créé de compte dans l'Assistant PDG, veuillez remplir le formulaire ci-dessous."
+    sign_up_shibboleth_alert_text_html: "Remarque : Si vous avez déjà créé un compte de l'Assistant PGD et que vous désirez associer le compte à votre authentifiant de l'établissement, vous devez d'abord vous <a href='/' class='a_orange'>connecter</a> à un compte existant de l'Assistant PGD. Si vous n'avez jamais créé de compte dans l'Assistant PDG, veuillez remplir le formulaire ci-dessous."
     shibboleth_linked_text: "Votre compte est associé à votre authentifiant de l'établissement."
     shibboleth_to_link_text: "Associez votre compte de l'Assistant PGD à votre authentifiant de l'établissement."
     shibboleth_to_link_question: "Voulez-vous associer votre compte de l'Assistant PGD à votre authentifiant de l'établissement?"
@@ -572,7 +572,7 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
 
     plan:
       export:
-      default_title: "Titre PGD"
+        default_title: "Titre PGD"
         pdf:
           question_not_answered: "Question sans réponse."
           generated_by: "Ce document a été généré par l'Assistant PGD (http://www.portagenetwork.ca)"
@@ -655,7 +655,7 @@ L'Assistant PGD est un outil d'aide à la préparation d'un plan de gestion des 
     <div class='white_background'>
     <p> L'Assistant PGD comprend un modèle générique de plan de gestion des données, Portage, que les chercheurs peuvent utiliser. Des directives sont fournies afin de les aider à interpréter les questions et à y répondre.</p>
 
-p>Nous souhaitons obtenir vos commentaires! Si vous avez des suggestions sur la façon d'améliorer le modèle existant, ou si vous aimeriez ajouter d'autres modèles basés sur les exigences d'organismes de financement ou sur les besoins des disciplines, <a href='help#contact_info?locale=en'>communiquez avec votre établissement universitaire</a> ou communiquez avec nous à <a href='mailto:portage@carl-abrc.ca?Subject=Commentaires%20%Assistant%20PGD'>portage@carl-abrc.ca</a>.
+p>Nous souhaitons obtenir vos commentaires! Si vous avez des suggestions sur la façon d'améliorer le modèle existant, ou si vous aimeriez ajouter d'autres modèles basés sur les exigences d'organismes de financement ou sur les besoins des disciplines, <a href='help#contact_info'>communiquez avec votre établissement universitaire</a> ou communiquez avec nous à <a href='mailto:portage@carl-abrc.ca?Subject=Commentaires%20%Assistant%20PGD'>portage@carl-abrc.ca</a>.
 
     </p>
     </div>
@@ -663,14 +663,14 @@ p>Nous souhaitons obtenir vos commentaires! Si vous avez des suggestions sur la 
     <div class='white_background'>
     
     <p>Si vous avez un compte, connectez-vous et commencez à créer ou modifier votre plan de gestion des données.</p>
-    <p> Si vous ne possédez pas de compte dans l'Assistant PGD, cliquez sur <a href='/?locale=fr'>« S'inscrire »</a> dans la page d'accueil.</p>
+    <p> Si vous ne possédez pas de compte dans l'Assistant PGD, cliquez sur <a href='/'>« S'inscrire »</a> dans la page d'accueil.</p>
     <p>Veuillez noter que nous travaillons actuellement à un système d'authentification unique. Vous pourrez éventuellement associer votre compte existant à votre identifiant campus dès que la fonction sera disponible.
 
-    <p>Visitez la page <a href='fr/help?locale=fr'>« Aide »</a> pour consulter l'aide disponible.</p>
+    <p>Visitez la page <a href='help'>« Aide »</a> pour consulter l'aide disponible.</p>
     </div>
     <h3>Commentaires</h3>
     <div class='white_background'>
-    <p>Si vous avez des questions ou des commentaires au sujet de l'Assistant PGD, <a href='help#contact_info?locale=en'>communiquez avec votre établissement universitaire</a> ou communiquez avec nous par courriel à <a href='mailto:portage@carl-abrc.ca?Subject=Commentaires%20%Assistant%20PGD'>portage@carl-abrc.ca</a>.</p>
+    <p>Si vous avez des questions ou des commentaires au sujet de l'Assistant PGD, <a href='help#contact_info'>communiquez avec votre établissement universitaire</a> ou communiquez avec nous par courriel à <a href='mailto:portage@carl-abrc.ca?Subject=Commentaires%20%Assistant%20PGD'>portage@carl-abrc.ca</a>.</p>
     </div>"
 
 

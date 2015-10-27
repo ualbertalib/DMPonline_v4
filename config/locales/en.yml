@@ -322,7 +322,7 @@ en:
     no_unlock_instructions: "Didn't receive unlock instructions?"
     send_password_info: "Reset password instructions"
     edit_password_info: "If you would like to change your password please complete the following fields."
-    accept_terms_html: " I accept the <a href='en/terms'>terms and conditions</a> *"
+    accept_terms_html: " I accept the <a href='terms'>terms and conditions</a> *"
 
     text_area: "Text area"
     text_field: "Text field"
@@ -368,7 +368,7 @@ en:
     owner: "Owner"
     orcid_id: "ORCID number"
     orcid_html: "ORCID number is a persistent digital identifier that distinguishes each researcher, <a href='http://orcid.org/content/initiative' target='_blank' rel='external' class='a_orange'>more info</a>."
-    sign_up_shibboleth_alert_text_html: "Note: If you have previously created an account in DMP Assistant, and you want to link this to your institutional credentials, you need to <a href='/?locale=en' class='a_orange'>Sign in</a> to that existing DMP Assistant account first. If you have never created a DMP Assistant account, then please complete the form below."
+    sign_up_shibboleth_alert_text_html: "Note: If you have previously created an account in DMP Assistant, and you want to link this to your institutional credentials, you need to <a href='/' class='a_orange'>Sign in</a> to that existing DMP Assistant account first. If you have never created a DMP Assistant account, then please complete the form below."
     shibboleth_linked_text: "Your account is linked to your institutional credentials."
     shibboleth_to_link_text: "Link your DMP Assistant account to your institutional credentials"
     shibboleth_to_link_question: "link your DMP Assistant account to your institutional credentials?"
@@ -658,7 +658,7 @@ Select what format you wish to use and click to 'Export'.</p>"
     <h3>How the tool works</h3>
     <div class='white_background'>
     <p>Currently, this tool includes a generic Portage Data Stewardship template for researchers to use.  Guidance is provided to help you interpret and answer the questions.</p>
-    <p>We want your feedback! If you have suggestions on how to improve the existing template, or you would like to add additional templates based on funding agency requirements or disciplinary needs, please <a href='help#contact_info?locale=en'>contact your local institution</a> or contact us at <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Assistant%20feedback'>portage@carl-abrc.ca</a>.
+    <p>We want your feedback! If you have suggestions on how to improve the existing template, or you would like to add additional templates based on funding agency requirements or disciplinary needs, please <a href='help#contact_info'>contact your local institution</a> or contact us at <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Assistant%20feedback'>portage@carl-abrc.ca</a>.
     </p>
     </div>
     <h3>Getting Started</h3>
@@ -667,11 +667,11 @@ Select what format you wish to use and click to 'Export'.</p>"
     <p>If you have an account, please sign in and start creating or editing your DMP.</p>
     <p>If you do not have a DMP Assistant account, click on <a href='/en'>'Sign up'</a> on the homepage.</p>
     <p>Please note that we are currently working on single sign-in authentication with your campus ID. You will have the option to link your existing account to your campus ID when that feature becomes available.</p>
-    <p>Please visit the <a href='en/help'>'Help'</a> page for guidance.</p>
+    <p>Please visit the <a href='help'>'Help'</a> page for guidance.</p>
     </div>
     <h3>Feedback</h3>
     <div class='white_background'>
-    <p>If you have any questions or comments about the DMP Assistant, <a href='help#contact_info?locale=en'>contact your local institution</a> or email us at <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Assistant%20feedback'>portage@carl-abrc.ca</a>.</p>
+    <p>If you have any questions or comments about the DMP Assistant, <a href='help#contact_info'>contact your local institution</a> or email us at <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Assistant%20feedback'>portage@carl-abrc.ca</a>.</p>
     </div>"
     body_text_tab_2_html: "<p>The Portage Data Stewardship template is based on internationally accepted standards and best practices. It has been prepared and is maintained by a group of research data management experts from research libraries across Canada.
 </p><p>
@@ -684,7 +684,7 @@ Organizations may provide their own DMP templates. The Portage template is the d
     tab_1: "On DMP Assistant"
     tab_2: "On data management planning"
     tab_3: "Contact info at your organization"
-    #body_text_tab_2_html: "<p>The University of Alberta Libraries <a href='http://guides.library.ualberta.ca/researchdata'>research data management guide</a> can provide additional guidance on data management planning. If you require more guidance, email <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Assistant%20help'>portage@carl-abrc.ca</a>.</p>"
+    #body_text_tab_2_html: "<a href='#DMPonlinehelp'><p>The University of Alberta Libraries <a href='http://guides.library.ualberta.ca/researchdata'>research data management guide</a> can provide additional guidance on data management planning. If you require more guidance, email <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Assistant%20help'>portage@carl-abrc.ca</a>.</p>"
 
     body_text_tab_2_html: "If you require more guidance, email <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Assistant%20help'>portage@carl-abrc.ca</a>.</p>"
 
@@ -751,7 +751,7 @@ Organizations may provide their own DMP templates. The Portage template is the d
 
     <p><a href='http://creativecommons.org/publicdomain/zero/1.0/'><img src='http://i.creativecommons.org/p/zero/1.0/88x31.png' alt='CC0' /></a></p>
 
-    <p>Institutional data management planning templates and their associated guidance are under their own Creative Commons License terms. <a href='help#contact_info?locale=en'>Contact individual institution</a> for more details.  
+    <p>Institutional data management planning templates and their associated guidance are under their own Creative Commons License terms. <a href='help#contact_info'>Contact individual institution</a> for more details.  
     </div>
 
    
