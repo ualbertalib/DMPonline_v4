@@ -112,7 +112,7 @@ class ExportedPlan < ActiveRecord::Base
         answer = self.plan.answer(question.id, false)
 
         if answer.nil? || answer.text.nil? then
-          output += "Question not answered.\n"
+          output += "{I18n.t('helpers.plan.export.pdf.question_not_answered')}\n"
         else
           output += answer.options.collect {|o| o.text}.join("\n")
           if question.option_comment_display == true then
@@ -148,7 +148,7 @@ class ExportedPlan < ActiveRecord::Base
             docx_html_source << "<div><h4>#{question.text}</h4>"
             answer = self.plan.answer(question.id, false)
             if answer.nil?
-                docx_html_source << "<p>Question not answered.</p>"
+                docx_html_source << "<p>#{I18n.t('helpers.plan.export.pdf.question_not_answered')}</p>"
             else
                 q_format = question.question_format
                 if q_format.title == I18n.t("helpers.checkbox") || q_format.title == I18n.t("helpers.multi_select_box") ||
