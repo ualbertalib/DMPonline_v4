@@ -574,8 +574,8 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
       export:
       default_title: "Titre PGD"
         pdf:
-          question_not_answered: Question sans réponse.
-          generated_by: Ce document a été généré par l'Assistant PGD (http://www.portagenetwork.ca)
+          question_not_answered: "Question sans réponse."
+          generated_by: "Ce document a été généré par l'Assistant PGD (http://www.portagenetwork.ca)"
         space_used: "Environ %{space_used}% de l'espace disponible utilisé (%{num_pages} pages maximum)"
         project_name: "Nom du projet"
         project_identifier: "Identifiant du projet"
