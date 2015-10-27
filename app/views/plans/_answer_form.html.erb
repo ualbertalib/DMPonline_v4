@@ -205,7 +205,7 @@
             <% if !question.guidance.nil? && question.guidance != "" then %>
                 <div class="accordion-group">
                     <div class="accordion-heading">
-                        <a class="accordion-guidance-link" data-toggle="collapse" data-parent="#<%= question.id %>-guidance" href="#collapse-guidance-<%= question.id%>">
+                        <a class="accordion-guidance-link"  data-parent="#<%= question.id %>-guidance" href="#collapse-guidance-<%= question.id%>">
                             <div class="accordion_heading_text">
                                 <%= question.section.organisation.abbreviation %> 
                                 <%if question.section.organisation.abbreviation == "EPSRC" then %>
@@ -216,7 +216,7 @@
                             </div>
                             <span class="plus-laranja"> </span></a>
                     </div>
-                    <div id="collapse-guidance-<%= question.id%>" class="guidance-accordion-body collapse">
+                    <div id="collapse-guidance-<%= question.id%>" class="guidance-accordion-body collapse in">
                         <div class="accordion-inner"><%= raw question.guidance %></div>
                     </div>
                 </div>
@@ -237,7 +237,7 @@
                                     </div>
                                     <span class="plus-laranja"> </span></a>
                             </div>
-                            <div id="collapse-guidance-<%= group.id%>-<%= guidance.id%>-<%= question.id %>" class="guidance-accordion-body collapse">
+                            <div id="collapse-guidance-<%= group.id%>-<%= guidance.id%>-<%= question.id %>" class="guidance-accordion-body collapse in">
                                 <div class="accordion-inner"><%= raw guidance.text %></div>
                             </div>
                         </div>
