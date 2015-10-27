@@ -90,6 +90,19 @@ class ExportedPlan < ActiveRecord::Base
 
   def as_txt
     output = "#{self.plan.project.title}\n\n#{self.plan.version.phase.title}\n"
+  
+    if self.admin_details.present?
+        output += "\n#{I18n.t('helpers.project.export.admin_details')}\n"
+        self.admin_details.each do |field|
+            value = self.send(field)
+            label = "helpers.plan.export.#{field}"
+            if value.present?
+                output += "\n#{I18n.t(label)}: #{value}\n"
+            end
+        end
+        output += "\n"
+    end
+
 
     self.sections.each do |section|
       output += "\n#{section.title}\n"
