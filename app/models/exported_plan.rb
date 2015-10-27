@@ -114,51 +114,6 @@ class ExportedPlan < ActiveRecord::Base
     output
   end
 
-  def html_for_docx
-    docx_html_source = "<html><head></head><body><div><h1>#{self.plan.project.title}</h1><h2>#{self.plan.title}</h2>"
-    if self.admin_details.present?
-        docx_html_source << "<div><h3>Admin Details</h3>"
-        self.admin_details.each do |field|
-            value = self.send(field)
-            label = "helpers.plan.export.#{field}"
-            if value.present?
-                docx_html_source << "<p><strong>#{I18n.t(label)}:</strong> #{value}</p>"
-            end
-        end
-        docx_html_source << "</div>"
-    end
-    self.sections.each do |section|
-        docx_html_source << "<div><h3>#{section.title}</h3>"
-      
-        self.questions_for_section(section.id).each do |question|
-        
-            docx_html_source << "<div><h4>#{question.text}</h4>"
-            answer = self.plan.answer(question.id, false)
-            if answer.nil?
-                docx_html_source << "<p>Question not answered.</p>"
-            else
-                q_format = question.question_format
-                if q_format.title == I18n.t("helpers.checkbox") || q_format.title == I18n.t("helpers.multi_select_box") ||
-                   q_format.title == I18n.t("helpers.radio_buttons") || q_format.title == I18n.t("helpers.dropdown") then
-                    answer.options.each do |option|
-                        if !option.text.nil? 
-                            docx_html_source << "<p>- #{option.text}</p>"
-                        end    
-                    end
-                end
-          
-                if !answer.text.nil? && question.option_comment_display == true then
-                    answer_text = answer.text.gsub(/<tr>(\s|<td>|<\/td>|&nbsp;)*(<\/tr>|<tr>)/,"")
-                    docx_html_source << answer_text
-                end
-            end
-            docx_html_source << "</div>"
-        end
-        docx_html_source << "</div>"
-    end
-    docx_html_source << "</div><body></html>"
-  end
-
 private
 
   def questions

@@ -1,15 +1,24 @@
 source 'https://rubygems.org'
-
+#
+#      RAILS
+#
 gem 'rails', '3.2.22'
+gem 'uglifier'
+gem 'less-rails'
+gem 'twitter-bootstrap-rails'
+gem 'sass-rails',   '~> 3.2.3'
+gem 'sass' 
+gem 'therubyracer', '0.11.4', platforms: :ruby
+gem 'libv8'
+# To use debugger
+gem 'ledermann-rails-settings'
+gem 'jbuilder'
+#to notify admin of errors
+gem 'exception_notification'
 
-gem 'mysql2', '0.3.10'
-gem 'omniauth'
-gem 'omniauth-shibboleth'
-gem 'recaptcha'
-
-
-# Gems used only for assets and not required
-# in production environments by default.
+#to allow cloning of objects
+gem 'amoeba'
+# Gems used only for assets and not required in production environments by default.
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'
 end
@@ -19,64 +28,49 @@ group :development do
   gem "binding_of_caller"
 end
 
-gem 'uglifier'
-gem 'less-rails'
-gem 'therubyracer', '0.11.4', platforms: :ruby
-gem 'libv8'
-
-
-gem 'twitter-bootstrap-rails'
-gem 'sass-rails',   '~> 3.2.3'
-gem 'sass' 
-
-gem 'jquery-rails'
-#gem 'jquery-ui-rails'
-
-gem 'tinymce-rails'
-gem 'friendly_id'
-gem 'contact_us' 
-
-#implementation of forms
-gem 'activeadmin', '1.0.0.pre1'
-
-#to allow cloning of objects
-gem 'amoeba'
-
+#
+#      USERS
+#
 # devise for user authentication
 gem 'devise'
 gem 'devise_invitable'
-
-#cancan for usergroups
-gem 'cancan'
-
-#to notify admin of errors
-gem 'exception_notification'
-
+gem 'omniauth'
+gem 'omniauth-shibboleth'
 #rolify for roles
 gem 'rolify'
 # Gems for repository integration
 gem 'email_validator'
 gem 'validate_url'
-# gem 'sword2ruby'
 
+#
+#    DATABASE/SERVER
+#
+gem 'mysql2', '0.3.10'
+# Use unicorn as the app server
+# gem 'unicorn'
+#cancan for usergroups
+gem 'cancan'
+
+#
+#    VIEWS
+#
+gem 'jquery-rails'
+gem 'tinymce-rails'
+gem 'friendly_id'
+gem 'contact_us' 
+gem 'recaptcha'
+#implementation of forms
+gem 'activeadmin', '1.0.0.pre1'
+
+#
+#     EXPORTING PLANS
+#
 gem 'thin'
 gem 'wicked_pdf'
 gem 'htmltoword'
 gem 'feedzirra', '0.5.0'
+# WORD DOC EXPORTING
+gem 'caracal', '~> 1.0'
+gem 'caracal-rails', '~> 1.0'
 
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
 
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'
-gem 'ledermann-rails-settings'
-gem 'jbuilder'
