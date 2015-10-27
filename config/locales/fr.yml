@@ -572,6 +572,7 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
 
     plan:
       export:
+      default_title: Titre PGD
         pdf:
           question_not_answered: Question sans réponse.
           generated_by: Ce document a été généré par l'Assistant PGD (http://www.portagenetwork.ca)

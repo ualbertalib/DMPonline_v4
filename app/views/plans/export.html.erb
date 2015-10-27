@@ -49,7 +49,7 @@
 	        					<td class="dmp_td_border" >	
 									<% answer = @plan.answer(question.id, false) %>
 									<% if answer.nil? then %>
-										<p>Question not answered.</p>
+										<p><%= t('helpers.plan.export.pdf.question_not_answered') %></p>
 									<% else %>
                                         <% q_format = question.question_format %>
 										<% if q_format.title == t("helpers.checkbox") || q_format.title == t("helpers.multi_select_box") ||
