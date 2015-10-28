@@ -383,7 +383,7 @@ fr:
     answered_by_part2: ""
     suggested_answer: "Suggestion de réponse"
     suggested_example: "Exemple de réponse"
-    notanswered: "Pas encore répondue"
+    notanswered: "Aucune réponse consignée"
     noquestionanswered: "Aucune réponse aux questions"
     guidance: "Directives"
     policy_expectations: "Attentes de la politique"
@@ -513,7 +513,7 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
       project_details_editing_text_html: "<b>Répondre aux questions de base ci-dessous sur votre projet et cliquer sur 'Enregistrer' pour sauvegarder.</b>"
       confirm_delete_text: "Êtes-vous sûr de vouloir supprimer ce plan? En supprimant le plan de votre liste, il sera également supprimé de la liste de plans des personnes avec lesquelles le plan est partagé, le cas échéant."
       confirmation_text: "Confirmer les renseignements sur le plan"
-      confirmation_text_desc: "Vous utilisez le modèle générique de gestion des données de l'Université de l'Alberta. Si vous avez des suggestions sur la façon d'améliorer le modèle existant, ou si vous aimeriez ajouter d'autres modèles fondés sur les exigences d'organismes de financement ou les besoins des disciplines, communiquez avec nous à <a href='mailto:portage@carl-abrc.ca?Subject=Requete%20Assistant%20PGD'>portage@carl-abrc.ca</a>."
+      confirmation_text_desc: "Vous utilisez le modèle générique de plan de gestion des données Portage. Si vous avez des suggestions pour améliorer ce modèle, ou si vous souhaiteriez ajouter de nouveaux modèles basés sur les exigences d'un organisme subventionnaire ou sur les besoins d'une discipline, communiquez avec nous à l'adresse suivante : <a href='mailto:portage@carl-abrc.ca?Subject=requete%20%20Assistant%20PGD'>portage@carl-abrc.ca</a>."
       
       confirmation_button_text: "Oui, créer un plan"
       default_confirmation_text_desc: "Vous avez sélectionné le plan de gestion des données par défaut, qui est établi en fonction de la liste de vérification du Digital Curation Center (UK). Vous avez ainsi accès à une série générale de questions et de directives sur le plan de gestion des données. Pour de plus amples renseignements, consultez la : <a href='http://www.dcc.ac.uk/sites/default/files/documents/resource/DMP_Checklist_2013.pdf' target='_blank'>DMP checklist 2013 (Liste de vérification 2013 pour un plan de gestion des données)</a>."
@@ -751,12 +751,18 @@ p>Nous souhaitons obtenir vos commentaires! Si vous avez des suggestions sur la 
     body_text_html: "
     
     <div class='white_background'>
-    <p>L'outil Assistant PGD du service des bibliothèques de l'Université de l'Alberta est fourni grâce à une application à code source libre appelée <a href='https://dmponline.dcc.ac.uk'>DMPOnline</a> qui a été mise au point par le Digital Curation Centre (DCC) et partagée en vertu de la <a href='http://www.gnu.org/licenses/agpl-3.0.html'>AGPL license (licence publique générale Affero).</a></p>
+    <p>Le Réseau Portage est un regroupement de bibliothèques travaillant à la gestion des données de recherche au Canada.</p>
+    <h3>Assistant PGD</h3>
+    <p>L'Assistant PGD ("l'outil","le système") est fourni grâce à une application à code source libre appelée <a href='https://dmponline.dcc.ac.uk'>DMPOnline</a> qui a été mise au point par le Digital Curation Centre (DCC) et partagée en vertu de la <a href='http://www.gnu.org/licenses/agpl-3.0.html'>AGPL license (licence publique générale Affero).</a></p>
 
-    <p>Dans la mesure du possible en vertu de la loi, le service des bibliothèques de l'Université de l'Alberta a renoncé à tous les droits d'auteur et les droits connexes ou voisins sur le contenu du site Web Assistant PGD et les modèles de planification de la gestion des données (mais pas sur les plans mêmes) en vertu d'une <a href='http://creativecommons.org/publicdomain/zero/1.0/deed.fr'>Creative Commons Zero License (licence Creative Commons Zéro).</a></p>
+    <h3>Modèle de plan de gestion des données et ressources associées</h3>
+    <p>Le modèle de plan de gestion des données Portage ainsi que les directives reliées de l'<a href='http://www.portagenetwork.ca'>Assistant PGD Portage</a> (mais pas sur les plans mêmes) sont distribués en vertu d'une <a href='http://creativecommons.org/publicdomain/zero/1.0/deed.fr'>Creative Commons Zero License (licence Creative Commons Zéro).</a></p>
 
-    <p><a href='http://creativecommons.org/publicdomain/zero/1.0/'><img src='http://i.creativecommons.org/p/zero/1.0/88x31.png' alt='CC0' /></a></p>
+    <p><a href='http://creativecommons.org/publicdomain/zero/1.0/deed.fr'><img src='http://i.creativecommons.org/p/zero/1.0/88x31.png' alt='CC0' /></a></p>
+
+    <p>Les modèles institutionnels de plan de gestion des données ainsi que les directives qui y sont reliées sont distribués en vertu de leurs propres licences Creative Commons. <a href='help#contact_info?locale=fr'>Contacter chaque institution</a> pour obtenir plus d'information.</p> 
     </div>
+
 
     <h3>Vos renseignements personnels</h3>
     <div class='white_background'>
