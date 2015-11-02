@@ -86,13 +86,13 @@ group :development, :test do
   gem 'nokogiri'
 end
 
-group :test, :production do
-  gem 'syslog-logger'
-end
-
 group :production do
   gem 'therubyracer', '0.11.4', platforms: :ruby
   gem 'libv8'
+end
+
+group :test, :production do
+  gem 'syslog-logger'
 end
 
 group :ci do
