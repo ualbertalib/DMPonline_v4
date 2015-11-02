@@ -16,7 +16,7 @@ module ApplicationHelper
 	end
 	
     
-	def link_to_add_object(name, f, association, css_class)
+	def link_to_add_object(name, f, association, css_class, i)
         new_object = f.object.class.reflect_on_association(association).klass.new
         fields = f.fields_for(association, new_object, :child_index => "new_#{association}") do |builder|
           j = i + 1
