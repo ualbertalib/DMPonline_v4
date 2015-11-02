@@ -1,5 +1,5 @@
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
     Ascii85 (1.0.2)
     actionmailer (3.2.22)
@@ -149,7 +149,7 @@ GEM
     mime-types (1.25.1)
     mini_portile (0.6.2)
     multi_json (1.11.2)
-    mysql2 (0.3.18)
+    mysql2 (0.3.20)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     omniauth (1.2.2)
@@ -302,7 +302,7 @@ DEPENDENCIES
   less-rails
   libv8
   mail
-  mysql2
+  mysql2 (~> 0.3.20)
   nokogiri
   omniauth
   omniauth-shibboleth
