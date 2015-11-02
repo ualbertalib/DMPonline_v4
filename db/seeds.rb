@@ -39,13 +39,13 @@ organisation_types = {
    },
    'Funder example' => {
      name: "Funder full name",
-     abbreviation: "Funder_abb",
+     abbreviation: "Funder_example",
      sort_name: "Funder sorting name",
      organisation_type: "Funder"
    },
    'Institution example'=> {
      name: "Institution full name",
-     abbreviation: "Institution_abb",
+     abbreviation: "Institution_example",
      domain: "Institution_url",
      sort_name: "Institution sorting name",
      organisation_type: "Institution"
@@ -77,11 +77,13 @@ roles.each do |role, details|
   role.save!
 end
 
+ 
  users = {
     'Super admin' => {
         email: "super_admin@example.com",
         password: "password1",
         password_confirmation: "password1",
+        organisation: "DCC",
         roles: ['admin','org_admin'],
         accept_terms: true,
         confirmed_at: Time.zone.now
@@ -90,6 +92,7 @@ end
         email: "org_admin@example.com",
         password: "password2",
         password_confirmation: "password2",
+        organisation: "Institution_example",
         roles: ['org_admin'],
         accept_terms: true,
         confirmed_at: Time.zone.now
@@ -102,6 +105,7 @@ end
     user.password = details[:password]
     user.password_confirmation = details[:password_confirmation]
     user.confirmed_at = details[:confirmed_at]
+    user.user_org_roles << Organisation.find_by_abbreviation(details[:organisation])
     details[:roles].each do |role|
      user.roles << Role.find_by_name(role)
     end
@@ -109,6 +113,7 @@ end
     user.save!
     
  end
+
 
  themes = {
    "Theme 1" => {
@@ -339,7 +344,7 @@ end
    section.number = details[:number]
    section.description = details[:description]
    section.version = Version.find_by_title(details[:version])
-   section.organisation = Organisation.find_by_name(details[:organisation])
+   section.organisation = Organisation.find_by_abbreviation(details[:organisation])
    section.save!
  end
 
