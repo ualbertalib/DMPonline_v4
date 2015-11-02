@@ -1,15 +1,15 @@
 # -*- encoding: utf-8 -*-
-# stub: mysql2 0.3.18 ruby lib
+# stub: mysql2 0.3.20 ruby lib
 # stub: ext/mysql2/extconf.rb
 
 Gem::Specification.new do |s|
   s.name = "mysql2"
-  s.version = "0.3.18"
+  s.version = "0.3.20"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib"]
   s.authors = ["Brian Lopez"]
-  s.date = "2015-02-17"
+  s.date = "2015-08-25"
   s.email = "seniorlopez@gmail.com"
   s.extensions = ["ext/mysql2/extconf.rb"]
   s.files = ["ext/mysql2/extconf.rb"]

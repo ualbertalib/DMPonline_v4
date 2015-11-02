@@ -6,6 +6,14 @@ describe Mysql2::Result do
     @result = @client.query "SELECT 1"
   end
 
+  it "should raise a TypeError exception when it doesn't wrap a result set" do
+    r = Mysql2::Result.new
+    expect { r.count }.to raise_error(TypeError)
+    expect { r.fields }.to raise_error(TypeError)
+    expect { r.size }.to raise_error(TypeError)
+    expect { r.each }.to raise_error(TypeError)
+  end
+
   it "should have included Enumerable" do
     Mysql2::Result.ancestors.include?(Enumerable).should be_true
   end
@@ -107,18 +115,19 @@ describe Mysql2::Result do
 
   context "streaming" do
     it "should maintain a count while streaming" do
-      result = @client.query('SELECT 1')
-
-      result.count.should eql(1)
+      result = @client.query('SELECT 1', :stream => true, :cache_rows => false)
+      result.count.should eql(0)
       result.each.to_a
       result.count.should eql(1)
     end
 
-    it "should set the actual count of rows after streaming" do
-      result = @client.query("SELECT * FROM mysql2_test", :stream => true, :cache_rows => false)
+    it "should retain the count when mixing first and each" do
+      result = @client.query("SELECT 1 UNION SELECT 2", :stream => true, :cache_rows => false)
       result.count.should eql(0)
-      result.each {|r|  }
+      result.first
       result.count.should eql(1)
+      result.each.to_a
+      result.count.should eql(2)
     end
 
     it "should not yield nil at the end of streaming" do
