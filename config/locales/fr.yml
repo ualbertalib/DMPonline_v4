@@ -539,7 +539,7 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
         permission_email_text: "<p>Les droits d'accès au projet PGD '%{project_link}' ont été changés. Vous avez maintenant un accès %{access_level}.</p>"
         access_removed_email_text: "<p>Votre droit d'accès au projet PGD '%{project_title}' a été révoqué.</p>"
       export:
-        generated_by: "Ce document a été généré par l'Assistant PGD (http://www.portagenetwork.ca)"
+        generated_by: "Ce document a été généré par l'Assistant PGD (https://reseauportage.ca)"
         admin_details: "Renseignements administratifs"
       create_page: 
         title: "Créer un nouveau plan"
@@ -552,6 +552,7 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
         institution_question_description: "Vous pouvez ne faire aucune sélection ou choisir un établissement ou organisme autre que le vôtre. Le modèle Portage sera utilisé par défaut s'il n'y a aucune sélection."
         other_guidance_question: "Cochez les cases correspondantes pour sélectionner d'autres directives que vous aimeriez consulter."  
         other_funder_name_label: "Nom du bailleur de fonds, le cas échéant"
+        template_question: "Choisissez un modèle"
       configure: "Configurer"
       columns:
         name: "Nom"
@@ -575,7 +576,7 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
         default_title: "Titre PGD"
         pdf:
           question_not_answered: "Question sans réponse."
-          generated_by: "Ce document a été généré par l'Assistant PGD (http://www.portagenetwork.ca)"
+          generated_by: "Ce document a été généré par l'Assistant PGD (https://reseauportage.ca)"
         space_used: "Environ %{space_used}% de l'espace disponible utilisé (%{num_pages} pages maximum)"
         project_name: "Nom du projet"
         project_identifier: "Identifiant du projet"
