@@ -206,6 +206,9 @@ class ProjectsController < ApplicationController
 					templates[t.id] = t.title
 				end
 			end
+			institution.parent.published_templates.each do |t|
+				templates[t.id] = t.title
+			end
 		end
 		respond_to do |format|
 			format.json { render json: templates.to_json }
