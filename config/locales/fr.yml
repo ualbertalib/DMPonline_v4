@@ -501,7 +501,7 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
       project_data_contact: "Personne-ressource pour les données du plan"
       project_data_contact_help_text: "Nom (si différent de celui susmentionné), numéro de téléphone et adresse électronique"
       project_name_help_text: "Si vous présentez une demande de financement, inscrivez le nom de la même façon que dans la demande de subvention."
-      project_desc_help_text_html: "<div class='tooltip_box'><h4> Questions à prendre en considération :</h4><ul><li>- Quelle est la nature de votre projet de recherche?</li><li>- Quelles questions de recherche abordez-vous? </li><li>- À quelle fin les données sont-elles recueillies ou créées? </li></ul><h4>Directives :</h4><p>Résumez brièvement le type d'étude (ou les études) afin d'aider les autres à comprendre les raisons pour lesquelles les données sont recueillies ou créées.</p></div>"
+      project_desc_help_text_html: "<div class='tooltip_box'><b> Questions à prendre en considération :</b><ul><li>- Quelle est la nature de votre projet de recherche?</li><li>- Quelles questions de recherche abordez-vous? </li><li>- À quelle fin les données sont-elles recueillies ou créées? </li></ul><h4>Directives :</h4><p>Résumez brièvement le type d'étude (ou les études) afin d'aider les autres à comprendre les raisons pour lesquelles les données sont recueillies ou créées.</p></div>"
       project_identifier: "Identification"
       project_identifier_help_text: "Une identification pertinente déterminée par le bailleur de fonds ou l'établissement"
       project_static_info: "Ce plan s'appuie sur :"
@@ -760,7 +760,7 @@ p>Nous souhaitons obtenir vos commentaires! Si vous avez des suggestions sur la 
     <p>L'Assistant PGD (\"l'outil\",\"le système\") est fourni grâce à une application à code source libre appelée <a href='https://dmponline.dcc.ac.uk'>DMPOnline</a> qui a été mise au point par le Digital Curation Centre (DCC) et partagée en vertu de la <a href='http://www.gnu.org/licenses/agpl-3.0.html'>AGPL license (licence publique générale Affero).</a></p>
 
     <h3>Modèle de plan de gestion des données et ressources associées</h3>
-    <p>Le modèle de plan de gestion des données Portage ainsi que les directives reliées de l'<a href='http://www.portagenetwork.ca'>Assistant PGD Portage</a> (mais pas sur les plans mêmes) sont distribués en vertu d'une <a href='http://creativecommons.org/publicdomain/zero/1.0/deed.fr'>Creative Commons Zero License (licence Creative Commons Zéro).</a></p>
+    <p>Le modèle de plan de gestion des données Portage ainsi que les directives reliées de l'<a href='http://portagenetwork.ca/fr'>Assistant PGD Portage</a> (mais pas sur les plans mêmes) sont distribués en vertu d'une <a href='http://creativecommons.org/publicdomain/zero/1.0/deed.fr'>Creative Commons Zero License (licence Creative Commons Zéro).</a></p>
 
     <p><a href='http://creativecommons.org/publicdomain/zero/1.0/deed.fr'><img src='http://i.creativecommons.org/p/zero/1.0/88x31.png' alt='CC0' /></a></p>
 
