@@ -62,6 +62,9 @@ $(document).ready(function() {
   // Settings::ProjectsController#show, but that would perhaps
   // mean responding to a JSON request with HTML.
   function buildSettingsForm(data) {
+    var locale = get_locale()
+    var labels_locale = get_locale_labels()
+
     if (!form)
       form = $('<form method="POST" action="/settings/projects"></form>');
 
@@ -76,16 +79,17 @@ $(document).ready(function() {
     table.before('<input name="authenticity_token" type="hidden" value="' + $('meta[name="csrf-token"]').attr('content') + '" />'); // Auth token
     table.after(get_locale_string()['instruction']);
 
+    var name_label
+    if (locale == 'fr') { name_label = labels_locale['name'] } 
+    else { name_label = "Name" }
     // Default name column
     table.before('<input type="hidden" name="columns[name]" value="1" />');
-    thead.append('<th><label for="columns_name">Name</label></th>');
+    thead.append('<th><label for="columns_name">'+name_label+'</label></th>');
     tbody.append('<td><input type="checkbox" id="columns_name" name="columns[name]" value="1" checked disabled /></td>')
 
     for (var i = 0, len = cols.length; i < len; i++) {
       var title 
-      var locale = get_locale()
-      labels_locale = get_locale_labels()
-if (locale == 'en') { title = cols[i].replace(/^\w|_/g, function(c) { return c === '_' ? ' ' : c.toUpperCase(); })}
+      if (locale == 'en') { title = cols[i].replace(/^\w|_/g, function(c) { return c === '_' ? ' ' : c.toUpperCase(); })}
       else if (locale == 'fr')  { en_title = cols[i];
       title = labels_locale[en_title] }// FIXME: add titles to response for I18n?
           label = $('<th><label for="columns_' + cols[i] + '">' + title + '</label></th>').appendTo(thead),
