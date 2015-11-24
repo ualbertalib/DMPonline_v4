@@ -64,9 +64,9 @@ $(document).ready(function() {
   function buildSettingsForm(data) {
     var locale = get_locale()
     var labels_locale = get_locale_labels()
-
+    var link = "/settings/projects?locale=" + locale
     if (!form)
-      form = $('<form method="POST" action="/settings/projects"></form>');
+      form = $('<form method="POST" action=' + link + '></form>');
 
     var table = $('<table class="dmp_table"></table>').appendTo(form),
         thead = $('<thead><tr></tr></thead>').appendTo(table),
