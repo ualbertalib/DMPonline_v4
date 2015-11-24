@@ -555,7 +555,7 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
         institution_question_description: "Vous pouvez ne faire aucune sélection ou choisir un établissement ou organisme autre que le vôtre. Le modèle Portage sera utilisé par défaut s'il n'y a aucune sélection."
         other_guidance_question: "Cochez les cases correspondantes pour sélectionner d'autres directives que vous aimeriez consulter."  
         other_funder_name_label: "Nom du bailleur de fonds, le cas échéant"
-        template_question: "Choisissez un modèle"
+        template_question: "Choisir un modèle"
       configure: "Configurer"
       columns:
         name: "Nom"
