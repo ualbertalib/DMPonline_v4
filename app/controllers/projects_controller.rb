@@ -206,9 +206,11 @@ class ProjectsController < ApplicationController
 					templates[t.id] = t.title
 				end
 			end
-			institution.parent.published_templates.each do |t|
+                        if !institution.parent.nil?
+			  institution.parent.published_templates.each do |t|
 				templates[t.id] = t.title
-			end
+			  end
+   			end
 		end
 		respond_to do |format|
 			format.json { render json: templates.to_json }
@@ -226,34 +228,19 @@ class ProjectsController < ApplicationController
 		else
 			institution = nil
 		end
-		excluded_orgs = orgs_of_type(I18n.t 'helpers.org_type.funder', :locale => :en) + orgs_of_type(I18n.t 'helpers.org_type.institution', :locale => :en) + Organisation.orgs_with_parent_of_type(I18n.t 'helpers.org_type.institution', :locale => :en)
+		#excluded_orgs = orgs_of_type(I18n.t 'helpers.org_type.funder', :locale => :en) 
 		guidance_groups = {}
-		ggs = GuidanceGroup.guidance_groups_excluding(excluded_orgs) 
-	
+		#ggs = GuidanceGroup.guidance_groups_excluding(excluded_orgs) 
+	  	ggs = GuidanceGroup.find_by_organisation(institution.id) 
 		ggs.each do |gg|
 			guidance_groups[gg.id] = gg.name
 		end
         
-        #subset guidance that belong to the institution
+                #subset guidance that belong to the institution
 		unless institution.nil? then
 			optional_gg = GuidanceGroup.where("optional_subset =  ? && organisation_id = ?", true, institution.id)
 			optional_gg.each do|optional|
 				guidance_groups[optional.id] = optional.name
-			end
-			
-			institution.children.each do |o|
-				o.guidance_groups.each do |gg|
-					include = false
-					gg.guidances.each do |g|
-						if g.dmptemplate.nil? || g.dmptemplate_id == template.id then
-							include = true
-							break
-						end
-					end
-					if include then
-						guidance_groups[gg.id] = gg.name
-					end
-				end
 			end
 		end
         
