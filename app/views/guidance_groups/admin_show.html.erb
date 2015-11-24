@@ -55,9 +55,9 @@
 			<tr>
 				<td class="first"><%= t('org_admin.guidance_group.subset') %></td>
 				<td><%if @guidance_group.optional_subset.nil? || @guidance_group.optional_subset == false then%>
-						<%= t('helpers.no')%>
+						<%= t('helpers.no_text')%>
 					<%else%>
-						<%= t('helpers.yes')%>	
+						<%= t('helpers.yes_text')%>	
 					<%end%>
 				</td>
 			</tr>
