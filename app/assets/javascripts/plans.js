@@ -426,6 +426,7 @@ $.fn.update_answer = function(question_id) {
 };
 
 $.fn.update_section_progress = function(data) {
+        var current_locale = current_path.split("/")[1];
 	s_id = $(this).attr("id").split('-')[0];
 	s_qs = data.sections[s_id]["num_questions"];
 	question_word = "questions"
@@ -433,7 +434,14 @@ $.fn.update_section_progress = function(data) {
 		question_word = "question";
 	}
 	s_as = data.sections[s_id]["num_answers"];
-	$(this).text("("+s_qs+" "+question_word+", "+s_as+" answered)");
+        if (current_locale == "fr") {
+          answered_string = "complétée(s)";
+                        }
+          else {
+          answered_string = "answered";
+                        }
+
+	$(this).text("("+s_qs+" "+question_word+", "+s_as+ " " + answered_string + " )");
 	if (s_qs == s_as) {
 		$(this).removeClass("label-warning");
 		$(this).addClass("label-info");
