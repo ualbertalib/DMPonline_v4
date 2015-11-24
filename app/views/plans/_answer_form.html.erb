@@ -207,12 +207,12 @@
                     <div class="accordion-heading">
                         <a class="accordion-guidance-link"  data-parent="#<%= question.id %>-guidance" href="#collapse-guidance-<%= question.id%>">
                             <div class="accordion_heading_text">
-                                <%= question.section.organisation.abbreviation %> 
-                                <%if question.section.organisation.abbreviation == "EPSRC" then %>
-                                    <%= t('helpers.policy_expectations')%>
-                                <%else%>
-                                    <%= t('helpers.guidance')%>
-                                <%end%>    
+ 				      <% if I18n.locale == :fr %>
+                                                        <%= t('helpers.guidance')%> <%= question.section.organisation.abbreviation %>
+                                                <% else %>
+<%= question.section.organisation.abbreviation %> <%= t('helpers.guidance')%>
+<% end %>
+
                             </div>
                             <span class="plus-laranja"> </span></a>
                     </div>
