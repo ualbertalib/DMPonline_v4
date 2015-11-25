@@ -37,7 +37,7 @@
 			<tr>
 				<td class="first"><%= t('helpers.org_type.organisation') %></td>
 				<td><%= collection_select(:user,
-						:organisation_id, Organisation.where("parent_id IS NULL").order("name"),
+						:organisation_id, Organisation.where("display_in_registration is TRUE").order("name"),
 						:id, :name, {include_blank: t('helpers.org_type.organisation')},
 						{ :class => 'typeahead org_sign_up' }) %></td>
 			</tr>
