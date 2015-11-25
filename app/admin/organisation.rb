@@ -93,6 +93,7 @@ ActiveAdmin.register Organisation do
             f.input :name
             f.input :abbreviation
             f.input :sort_name
+            f.input :display_in_registration
             f.input :description
             f.input :organisation_type_id, :label => I18n.t('admin.org_type'), :as => :select, :collection => OrganisationType.find(:all, :order => 'name ASC').map{|orgt|[orgt.name, orgt.id]}
             f.input :target_url
