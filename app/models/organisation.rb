@@ -17,7 +17,7 @@ class Organisation < ActiveRecord::Base
 	accepts_nested_attributes_for :organisation_type
 	accepts_nested_attributes_for :dmptemplates
 
-	attr_accessible :abbreviation, :banner_text, :description, :domain, :logo_file_name, :name, :stylesheet_file_id, :target_url, :organisation_type_id, :wayfless_entity, :parent_id, :sort_name
+	attr_accessible :abbreviation, :banner_text, :description, :domain, :logo_file_name, :name, :stylesheet_file_id, :target_url, :organisation_type_id, :wayfless_entity, :parent_id, :sort_name, :display_in_registration
 
 	def to_s
 		name

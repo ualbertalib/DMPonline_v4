@@ -71,6 +71,7 @@ ActiveAdmin.register Organisation do
                     link_to parent_org.name, [:admin, parent_org]
                 end	
             end
+	    row :display_in_registration
             row :stylesheet_file_id
             row :created_at
             row :updated_at
