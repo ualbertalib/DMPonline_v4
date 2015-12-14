@@ -17,7 +17,7 @@ de:
         subject: 'DMPonline - Anleitung zur Einladung'
         link: "Klicken Sie hier, um die Einladung anzunehmen"
         email: "<p>Hallo %{resource_email}!</p>
-        <p>Ein Kollege hat Sie eingeladen, um an seinem Datenmanagementplan (DMP) ${app_link}</p>
+        <p>Ein Kollege hat Sie eingeladen, um an seinem Datenmanagementplan (DMP) %{app_link}</p>
         <p>%{invitation_link} (oder kopiere %{invitation_direct_url} in Deinen Browser).</p>
         <p>Falls Sie die Einladung nicht annehmen wollen, ignorieren Sie bitte diese E-Mail.<br/>
         Ihr Zugang wird nicht erstellt, bevor sie obigen Link besuchen und Ihr Passwort setzen.</p>"
