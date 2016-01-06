@@ -24,18 +24,15 @@ removed by wshi on Feb 9, 2015
 		$("#institution-control-group").show();
 		$("#create-plan-button").show();
 		$("#other-funder-name").show();
-		$("#confirm-funder").text(get_locale_string())
+		$("#confirm-funder").text(get_locale_string());
 	});
 
 	$("#project_funder_name").change(function(){
 		$("#confirm-funder").text($(this).val());
 	});
 */
+
 	$("#project_institution_id").change(function () {
-                
-                $("#confirm-funder").text(get_locale_string());
-                $("#project_funder_id").select2("val", "");
-                $("#create-plan-button").show();
 		update_template_options();
 		update_guidance_options();
 		$("#confirm-institution").text($("#project_institution_id").select2('data').text);
@@ -43,20 +40,24 @@ removed by wshi on Feb 9, 2015
 
 	$("#no-institution").click(function() {
 		$("#project_institution_id").select2("val", "");
+                console.log($("#project_institution_id").id);
 		update_template_options();
 		update_guidance_options();
 		$("#confirm-institution").text(get_locale_string());
 	});
 
-        $("#create-plan-button").click(function() {
-                update_template_options();
-                update_guidance_options();
-        });
-
 	$("#project_dmptemplate_id").change(function (f) {
 		update_guidance_options();
 		$("#confirm-template").text($("#project_dmptemplate_id :selected").text());
 	});
+
+        
+        $("#create-plan-button").click(function() {
+                if ($("#confirm-template").text() == "") {
+                	update_template_options();
+                	update_guidance_options();
+                }
+        });
 
 	$("#project-confirmation-dialog").on("show", function(){
 		if ($("#confirm-institution").text() == "") {
@@ -144,18 +145,6 @@ removed by wshi on Feb 9, 2015
 		$("#project_dmptemplate_id").change();
 	}
 
-        function get_locale_string() {
-                  var current_path = window.location.pathname;
-                  var current_locale = current_path.split("/")[1];
-                  var none;
-                  if(current_locale == "fr"){
-                       none = "Aucun";}
-                  else{
-                       none = "None";}
-                  return none;
-
-        }
-
 	function update_guidance_options() {
 		var institution = $("#project_institution_id").select2('val');
 		var template = $("#project_dmptemplate_id :selected").val();
@@ -183,4 +172,16 @@ removed by wshi on Feb 9, 2015
 			$("#guidance-control-group").hide();
 		}
 	}
+        function get_locale_string() {
+                  var current_path = window.location.pathname;
+                  var current_locale = current_path.split("/")[1];
+                  var none;
+                  if(current_locale == "fr"){
+                       none = "Aucun";}
+                  else{
+                       none = "None";}
+                  return none;
+
+        }
 });
+
