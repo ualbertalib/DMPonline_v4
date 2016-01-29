@@ -135,7 +135,7 @@ removed by wshi on Feb 9, 2015
 			}
 			count++;
 		}
-		if (count >= 2) {
+		if (count >= 1) {
 			$("#template-control-group").show();
 		}
 		else {
