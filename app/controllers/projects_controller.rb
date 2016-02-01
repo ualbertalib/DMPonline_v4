@@ -191,27 +191,39 @@ class ProjectsController < ApplicationController
 		else
 			institution = nil
 		end
-		templates = {}
+		templates = []
+                #added priorities to the returned value so that the hash can be sorted accordingly
+                priorities = { "funder" => 1, "default"=>2, "portage" => 3, "published" => 4, "parent" => 5, "children" => 6}
 		unless funder.nil? then
 			funder.published_templates.each do |t|
-				templates[t.id] = t.title
+				templates.push({ :id => t.id, :title => t.title, :priority=> priorities['funder'] })
 			end
 		end
-		if templates.count == 0 && !institution.nil? then
+		if templates.count == 0 && !institution.nil? 
+                  if institution.name == "Portage"
+                    templates.push({ :id => t.id, :title => t.title, :priority=> priorities['portage'] })
+                  else
 			institution.published_templates.each do |t|
-				templates[t.id] = t.title
-			end
-			institution.children.each do |o|
-				o.published_templates.each do |t|
-					templates[t.id] = t.title
+                                if t.is_default
+ 				  templates.push({ :id => t.id, :title => t.title, :priority=> priorities['default'] })
+ 				else
+				  templates.push({ :id => t.id, :title => t.title, :priority=> priorities['funder'] })
 				end
 			end
                         if !institution.parent.nil?
-			  institution.parent.published_templates.each do |t|
-				templates[t.id] = t.title
-			  end
-   			end
+                          institution.parent.published_templates.each do |t|
+                                templates.push ({ :id => t.id, :title => t.title, :priority=> priorities['parent'] })
+                          end
+                        end
+
+			institution.children.each do |o|
+				o.published_templates.each do |t|
+					templates.push ({ :id => t.id, :title => t.title, :priority=> priorities['children'] })
+				end
+			end
+                  end
 		end
+                templates = templates.sort_by { |t| t[:priority] }
 		respond_to do |format|
 			format.json { render json: templates.to_json }
 		end

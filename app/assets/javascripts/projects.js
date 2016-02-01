@@ -40,7 +40,6 @@ removed by wshi on Feb 9, 2015
 
 	$("#no-institution").click(function() {
 		$("#project_institution_id").select2("val", "");
-                console.log($("#project_institution_id").id);
 		update_template_options();
 		update_guidance_options();
 		$("#confirm-institution").text(get_locale_string());
@@ -125,17 +124,17 @@ removed by wshi on Feb 9, 2015
 		});
 		select_element = $("#project_dmptemplate_id");
 		select_element.find("option").remove();
-		var count = 0;
-		for (var id in options) {
-			if (count == 0) {
-				select_element.append("<option value='"+id+"' selected='selected'>"+options[id]+"</option>");
+                var options_length = options.length;
+		for (var i = 0; i < options_length; i++) {
+                        t = options[i]
+			if (i == 0) {
+				select_element.append("<option value='"+t["id"]+"' selected='selected'>"+t["title"]+"</option>");
 			}
 			else {
-				select_element.append("<option value='"+id+"'>"+options[id]+"</option>");
+				select_element.append("<option value='"+t["id"]+"'>"+t["title"]+"</option>");
 			}
-			count++;
 		}
-		if (count >= 1) {
+               	if (options_length > 0) {
 			$("#template-control-group").show();
 		}
 		else {
