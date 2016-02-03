@@ -2,7 +2,7 @@
 <%= semantic_form_for @project, :url => {:controller => :projects, :action => :create }, :html=>{:method=>:post} do |f| %>
 	<%= f.inputs do %>
         <%= hidden_field_tag :default_tag, "false" ,:id => "default_tag" %>
-		<div class="createa-project">
+		<div class="create-project">
 			<h1> <%= t('helpers.project.create_page.title')%> </h1>
 			<div class="info-new-project">
 				<p><%= raw t('helpers.project.create_page.desc_html')%></p>
@@ -42,7 +42,7 @@
 				</div>
 				<div class="control-group" id="template-control-group">
 					<div class="controls">
-						<%= f.input :dmptemplate, :as => :select, :collection => Dmptemplate.find_all_by_published(1), :label => "Choose a template", :input_html => { :multiple => false, :class => "typeahead" } %>
+						<%= f.input :dmptemplate, :as => :select, :collection => Dmptemplate.find_all_by_published(1), :label => t('helpers.project.create_page.template_question'), :input_html => { :multiple => false, :class => "typeahead" } %>
 						<div class="create_project_question_descriptions">
 							<%= t('helpers.project.multi_templates') %>
 						</div>
@@ -51,7 +51,7 @@
 				<div class="control-group" id="guidance-control-group">
 					<div class="controls">
 						<% other_guidance = GuidanceGroup.all %>
-						<%= f.input :guidance_groups, :as => :check_boxes, :collection => other_guidance, :label => t('helpers.project.create_page.other_guidance_question'), :member_label => :display_name %>
+						<%= f.input :guidance_groups, :as => :check_boxes, :collection => other_guidance, :label => t("helpers.project.create_page.other_guidance_question"), :member_label => :display_name %>
 					</div>
 				</div>
 			</div>

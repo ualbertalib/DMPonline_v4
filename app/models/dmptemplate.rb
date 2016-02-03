@@ -42,22 +42,35 @@ class Dmptemplate < ActiveRecord::Base
     return org_templates
   end 
 
-	#returns all funders templates
-	def self.funders_templates
-		new_org_obejcts = OrganisationType.find_by_name(I18n.t("helpers.org_type.funder")).organisations
-	  org_templates = Array.new
-   	
-   	new_org_obejcts.each do |neworg|
-       	org_templates += neworg.dmptemplates
+  #returns all funders templates
+  def self.funders_templates
+    new_org_obejcts = OrganisationType.find_by_name(I18n.t("helpers.org_type.funder")).organisations
+    org_templates = Array.new
+  
+    new_org_obejcts.each do |neworg|
+      org_templates += neworg.dmptemplates
     end
     
     return org_templates	
-	end
+  end
+
+  #returns all parents templates
+  def self.parent_templates(org_id)
+    parent = Organisation.find(org_id).parent
+    if !parent.nil?
+      parent_templates = self.where("organisation_id = ?", parent.id)
+    else
+      parent_templates = []
+    end
+    return parent_templates
+  end 
+    
+    
 	
 	
 	#returns all institutional templates bellowing to the current user's org
 	def self.own_institutional_templates(org_id)
-		new_templates = self.where("organisation_id = ?", org_id)
+                  new_templates = self.where("organisation_id = ?", org_id)
 		return new_templates
 	end
 	
@@ -65,13 +78,20 @@ class Dmptemplate < ActiveRecord::Base
 	def self.funders_and_own_templates(org_id)
 		funders_templates = self.funders_templates
 	
-		own_institutional_templates = self.own_institutional_templates(org_id)
-			
+        #verify if org type is not a funder
+        current_org = Organisation.find(org_id)
+        if current_org.organisation_type.name != I18n.t("helpers.org_type.funder") then 
+            own_institutional_templates = self.own_institutional_templates(org_id)
+		else
+            own_institutional_templates = []
+        end    
+      
 		templates_list = Array.new
 		templates_list += own_institutional_templates
 		templates_list += funders_templates
+                templates_list += parent_templates(org_id)
 		templates_list = templates_list.sort_by { |f| f['title'].downcase }
-				
+	        			
 		return templates_list
 	end
 	
@@ -80,7 +100,7 @@ class Dmptemplate < ActiveRecord::Base
 		return org_type
 	end
 	
-	#verify if a then has customisation by current user's org
+	#verify if a template has customisation by current user's org
 	def has_customisations?(org_id, temp)
 		if temp.organisation_id != org_id then
 			temp.phases.each do |phase|

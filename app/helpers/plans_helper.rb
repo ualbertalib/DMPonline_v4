@@ -19,7 +19,7 @@ module PlansHelper
         text = if user.nil?
           'Unknown'
         elsif user == current_user
-          t('helpers.me')
+          I18n.t('helpers.me')
         else
           user.name
         end
@@ -27,7 +27,8 @@ module PlansHelper
         [ 'tmp_td_small', text ]
       when :shared
         shared_num = project.project_groups.count - 1
-        text = shared_num > 0 ? (t('helpers.yes') + " (with #{shared_num} people) ") : t('helpers.no')
+        people_text = shared_num > 1 ? I18n.t('helpers.plural_people') : I18n.t('helpers.singular_people')
+        text = shared_num > 0 ? (I18n.t('helpers.yes_text') + " (" + I18n.t('helpers.with') + " #{shared_num} #{people_text})") : I18n.t('helpers.no_text')
         [ 'dmp_td_small', text ]
       when :last_edited
         [ 'dmp_td_small', l(project.latest_update.to_date, formats: :short) ]

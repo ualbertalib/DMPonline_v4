@@ -92,7 +92,7 @@ ActiveAdmin.register User do
   			f.input :shibboleth_id
   			f.input :organisation_id ,:label => I18n.t('admin.org_title'), 
   						:as => :select, 
-  						:collection => Organisation.find_all_by_parent_id(nil, :order => 'name ASC').map{|orgp|[orgp.name, orgp.id]}
+  						:collection => Organisation.all(nil, :order => 'name ASC').map{|orgp|[orgp.name, orgp.id]}
   						
   			f.input :user_status_id, :label => I18n.t('admin.user_status'), 
   						:as => :select, 

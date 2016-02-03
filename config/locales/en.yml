@@ -115,6 +115,7 @@ en:
     org_name: "Name"
     org_abbr: "Abbreviation"
     org_desc: "Description"
+    org_banner_text: "Top banner text"
     org_target_url: "Website"
     org_type: "Organization type"
     parent_org: "Main organization"
@@ -241,6 +242,9 @@ en:
       question_edit_button: "Edit question"
       question_delete_button: "Delete question"
       answer_format_label: "Answer format"
+      option_comment_display_checkbox: "Display additional comment area."
+      option_comment_display: "Additional comment area will be displayed."
+      option_comment_hide: "No additional comment area will be displayed."
       example_answer_label: "Example of answer"
       suggested_answer_label: "Suggested answer"
       suggested_answer_help_text_html: "You can add an example or suggested answer to help users respond. These will be presented above the answer box and can be copied/ pasted."
@@ -318,7 +322,7 @@ en:
     no_unlock_instructions: "Didn't receive unlock instructions?"
     send_password_info: "Reset password instructions"
     edit_password_info: "If you would like to change your password please complete the following fields."
-    accept_terms_html: " I accept the <a href='en/terms'>terms and conditions</a> *"
+    accept_terms_html: " I accept the <a href='terms'>terms and conditions</a> *"
 
     text_area: "Text area"
     text_field: "Text field"
@@ -328,11 +332,15 @@ en:
     multi_select_box: "Multi select box"
 
     error: "Error!"
-    comment: "Comment"
+    comment: "Note"
     send: "Send"
-    yes: "Yes"
-    no: "No"
+    yes_text: "Yes"
+    no_text: "No"
+    with: "with"
+    singular_people: "people"
+    plural_people: "people"
     none: "None"
+    false_lowercase: "false"
     title: "Title"
     note: "Note"
     me: "Me"
@@ -363,7 +371,7 @@ en:
     owner: "Owner"
     orcid_id: "ORCID number"
     orcid_html: "ORCID number is a persistent digital identifier that distinguishes each researcher, <a href='http://orcid.org/content/initiative' target='_blank' rel='external' class='a_orange'>more info</a>."
-    sign_up_shibboleth_alert_text_html: "Note: If you have previously created an account in DMP Assistant, and you want to link this to your institutional credentials, you need to <a href='/?locale=en' class='a_orange'>Sign in</a> to that existing DMP Assistant account first. If you have never created a DMP Assistant account, then please complete the form below."
+    sign_up_shibboleth_alert_text_html: "Note: If you have previously created an account in DMP Assistant, and you want to link this to your institutional credentials, you need to <a href='/' class='a_orange'>Sign in</a> to that existing DMP Assistant account first. If you have never created a DMP Assistant account, then please complete the form below."
     shibboleth_linked_text: "Your account is linked to your institutional credentials."
     shibboleth_to_link_text: "Link your DMP Assistant account to your institutional credentials"
     shibboleth_to_link_question: "link your DMP Assistant account to your institutional credentials?"
@@ -389,26 +397,26 @@ en:
     policy_expectations: "Policy Expectations"
     export: "Export"
     guidance_accordion_label: "Guidance"
-    add_comment_accordion_label: "Add comment"
-    comment_accordion_label: "Comments"
+    add_comment_accordion_label: "Share note"
+    comment_accordion_label: "Notes"
 
     comments:
-      add_comment_label: "Add comment"
-      add_comment_text: "Please add a comment"
-      comment_label: "Comment"
-      comments_label: "Comments"
+      add_comment_label: "Add note"
+      add_comment_text: "Share note with collaborators"
+      comment_label: "Note"
+      comments_label: "Notes"
       view_label: "View"
       edit_label: "Edit"
       retract_label: "Remove"
       clear_label: "Remove"
-      commented_by: "Comment by:"
-      archive_own_comment_question: "Are you sure you would like to remove this comment?"
+      commented_by: "Noted by:"
+      archive_own_comment_question: "Are you sure you would like to remove this note?"
       archive_own_comment_button_label: "Remove"
-      archive_comment_question: "Are you sure you would like to remove this comment?"
+      archive_comment_question: "Are you sure you would like to remove this note?"
       archive_comment_button_label: "Remove"
-      clear_by: "Comment removed by"
-      retracted: "Comment removed by you"
-    
+      clear_by: "Note removed by"
+      retracted: "Note removed by you"
+      
     failures:
       email_exists: "That email address is already registered."
       registration_error: "Error processing registration. Please check that you have entered a valid email address and that your chosen password is at least 8 characters long."
@@ -422,9 +430,9 @@ en:
       answer_recorded: "Answer was successfully recorded."
       answer_saving_error: "There was an error saving the answer."
       answer_not_changed: "No change in answer content - not saved."
-      comment_created: "Comment was successfully created."
-      comment_updated: "Comment was successfully updated."
-      comment_removed: "Comment has been removed."
+      comment_created: "Note was successfully created."
+      comment_updated: "Note was successfully updated."
+      comment_removed: "Note has been removed."
       theme_created: "Theme was successfully created."
       theme_updated: "Theme was successfully updated."
       page_created: "Page was successfully created."
@@ -539,7 +547,7 @@ Select what format you wish to use and click to 'Export'.</p>"
         permission_email_text: "<p>Your permissions relating to the DMP '%{project_link}' have changed. You now have %{access_level} access.</p>"
         access_removed_email_text: "<p>Your access to the DMP '%{project_title}' has been removed.</p>"
       export:
-        generated_by: "This document was generated by DMP Assistant (http://www.portagenetwork.ca)"
+        generated_by: "This document was generated by DMP Assistant (https://portagenetwork.ca)"
         admin_details: "Admin Details"
       create_page: 
         title: "Create a new plan"
@@ -552,6 +560,7 @@ Select what format you wish to use and click to 'Export'.</p>"
         institution_question_description: "You may leave blank or select a different organization to your own. If you leave blank, default Portage DMP template will be used"
         other_guidance_question: "Tick to select any other sources of guidance you wish to see."  
         other_funder_name_label: "Name of funder, if applicable."
+        template_question: "Choose a template"
       configure: "Configure"
       columns:
         name: "Name"
@@ -572,6 +581,7 @@ Select what format you wish to use and click to 'Export'.</p>"
 
     plan:
       export:
+        default_title: DMP title
         pdf:
           question_not_answered: Question not answered.
           generated_by: This document was generated by DMPonline (http://dmponline.dcc.ac.uk)
@@ -652,7 +662,7 @@ Select what format you wish to use and click to 'Export'.</p>"
     <h3>How the tool works</h3>
     <div class='white_background'>
     <p>Currently, this tool includes a generic Portage Data Stewardship template for researchers to use.  Guidance is provided to help you interpret and answer the questions.</p>
-    <p>We want your feedback! If you have suggestions on how to improve the existing template, or you would like to add additional templates based on funding agency requirements or disciplinary needs, please <a href='help#contact_info?locale=en'>contact your local institution</a> or contact us at <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Assistant%20feedback'>portage@carl-abrc.ca</a>.
+    <p>We want your feedback! If you have suggestions on how to improve the existing template, or you would like to add additional templates based on funding agency requirements or disciplinary needs, please <a href='help#contact_info'>contact your local institution</a> or contact us at <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Assistant%20feedback'>portage@carl-abrc.ca</a>.
     </p>
     </div>
     <h3>Getting Started</h3>
@@ -661,11 +671,11 @@ Select what format you wish to use and click to 'Export'.</p>"
     <p>If you have an account, please sign in and start creating or editing your DMP.</p>
     <p>If you do not have a DMP Assistant account, click on <a href='/en'>'Sign up'</a> on the homepage.</p>
     <p>Please note that we are currently working on single sign-in authentication with your campus ID. You will have the option to link your existing account to your campus ID when that feature becomes available.</p>
-    <p>Please visit the <a href='en/help'>'Help'</a> page for guidance.</p>
+    <p>Please visit the <a href='help'>'Help'</a> page for guidance.</p>
     </div>
     <h3>Feedback</h3>
     <div class='white_background'>
-    <p>If you have any questions or comments about the DMP Assistant, <a href='help#contact_info?locale=en'>contact your local institution</a> or email us at <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Assistant%20feedback'>portage@carl-abrc.ca</a>.</p>
+    <p>If you have any questions or comments about the DMP Assistant, <a href='help#contact_info'>contact your local institution</a> or email us at <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Assistant%20feedback'>portage@carl-abrc.ca</a>.</p>
     </div>"
     body_text_tab_2_html: "<p>The Portage Data Stewardship template is based on internationally accepted standards and best practices. It has been prepared and is maintained by a group of research data management experts from research libraries across Canada.
 </p><p>
@@ -678,7 +688,7 @@ Organizations may provide their own DMP templates. The Portage template is the d
     tab_1: "On DMP Assistant"
     tab_2: "On data management planning"
     tab_3: "Contact info at your organization"
-    #body_text_tab_2_html: "<p>The University of Alberta Libraries <a href='http://guides.library.ualberta.ca/researchdata'>research data management guide</a> can provide additional guidance on data management planning. If you require more guidance, email <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Assistant%20help'>portage@carl-abrc.ca</a>.</p>"
+    #body_text_tab_2_html: "<a href='#DMPonlinehelp'><p>The University of Alberta Libraries <a href='http://guides.library.ualberta.ca/researchdata'>research data management guide</a> can provide additional guidance on data management planning. If you require more guidance, email <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Assistant%20help'>portage@carl-abrc.ca</a>.</p>"
 
     body_text_tab_2_html: "If you require more guidance, email <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Assistant%20help'>portage@carl-abrc.ca</a>.</p>"
 
@@ -705,6 +715,7 @@ Organizations may provide their own DMP templates. The Portage template is the d
   <h3>Contact Info</h3>
   <p><b>Acadia University</b>: <a href='mailto:maggiejean.neilson@acadiau.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Maggie Neilson</a></p>
   <p><b>Brandon University</b>: <a href='mailto:kazakoff@brandonu.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Carmen Kazakoff-Lane</a>, Betty Braaksma</p>
+  <p><b>Brock University</b>: <a href='mailto:hwhipple@brocku.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Heather Whipple</a></p>
   <p><b>Carleton University</b>: <a href='mailto:rdm@library.carleton.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Jane Fry</a>, <a href='mailto:sylvie.lafortune@carleton.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Sylvie Lafortune</a></p>
   <p><b>Concordia University</b>: <a href='mailto:alex.guindon@concordia.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Alex Guindon</a>, <a href='mailto:danielle.dennie@concordia.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Danielle Dennie</a></p> 
     <p><b>Kwantlen Polytechnic University</b>: <a href='mailto:chris.burns@kpu.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Chris Burns</a>, <a href='mailto:todd.mundle@kpu.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Todd Mundle</a></p>
@@ -723,6 +734,9 @@ Organizations may provide their own DMP templates. The Portage template is the d
   <p><b>University of Lethbridge</b>: <a href='mailto:library-research-l@uleth.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Research Services Group [U. of Lethbridge Library]</a></p>
   <p><b>University of Manitoba</b>: <a href='mailto:mayu.ishida@umanitoba.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Mayu Ishida</a>, <a href='mailto:gary.strike@umanitoba.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Gary Strike</a></p>
   <p><b>University of Ontario Institute of Technology</b>: <a href='mailto:katie.harding@uoit.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Katie Harding</a></p>
+  <p><b>University of Ottawa / Université d\'Ottawa</b>: <a href='mailto:gdr-rdm@uottawa.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>uOttawa Library Research Data Management Group</a>, <a href='mailto:talia.chung@uottawa.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Talia Chung</a></p>
+    <p><b>University of Regina</b>: <a href='mailto:Marilyn.Andrews@uregina.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Marilyn Andrews</a></p>
+  <p><b>University of Victoria</b>: <a href='mailto:kmatthew@uvic.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Kathleen Matthews</a>, <a href='mailto:danielbm@uvic.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Daniel Brendle-Moczuk</a></p>
   <p><b>University of Waterloo</b>: <a href='mailto:libRDM@library.uwaterloo.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Research Data Management Services</a></p>
   <p><b>Western University</b>: <a href='mailto:rdm@uwo.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Western RDM Group</a>, <a href='mailto:wlrdmsc@uwo.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Western Libraries RDM Subcommittee</a></p>
   <p><b>Wilfrid Laurier University</b>: <a href='mailto:msteeleworthy@wlu.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Michael Steeleworthy</a></p>"
@@ -741,11 +755,11 @@ Organizations may provide their own DMP templates. The Portage template is the d
     <h3>DMP Assistant</h3>
     <p>DMP Assistant ('the tool', 'the system') is powered by an open source application called <a href='https://dmponline.dcc.ac.uk'>DMPOnline</a>, which is developed by the Digital Curation Centre (DCC) and shared under an <a href='http://www.gnu.org/licenses/agpl-3.0.html'>AGPL license.</a></p>
     <h3>Data management planning templates and resources</h3>
-    <p>The Portage Data Stewardship Template and associated guidance on <a href='http://www.portagenetwork.ca'>Portage DMP Assistant</a> (but not the plans themselves) are under a <a href='http://creativecommons.org/publicdomain/zero/1.0/'>Creative Commons Zero License.</a></p>
+    <p>The Portage Data Stewardship Template and associated guidance on <a href='https://portagenetwork.ca'>Portage DMP Assistant</a> (but not the plans themselves) are under a <a href='http://creativecommons.org/publicdomain/zero/1.0/'>Creative Commons Zero License.</a></p>
 
     <p><a href='http://creativecommons.org/publicdomain/zero/1.0/'><img src='http://i.creativecommons.org/p/zero/1.0/88x31.png' alt='CC0' /></a></p>
 
-    <p>Institutional data management planning templates and their associated guidance are under their own Creative Commons License terms. <a href='help#contact_info?locale=en'>Contact individual institution</a> for more details.  
+    <p>Institutional data management planning templates and their associated guidance are under their own Creative Commons License terms. <a href='help#contact_info'>Contact individual institution</a> for more details.  
     </div>
 
    

@@ -29,7 +29,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 				if !s_user.nil? && s_user.try(:persisted?) then
 					flash[:notice] = I18n.t('devise.omniauth_callbacks.success', :kind => 'Shibboleth')
 					sign_in s_user
-          redirect_to root_path
+                    redirect_to root_path
 				else
 					if user_signed_in? then
 						current_user.update_attribute('shibboleth_id', uid)
@@ -38,7 +38,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 						session.delete(:shibboleth_data)
 						s_user = User.find(user_id)
 						sign_in s_user
-            redirect_to edit_user_registration_path
+                        redirect_to edit_user_registration_path
 					else
 						session[:shibboleth_data] = request.env['omniauth.auth']
 						session[:shibboleth_data][:uid] = uid

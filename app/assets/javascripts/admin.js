@@ -405,7 +405,20 @@ $( document ).ready(function() {
         }
         delete alert_message;
         e.preventDefault();
+    }); 
+    
+    
+    //Validate banner_text area for less than 165 character
+    $("form#edit_org_details").submit(function(){
+           
+        if (getStats('org_banner_text').chars > 165) {
+            alert("Please only enter up to 165 characters, you have used "+getStats('org_banner_text').chars+". If you are entering an URL try to use something like http://tinyurl.com/ to make it smaller.");
+            return false;
+        }
+
     });
+    
+    
    
      
  });
@@ -427,3 +440,13 @@ function add_object(link, association, content) {
         $(link).parent().children('.options_table').children('.options_tbody').children('.new_option_before').before(content.replace(regexp, new_id));
     }
 }
+
+
+// Returns text statistics for the specified editor by id
+function getStats(id) {
+    var body = tinymce.get(id).getBody(), text = tinymce.trim(body.innerText || body.textContent);
+    
+    return {
+        chars: text.length
+    };
+} 

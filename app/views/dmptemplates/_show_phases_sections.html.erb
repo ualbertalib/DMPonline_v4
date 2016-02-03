@@ -7,7 +7,7 @@
 </div>	 
 
 <% if phase.versions.any? then %>
-	<% version = phase.versions.order('updated_at DESC').first %>
+	<% version = phase.versions.order("updated_at DESC").first %>
     <div class="div_right admin_right_bigger">
         <!--delete a phase button. only displays when template not published-->
         

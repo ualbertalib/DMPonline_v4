@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.22'
+gem 'rails', '~>3.2.22'
 
-gem 'mysql2'
+gem 'mysql2', '~>0.3.20'
 gem 'omniauth'
 gem 'omniauth-shibboleth'
 gem 'recaptcha'
@@ -24,7 +24,7 @@ end
 gem 'uglifier'
 gem 'less-rails'
 
-gem 'twitter-bootstrap-rails'
+gem 'twitter-bootstrap-rails', '~> 2.2.8'
 gem 'sass-rails',   '~> 3.2.3'
 gem 'sass' 
 
@@ -91,10 +91,13 @@ group :production do
   gem 'libv8'
 end
 
+group :test, :production do
+  gem 'syslog-logger'
+end
+
 group :ci do
   gem 'ci_reporter', '1.9.2'
 end
 
-gem 'syslog-logger'
 gem 'ledermann-rails-settings'
 gem 'jbuilder'

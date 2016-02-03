@@ -34,8 +34,22 @@ class GuidanceGroup < ActiveRecord::Base
 			return return_orgs
 		end
 		
-	
+		def self.find_by_dmptemplate(template_id)
+			guidance_groups = []
+			GuidanceGroup.all.each do |gg|
+				gg.dmptemplates.each do |t|
+					guidance_groups << gg if t.id == template_id
+ 				end
+			end
+			return guidance_groups
+		end	
 		
+                def self.find_by_organisation(organisation_id)
+			guidance_groups = []
+			GuidanceGroup.all.each do |gg|
+				guidance_groups << gg if gg.organisation.id == organisation_id
+			end
+			return guidance_groups
+                end
 			
-		
-end
+	end	

@@ -90,6 +90,19 @@ class ExportedPlan < ActiveRecord::Base
 
   def as_txt
     output = "#{self.plan.project.title}\n\n#{self.plan.version.phase.title}\n"
+  
+    if self.admin_details.present?
+        output += "\n#{I18n.t('helpers.project.export.admin_details')}\n"
+        self.admin_details.each do |field|
+            value = self.send(field)
+            label = "helpers.plan.export.#{field}"
+            if value.present?
+                output += "\n#{I18n.t(label)}: #{value}\n"
+            end
+        end
+        output += "\n"
+    end
+
 
     self.sections.each do |section|
       output += "\n#{section.title}\n"
@@ -99,10 +112,14 @@ class ExportedPlan < ActiveRecord::Base
         answer = self.plan.answer(question.id, false)
 
         if answer.nil? || answer.text.nil? then
-          output += "Question not answered.\n"
+          output += "{I18n.t('helpers.plan.export.pdf.question_not_answered')}\n"
         else
           output += answer.options.collect {|o| o.text}.join("\n")
-          output += "#{sanitize_text(answer.text)}\n"
+          if question.option_comment_display == true then
+            output += "\n#{sanitize_text(answer.text)}\n"
+          else
+            output += "\n"
+          end  
         end
       end
     end
@@ -131,7 +148,7 @@ class ExportedPlan < ActiveRecord::Base
             docx_html_source << "<div><h4>#{question.text}</h4>"
             answer = self.plan.answer(question.id, false)
             if answer.nil?
-                docx_html_source << "<p>Question not answered.</p>"
+                docx_html_source << "<p>#{I18n.t('helpers.plan.export.pdf.question_not_answered')}</p>"
             else
                 q_format = question.question_format
                 if q_format.title == I18n.t("helpers.checkbox") || q_format.title == I18n.t("helpers.multi_select_box") ||
@@ -143,13 +160,14 @@ class ExportedPlan < ActiveRecord::Base
                     end
                 end
           
-            if !answer.text.nil?
-                docx_html_source << answer.text
+                if !answer.text.nil? && question.option_comment_display == true then
+                    answer_text = answer.text.gsub(/<tr>(\s|<td>|<\/td>|&nbsp;)*(<\/tr>|<tr>)/,"")
+                    docx_html_source << answer_text
+                end
             end
+            docx_html_source << "</div>"
         end
         docx_html_source << "</div>"
-      end
-      docx_html_source << "</div>"
     end
     docx_html_source << "</div><body></html>"
   end

@@ -32,7 +32,7 @@
 							<% end %>
 						<% end %>
 						</ul>
-					<% end %>
+                    <% end %>
 				</div>
 			</td>
 		</tr>
@@ -48,7 +48,17 @@
 		<!-- Question format -->
 		<tr>
 			<td class="first_template"><%= t('org_admin.questions.answer_format_label')%></td>
-			<td><%= q_format.title %></td>
+			<td><%= q_format.title %>
+                </br>
+                <% if q_format.title == t("helpers.checkbox") || q_format.title == t("helpers.multi_select_box") || q_format.title == t("helpers.radio_buttons") || q_format.title == t("helpers.dropdown") then%>
+                    <% if question.option_comment_display == true then%>
+                        <%= t("org_admin.questions.option_comment_display")%>
+                    <%else%>
+                        <%= t("org_admin.questions.option_comment_hide")%>
+                    <%end%>
+                <%end%> 
+                <div class="add_space"></div>    
+            </td>
 		</tr>
 		
 		<!-- Suggested answer or Example-->

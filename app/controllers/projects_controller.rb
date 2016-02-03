@@ -191,22 +191,39 @@ class ProjectsController < ApplicationController
 		else
 			institution = nil
 		end
-		templates = {}
+		templates = []
+                #added priorities to the returned value so that the hash can be sorted accordingly
+                priorities = { "funder" => 1, "default"=>2, "portage" => 3, "published" => 4, "parent" => 5, "children" => 6}
 		unless funder.nil? then
 			funder.published_templates.each do |t|
-				templates[t.id] = t.title
+				templates.push({ :id => t.id, :title => t.title, :priority=> priorities['funder'] })
 			end
 		end
-		if templates.count == 0 && !institution.nil? then
+		if templates.count == 0 && !institution.nil? 
+                  if institution.name == "Portage"
+                    templates.push({ :id => t.id, :title => t.title, :priority=> priorities['portage'] })
+                  else
 			institution.published_templates.each do |t|
-				templates[t.id] = t.title
-			end
-			institution.children.each do |o|
-				o.published_templates.each do |t|
-					templates[t.id] = t.title
+                                if t.is_default
+ 				  templates.push({ :id => t.id, :title => t.title, :priority=> priorities['default'] })
+ 				else
+				  templates.push({ :id => t.id, :title => t.title, :priority=> priorities['funder'] })
 				end
 			end
+                        if !institution.parent.nil?
+                          institution.parent.published_templates.each do |t|
+                                templates.push ({ :id => t.id, :title => t.title, :priority=> priorities['parent'] })
+                          end
+                        end
+
+			institution.children.each do |o|
+				o.published_templates.each do |t|
+					templates.push ({ :id => t.id, :title => t.title, :priority=> priorities['children'] })
+				end
+			end
+                  end
 		end
+                templates = templates.sort_by { |t| t[:priority] }
 		respond_to do |format|
 			format.json { render json: templates.to_json }
 		end
@@ -223,34 +240,31 @@ class ProjectsController < ApplicationController
 		else
 			institution = nil
 		end
-		excluded_orgs = orgs_of_type(I18n.t 'helpers.org_type.funder', :locale => :en) + orgs_of_type(I18n.t 'helpers.org_type.institution', :locale => :en) + Organisation.orgs_with_parent_of_type(I18n.t 'helpers.org_type.institution', :locale => :en)
+		#excluded_orgs = orgs_of_type(I18n.t 'helpers.org_type.funder', :locale => :en) 
 		guidance_groups = {}
-		ggs = GuidanceGroup.guidance_groups_excluding(excluded_orgs) 
-	
+		#ggs = GuidanceGroup.guidance_groups_excluding(excluded_orgs) 
+	  	ggs = GuidanceGroup.find_by_organisation(institution.id) 
 		ggs.each do |gg|
 			guidance_groups[gg.id] = gg.name
 		end
+        
+                #subset guidance that belong to the institution
 		unless institution.nil? then
 			optional_gg = GuidanceGroup.where("optional_subset =  ? && organisation_id = ?", true, institution.id)
 			optional_gg.each do|optional|
 				guidance_groups[optional.id] = optional.name
 			end
-			
-			institution.children.each do |o|
-				o.guidance_groups.each do |gg|
-					include = false
-					gg.guidances.each do |g|
-						if g.dmptemplate.nil? || g.dmptemplate_id == template.id then
-							include = true
-							break
-						end
-					end
-					if include then
-						guidance_groups[gg.id] = gg.name
-					end
-				end
-			end
 		end
+        
+        #If template belongs to a funder and that funder has subset guidance display then.
+        if !template.nil? && template.organisation.organisation_type.name == t('helpers.org_type.funder') then
+            optional_gg = GuidanceGroup.where("optional_subset =  ? && organisation_id = ?", true, template.organisation_id)
+			optional_gg.each do|optional|
+				guidance_groups[optional.id] = optional.name
+			end
+        end
+        
+        
 		respond_to do |format|
 			format.json { render json: guidance_groups.to_json }
 		end
