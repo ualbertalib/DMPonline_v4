@@ -183,7 +183,7 @@ class PlansController < ApplicationController
                 format.html
                 format.xml
                 format.json
-                format.csv  { send_data @exported_plan.as_csv, filename: "#{file_name}.csv" }
+                format.csv  { send_data @exported_plan.as_csv.encode("WINDOWS-1252"), filename: "#{file_name}.csv" }
                 format.text { send_data @exported_plan.as_txt, filename: "#{file_name}.txt" }
 		format.docx do
                    file = Htmltoword::Document.create @exported_plan.html_for_docx, file_name
@@ -194,11 +194,9 @@ class PlansController < ApplicationController
                     render pdf: file_name,
 			  	            margin: @formatting[:margin],
                                             template: 'plans/export.pdf.erb',
-			  	            footer: {
-			  	              center:    t('helpers.plan.export.pdf.generated_by'),
-			  	              font_size: 8,
-			  	              spacing:   (@formatting[:margin][:bottom] / 2) - 4,
-			  	              right:     '[page] of [topage]'
+                                            footer: {
+                                                 content: render_to_string(template: 'plans/export.pdf.footer.erb'),
+                                                 spacing: (@formatting[:margin][:bottom] / 2) - 4,
 			  	            }
 			  end
 			end

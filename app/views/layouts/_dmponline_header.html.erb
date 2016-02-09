@@ -1,28 +1,32 @@
 <!-- header information -->
 
 <header class="uofa-header">
-	<div class='header_left'>
-		<div class="home_logo">
-			<%= link_to( image_tag('ua-lib-logo.png'), "https://dmp.library.ualberta.ca")%>
-		</div>
-<h3 class="subhead">A Tool for Data Management Plans</h3>
-	</div>
-       <!-- <div class="locale">
-      			<%= link_to_unless_current "English", locale: "en" %> |
-      			<%= link_to_unless_current "French", locale: "fr" %>
-      		</div> -->
-	<div class="header_right">	
-		<div class="signIn">
-			<ul class="navbar">
-				<% if user_signed_in? %>
-	            	<li class="dropdown sign_in">
-	                	<a class="dropdown-toggle" data-toggle="dropdown" href="#"><%= t("helpers.signed_in")%>
-	                	  	<%= current_user.name %> <b class="caret"></b>
-	                	</a>
+  <div class='header_left'>
+    <div class="home_logo">
+      <%= link_to( image_tag('Portage-Logo.png'), "https://portagenetwork.ca")%>
+    </div>
+    <h3 class="subhead"><%= t("subhead") %></h3>
+  </div>
+  <div class="header_center">
+     <% if I18n.locale == :en %>
+       <%= link_to "Version française", locale: "fr" %>
+     <% elsif I18n.locale == :fr %>
+        <%= link_to "English Version", locale: "en" %>
+     <% end %>
+ </div>
+
+  <div class="header_right">	
+    <div class="signIn">
+      <ul class="navbar">
+	<% if user_signed_in? %>
+          <li class="dropdown sign_in">
+	    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><%= t("helpers.signed_in")%>
+	       <%= current_user.name %> <b class="caret"></b>
+	           	</a>
 						<ul class="dropdown-menu" id="signIn_dropdown">
 							<li><%= link_to t("helpers.edit_profile"), edit_user_registration_path, :class => "signIn_dropdown_link" %></li>
 							<% if current_user.is_admin? %>
-								<li><%= link_to t("helpers.admin_area"), "/admin", :class => "signIn_dropdown_link" %></li>
+								<li><%= link_to t("helpers.admin_area"), admin_root_path, :class => "signIn_dropdown_link" %></li>
 							<%end%>	
 							<% if current_user.is_org_admin? %>
 								<li><%= link_to t("org_admin.admin_area"), admin_index_dmptemplate_path(current_user.organisation_id), :class => "signIn_dropdown_link" %></li>
@@ -44,9 +48,11 @@
 				<% end %> 
 			</ul>
 		</div>	
+
 		<!-- main menu -->
 		<div class="main_nav">
 			<ul class="nav nav-pills">
+
 				<!-- Navigation for organisation admin -->
                 <% if (user_signed_in? && current_user.is_org_admin? && ( action_name.include? "admin_" ) ) %>
                 	<li>
@@ -59,7 +65,7 @@
 	                	<%= link_to t("org_admin.org_details_label"), admin_show_organisation_path(current_user.organisation_id), :class => "btn header_button btn-primary"%>
 	                </li>
 	                <li>
-	                	<%= link_to t("org_admin.user_list_label"), "/org/admin/users", :class => "btn header_button btn-primary"%>
+	                	<%= link_to t("org_admin.user_list_label"), org_admin_users_path, :class => "btn header_button btn-primary"%>
 	                </li>
                 <% else %>
                 	<% if user_signed_in? %>
@@ -67,7 +73,7 @@
 		                    <%= link_to t("helpers.view_plans_label"), projects_path, :class => "btn header_button btn-primary" %>
 		                </li>    
 		                <li>
-		                	<%= link_to t("helpers.create_plan_label"), "/projects/new", :class => "btn header_button btn-primary"%>
+		                	<%= link_to t("helpers.create_plan_label"), new_project_path , :class => "btn header_button btn-primary"%>
 		                </li>
 			                 
 	                <% else %>
@@ -76,17 +82,14 @@
 	                	</li>
 	                <% end %>
 	           		<li>
-						<%= link_to t('helpers.about_us_label'), '/about_us?locale='+I18n.locale.to_s, :class => "btn header_button btn-primary"%>
+						<%= link_to t('helpers.about_us_label'), about_us_path, :class => "btn header_button btn-primary"%>
 					</li>
-					<!--<li>
-						<%= link_to t('helpers.news_label'), '/news', :class => "btn header_button btn-primary"%>
-					</li>-->
 					<li class="last_li">
-	                    <%= link_to t('helpers.help_label'), '/help?locale='+I18n.locale.to_s, :class => "btn header_button btn-primary"%>
+	                    <%= link_to t('helpers.help_label'), help_path, :class => "btn header_button btn-primary"%>
 	            	</li>
 	            <%end%>	
 	      	</ul>
-         	          		
+          		
     	</div>	
 	</div>
 </header>    

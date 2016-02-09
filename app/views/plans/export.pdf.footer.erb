@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+                <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+                <script>
+                  function number_pages() {
+                  var vars={};
+                  var x=document.location.search.substring(1).split('&');
+                  for(var i in x) {var z=x[i].split('=',2);vars[z[0]] = decodeURIComponent(z[1]);}
+                  var x=['frompage','topage','page','webpage','section','subsection','subsubsection'];
+                  for(var i in x) {
+                    var y = document.getElementsByClassName(x[i]);
+                    for(var j=0; j<y.length; ++j) y[j].textContent = vars[x[i]];
+                  }
+                }
+               </script>
+	</head>
+        <style>
+                .footer { font-size: 8pt; text-align:center; }
+                .center {text-align:center;}
+                .right {float: right; }
+        </style>
+	<body onload="number_pages()">
+		<div class ="footer">
+                  <%= t('helpers.project.export.generated_by') %>
+                  <span class="right"><span class="page"></span> of <span class="topage"></span></span>
+                </div>
+	</body>
+</html>

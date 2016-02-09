@@ -76,7 +76,7 @@ class ExportedPlan < ActiveRecord::Base
 
   def as_csv
     CSV.generate do |csv|
-      csv << ["Section","Question","Answer","Selected option(s)","Answered by","Answered at"]
+      csv << [I18n.t('helpers.plan.export.section'),I18n.t('helpers.plan.export.question'),I18n.t('helpers.plan.export.answer'), I18n.t('helpers.plan.export.selected_options'),I18n.t('helpers.plan.export.answered_by'),I18n.t('helpers.plan.export.answered_at')]
       self.sections.each do |section|
         self.questions_for_section(section).each do |question|
           answer = self.plan.answer(question.id)
@@ -113,7 +113,7 @@ class ExportedPlan < ActiveRecord::Base
   def html_for_docx
     docx_html_source = "<html><head></head><body><div><h1>#{self.plan.project.title}</h1><h2>#{self.plan.title}</h2>"
     if self.admin_details.present?
-        docx_html_source << "<div><h3>Admin Details</h3>"
+        docx_html_source << "<div><h3>#{I18n.t('helpers.project.export.admin_details')}</h3>"
         self.admin_details.each do |field|
             value = self.send(field)
             label = "helpers.plan.export.#{field}"

@@ -1,4 +1,6 @@
 class Dmptemplate < ActiveRecord::Base
+
+    translates :description, :title
     
     attr_accessible :organisation_id, :description, :published, :title, :user_id, :locale, :is_default, :guidance_group_ids 
   

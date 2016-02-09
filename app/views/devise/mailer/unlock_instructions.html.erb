@@ -1,7 +1,7 @@
 <%
   resource_email = @resource.email
   app_link = link_to t('devise.mailer.app_name'), root_url
-  unlock_link = link_to t('devise.mailer.unlock_instructions.link'), unlock_url(@resource, :unlock_token => @token)
+  unlock_link = link_to t('devise.mailer.unlock_instructions.link'), unlock_url(@resource, :unlock_token => @token, :locale => I18n.locale)
 %>
 
 <%= raw t('devise.mailer.unlock_instructions.email', :resource_email => resource_email, :app_link => app_link, :unlock_link => unlock_link) %>

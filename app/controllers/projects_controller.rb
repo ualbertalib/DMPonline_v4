@@ -76,7 +76,7 @@ class ProjectsController < ApplicationController
 			end
 		elsif !@project.editable_by(current_user.id) then
 			respond_to do |format|
-				format.html { redirect_to projects_url, notice: "This account does not have access to that plan." }
+				format.html { redirect_to projects_url, notice: I18n.t('helpers.notices.account_no_access') }
 			end
 		end
 	end
@@ -89,7 +89,7 @@ class ProjectsController < ApplicationController
 			end
 		elsif !@project.editable_by(current_user.id) then
 			respond_to do |format|
-				format.html { redirect_to projects_url, notice: "This account does not have access to that plan." }
+				format.html { redirect_to projects_url, notice: I18n.t('helpers.notices.account_no_access') }
 			end
 		end
 	end
@@ -151,7 +151,7 @@ class ProjectsController < ApplicationController
 		if user_signed_in? && @project.editable_by(current_user.id) then
 			respond_to do |format|
 				if @project.update_attributes(params[:project])
-					format.html { redirect_to @project, notice: 'Project was successfully updated.' }
+					format.html { redirect_to @project, notice: I18n.t('helpers.notices.project_updated') }
 					format.json { head :no_content }
 				else
 					format.html { render action: "edit" }

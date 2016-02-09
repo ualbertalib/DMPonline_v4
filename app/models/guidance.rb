@@ -8,6 +8,8 @@
 
 
 class Guidance < ActiveRecord::Base
+
+    translates :text
    #associations between tables
 	attr_accessible :text, :question_id
     attr_accessible :guidance_group_ids

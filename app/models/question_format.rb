@@ -1,4 +1,5 @@
 class QuestionFormat < ActiveRecord::Base
+  translates :title, :description
   attr_accessible :title, :description
   
   #associations between tables
