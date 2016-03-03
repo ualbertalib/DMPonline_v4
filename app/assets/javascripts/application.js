@@ -13,8 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require select2
+//= require select2_locale_en
+//= require select2_locale_fr
+//= require select2_locale_de
 //= require v1.js
-//= require select2.min.js
 //= require jquery.placeholder.js
 
 
