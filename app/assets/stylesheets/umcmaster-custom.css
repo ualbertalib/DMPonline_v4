@@ -1,0 +1,137 @@
+* {
+  margin: 0;
+}
+
+h1, h2, h3, h4 {					/*Header colour*/
+  
+  color: #79133E;
+  
+}
+
+a, a:active, a:focus {			/*hyperlink colour*/
+  color: #79133E;
+}
+
+a:visited{						/*hyperlink colour*/
+  color: #79133E;
+}
+
+.dmp_toolbar {					/*filter plans box colour*/
+  background-color: #79133E;
+}
+footer{
+ background-color: #79133E;		/*footer banner colour*/
+}
+footer .right_side_footer p{		/*footer text colour*/
+	 color: #fff;
+}
+.right_side_footer{ 			/*footer text colour*/
+	color: #fff; 
+}
+.header_center a{				/*Shared Stewardship of Research Data text colour*/
+        color: #79133E;
+}
+h3.subhead{
+	color: #79133E;				/*Language Setting colour*/
+
+}
+
+body.dmponline .btn-primary, body.dmponline .btn-primary:active, body.dmponline .btn-primary:visited, body.dmponline .btn-primary:focus {	
+  background: #79133E;			/*buttons colour*/
+}
+
+.signIn ul li a, .signIn ul li a.active, .signIn ul li a:visited {
+	color: #79133E;				/*Sign in text colour*/
+}
+
+body.dmponline .btn-primary:hover {	
+	background: #990033;		/*button colour when mouse hovers over it*/
+}
+
+table.dmp_table thead{				/*table header colours*/
+  background-color: #79133E;
+}
+table.dmp_table a.dmp_table_link:hover{
+  color: #79133E;				
+}
+
+li.select label, li.check_boxes .label{
+  color: #79133E;				/*body text colour*/
+}
+#other-funder-name .label {
+  color: #79133E;
+}
+
+#project-tabs li.active a, #project-tabs li.active a:active, #project-tabs li a:hover{
+  background-color: #79133E;
+  border: 1px solid #79133E;	/*tab colours*/
+}
+
+.dmp_details_body{				/*tab border colour*/
+  border: 2px solid #79133E; 
+}
+
+table.dmp_details_table tr td.first{
+  border-right: 1px solid #79133E;
+}								/*body text separators colour*/
+
+ul.section_ul li{
+  color: #79133E;
+ }
+
+
+.accordion-group{				/*Question box colours*/
+  background-color: #79133E;
+  border-color:#79133E;
+}
+
+.accordion-heading{				/*Question box colours*/
+  background-color: #79133E;
+
+}
+.section-status{				/*Question box colours*/
+  background-color: #79133E;
+}
+
+div.suggested-answer-border {		/*Suggested answer box border colour*/
+  border: 1px solid #79133E;
+
+}
+.question-guidance .guidance-accordion-body {
+  border: 1px solid #79133E;	/*Guidance box colour*/
+}
+.question-guidance .accordion-heading a, .question-guidance .accordion-heading a:hover{
+    color:  #79133E !important;	/*Guidance heading colour*/
+}
+
+
+ul.export_list li{
+  ul.export_sub_list {
+
+    li:before {
+      color: #79133E;
+    }
+
+  }
+}
+
+.column_left{
+ 
+  .white_background{
+ 
+    table.dmp_details_table tr td.first{
+      border-right: 1px solid #79133E;
+   
+    }
+    
+  }
+}
+
+.mce-item-table th {
+       
+        background-color: #79133E;
+}
+div#sections-accordion a.accordion-toggle {
+  color: #fff;				/*Question box text colour*/
+}
+

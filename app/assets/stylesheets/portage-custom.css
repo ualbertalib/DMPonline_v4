@@ -121,11 +121,11 @@ body.dmponline{
 }
 h3.subhead{
 	color: #1F3D7D;
-	font-size: 17px;
-	margin-top: -3px;
+	font-size: 16px;
+	margin-top: 10px;
 	margin-left: 45px;
-	letter-spacing: 1px;
         font-weight: bold;
+        line-height: 120%;
 
 }
 	

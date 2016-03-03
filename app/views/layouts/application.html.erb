@@ -20,13 +20,17 @@
 		    	}
 		  	</style>
 		<![endif]-->
-		 <% if (user_signed_in?) && (current_user.organisation_id == 7) then %>
+		 <% if (user_signed_in?) && (current_user.organisation.abbreviation == 'UBC') then %>
 		
 	                	<%= stylesheet_link_tag "application_ubc" %>
 
-                 <% elsif (user_signed_in?) && (current_user.organisation_id == 1) then %>
+                 <% elsif (user_signed_in?) && (current_user.organisation.abbreviation == 'UAlberta') then %>
 
                                 <%= stylesheet_link_tag "application_ua" %>
+
+                 <% elsif (user_signed_in?) && (current_user.organisation.abbreviation == 'UMcMaster') then %>
+
+                                <%= stylesheet_link_tag "application_umcmaster" %>
 
 		<% else %>
 			<%= stylesheet_link_tag "application" %>
@@ -64,15 +68,7 @@
 	<body class="dmponline">
 		<div class="wrap">
 	    	<!-- header rendering -->
-	         <% if (user_signed_in?) && (current_user.organisation_id == 7) then %>
-			 <%= render "layouts/dmponline_header_ubc" %>
-                 <% elsif (user_signed_in?) && (current_user.organisation_id == 1) then %>
-                         <%= render "layouts/dmponline_header_ua" %>
-
-
-                <% else %>
-               		 <%= render "layouts/dmponline_header" %>
-		<% end %>
+                <%= render "layouts/dmponline_header" %>
 	
 			<div class="main_page_container">
 				<% if notice %>
