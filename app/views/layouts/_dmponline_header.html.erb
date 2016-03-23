@@ -8,7 +8,10 @@
       <% elsif (user_signed_in?) && (!current_user.organisation.nil?) && (current_user.organisation.abbreviation == 'UBC') then %>
         <%= link_to( image_tag('UBC_logo.png'), "http://www.ubc.ca")%>
       <% elsif (user_signed_in?) && (!current_user.organisation.nil?) && (current_user.organisation.abbreviation == 'UMcMaster') then %>
-        <%= link_to( image_tag('umcmaster_logo.png'), "http://library.umcmaster.ca")%>
+        <%= link_to( image_tag('umcmaster_logo.png'), "http://library.mcmaster.ca")%>
+      <% elsif (user_signed_in?) && (!current_user.organisation.nil?) && (current_user.organisation.abbreviation == 'Mcgill') then %>
+        <%= link_to( image_tag('mcgill_logo.png'), "http://www.mcgill.ca/library/library-and-collections")%>
+
       <% else %>
       <%= link_to( image_tag('Portage-Logo.png'), "https://portagenetwork.ca")%>
       <% end %>
