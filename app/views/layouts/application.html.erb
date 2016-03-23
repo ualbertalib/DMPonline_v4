@@ -31,6 +31,9 @@
                  <% elsif (user_signed_in?) && (!current_user.organisation.nil?) && (current_user.organisation.abbreviation == 'UMcMaster') then %>
 
                                 <%= stylesheet_link_tag "application_umcmaster" %>
+                 <% elsif (user_signed_in?) && (!current_user.organisation.nil?) && (current_user.organisation.abbreviation == 'Mcgill') then %>
+
+                                <%= stylesheet_link_tag "application_mcgill" %>
 
 		<% else %>
 			<%= stylesheet_link_tag "application" %>

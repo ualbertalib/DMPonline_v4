@@ -1,0 +1,140 @@
+* {
+  margin: 0;
+}
+
+h1, h2, h3, h4 {
+  
+  color: #DC241F;
+  
+}
+
+a, a:active, a:focus {
+  color: #3E3834;
+}
+
+a.visited{
+  color: #3E3834;
+}
+
+.dmp_toolbar {
+  background-color: #3E3834;
+}
+footer{
+ background-color: #3E3834;
+}
+footer .right_side_footer p{
+	 color: #fff;
+}
+.right_side_footer{
+	color: #fff;
+}
+.header_center a{
+        color: #3E3834;
+}
+
+
+h3.subhead{
+	color: #3E3834;
+
+}
+
+body.dmponline .btn-primary, body.dmponline .btn-primary:active, body.dmponline .btn-primary:visited, body.dmponline .btn-primary:focus {
+  background: #3E3834;
+}
+
+.signIn ul li a, .signIn ul li a.active, .signIn ul li a:visited {
+	color: #3E3834;
+}
+
+
+
+body.dmponline .btn-primary:hover {
+	background: #DC241F;
+}
+
+table.dmp_table thead{
+  background-color: #3E3834;
+}
+table.dmp_table a.dmp_table_link:hover{
+  color: #3E3834;
+}
+
+li.select label, li.check_boxes .label{
+  color: #3E3834;
+}
+#other-funder-name .label {
+  color: #3E3834;
+}
+
+#project-tabs li.active a, #project-tabs li.active a:active, #project-tabs li a:hover{
+  background-color: #3E3834;
+  border: 1px solid #3E3834;
+}
+
+.dmp_details_body{
+  border: 2px solid #3E3834;
+}
+
+table.dmp_details_table tr td.first{
+  border-right: 1px solid #3E3834;
+}
+
+ul.section_ul li{
+  color: #3E3834;
+ }
+
+
+.accordion-group{
+  background-color: #3E3834;
+  border-color:#3E3834;
+}
+
+.accordion-heading{
+  background-color: #3E3834;
+
+}
+.section-status{
+  background-color: #3E3834;
+}
+
+div.suggested-answer-border {
+  border: 1px solid #3E3834;
+
+}
+.question-guidance .guidance-accordion-body {
+  border: 1px solid #3E3834;
+}
+.question-guidance .accordion-heading a, .question-guidance .accordion-heading a:hover{
+    color:  #3E3834 !important;
+}
+
+
+ul.export_list li{
+  ul.export_sub_list {
+
+    li:before {
+      color: #3E3834;
+    }
+
+  }
+}
+
+.column_left{
+ 
+  .white_background{
+ 
+    table.dmp_details_table tr td.first{
+      border-right: 1px solid #3E3834;
+   
+    }
+    
+  }
+}
+
+.mce-item-table th {
+       
+        background-color: #3E3834;
+}
+div#sections-accordion a.accordion-toggle {
+  color: #fff;
+}
