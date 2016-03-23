@@ -43,7 +43,7 @@ DMPonline4::Application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = { :address => "localhost", :port => 25 }
   
-  ActionMailer::Base.default :from => 'data@ualberta.ca'
+  ActionMailer::Base.default :from => 'dittest@ualberta.ca'
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = { :address => "localhost", :port => 25 }
   
