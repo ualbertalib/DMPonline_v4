@@ -45,7 +45,11 @@
 			<% Organisation.where("parent_id IS ? AND is_other = ?", nil, 1).each do |org| %>
 				<% other_organisations << org.id %>
 			<% end %>
+			<% if current_user.other_organisation.nil? || current_user.other_organisation.empty? %>
 			<tr id="other-organisation-name" style="display:none" data-orgs="<%= other_organisations.join(',') %>">
+			<% else %>
+			<tr id="other-organisation-name" data-orgs="<%= other_organisations.join(',') %>">
+			<% end %>
 				<td class="first"><%= t('helpers.org_type.org_name')%></td>
 				<td><%= f.text_field :other_organisation,
 						:as => :string,

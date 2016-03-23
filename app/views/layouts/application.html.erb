@@ -20,15 +20,15 @@
 		    	}
 		  	</style>
 		<![endif]-->
-		 <% if (user_signed_in?) && (current_user.organisation.abbreviation == 'UBC') then %>
+		 <% if (user_signed_in?) && (!current_user.organisation.nil?) && (current_user.organisation.abbreviation == 'UBC') then %>
 		
 	                	<%= stylesheet_link_tag "application_ubc" %>
 
-                 <% elsif (user_signed_in?) && (current_user.organisation.abbreviation == 'UAlberta') then %>
+                 <% elsif (user_signed_in?) && (!current_user.organisation.nil?) && (current_user.organisation.abbreviation == 'UAlberta') then %>
 
                                 <%= stylesheet_link_tag "application_ua" %>
 
-                 <% elsif (user_signed_in?) && (current_user.organisation.abbreviation == 'UMcMaster') then %>
+                 <% elsif (user_signed_in?) && (!current_user.organisation.nil?) && (current_user.organisation.abbreviation == 'UMcMaster') then %>
 
                                 <%= stylesheet_link_tag "application_umcmaster" %>
 

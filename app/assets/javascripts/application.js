@@ -105,6 +105,7 @@ $( document ).ready(function() {
 			$("#user_other_organisation").focus();
 		}
 		else {
+			$("#user_other_organisation").val('');
 			$("#other-organisation-name").hide();
 		}
 	});
