@@ -3,11 +3,11 @@
 <header class="uofa-header">
   <div class='header_left'>
     <div class="home_logo">
-      <% if (user_signed_in?) && (current_user.organisation.abbreviation == 'UAlberta') then %>
+      <% if (user_signed_in?) && (!current_user.organisation.nil?) && (current_user.organisation.abbreviation == 'UAlberta') then %>
         <%= link_to( image_tag('ua-lib-logo.png'), "https://library.ualberta.ca")%>
-      <% elsif (user_signed_in?) && (current_user.organisation.abbreviation == 'UBC') then %>
+      <% elsif (user_signed_in?) && (!current_user.organisation.nil?) && (current_user.organisation.abbreviation == 'UBC') then %>
         <%= link_to( image_tag('UBC_logo.png'), "http://www.ubc.ca")%>
-      <% elsif (user_signed_in?) && (current_user.organisation.abbreviation == 'UMcMaster') then %>
+      <% elsif (user_signed_in?) && (!current_user.organisation.nil?) && (current_user.organisation.abbreviation == 'UMcMaster') then %>
         <%= link_to( image_tag('umcmaster_logo.png'), "http://library.umcmaster.ca")%>
       <% else %>
       <%= link_to( image_tag('Portage-Logo.png'), "https://portagenetwork.ca")%>
