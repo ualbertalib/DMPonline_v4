@@ -24,8 +24,8 @@ class OrganisationsController < ApplicationController
   # POST /organisations
   # POST /organisations.json
   def create
-    @organisation = Organisation.new(params[:organisation])
-
+    @organisation = Organisation.new(params[:organisation]) 
+    @organisation.logo = params[:organisation][:logo]
     respond_to do |format|
       if @organisation.save
         format.html { redirect_to @organisation, notice: I18n.t("admin.org_created_message") }
@@ -37,7 +37,6 @@ class OrganisationsController < ApplicationController
     end
   end
 
-  
   # GET /organisations/1
   # GET /organisations/1.json
   def admin_show
@@ -71,14 +70,16 @@ class OrganisationsController < ApplicationController
     if user_signed_in? && current_user.is_org_admin? then
         @organisation = Organisation.find(params[:id])
         @organisation.banner_text = params["org_banner_text"]
-		
-		
+	@organisation.logo = params[:organisation][:logo] if params[:organisation][:logo]
+ 	assign_params = params[:organisation].dup
+	assign_params.delete(:logo)
 	    respond_to do |format|
-	      if @organisation.update_attributes(params[:organisation])
+	      if @organisation.update_attributes(assign_params)
 	        format.html { redirect_to admin_show_organisation_path(params[:id]), notice: I18n.t("admin.org_updated_message")  }
 	        format.json { head :no_content }
 	      else
-	        format.html { render action: "edit" }
+		flash[:alert] = "Upload Failed. "
+	        format.html { render action: "admin_edit" }
 	        format.json { render json: @organisation.errors, status: :unprocessable_entity }
 	      end
 	    end
