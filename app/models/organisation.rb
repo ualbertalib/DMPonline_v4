@@ -9,7 +9,7 @@ class Organisation < ActiveRecord::Base
 	has_many :users
 	has_many :option_warnings
 	has_many :suggested_answers
-        has_one :stylesheet    
+        has_one :stylesheet   
         has_many :user_org_roles
 	
         belongs_to :parent, :class_name => 'Organisation'
@@ -17,7 +17,9 @@ class Organisation < ActiveRecord::Base
 
 	accepts_nested_attributes_for :organisation_type
 	accepts_nested_attributes_for :dmptemplates
-	attr_accessible :abbreviation, :banner_text, :logo, :remove_logo, :banner, :remove_banner, :description, :domain, :logo_file_name, :name, :stylesheet_file_id, :target_url, :organisation_type_id, :wayfless_entity, :parent_id, :sort_name, :display_in_registration
+	accepts_nested_attributes_for :stylesheet
+
+	attr_accessible :abbreviation, :banner_text, :logo, :remove_logo, :banner, :remove_banner, :stylesheet, :description, :domain, :logo_file_name, :name, :stylesheet_file_id, :target_url, :organisation_type_id, :wayfless_entity, :parent_id, :sort_name, :display_in_registration
         dragonfly_accessor :logo
         dragonfly_accessor :banner
         validates_property :height, of: :logo, in: (0..100)

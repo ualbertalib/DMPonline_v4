@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160406061805) do
+ActiveRecord::Schema.define(:version => 20160406175524) do
 
   create_table "answers", :force => true do |t|
     t.text     "text"
@@ -191,7 +191,6 @@ ActiveRecord::Schema.define(:version => 20160406061805) do
     t.boolean  "is_other"
     t.string   "sort_name"
     t.text     "banner_text"
-    t.integer  "stylesheet_id"
     t.boolean  "display_in_registration"
     t.string   "logo_uid"
     t.string   "logo_name"
@@ -392,11 +391,11 @@ ActiveRecord::Schema.define(:version => 20160406061805) do
   end
 
   create_table "stylesheets", :force => true do |t|
+    t.string   "file_uid"
+    t.string   "file_name"
     t.integer  "organisation_id"
-    t.binary   "stylesheet"
-    t.integer  "last_change_user_id"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "suggested_answers", :force => true do |t|
