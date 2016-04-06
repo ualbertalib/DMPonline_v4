@@ -8,7 +8,7 @@ gem 'omniauth-shibboleth'
 gem 'recaptcha'
 gem 'i18n'
 gem 'globalize', '~>3.1.0'
-
+gem 'dragonfly'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -61,7 +61,6 @@ gem 'validate_url'
 gem 'thin'
 gem 'wicked_pdf'
 gem 'htmltoword'
-
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

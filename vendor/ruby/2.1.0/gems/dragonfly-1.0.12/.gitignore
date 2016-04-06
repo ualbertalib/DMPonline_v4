@@ -1,0 +1,10 @@
+.DS_Store
+pkg
+.yardoc
+doc
+.bundle
+Gemfile.lock
+.s3_spec.yml
+***.rbc
+dragonfly.log
+_site
