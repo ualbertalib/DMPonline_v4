@@ -36,6 +36,9 @@ DMPonline4::Application.routes.draw do
 			get 'admin_show'
 			get 'admin_edit'
 			put 'admin_update'
+			get 'download_stylesheet'
+			delete 'delete_stylesheet', to: "organisations#delete_stylesheet", as: "delete_stylesheet"
+			
 		end
 	end
  

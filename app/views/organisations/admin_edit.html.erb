@@ -50,11 +50,12 @@
                 <% if @organisation.logo.present? then%>
                         <tr>
                                 <td class="first"><%= t('org_admin.org_logo') %></td>
-                                <td><%= image_tag @organisation.logo.thumb('100x100%').url %> </td>
+                                <td><%= image_tag @organisation.logo.url %> </td>
                         </tr>
 			<tr>
 				<td class="first"></td>
-				<td><%= f.check_box :remove_logo %>&nbsp;&nbsp;&nbsp;<%= t('org_admin.remove_logo') %></td>
+                                <td><%= f.check_box :remove_logo %>&nbsp;&nbsp;&nbsp;<%= t('org_admin.remove_logo') %></td>
+
 			</tr>
                         <%end%>
                 <tr class="blank_row"><td class="first"></td></tr>
@@ -81,7 +82,27 @@
                     <td class="first"><%= t('org_admin.new_org_banner_image') %></td>
                     <td><%= f.file_field :banner %></td>
                 </tr>
-		
+                <% if @organisation.stylesheet.present? then%>
+                <tr>
+                    <td class="first"><%= t('org_admin.org_stylesheet') %></td>
+                    <td><%= link_to @organisation.stylesheet.file.name, download_stylesheet_organisation_path(:id => @organisation.id) %></td>
+
+                </tr>
+                <tr>
+                                <td class="first"></td>
+                                <td><%= link_to t('org_admin.delete_stylesheet'), delete_stylesheet_organisation_path(:id => @organisation.id), method: :delete %></td>
+                </tr>
+<% end %>
+<tr class="blank_row"><td class="first"></td></tr>
+
+                <tr>
+                    <td class="first"><%= t('org_admin.new_org_stylesheet') %></td>
+                    <td><%= f.file_field :stylesheet %></td>
+                </tr>
+
+
+                
+
             </table>
 			
             <div class="div_clear">
