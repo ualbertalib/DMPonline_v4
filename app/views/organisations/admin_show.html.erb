@@ -11,13 +11,6 @@
 	<!-- body -->
 	<div class="dmp_details" >
         
-        <!-- organisation logo -->
-		<% if @organisation.logo_file_name.present? then%>
-            <div class="div_right">
-                <%= image_tag("#{@organisation.logo_file_name}", class: "org_logo_admin_area" )%>
-            </div>
-        <%end%>
-        
         <!-- table with org details-->
 		<table class="dmp_details_table">
 			<% if @organisation.name.present? then%>
@@ -32,42 +25,36 @@
 				<td><%= @organisation.abbreviation %></td>
 			</tr>
 			<%end%>
-			<% if @organisation.description.present? then%>
-			<tr>
-				<td class="first"><%= t('org_admin.org_desc') %></td>
-				<td><%= raw @organisation.description %></td>
-			</tr>
-			<%end%>
-            <% if @organisation.banner_text.present? then%>
-			<tr>
-				<td class="first"><%= t('org_admin.org_banner_text') %></td>
-				<td><%= raw @organisation.banner_text %></td>
-			</tr>
-			<%end%>
-			<% if @organisation.target_url.present? then%>
-			<tr>
-				<td class="first"><%= t('org_admin.org_target_url') %></td>
-				<td><%= @organisation.target_url %></td>
-			</tr>
-			<%end%>
-			<% if @organisation.organisation_type_id.present? then%>
-			<tr>
-				<td class="first"><%= t('org_admin.org_type') %></td>
-				<td><%= @organisation.organisation_type.name %></td>
-			</tr>
-			<%end%>
-			<% if @organisation.parent_id.present? then%>
-				<tr>
-					<td class="first"><%= t('org_admin.parent_org') %></td>
-					<td><%= @organisation.parent.name %></td>
-				</tr>
-			<%end%>
-                        <% if @organisation.display_in_registration.present? then%>
-                                <tr>
-                                        <td class="first"><%= t('org_admin.display_in_registration') %></td>
-                                        <td><%= @organisation.display_in_registration %></td>
-                                </tr>
+                        <% if @organisation.target_url.present? then%>
+                        <tr>
+                                <td class="first"><%= t('org_admin.org_target_url') %></td>
+                                <td><%= @organisation.target_url %></td>
+                        </tr>
                         <%end%>
+                        <% if @organisation.description.present? then%>
+                        <tr>
+                                <td class="first"><%= t('org_admin.org_desc') %></td>
+                                <td><%= raw @organisation.description %></td>
+                        </tr>
+                        <%end%>
+
+                        <% if @organisation.logo.present? then%>
+                        <tr>
+                                <td class="first"><%= t('org_admin.org_logo') %></td>
+                                <td><%= image_tag @organisation.logo.url %></td>
+                        </tr>
+                        <%end%>
+
+			<% if @organisation.banner.present? then%>
+                             <td class="first"><%= t('org_admin.org_banner_image') %></td>
+                                <td><%= image_tag @organisation.banner.thumb('200x100#').url %></td>
+			<%end%>
+			<% if @organisation.stylesheet.present? then%>
+			<tr>
+				<td class="first"><%= t('org_admin.org_stylesheet') %></td>
+				<td><%= link_to @organisation.stylesheet.file.name, download_stylesheet_organisation_path(:id => @organisation.id) %></td>
+			</tr>
+			<%end%>
 
 			<tr>
 				<td class="first"><%= t('org_admin.last_updated') %></td>

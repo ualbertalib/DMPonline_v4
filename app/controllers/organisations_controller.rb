@@ -25,7 +25,6 @@ class OrganisationsController < ApplicationController
   # POST /organisations.json
   def create
     @organisation = Organisation.new(params[:organisation])
-
     respond_to do |format|
       if @organisation.save
         format.html { redirect_to @organisation, notice: I18n.t("admin.org_created_message") }
@@ -37,7 +36,6 @@ class OrganisationsController < ApplicationController
     end
   end
 
-  
   # GET /organisations/1
   # GET /organisations/1.json
   def admin_show
@@ -71,14 +69,30 @@ class OrganisationsController < ApplicationController
     if user_signed_in? && current_user.is_org_admin? then
         @organisation = Organisation.find(params[:id])
         @organisation.banner_text = params["org_banner_text"]
-		
-		
+	@organisation.logo = params[:organisation][:logo] if params[:organisation][:logo]
+        @organisation.banner_image = params[:organisation][:banner_image] if params[:organisation][:banner_image]
+        if params[:organisation][:stylesheet]
+          @stylesheet = @organisation.stylesheet || Stylesheet.new
+	  @stylesheet.file = params[:organisation][:stylesheet]
+	  begin
+		@stylesheet.save!
+	  rescue ActiveRecord::RecordInvalid => e
+		@organisation.errors[:base] << "Stylesheet Error: #{e}"
+          end
+	  @organisation.stylesheet = @stylesheet
+        end
+ 
+ 	assign_params = params[:organisation].dup
+	assign_params.delete(:logo)
+	assign_params.delete(:banner_image)
+	assign_params.delete(:stylesheet)
 	    respond_to do |format|
-	      if @organisation.update_attributes(params[:organisation])
+	      if @organisation.update_attributes(assign_params)
 	        format.html { redirect_to admin_show_organisation_path(params[:id]), notice: I18n.t("admin.org_updated_message")  }
 	        format.json { head :no_content }
 	      else
-	        format.html { render action: "edit" }
+		flash[:alert] = "Upload Failed. "
+	        format.html { render action: "admin_edit" }
 	        format.json { render json: @organisation.errors, status: :unprocessable_entity }
 	      end
 	    end
@@ -98,7 +112,23 @@ class OrganisationsController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
+
+  def download_stylesheet	
+    @organisation = Organisation.find(params[:id])
+    @stylesheet = @organisation.stylesheet
+    send_file @stylesheet.file.to_file(@stylesheet.file_name) if @stylesheet
+  end
+
+  def delete_stylesheet
+    @organisation = Organisation.find(params[:id])
+    @stylesheet = @organisation.stylesheet
+    if @stylesheet.destroy
+      redirect_to admin_show_organisation_path(params[:id]), notice: "Stylesheet removed."
+    else
+      redirect_to admin_show_organisation_path(params[:id]), notice: "We could not remove the stylesheet. "
+    end
+  end
+
   def parent
   	@organisation = Organisation.find(params[:id])
   	parent_org = @organisation.find_by {|o| o.parent_id }
