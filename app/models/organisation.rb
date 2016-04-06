@@ -1,28 +1,37 @@
 class Organisation < ActiveRecord::Base
+        extend Dragonfly::Model::Validations
         default_scope :order => 'organisations.sort_name ASC'
 	#associations between tables
 	belongs_to :organisation_type
 	has_many :guidance_groups
-    has_many :dmptemplates
+        has_many :dmptemplates
 	has_many :sections
 	has_many :users
 	has_many :option_warnings
 	has_many :suggested_answers
-    
-    has_many :user_org_roles
+        has_one :stylesheet   
+        has_many :user_org_roles
 	
-    belongs_to :parent, :class_name => 'Organisation'
+        belongs_to :parent, :class_name => 'Organisation'
 	has_many :children, :class_name => 'Organisation', :foreign_key => 'parent_id'
 
 	accepts_nested_attributes_for :organisation_type
 	accepts_nested_attributes_for :dmptemplates
+	accepts_nested_attributes_for :stylesheet
 
-	attr_accessible :abbreviation, :banner_text, :description, :domain, :logo_file_name, :name, :stylesheet_file_id, :target_url, :organisation_type_id, :wayfless_entity, :parent_id, :sort_name, :display_in_registration
-
-	def to_s
+	attr_accessible :abbreviation, :banner_text, :logo, :remove_logo, :banner, :remove_banner, :stylesheet, :description, :domain, :logo_file_name, :name, :stylesheet_file_id, :target_url, :organisation_type_id, :wayfless_entity, :parent_id, :sort_name, :display_in_registration
+        dragonfly_accessor :logo
+        dragonfly_accessor :banner
+        validates_property :height, of: :logo, in: (0..100)
+        validates_property :format, of: :logo, in: ['jpeg', 'png', 'gif','jpg','bmp']
+        validates_size_of :logo, maximum: 500.kilobytes
+        validates_property :height, of: :banner, in: (0..150)
+        validates_property :format, of: :banner, in: ['jpeg', 'png', 'gif','jpg','bmp']
+        validates_size_of :banner, maximum: 2000.kilobytes
+        def to_s
 		name
 	end
-
+        
 	def short_name
 		if abbreviation.nil? then
 			return name
@@ -95,6 +104,10 @@ class Organisation < ActiveRecord::Base
 	def published_templates
 		return dmptemplates.find_all_by_published(1)
 	end
-
+	private
+	def sanitize_filename(filename)
+	  just_filename = File.basename(filename)
+	  return just_filename.gsub(/[^\w\.\-]/, '_')
+        end
 
 end
