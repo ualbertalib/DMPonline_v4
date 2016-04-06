@@ -24,8 +24,7 @@ class OrganisationsController < ApplicationController
   # POST /organisations
   # POST /organisations.json
   def create
-    @organisation = Organisation.new(params[:organisation]) 
-    @organisation.logo = params[:organisation][:logo]
+    @organisation = Organisation.new(params[:organisation])
     respond_to do |format|
       if @organisation.save
         format.html { redirect_to @organisation, notice: I18n.t("admin.org_created_message") }
@@ -69,7 +68,6 @@ class OrganisationsController < ApplicationController
   def admin_update
     if user_signed_in? && current_user.is_org_admin? then
         @organisation = Organisation.find(params[:id])
-	logger.debug "ERROR WE ARE HERE"
         @organisation.banner_text = params["org_banner_text"]
 	@organisation.logo = params[:organisation][:logo] if params[:organisation][:logo]
         @organisation.banner_image = params[:organisation][:banner_image] if params[:organisation][:banner_image]
