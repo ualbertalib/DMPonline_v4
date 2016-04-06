@@ -30,52 +30,58 @@
                             :as => :string, 
                             :class => 'text_field' %>
                         </div>
-                        <div class="div_right_icon_g">
-                            <%= link_to( image_tag('help_button.png'), '#', :class => 'org_abbr_popover', :rel => "popover", 'data-html' => "true", 'data-content' => t('org_admin.templates.desc_help_text_html'))%>
-                        </div>
-                        <div class="clearfix"></div>
                     </td>
                 
-                </tr>
-                <% if @organisation.logo.present? then%>
-                        <tr>
-                                <td class="first"><%= t('org_admin.org_logo') %></td>
-                                <td><%= image_tag @organisation.logo.thumb('100x100%').url %></td>
-                        </tr>
-                        <%end%>
-
-                <tr>
-                    <td class="first"><%= t('org_admin.org_logo') %></td>
-                    <td><%= f.file_field :logo %></td>
-                </tr>
-
-                <tr>
-                    <td class="first"><%= t('org_admin.org_desc') %></td>
-                    <td><%= f.text_area :description, { 
-                            :rows => 5, 
-                            :class => 'text_area has-tooltip', 'data-toggle' => "tooltip", 'data-html' => "true", 'title'=> t('org_admin.desc_help_text_html')} %></td>
-                </tr>
-                <tr>
-                    <td class="first"><%= t('org_admin.org_banner_text') %></td>
-                    <td>
-                        <%= text_area_tag("org_banner_text", @organisation.banner_text, class: "tinymce") %>
-                    </td>
                 </tr>
                 <tr>
                     <td class="first"><%= t('org_admin.org_target_url') %></td>
                     <td><%= f.text_field :target_url,
-                            :as => :string, 
+                            :as => :string,
                             :class => 'text_field has-tooltip', 'data-toggle' => "tooltip", 'title' => t('org_admin.target_url_help_text') %></td>
                 </tr>
-                <tr>
-                    <td class="first"><%= t('org_admin.org_type') %></td>
-                    <td><%= @organisation.organisation_type.name %></td>
-                </tr>
-                <tr>
-                    <td class="first"><%= t('org_admin.display_in_registration') %></td>
-                    <td><%= f.check_box :display_in_registration %></td>
+
+                         <tr>
+                    <td class="first"><%= t('org_admin.org_desc') %></td>
+                    <td><%= f.text_area :description, {
+                            :rows => 5,
+                            :class => 'text_area has-tooltip', 'data-toggle' => "tooltip", 'data-html' => "true", 'title'=> t('org_admin.desc_help_text_html')} %></td>
                 </tr>
 
+                <% if @organisation.logo.present? then%>
+                        <tr>
+                                <td class="first"><%= t('org_admin.org_logo') %></td>
+                                <td><%= image_tag @organisation.logo.thumb('100x100%').url %> </td>
+                        </tr>
+			<tr>
+				<td class="first"></td>
+				<td><%= f.check_box :remove_logo %>&nbsp;&nbsp;&nbsp;<%= t('org_admin.remove_logo') %></td>
+			</tr>
+                        <%end%>
+                <tr class="blank_row"><td class="first"></td></tr>
+                <tr>
+                    <td class="first"><%= t('org_admin.new_org_logo') %></td>
+                    <td><%= f.file_field :logo %></td>
+                </tr>
+		<tr class="blank_row"><td class="first"></td></tr>
+               <% if @organisation.banner.present? then%>
+                <tr>
+                    <td class="first"><%= t('org_admin.org_banner_image') %></td>
+                    <td>
+                        <%= image_tag(@organisation.banner.thumb('200x100#').url) %>
+                    </td>
+                </tr>
+		                        <tr>
+                                <td class="first"></td>
+                                <td><%= f.check_box :remove_banner %>&nbsp;&nbsp;&nbsp;<%= t('org_admin.remove_banner_image') %></td>
+                        </tr>
+<% end %>
+<tr class="blank_row"><td class="first"></td></tr>
+
+                <tr>
+                    <td class="first"><%= t('org_admin.new_org_banner_image') %></td>
+                    <td><%= f.file_field :banner %></td>
+                </tr>
+		
             </table>
 			
             <div class="div_clear">

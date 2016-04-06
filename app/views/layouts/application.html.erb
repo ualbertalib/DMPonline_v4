@@ -38,6 +38,14 @@
 		<% else %>
 			<%= stylesheet_link_tag "application" %>
 		<% end %>
+                <% if (user_signed_in?) && (!current_user.organisation.nil?) && (current_user.organisation.banner.present?) %>
+                 <style type="text/css">
+                   .dmponline{
+                        background: url(<%= current_user.organisation.banner.thumb('100x100%').url %>) top center repeat-x;
+                   }
+                 </style>
+                 <% end %>
+
 	        <%= javascript_include_tag "application"%>
 		
 		<%= javascript_include_tag "jquery.tablesorter"%>

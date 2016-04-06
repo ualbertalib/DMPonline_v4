@@ -71,8 +71,10 @@ class OrganisationsController < ApplicationController
         @organisation = Organisation.find(params[:id])
         @organisation.banner_text = params["org_banner_text"]
 	@organisation.logo = params[:organisation][:logo] if params[:organisation][:logo]
+        @organisation.banner_image = params[:organisation][:banner_image] if params[:organisation][:banner_image]
  	assign_params = params[:organisation].dup
 	assign_params.delete(:logo)
+	assign_params.delete(:banner_image)
 	    respond_to do |format|
 	      if @organisation.update_attributes(assign_params)
 	        format.html { redirect_to admin_show_organisation_path(params[:id]), notice: I18n.t("admin.org_updated_message")  }
