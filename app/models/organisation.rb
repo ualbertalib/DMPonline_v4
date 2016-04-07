@@ -25,7 +25,7 @@ class Organisation < ActiveRecord::Base
         validates_property :height, of: :logo, in: (0..100)
         validates_property :format, of: :logo, in: ['jpeg', 'png', 'gif','jpg','bmp']
         validates_size_of :logo, maximum: 500.kilobytes
-        validates_property :height, of: :banner, in: (0..150)
+        validates_property :height, of: :banner, in: (60..180)
         validates_property :format, of: :banner, in: ['jpeg', 'png', 'gif','jpg','bmp']
         validates_size_of :banner, maximum: 2000.kilobytes
         def to_s
