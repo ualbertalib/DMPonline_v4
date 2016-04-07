@@ -70,7 +70,14 @@ footer .right_side_footer a{
 	margin-top: -10px;
 }
 .left_side_footer img{
-	width: 80px;
+	width: 70%;
+	
+}
+.left_footer_container1 img {
+	width: 40%;
+}
+.left_footer_container2 img {
+        width: 40%;
 }
 .right_side_footer{
 }
@@ -197,14 +204,3 @@ background: -moz-linear-gradient(top, #FFFFFF 0%, #F4F4F4 100%);
   padding-top: 10px;
   min-width: 300px;
 }
-
-.center_left_footer img {
-    width: 80px;
-}
-.right_left_footer img {
-    width: 160px;
-}
-.far_right_left_footer img {
-    width: 160px;
-}
-

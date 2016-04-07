@@ -1,18 +1,19 @@
 <!-- footer container -->
 <footer class="footer">
     <div class="left_side_footer">
-    <p><div class="left_left_footer"><span>Powered by</span> <%= link_to( image_tag('dmp-logo.png'), 'https://dmponline.dcc.ac.uk/about_us')%></div>
-       <div class="center_left_footer"><%= link_to( image_tag('carl.jpg'), 'http://carl-abrc.ca/') %></div>
-       <div class="right_left_footer"><%= link_to( image_tag('ua-lib-logo.png'), 'https://www.library.ualberta.ca') %></div>
-       <div class="far_right_left_footer"><%= link_to( image_tag('udem.jpg'), 'http://www.bib.umontreal.ca') %></div>
+    <p><div class="left_footer_container1"><span>Powered by</span> <%= link_to( image_tag('dmp-logo.png'), 'https://dmponline.dcc.ac.uk/about_us')%></div>
+       <div class="left_footer_container2"><%= link_to( image_tag('carl.jpg'), 'http://carl-abrc.ca/') %></div>
+       <div class="left_footer_container3"><%= link_to( image_tag('ua-lib-logo.png'), 'https://www.library.ualberta.ca') %></div>
+       <div class="left_footer_container4"><%= link_to( image_tag('udem.jpg'), 'http://www.bib.umontreal.ca') %></div>
+       <% if (user_signed_in?) && (!current_user.organisation.nil?) && (current_user.organisation.logo.present?) then %>
+       <div class="left_footer_container5"><%= link_to( image_tag('Portage-Logo.png'), "https://portagenetwork.ca")%></div>
+      <% end %>
 
    			</p>
        	
     </div>	
    	<div class="right_side_footer">
-        <p><span class="footer_logo">Supported by</span> <%= link_to( image_tag('ua-lib-logo.png'), 'https://www.library.ualberta.ca')%>
-<!--
-   		<p><a href="https://library.ualberta.ca">University of Alberta Libraries</a> | <a href="http://www.ualberta.ca">University of Alberta</a>, Edmonton, AB, Canada --> <br/> <a href="http://www.library.ualberta.ca/privacy/">Web Site Privacy Policy</a> | <%= link_to t('helpers.terms'), terms_path %>
+   		<br/> <br/> <a href="https://library.ualberta.ca/about-us/policies/privacy-policy">Web Site Privacy Policy</a> | <%= link_to t('helpers.terms'), terms_path %>
  </p>
    	</div>	
     
