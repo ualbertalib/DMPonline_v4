@@ -22,7 +22,7 @@
 		<![endif]-->
 		<%= stylesheet_link_tag "application" %>
 		 <% if (user_signed_in?) && (!current_user.organisation.nil?) && (current_user.organisation.stylesheet.present?) then %>
-		        <link href="<%= @current_user.organisation.stylesheet.file.url %>" rel="stylesheet" type="text/css" />		
+		        <link href="<%= current_user.organisation.stylesheet.file.url %>" rel="stylesheet" type="text/css" />		
 		<% end %>
                 <% if (user_signed_in?) && (!current_user.organisation.nil?) && (current_user.organisation.banner.present?) %>
                  <style type="text/css">
