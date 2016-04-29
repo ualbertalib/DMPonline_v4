@@ -175,6 +175,7 @@ en:
       add_guidance_group: "Add guidance group"
       guidance_group_list: "Guidance group list"
       name_label: "Name"
+      published: "Published"
       subset: "Optional subset"
       subset_eg: "e.g. School/ Department"
       all_temp: "All templates"

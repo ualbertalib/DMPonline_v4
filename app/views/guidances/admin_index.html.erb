@@ -21,7 +21,8 @@
 	    <tr>
 	      	<th class="dmp_th_medium"><%= t('org_admin.guidance_group.name_label') %></th>
 			<th class="dmp_th_medium"><%= t('org_admin.guidance.template') %></th>
-			<th class="dmp_th_small"><%= t('org_admin.guidance_group.subset') %></th>
+ 		<th class="dmp_th_small"><%= t('org_admin.templates.published_label') %></th>
+<!--			<th class="dmp_th_small"><%= t('org_admin.guidance_group.subset') %></th> -->
 	      	<th class="dmp_th_small"><%= t('org_admin.guidance.last_updated') %></th>
 	      	<td class="dmp_th_medium"><%= t('org_admin.guidance.actions') %></td>
 	    </tr>
@@ -52,13 +53,21 @@
 				    </td>
 				<%end%>	 
 				<td class="dmp_td_small">
+					<%if guidance_gr.published.nil? || guidance_gr.published == false then%>
+                                                <%= t('helpers.no_text')%>
+                                        <%else%>
+                                                <%= t('helpers.yes_text')%>
+                                        <%end%>	
+				</td>
+	<!--
+				<td class="dmp_td_small">
 					<%if guidance_gr.optional_subset.nil? || guidance_gr.optional_subset == false then%>
 						<%= t('helpers.no_text')%>
 					<%else%>
 						<%= t('helpers.yes_text')%>	
 					<%end%>
 				</td>
-			    	
+	-->		    	
 		        <td class="dmp_td_small">
 		        	<%= l guidance_gr.updated_at.to_date, :formats => :short %>
 		        </td>
