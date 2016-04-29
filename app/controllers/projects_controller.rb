@@ -243,8 +243,8 @@ class ProjectsController < ApplicationController
 		#excluded_orgs = orgs_of_type(I18n.t 'helpers.org_type.funder', :locale => :en) 
 		guidance_groups = {}
 		#ggs = GuidanceGroup.guidance_groups_excluding(excluded_orgs) 
-	  	ggs = GuidanceGroup.find_by_organisation(institution.id) 
-		ggs.each do |gg|
+	  	#ggs = GuidanceGroup.find_by_organisation(institution.id) 
+                institution.published_guidance_groups.each do |gg|
 			guidance_groups[gg.id] = gg.name
 		end
         

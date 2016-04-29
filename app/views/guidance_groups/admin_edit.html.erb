@@ -50,6 +50,14 @@
 						</td>
 					</tr>
 					<tr>
+                                                <td class="first"><%= t('org_admin.guidance_group.published') %></td>
+                                                <td><div class="div_left_icon_g">
+                                                                <%= f.check_box :published %> 
+                                                        </div>
+                                                </td>
+                                        </tr>
+<!--
+					<tr>
 						<td class="first"><%= t('org_admin.guidance_group.subset') %></td>
 						<td><div class="div_left_icon_g">
 								<%= f.check_box :optional_subset %> <%= t('org_admin.guidance_group.subset_eg') %>
@@ -59,7 +67,7 @@
 							</div>
 						</td>
 					</tr>
-										
+-->										
 				</table>
 			
 			<!-- submit buttons -->
