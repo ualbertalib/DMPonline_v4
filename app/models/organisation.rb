@@ -104,6 +104,9 @@ class Organisation < ActiveRecord::Base
 	def published_templates
 		return dmptemplates.find_all_by_published(1)
 	end
+        def published_guidance_groups
+                return guidance_groups.find_all_by_published(1)
+        end
 	private
 	def sanitize_filename(filename)
 	  just_filename = File.basename(filename)

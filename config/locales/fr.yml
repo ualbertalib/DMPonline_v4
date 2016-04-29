@@ -165,6 +165,7 @@ fr:
       add_guidance_group: "Ajouter un groupe de directives"
       guidance_group_list: "Liste des groupes de directives"
       name_label: "Nom"
+      published: "Publié(e)"
       subset: "Sous-ensemble facultatif"
       subset_eg: "p. ex. école/département"
       all_temp: "Tous les modèles"
