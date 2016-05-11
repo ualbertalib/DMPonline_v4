@@ -1,23 +1,22 @@
 DMPonline4::Application.routes.draw do
-
+ get '/help', to: redirect("/#{I18n.default_locale}/help")
+ get '/terms', to: redirect("/#{I18n.default_locale}/terms")
+ get '/about_us', to: redirect("/#{I18n.default_locale}/about_us")
  devise_for :users, skip: [:session, :password, :registration, :confirmation], :controllers => { :omniauth_callbacks => 'users/omniauth_callbacks'} do
    	get "/users/sign_out", :to => "devise/sessions#destroy"
-   end  
+ end  
   # WAYFless access point - use query param idp
-  get 'auth/shibboleth' => 'users/omniauth_shibboleth_request#redirect', :as => 'user_omniauth_shibboleth'
-  get 'auth/shibboleth/assoc' => 'users/omniauth_shibboleth_request#associate', :as => 'user_shibboleth_assoc'
+ get 'auth/shibboleth' => 'users/omniauth_shibboleth_request#redirect', :as => 'user_omniauth_shibboleth'
+ get 'auth/shibboleth/assoc' => 'users/omniauth_shibboleth_request#associate', :as => 'user_shibboleth_assoc'
   
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
-
-  ActiveAdmin.routes(self)
-  
-  #organisation admin area
-  get "org/admin/users" => 'organisation_users#admin_index', :as => "org/admin/users"
+ ActiveAdmin.routes(self)
+ #organisation admin area
+ get "org/admin/users" => 'organisation_users#admin_index', :as => "org/admin/users"
 
   root :to => 'home#index'
   match '/:locale' => 'home#index', :as => 'locale_root'
- 
+
+
   scope '(:locale)', :locale => /en|fr/ do 
     resources :contacts, :controllers => {:contacts => 'contacts'}
     devise_for :users, skip: :omniauth_callbacks, controllers: { passwords: 'passwords', registrations: 'registrations', sessions: 'sessions', confirmations: 'confirmations' } do
@@ -147,9 +146,8 @@ DMPonline4::Application.routes.draw do
 		get 'possible_templates'
 		get 'possible_guidance'
 	end
-  end
   
-    
+  end    
   resources :project_partners
   resources :project_groups
 
@@ -172,57 +170,4 @@ DMPonline4::Application.routes.draw do
     resources :plans
   end
 end  
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
-
-  # Sample of regular route:
-  #   match 'products/:id' => 'catalog#view'
-  # Keep in mind you can assign values other than :controller and :action
-
-  # Sample of named route:
-  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
-  # This route can be invoked with purchase_url(:id => product.id)
-
-  # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
-  # Sample resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
-
-  # Sample resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Sample resource route with more complex sub-resources
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', :on => :collection
-  #     end
-  #   end
-
-  # Sample resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
-
-
-  # See how all your routes lay out with "rake routes"
-
-  # This is a legacy wild controller route that's not recommended for RESTful applications.
-  # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id))(.:format)'
 end
