@@ -1,7 +1,7 @@
 /* Top level is idpSelectIdPSelector */
 #idpSelectIdPSelector
 {
-    width: 389px;
+    width: 80%;
     text-align: left;
     background-color: #FFFFFF;
     border: 2px #A40000 solid;
@@ -31,7 +31,7 @@
 div.IdPSelectPreferredIdPButton
 {
     margin: 3px;
-    width: 120px;  /* Make absolute because 3 of these must fit inside 
+    width: 30%;  /* Make absolute because 3 of these must fit inside 
                       div.IdPSelect{width} with not much each side. */
     float: left;
 }
@@ -50,6 +50,7 @@ div.IdPSelectPreferredIdPButton a
 div.IdPSelectTextDiv{
     height: 3.5ex; /* Add some height to separate the text from the boxes */
     font-size: 15px;
+    font-weight: bold;
     clear: left;
 }
 
@@ -109,7 +110,7 @@ div.IdPSelectPreferredIdPButton div.IdPSelectTextDiv
 #idpSelectSelectButton, #idpSelectListButton
 {
     margin-left: 5px;
-    width: 16%;
+    width: 20%;
 }
 #idpSelectSelectButton
 {

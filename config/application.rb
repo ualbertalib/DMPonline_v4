@@ -77,7 +77,7 @@ module DMPonline4
     config.shibboleth_enabled = true
     
     # Absolute path to Shibboleth SSO Login
-    config.shibboleth_login = 'https://localhost/Shibboleth.sso/Login'
+    config.shibboleth_login = 'https://dmpdev.library.ualberta.ca/Shibboleth.sso/Login'
     
     WickedPdf.config = {
 	  :exe_path => '/usr/local/bin/wkhtmltopdf'
