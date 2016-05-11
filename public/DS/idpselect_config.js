@@ -8,13 +8,14 @@ function IdPSelectUIParms(){
     this.dataSource = '/Shibboleth.sso/DiscoFeed';   // Where to get the data from
     this.defaultLanguage = 'en';     // Language to use if the browser local doesnt have a bundle
     this.defaultLogo = 'blank.gif';  // Replace with your own logo
-    this.defaultLogoWidth = 1;
-    this.defaultLogoHeight = 1 ;
+    this.defaultLogoWidth = null;
+    this.defaultLogoHeight = null ;
     this.defaultReturn = null;       // If non null, then the default place to send users who are not
                                      // Approaching via the Discovery Protocol for example
+    this.doNotCollapse = false;       //if none of the preferred IdPs have an associated logo, then the height of the EDS is collapsed appropriately
     //this.defaultReturn = "https://example.org/Shibboleth.sso/DS?SAMLDS=1&target=https://example.org/secure";
     this.defaultReturnIDParam = null;
-    this.helpURL = 'https://wiki.shibboleth.net/confluence/display/SHIB2/DSRoadmap';
+    this.helpURL = 'https://assistant.portagenetwork.ca/help';
     this.ie6Hack = null;             // An array of structures to disable when drawing the pull down (needed to 
                                      // handle the ie6 z axis problem
     this.insertAtDiv = 'idpSelect';  // The div where we will insert the data
@@ -24,7 +25,7 @@ function IdPSelectUIParms(){
     this.preferredIdP = null;        // Array of entityIds to always show
     this.hiddenIdPs = null;          // Array of entityIds to delete
     this.ignoreKeywords = false;     // Do we ignore the <mdui:Keywords/> when looking for candidates
-    this.showListFirst = false;      // Do we start with a list of IdPs or just the dropdown
+    this.showListFirst = true;      // Do we start with a list of IdPs or just the dropdown
     this.samlIdPCookieTTL = 730;     // in days
     this.setFocusTextBox = true;     // Set to false to supress focus 
     this.testGUI = false;
@@ -49,16 +50,16 @@ function IdPSelectUIParms(){
     //    'fatal.noReturnURL' : "No URL return parameter provided",
     //    'fatal.badProtocol' : "Return request must start with https:// or http://",
     //    'idpPreferred.label': 'Use a suggested selection:',
-    //    'idpEntry.label': 'Or enter your organization\'s name',
-    //    'idpEntry.NoPreferred.label': 'Enter your organization\'s name',
-    //    'idpList.label': 'Or select your organization from the list below',
-    //    'idpList.NoPreferred.label': 'Select your organization from the list below',
-    //    'idpList.defaultOptionLabel': 'Please select your organization...',
-    //    'idpList.showList' : 'Allow me to pick from a list',
-    //    'idpList.showSearch' : 'Allow me to specify the site',
+    //    'idpEntry.label': 'Or enter your institution\'s name',
+    //    'idpEntry.NoPreferred.label': 'Enter your institution\'s name',
+    //    'idpList.label': 'Or select your institution from the list below',
+    //    'idpList.NoPreferred.label': 'Select your institution from the list below',
+    //    'idpList.defaultOptionLabel': 'Please select your institution...',
+    //    'idpList.showList' : 'Allow me to select my institution from a list',
+    //    'idpList.showSearch' : 'Allow me to specify the institution name',
     //    'submitButton.label': 'Continue',
     //    'helpText': 'Help',
-    //    'defaultLogoAlt' : 'DefaultLogo'
+    //    'defaultLogoAlt' : ''
     //}
     //};
 
@@ -72,7 +73,7 @@ function IdPSelectUIParms(){
 
     this.minWidth = 20;
     this.minHeight = 20;
-    this.maxWidth = 115;
-    this.maxHeight = 69;
+    this.maxWidth = 200;
+    this.maxHeight = 100;
     this.bestRatio = Math.log(80 / 60);
 }
