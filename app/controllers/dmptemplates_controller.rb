@@ -37,31 +37,7 @@ class DmptemplatesController < ApplicationController
 		end
   end
 
-
-
-  # PUT /dmptemplates/1
-  # PUT /dmptemplates/1.json
-  def admin_update
- 	if user_signed_in? && current_user.is_org_admin? then
-   		@dmptemplate = Dmptemplate.find(params[:id])
-   		@dmptemplate.description = params["template-desc"]
-
- 		  respond_to do |format|
-	      if @dmptemplate.update_attributes(params[:dmptemplate])
-	        format.html { redirect_to admin_template_dmptemplate_path(params[:dmptemplate]), notice: I18n.t('org_admin.templates.updated_message') }
-	        format.json { head :no_content }
-	      else
-	        format.html { render action: "edit" }
-	        format.json { render json: @dmptemplate.errors, status: :unprocessable_entity }
-	      end
-	  	end
-  	else
-			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
-	end
-  end
-
-
-    # GET /dmptemplates/new
+  # GET /dmptemplates/new
   # GET /dmptemplates/new.json
   def admin_new
     if user_signed_in? && current_user.is_org_admin? then
@@ -98,6 +74,26 @@ class DmptemplatesController < ApplicationController
 		end
   end
 
+  # PUT /dmptemplates/1
+  # PUT /dmptemplates/1.json
+  def admin_update
+        if user_signed_in? && current_user.is_org_admin? then
+                @dmptemplate = Dmptemplate.find(params[:id])
+                @dmptemplate.description = params["template-desc"]
+
+                  respond_to do |format|
+              if @dmptemplate.update_attributes(params[:dmptemplate])
+                format.html { redirect_to admin_template_dmptemplate_path(params[:dmptemplate]), notice: I18n.t('org_admin.templates.updated_message') }
+                format.json { head :no_content }
+              else
+                format.html { render action: "edit" }
+                format.json { render json: @dmptemplate.errors, status: :unprocessable_entity }
+              end
+                end
+        else
+                        render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
+        end
+  end
 
 
   # DELETE /dmptemplates/1
@@ -108,13 +104,13 @@ class DmptemplatesController < ApplicationController
 	    @dmptemplate.destroy
 
 	    respond_to do |format|
-	      format.html { redirect_to admin_index_dmptemplate_path }
+	      format.html { redirect_to admin_index_dmptemplate_path, notice: I18n.t('org_admin.template.template_destroyed_message') }
 	      format.json { head :no_content }
 	    end
 	 	else
 			render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
 		end
-	end
+  end
 
 
 
