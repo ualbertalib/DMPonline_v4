@@ -48,13 +48,10 @@
 		        	<%= l org_template.updated_at.to_date, :formats => :short %>
 		        </td>
 		        <td class="dmp_td_small">
-		        	<%if current_user.is_org_admin? then%>
-						<% b_label = t('helpers.submit.edit')%>
-					<%else%>
-						<% b_label = t('helpers.view')%>
-					<%end%> 
-					<%= link_to b_label, admin_template_dmptemplate_path(org_template), :class => "dmp_table_link"%>
-		       	</td>
+                                        <%= link_to t("helpers.submit.edit"), admin_template_dmptemplate_path(org_template), :class => "dmp_table_link"%>
+                                        <%= link_to t("helpers.submit.delete"), admin_destroy_dmptemplate_path(org_template), :confirm => t("org_admin.templates.template_delete_message", :template_title => org_template.title ), :method => :delete, :class => "dmp_table_link"%>
+
+ 			</td>
 		     </tr>
 	    	<%end%>	
 		  </tbody>

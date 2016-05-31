@@ -102,6 +102,7 @@ en:
   org_admin:
     admin_area: "Admin area"
     template_label: "Templates"
+    template_view: "Template"
     user_list_label: "Users"
     org_details_label:  "Organisation details"
     org_text: "These are the basic details for your organisation."
@@ -202,6 +203,8 @@ en:
               <p>Your template will be presented to users within your institution when no funder templates apply. If you want to add questions to funder templates use the 'customise template' options below.</p>"
       create_new_template_text_html: "<p>To create a new template, first enter a title and description. Once you have saved this you will be presented with options to add one or more phases. </p>"
       desc_help_text_html: "Enter a description that helps you to differentiate between templates e.g. if you have ones for different audiences"
+      template_delete_message: "You are about to delete '%{template_title}'. Are you sure?"
+      template_destroyed_message: "Template was successfully deleted."
       own_temp: "Own templates"
       add_phase_label: "Add new phase +"
       view_phase_label: "View phase"
