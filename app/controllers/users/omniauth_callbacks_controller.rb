@@ -1,53 +1,30 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def shibboleth
-    if user_signed_in? && current_user.shibboleth_id.present? && current_user.shibboleth_id.length > 0 then
+    if user_signed_in? && current_user.shibboleth_id.present? && current_user.shibboleth_id.length > 0
       flash[:warning] = I18n.t('devise.failure.already_authenticated')
-      redirect_to root_path
+      redirect_to edit_user_registration_path
     else
-      auth = request.env['omniauth.auth'] || {}
-      eppn = auth['extra']['raw_info']['eppn']
+      auth = request.env['omniauth.auth']
+      eppn = auth.info.eppn
       uid = nil
       if !eppn.blank? then
         uid = eppn
-      elsif !auth['uid'].blank? then
-        uid = auth['uid']
-      elsif !auth['extra']['raw_info']['targeted-id'].blank? then
-        uid = auth['extra']['raw_info']['targeted-id']
+      elsif auth.uid.blank? then
+        uid = auth.uid
       end
 
-      if !uid.nil? && !uid.blank? then
-				s_user = User.where(shibboleth_id: uid).first
-				# Take out previous record if was not confirmed.
-				if !s_user.nil? && s_user.confirmed_at.nil? then
-					sign_out s_user
-					User.delete(s_user.id)
-					s_user = nil
-				end
-
-				# Stops Shibboleth ID being blocked if email incorrectly entered.
-				if !s_user.nil? && s_user.try(:persisted?) then
-					flash[:notice] = I18n.t('devise.omniauth_callbacks.success', :kind => 'Shibboleth')
-					sign_in s_user
-                    redirect_to root_path
-				else
-					if user_signed_in? then
-						current_user.update_attribute('shibboleth_id', uid)
-						user_id = current_user.id
-						sign_out current_user
-						session.delete(:shibboleth_data)
-						s_user = User.find(user_id)
-						sign_in s_user
-                        redirect_to edit_user_registration_path
-					else
-						session[:shibboleth_data] = request.env['omniauth.auth']
-						session[:shibboleth_data][:uid] = uid
-						redirect_to new_user_registration_url(:nosplash => 'true')
-					end
-				end
+      unless current_user.present?
+        s_user = User.from_omniauth(auth).first
+        s_user.associate_auth(auth) if s_user && (s_user.shibboleth_id.nil? || s_user.shibboleth_id.blank?)
+        s_user ||= User.create_from_omniauth(auth)
       else
-        redirect_to root_path
+        s_user = current_user
+        s_user.associate_auth(auth)
       end
+      flash[:notice] = I18n.t('devise.omniauth_callbacks.success', :kind => 'Shibboleth')
+      sign_in s_user, :event => :authentication
+      redirect_to edit_user_registration_path
     end
   end
 end

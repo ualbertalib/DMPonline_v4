@@ -301,7 +301,7 @@ en:
     sign_in_text: "If you have an existing account with DMP Assistant or previous version of DMP Builder."
     sign_out: "Sign out"
     sign_up: "Sign up"
-    sign_up_text: "New to DMP Assistant? Sign up today."
+    sign_up_text: "New to DMP Assistant? Sign up today <a href='auth/shibboleth'>with your institutional credentials</a>, or with the email registration form."
     signed_in: "Signed in as "
     institution_sign_in_link: "Or, sign in with your institutional credentials"
     institution_sign_in: "Campus ID single sign-in authentication coming soon!"

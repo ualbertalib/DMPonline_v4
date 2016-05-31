@@ -43,12 +43,35 @@ class User < ActiveRecord::Base
     attr_accessible :password_confirmation, :encrypted_password, :remember_me, :id, :email, :firstname, :last_login,
      :login_count, :orcid_id, :password, :shibboleth_id, :user_status_id,
      :surname, :user_type_id, :organisation_id, :skip_invitation, :other_organisation,
-     :accept_terms, :role_ids, :dmponline3
+     :accept_terms, :role_ids, :dmponline3, :provider
 
     # FIXME: The duplication in the block is to set defaults. It might be better if
     #        they could be set in Settings::PlanList itself, if possible.
     has_settings :plan_list, class_name: 'Settings::PlanList' do |s|
       s.key :plan_list, defaults: { columns: Settings::PlanList::DEFAULT_COLUMNS }
+    end
+
+    def self.from_omniauth(auth)
+      users = User.where('(email = ? OR email = ? OR shibboleth_id = ? OR shibboleth_id = ? OR shibboleth_id =? )',auth.info.email, auth.info.eppn, auth.uid, auth.info.eppn, auth.info.email)
+      return users
+    end
+
+
+    def self.create_from_omniauth(auth)
+      raise(ArgumentError, 'UID is blank in Shibboleth authorization') unless auth.uid.present? || auth.info.eppn.present?
+      email = auth.info.email || auth.info.eppn 
+      uid = auth.uid || auth.info.eppn
+      create(
+        email: email,
+        password:Devise.friendly_token[0,20],
+        ccid: uid,
+        confirmed_at: Time.now.utc
+      )
+    end
+
+    def associate_auth(auth)
+      self.shibboleth_id = auth.uid || auth.info.eppn
+      save!
     end
 
 	def name(use_email = true)
