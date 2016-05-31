@@ -8,12 +8,9 @@ Rails.application.config.middleware.use OmniAuth::Builder do
     # Shibboleth authentication is enabled in config/application.rb
     :uid_field => :"persistent-id",
     :fields => [],
-    :extra_fields => [
+    :info_fields => [
       :eppn,
       :affiliation,
-      :entitlement,
-      :"unscoped-affiliation",
-      :"targeted-id",
       :mail
     ],
   }
