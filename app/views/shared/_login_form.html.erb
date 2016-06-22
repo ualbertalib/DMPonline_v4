@@ -24,7 +24,8 @@
         <% if request.fullpath != "/users/sign_up?nosplash=true" && session[:shibboleth_data].nil? then%>
             <li>
                 <div class="institution_login_link">
-                    <%= link_to t('helpers.institution_sign_in_link'), user_omniauth_shibboleth_path, :class => "a-orange" %> 
+                    <!--<%= link_to t('helpers.institution_sign_in_link'), user_omniauth_shibboleth_path, :class => "a-orange" %> -->
+                    <%= t('helpers.institution_sign_in') %>
                 </div>
             </li>
         <%else%>
