@@ -1,0 +1,62 @@
+/usr/bin/ruby extconf.rb 
+checking for ffi_call() in -lffi... yes
+checking for ffi_prep_closure()... yes
+checking for ffi_raw_call()... yes
+checking for ffi_prep_raw_closure()... yes
+checking for rb_thread_blocking_region()... yes
+checking for rb_thread_call_with_gvl()... yes
+checking for rb_thread_call_without_gvl()... yes
+checking for ffi_prep_cif_var()... no
+creating extconf.h
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling ffi.c
+compiling LongDouble.c
+compiling Variadic.c
+compiling LastError.c
+compiling StructLayout.c
+compiling ClosurePool.c
+compiling Thread.c
+compiling DynamicLibrary.c
+compiling Platform.c
+compiling Types.c
+compiling MemoryPointer.c
+compiling StructByReference.c
+compiling Call.c
+Call.c: In function ‘rbffi_do_blocking_call’:
+Call.c:355: warning: implicit declaration of function ‘rb_thread_call_without_gvl’
+compiling FunctionInfo.c
+compiling DataConverter.c
+compiling StructByValue.c
+compiling Struct.c
+compiling MethodHandle.c
+compiling Pointer.c
+compiling Buffer.c
+compiling Function.c
+Function.c: In function ‘async_cb_event’:
+Function.c:563: warning: implicit declaration of function ‘rb_thread_call_without_gvl’
+compiling Type.c
+compiling AbstractMemory.c
+AbstractMemory.c:255: warning: ‘memory_put_longdouble’ defined but not used
+AbstractMemory.c:255: warning: ‘memory_write_longdouble’ defined but not used
+AbstractMemory.c:255: warning: ‘memory_get_longdouble’ defined but not used
+AbstractMemory.c:255: warning: ‘memory_read_longdouble’ defined but not used
+AbstractMemory.c:255: warning: ‘memory_write_array_of_longdouble’ defined but not used
+AbstractMemory.c:255: warning: ‘memory_read_array_of_longdouble’ defined but not used
+AbstractMemory.c:291: warning: ‘memory_put_bool’ defined but not used
+AbstractMemory.c:291: warning: ‘memory_write_bool’ defined but not used
+AbstractMemory.c:291: warning: ‘memory_get_bool’ defined but not used
+AbstractMemory.c:291: warning: ‘memory_read_bool’ defined but not used
+AbstractMemory.c:291: warning: ‘memory_write_array_of_bool’ defined but not used
+AbstractMemory.c:291: warning: ‘memory_read_array_of_bool’ defined but not used
+AbstractMemory.c:407: warning: ‘memory_read_array_of_string’ defined but not used
+compiling MappedType.c
+compiling ArrayType.c
+linking shared-object ffi_c.so
+
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 ffi_c.so ./.gem.20160812-7255-t2p5zw
+installing default ffi_c libraries
