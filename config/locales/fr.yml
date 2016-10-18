@@ -511,13 +511,13 @@ Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter �
       project_text_when_no_project: "<p><strong>Bienvenue</strong></br> Vous êtes maintenant prêt à créer votre premier plan de gestion des données.</br>Cliquez sur le bouton « Créer un plan » ci-dessous pour commencer.</p>"
       project_text_when_project: "<p>Le tableau ci-dessous contient une liste des plans que vous avez créés et de ceux que d'autres personnes partagent avec vous.</br>Ces plans peuvent être modifiés, partagés, exportés ou supprimés en tout temps.</p>"
       confirmation_text: "Confirmer les renseignements sur le plan"   
-      confirmation_text_desc: "Vous utilisez le modèle générique de plan de gestion des données Portage. Si vous avez des suggestions pour améliorer ce modèle, ou si vous souhaiteriez ajouter de nouveaux modèles basés sur les exigences d'un organisme subventionnaire ou sur les besoins d'une discipline, communiquez avec nous à l'adresse suivante : <a href='mailto:portage@carl-abrc.ca?Subject=requete%20Assistant%20PGD'>portage@carl-abrc.ca</a>."
+      confirmation_text_desc: "Vous utilisez le modèle générique de plan de gestion des données Portage. Si vous avez des suggestions pour améliorer ce modèle, ou si vous souhaiteriez ajouter de nouveaux modèles basés sur les exigences d'un organisme subventionnaire ou sur les besoins d'une discipline, communiquez avec nous à l'adresse suivante : <a href='mailto:support@portagenetwork.ca?Subject=requete%20Assistant%20PGD'>support@portagenetwork.ca</a>."
       confirmation_button_text: "Oui, créer un plan"  
       project_details_text_html: "Cette page vous donne un aperçu de votre plan. Elle indique les éléments sur lesquels votre plan s'appuie et donne un aperçu des questions qui vous seront posées."
       project_details_editing_text_html: "<b>Répondre aux questions de base ci-dessous sur votre projet et cliquer sur 'Enregistrer' pour sauvegarder.</b>"
       confirm_delete_text: "Êtes-vous sûr de vouloir supprimer ce plan? En supprimant le plan de votre liste, il sera également supprimé de la liste de plans des personnes avec lesquelles le plan est partagé, le cas échéant."
       confirmation_text: "Confirmer les renseignements sur le plan"
-      confirmation_text_desc: "Vous utilisez le modèle générique de plan de gestion des données Portage. Si vous avez des suggestions pour améliorer ce modèle, ou si vous souhaiteriez ajouter de nouveaux modèles basés sur les exigences d'un organisme subventionnaire ou sur les besoins d'une discipline, communiquez avec nous à l'adresse suivante : <a href='mailto:portage@carl-abrc.ca?Subject=requete%20Assistant%20PGD'>portage@carl-abrc.ca</a>."
+      confirmation_text_desc: "Vous utilisez le modèle générique de plan de gestion des données Portage. Si vous avez des suggestions pour améliorer ce modèle, ou si vous souhaiteriez ajouter de nouveaux modèles basés sur les exigences d'un organisme subventionnaire ou sur les besoins d'une discipline, communiquez avec nous à l'adresse suivante : <a href='mailto:support@portagenetwork.ca?Subject=requete%20Assistant%20PGD'>support@portagenetwork.ca</a>."
       
       confirmation_button_text: "Oui, créer un plan"
       default_confirmation_text_desc: "Vous avez sélectionné le plan de gestion des données par défaut, qui est établi en fonction de la liste de vérification du Digital Curation Center (UK). Vous avez ainsi accès à une série générale de questions et de directives sur le plan de gestion des données. Pour de plus amples renseignements, consultez la : <a href='http://www.dcc.ac.uk/sites/default/files/documents/resource/DMP_Checklist_2013.pdf' target='_blank'>DMP checklist 2013 (Liste de vérification 2013 pour un plan de gestion des données)</a>."
@@ -660,7 +660,7 @@ L'Assistant PGD est un outil d'aide à la préparation d'un plan de gestion des 
     <div class='white_background'>
     <p> L'Assistant PGD comprend un modèle générique de plan de gestion des données, Portage, que les chercheurs peuvent utiliser. Des directives sont fournies afin de les aider à interpréter les questions et à y répondre.</p>
 
-    <p>Nous souhaitons obtenir vos commentaires! Si vous avez des suggestions sur la façon d'améliorer le modèle existant, ou si vous aimeriez ajouter d'autres modèles basés sur les exigences d'organismes de financement ou sur les besoins des disciplines, <a href='help#contact_info'>communiquez avec votre établissement universitaire</a> ou communiquez avec nous à <a href='mailto:portage@carl-abrc.ca?Subject=Commentaires%20Assistant%20PGD'>portage@carl-abrc.ca</a>.
+    <p>Nous souhaitons obtenir vos commentaires! Si vous avez des suggestions sur la façon d'améliorer le modèle existant, ou si vous aimeriez ajouter d'autres modèles basés sur les exigences d'organismes de financement ou sur les besoins des disciplines, <a href='help#contact_info'>communiquez avec votre établissement universitaire</a> ou communiquez avec nous à <a href='mailto:support@portagenetwork.ca?Subject=Commentaires%20Assistant%20PGD'>support@portagenetwork.ca</a>.
 
     </p>
     </div>
@@ -675,7 +675,7 @@ L'Assistant PGD est un outil d'aide à la préparation d'un plan de gestion des 
     </div>
     <h3>Commentaires</h3>
     <div class='white_background'>
-    <p>Si vous avez des questions ou des commentaires au sujet de l'Assistant PGD, <a href='help#contact_info'>communiquez avec votre établissement universitaire</a> ou communiquez avec nous par courriel à <a href='mailto:portage@carl-abrc.ca?Subject=Commentaires%20Assistant%20PGD'>portage@carl-abrc.ca</a>.</p>
+    <p>Si vous avez des questions ou des commentaires au sujet de l'Assistant PGD, <a href='help#contact_info'>communiquez avec votre établissement universitaire</a> ou communiquez avec nous par courriel à <a href='mailto:support@portagenetwork.ca?Subject=Commentaires%20Assistant%20PGD'>support@portagenetwork.ca</a>.</p>
     </div>"
 
 
@@ -683,7 +683,7 @@ L'Assistant PGD est un outil d'aide à la préparation d'un plan de gestion des 
 
 <p>Les organismes peuvent rendre disponible leur propre modèle de plan dans l'Assistant PGD. Le modèle Portage est le modèle par défaut. On peut sélectionner le modèle d'un autre organisme à l'aide du menu déroulant. </p>
 
-<p> Les organismes subventionnaires, universités et autres organismes qui souhaiteraient faire intégrer leur modèle de plan peuvent communiquer leur demande à l'adresse suivante : <a href='mailto:portage@carl-abrc.ca?Subject=commentaires%20Assistant%20PGD'>portage@carl-abrc.ca</a>.</p>"
+<p> Les organismes subventionnaires, universités et autres organismes qui souhaiteraient faire intégrer leur modèle de plan peuvent communiquer leur demande à l'adresse suivante : <a href='mailto:support@portagenetwork.ca?Subject=commentaires%20Assistant%20PGD'>support@portagenetwork.ca</a>.</p>"
 
     
 
@@ -692,8 +692,8 @@ L'Assistant PGD est un outil d'aide à la préparation d'un plan de gestion des 
     tab_1: "Concernant l'Assistant PGD"
     tab_2: "Concernant la planification de la gestion des données"
     tab_3: "Personne-ressource dans votre institution"
-    #body_text_tab_2_html: "<p>Le service des bibliothèques de l'Université de l'Alberta a mis au point un <a href='http://guides.library.ualberta.ca/researchdata'>research data management guide (guide sur la gestion des données de recherche)</a> qui peut fournir d'autres directives sur la planification de la gestion des données. Si vous avez besoin de plus de directives, communiquez avec nous par courriel à <a href='mailto:portage@carl-abrc.ca?Subject=Aide%20Assistant%20PGD'>portage@carl-abrc.ca</a>.</p>"
-    body_text_tab_2_html: "Si vous avez besoin de plus de directives, communiquez avec nous par courriel à <a href='mailto:portage@carl-abrc.ca?Subject=Aide%20Assistant%20PGD'>portage@carl-abrc.ca</a>.</p>"
+    #body_text_tab_2_html: "<p>Le service des bibliothèques de l'Université de l'Alberta a mis au point un <a href='http://guides.library.ualberta.ca/researchdata'>research data management guide (guide sur la gestion des données de recherche)</a> qui peut fournir d'autres directives sur la planification de la gestion des données. Si vous avez besoin de plus de directives, communiquez avec nous par courriel à <a href='mailto:support@portagenetwork.ca?Subject=Aide%20Assistant%20PGD'>support@portagenetwork.ca</a>.</p>"
+    body_text_tab_2_html: "Si vous avez besoin de plus de directives, communiquez avec nous par courriel à <a href='mailto:support@portagenetwork.ca?Subject=Aide%20Assistant%20PGD'>support@portagenetwork.ca</a>.</p>"
 
 
     body_text_tab_1_html: "<p>Lorsque vous vous connectez à l'Assistant PGD, vous serez dirigé vers la page « Mes plans ». À partir de cette page, vous pouvez modifier, partager, exporter ou supprimer l'un ou l'autre de vos plans. Vous verrez également les plans qui ont été partagés avec vous par d'autres personnes.</p>
@@ -717,7 +717,7 @@ L'Assistant PGD est un outil d'aide à la préparation d'un plan de gestion des 
 
 
     body_text_tab_3_html: "<p>Votre bibliothèque universitaire offre peut-être déjà du soutien dans le développement de plans de gestion de données. Communiquez avec le bibliothécaire responsable de votre discipline au sein de votre établissement pour en en savoir davantage. Vous trouverez ci-dessous les coordonnées dans le cas des bibliothèques universitaires qui ont une personne-ressource désignée ou un service spécialisé dans la gestion des données de recherche.</p>
-  <p>Si votre établissement n'est pas listé, vous pourriez aussi communiquer avec le Réseau Portage à l'adresse suivante : <a href='mailto:portage@carl-abrc.ca?Subject=Requete%20Assistant%20PGD' target='_top'>portage@carl-abrc.ca</a>. On pourra vous rediriger vers la ressource la plus appropriée à votre demande.</p>
+  <p>Si votre établissement n'est pas listé, vous pourriez aussi communiquer avec le Réseau Portage à l'adresse suivante : <a href='mailto:support@portagenetwork.ca?Subject=Requete%20Assistant%20PGD' target='_top'>support@portagenetwork.ca</a>. On pourra vous rediriger vers la ressource la plus appropriée à votre demande.</p>
 <h3>Personne-ressource</h3>
   <p><b>Acadia University</b>: <a href='mailto:maggiejean.neilson@acadiau.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Maggie Neilson</a></p>
   <p><b>Brandon University</b>: <a href='mailto:kazakoff@brandonu.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Carmen Kazakoff-Lane</a>, Betty Braaksma</p>
@@ -736,12 +736,13 @@ L'Assistant PGD est un outil d'aide à la préparation d'un plan de gestion des 
   <p><b>University of British Columbia</b>: <a href='mailto:eugene.barsky@ubc.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Eugene Barsky</a>, <a href='mailto:research.data@ubc.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Research Data Team</a></p>
   <p><b>University of Alberta</b>: <a href='mailto:data@ualberta.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Research Data Management Group</a>, <a href='mailto:larry.laliberte@ualberta.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Larry Laliberte</a></p>
   <p><b>University of Calgary</b>: <a href='mailto:jdlbrosz@ucalgary.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>John Brosz</a>, <a href='mailto:spowelso@ucalgary.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Susan Powelson</a></p>
-  <p><b>University of Guelph</b>: <a href='mailto:lib.research@uoguelph.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Research Enterprise & Scholarly Communication Team</a></p>
+  <p><b>University of Guelph</b>: <a href='mailto:lib.research@uoguelph.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Research & Scholarship Team</a></p>
   <p><b>University of Lethbridge</b>: <a href='mailto:library-research-l@uleth.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Research Services Group [U. of Lethbridge Library]</a></p>
   <p><b>University of Manitoba</b>: <a href='mailto:mayu.ishida@umanitoba.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Mayu Ishida</a>, <a href='mailto:gary.strike@umanitoba.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Gary Strike</a></p>
   <p><b>University of Ontario Institute of Technology</b>: <a href='mailto:katie.harding@uoit.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Katie Harding</a></p>
     <p><b>University of Ottawa / Université d\'Ottawa</b>: <a href='mailto:gdr-rdm@uottawa.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>uOttawa Library Research Data Management Group</a>, <a href='mailto:talia.chung@uottawa.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Talia Chung</a></p> 
     <p><b>University of Regina</b>: <a href='mailto:Marilyn.Andrews@uregina.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Marilyn Andrews</a></p>
+    <p><b>University of Saskatchewan</b>: <a href='mailto:kristin.bogdan@usask.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Kristin Bogdan</a></p>
     <p><b>University of Victoria</b>: <a href='mailto:kmatthew@uvic.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Kathleen Matthews</a>, <a href='mailto:danielbm@uvic.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Daniel Brendle-Moczuk</a></p>
   <p><b>University of Waterloo</b>: <a href='mailto:LibraryRDM@library.uwaterloo.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Research Data Management Services</a></p>
   <p><b>Western University</b>: <a href='mailto:rdm@uwo.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Western RDM Group</a>, <a href='mailto:wlrdmsc@uwo.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Western Libraries RDM Subcommittee</a></p>
@@ -751,7 +752,7 @@ L'Assistant PGD est un outil d'aide à la préparation d'un plan de gestion des 
 
   contact_page:
     title: "Communiquez avec nous"
-    intro_text_html: "<p>L'Assistant PGD est rendu disponible par les Bibliothèques de l'Université d'Alberta. Pour en savoir plus sur les services offerts par ces bibliothèques, consulter la page suivante : <a href='http://library.ualberta.ca/researchdata/' target='_blank'>Research Data Management page</a>.  Si vous désirez communiquer avec nous concernant l'Assistant PGD, merci de saisir votre message dans le formulaire Web ci-dessous ou nous écrire à <a href='mailto:portage@carl-abrc.ca?Subject=Requete%200Assistant%20PGD' target='_top'>portage@carl-abrc.ca</a>.</p>
+    intro_text_html: "<p>L'Assistant PGD est rendu disponible par les Bibliothèques de l'Université d'Alberta. Pour en savoir plus sur les services offerts par ces bibliothèques, consulter la page suivante : <a href='http://library.ualberta.ca/researchdata/' target='_blank'>Research Data Management page</a>.  Si vous désirez communiquer avec nous concernant l'Assistant PGD, merci de saisir votre message dans le formulaire Web ci-dessous ou nous écrire à <a href='mailto:support@portagenetwork.ca?Subject=Requete%200Assistant%20PGD' target='_top'>support@portagenetwork.ca</a>.</p>
 <p><a href='http://library.ualberta.ca/askus/' target='_blank'>Nous joindre </a></p>"
   
   terms_page:
