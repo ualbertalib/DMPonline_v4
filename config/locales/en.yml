@@ -529,13 +529,13 @@ Select what format you wish to use and click to 'Export'.</p>"
       project_text_when_no_project: "<p><strong>Welcome.</strong></br> You are now ready to create your first DMP.</br>Click the 'Create plan' button below to begin.</p>"
       project_text_when_project: "<p>The table below lists the plans that you have created, and any that have been shared with you by others.</br>These can be edited, shared, exported or deleted at anytime.</p>"
       confirmation_text: "Confirm plan details"   
-      confirmation_text_desc: "You are using the generic Portage Data Stewardship template. If you have suggestions on how to improve the existing template, or if you would like to add additional templates based on funding agency requirements or disciplinary needs, please contact us at <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Assistant%20inquiry'>portage@carl-abrc.ca</a>."
+      confirmation_text_desc: "You are using the generic Portage Data Stewardship template. If you have suggestions on how to improve the existing template, or if you would like to add additional templates based on funding agency requirements or disciplinary needs, please contact us at <a href='mailto:support@portagenetwork.ca?Subject=DMP%20Assistant%20inquiry'>support@portagenetwork.ca</a>."
       confirmation_button_text: "Yes, create plan"  
       project_details_text_html: "This page gives you an overview of your plan. It tells what your plan is based on and gives an overview of the questions that you will be asked."
       project_details_editing_text_html: "<b>Please fill in the basic project details below and click 'Save' to save</b>"
       confirm_delete_text: "Are you sure you wish to delete this plan? If the plan is being shared with other users, by deleting it from your list, the plan will be deleted from their plan list as well"
       confirmation_text: "Confirm plan details"
-      confirmation_text_desc: "You are using the generic Portage Data Stewardship template. If you have suggestions on how to improve the existing template, or if you would like to add additional templates based on funding agency requirements or disciplinary needs, please contact us at <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Assistant%20inquiry'>portage@carl-abrc.ca</a>."
+      confirmation_text_desc: "You are using the generic Portage Data Stewardship template. If you have suggestions on how to improve the existing template, or if you would like to add additional templates based on funding agency requirements or disciplinary needs, please contact us at <a href='mailto:support@portagenetwork.ca?Subject=DMP%20Assistant%20inquiry'>support@portagenetwork.ca</a>."
       
       confirmation_button_text: "Yes, create plan"
       default_confirmation_text_desc: "You have selected the Default DMP, which is based on the DCC Checklist. This offers a generic set of DMP questions and guidance. For more details see: <a href='http://www.dcc.ac.uk/sites/default/files/documents/resource/DMP_Checklist_2013.pdf' target='_blank'>DMP checklist 2013</a>."
@@ -676,7 +676,7 @@ Select what format you wish to use and click to 'Export'.</p>"
     <h3>How the tool works</h3>
     <div class='white_background'>
     <p>Currently, this tool includes a generic Portage Data Stewardship template for researchers to use.  Guidance is provided to help you interpret and answer the questions.</p>
-    <p>We want your feedback! If you have suggestions on how to improve the existing template, or you would like to add additional templates based on funding agency requirements or disciplinary needs, please <a href='help#contact_info'>contact your local institution</a> or contact us at <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Assistant%20feedback'>portage@carl-abrc.ca</a>.
+    <p>We want your feedback! If you have suggestions on how to improve the existing template, or you would like to add additional templates based on funding agency requirements or disciplinary needs, please <a href='help#contact_info'>contact your local institution</a> or contact us at <a href='mailto:support@portagenetwork.ca?Subject=DMP%20Assistant%20feedback'>support@portagenetwork.ca</a>.
     </p>
     </div>
     <h3>Getting Started</h3>
@@ -689,12 +689,12 @@ Select what format you wish to use and click to 'Export'.</p>"
     </div>
     <h3>Feedback</h3>
     <div class='white_background'>
-    <p>If you have any questions or comments about the DMP Assistant, <a href='help#contact_info'>contact your local institution</a> or email us at <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Assistant%20feedback'>portage@carl-abrc.ca</a>.</p>
+    <p>If you have any questions or comments about the DMP Assistant, <a href='help#contact_info'>contact your local institution</a> or email us at <a href='mailto:support@portagenetwork.ca?Subject=DMP%20Assistant%20feedback'>support@portagenetwork.ca</a>.</p>
     </div>"
     body_text_tab_2_html: "<p>The Portage Data Stewardship template is based on internationally accepted standards and best practices. It has been prepared and is maintained by a group of research data management experts from research libraries across Canada.
 </p><p>
 Organizations may provide their own DMP templates. The Portage template is the default DMP. Select templates from other organizations from the drop-down Organization list.</p>
-<p>For funding agencies, research institutions, and other organizations, please contact <a href='mailto:portage@carl-abrc.ca'>portage@carl-abrc.ca</a> if you would like to add your organization templates to DMP Assistant.</p>" 
+<p>For funding agencies, research institutions, and other organizations, please contact <a href='mailto:support@portagenetwork.ca'>support@portagenetwork.ca</a> if you would like to add your organization templates to DMP Assistant.</p>" 
     
 
   help_page:
@@ -702,9 +702,9 @@ Organizations may provide their own DMP templates. The Portage template is the d
     tab_1: "On DMP Assistant"
     tab_2: "On data management planning"
     tab_3: "Contact info at your organization"
-    #body_text_tab_2_html: "<a href='#DMPonlinehelp'><p>The University of Alberta Libraries <a href='http://guides.library.ualberta.ca/researchdata'>research data management guide</a> can provide additional guidance on data management planning. If you require more guidance, email <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Assistant%20help'>portage@carl-abrc.ca</a>.</p>"
+    #body_text_tab_2_html: "<a href='#DMPonlinehelp'><p>The University of Alberta Libraries <a href='http://guides.library.ualberta.ca/researchdata'>research data management guide</a> can provide additional guidance on data management planning. If you require more guidance, email <a href='mailto:support@portagenetwork.ca?Subject=DMP%20Assistant%20help'>support@portagenetwork.ca</a>.</p>"
 
-    body_text_tab_2_html: "If you require more guidance, email <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Assistant%20help'>portage@carl-abrc.ca</a>.</p>"
+    body_text_tab_2_html: "If you require more guidance, email <a href='mailto:support@portagenetwork.ca?Subject=DMP%20Assistant%20help'>support@portagenetwork.ca</a>.</p>"
 
     body_text_tab_1_html: "<p>When you login to DMP Assistant you will be directed to the 'My plans' page. From here you can edit, share, export or delete any of your plans. You will also see plans that have been shared with you by others.</p>
     <h3>Create a plan</h3>
@@ -725,7 +725,7 @@ Organizations may provide their own DMP templates. The Portage template is the d
     <h3>Export plans</h3>
     <p>From here you can download your plan in various formats. This may be useful if you need to submit your plan as part of a grant application. Choose what format you would like to view/download your plan in and click to export. When you login to DMP Assistant you will be directed to the 'My plans' page. From here you can edit, share, export or delete any of your plans. You will also see plans that have been shared with you by others.</p>"
     body_text_tab_3_html: "<p>Your university library might already provide support for developing a data management plan. Contact your liaison librarian at your university for further assistance. You will find below contact information for university libraries that have dedicated data management services or librarians.</p>
-  <p>If your institution is not listed here, please feel free to contact <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Assistant%20inquiry' target='_top'>portage@carl-abrc.ca</a> and we will direct you to the best source of information for your query
+  <p>If your institution is not listed here, please feel free to contact <a href='mailto:support@portagenetwork.ca?Subject=DMP%20Assistant%20inquiry' target='_top'>support@portagenetwork.ca</a> and we will direct you to the best source of information for your query
   <h3>Contact Info</h3>
   <p><b>Acadia University</b>: <a href='mailto:maggiejean.neilson@acadiau.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Maggie Neilson</a></p>
   <p><b>Brandon University</b>: <a href='mailto:kazakoff@brandonu.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Carmen Kazakoff-Lane</a>, Betty Braaksma</p>
@@ -744,20 +744,21 @@ Organizations may provide their own DMP templates. The Portage template is the d
   <p><b>University of British Columbia</b>: <a href='mailto:eugene.barsky@ubc.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Eugene Barsky</a>, <a href='mailto:research.data@ubc.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Research Data Team</a></p>
   <p><b>University of Alberta</b>: <a href='mailto:data@ualberta.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Research Data Management Group</a>, <a href='mailto:larry.laliberte@ualberta.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Larry Laliberte</a></p>
   <p><b>University of Calgary</b>: <a href='mailto:jdlbrosz@ucalgary.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>John Brosz</a>, <a href='mailto:spowelso@ucalgary.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Susan Powelson</a></p>
-  <p><b>University of Guelph</b>: <a href='mailto:lib.research@uoguelph.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Research Enterprise & Scholarly Communication Team</a></p>
+  <p><b>University of Guelph</b>: <a href='mailto:lib.research@uoguelph.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Research & Scholarship Team</a></p>
   <p><b>University of Lethbridge</b>: <a href='mailto:library-research-l@uleth.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Research Services Group [U. of Lethbridge Library]</a></p>
   <p><b>University of Manitoba</b>: <a href='mailto:mayu.ishida@umanitoba.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Mayu Ishida</a>, <a href='mailto:gary.strike@umanitoba.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Gary Strike</a></p>
   <p><b>University of Ontario Institute of Technology</b>: <a href='mailto:katie.harding@uoit.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Katie Harding</a></p>
   <p><b>University of Ottawa / Université d\'Ottawa</b>: <a href='mailto:gdr-rdm@uottawa.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>uOttawa Library Research Data Management Group</a>, <a href='mailto:talia.chung@uottawa.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Talia Chung</a></p>
     <p><b>University of Regina</b>: <a href='mailto:Marilyn.Andrews@uregina.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Marilyn Andrews</a></p>
-  <p><b>University of Victoria</b>: <a href='mailto:kmatthew@uvic.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Kathleen Matthews</a>, <a href='mailto:danielbm@uvic.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Daniel Brendle-Moczuk</a></p>
+    <p><b>University of Saskatchewan</b>: <a href='mailto:kristin.bogdan@usask.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Kristin Bogdan</a></p>
+    <p><b>University of Victoria</b>: <a href='mailto:kmatthew@uvic.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Kathleen Matthews</a>, <a href='mailto:danielbm@uvic.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Daniel Brendle-Moczuk</a></p>
   <p><b>University of Waterloo</b>: <a href='mailto:LibraryRDM@library.uwaterloo.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Research Data Management Services</a></p>
   <p><b>Western University</b>: <a href='mailto:rdm@uwo.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Western RDM Group</a>, <a href='mailto:wlrdmsc@uwo.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Western Libraries RDM Subcommittee</a></p>
   <p><b>Wilfrid Laurier University</b>: <a href='mailto:msteeleworthy@wlu.ca?Subject=DMP%20Assistant%20Inquiry' target='_top'>Michael Steeleworthy</a></p>"
 
   contact_page:
     title: "Contact us"
-    intro_text_html: "<p>DMP Assistant is provided by the University of Alberta Libraries. You can find out more about us on our <a href='http://library.ualberta.ca/researchdata/' target='_blank'>Research Data Management page</a>. If you would like to contact us about DMP Assistant, please insert your query into the webform below or email <a href='mailto:portage@carl-abrc.ca?Subject=DMP%20Assistant%20inquiry' target='_top'>portage@carl-abrc.ca</a>.</p>
+    intro_text_html: "<p>DMP Assistant is provided by the University of Alberta Libraries. You can find out more about us on our <a href='http://library.ualberta.ca/researchdata/' target='_blank'>Research Data Management page</a>. If you would like to contact us about DMP Assistant, please insert your query into the webform below or email <a href='mailto:support@portagenetwork.ca?Subject=DMP%20Assistant%20inquiry' target='_top'>support@portagenetwork.ca</a>.</p>
      <p><a href='http://library.ualberta.ca/askus/' target='_blank'>Contact Us</a></p>"
   
   terms_page:
