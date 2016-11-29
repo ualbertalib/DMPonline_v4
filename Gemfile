@@ -8,7 +8,7 @@ gem 'omniauth-shibboleth'
 gem 'recaptcha'
 gem 'i18n'
 gem 'globalize', '~>3.1.0'
-
+gem 'attr_encrypted'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -19,6 +19,7 @@ end
 group :development do
   gem "better_errors"
   gem "binding_of_caller"
+  gem "test-unit"
 end
 
 gem 'uglifier'
