@@ -161,14 +161,6 @@ ActiveRecord::Schema.define(:version => 20160406175524) do
     t.datetime "updated_at",  :null => false
   end
 
-  create_table "org_stylesheets", :force => true do |t|
-    t.integer  "org_id"
-    t.binary   "stylesheet"
-    t.integer  "last_change_user_id"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
-  end
-
   create_table "organisation_types", :force => true do |t|
     t.string   "name"
     t.text     "description"
@@ -191,6 +183,7 @@ ActiveRecord::Schema.define(:version => 20160406175524) do
     t.boolean  "is_other"
     t.string   "sort_name"
     t.text     "banner_text"
+    t.string   "logo_file_name"
     t.boolean  "display_in_registration"
     t.string   "logo_uid"
     t.string   "logo_name"
