@@ -11,15 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160406175524) do
+ActiveRecord::Schema.define(:version => 20161125202243) do
 
   create_table "answers", :force => true do |t|
-    t.text     "text"
     t.integer  "plan_id"
     t.integer  "user_id"
     t.integer  "question_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.string   "encrypted_text"
+    t.string   "encrypted_text_iv"
   end
 
   create_table "answers_options", :id => false, :force => true do |t|
@@ -185,10 +186,6 @@ ActiveRecord::Schema.define(:version => 20160406175524) do
     t.text     "banner_text"
     t.string   "logo_file_name"
     t.boolean  "display_in_registration"
-    t.string   "logo_uid"
-    t.string   "logo_name"
-    t.string   "banner_uid"
-    t.string   "banner_name"
   end
 
   create_table "phase_translations", :force => true do |t|
@@ -381,14 +378,6 @@ ActiveRecord::Schema.define(:version => 20160406175524) do
     t.string   "destination"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-  end
-
-  create_table "stylesheets", :force => true do |t|
-    t.string   "file_uid"
-    t.string   "file_name"
-    t.integer  "organisation_id"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
   end
 
   create_table "suggested_answers", :force => true do |t|
