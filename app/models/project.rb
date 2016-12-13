@@ -1,6 +1,11 @@
 class Project < ActiveRecord::Base
 
 	extend FriendlyId
+        attr_encrypted :grant_number, key: Figaro.env.dmp_grant_number_key
+        attr_encrypted :description, key: Figaro.env.dmp_description_key
+        attr_encrypted :principal_investigator, key: Figaro.env.dmp_pi_key
+        attr_encrypted :principal_investigator_identifier, key: Figaro.env.dmp_pi_id_key
+        attr_encrypted :data_contact, key: Figaro.env.dmp_data_contact_key
 
 	attr_accessible :dmptemplate_id, :title, :organisation_id, :unit_id, :guidance_group_ids, :project_group_ids, :funder_id, :institution_id, :grant_number, :identifier, :description, :principal_investigator, :principal_investigator_identifier, :data_contact, :funder_name
 

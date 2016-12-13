@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20161125202243) do
+ActiveRecord::Schema.define(:version => 20161213175642) do
 
   create_table "answers", :force => true do |t|
     t.integer  "plan_id"
@@ -33,12 +33,13 @@ ActiveRecord::Schema.define(:version => 20161125202243) do
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
     t.integer  "question_id"
-    t.text     "text"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
     t.boolean  "archived"
     t.integer  "plan_id"
     t.integer  "archived_by"
+    t.string   "encrypted_text"
+    t.string   "encrypted_text_iv"
   end
 
   create_table "dmptemplate_translations", :force => true do |t|
@@ -254,17 +255,22 @@ ActiveRecord::Schema.define(:version => 20161125202243) do
   create_table "projects", :force => true do |t|
     t.string   "title"
     t.integer  "dmptemplate_id"
-    t.datetime "created_at",                        :null => false
-    t.datetime "updated_at",                        :null => false
+    t.datetime "created_at",                                     :null => false
+    t.datetime "updated_at",                                     :null => false
     t.string   "slug"
     t.integer  "organisation_id"
-    t.string   "grant_number"
     t.string   "identifier"
-    t.text     "description"
-    t.string   "principal_investigator"
-    t.string   "principal_investigator_identifier"
-    t.string   "data_contact"
     t.string   "funder_name"
+    t.string   "encrypted_grant_number"
+    t.string   "encrypted_grant_number_iv"
+    t.string   "encrypted_principal_investigator"
+    t.string   "encrypted_principal_investigator_iv"
+    t.string   "encrypted_principal_investigator_identifier"
+    t.string   "encrypted_principal_investigator_identifier_iv"
+    t.string   "encrypted_data_contact"
+    t.string   "encrypted_data_contact_iv"
+    t.string   "encrypted_description"
+    t.string   "encrypted_description_iv"
   end
 
   add_index "projects", ["slug"], :name => "index_projects_on_slug", :unique => true
