@@ -9,6 +9,8 @@ gem 'recaptcha'
 gem 'i18n'
 gem 'globalize', '~>3.1.0'
 gem 'dragonfly'
+gem 'attr_encrypted'
+gem 'figaro'
 
 # Gems used only for assets and not required
 # in production environments by default.
