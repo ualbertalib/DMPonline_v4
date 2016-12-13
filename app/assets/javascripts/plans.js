@@ -379,8 +379,8 @@ $.fn.update_answer = function(question_id) {
 				else {
 					//Update answer text - both in textarea and readonly
 					$('#answer-text-'+question_id).val(data.text);
-					tinymce.get('answer-text-'+question_id).setContent(data.text);
-					readonly_div.find('.answer-text-readonly').html(data.text);
+                                        //tinymce.get('answer-text-'+question_id).setContent(data.text);
+                                        //readonly_div.find('.answer-text-readonly').html(data.text);
 				}
 				//Update answer options - both in form and readonly
 				num_options = data.options.length;
@@ -531,7 +531,10 @@ $.fn.check_section_lock = function() {
 };
 
 $.fn.toggle_dirty = function(question_id, is_dirty) {
-	section_id = $(this).attr("id").split('-')[0];
+        section = $(this).attr("id");
+	if (section) {
+          section_id = $(this).attr("id").split('-')[0];
+        }
 	if (dirty[section_id] == null) {
 		dirty[section_id] = {};
 	}

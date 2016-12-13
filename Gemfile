@@ -8,6 +8,7 @@ gem 'omniauth-shibboleth'
 gem 'recaptcha'
 gem 'i18n'
 gem 'globalize', '~>3.1.0'
+gem 'dragonfly'
 gem 'attr_encrypted'
 gem 'figaro'
 
@@ -20,7 +21,6 @@ end
 group :development do
   gem "better_errors"
   gem "binding_of_caller"
-  gem "test-unit"
 end
 
 gem 'uglifier'
@@ -63,7 +63,6 @@ gem 'validate_url'
 gem 'thin'
 gem 'wicked_pdf'
 gem 'htmltoword'
-
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
