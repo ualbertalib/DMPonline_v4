@@ -138,7 +138,7 @@ fr:
       text_label: "Texte"
       themes_label: "Thèmes"
       question_label: "Question"
-      by_theme_or_by_question: "Ces directives devraient-elles s'appliquer :"
+      by_theme_or_by_question: "Ces directives s'appliqueront : "
       by_themes_label: "par thème"
       by_question_label: "par question"
       template: "Modèle"
@@ -192,6 +192,8 @@ fr:
               <p>Votre modèle sera présenté aux utilisateurs de votre établissement lorsqu'aucun modèle de bailleur de fonds ne s'applique. Si vous souhaitez ajouter des questions aux modèles de bailleur de fonds, utilisez les options « personnaliser le modèle » ci-dessous.</p>"
       create_new_template_text_html: "<p>Pour créer un nouveau modèle, vous devez d'abord indiquer un titre et une description. Une fois que vous les avez enregistrés, des options vous seront présentées pour ajouter une ou plusieurs phases.</p>"
       desc_help_text_html: "Entrez une description qui vous aide à faire la différence entre les autres modèles, par exemple si vous en avez pour différents publics."
+      template_delete_message: "Vous êtes sur le point de supprimer '%{template_title}'. Êtes-vous sûr de vouloir le supprimer?"
+      template_destroyed_message: "Le modèle a été supprimé avec succès."
       own_temp: "Vos modèles"
       add_phase_label: "Ajouter une nouvelle phase +"
       view_phase_label: "Voir la phase"
@@ -251,7 +253,7 @@ fr:
       delete_suggested_answer_message: "Vous êtes sur le point de supprimer une suggestion de réponse ou un exemple pour '%{question_text}'. Êtes-vous sûr de vouloir le supprimer?"
       default_value_label: "Valeur par défaut"
       number_help_text: "Cela vous permet de mettre les questions en ordre dans une section."
-      question_format_help_text_html: "Vous pouvez choisir parmi ce qui suit :<ul><li>- zone de texte (grande case pour les paragraphes);</li> <li>- champ de texte (pour les réponses courtes);</li>
+      question_format_help_text_html: "Vous pouvez choisir parmi ce qui suit : <ul><li>- zone de texte (grande case pour les paragraphes);</li> <li>- champ de texte (pour les réponses courtes);</li>
       <li>- cases à cocher lorsque des options sont présentées dans une liste et plusieurs valeurs peuvent être sélectionnées;</li>
       <li>- boutons d'options lorsque des options sont présentées dans une liste et qu'une seule option peut être sélectionnée;</li>
       <li>- liste déroulante comme cette case – une seule option peut être sélectionnée;</li>
@@ -288,9 +290,10 @@ fr:
     sign_in_text: "Si vous avez déjà un compte avec l'Assistant PGD ou avec une version antérieure de l'Assistant PGD."
     sign_out: "Se déconnecter"
     sign_up: "S'inscrire"
-    sign_up_text: "Nouvel utilisateur de l'Assistant PGD? Inscrivez-vous aujourd'hui."
+    #sign_up_text: "Nouvel utilisateur de l'Assistant PGD? Inscrivez-vous aujourd'hui <a href='auth/shibboleth'>via votre compte institutionnel</a>, ou avec le formulaire d'inscription par courriel."
+    sign_up_text: "Nouvel utilisateur de l'Assistant PGD? Inscrivez-vous aujourd'hui. "
     signed_in: "Connecté en tant que "
-    institution_sign_in_link: "Ou encore, connectez-vous avec l'authentifiant de votre établissement"
+    institution_sign_in_link: "Ou encore, connectez-vous avec votre compte institutionnel"
     institution_sign_in: "Authentification à l'aide du compte institutionnel bientôt disponible!"
         
 
@@ -367,14 +370,14 @@ fr:
     owner: "Propriétaire"
     orcid_id: "Numéro ORCID"
     orcid_html: "Le numéro ORCID est un identifiant numérique constant qui différencie chaque chercheur, <a href='http://orcid.org/content/initiative' target='_blank' rel='external' class='a_orange'>pour de plus amples renseignements</a>."
-    sign_up_shibboleth_alert_text_html: "Remarque : Si vous avez déjà créé un compte de l'Assistant PGD et que vous désirez associer le compte à votre authentifiant de l'établissement, vous devez d'abord vous <a href='/' class='a_orange'>connecter</a> à un compte existant de l'Assistant PGD. Si vous n'avez jamais créé de compte dans l'Assistant PDG, veuillez remplir le formulaire ci-dessous."
-    shibboleth_linked_text: "Votre compte est associé à votre authentifiant de l'établissement."
-    shibboleth_to_link_text: "Associez votre compte de l'Assistant PGD à votre authentifiant de l'établissement."
-    shibboleth_to_link_question: "Voulez-vous associer votre compte de l'Assistant PGD à votre authentifiant de l'établissement?"
-    shibboleth_unlink_label: "Dissociez votre authentifiant de l'établissement."
-    shibboleth_unlink_alert: "Alerte concernant la dissociation de votre authentifiant de l'établissement"
-    shibboleth_unlink_dialog_text: "<p>Vous êtes sur le point de dissocier l'Assistant PGD de votre authentifiant de l'établissement, voulez-vous continuer?</p>"
-    shibboleth_wait_confirmation: "En attente d'une confirmation pour :"
+    sign_up_shibboleth_alert_text_html: "Remarque : Si vous avez déjà créé un compte dans l'Assistant PGD et que vous désirez l'associer au compte de votre établissement, vous devez d'abord vous <a href='/' class='a_orange'>connecter</a> à votre compte de l'Assistant PGD. Si vous n'avez jamais créé de compte dans l'Assistant PDG, veuillez remplir le formulaire ci-dessous."
+    shibboleth_linked_text: "Votre compte est associé au compte de votre institution."
+    shibboleth_to_link_text: "Associez votre compte de l'Assistant PGD à votre compte institutionnel."
+    shibboleth_to_link_question: "Voulez-vous associer votre compte de l'Assistant PGD à votre compte institutionnel?"
+    shibboleth_unlink_label: "Dissociez votre compte institutionnel."
+    shibboleth_unlink_alert: "Avertissement concernant la dissociation de votre compte institutionnel"
+    shibboleth_unlink_dialog_text: "<p>Vous êtes sur le point de dissocier votre compte de l'Assistant PGD de votre compte institutionnel, voulez-vous continuer?</p>"
+    shibboleth_wait_confirmation: "En attente d'une confirmation pour : "
 
     section_label: "Section"
     sections_label: "Sections"
@@ -405,7 +408,7 @@ fr:
       edit_label: "Modifier"
       retract_label: "Supprimer"
       clear_label: "Supprimer"
-      commented_by: "Annotation par :"
+      commented_by: "Annotation par : "
       archive_own_comment_question: "Êtes-vous certain de vouloir supprimer cette annotation?"
       archive_own_comment_button_label: "Supprimer"
       archive_comment_question: "Êtes-vous certain de vouloir supprimer cette annotation?"
@@ -496,16 +499,16 @@ fr:
       export_text_html: "<p>Vous pouvez maintenant télécharger votre plan en divers formats, ce qui peut être utile si vous devez joindre votre plan à une demande de subvention.</br>
 Sélectionnez le format que vous souhaitez utiliser et cliquez sur « Exporter ».</p>"
       questions_answered: "questions complétées"
-      not_saved_answers_text_alert: "Vous avez modifié des réponses mais ne les avez pas sauvegardés :"
+      not_saved_answers_text_alert: "Vous avez modifié des réponses mais ne les avez pas sauvegardés : "
       not_saved_answers_confirmation_alert: "Voulez-vous les sauvegarder maintenant?"
       not_saved_answers_header: "Réponses non sauvegardées"
       project_data_contact: "Personne-ressource pour les données du plan"
       project_data_contact_help_text: "Nom (si différent de celui susmentionné), numéro de téléphone et adresse électronique"
       project_name_help_text: "Si vous présentez une demande de financement, inscrivez le nom de la même façon que dans la demande de subvention."
-      project_desc_help_text_html: "<div class='tooltip_box'><b> Questions à prendre en considération :</b><ul><li>- Quelle est la nature de votre projet de recherche?</li><li>- Quelles questions de recherche abordez-vous? </li><li>- À quelle fin les données sont-elles recueillies ou créées? </li></ul><h4>Directives :</h4><p>Résumez brièvement le type d'étude (ou les études) afin d'aider les autres à comprendre les raisons pour lesquelles les données sont recueillies ou créées.</p></div>"
+      project_desc_help_text_html: "<div class='tooltip_box'><b> Questions à prendre en considération : </b><ul><li>- Quelle est la nature de votre projet de recherche?</li><li>- Quelles questions de recherche abordez-vous? </li><li>- À quelle fin les données sont-elles recueillies ou créées? </li></ul><h4>Directives : </h4><p>Résumez brièvement le type d'étude (ou les études) afin d'aider les autres à comprendre les raisons pour lesquelles les données sont recueillies ou créées.</p></div>"
       project_identifier: "Identification"
       project_identifier_help_text: "Une identification pertinente déterminée par le bailleur de fonds ou l'établissement"
-      project_static_info: "Ce plan s'appuie sur :"
+      project_static_info: "Ce plan s'appuie sur : "
       projects_title: "Mes plans"
       project_settings_text: "Les paramètres que vous sélectionnez seront affichés dans le tableau ci-dessous. Vous pouvez trier les données par en-tête ou les filtrer en indiquant une chaîne de texte dans la case de recherche."
       project_text_when_no_project: "<p><strong>Bienvenue</strong></br> Vous êtes maintenant prêt à créer votre premier plan de gestion des données.</br>Cliquez sur le bouton « Créer un plan » ci-dessous pour commencer.</p>"
@@ -775,7 +778,7 @@ L'Assistant PGD est un outil d'aide à la préparation d'un plan de gestion des 
 
     <h3>Vos renseignements personnels</h3>
     <div class='white_background'>
-      <p>Le service des bibliothèques de l'Université de l'Alberta héberge l'Assistant PGD et conserve vos plans de gestion des données en votre nom, mais les plans vous appartiennent et sont sous votre responsabilité. Les renseignements conservés par Assistant PGD sont régis par la <a href='http://www.library.ualberta.ca/privacy/'>politique de confidentialité du Site Web</a> du service des bibliothèques de l'Université de l'Alberta.</p>
+      <p>Le service des bibliothèques de l'Université de l'Alberta héberge l'Assistant PGD et conserve vos plans de gestion des données en votre nom, mais les plans vous appartiennent et sont sous votre responsabilité. Les renseignements conservés par Assistant PGD sont régis par la <a href='https://www.library.ualberta.ca/about-us/policies/privacy-policy'>politique de confidentialité des sites web</a> du service des bibliothèques de l'Université de l'Alberta.</p>
     </div>
 
     <h3>Mots de passe</h3>
