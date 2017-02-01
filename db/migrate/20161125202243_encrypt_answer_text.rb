@@ -1,15 +1,7 @@
 class EncryptAnswerText < ActiveRecord::Migration
-  def up
+  def change
     rename_column :answers, :text, :old_text
     add_column :answers, :encrypted_text, :string
     add_column :answers, :encrypted_text_iv, :string
-    Answer.find_each do |a|
-      a.text = a.old_text
-      a.save
-    end
-    remove_column :answers, :old_text
-  end
-
-  def down
   end
 end
