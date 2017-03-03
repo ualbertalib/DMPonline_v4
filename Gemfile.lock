@@ -232,7 +232,7 @@ GEM
       rspec-support (~> 3.5.0)
     rspec-support (3.5.0)
     ruby-rc4 (0.1.5)
-    rubyzip (1.2.0)
+    rubyzip (1.2.1)
     sass (3.4.22)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -317,6 +317,7 @@ DEPENDENCIES
   rolify
   rspec
   rspec-rails
+  rubyzip (~> 1.2.1)
   sass
   sass-rails (~> 3.2.3)
   selenium-webdriver
