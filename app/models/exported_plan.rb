@@ -90,7 +90,7 @@ class ExportedPlan < ActiveRecord::Base
 
   def as_txt
     output = "#{self.plan.project.title}\n\n#{self.plan.version.phase.title}\n"
-  
+
     if self.admin_details.present?
         output += "\n#{I18n.t('helpers.project.export.admin_details')}\n"
         self.admin_details.each do |field|
@@ -112,14 +112,14 @@ class ExportedPlan < ActiveRecord::Base
         answer = self.plan.answer(question.id, false)
 
         if answer.nil? || answer.text.nil? then
-          output += "{I18n.t('helpers.plan.export.pdf.question_not_answered')}\n"
+          output += "#{I18n.t('helpers.plan.export.pdf.question_not_answered')}\n"
         else
           output += answer.options.collect {|o| o.text}.join("\n")
           if question.option_comment_display == true then
             output += "\n#{sanitize_text(answer.text)}\n"
           else
             output += "\n"
-          end  
+          end
         end
       end
     end
@@ -142,9 +142,9 @@ class ExportedPlan < ActiveRecord::Base
     end
     self.sections.each do |section|
         docx_html_source << "<div><h3>#{section.title}</h3>"
-      
+
         self.questions_for_section(section.id).each do |question|
-        
+
             docx_html_source << "<div><h4>#{question.text}</h4>"
             answer = self.plan.answer(question.id, false)
             if answer.nil?
@@ -154,12 +154,12 @@ class ExportedPlan < ActiveRecord::Base
                 if q_format.title == I18n.t("helpers.checkbox") || q_format.title == I18n.t("helpers.multi_select_box") ||
                    q_format.title == I18n.t("helpers.radio_buttons") || q_format.title == I18n.t("helpers.dropdown") then
                     answer.options.each do |option|
-                        if !option.text.nil? 
+                        if !option.text.nil?
                             docx_html_source << "<p>- #{option.text}</p>"
-                        end    
+                        end
                     end
                 end
-          
+
                 if !answer.text.nil? && question.option_comment_display == true then
                     answer_text = answer.text.gsub(/<tr>(\s|<td>|<\/td>|&nbsp;)*(<\/tr>|<tr>)/,"")
                     docx_html_source << answer_text
