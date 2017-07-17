@@ -29,14 +29,14 @@ gem 'less-rails'
 
 gem 'twitter-bootstrap-rails', '~> 2.2.8'
 gem 'sass-rails',   '~> 3.2.3'
-gem 'sass' 
+gem 'sass'
 
 gem 'jquery-rails'
 #gem 'jquery-ui-rails'
 
 gem 'tinymce-rails'
 gem 'friendly_id'
-gem 'contact_us' 
+gem 'contact_us'
 
 #implementation of forms
 gem 'activeadmin', '1.0.0.pre1'
@@ -80,12 +80,12 @@ gem 'htmltoword'
 # gem 'debugger'
 
 group :development, :test do
-  gem 'rspec-rails' 
+  gem 'rspec-rails'
   gem 'rspec'
   gem 'selenium-webdriver'
-  gem 'mail'
+  gem 'mail', '~> 2.5.5'
   gem 'pdf-reader'
-  gem 'nokogiri'
+  gem 'nokogiri', '~> 1.7.2'
 end
 
 group :production do
