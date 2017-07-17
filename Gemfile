@@ -83,8 +83,12 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rspec'
   gem 'selenium-webdriver'
+
+  # pint this to issue 115 - security warning
   gem 'mail', '~> 2.5.5'
   gem 'pdf-reader'
+
+  # pint this to issue 115 - security warning
   gem 'nokogiri', '~> 1.7.2'
 end
 
