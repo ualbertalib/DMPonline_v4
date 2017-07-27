@@ -107,7 +107,7 @@ class Plan < ActiveRecord::Base
 		# Get guidance by question where guidance group was selected on creation or if group is organisation default
 		question.guidances.each do |guidance|
 			guidance.guidance_groups.each do |group|
-				if ((group.organisation == project.organisation && !group.optional_subset ) || project.guidance_groups.include?(group) && group.published)  then
+				if ((group.organisation == project.organisation && !group.optional_subset) || project.guidance_groups.include?(group) && group.published)  then
 					guidances = self.add_guidance_to_array(guidances, group, nil, guidance)
 				end
             end
