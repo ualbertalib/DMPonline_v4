@@ -708,11 +708,13 @@ Organizations may provide their own DMP templates. The Portage template is the d
     All of these templates are designed to guide you in planning how you will collect, organize, secure, share and disseminate your data.
     If you need assistance in developing your data management plan, the following resources may help get you started: </p>
 
-          <p><a href='https://portagenetwork.ca/planning-managing-data/'>How to manage your data</a></p>
-          <p><a href='https://portagenetwork.ca/planning-managing-data/frequently-asked-questions/'>Data management planning FAQ</a></p>
-          <p><a href='https://portagenetwork.ca/planning-managing-data/contacts-at-your-organization/'>Contacts at your institution</a></p>
+    <ul class='list'>
+    <li class='list'><a href='https://portagenetwork.ca/planning-managing-data/'>How to manage your data</a>
+    <li class='list'><a href='https://portagenetwork.ca/planning-managing-data/frequently-asked-questions/'>Data management planning FAQ</a>
+    <li class='list'><a href='https://portagenetwork.ca/planning-managing-data/contacts-at-your-organization/'>Contacts at your institution</a>
+    </ul>
 
-          If you require more guidance, email <a href='mailto:support@portagenetwork.ca'>support@portagenetwork.ca</a>"
+    If you require more guidance, email <a href='mailto:support@portagenetwork.ca'>support@portagenetwork.ca</a>"
 
     body_text_tab_1_html: "<p>When you login to DMP Assistant you will be directed to the 'My plans' page. From here you can edit, share, export or delete any of your plans. You will also see plans that have been shared with you by others.</p>
     <h3>Create a plan</h3>

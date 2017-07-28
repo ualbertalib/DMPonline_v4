@@ -701,9 +701,11 @@ L'Assistant PGD est un outil d'aide à la préparation d'un plan de gestion des 
     Tous ces modèles sont conçus pour vous aider à planifier la collecte, l’organisation, la sécurisation, le partage et la diffusion de vos données.
     Si vous avez besoin d'aide pour développer votre plan de gestion des données, les ressources suivantes pourraient vous être utiles:</p>
 
-    <p><a href='https://portagenetwork.ca/fr/comment-gerer-vos-donnees/'>Comment gérer vos données</a></p>
-    <p><a href='https://portagenetwork.ca/fr/comment-gerer-vos-donnees/foire-aux-questions/'>FAQ sur la planification de la gestion des données</a></p>
-    <p><a href='https://portagenetwork.ca/fr/comment-gerer-vos-donnees/personne-ressource-dans-votre-institution/'>Personne-ressource dans votre institution</a></p>
+    <ul class='list'>
+    <li class='list'><a href='https://portagenetwork.ca/fr/comment-gerer-vos-donnees/'>Comment gérer vos données</a>
+    <li class='list'><a href='https://portagenetwork.ca/fr/comment-gerer-vos-donnees/foire-aux-questions/'>FAQ sur la planification de la gestion des données</a>
+    <li class='list'><a href='https://portagenetwork.ca/fr/comment-gerer-vos-donnees/personne-ressource-dans-votre-institution/'>Personne-ressource dans votre institution</a>
+    </ul>
 
      Si vous avez besoin de plus d’information, communiquez avec nous par courriel à
      <a href='mailto:support@portagenetwork.ca'>support@portagenetwork.ca</a>"
