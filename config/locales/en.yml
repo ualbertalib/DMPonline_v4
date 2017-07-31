@@ -740,33 +740,3 @@ Organizations may provide their own DMP templates. The Portage template is the d
     intro_text_html: "<p>DMP Assistant is provided by the University of Alberta Libraries. You can find out more about us on our <a href='http://library.ualberta.ca/researchdata/' target='_blank'>Research Data Management page</a>. If you would like to contact us about DMP Assistant, please insert your query into the webform below or email <a href='mailto:support@portagenetwork.ca?Subject=DMP%20Assistant%20inquiry' target='_top'>support@portagenetwork.ca</a>.</p>
      <p><a href='http://library.ualberta.ca/askus/' target='_blank'>Contact Us</a></p>"
 
-  terms_page:
-    title: "Licensing and terms of use"
-    body_text_html: "
-    <div class='white_background'>
-    <p>Portage Network is a library-based research data management network in Canada. </p>
-    <h3>DMP Assistant</h3>
-    <p>DMP Assistant ('the tool', 'the system') is powered by an open source application called <a href='https://dmponline.dcc.ac.uk'>DMPOnline</a>, which is developed by the Digital Curation Centre (DCC) and shared under an <a href='http://www.gnu.org/licenses/agpl-3.0.html'>AGPL license.</a></p>
-    <h3>Data management planning templates and resources</h3>
-    <p>The Portage Data Stewardship Template and associated guidance on <a href='https://assistant.portagenetwork.ca'>Portage DMP Assistant</a> (but not the plans themselves) are under a <a href='http://creativecommons.org/publicdomain/zero/1.0/'>Creative Commons Zero License.</a></p>
-
-    <p><a href='http://creativecommons.org/publicdomain/zero/1.0/'><img src='http://i.creativecommons.org/p/zero/1.0/88x31.png' alt='CC0' /></a></p>
-
-    <p>Institutional data management planning templates and their associated guidance are under their own Creative Commons License terms. <a href='help#contact_info'>Contact individual institution</a> for more details.
-    </div>
-
-
-
-    <h3>Your personal information</h3>
-    <div class='white_background'>
-      <p>The University of Alberta Libraries hosts the DMP Assistant and stores your data management plans on your behalf, but the plans are your property and responsibility. Information stored by the DMP Assistant is governed by the University of Alberta Libraries <a href='https://www.library.ualberta.ca/about-us/policies/privacy-policy'>website privacy policy</a>.</p>
-    </div>
-
-    <h3>Passwords</h3>
-    <div class='white_background'>
-      <p>Your password is stored in encrypted form and cannot be retrieved. If forgotten it has to be reset.</p>
-    </div>
-
-    <br />
-    <div class='white_background'>
-    <p>Use of the tool indicates that you understand and agree to these terms and conditions.</p></div>"
