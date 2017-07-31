@@ -1,7 +1,7 @@
 TERMS_OF_USE_URL='https://portagenetwork.ca/portage-dmp-assistant-terms-use/'
 DMPonline4::Application.routes.draw do
  get '/help', to: redirect("/#{I18n.default_locale}/help")
- get '/terms', to: redirect("/#{I18n.default_locale}/terms")
+ get '/terms', to: redirect(TERMS_OF_USE_URL)
  get '/about_us', to: redirect("/#{I18n.default_locale}/about_us")
  devise_for :users, skip: [:session, :password, :registration, :confirmation], :controllers => { :omniauth_callbacks => 'users/omniauth_callbacks'} do
    	get "/users/sign_out", :to => "devise/sessions#destroy"
@@ -26,7 +26,6 @@ DMPonline4::Application.routes.draw do
     get "about_us" => 'static_pages#about_us', :as => "about_us"
     get "help" => 'static_pages#help', :as => "help"
     get "roadmap" => 'static_pages#roadmap', :as => "roadmap"
-    # get "terms" => 'static_pages#termsuse', :as => "terms"
     get "terms" => redirect(TERMS_OF_USE_URL), :as => "terms"
     get "existing_users" => 'existing_users#index', :as => "existing_users"
 
