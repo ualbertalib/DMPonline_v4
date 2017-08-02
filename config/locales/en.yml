@@ -1,4 +1,5 @@
 en:
+  terms_url: 'https://portagenetwork.ca/portage-dmp-assistant-terms-use/'
   date:
     formats:
       # Use the strftime parameters for formats.
@@ -336,7 +337,7 @@ en:
     no_unlock_instructions: "Didn't receive unlock instructions?"
     send_password_info: "Reset password instructions"
     edit_password_info: "If you would like to change your password please complete the following fields."
-    accept_terms_html: " I accept the <a href='terms'>terms and conditions</a> *"
+    accept_terms_html: "I accept the <a href='%{terms_url}'>terms and conditions</a> *"
 
     text_area: "Text area"
     text_field: "Text field"
