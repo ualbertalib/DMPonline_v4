@@ -10,14 +10,14 @@
       <% end %>
 
    			</p>
-       	
-    </div>	
+
+    </div>
    	<div class="right_side_footer">
-   		<br/> <br/> <a href="https://library.ualberta.ca/about-us/policies/privacy-policy">Web Site Privacy Policy</a> | <%= link_to t('helpers.terms'), terms_path %>
+        <br/> <br/> <a href="https://library.ualberta.ca/about-us/policies/privacy-policy">Web Site Privacy Policy</a> | <a href=<%= t('terms_url')%>>Terms and Conditions</a>
  </p>
-   	</div>	
-    
-    
+   	</div>
+
+
 </footer>
 
 <% if !user_signed_in? then %>
