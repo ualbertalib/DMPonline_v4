@@ -284,6 +284,7 @@ fr:
     news_label: "Nouvelles"
     help_label: "Aide"
     contact_label: "Contact"
+    terms_label: "Conditions D'utilisation"
     jisc: "Le DCC est financé par"
 
     greeting: "Bonjour"
