@@ -1,5 +1,4 @@
 fr:
-  terms_url: 'https://portagenetwork.ca/fr/conditions-dutilisation-de-lassistant-pgd-de-portage/'
   date:
     formats:
       # Use the strftime parameters for formats.
@@ -285,6 +284,8 @@ fr:
     help_label: "Aide"
     contact_label: "Contact"
     terms_label: "Conditions D'utilisation"
+    terms_url: 'https://portagenetwork.ca/fr/conditions-dutilisation-de-lassistant-pgd-de-portage/'
+    web_privacy_label: "Politique de confidentialité du site Web (en anglais)"
     jisc: "Le DCC est financé par"
 
     greeting: "Bonjour"
