@@ -298,6 +298,7 @@ en:
     news_label: "News"
     help_label: "Help"
     contact_label: "Contact"
+    terms_label: "Terms of Use"
     jisc: "The DCC is funded by"
 
     greeting: "Hello"

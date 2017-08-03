@@ -15,7 +15,7 @@
                    <% end %>
                 </div>
 
-  <div class="header_right">	
+  <div class="header_right">
     <div class="signIn">
       <ul class="navbar">
 	<% if user_signed_in? %>
@@ -27,37 +27,37 @@
 							<li><%= link_to t("helpers.edit_profile"), edit_user_registration_path, :class => "signIn_dropdown_link" %></li>
 							<% if current_user.is_admin? %>
 								<li><%= link_to t("helpers.admin_area"), admin_root_path, :class => "signIn_dropdown_link" %></li>
-							<%end%>	
+							<%end%>
 							<% if current_user.is_org_admin? %>
 								<li><%= link_to t("org_admin.admin_area"), admin_index_dmptemplate_path(current_user.organisation_id), :class => "signIn_dropdown_link" %></li>
-							<%end%>	
+							<%end%>
 							<li><%= link_to t("helpers.sign_out"), destroy_user_session_path, method: :delete, :class => "signIn_dropdown_link" %></li>
-							
+
 						</ul>
 	            	</li>
 	            <% else %>
-	            	
+
 	            	<li>
 	            	<% unless controller_name == "home" && action_name == "index" then %>
-						<a href="#header-login-form" data-toggle="modal"><%= t("helpers.sign_in")%></a> / 
+						<a href="#header-login-form" data-toggle="modal"><%= t("helpers.sign_in")%></a> /
 						<a href="#header-register-form" data-toggle="modal"><%= t("helpers.sign_up")%></a>
 					<% else %>
                   <%= raw "&nbsp;" %>
                 <% end %>
 					</li>
-				<% end %> 
+				<% end %>
 			</ul>
-		</div>	
+		</div>
 
 		<!-- main menu -->
 		<div class="main_nav">
 			<ul class="nav nav-pills">
 
 				<!-- Navigation for organisation admin -->
-                <% if (user_signed_in? && current_user.is_org_admin? && ( action_name.include? "admin_" ) ) %>
+              <% if (user_signed_in? && current_user.is_org_admin? && ( action_name.include? "admin_" ) ) %>
                 	<li>
 	                    <%= link_to t("org_admin.template_label"), admin_index_dmptemplate_path(current_user.organisation_id), :class => "btn header_button btn-primary" %>
-	                </li>    
+	                </li>
 	                <li>
 	                	<%= link_to t("org_admin.guidance_label"), admin_index_guidance_path(current_user.organisation_id), :class => "btn header_button btn-primary"%>
 	                </li>
@@ -67,29 +67,28 @@
 	                <li>
 	                	<%= link_to t("org_admin.user_list_label"), org_admin_users_path, :class => "btn header_button btn-primary"%>
 	                </li>
-                <% else %>
+              <% else %>
                 	<% if user_signed_in? %>
-		           		<li>
+		           		  <li>
 		                    <%= link_to t("helpers.view_plans_label"), projects_path, :class => "btn header_button btn-primary" %>
-		                </li>    
+		                </li>
 		                <li>
 		                	<%= link_to t("helpers.create_plan_label"), new_project_path , :class => "btn header_button btn-primary"%>
 		                </li>
-			                 
 	                <% else %>
 	                	<li>
-	                    	<%= link_to t("helpers.home"), locale_root_path , :class => "btn header_button btn-primary"%>            
+	                    	<%= link_to t("helpers.home"), locale_root_path , :class => "btn header_button btn-primary"%>
 	                	</li>
 	                <% end %>
-	           		<li>
-						<%= link_to t('helpers.about_us_label'), about_us_path, :class => "btn header_button btn-primary"%>
-					</li>
-					<li class="last_li">
-	                    <%= link_to t('helpers.help_label'), help_path, :class => "btn header_button btn-primary"%>
-	            	</li>
-	            <%end%>	
+	           		  <li>
+						        <%= link_to t('helpers.about_us_label'), about_us_path, :class => "btn header_button btn-primary"%>
+					        </li>
+					        <li class="last_li">
+	                  <%= link_to t('helpers.terms_label'), t('terms_url'), :class => "btn header_button btn-primary"%>
+	                </li>
+	            <%end%>
 	      	</ul>
-          		
-    	</div>	
+
+    	</div>
 	</div>
-</header>    
+</header>
