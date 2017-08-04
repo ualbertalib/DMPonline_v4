@@ -1,5 +1,4 @@
 en:
-  terms_url: 'https://portagenetwork.ca/portage-dmp-assistant-terms-use/'
   date:
     formats:
       # Use the strftime parameters for formats.
@@ -299,6 +298,8 @@ en:
     help_label: "Help"
     contact_label: "Contact"
     terms_label: "Terms of Use"
+    terms_url: 'https://portagenetwork.ca/portage-dmp-assistant-terms-use/'
+    web_privacy_label: "Web Site Privacy Policy"
     jisc: "The DCC is funded by"
 
     greeting: "Hello"
