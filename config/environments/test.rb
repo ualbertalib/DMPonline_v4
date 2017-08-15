@@ -1,6 +1,3 @@
-##Any changes make here will be overwritten by the Ansible Playbook during deployment##
-##please communicate any of the changes required to the system administrator##
-
 DMPonline4::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
@@ -30,7 +27,17 @@ DMPonline4::Application.configure do
   # Tell Action Mailer not to deliver emails to the real world.
   # The :test delivery method accumulates sent emails in the
   # ActionMailer::Base.deliveries array.
-  config.action_mailer.delivery_method = :test
+   #devise config
+  config.action_mailer.default_url_options = { :host => ENV["MAILER_DEFAULT_HOST"] }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = { :address => "localhost", :port => 25 }
+
+  ActionMailer::Base.default :from => ENV["MAILER_FROM"]
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = { :address => "localhost", :port => 25 }
+
+
+#  config.action_mailer.delivery_method = :test
 
   # Raise exception on mass assignment protection for Active Record models
   config.active_record.mass_assignment_sanitizer = :strict
