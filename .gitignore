@@ -52,8 +52,6 @@ public/assets/rails.png
 
 db/schema.rb
 
-config/database.yml
-
 config/initializers/recaptcha.rb
 
 config/initializers/devise.rb
@@ -62,9 +60,9 @@ config/initializers/secret_token.rb
 
 config/initializers/contact_us.rb
 
-config/environments/*.rb
+config/secrets.yml
 
 .secret
 
-properties.yml
 .project
+

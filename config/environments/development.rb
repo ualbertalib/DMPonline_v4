@@ -1,6 +1,3 @@
-##Any changes make here will be overwritten by the Ansible Playbook during deployment##
-##please communicate any of the changes required to the system administrator##
-
 DMPonline4::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
@@ -39,31 +36,29 @@ DMPonline4::Application.configure do
   config.assets.debug = true
 
   #devise config
-  config.action_mailer.default_url_options = { :host => 'houston.library.ualberta.ca' }
+  config.action_mailer.default_url_options = { :host => ENV["MAILER_DEFAULT_HOST"] }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = { :address => "localhost", :port => 25 }
-  
-  ActionMailer::Base.default :from => 'dittest@ualberta.ca'
+
+  ActionMailer::Base.default :from => ENV["MAILER_FROM"]
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = { :address => "localhost", :port => 25 }
-  
-  
+
 	# Add the fonts path
 	config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
-	
+
 	# Precompile additional assets
 	config.assets.precompile += %w( .svg .eot .woff .ttf )
 
 	# Error notifications by email
 	 config.middleware.use ExceptionNotification::Rack,
 	  :email => {
-	    :email_prefix => "[DMP Builder ERROR] ",
-	    :sender_address => %{"No-reply" <noreply@library.ualberta.ca>},
-	    :exception_recipients => %w{dittest@ualberta.ca}
+	    :email_prefix => "[DMPonline4 ERROR] ",
+	    :sender_address => %{"No-reply" ENV["EXCEPT_SENDER"]},
+	    :exception_recipients => %w{ENV["EXCEPT_RECIPIENTS"]}
 	  }
-	  
-	
-config.action_mailer.perform_deliveries = true
-#config.action_mailer.raise_delivery_errors = true
-	  
+
+  config.action_mailer.perform_deliveries = true
+  #config.action_mailer.raise_delivery_errors = true
+
 end
