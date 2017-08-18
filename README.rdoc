@@ -22,24 +22,22 @@ DMPonline is a Ruby on Rails application and you will need to have Ruby 2.0.0p24
 
 Prerequisites
 -------------
-DMPonline is a Ruby on Rails application and you'll need to have Ruby 2.0.0p247 [x86_64-linux], plus Rails 3.2.13 on your server and a MySQL server v5.1 or greater.  
+DMPonline is a Ruby on Rails application and you'll need to have Ruby 2.0.0p247 [x86_64-linux], plus Rails 3.2.13 on your server and a MySQL server v5.1 or greater.
 
 You will need to ensure you have [RubyGems installed](http://guides.rubygems.org/rubygems-basics/) too. If you've had to upgrade the version of Ruby running on your server, don't forget to update the gems system too by running the following:
 
     $ gem update --system
     $ gem install bundler
 
-Further details on how to install Ruby on Rails applications are available from the [Ruby on Rails site](http://rubyonrails.org).  
+Further details on how to install Ruby on Rails applications are available from the [Ruby on Rails site](http://rubyonrails.org).
 
-While not a prerequisite, the DCC runs this using [Phusion Passenger 4](http://www.modrails.com/) with an Apache webserver  
+While not a prerequisite, the DCC runs this using [Phusion Passenger 4](http://www.modrails.com/) with an Apache webserver
 
-The shell utility [wkhtmltopdf](http://code.google.com/p/wkhtmltopdf/) is used to create PDF output and so this needs to be installed on your server.  
+The shell utility [wkhtmltopdf](http://code.google.com/p/wkhtmltopdf/) is used to create PDF output and so this needs to be installed on your server.
 
 == Getting Started
 
-After downloading, create a `config/database.yml` file based on the provided `config/database_example.yml` file. Currently only MySQL databases are supported.
-
-Edit the configuration files at `config/environments` to include your contact email addresses.
+After downloading, create a `config/secrets.yml` file based on the provided `config/secrets.yml.sample` file. Currently only MySQL databases are supported.
 
 Edit the configuration setting `config.action_mailer.default_url_options` in `config/application.rb`
 
@@ -51,10 +49,10 @@ Use [mailcatcher](http://mailcatcher.me) in development to send email.
 
 You'll need to install the gems, build the database and start the server:
 
-    $ cd dmponline4  
-    $ bundle update  
+    $ cd dmponline4
+    $ bundle update
     $ rake db:setup
-    $ rake db:populate  
+    $ rake db:populate
 You may also find the following resources handy:
 
 The second rake task creates a sample admin user.  See lib/tasks/user_data.rake for more details.

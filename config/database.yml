@@ -1,0 +1,44 @@
+# MySQL. Versions 5.1.10 and up are supported.
+#
+# Install the MySQL driver
+# gem install mysql2
+#
+# Ensure the MySQL gem is defined in your Gemfile
+# gem 'mysql2'
+#
+#
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: <%= ENV.fetch("RAILS_MYSQL_TIMEOUT") { 5000 } %>
+  username: <%= ENV.fetch("DMP_MYSQL_USERNAME") { "root" } %>
+  password: <%= ENV.fetch("DMP_MYSQL_PASSWORD") {""}%>
+  host: <%= ENV.fetch("DMP_MYSQL_HOST") {"localhost"}%>
+  database: <%= ENV.fetch("DMP_MYSQL_DBNAME") {"dmpdev"}%>
+
+development:
+  <<: *default
+  socket: /var/lib/mysql/mysql.sock
+
+
+test:
+  <<: *default
+  socket: /var/lib/mysql/mysql.sock
+
+
+# As with config/secrets.yml, you never want to store sensitive information,
+# like your database password, in your source code. If your source code is
+# ever seen by anyone, they now have access to your database.
+#
+# Instead, provide the password as a unix environment variable when you boot
+# the app. Read http://guides.rubyonrails.org/configuring.html#configuring-a-database
+# for a full rundown on how to provide these environment variables in a
+# production deployment.
+#
+
+staging:
+  <<: *default
+
+production:
+  <<: *default
