@@ -15,17 +15,16 @@ default: &default
   username: <%= ENV.fetch("DMP_MYSQL_USERNAME") { "root" } %>
   password: <%= ENV.fetch("DMP_MYSQL_PASSWORD") {""}%>
   host: <%= ENV.fetch("DMP_MYSQL_HOST") {"localhost"}%>
+  database: <%= ENV.fetch("DMP_MYSQL_DBNAME") {"dmpdev"}%>
 
 development:
   <<: *default
   socket: /var/lib/mysql/mysql.sock
-  database: <%= ENV.fetch("DMP_MYSQL_DBNAME") {"dmpdev"}%>
 
 
 test:
   <<: *default
   socket: /var/lib/mysql/mysql.sock
-  database: <%= ENV.fetch("DMP_MYSQL_DBNAME") {"dmptest"}%>
 
 
 # As with config/secrets.yml, you never want to store sensitive information,
@@ -40,8 +39,6 @@ test:
 
 staging:
   <<: *default
-  database: <%= ENV["DMP_MYSQL_DBNAME"] %>
 
 production:
   <<: *default
-  database: <%= ENV["DMP_MYSQL_DBNAME"] %>
