@@ -60,6 +60,8 @@ config/initializers/secret_token.rb
 
 config/initializers/contact_us.rb
 
+config/secrets.yml
+
 .secret
 
 .project
