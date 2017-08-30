@@ -1,8 +1,0 @@
-Description:
-    Initialize and configure a dragonfly 'app', ready for serving images and other content!
-
-Example:
-    rails generate dragonfly
-
-    This will create:
-        config/initializers/dragonfly.rb
