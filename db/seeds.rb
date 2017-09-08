@@ -25,7 +25,7 @@ organisation_types = {
  }
 
 organisation_types.each do |org_type, details|
-  exists = OrganisationType.find_by_name(details[:name])  
+  exists = OrganisationType.find_by_name(details[:name])
   if !exists
     organisation_type = OrganisationType.new
     organisation_type.name = details[:name]
@@ -56,7 +56,7 @@ organisations.each do |org, details|
      organisation.save!
    end
 end
- 
+
 roles = {
   'admin' => {
     name: "admin"
@@ -75,7 +75,7 @@ end
 # uses encrypted password.  See passwrod safe!
 exists = User.find_by_email('dittest@ualberta.ca')
 if !exists
- 
+
   admin = User.new(
     {firstname: "DMP", surname: "Administrator", email: "dittest@ualberta.ca",
      password: "password", password_confirmation: "password"})
@@ -119,7 +119,7 @@ end
 user_statuses = {
   "Active" => {
     name: "Active"
-  }, 
+  },
   "Archived" => {
     name: "Archived"
   }
@@ -133,20 +133,20 @@ user_statuses.each do |us, details|
     user_status.save!
   end
 end
-    
+
 themes = {
   "Related Policies" => {
-    title: "Related Policies", 
+    title: "Related Policies",
     locale: "en"
-  }, 
+  },
   "Licensing of Existing Data" => {
-    title: "Licensing of Existing Data", 
+    title: "Licensing of Existing Data",
     locale: "en"
-  }, 
+  },
   "Responsibilities" => {
     title: "Responsibilities",
     locale: "en"
-  }, 
+  },
   "Discovery by Users" => {
     title: "Discovery by Users",
     locale: "en"
@@ -168,11 +168,11 @@ themes = {
     locale: "en"
   },
   "Method For Data Sharing" => {
-    title: "Method For Data Sharing", 
+    title: "Method For Data Sharing",
     locale: "en"
   },
   "Active Data Storage" => {
-    title: "Active Data Storage", 
+    title: "Active Data Storage",
     locale: "en"
   },
   "Data Capture Methods" => {
@@ -180,99 +180,99 @@ themes = {
     locale: "en"
   },
   "Existing Data" => {
-    title: "Existing Data", 
+    title: "Existing Data",
     locale: "en"
-  }, 
+  },
   "Restrictions on Sharing" => {
-    title: "Restrictions on Sharing", 
+    title: "Restrictions on Sharing",
     locale: "en"
-  }, 
+  },
   "Data Repository" => {
-    title: "Data Repository", 
+    title: "Data Repository",
     locale: "en"
-  }, 
+  },
   "Timeframe For Data Sharing" => {
-    title: "Timeframe For Data Sharing", 
+    title: "Timeframe For Data Sharing",
     locale: "en"
-  }, 
+  },
   "Expected Reuse" => {
-    title: "Expected Reuse", 
+    title: "Expected Reuse",
     locale: "en"
   },
   "Description of Data Content" => {
-    title: "Description of Data Content", 
+    title: "Description of Data Content",
     locale: "en"
   },
   "Resourcing: Preservation and Data Sharing" => {
-    title: "Resourcing: Preservation and Data Sharing", 
+    title: "Resourcing: Preservation and Data Sharing",
     locale: "en"
   },
   "Data Quality" => {
-    title: "Data Quality", 
+    title: "Data Quality",
     locale: "en"
   },
   "Data Selection" => {
-    title: "Data Selection", 
+    title: "Data Selection",
     locale: "en"
   },
   "Metadata Capture" => {
-    title: "Metadata Capture", 
+    title: "Metadata Capture",
     locale: "en"
   },
   "Relationship to Existing Data" => {
-    title: "Relationship to Existing Data", 
+    title: "Relationship to Existing Data",
     locale: "en"
   },
   "Data Volumes" => {
-    title: "Data Volumes", 
+    title: "Data Volumes",
     locale: "en"
   },
   "IPR Ownership and Licencing" => {
-    title: "IPR Ownership and Licencing", 
+    title: "IPR Ownership and Licencing",
     locale: "en"
   },
   "Embargo Period" => {
-    title: "Embargo Period", 
+    title: "Embargo Period",
     locale: "en"
   },
   "Managed Access Procedures" => {
-    title: "Managed Access Procedures", 
+    title: "Managed Access Procedures",
     locale: "en"
   },
   "Ethical Issues" => {
-    title: "Ethical Issues", 
+    title: "Ethical Issues",
     locale: "en"
   },
   "Data Organization" => {
-    title: "Data Organization", 
+    title: "Data Organization",
     locale: "en"
   },
   "Metadata Standards" => {
-    title: "Metadata Standards", 
+    title: "Metadata Standards",
     locale: "en"
   },
   "Documentation" => {
-    title: "Documentation", 
+    title: "Documentation",
     locale: "en"
   },
   "Backup Procedures" => {
-    title: "Backup Procedures", 
+    title: "Backup Procedures",
     locale: "en"
   },
   "Resourcing: Skills and Training" => {
-    title: "Resourcing: Skills and Training", 
+    title: "Resourcing: Skills and Training",
     locale: "en"
   },
   "Data Type" => {
-    title: "Data Type", 
+    title: "Data Type",
     locale: "en"
   },
   "Audience" => {
-    title: "Audience", 
+    title: "Audience",
      locale: "en"
   },
   "Data Format" => {
-    title: "Data Format", 
+    title: "Data Format",
     locale: "en"
   }
 }
@@ -300,7 +300,7 @@ user_org_roles.each do |r, details|
    user_org_role.user_id = User.find_by_email(details[:user]).id
    user_org_role.organisation_id = Organisation.find_by_name(details[:organisation]).id
    user_org_role.save!
-end 
+end
 
 templates = {
   "Portage" => {
@@ -349,7 +349,7 @@ phases = {
 
 versions = {
   "Portage" => {
-    title: "Portage Version 1", 
+    title: "Portage Version 1",
     published: true,
     number: 1,
     phase: "Portage Data Management Questions"
@@ -370,54 +370,54 @@ versions = {
 
 sections = {
   "Portage - Data Collection" => {
-    title: "Data Collection", 
-    number: 1, 
-    version: "Portage Version 1", 
+    title: "Data Collection",
+    number: 1,
+    version: "Portage Version 1",
     organisation: "Portage",
     description: "This section addresses data collection issues such as data types, file formats, naming conventions, and data organisation – factors that will improve the usability of your data and contribute to the success of your project."
   },
   "Portage - Documentation and Metadata" => {
     title: "Documentation and Metadata",
     number: 2,
-    version: "Portage Version 1", 
-    organisation: "Portage", 
+    version: "Portage Version 1",
+    organisation: "Portage",
     description: "Because data are rarely self-explanatory, all research data should be accompanied by metadata (information that describes the data according to community best practices).  Metadata standards vary across disciplines, but generally state who created the data and when, how the data were created, their quality, accuracy, and precision, as well as other features necessary to facilitate data discovery, understanding and reuse. </br>Any restrictions on use of the data must be explained in the metadata, along with information on how to obtain approved access to the data, where possible."
-  }, 
+  },
   "Portage - Storage and Backup" => {
-    title: "Storage and Backup", 
-    number: 3, 
-    version: "Portage Version 1", 
-    organisation: "Portage", 
+    title: "Storage and Backup",
+    number: 3,
+    version: "Portage Version 1",
+    organisation: "Portage",
     description: "Planning how research data will be stored and backed up throughout and beyond a research project is critical in ensuring data security and integrity. Appropriate storage and backup not only helps protect research data from catastrophic losses (due to hardware and software failures, viruses, hackers, natural disasters, human error, etc.), but also facilitates appropriate access by current and future researchers."
-  }, 
+  },
   "Portage - Preservation" => {
-    title: "Preservation", 
-    number: 4, 
-    version: "Portage Version 1", 
-    organisation: "Portage", 
+    title: "Preservation",
+    number: 4,
+    version: "Portage Version 1",
+    organisation: "Portage",
     description: "Data preservation will depend on potential reuse value, whether there are obligations to either retain or destroy data, and the resources required to properly curate the data and ensure that it remains usable in the future. In some circumstances, it may be desirable to preserve all versions of the data (e.g. raw, processed, analyzed, final), but in others, it may be preferable to keep only selected or final data (e.g. transcripts instead of audio interviews)."
-  }, 
+  },
   "Portage - Sharing and Reuse" => {
-    title: "Sharing and Reuse", 
-    number: 5, 
-    version: "Portage Version 1", 
-    organisation: "Portage", 
+    title: "Sharing and Reuse",
+    number: 5,
+    version: "Portage Version 1",
+    organisation: "Portage",
     description: "Most Canadian research funding agencies now have policies requiring research data to be shared upon publication of the research results or within a reasonable period of time. While data sharing contributes to the visibility and impact of research, it has to be balanced with the legitimate desire of researchers to maximise their research outputs before releasing their data. Equally important is the need to protect the privacy of respondents and to properly handle sensitive data."
-  }, 
+  },
   "Portage - Responsibilities and Resources" => {
-    title: "Responsibilities and Resources", 
-    number: 6, 
-    version: "Portage Version 1", 
-    organisation: "Portage", 
+    title: "Responsibilities and Resources",
+    number: 6,
+    version: "Portage Version 1",
+    organisation: "Portage",
     description: "Data management focuses on the 'what' and 'how' of operationally supporting data across the research lifecycle.  Data stewardship focuses on 'who' is responsible for ensuring that data management happens. A large project, for example, will involve multiple data stewards. The Principal Investigator should identify at the beginning of a project all of the people who will have responsibilities for data management tasks during and after the project."
-  }, 
+  },
   "Portage - Ethics and Legal Compliance" => {
-    title: "Ethics and Legal Compliance", 
-    number: 7, 
-    version: "Portage Version 1", 
-    organisation: "Portage", 
+    title: "Ethics and Legal Compliance",
+    number: 7,
+    version: "Portage Version 1",
+    organisation: "Portage",
     description: "Researchers and their teams need to be aware of the policies and processes, both ethical and legal, to which their research data management must comply. Protection of respondent privacy is of paramount importance and informs many data management practices.  In their data management plan, researchers must state how they will prepare, store, share, and archive the data in a way that ensures participant information is protected, throughout the research lifecycle, from disclosure, harmful use, or inappropriate linkages with other personal data.</br>It's recognized that there may be cases where certain data and metadata cannot be made public for various policy or legal reasons, however, the default position should be that all research data and metadata are public."
-  } 
+  }
 }
 
  sections.each do |s, details|
@@ -438,43 +438,43 @@ sections = {
      section.save!
    end
  end
- 
- 
+
+
 
 questions = {
 
   "Portage1-1" => {
-    text: "What types of data will you collect, create, link to, acquire and/or record?", 
+    text: "What types of data will you collect, create, link to, acquire and/or record?",
     section: "Data Collection",
-    organisation: "Portage", 
-    number: 1, 
-    question_format: "Text area", 
+    organisation: "Portage",
+    number: 1,
+    question_format: "Text area",
     guidance: "<p>Examples: numeric, images, audio, video, text, tabular data, modeling data, spatial data, instrumentation data.</p>"
-  }, 
+  },
   "Portage1-2" => {
     text: "What file formats will your data be collected in? Will these formats allow for data re-use, sharing and long-term access to the data?",
-    section: "Data Collection", 
+    section: "Data Collection",
     organisation: "Portage",
-    number: 2, 
-    question_format: "Text area", 
+    number: 2,
+    question_format: "Text area",
     guidance: "<p>Proprietary file formats requiring specialized software or hardware to use are not recommended, but may be necessary for certain data collection or analysis methods. Using open file formats or industry-standard formats (e.g. those widely used by a given community) is preferred whenever possible. </p><p>Read more about file formats: <a href=\"http://researchdata.library.ubc.ca/plan/format-your-data/\" target=\"_blank\">UBC Library</a> or <a href=\"http://data-archive.ac.uk/create-manage/format/formats\" target=\"_blank\">UK Data Archive</a>.</p>"
-  }, 
+  },
   "Portage1-3" => {
-    text: "What conventions and procedures will you use to structure, name and version-control your files to help you and others better understand how your data are organized?", 
-    section: "Data Collection", 
+    text: "What conventions and procedures will you use to structure, name and version-control your files to help you and others better understand how your data are organized?",
+    section: "Data Collection",
     organisation: "Portage",
-    number: 3, 
-    question_format: "Text area", 
+    number: 3,
+    question_format: "Text area",
     guidance: "<p>It is important to keep track of different copies or versions of files, files held in different formats or locations, and information cross-referenced between files. This process is called 'version control'. </p><p>Logical file structures, informative naming conventions, and clear indications of file versions, all contribute to better use of your data during and after your research project.  These practices will help ensure that you and your research team are using the appropriate version of your data, and minimize confusion regarding copies on different computers and/or on different media. </p><p>Read more about file naming and version control: <a href=\"http://researchdata.library.ubc.ca/plan/organize-your-data/\" target=\"_blank\">UBC Library</a> or <a href=\"http://data-archive.ac.uk/create-manage/format/versions\" target=\"_blank\">UK Data Archive</a>.</p>"
   },
   "Portage2-1" => {
-    text: "What documentation will be needed for the data to be read and interpreted correctly in the future?", 
-    section: "Documentation and Metadata", 
+    text: "What documentation will be needed for the data to be read and interpreted correctly in the future?",
+    section: "Documentation and Metadata",
     organisation: "Portage",
-    number: 1, 
-    question_format: "Text area", 
+    number: 1,
+    question_format: "Text area",
     guidance: "<p>Typically, good documentation includes information about the study, data-level descriptions, and any other contextual information required to make the data usable by other researchers.  Other elements you should document, as applicable, include: research methodology used, variable definitions, vocabularies, classification systems, units of measurement, assumptions made, format and file type of the data, a description of the data capture and collection methods, explanation of data coding and analysis performed (including syntax files), and details of who has worked on the project and performed each task, etc.</p>"
-  }, 
+  },
   "Portage2-2" => {
     text: "How will you make sure that documentation is created or captured consistently throughout your project?",
     section: "Documentation and Metadata",
@@ -505,7 +505,7 @@ questions = {
     organisation: "Portage",
     number: 2,
     question_format: "Text area",
-    guidance: "<p>The risk of losing data due to human error, natural disasters, or other mishaps can be mitigated by following the <a href=\"http://dataabinitio.com/?p=501\" target=\"_blank\">3-2-1 backup rule</a>:<br><ul><li>Have at least three copies of your data.</li><li>Store the copies on two different media.</li><li>Keep one backup copy offsite</li></ul></p><p>Data may be stored using optical or magnetic media, which can be removable (e.g. DVD and USB drives), fixed (e.g. desktop or laptop hard drives), or networked (e.g. networked drives or cloud-based servers). Each storage method has benefits and drawbacks that should be considered when determining the most appropriate solution. </p><p>Further information on storage and backup practices is available from the <a href=\"https://www.sheffield.ac.uk/library/rdm/storage\" target=\"_blank\">University of Sheffield Library</a> and the <a href=\"http://www.data-archive.ac.uk/create-manage/storage/back-up\" target=\"_blank\">UK Data Archive</a>.</p>"
+    guidance: "<p>The risk of losing data due to human error, natural disasters, or other mishaps can be mitigated by following the <a href=\"http://dataabinitio.com/?p=501\" target=\"_blank\">3-2-1 backup rule</a>:<br><ul><li>Have at least three copies of your data.</li><li>Store the copies on two different media.</li><li>Keep one backup copy offsite</li></ul></p><p>Data may be stored using optical or magnetic media, which can be removable (e.g. DVD and USB drives), fixed (e.g. desktop or laptop hard drives), or networked (e.g. networked drives or cloud-based servers). Each storage method has benefits and drawbacks that should be considered when determining the most appropriate solution. </p><p>Further information on storage and backup practices is available from the <a href=\"https://www.sheffield.ac.uk/library/rdm/safedata\" target=\"_blank\">University of Sheffield Library</a> and the <a href=\"http://www.data-archive.ac.uk/create-manage/storage/back-up\" target=\"_blank\">UK Data Archive</a>.</p>"
   },
   "Portage3-3" => {
     text: "How will the research team and other collaborators access, modify, and contribute data throughout the project?",
@@ -572,7 +572,7 @@ questions = {
     guidance: "<p>Indicate a succession strategy for these data in the event that one or more people responsible for the data leaves (e.g. a graduate student leaving after graduation). Describe the process to be followed in the event that the Principal Investigator leaves the project. In some instances, a co-investigator or the department or division overseeing this research will assume responsibility.</p>"
   },
   "Portage6-3" => {
-    text: "What resources will you require to implement your data management plan? What do you estimate the overall cost for data management to be?",   
+    text: "What resources will you require to implement your data management plan? What do you estimate the overall cost for data management to be?",
     section: "Responsibilities and Resources",
     organisation: "Portage",
     number: 3,
@@ -598,7 +598,7 @@ questions = {
   "Portage7-3" => {
     text: "How will you manage legal, ethical, and intellectual property issues?",
     section: "Ethics and Legal Compliance",
-    organisation: "Portage",    
+    organisation: "Portage",
     number: 3,
     question_format: "Text area",
     guidance: "<p>Compliance with privacy legislation and laws that may impose content restrictions in the data should be discussed with your institution's privacy officer or research services office. Research Ethics Boards are central to the research process.</p><p>Include here a description concerning ownership, licensing, and intellectual property rights of the data. Terms of reuse must be clearly stated, in line with the relevant legal and ethical requirements where applicable (e.g., subject consent, permissions, restrictions, etc.).</p>"
@@ -613,7 +613,7 @@ questions = {
       exists = true if s.section.to_s == details[:section] && s.section.organisation == details[:organisation]
     end
   end
-      
+
   if !exists
     question = Question.new
     question.text = details[:text]
@@ -624,41 +624,41 @@ questions = {
     question.save!
   end
  end
- 
+
 questions_locales = {
 
   "Portage1-1" => {
-    text: "Quels types de données allez-vous recueillir, créer, lier, acquérir ou enregistrer?", 
+    text: "Quels types de données allez-vous recueillir, créer, lier, acquérir ou enregistrer?",
     section: "Data Collection",
-    organisation: "Portage", 
-    number: 1, 
-    locale: "fr", 
+    organisation: "Portage",
+    number: 1,
+    locale: "fr",
     guidance: "<p>Exemples : données numériques, images, audio, vidéo, texte, données tabulaires, données de modélisation, données spatiales, données d'instrumentation</p>"
-  }, 
+  },
   "Portage1-2" => {
     text: "Dans quels formats de fichier vos données seront-elles recueillies? Ces formats permettront-ils la réutilisation des données, le partage et l'accès à long terme aux données?",
-    section: "Data Collection", 
+    section: "Data Collection",
     organisation: "Portage",
-    number: 2, 
+    number: 2,
     locale: "fr",
     guidance: "<p>Les formats propriétaires nécessitant l'utilisation de logiciels ou de matériels spécialisés ne sont pas recommandés, mais peuvent être nécessaires pour certaines méthodes d'analyse ou de collecte des données. L'utilisation de formats de fichier ouverts ou de formats conformes aux normes de l'industrie (p. ex. les formats largement utilisés par une communauté donnée) est préférable dans la mesure du possible. </p>Pour en savoir plus sur les formats de fichier, consultez les sites suivants : <a href=\"http://researchdata.library.ubc.ca/plan/format-your-data/\" target=\"_blank\">UBC Library</a> ou <a href=\"http://data-archive.ac.uk/create-manage/format/formats\" target=\"_blank\">UK Data Archive</a>.</p>"
-  }, 
+  },
   "Portage1-3" => {
-    text: "Quelles conventions et procédures utiliserez-vous pour structurer et nommer vos fichiers et en contrôler les versions afin de vous aider, ainsi que les utilisateurs potentiels, à mieux comprendre la façon dont vos données sont organisées?", 
-    organisation: "Portage", 
-    section: "Data Collection", 
+    text: "Quelles conventions et procédures utiliserez-vous pour structurer et nommer vos fichiers et en contrôler les versions afin de vous aider, ainsi que les utilisateurs potentiels, à mieux comprendre la façon dont vos données sont organisées?",
+    organisation: "Portage",
+    section: "Data Collection",
     number: 3,
-    locale: "fr", 
+    locale: "fr",
     guidance: "<p>Il est important de garder la trace des multiples copies ou versions des fichiers, des différents fichiers conservés dans plus d'un format ou à divers emplacements et des renseignements qui font l'objet de renvois croisés entre les fichiers. Ce processus s'appelle « contrôle de versions ».  </p>Des structures de fichier logiques, des conventions d'appellation informatives et des indications claires des versions de fichier aident à mieux utiliser vos données pendant et après votre projet de recherche. Ces pratiques permettront à votre équipe de recherche et vous de vous assurer que vous utilisez toujours la version appropriée de vos données et de réduire la confusion concernant les copies enregistrées sur différents ordinateurs  ou médias. </p>Pour en savoir plus sur l'appellation des fichiers et le contrôle des versions, consultez les sites suivants : <a href=\"http://researchdata.library.ubc.ca/plan/organize-your-data/\" target=\"_blank\">UBC Library</a> ou <a href=\"http://data-archive.ac.uk/create-manage/format/versions\" target=\"_blank\">UK Data Archive</a>.</p>",
   },
   "Portage2-1" => {
-    text: "Quels documents seront nécessaires pour que les données soient lues et interprétées correctement dans le futur?", 
-    section: "Documentation and Metadata", 
+    text: "Quels documents seront nécessaires pour que les données soient lues et interprétées correctement dans le futur?",
+    section: "Documentation and Metadata",
     organisation: "Portage",
     number: 1,
-    locale: "fr", 
+    locale: "fr",
     guidance: "<p>Normalement, une bonne documentation comprend des renseignements sur l'étude, des descriptions des éléments tels que les variables et d'autres renseignements contextuels requis pour que d'autres chercheurs puissent utiliser les données. Parmi les autres éléments à documenter, le cas échéant, mentionnons la méthodologie de recherche utilisée, les définitions des variables, les vocabulaires, les systèmes de classification, les unités de mesure, les hypothèses formulées, le type de format et de fichier des données, une description des données recueillies et des méthodes de collecte, l'explication de l'analyse et de la codification des données réalisées (y compris les fichiers de syntaxe) et les renseignements sur les personnes ayant travaillé au projet et réalisé chacune des tâches, etc. </p>"
-  }, 
+  },
   "Portage2-2" => {
     text: "Comment vous assurerez-vous de documenter le projet de façon systématique tout au long du processus?",
     section: "Documentation and Metadata",
@@ -689,12 +689,12 @@ questions_locales = {
     organisation: "Portage",
     number: 2,
     locale: "fr",
-    guidance: "<p>Le risque de perdre des données en raison d'une erreur humaine, de catastrophes naturelles ou d'autres mésaventures peut être atténué en respectant les <a href=\"http://dataabinitio.com/?p=501\" target=\"_blank\">3-2-1 règles de sauvegarde</a>:<br><ul><li>Posséder au moins trois copies de vos données.</li><li>Stocker les copies sur deux types de médias différents.</li><li>Conserver une copie de sauvegarde hors site</li></ul></p>Les données peuvent être stockées au moyen d'un média optique ou magnétique qui peut être amovible (p. ex. DVD et clés USB), fixe (p. ex. lecteurs de disque dur d'ordinateur de bureau ou d'ordinateur portatif) ou en réseau (p. ex. lecteurs en réseau ou serveurs basés sur l'infonuagique). Chaque méthode de stockage comporte des avantages et des inconvénients qui doivent être pris en considération au moment de déterminer la solution la plus appropriée. </p>De plus amples renseignements sur les pratiques de stockage et de sauvegarde sont disponibles sur les sites suivants : <a href=\"https://www.sheffield.ac.uk/library/rdm/storage\" target=\"_blank\">University of Sheffield Library</a> and the <a href=\"http://www.data-archive.ac.uk/create-manage/storage/back-up\" target=\"_blank\">UK Data Archive</a>.</p>",
+    guidance: "<p>Le risque de perdre des données en raison d'une erreur humaine, de catastrophes naturelles ou d'autres mésaventures peut être atténué en respectant les <a href=\"http://dataabinitio.com/?p=501\" target=\"_blank\">3-2-1 règles de sauvegarde</a>:<br><ul><li>Posséder au moins trois copies de vos données.</li><li>Stocker les copies sur deux types de médias différents.</li><li>Conserver une copie de sauvegarde hors site</li></ul></p>Les données peuvent être stockées au moyen d'un média optique ou magnétique qui peut être amovible (p. ex. DVD et clés USB), fixe (p. ex. lecteurs de disque dur d'ordinateur de bureau ou d'ordinateur portatif) ou en réseau (p. ex. lecteurs en réseau ou serveurs basés sur l'infonuagique). Chaque méthode de stockage comporte des avantages et des inconvénients qui doivent être pris en considération au moment de déterminer la solution la plus appropriée. </p>De plus amples renseignements sur les pratiques de stockage et de sauvegarde sont disponibles sur les sites suivants : <a href=\"https://www.sheffield.ac.uk/library/rdm/safedata\" target=\"_blank\">University of Sheffield Library</a> and the <a href=\"http://www.data-archive.ac.uk/create-manage/storage/back-up\" target=\"_blank\">UK Data Archive</a>.</p>",
   },
   "Portage3-3" => {
     text: "Comment l'équipe de recherche et d'autres collaborateurs pourront-ils accéder aux données, modifier celles-ci ou en contribuer de nouvelles tout au long du projet?",
     section: "Storage and Backup",
-    organisation: "Portage", 
+    organisation: "Portage",
     number: 3,
     locale: "fr",
     guidance: "<p>Une solution idéale est une solution qui facilite la collaboration, assure la sécurité des données et qui peut être adoptée par les utilisateurs en suivant une formation minimale. La transmission de données entre les différents espaces de travail ou au sein d'équipes de recherche n'est pas toujours simple selon l'infrastructure de gestion des données. Se fier au courrier électronique pour le transfert de données n'est pas une solution robuste ou sécuritaire. Les services de partage de fichiers commerciaux de tiers (comme Google Drive et Dropbox) facilitent l'échange de fichiers, mais ne sont pas nécessairement permanents ou sécuritaires et sont souvent situés à l'extérieur du Canada. Communiquez avec votre bibliothèque pour mettre au point la meilleure solution pour votre projet de recherche.</p>"
@@ -808,12 +808,12 @@ questions_locales = {
      question.save!
    end
  end
- 
+
  templates_locales = {
   "Portage" => {
-    title: "Modèle Portage", 
+    title: "Modèle Portage",
     description: "Generic Portage Template in French",
-    template_en: "Portage Template", 
+    template_en: "Portage Template",
     locale: "fr"
   }
 }
@@ -872,54 +872,54 @@ versions_locales = {
 
 sections_locales = {
   "Data Collection" => {
-    title: "Collecte de données", 
+    title: "Collecte de données",
     number: 1,
-    description: "Cette section traite des questions relatives à la collecte de données comme les types de données, les formats de fichier, les conventions d'appellation et l'organisation des données – des facteurs qui amélioreront la facilité d'utilisation de vos données et contribueront au succès de votre projet.", 
-    version: "Portage Version 1", 
+    description: "Cette section traite des questions relatives à la collecte de données comme les types de données, les formats de fichier, les conventions d'appellation et l'organisation des données – des facteurs qui amélioreront la facilité d'utilisation de vos données et contribueront au succès de votre projet.",
+    version: "Portage Version 1",
     locale: "fr",
   },
   "Documentation and Metadata" => {
     title: "Documentation et métadonnées",
     number: 2,
     description: "Les données sont rarement explicites, c'est pourquoi toutes les données de recherche doivent être accompagnées de métadonnées (des renseignements qui décrivent les données selon les meilleures pratiques de la communauté). Les normes de métadonnées varient d'une discipline à l'autre, mais elles indiquent généralement la personne qui a créé les données, quand et comment elles ont été créées, leur qualité, exactitude et précision ainsi que d'autres caractéristiques nécessaires pour faciliter la découverte, la compréhension et la réutilisation des données. </br>Toute restriction concernant l'utilisation des données doit être expliquée dans les métadonnées et, dans la mesure du possible, des renseignements doivent être fournis sur la façon d'obtenir un accès approuvé aux données.",
-    version: "Portage Version 1", 
+    version: "Portage Version 1",
     locale: "fr",
-  }, 
+  },
   "Storage and Backup" => {
-    title: "Stockage et sauvegarde", 
-    number: 3, 
-    version: "Portage Version 1", 
+    title: "Stockage et sauvegarde",
+    number: 3,
+    version: "Portage Version 1",
     description: "Il est essentiel de planifier la façon dont les données de recherche seront stockées et sauvegardées tout au long d'un projet de recherche et au-delà afin d'assurer la sécurité et l'intégrité des données. Le stockage et la sauvegarde appropriés aident non seulement à protéger les données de recherche contre des pertes catastrophiques (en raison de défaillances du logiciel et du matériel, de virus, de pirates informatiques, de catastrophes naturelles, d'erreurs humaines, etc.), mais y facilitent également l'accès approprié par les chercheurs actuels et futurs.",
     locale: "fr",
-  }, 
+  },
   "Preservation" => {
-    title: "Conservation", 
-    number: 4, 
+    title: "Conservation",
+    number: 4,
     description: "La conservation des données dépendra de la valeur de réutilisation potentielle, s'il faut conserver ou détruire les données, et des ressources requises pour organiser de façon appropriée les données et s'assurer qu'elles demeurent utilisables dans le futur. Dans certains cas, il peut être souhaitable de conserver toutes les versions des données (p. ex. les données brutes, traitées, analysées, définitives), mais dans d'autres cas, il peut être préférable de conserver uniquement les données sélectionnées ou définitives (p. ex. transcriptions au lieu d'entrevues sonores).",
-    version: "Portage Version 1", 
+    version: "Portage Version 1",
     locale: "fr",
-  }, 
+  },
   "Sharing and Reuse" => {
-    title: "Partage et réutilisation", 
+    title: "Partage et réutilisation",
     number: 5,
     description: "Plusieurs organismes subventionnaires canadiens ont maintenant des politiques exigeant que les données de recherche soient rendues accessibles au moment de la publication des résultats de la recherche ou à l'intérieur d'un délai raisonnable. Si le partage des données contribue à la visibilité et à l'impact de la recherche, il faut aussi tenir compte du souhait des chercheurs de publier un maximum de publications avant de diffuser les données. Également d'importance est le besoin de protéger la vie privée des répondants et de traiter de façon appropriée les données sensibles. ",
-    version: "Portage Version 1", 
+    version: "Portage Version 1",
     locale: "fr",
-  }, 
+  },
   "Responsibilities and Resources" => {
-    title: "Responsabilités et ressources", 
+    title: "Responsabilités et ressources",
     number: 6,
-    description: "La notion de gestion des données fait référence au « quoi » et au « comment » des opérations de gestion liées aux données tout au long du cycle de vie du projet. La notion de gérance des données met de son côté l'accent sur « qui » est responsable de s'assurer que cette gestion des données est faite. Un gros projet de recherche aura par exemple plusieurs personnes responsables.  Le chercheur principal doit déterminer au début du projet quelles personnes dans l'équipe auront des responsabilités en matière de gestion des données pendant et après le projet.", 
-    version: "Portage Version 1", 
+    description: "La notion de gestion des données fait référence au « quoi » et au « comment » des opérations de gestion liées aux données tout au long du cycle de vie du projet. La notion de gérance des données met de son côté l'accent sur « qui » est responsable de s'assurer que cette gestion des données est faite. Un gros projet de recherche aura par exemple plusieurs personnes responsables.  Le chercheur principal doit déterminer au début du projet quelles personnes dans l'équipe auront des responsabilités en matière de gestion des données pendant et après le projet.",
+    version: "Portage Version 1",
     locale: "fr",
-  }, 
+  },
   "Ethics and Legal Compliance" => {
     title: "Conformité aux lois et à l'éthique",
-    description: "Les chercheurs et leurs équipes doivent connaître les politiques et les processus, éthiques et juridiques, auxquels leur gestion des données de recherche doit se conformer. La protection de la vie privée du répondant revêt une importance capitale et façonne plusieurs pratiques en matière de gestion des données. Dans leur plan de gestion des données, les chercheurs doivent indiquer la façon dont ils prépareront, stockeront, partageront et archiveront les données de façon à s'assurer que les renseignements sur les participants sont protégés tout au long du cycle de vie de la recherche contre la divulgation, l'utilisation préjudiciable ou les liens inappropriés avec d'autres données personnelles.</br>On reconnait qu'il peut y avoir des cas où certaines données et métadonnées ne peuvent pas être rendues publiques en raison de politiques ou de considérations légales. Toutefois, la position par défaut doit être que toutes les données et métadonnées de recherche sont publiques.", 
-    number: 7, 
-    version: "Portage Version 1", 
+    description: "Les chercheurs et leurs équipes doivent connaître les politiques et les processus, éthiques et juridiques, auxquels leur gestion des données de recherche doit se conformer. La protection de la vie privée du répondant revêt une importance capitale et façonne plusieurs pratiques en matière de gestion des données. Dans leur plan de gestion des données, les chercheurs doivent indiquer la façon dont ils prépareront, stockeront, partageront et archiveront les données de façon à s'assurer que les renseignements sur les participants sont protégés tout au long du cycle de vie de la recherche contre la divulgation, l'utilisation préjudiciable ou les liens inappropriés avec d'autres données personnelles.</br>On reconnait qu'il peut y avoir des cas où certaines données et métadonnées ne peuvent pas être rendues publiques en raison de politiques ou de considérations légales. Toutefois, la position par défaut doit être que toutes les données et métadonnées de recherche sont publiques.",
+    number: 7,
+    version: "Portage Version 1",
     locale: "fr",
-  } 
+  }
 }
 
  sections_locales.each do |s, details|
@@ -958,11 +958,11 @@ sections_locales = {
    },
    "Dropdown" => {
      title_en: "Dropdown",
-     title: "Liste déroulante", 
+     title: "Liste déroulante",
      locale: "fr"
    },
    "Multi select box" => {
-     title_en: "Multi select box", 
+     title_en: "Multi select box",
      title: "Case à options multiples",
      locale: "fr"
    },
