@@ -59,7 +59,7 @@ class User < ActiveRecord::Base
 
     def self.create_from_omniauth(auth)
       raise(ArgumentError, 'UID is blank in Shibboleth authorization') unless auth.uid.present? || auth.info.eppn.present?
-      email = auth.info.email || auth.info.eppn 
+      email = auth.info.email || auth.info.eppn
       uid = auth.uid || auth.info.eppn
       create(
         email: email,
@@ -139,11 +139,15 @@ class User < ActiveRecord::Base
 		org_admin = roles.find_by_name("org_admin")
 		return !org_admin.nil?
 	end
-    
-    def org_type
-        org_type = organisation.organisation_type.name
-		return org_type
-    end
 
+  def org_type
+    org_type = organisation.organisation_type.name
+    return org_type
+  end
+
+  # For masking the ID that we send to rollbar
+  def id_as_hash
+      Digest::SHA2.hexdigest("#{DMPonline4::Application.config.secret_token}_#{id}")
+  end
 
 end
