@@ -1,2 +1,0 @@
-module ContactUs::ContactsHelper
-end
