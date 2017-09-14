@@ -208,6 +208,8 @@ GEM
     responders (1.1.2)
       railties (>= 3.2, < 4.2)
     rolify (5.1.0)
+    rollbar (2.15.1)
+      multi_json
     rspec (3.5.0)
       rspec-core (~> 3.5.0)
       rspec-expectations (~> 3.5.0)
@@ -313,6 +315,7 @@ DEPENDENCIES
   rails (~> 3.2.22)
   recaptcha
   rolify
+  rollbar
   rspec
   rspec-rails
   rubyzip (~> 1.2.1)

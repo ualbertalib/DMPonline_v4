@@ -140,10 +140,14 @@ class User < ActiveRecord::Base
 		return !org_admin.nil?
 	end
     
-    def org_type
-        org_type = organisation.organisation_type.name
-		return org_type
-    end
+        def org_type
+          org_type = organisation.organisation_type.name
+	  return org_type
+        end
+        # For masking the ID that we send to rollbar
+        def id_as_hash
+          Digest::SHA2.hexdigest("#{DMPonline4::Application.config.secret_token}_#{id}")
+        end
 
 
 end
