@@ -97,7 +97,7 @@ group :production do
   gem 'libv8'
 end
 
-group :test, :production do
+group :production, :staging do
   gem 'syslog-logger'
 end
 
