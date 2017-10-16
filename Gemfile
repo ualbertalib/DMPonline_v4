@@ -13,6 +13,9 @@ gem 'i18n'
 gem 'globalize', '~>3.1.0'
 gem 'dragonfly'
 
+# added rollbar for log monitoring
+gem 'rollbar'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
