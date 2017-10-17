@@ -225,9 +225,9 @@
                                 <a class="accordion-guidance-link" data-toggle="collapse" data-parent="#<%= question.id %>-guidance" href="#collapse-guidance-<%= group.id%>-<%= guidance.id%>-<%= question.id %>">
                                     <div class="accordion_heading_text">
                                     <% if theme == "no_theme" then %>
-                                        <%= group.name.chomp(" guidance") %> guidance
+                                        <%= group.name.chomp(" guidance") %> 
                                     <% else %>
-                                        <%= group.name.chomp(" guidance") %> guidance on <%= theme.title %>
+                                        <%= group.name.chomp(" guidance") %> - <%= theme.title %>
                                     <% end %>
                                     </div>
                                     <span class="plus-laranja"> </span></a>
