@@ -87,8 +87,8 @@ DMPonline4::Application.configure do
          config.middleware.use ExceptionNotification::Rack,
           :email => {
             :email_prefix => "[DMPonline4 ERROR] ",
-            :sender_address => %{"No-reply" ENV["EXCEPT_SENDER"]},
-            :exception_recipients => %w{ENV["EXCEPT_RECIPIENTS"]}
+            :sender_address => ENV["EXCEPT_SENDER"],
+            :exception_recipients => ENV["EXCEPT_RECIPIENTS"]
           }
 
 
