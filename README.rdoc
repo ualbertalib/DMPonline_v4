@@ -45,10 +45,12 @@ Use [mailcatcher](http://mailcatcher.me) in development to send email.
 
 You'll need to install the gems, build the database and start the server:
 
-    $ cd dmponline4
-    $ bundle update
-    $ rake db:setup
-    $ rake db:populate
+    $ cd DMPonlive_v4
+    $ bundle install 
+    $ bundle exec rake db:setup
+    $ bundle exec rails s -d 
+    $ bundle exec rake db:populate
+    $ kill `cat tmp/pids/server.pid` # to kill the server
 You may also find the following resources handy:
 
 The second rake task creates a sample admin user.  See lib/tasks/user_data.rake for more details.
