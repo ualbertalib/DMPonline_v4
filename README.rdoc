@@ -18,10 +18,6 @@ The tool has four main functions
 
 == Prerequisites
 
-DMPonline is a Ruby on Rails application and you will need to have Ruby 2.0.0p247 or greater and Rails 3.2.13 installed on your server and a MySQL server v5.0 or greater.
-
-Prerequisites
--------------
 DMPonline is a Ruby on Rails application and you'll need to have Ruby 2.0.0p247 [x86_64-linux], plus Rails 3.2.13 on your server and a MySQL server v5.1 or greater.
 
 You will need to ensure you have [RubyGems installed](http://guides.rubygems.org/rubygems-basics/) too. If you've had to upgrade the version of Ruby running on your server, don't forget to update the gems system too by running the following:
