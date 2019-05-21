@@ -74,6 +74,7 @@ GEM
       execjs
     coffee-script-source (1.10.0)
     commonjs (0.2.7)
+    concurrent-ruby (1.1.5)
     contact_us (0.5.0)
       rails (>= 3.0.0)
     daemons (1.2.4)
@@ -120,7 +121,8 @@ GEM
       actionpack
       nokogiri
       rubyzip (>= 1.0)
-    i18n (0.7.0)
+    i18n (0.9.5)
+      concurrent-ruby (~> 1.0)
     inherited_resources (1.6.0)
       actionpack (>= 3.2, < 5)
       has_scope (~> 0.6.0.rc)
