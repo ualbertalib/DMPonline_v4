@@ -139,6 +139,8 @@ GEM
     kaminari (0.17.0)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    launchy (2.4.3)
+      addressable (~> 2.3)
     ledermann-rails-settings (2.4.2)
       activerecord (>= 3.1)
     less (2.6.0)
@@ -146,6 +148,8 @@ GEM
     less-rails (2.6.0)
       actionpack (>= 3.1)
       less (~> 2.6.0)
+    letter_opener (1.7.0)
+      launchy (~> 2.2)
     libv8 (3.11.8.17)
     mail (2.5.5)
       mime-types (~> 1.16)
@@ -305,6 +309,7 @@ DEPENDENCIES
   jquery-rails
   ledermann-rails-settings
   less-rails
+  letter_opener
   libv8
   mail (~> 2.5.5)
   mysql2 (~> 0.3.20)
@@ -332,4 +337,4 @@ DEPENDENCIES
   wicked_pdf
 
 BUNDLED WITH
-   1.15.1
+   1.16.6

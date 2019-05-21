@@ -18,11 +18,7 @@ The tool has four main functions
 
 == Prerequisites
 
-DMPonline is a Ruby on Rails application and you will need to have Ruby 2.0.0p247 or greater and Rails 3.2.13 installed on your server and a MySQL server v5.0 or greater.
-
-Prerequisites
--------------
-DMPonline is a Ruby on Rails application and you'll need to have Ruby 2.0.0p247 [x86_64-linux], plus Rails 3.2.13 on your server and a MySQL server v5.1 or greater.
+DMPonline is a Ruby on Rails application and you'll need to have Ruby 2.1 on your server and a MySQL server v5.1 or greater.
 
 You will need to ensure you have [RubyGems installed](http://guides.rubygems.org/rubygems-basics/) too. If you've had to upgrade the version of Ruby running on your server, don't forget to update the gems system too by running the following:
 
@@ -49,10 +45,12 @@ Use [mailcatcher](http://mailcatcher.me) in development to send email.
 
 You'll need to install the gems, build the database and start the server:
 
-    $ cd dmponline4
-    $ bundle update
-    $ rake db:setup
-    $ rake db:populate
+    $ cd DMPonlive_v4
+    $ bundle install 
+    $ bundle exec rake db:setup
+    $ bundle exec rails s -d 
+    $ bundle exec rake db:populate
+    $ kill `cat tmp/pids/server.pid` # to kill the server
 You may also find the following resources handy:
 
 The second rake task creates a sample admin user.  See lib/tasks/user_data.rake for more details.

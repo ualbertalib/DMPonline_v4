@@ -37,7 +37,7 @@ DMPonline4::Application.configure do
 
   #devise config
   config.action_mailer.default_url_options = { :host => ENV["MAILER_DEFAULT_HOST"] }
-  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.smtp_settings = { :address => "localhost", :port => 25 }
 
   ActionMailer::Base.default :from => ENV["MAILER_FROM"]
