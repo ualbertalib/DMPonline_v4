@@ -1,0 +1,16 @@
+current directory: /home/pjenkins/Code/DMPonline_v4/vendor/ruby/2.1.0/gems/debug_inspector-0.0.2/ext/debug_inspector
+/home/pjenkins/.rvm/rubies/ruby-2.1.10/bin/ruby -r ./siteconf20190510-26510-apvm0n.rb extconf.rb
+creating Makefile
+
+current directory: /home/pjenkins/Code/DMPonline_v4/vendor/ruby/2.1.0/gems/debug_inspector-0.0.2/ext/debug_inspector
+make "DESTDIR=" clean
+
+current directory: /home/pjenkins/Code/DMPonline_v4/vendor/ruby/2.1.0/gems/debug_inspector-0.0.2/ext/debug_inspector
+make "DESTDIR="
+compiling debug_inspector.c
+linking shared-object debug_inspector.so
+
+current directory: /home/pjenkins/Code/DMPonline_v4/vendor/ruby/2.1.0/gems/debug_inspector-0.0.2/ext/debug_inspector
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 debug_inspector.so ./.gem.20190510-26510-1euznie
+installing default debug_inspector libraries

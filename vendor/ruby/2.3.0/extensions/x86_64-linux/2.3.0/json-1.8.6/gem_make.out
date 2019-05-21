@@ -1,0 +1,13 @@
+current directory: /home/pjenkins/Code/DMPonline_v4/vendor/ruby/2.3.0/gems/json-1.8.6/ext/json
+/home/pjenkins/.rvm/rubies/ruby-2.3.8/bin/ruby -r ./siteconf20190510-15913-1bds916.rb extconf.rb
+creating Makefile
+
+current directory: /home/pjenkins/Code/DMPonline_v4/vendor/ruby/2.3.0/gems/json-1.8.6/ext/json
+make "DESTDIR=" clean
+
+current directory: /home/pjenkins/Code/DMPonline_v4/vendor/ruby/2.3.0/gems/json-1.8.6/ext/json
+make "DESTDIR="
+make: Nothing to be done for 'all'.
+
+current directory: /home/pjenkins/Code/DMPonline_v4/vendor/ruby/2.3.0/gems/json-1.8.6/ext/json
+make "DESTDIR=" install

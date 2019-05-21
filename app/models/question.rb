@@ -33,8 +33,8 @@ translates :text, :guidance, :fallbacks_for_empty_translations => true
     end
 
     amoeba do
-        include_field :options
-        include_field :suggested_answers
+        include_association :options
+        include_association :suggested_answers
         clone [:themes]
     end
 

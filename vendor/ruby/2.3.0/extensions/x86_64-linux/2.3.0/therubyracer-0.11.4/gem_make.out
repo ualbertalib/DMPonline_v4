@@ -1,0 +1,43 @@
+current directory: /home/pjenkins/Code/DMPonline_v4/vendor/ruby/2.3.0/gems/therubyracer-0.11.4/ext/v8
+/home/pjenkins/.rvm/rubies/ruby-2.3.8/bin/ruby -r ./siteconf20190510-15913-1qfuvfr.rb extconf.rb
+checking for main() in -lpthread... yes
+creating Makefile
+
+current directory: /home/pjenkins/Code/DMPonline_v4/vendor/ruby/2.3.0/gems/therubyracer-0.11.4/ext/v8
+make "DESTDIR=" clean
+
+current directory: /home/pjenkins/Code/DMPonline_v4/vendor/ruby/2.3.0/gems/therubyracer-0.11.4/ext/v8
+make "DESTDIR="
+compiling accessor.cc
+compiling array.cc
+compiling backref.cc
+compiling constants.cc
+compiling constraints.cc
+compiling context.cc
+compiling date.cc
+compiling exception.cc
+compiling external.cc
+compiling function.cc
+compiling gc.cc
+compiling handles.cc
+compiling heap.cc
+compiling init.cc
+compiling invocation.cc
+compiling locker.cc
+compiling message.cc
+compiling object.cc
+compiling primitive.cc
+compiling rr.cc
+compiling script.cc
+compiling signature.cc
+compiling stack.cc
+compiling string.cc
+compiling template.cc
+compiling trycatch.cc
+compiling v8.cc
+compiling value.cc
+linking shared-object v8/init.so
+
+current directory: /home/pjenkins/Code/DMPonline_v4/vendor/ruby/2.3.0/gems/therubyracer-0.11.4/ext/v8
+make "DESTDIR=" install
+/usr/bin/install -m 0755 init.so ./.gem.20190510-15913-1o6vu93/v8

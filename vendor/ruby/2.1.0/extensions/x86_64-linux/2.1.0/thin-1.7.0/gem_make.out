@@ -1,0 +1,454 @@
+current directory: /home/pjenkins/Code/DMPonline_v4/vendor/ruby/2.1.0/gems/thin-1.7.0/ext/thin_parser
+/home/pjenkins/.rvm/rubies/ruby-2.1.10/bin/ruby -r ./siteconf20190510-26510-1jundk9.rb extconf.rb
+checking for main() in -lc... yes
+creating Makefile
+
+current directory: /home/pjenkins/Code/DMPonline_v4/vendor/ruby/2.1.0/gems/thin-1.7.0/ext/thin_parser
+make "DESTDIR=" clean
+
+current directory: /home/pjenkins/Code/DMPonline_v4/vendor/ruby/2.1.0/gems/thin-1.7.0/ext/thin_parser
+make "DESTDIR="
+compiling parser.c
+parser.c: In function ‘thin_http_parser_execute’:
+parser.rl:25:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+   action start_field { MARK(field_start, fpc); }
+     ^
+parser.rl:27:1: note: here
+     parser->field_len = LEN(field_start, fpc);
+ ^   
+parser.rl:43:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+       parser->request_uri(parser->data, PTR_TO(mark), LEN(mark, fpc));
+     ^
+parser.rl:45:1: note: here
+   }
+ ^ ~ 
+parser.rl:25:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+   action start_field { MARK(field_start, fpc); }
+     ^
+parser.rl:27:1: note: here
+     parser->field_len = LEN(field_start, fpc);
+ ^   
+parser.rl:48:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+       parser->fragment(parser->data, PTR_TO(mark), LEN(mark, fpc));
+     ^
+parser.rl:50:1: note: here
+   }
+ ^ ~ 
+parser.rl:25:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+   action start_field { MARK(field_start, fpc); }
+     ^
+parser.rl:27:1: note: here
+     parser->field_len = LEN(field_start, fpc);
+ ^   
+parser.c:243:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if ( ++p == pe )
+     ^
+parser.c:245:1: note: here
+ case 7:
+ ^~~~
+parser.c:250:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if ( ++p == pe )
+     ^
+parser.c:252:1: note: here
+ case 8:
+ ^~~~
+parser.c:257:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if ( ++p == pe )
+     ^
+parser.c:259:1: note: here
+ case 9:
+ ^~~~
+parser.c:264:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if ( ++p == pe )
+     ^
+parser.c:266:1: note: here
+ case 10:
+ ^~~~
+parser.c:271:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if ( ++p == pe )
+     ^
+parser.c:273:1: note: here
+ case 11:
+ ^~~~
+parser.c:280:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if ( ++p == pe )
+     ^
+parser.c:282:1: note: here
+ case 12:
+ ^~~~
+parser.c:287:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if ( ++p == pe )
+     ^
+parser.c:289:1: note: here
+ case 13:
+ ^~~~
+parser.rl:38:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+       parser->request_method(parser->data, PTR_TO(mark), LEN(mark, fpc));
+     ^
+parser.rl:40:1: note: here
+   }
+ ^ ~ 
+parser.c:330:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if ( ++p == pe )
+     ^
+parser.c:332:1: note: here
+ case 15:
+ ^~~~
+parser.c:358:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if ( ++p == pe )
+     ^
+parser.c:360:1: note: here
+ case 16:
+ ^~~~
+parser.rl:28:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+   }
+     ^
+parser.rl:30:1: note: here
+   action start_value { MARK(mark, fpc); }
+ ^ ~~
+parser.rl:33:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+       parser->http_field(parser->data, PTR_TO(field_start), parser->field_len, PTR_TO(mark), LEN(mark, fpc));
+     ^
+parser.rl:35:1: note: here
+   }
+ ^ ~ 
+parser.rl:33:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+       parser->http_field(parser->data, PTR_TO(field_start), parser->field_len, PTR_TO(mark), LEN(mark, fpc));
+     ^
+parser.rl:35:1: note: here
+   }
+ ^ ~ 
+parser.rl:48:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+       parser->fragment(parser->data, PTR_TO(mark), LEN(mark, fpc));
+     ^
+parser.rl:50:1: note: here
+   }
+ ^ ~ 
+parser.rl:25:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+   action start_field { MARK(field_start, fpc); }
+     ^
+parser.rl:27:1: note: here
+     parser->field_len = LEN(field_start, fpc);
+ ^   
+parser.rl:25:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+   action start_field { MARK(field_start, fpc); }
+     ^
+parser.rl:27:1: note: here
+     parser->field_len = LEN(field_start, fpc);
+ ^   
+parser.c:550:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if ( ++p == pe )
+     ^
+parser.c:552:1: note: here
+ case 23:
+ ^~~~
+parser.c:563:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if ( ++p == pe )
+     ^
+parser.c:565:1: note: here
+ case 24:
+ ^~~~
+parser.rl:25:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+   action start_field { MARK(field_start, fpc); }
+     ^
+parser.rl:27:1: note: here
+     parser->field_len = LEN(field_start, fpc);
+ ^   
+parser.c:595:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if ( ++p == pe )
+     ^
+parser.c:597:1: note: here
+ case 26:
+ ^~~~
+parser.c:610:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if ( ++p == pe )
+     ^
+parser.c:612:1: note: here
+ case 27:
+ ^~~~
+parser.c:623:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if ( ++p == pe )
+     ^
+parser.c:625:1: note: here
+ case 28:
+ ^~~~
+parser.rl:72:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+     parser->body_start = fpc - buffer + 1;
+     ^
+parser.rl:74:1: note: here
+       parser->header_done(parser->data, fpc + 1, pe - fpc - 1);
+ ^   
+parser.rl:55:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+       parser->query_string(parser->data, PTR_TO(query_start), LEN(query_start, fpc));
+     ^
+parser.rl:57:1: note: here
+   }
+ ^ ~ 
+parser.rl:55:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+       parser->query_string(parser->data, PTR_TO(query_start), LEN(query_start, fpc));
+     ^
+parser.rl:57:1: note: here
+   }
+ ^ ~ 
+parser.c:696:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if ( ++p == pe )
+     ^
+parser.c:698:1: note: here
+ case 32:
+ ^~~~
+parser.c:709:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if ( ++p == pe )
+     ^
+parser.c:711:1: note: here
+ case 33:
+ ^~~~
+parser.c:722:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if ( ++p == pe )
+     ^
+parser.c:724:1: note: here
+ case 34:
+ ^~~~
+parser.c:731:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if ( ++p == pe )
+     ^
+parser.c:733:1: note: here
+ case 35:
+ ^~~~
+parser.c:740:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if ( ++p == pe )
+     ^
+parser.c:742:1: note: here
+ case 36:
+ ^~~~
+parser.c:749:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if ( ++p == pe )
+     ^
+parser.c:751:1: note: here
+ case 37:
+ ^~~~
+parser.c:759:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if ( ++p == pe )
+     ^
+parser.c:761:1: note: here
+ case 38:
+ ^~~~
+parser.c:766:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if ( ++p == pe )
+     ^
+parser.c:768:1: note: here
+ case 39:
+ ^~~~
+parser.c:773:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if ( ++p == pe )
+     ^
+parser.c:775:1: note: here
+ case 40:
+ ^~~~
+parser.c:803:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if ( ++p == pe )
+     ^
+parser.c:805:1: note: here
+ case 41:
+ ^~~~
+parser.c:823:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if ( ++p == pe )
+     ^
+parser.c:825:1: note: here
+ case 42:
+ ^~~~
+parser.c:838:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if ( ++p == pe )
+     ^
+parser.c:840:1: note: here
+ case 43:
+ ^~~~
+parser.c:851:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if ( ++p == pe )
+     ^
+parser.c:853:1: note: here
+ case 44:
+ ^~~~
+parser.c:864:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if ( ++p == pe )
+     ^
+parser.c:866:1: note: here
+ case 45:
+ ^~~~
+parser.c:895:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if ( ++p == pe )
+     ^
+parser.c:897:1: note: here
+ case 46:
+ ^~~~
+parser.c:918:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if ( ++p == pe )
+     ^
+parser.c:920:1: note: here
+ case 47:
+ ^~~~
+parser.c:947:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if ( ++p == pe )
+     ^
+parser.c:949:1: note: here
+ case 48:
+ ^~~~
+parser.c:977:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if ( ++p == pe )
+     ^
+parser.c:979:1: note: here
+ case 49:
+ ^~~~
+parser.c:998:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if ( ++p == pe )
+     ^
+parser.c:1000:1: note: here
+ case 50:
+ ^~~~
+parser.c:1005:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if ( ++p == pe )
+     ^
+parser.c:1007:1: note: here
+ case 51:
+ ^~~~
+parser.c:1023:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if ( ++p == pe )
+     ^
+parser.c:1025:1: note: here
+ case 52:
+ ^~~~
+parser.c:1041:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if ( ++p == pe )
+     ^
+parser.c:1043:1: note: here
+ case 53:
+ ^~~~
+parser.c:1059:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if ( ++p == pe )
+     ^
+parser.c:1061:1: note: here
+ case 54:
+ ^~~~
+parser.c:1077:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if ( ++p == pe )
+     ^
+parser.c:1079:1: note: here
+ case 55:
+ ^~~~
+parser.c:1095:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if ( ++p == pe )
+     ^
+parser.c:1097:1: note: here
+ case 56:
+ ^~~~
+parser.c:1113:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if ( ++p == pe )
+     ^
+parser.c:1115:1: note: here
+ case 57:
+ ^~~~
+parser.c:1131:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if ( ++p == pe )
+     ^
+parser.c:1133:1: note: here
+ case 58:
+ ^~~~
+parser.c:1149:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if ( ++p == pe )
+     ^
+parser.c:1151:1: note: here
+ case 59:
+ ^~~~
+parser.c:1167:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if ( ++p == pe )
+     ^
+parser.c:1169:1: note: here
+ case 60:
+ ^~~~
+parser.c:1185:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if ( ++p == pe )
+     ^
+parser.c:1187:1: note: here
+ case 61:
+ ^~~~
+parser.c:1203:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if ( ++p == pe )
+     ^
+parser.c:1205:1: note: here
+ case 62:
+ ^~~~
+parser.c:1221:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if ( ++p == pe )
+     ^
+parser.c:1223:1: note: here
+ case 63:
+ ^~~~
+parser.c:1239:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if ( ++p == pe )
+     ^
+parser.c:1241:1: note: here
+ case 64:
+ ^~~~
+parser.c:1257:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if ( ++p == pe )
+     ^
+parser.c:1259:1: note: here
+ case 65:
+ ^~~~
+parser.c:1275:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if ( ++p == pe )
+     ^
+parser.c:1277:1: note: here
+ case 66:
+ ^~~~
+parser.c:1293:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if ( ++p == pe )
+     ^
+parser.c:1295:1: note: here
+ case 67:
+ ^~~~
+parser.c:1311:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if ( ++p == pe )
+     ^
+parser.c:1313:1: note: here
+ case 68:
+ ^~~~
+parser.c:1329:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if ( ++p == pe )
+     ^
+parser.c:1331:1: note: here
+ case 69:
+ ^~~~
+At top level:
+parser.c:31:18: warning: ‘http_parser_en_main’ defined but not used [-Wunused-const-variable=]
+ static const int http_parser_en_main = 1;
+                  ^~~~~~~~~~~~~~~~~~~
+compiling thin.c
+thin.c: In function ‘Thin_HttpParser_alloc’:
+thin.c:242:3: warning: implicit declaration of function ‘thin_http_parser_init’; did you mean ‘http_parser_init’? [-Wimplicit-function-declaration]
+   thin_http_parser_init(hp);
+   ^~~~~~~~~~~~~~~~~~~~~
+   http_parser_init
+thin.c: In function ‘Thin_HttpParser_finish’:
+thin.c:294:3: warning: implicit declaration of function ‘thin_http_parser_finish’; did you mean ‘Thin_HttpParser_finish’? [-Wimplicit-function-declaration]
+   thin_http_parser_finish(http);
+   ^~~~~~~~~~~~~~~~~~~~~~~
+   Thin_HttpParser_finish
+thin.c:296:10: warning: implicit declaration of function ‘thin_http_parser_is_finished’; did you mean ‘http_parser_is_finished’? [-Wimplicit-function-declaration]
+   return thin_http_parser_is_finished(http) ? Qtrue : Qfalse;
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          http_parser_is_finished
+thin.c: In function ‘Thin_HttpParser_execute’:
+thin.c:334:5: warning: implicit declaration of function ‘thin_http_parser_execute’; did you mean ‘Thin_HttpParser_execute’? [-Wimplicit-function-declaration]
+     thin_http_parser_execute(http, dptr, dlen, from);
+     ^~~~~~~~~~~~~~~~~~~~~~~~
+     Thin_HttpParser_execute
+thin.c:338:8: warning: implicit declaration of function ‘thin_http_parser_has_error’; did you mean ‘http_parser_has_error’? [-Wimplicit-function-declaration]
+     if(thin_http_parser_has_error(http)) {
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~
+        http_parser_has_error
+linking shared-object thin_parser.so
+
+current directory: /home/pjenkins/Code/DMPonline_v4/vendor/ruby/2.1.0/gems/thin-1.7.0/ext/thin_parser
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 thin_parser.so ./.gem.20190510-26510-tnar0b
+installing default thin_parser libraries

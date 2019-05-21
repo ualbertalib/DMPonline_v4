@@ -1,0 +1,20 @@
+current directory: /home/pjenkins/Code/DMPonline_v4/vendor/ruby/2.3.0/gems/eventmachine-1.2.7/ext/fastfilereader
+/home/pjenkins/.rvm/rubies/ruby-2.3.8/bin/ruby -r ./siteconf20190510-15913-yxcwwd.rb extconf.rb
+creating Makefile
+
+current directory: /home/pjenkins/Code/DMPonline_v4/vendor/ruby/2.3.0/gems/eventmachine-1.2.7/ext/fastfilereader
+make "DESTDIR=" clean
+
+current directory: /home/pjenkins/Code/DMPonline_v4/vendor/ruby/2.3.0/gems/eventmachine-1.2.7/ext/fastfilereader
+make "DESTDIR="
+compiling mapper.cpp
+cc1plus: warning: command line option ‘-Wdeclaration-after-statement’ is valid for C/ObjC but not for C++
+cc1plus: warning: command line option ‘-Wimplicit-function-declaration’ is valid for C/ObjC but not for C++
+compiling rubymain.cpp
+cc1plus: warning: command line option ‘-Wdeclaration-after-statement’ is valid for C/ObjC but not for C++
+cc1plus: warning: command line option ‘-Wimplicit-function-declaration’ is valid for C/ObjC but not for C++
+linking shared-object fastfilereaderext.so
+
+current directory: /home/pjenkins/Code/DMPonline_v4/vendor/ruby/2.3.0/gems/eventmachine-1.2.7/ext/fastfilereader
+make "DESTDIR=" install
+/usr/bin/install -m 0755 fastfilereaderext.so ./.gem.20190510-15913-u0lnaf

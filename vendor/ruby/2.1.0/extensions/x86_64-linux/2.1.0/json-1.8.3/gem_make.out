@@ -1,0 +1,14 @@
+current directory: /home/pjenkins/Code/DMPonline_v4/vendor/ruby/2.1.0/gems/json-1.8.3/ext/json
+/home/pjenkins/.rvm/rubies/ruby-2.1.10/bin/ruby -r ./siteconf20190510-26510-tb5nu1.rb extconf.rb
+creating Makefile
+
+current directory: /home/pjenkins/Code/DMPonline_v4/vendor/ruby/2.1.0/gems/json-1.8.3/ext/json
+make "DESTDIR=" clean
+
+current directory: /home/pjenkins/Code/DMPonline_v4/vendor/ruby/2.1.0/gems/json-1.8.3/ext/json
+make "DESTDIR="
+make: Nothing to be done for 'all'.
+
+current directory: /home/pjenkins/Code/DMPonline_v4/vendor/ruby/2.1.0/gems/json-1.8.3/ext/json
+make "DESTDIR=" install
+installing default libraries

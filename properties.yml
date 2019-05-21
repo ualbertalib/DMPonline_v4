@@ -1,0 +1,18 @@
+---
+base_url: "http://localhost:3000/"
+admin_user:
+  name: admin@test.com
+  password: admin 
+email_user:
+  name: testuser@test.com 
+  password: testuser
+dmp_user:
+  name: testuser@test.com 
+  password: testuser 
+dmp_share_user:
+  name: shareuser@test.com
+  password: shareuser 
+dmp_plan:
+  name: "no one else could possibly have the same name as this"
+  
+

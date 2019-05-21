@@ -1,0 +1,5 @@
+current directory: /home/pjenkins/Code/DMPonline_v4/vendor/ruby/2.3.0/gems/childprocess-1.0.1/ext
+/home/pjenkins/.rvm/rubies/ruby-2.3.8/bin/ruby mkrf_conf.rb
+
+current directory: /home/pjenkins/Code/DMPonline_v4/vendor/ruby/2.3.0/gems/childprocess-1.0.1/ext
+/home/pjenkins/.rvm/rubies/ruby-2.3.8/bin/ruby -rrubygems /home/pjenkins/Code/DMPonline_v4/vendor/ruby/2.3.0/gems/rake-12.3.2/exe/rake RUBYARCHDIR=/home/pjenkins/Code/DMPonline_v4/vendor/ruby/2.3.0/extensions/x86_64-linux/2.3.0/childprocess-1.0.1 RUBYLIBDIR=/home/pjenkins/Code/DMPonline_v4/vendor/ruby/2.3.0/extensions/x86_64-linux/2.3.0/childprocess-1.0.1

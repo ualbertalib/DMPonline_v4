@@ -1,0 +1,44 @@
+current directory: /home/pjenkins/Code/DMPonline_v4/vendor/ruby/2.1.0/gems/therubyracer-0.11.4/ext/v8
+/home/pjenkins/.rvm/rubies/ruby-2.1.10/bin/ruby -r ./siteconf20190510-26510-1d2kblp.rb extconf.rb
+checking for main() in -lpthread... yes
+creating Makefile
+
+current directory: /home/pjenkins/Code/DMPonline_v4/vendor/ruby/2.1.0/gems/therubyracer-0.11.4/ext/v8
+make "DESTDIR=" clean
+
+current directory: /home/pjenkins/Code/DMPonline_v4/vendor/ruby/2.1.0/gems/therubyracer-0.11.4/ext/v8
+make "DESTDIR="
+compiling rr.cc
+compiling string.cc
+compiling v8.cc
+compiling script.cc
+compiling message.cc
+compiling template.cc
+compiling signature.cc
+compiling heap.cc
+compiling exception.cc
+compiling date.cc
+compiling invocation.cc
+compiling object.cc
+compiling context.cc
+compiling stack.cc
+compiling gc.cc
+compiling primitive.cc
+compiling locker.cc
+compiling init.cc
+compiling external.cc
+compiling function.cc
+compiling accessor.cc
+compiling constants.cc
+compiling array.cc
+compiling handles.cc
+compiling trycatch.cc
+compiling constraints.cc
+compiling value.cc
+compiling backref.cc
+linking shared-object v8/init.so
+
+current directory: /home/pjenkins/Code/DMPonline_v4/vendor/ruby/2.1.0/gems/therubyracer-0.11.4/ext/v8
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 init.so ./.gem.20190510-26510-184gc9w/v8
+installing default init libraries
