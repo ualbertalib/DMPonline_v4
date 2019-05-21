@@ -157,7 +157,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.25.1)
     mini_portile2 (2.1.0)
-    multi_json (1.12.1)
+    multi_json (1.13.1)
     mysql2 (0.3.21)
     nokogiri (1.7.2)
       mini_portile2 (~> 2.1.0)
@@ -213,7 +213,7 @@ GEM
     responders (1.1.2)
       railties (>= 3.2, < 4.2)
     rolify (5.1.0)
-    rollbar (2.15.4)
+    rollbar (2.19.4)
       multi_json
     rspec (3.5.0)
       rspec-core (~> 3.5.0)
