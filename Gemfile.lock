@@ -118,7 +118,7 @@ GEM
     hashery (2.1.2)
     hashie (3.6.0)
     hike (1.2.3)
-    htmltoword (0.5.1)
+    htmltoword (1.1.0)
       actionpack
       nokogiri
       rubyzip (>= 1.0)
