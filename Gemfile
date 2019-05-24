@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '~>3.2.22'
 
 # pin this to post-CVE 2017-5946
-gem 'rubyzip', '~> 1.2.2'
+gem 'rubyzip', '~> 1.2.3'
 
 gem 'mysql2', '~>0.3.20'
 gem 'omniauth'
