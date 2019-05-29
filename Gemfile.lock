@@ -209,7 +209,7 @@ GEM
       polyamorous (~> 1.3)
     rdoc (3.12.2)
       json (~> 1.4)
-    recaptcha (3.3.0)
+    recaptcha (3.4.0)
       json
     ref (2.0.0)
     responders (1.1.2)
@@ -321,7 +321,7 @@ DEPENDENCIES
   omniauth-shibboleth
   pdf-reader
   rails (~> 3.2.22)
-  recaptcha
+  recaptcha (~> 3)
   rolify
   rollbar
   rspec
