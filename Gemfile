@@ -4,6 +4,8 @@ gem 'rails', '~>3.2.22'
 
 # pin this to post-CVE 2017-5946
 gem 'rubyzip', '~> 1.2.2'
+# pin the following gems to work with Ruby 2.1 and Rails 3
+gem 'public_suffix','~>3.0.3'
 
 gem 'mysql2', '~>0.3.20'
 gem 'omniauth'
