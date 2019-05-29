@@ -214,7 +214,7 @@ GEM
     ref (2.0.0)
     responders (1.1.2)
       railties (>= 3.2, < 4.2)
-    rolify (5.1.0)
+    rolify (5.2.0)
     rollbar (2.19.4)
       multi_json
     rspec (3.5.0)
