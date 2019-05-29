@@ -66,7 +66,7 @@ gem 'validate_url'
 # gem 'sword2ruby'
 
 gem 'thin'
-gem 'wicked_pdf'
+gem 'wicked_pdf', '~>1.2.0'
 gem 'htmltoword'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
