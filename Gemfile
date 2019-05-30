@@ -93,7 +93,7 @@ group :development, :test do
   gem 'pdf-reader'
 
   # pint this to issue 115 - security warning
-  gem 'nokogiri', '~> 1.7.2'
+  gem 'nokogiri', '~> 1.9.1'
 end
 
 group :production do
