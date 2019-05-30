@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    Ascii85 (1.0.2)
+    Ascii85 (1.0.3)
     actionmailer (3.2.22.5)
       actionpack (= 3.2.22.5)
       mail (~> 2.5.4)
@@ -169,7 +169,7 @@ GEM
     omniauth-shibboleth (1.2.1)
       omniauth (>= 1.0.0)
     orm_adapter (0.5.0)
-    pdf-reader (1.4.0)
+    pdf-reader (2.2.0)
       Ascii85 (~> 1.0.0)
       afm (~> 0.2.1)
       hashery (~> 2.0)
@@ -270,7 +270,7 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    ttfunk (1.4.0)
+    ttfunk (1.5.1)
     twitter-bootstrap-rails (2.2.8)
       actionpack (>= 3.1)
       execjs
