@@ -287,8 +287,7 @@ GEM
     warden (1.2.6)
       rack (>= 1.0)
     websocket (1.2.3)
-    wicked_pdf (1.2.2)
-      activesupport
+    wicked_pdf (1.1.0)
 
 PLATFORMS
   ruby
@@ -341,7 +340,7 @@ DEPENDENCIES
   twitter-bootstrap-rails (~> 2.2.8)
   uglifier
   validate_url
-  wicked_pdf (~> 1.2.0)
+  wicked_pdf (= 1.1.0)
 
 BUNDLED WITH
    1.16.6
