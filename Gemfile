@@ -5,11 +5,11 @@ gem 'rails', '~>3.2.22'
 # pin this to post-CVE 2017-5946
 gem 'rubyzip', '~> 1.2.3'
 
-# pin the following gems to work with Ruby 2.1 and Rails 3
-gem 'arbre','~>1.1.1'
-gem 'rb-inotify','~>0.9.10'
-gem 'public_suffix','~>3.0.3'
-gem 'bourbon','~>4.2.7'
+# pin the following dependencies to work with Ruby 2.1 and Rails 3
+gem 'arbre','1.1.1'
+gem 'rb-inotify','0.9.10'
+gem 'public_suffix','3.0.3'
+gem 'bourbon','4.2.7'
 
 gem 'mysql2', '~>0.3.20'
 gem 'omniauth'
@@ -17,7 +17,7 @@ gem 'omniauth-shibboleth'
 
 # pin recaptcha to work with Ruby 2.1 and Rails 3
 # some work is required to upgrade to 4.9. So pinned it to 3.x for now
-gem 'recaptcha', '~>3.4.0'
+gem 'recaptcha', '3.4.0'
 gem 'i18n'
 gem 'globalize', '~>3.1.0'
 gem 'dragonfly'
@@ -75,7 +75,8 @@ gem 'validate_url'
 # gem 'sword2ruby'
 
 gem 'thin'
-gem 'wicked_pdf'
+# Pinned this version for Ruby 2.1 and Rails 3
+gem 'wicked_pdf','1.1.0'
 gem 'htmltoword'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -96,7 +97,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rspec'
   # pinned this version to work with Ruby 2.1 and Rails 3
-  gem 'selenium-webdriver', '=3.141.0'
+  gem 'selenium-webdriver', '3.141.0'
 
   # pint this to issue 115 - security warning
   gem 'mail', '~> 2.5.5'
