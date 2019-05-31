@@ -50,6 +50,7 @@ You'll need to install the gems, build the database and start the server:
     $ bundle exec rake db:setup
     $ bundle exec rails s -d 
     $ bundle exec rake db:populate
+    $ bundle exec rake db:seed
     $ kill `cat tmp/pids/server.pid` # to kill the server
 You may also find the following resources handy:
 
