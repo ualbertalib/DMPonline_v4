@@ -4,7 +4,6 @@
     <p><div class="left_footer_container1"><span>Powered by</span> <%= link_to( image_tag('dmp-logo.png'), 'https://dmponline.dcc.ac.uk/about_us')%></div>
        <div class="left_footer_container2"><%= link_to( image_tag('carl.png'), 'http://carl-abrc.ca/') %></div>
        <div class="left_footer_container3"><%= link_to( image_tag('ua-lib-logo.png'), 'https://www.library.ualberta.ca') %></div>
-       <div class="left_footer_container4"><%= link_to( image_tag('udem.jpg'), 'http://www.bib.umontreal.ca') %></div>
        <% if (user_signed_in?) && (!current_user.organisation.nil?) && (current_user.organisation.logo.present?) then %>
        <div class="left_footer_container5"><%= link_to( image_tag('Portage-Logo.png'), "https://portagenetwork.ca")%></div>
       <% end %>
