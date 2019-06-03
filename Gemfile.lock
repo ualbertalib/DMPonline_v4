@@ -144,7 +144,7 @@ GEM
       activesupport (>= 3.0.0)
     launchy (2.4.3)
       addressable (~> 2.3)
-    ledermann-rails-settings (2.4.2)
+    ledermann-rails-settings (2.4.3)
       activerecord (>= 3.1)
     less (2.6.0)
       commonjs (~> 0.2.7)
