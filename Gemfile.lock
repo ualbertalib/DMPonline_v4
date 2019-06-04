@@ -277,10 +277,10 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     ttfunk (1.5.1)
-    twitter-bootstrap-rails (2.2.8)
+    twitter-bootstrap-rails (3.2.2)
       actionpack (>= 3.1)
-      execjs
-      rails (>= 3.1)
+      execjs (>= 2.2.2, >= 2.2)
+      less-rails (>= 2.5.0)
       railties (>= 3.1)
     tzinfo (0.3.55)
     uglifier (4.1.20)
@@ -344,7 +344,7 @@ DEPENDENCIES
   therubyracer (= 0.11.4)
   thin
   tinymce-rails
-  twitter-bootstrap-rails (~> 2.2.8)
+  twitter-bootstrap-rails (~> 3.2.2)
   uglifier
   validate_url
   wicked_pdf (= 1.1.0)
