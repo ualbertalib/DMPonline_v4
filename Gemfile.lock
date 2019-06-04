@@ -159,11 +159,11 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.25.1)
-    mini_portile2 (2.1.0)
+    mini_portile2 (2.3.0)
     multi_json (1.13.1)
     mysql2 (0.3.21)
-    nokogiri (1.7.2)
-      mini_portile2 (~> 2.1.0)
+    nokogiri (1.8.5)
+      mini_portile2 (~> 2.3.0)
     omniauth (1.4.2)
       hashie (>= 1.2, < 4)
       rack (>= 1.0, < 3)
@@ -324,7 +324,7 @@ DEPENDENCIES
   libv8
   mail (~> 2.5.5)
   mysql2 (~> 0.3.20)
-  nokogiri (~> 1.7.2)
+  nokogiri (~> 1.8.5)
   omniauth
   omniauth-shibboleth
   pdf-reader
