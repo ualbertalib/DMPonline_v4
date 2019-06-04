@@ -96,8 +96,8 @@ gem 'htmltoword'
 group :development, :test do
   gem 'rspec-rails'
   gem 'rspec'
-  # pinned this version to work with Ruby 2.1 and Rails 3
-  gem 'selenium-webdriver', '3.141.0'
+  # pinned this version to current version. Leave for the test setup to be completed
+  gem 'selenium-webdriver', '2.53.4'
 
   # pint this to issue 115 - security warning
   gem 'mail', '~> 2.5.5'
