@@ -117,7 +117,7 @@ group :production, :staging do
 end
 
 group :ci do
-  gem 'ci_reporter', '1.9.2'
+  gem 'ci_reporter', '2.0.0'
 end
 
 gem 'ledermann-rails-settings'
