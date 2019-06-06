@@ -6,7 +6,7 @@ gem 'rails', '~>3.2.22'
 gem 'rubyzip', '~> 1.2.3'
 
 # pin the following dependencies to work with Ruby 2.1 and Rails 3
-gem 'arbre','1.1.1'
+gem 'arbre','1.2.1'
 gem 'rb-inotify','0.9.10'
 gem 'public_suffix','3.0.3'
 gem 'bourbon','4.2.7'
