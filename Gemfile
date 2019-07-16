@@ -40,7 +40,7 @@ end
 gem 'uglifier'
 gem 'less-rails'
 
-gem 'twitter-bootstrap-rails', '~> 2.2.8'
+gem 'twitter-bootstrap-rails', '~> 3.2.2'
 gem 'sass-rails',   '~> 3.2.3'
 gem 'sass'
 
