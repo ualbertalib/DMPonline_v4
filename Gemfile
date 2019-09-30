@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '~>3.2.22'
 
 # pin this to post-CVE 2017-5946
-gem 'rubyzip', '~> 1.2.3'
+gem 'rubyzip', '~> 1.3.0'
 
 # pin the following dependencies to work with Ruby 2.1 and Rails 3
 gem 'arbre','1.1.1'
