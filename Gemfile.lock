@@ -161,7 +161,7 @@ GEM
     mime-types (1.25.1)
     mini_portile2 (2.1.0)
     multi_json (1.13.1)
-    mysql2 (0.3.21)
+    mysql2 (0.5.3)
     nokogiri (1.7.2)
       mini_portile2 (~> 2.1.0)
     omniauth (1.4.2)
@@ -323,7 +323,7 @@ DEPENDENCIES
   letter_opener
   libv8
   mail (~> 2.5.5)
-  mysql2 (~> 0.3.20)
+  mysql2 (~> 0.5.3)
   nokogiri (~> 1.7.2)
   omniauth
   omniauth-shibboleth
