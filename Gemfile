@@ -11,7 +11,7 @@ gem 'rb-inotify','0.9.10'
 gem 'public_suffix','3.0.3'
 gem 'bourbon','4.2.7'
 
-gem 'mysql2', '~>0.3.20'
+gem 'mysql2', '~>0.5.3'
 gem 'omniauth'
 gem 'omniauth-shibboleth'
 
