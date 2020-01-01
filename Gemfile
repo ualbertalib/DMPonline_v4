@@ -97,7 +97,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rspec'
   # pinned this version to current version. Leave for the test setup to be completed
-  gem 'selenium-webdriver', '2.53.4'
+  gem 'selenium-webdriver', '3.142.7'
 
   # pint this to issue 115 - security warning
   gem 'mail', '~> 2.5.5'

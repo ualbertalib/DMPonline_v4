@@ -62,8 +62,7 @@ GEM
       thor (~> 0.19)
     builder (3.0.4)
     cancan (1.6.10)
-    childprocess (0.9.0)
-      ffi (~> 1.0, >= 1.0.11)
+    childprocess (3.0.0)
     ci_reporter (1.9.2)
       builder (>= 2.1.2)
     coderay (1.1.2)
@@ -104,7 +103,7 @@ GEM
       actionmailer (>= 3.0.4)
       activesupport (>= 3.0.4)
     execjs (2.7.0)
-    ffi (1.11.1)
+    ffi (1.11.3)
     formtastic (3.1.5)
       actionpack (>= 3.2.13)
     formtastic_i18n (0.6.0)
@@ -251,10 +250,9 @@ GEM
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
-    selenium-webdriver (2.53.4)
-      childprocess (~> 0.5)
-      rubyzip (~> 1.0)
-      websocket (~> 1.0)
+    selenium-webdriver (3.142.7)
+      childprocess (>= 0.5, < 4.0)
+      rubyzip (>= 1.2.2)
     sprockets (2.2.3)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -290,7 +288,6 @@ GEM
       public_suffix
     warden (1.2.7)
       rack (>= 1.0)
-    websocket (1.2.8)
     wicked_pdf (1.1.0)
 
 PLATFORMS
@@ -339,7 +336,7 @@ DEPENDENCIES
   rubyzip (~> 1.2.3)
   sass
   sass-rails (~> 3.2.3)
-  selenium-webdriver (= 2.53.4)
+  selenium-webdriver (= 3.142.7)
   syslog-logger
   therubyracer (= 0.11.4)
   thin
