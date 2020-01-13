@@ -211,7 +211,7 @@ GEM
       ffi (>= 0.5.0, < 2)
     rdoc (3.12.2)
       json (~> 1.4)
-    recaptcha (3.4.0)
+    recaptcha (5.3.0)
       json
     ref (2.0.0)
     responders (1.1.2)
@@ -331,7 +331,7 @@ DEPENDENCIES
   public_suffix (= 3.0.3)
   rails (~> 3.2.22)
   rb-inotify (= 0.9.10)
-  recaptcha (= 3.4.0)
+  recaptcha (= 5.3.0)
   rolify
   rollbar
   rspec
