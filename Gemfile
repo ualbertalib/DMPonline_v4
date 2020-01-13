@@ -17,7 +17,7 @@ gem 'omniauth-shibboleth'
 
 # pin recaptcha to work with Ruby 2.1 and Rails 3
 # some work is required to upgrade to 4.9. So pinned it to 3.x for now
-gem 'recaptcha', '3.4.0'
+gem 'recaptcha', '5.3.0'
 gem 'i18n'
 gem 'globalize', '~>3.1.0'
 gem 'dragonfly'
