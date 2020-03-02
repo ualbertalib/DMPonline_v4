@@ -76,7 +76,7 @@ gem 'validate_url'
 
 gem 'thin'
 # Pinned this version for Ruby 2.1 and Rails 3
-gem 'wicked_pdf','1.1.0'
+gem 'wicked_pdf','2.0.1'
 gem 'htmltoword'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
