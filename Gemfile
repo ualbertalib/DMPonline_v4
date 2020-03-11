@@ -9,7 +9,7 @@ gem 'rubyzip', '~> 1.2.3'
 gem 'arbre','1.1.1'
 gem 'rb-inotify','0.9.10'
 gem 'public_suffix','3.0.3'
-gem 'bourbon','4.2.7'
+gem 'bourbon','7.0.0'
 
 gem 'mysql2', '~>0.3.20'
 gem 'omniauth'
